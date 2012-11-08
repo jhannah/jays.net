@@ -1,0 +1,596 @@
+<html>
+<head>
+<title>Misc. Notes</title>
+</head>
+<body>
+
+<h1><hr>10/27/2004 KC Informix Users Group<hr></h1>
+
+<pre>
+G08 Is your DBA Paranoid Enough?
+IDS 9.4 Recommended Security Practices
+
+Jonathan Leffler, STSM, IBM Informix Database Engineering
+
+IBM DB2 Information Management Technical Conference
+Sept 20-24, 2004
+Las Vegas, NV
+Revised for KCIUG - Oct 27, 2004
+
+DBSA - Database Systems Administrator
+
+A paranoid DBSA keeps clients and server separate
+- One INFORMIXDIR for clients
+- One INFORMIXDIR for server
+
+Does anyone actually use /usr/informix? (Omni does)
+Jonathan uses symlinks...
+   /usr/informix/anabie23
+   symbolic link ->
+   /work3/informix/lastalled/ids-9.4.0.UC2
+   /work3/informix/lastalled/ids-9.5.0.UC5
+
+Chunks: sym linked to devices in dev?
+  /informix/dev/anubis_23.rootdbs.c0  (m0 is mirror)
+  -> /dev/...
+
+Only user informix should belong to group informix. Root, sure, but no users!
+
+You must be able to trust group "bargroup". (People that can run the onbar utilities.)
+
+"A paranoid DBSA doesn't like having to trust root", But they don't have much choice.
+
+Always have all directories that Informix uses be protected directories. You can't use /tmp for anything, for instance, because someone could:
+
+ln -s /etc/passwd /tmp/bar_debug.log
+
+Now the onbar utilities are going to write a blank line into /etc/password and now they can log in as anyone?
+
+Informix is going to come with a new thingy called the Bundle Installer which will do intelligent cross-package correction of stuff.
+
+The mantra: "Turn off public writable permissions." Say it in your sleep.
+
+After install establish a checksum for each file and keep the list. Then run checksum on the list, and keep the checksum for that elsewhere. "You will be paranoid. If you're not already, you will be before the end of this presentation."
+
+GLS
+ILS - International Language Supplement
+Don't remove the en_US stuff. If all else fails, Informix tries to fall back to en_US.
+
+oninit -ivy -- new server, one time only (-i is deadly!)
+oninit -v   -- upgrade
+
+Understanding the Roles/Groups
+- OSA: Operating System Administrator
+- DBSA: db system administrator  
+- DBSSO: db system security officer
+- AAO -- Audit Analysis Officer
+- user 'informix', group 'informix'
+- user 'root', group 'bargroup'
+
+onaudit?? Dave says it sucks up disk space like crazy
+
+Should the DBSA have OSA priiviledges ("root")?
+- Some industries have legal requirements to seperate them
+- Smaller organizations can't afford
+
+You can have 100% encrypted database communication, but it puts a load on the database server. You have to config client end and server end. (You have been able to encrypt the username/password dialogue.)
+
+Informixcan use PAM -- can AD use PAM?
+
+If the application can handle challenge/response from PAM, then you can use Informix->PAM->key faub (number thingy)
+
+9.4 new feature: You can configure the port of data replications ports vs. regular ports (and ER vs. HDR).
+
+Alarm Program
+- in 9.3 only handles log full
+- in 9.4, handles everything. Can send emails, etc.
+
+
+
+Mark Scranton
+World Wide Technical Specialist
+Informix Products
+
+"One of the beautiful things about my job at Informix is that they let me do consulting too."
+
+IDS 9.4: An "Under the Covers" Look at the Internals
+
+- Work History: EDS, Ingres, Unify, Informix (1995-); IBM
+- Publications:
+  - Contributor: "The Informix Handbook"
+  - IDS 9.x Certification test
+
+markscranton.com
+
+The New Job
+- IBM Oct 1 2004
+- World Wide Technical Specialist /
+  Informix Evangelist /
+  Informix Advocate for Informix Products
+  - Technical proofs/benchmarks/customer visits
+  - Mgmt Convincer
+  - Work w/ devel on new/uipcoming features
+
+9.4: large chunks? What are those?
+
+
+-------
+a byte of data is in 1 page
+a page is in 1 extent
+an extent is in 1 tablespace
+a tablespace is in 1 dbspace
+a dbspace is in 1+ chunks
+a chunk is on 1+ disks
+
+
+LRU -- least recently used pages these should get written to disk as soon as possible.
+MRU -- most recently used pages, these get written to disk last.
+
+foreground writes -- when a user thread has to force the database to write because the data is still dirty.
+background write -- LRU or checkpoints
+
+"dirty pages" - pages that need to be written to disk
+
+free page: not empty, but is free to be re-written
+
+It does happen -- more index than data! 16 columns is max index per table.
+
+you can set "set explain on" on the fly from onmode!
+
+9.2 -> 9.3   250 bug fixes
+9.3 -> 9.4   
+
+bloated indexes? onmode -pt 
+
+
+-------------
+There's a topdb utility out there somewhere.
+   high cost doesn't necessarily mean bad performance, it could just be high cost
+syssqexplain has a lot of data in it about performance
+-------------
+
+www.kazer.com -- free poster for sys* tables.
+
+</pre>
+
+<h1><hr>12/09/2003 Programming Java Effectively<hr></h1>
+
+James Duncan Davidson<br>
+duncan(at)x180(dot)net<br>
+12/09/2003 Omaha Marriot<br>
+Thanks to linoma.com for paying to bring James out!
+<p>
+
+Had breakfast with James. Nice guy. He didn't offer me any silver bullet for GUI development, though. He worked with the Java struts guys, but the platform is bulky ("the 747 cockpit of GUI environments"). He confirmed that there probably is no stellar GUI environment for what we're doing.
+<p>
+
+Authored 2 J2EE specs<br>
+VP of Apache<br>
+Created Tomcat & ANT<br>
+He's published 4 books w/ O'Reilly. 
+
+<pre>
+Roadmap
+- Create Better Classes
+- Prefer composition
+- Design for inheritance
+- Program defensively
+- Program for Performance
+- Factories & abstraction
+- Other gotchas
+
+Preface
+Common Language Traits
+- Vocabulary (syntax)
+- Grammar (structure)
+- Usage
+</pre>
+
+<h4>CREATE BETTER CLASSES</h4>
+
+<pre>
+- Don't use public fields
+  - Only use public fields for constants
+  - All other fields should be private
+- Do use accessor methods
+  - AKA JavaBeans methods
+  - getProperty and setProperty
+
+Enforce Encapsulation
+
+Lock down utility classes
+- Java has no concept of functions
+- Utility functions can be collected as static methods in a utility class
+- Utility classes aren't meant to be instantiated -- so don't let them be.
+
+* example of class that explicitly defines the class name as a method so it can't be instatiated *
+
+Self Describing Objects
+- java.lang.Object defines the toString() method
+- prints a memory address reference (hey, just like Perl!)
+- Useless, so define a private toString method so it prints something useful instead.
+
+Prefer Composition over Inheritance
+
+A little analogy:
+- Inheritance = Robocop.
+- Composition = Knight Rider
+
+The point is that you can upgrade your classes without the risk of breaking 
+everything in composition, with inheritance you run the risk of breaking everything. 
+
+Inheritance requires detailed knowledge of class internals
+- Breaks encapsulation
+- Creates Code Fragility
+
+In the revision process do you stay true to the documented interface or do you 
+stay true to the history of bug for bug compatibility?
+
+How to use Composition (aka Wrapping)
+- Make a new class
+  - Hold instance of extended class privately 
+  - Existing class becomes a component
+- Forward methods from new to old class as appropriate
+</pre>
+
+Build classes to use Delegation
+If you're building a Windows class, don't have people inherit your class to manipulate your (public) attributes to change you behavior. Instead, the delegation method is to allow users to send an object into your class to tell you what to do.
+
+<pre>
+Design for Inheritance
+- Sometimes inheritance is the right tool to use.
+- When to use
+  - Be sure to only inherit from classes you understand
+  - Try to only inherit from classes you own or control
+- Be careful of "Standard" classes
+- Read the documentation for any class that you extend
+- Source code is the only way to understand the internals of a class
+- JavaDoc is neat idea, but isn't the end all be all solution for all documentation problems ever.
+- Document the effects of overriding each public or protected method.
+</pre>
+
+"If you're the only one inheriting your classes, you can use inheritance all you want and everything is smokey dokey." But that's not how the real world works. Architect / plumber analogy when designing bathrooms.
+
+<pre>
+- If you don't want to design for inheritance:
+  - Finalize your classes (Finalize is a keyword that stops people from inheriting your classes.)
+
+.DLL hell  JAR hell in Java world
+
+Gotchas
+- java.lang.Object's hashCode and equals are codependent methods
+  - If you override one, be sure to override the other
+- Constructors should not invoke overridable methods
+  - Overriden methods could break the constructor
+</pre>
+
+<h4>PROGRAM DEFENSIVELY</h4>
+
+<pre>
+- Your code will probably live a long life
+- It will be reused
+- It will be used in unexpected ways
+- It will be used on the network
+- It might get attacked
+- #1 Vulnerability: Parameters
+- Only assume sane data comes from internal methods
+  - Package private or private methods
+- Never assume that you will get sane data on a public API
+- Make and enforce restrictions on prarameters
+  - Range checking
+  - Format checking
+  - Type checking
+- Use IllegalArgumentException if data is not sane
+  - Do not create your own home spun exceptions
+
+Mutable objects: You can change the attributes
+
+"There's only so much risk you can manage."
+
+- Multi-threaded applications increase vulnerabilities
+
+Use Immutable classes
+- Immutable classes, by definition, don't let instances be modified.
+- Instances have exactly one state
+- Easy to implement and test
+- Inherently thread safe
+  - No worries about synchronization
+</pre>
+
+<h4>PROGRAM FOR PERFORMANCE</h4>
+
+<pre>
+- Understand Hotspot (some sort of optimization tool)
+  - His guys wrote Crimson, and different optimizer
+    xml.apache.org?
+</pre>
+
+Java in memory lives in two different places:
+<ul>
+<li>The Nursery -- Memory is allocated in a cyclical nature, when the pointer wraps back to the beginning of the nursery it looks at each new spot in the nursery. If that memory block is no longer in scope, HotSpot just overwrites the memory (there is no garbage allocator actively cleaning up the nursery). If the memory usage is still in scope then HotSpot takes the time to move that data into main memory.
+<li>Main Memory
+<li>So, if you have an object you're only using in one place, make sure to declare those immediately before use and then remove all references to them so your temporary memory allocation doesn't accidentally get promoted to main memory. (Keep a temporary object's scope as tight as possible.)
+<li>Understand the long lived objects in the system and treat them as such.
+<li>Calendar.getInstance ... Calendar is the slowest class in Java (other than Swing)
+</ul>
+
+<pre>
+Don't use exception handling for logic flow ever.
+  try {
+     while (true) { a[j++].0 }
+  } catch (someException) {
+     // do nothing
+  }
+That's bad because the optimizer (HotSpot) is doing all sorts of extra work. 
+</pre>
+
+HotSpot is the default virtual machine, at least from any Sun Microsystems vendor.
+
+<ul>
+Java constructors are limited:<br>
+<li>Not named (yay! Perl is better because the constructor name can be anything. -grin-)
+<li>new object is made when invoked (always? Perl is better?)
+<li>Can only return objects of their type. (yay! Perl is better -- it can return a blessed anything!)
+</ul>
+
+<h4>USING STATIC FACTORY METHODS</h4>
+
+Flyweight pattern:<br>
+- Uses sharing to support large numbers of objects efficiently. Database pooling works this way -- the class will see whether or not it has a DB handler available to hand you. if it does, it hands it over, if it doesn't then it takes the time to make one.
+
+History lessons:
+Entity beans and session beans are both "beans", but they came from 2 opposing EJB design groups: Oracle and IBM, so Sun ended up shipping both,, but the fact that they're both called beans is really a misnomer.
+
+<pre>
+Class clusters:
+- Implementations that vary behind a facade of a single class
+- Example: Windows and Unix versions of a Console class
+
+Factories and Abstraction
+   (Avoid too much abstraction)
+- Your code runs on hardware
+- That hardware runs many programs
+- Class size and numbers increase lookup table sizes
+- There's only so much L1/L2/L3 cache available
+- After that, you're running at main memory speed.
+
+- Too much abstraction makes your code to hard to read and maintain.
+- There's a right level of abstraction. Find it and use it.
+
+What's the right level of abstraction?
+- It depends
+- Look to other domains and pick up clues on abstraction
+
+Math abstractions humans have found handy to invent over the centuries:
+- Numbers
+- Zero
+- Negatives
+- Real numbers
+- sqr root of 2
+- sqr root of -1 = e
+- different types and sizes of infinity
+</pre>
+
+Don't try to solve too many problems in the future. Working on APIs most of the ways that he designed abstractions for future use were never used. Plus the way people use your code is inevitably not how you thought they would, so being in the business of predicting the future is a dangerous thing.
+
+<pre>
+Other Gotchas
+Static method issues
+- Static methods are not subject to dynamic dispatch.
+- Finalizers (DESTROY) are not guarenteed to run at any particular time. 
+- Dependent on the garbage collectiona algorithm
+- They may not run at all <-- under the Java virtual machine.
+  - Language spec requires "best effort"
+- Exceptions thrown during finalization are ignored.
+</pre>
+
+Objects in Java will just hang out when they go out of scope! This is especially bad for database handlers and data streams
+
+<h4>CONCLUSION</h4>
+
+<ul>
+<li>Java is a nice language, but it does have sharp corners here and there
+<li>Keep programs and components as simple as possible
+<li>If you aren't sure what a program does, then you for sure don't know what a program does. It probably doesn't act like you expect it to.
+</ul>
+
+Sun Marketing
+Why do they call it Java 2?
+<p>
+
+It was time for JDK 1.3 to be released. Microsoft had just announced Windows 2000, and the Sun marketing machine flew everyone in for a meeting and announced that JDK 1.3 would be marketed as Java 2000. They already had posters printed up and everything, but some engineers threatened to quit over the name change so they dropped the zeros: Java 2 (J2EE)
+<p>
+ 
+Servlets are the big thing. J2EE is overkill for 80% of stuff, and not good enough for half of the other 20%.
+<p>
+
+Java IDEs: jetbrains.com
+   (Visual Age was always a JDK behind. Sun people never use an IDE because they're always on the next version of the JDK. -grin-)
+Featuritis is why all Java IDEs suck. And they're all free. Jetbrains costs a few hundred dollars.
+<p>
+
+SCO thing is a money grabbing scheme. The first people to pay up were Microsoft, so now SCO has lots of money to go after everyone else. Funny how that works.
+<p>
+
+Apache came from the motivated financial self interest of companies. Open source is really good for some tasks, really bad for others.
+
+
+<h1><hr>9/23/03 .NET User Group Mtg<hr></h1>
+
+<b>.NET and J2EE Interopibility</b><br>
+Jeff Brand<br>
+.NET Architect<br>
+jbrand(at)microsoft(dot)com
+<p>
+
+<ul>
+<li>"Winform": Generic term for any MS Windows application or interface which uses MS Windows forms.
+<li>.NET remoting: Built in .NET version of Remote Method Invocation (RMI). By default .NET uses "remoting" all the time unless you force it over to XML-RPC or web services or other alternatives.
+<li>"Discovery": Remotely exploring the methods and attributes that are available inside classes.
+<li>Research Apache Axis: A Java implementation of web services inside Apache?
+<li>Web Services Interopability Organization (WS-I) Basic Profile 1.0
+<li>WS-Security: Abstraction toolset for automatically handling security operations in the web service layer. 
+<li>WS-Routing: Abstraction toolset for automatically handling redirection/routing of web service requests. You can forward any given web services off to any other web service, set up chaining (request/response paths), etc.
+<li><b>esoteric:</b> adj : confined to and understandable by only an enlightened inner circle; "a compilation of esoteric philosophical theories" [ant: exoteric ]
+<li>By default you don't touch WSDL at all in .NET. Everything is handled magically for you, so if you want to make manual tweaks you have to save the .wsdl to disk and tweak it somewhere.
+<li>Highly recommended: PDC: Professional Developers Conference. Apparently the Mecca of Microsoft development conferences.
+</ul> 
+
+
+
+<h1><hr>8/14/03 Mtg w/ Pegasus<hr></h1>
+
+Mark Hoare<br>
+Director, Product Management<br>
+Pegasus Solutions<p>
+
+<h3>Pegasus SDLC (Software Development Life Cycle)</h3>
+<ol>
+<li>Informal request
+<li>Product manager
+<li>BRD (business requirements doc) $$
+<li>FDD (functional definition doc) $$
+<li>TDD (technical definition doc) 
+<li>Development
+<li>QA
+<li>UAT (user acceptance testing)
+<li>Production
+</ol>
+
+$$ = Financial impact of request evaluated during these stages.
+
+
+<h1><hr>7/7/03 OSCON 2003<hr></h1>
+
+Not having a functional battery-enabled laptop I tool chaotic, rambling 
+notes all over various paper most of which I won't bother transcribing here.
+Below is a storyline I started writing in late July but never finished.
+
+<pre>
+---
+Highlights from OSCON 2003:
+
+Speaker Presentations, including links to Robert Lefkowitz's talks,
+"Protecting the Innovation Premium -- Open Source Business Models"
+and "The Missing Open Source Projects":
+http://conferences.oreillynet.com/pub/w/23/presentations.html
+
+Media Coverage and Photos:
+http://www.oreillynet.com/oscon2003/
+
+Conference Program Archive:
+http://conferences.oreillynet.com/os2003/
+---
+</pre>
+
+<h2>Using Threads in Perl 5.8(.1)?</h2>
+
+Arthur Bergman gave a general talk and then a demonstration of writing threaded applications in Perl. Threading at the application layer still strikes me as having limited practicality due to the tricky nature of keeping all of your scoping under tight control and making sure not to suffer from any of the traditional complications including filehandle trouble, signals, children collection, race conditions, and memory leaks.<p>
+
+It occured to me that if our challenge is inbound parellelism, we could use Apache's threading / process control instead of trying to write our own. I spoke with Arthur later in the week and he agreed that that under a lot of conditions, Apache is obviously a viable solution for inbound connectivity.
+<P>
+
+For outbound applications we may want to look at rolling a threading template for hotel connectivity. Whenever we're connecting to all 38 properties and doing something, threads may help us get the job done *much* faster. Each Perl thread takes about 1MB of additional RAM, which is cheaper than running a seperate Perl process for each one, and probably lighter on our server, since most processing are just blocking waiting for DBI MS-SQL most of the time anyway? We'll need to benchmark it.<p>
+
+Simultaneous to this session was <b>Up and Running With wxPython</b>.
+I didn't learn what wx is until Friday -- we may want to look at wx as a possible alternative to VB.NET development. We could do wx development in many different languages, including Perl.
+
+<h2>Intro to Perl Testing</h2>
+
+I was scheduled to attend <b>Mastering Data Structures and References in Perl</b>. Looking over the printouts from the PowerPoint slides, however, it was pretty obvious to me that I'm already extremely comfortable with the material that was to be presented. (Hey, with the sea of gurus running around this conference, there's a pleasant surprise! -grin-) So, I went to this session instead.<p>
+
+We've never had a testing suite of any kind at Omni. Now that we're getting a formal QA person, I'm becoming more conviced that we need to alter two fundamental areas of our software development cycle. The first of these was pounded into us over and over again in this session:
+<p>
+
+<b>Test Suite</b>
+<ul>
+<li>Build a test for every line of code* before you write it and add the test to your test suite.
+<li>Whenever a bug is found, first leave your code broken and write a test which demostrates the bug. Then, fix the bug and verify that your test now passes.
+<li>Run the test suite <b>all the time</b>. As just a matter of course, you should be running the test suite after every modification you make, when you first get in in the morning, after getting back from lunch or a break, after getting coffee, just for fun, and defiantely before commiting anything into CVS.
+Running the tests all the time shows you over and over that you, someone else, or random mysterious forces haven't broken anything over the last hour or so.
+<li>Test runs should run clean.
+</ul>
+
+Especially with the upcoming Perseus project, a thorough test suite (using LWP and/or WWW::Mechanize) will be vital to the ongoing success. We also need to go back and retro fit critical chunks of Core into a Core test suite, I believe.
+<p>
+
+<b>Design the Interface Before Writing any Code</b><p>
+This idea has always been fairly obvious to me. Had I been asked at any point over the last few years, I would have said that we should definately do this. Obvious, yes, but it just so happens that we <b>haven't</b> been doing it. We need to build this into our formalized process to ensure that this is, indeed, what actually happens in our development cycles. Probably one developer should develop the interface, let the other code the internals and test suite, and then both people review the code?<p>
+
+Depending on who you talk to, these techniques become a chunk of a full agile development suite of procedures and policies (I still need to type up my notes from the Midlands.NET meeting I went to a few weeks ago.) I'm not sold on the full-bore extreme programming model, but I think there are a few really good ideas we should give a thorough test to see if they work for our environment or not.<p>
+
+<ul>
+<li>LWP::Simple
+<li>WWW::Automate / WWW::Mecahnize
+<li>Test::HTML::Lint
+<li>Test::HTML::Context
+<li>CGI::Test
+<li>Test::*
+<li>Test::Class   (like XUnit, JUnit)
+<li>Test::Inline  (embed code into POD. Test::Inline can test your documented t
+ests)
+<li>Test::FIT  (let people add tests on the fly)
+<li>Test::Mockobject (fake objects)
+<li>perl-qa(at)perl(dot)org
+<li>Apache::Test
+</ul>
+
+<h2>Advanced Object-Oriented Perl</h2>
+
+Damian Conway is truly a mad scientist. This presentation started out slowly enough, following the outline of his book. He threw in lots of Perl nerd only jokes and quips, flying through the material with a hell-bent, dynamic,  humorous, infectious energy level. He's an amazing speaker, one of the best I've ever witnessed. The first two thirds of the talk were review for me, having studied his book and
+[... that's where my storytelling cut off when I first sat down to write
+this in late July...]
+
+
+<h1><hr>6/16/03 .NET User Group Mtg<hr></h1>
+
+<b>Project Management and Software Development Methodology</b><br>
+Dave Berman<br>
+Quilogy, Inc.
+
+<ul>
+<li>Four phases of development: Analysis, Design, Implementation, Testing
+<li>Methodologies:
+  <ul>
+  <li>Waterfall. 4 distinct phases, 1 at a time.
+  <li>Incremental. Many little waterfalls w/ all 4 phases.
+  <li>Iterative. Requirements revisited in each phase. 4 phases.
+  <li>Spiral
+  <li>Unified process
+  <li>Agile Methodologies: Small steps. Development side by side w/ customer
+      or proxy. www.agilealliance.org
+    <ul>
+    <li>Crystal. crystalmehodologies.org
+    <li>Adaptive. 
+    <li>Extreme extremeprogramming.org
+    </ul>
+  </ul>
+</ul>
+
+<pre>
+<b>TRADITIONAL                       | AGILE
+Project Management Context</b>        |
+Control                           |
+   Estimating                     |
+   Scheduling  -------------------|-X Iteration planning
+   Requirements management        |
+Team Roles -----------------------|-- Physical location
+Communication                     |   Motivated individuals
+   Meetings                       |
+   Status     --------------------|-X w/o documentation
+   Progress   ----------------/   |
+   User/customer interaction      |
+Configuration management          |
+   Change control                 |
+   Release management             |
+   QA                             |
+</pre>
+
+
+<br><br><br><br>
+<i>--eot--</i>
+
+</body>
+</html>
+
+

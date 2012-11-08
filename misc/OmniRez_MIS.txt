@@ -1,0 +1,156 @@
+-------------------------------------------------------------------
+OmniRez MIS Overview - April 2002
+Omni Hotels Central Reservation Center - A Technology Synopsis
+prepared by: Jay Hannah, Applications Development Manager, OmniRez
+-------------------------------------------------------------------
+This is the text of the PowerPoint presentation
+-------------------------------------------------------------------
+
+- Reservation creation and delivery
+  - CRS database (Informix on AIX)
+    - 280 active tables, 53M rows, 44GB data, 6GB logical logs
+    - CDR (Continuous Data Replication) Omaha <-> Irving in constant bi-directional push
+    - 565K reservations in active dataset: 13 months future arrival, 90 days post-departure
+    - 105K guests in Frequent/Select guest database
+    - Data dictionary online
+  - Pegasus Ultraswitch connection
+    - 2500 lines of Perl handling TCP/IP, named pipes
+    - 53K lines of I-4GL handling DB interaction, human review (C module for named pipeinteraction)
+    - Speed, volume graphing/trending
+    - DR router in Dallas. Both Omaha and Dallas have ISDN dial-backup circuits.
+  - GRS (Global Reservation System)
+    - 42K lines of I-4GL source code
+    - All Omni reservation data entry (except front desk walkins)
+    - Full agent toolset w/ real-time access to all relevant CRS data and history.
+  - PMSs
+    - Libica (2-way)
+    - Fidelio, Encore (1-way via Omnilink VB app)
+  - Automated fax reservation delivery to non-interfaced properties
+  - Automated fax/email/hard-copy confirmations
+  
+- Revenue management (CHARM)
+  - Informix on Solaris
+  - Manugistics NetWORKS HRO
+  - 62GB hotel data, 5GB misc. admin space (not including 5 properties (15GB) in test instance)
+  - 29 databases (1 per property), each with 62 tables (1798 tables)
+  - 38 custom Perl programs totaling 15K lines of code to handle extracts, recommendation processing, monitoring, auditing, real-time web-enabled analysis
+  - Flow chart, auditing
+  
+- Operating systems / hardware
+  - AIX: CRS, development machine, anon FTP archive
+  - Solaris: revenue management
+  - Win2K: terminal servers, domain control, file/print sharing
+  - WinNT: Libica test
+  - Cisco Pix firewall / VPN
+    - LAN, WAN and Internet IP/port level firewalling
+    - Remote access via Cisco VPN client, ssh, permanent HIS VPN tunnel recently established
+  - Linux: Everything else. e.g.: Email, Intranet, Informix / MS-SQL / Oracle programming, SNMP and other monitoring, DNS, LDAP, NTP, rsync, CVS, Pix logging (logd), ssh, tac_plus
+    - Informix, Oracle, MS-SQL connectivity via Perl
+
+- Intranet report archives
+  - 1900 (16MB) "Daily Source of Business" and "Activity Analysis" CRS reports
+  - 179K (5GB) daily revenue management reports
+  - 34K (560MB) monthly hotel reports
+  - 6K (1.7GB) Oracle Financials reports
+
+- Call center operations support
+  - 100 employees, 120 PCs / Wyse WinTerms to 2 redundant terminal servers
+  - 2 1/2 voice T1s
+  - In-house programming of ACD call control tables / applications and basic PBX
+    
+- System, data, and network monitoring
+  - BB & LARRD (Big Brother & Load Averaging Round Robin Database)
+    - Server health (disk, load, connectivity, processes)
+    - Database health (checkpoints, disk allocations, CDR monitoring)
+    - Pegasus speed, volume (w/ trending graphs)
+    - Misc CRS queues
+    - WAN monitoring, paging
+  - MRTG (Multi Router Traffic Grapher)
+    - Graphing and trending for 40 routers 
+    - Email statistics, graphs
+
+- Omnilink (VB 5.0)
+  - Room inventory
+  - Rate availability 
+  - Group maintenance
+  - Reporting
+  - EOM data entry
+
+- OmniRez Allow (ORA) (VB 6.0)
+  - Central dataset, decentralized maintenance of all permissioning for all OmniRez applications and services
+  - Real-time manipulation of VB tool access and GRS permissions
+  - Data flushes to AIX O/S, email, restricted web access control files
+
+- Internal GDD maintenance tools (VB 6.0) 
+  - Rate creation, configuration
+  - CHARM configuration
+  - ACSA errors
+  - GDS errors
+  - Booking "fatal error" management
+  - Property profile
+  - Guarantee policies
+  - IATA information
+  - etc...
+
+- ACSA scripting
+  - 5300 lines of IBM ACSA scripting
+    - "Auto rates"
+    - "Auto status"
+    - "Auto rate build" (in progress)
+  - 1000 lines of misc supporting I-4GL, Perl
+  
+- Web-based Frequent/Select Guest toolset
+  - Internet for guests
+  - Intranet administration
+    - Name, addresses, phone numbers, emails
+    - Preferred payment method
+    - Basic demographics, family
+    - Preferences ("specials")
+    - Notes, flags, security 
+    - Stay history
+
+- Email
+  - 1800 email users on sendmail / Linux
+  - 40K emails, 1.5GB daily average
+  - Web-enabled access via "webmail" and NeoMail
+  - Home-grown and MailMan mailing list management 
+
+- 3rd party datafeeds
+  - lebensart
+    - datawarehousing
+    - FG integration (pending)
+  - IBM e-folio
+  - JD Powers survey
+
+- Backups
+  - Nightly backups of all critical systems
+    - Informix level-0 (CRS, CHARM)
+    - O/S backups on all Unix servers
+    - Windows filesharing backups (etc.)
+  - Continuous database transaction logging
+  - IBM Magstar tape library automation via custom OOP module (Perl)
+  - Nightly rsync replication of CRS and CVS library to Dallas data center
+  - Weekly offsite rotations, quarterly permanent rotation
+  - "Rapid recovery" unloads
+
+- Application development
+  - I-4GL, Perl, VB, MS-Access reports
+  - CVS (Concurrent Versioning Software)
+    - Enterprise level web-enabled versioning repository for all programming and system configuration changes
+    - 310 directories, 2000 files
+    - CVS / ViewCVS - same platform as sourceforge.net (38K projects)
+  - Project database, over 1000 projects opened since December 1999.
+  - System administrator and programmer on call rotations
+  - Event logging of all unscheduled service outages
+  - Intranet document root contains nearly 1000 documents.
+  - Data dictionary online
+
+- Personnel
+  - Applications Development Manager (1) 
+  - LAN Administrator (1) 
+  - Programmer / Analyst (6) 
+  - System Administrator (2) 
+  - IT Steering committee, Project Prioritization committee
+  - Monthly departmental progress review, goal setting (Omni OST)
+
+-eot-

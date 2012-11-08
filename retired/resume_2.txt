@@ -1,0 +1,15 @@
+
+- Manager of 10 person department responsible for all central reservations operations (programming, system and database administration, LAN support).
+- Core database is Informix on AIX. Composed of 280 active tables, 53M rows, 44GB data, 6GB of logical logs.
+- Development and support of in house code base of 1/4 million lines of source. Languages include Informix 4GL, Perl, and Visual Basic. 
+- Development and maintenance of 27 servers in Omaha running Linux, AIX, Solaris, WinNT, Win2K. Procedural development, documentation, and oversight of all backup systems. Realtime monitoring (paging) on all systems.
+- Development and support of all disaster recovery systems (failover of all systems to corporate headquarters in Irving, TX). 
+
+Personal accomplishment highlights:
+- Built the department. When I joined the company IT in central reservations was comprised mainly of high cost consultants. I hired, trained, and laid all the procedural groundwork for a healthy development and support environment including crosstraining, documentation, source code versioning control, alpha/beta/production software cycles, etc.
+- Established and continue to drive an Intranet approach to all of our systems. All toolsets, monitoring systems, documentation archives, reports and statistical gathering processes are web driven and accessible (as much as possible).
+- Our OLTP central reservation systems are extremely critical to our business. 3/4 of all reservation (revenue) flow begins in Omaha. At peak our systems handle $110K / hour of sales traffic. Downtime is not an option. We have maintained an excellent service level with bare minimum staffing levels.
+- Jokingly referred to as "VP of Programming" for Omni Hotels, a "small" 4+ star hotel chain with 38 properties and around $450M in annual revenues. 
+
+
+

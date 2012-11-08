@@ -1,0 +1,31 @@
+
+Quick 'n dirty OmniRez server list
+-jhannah 7/8/02
+
+omni-res: AIX, Informix database (production)
+gentoo: AIX, Informix database (development)
+charm: Solaris, Informix database
+chinstrap: Linux, sendmail email server
+rockhopper: Linux, Apache web server
+king: Linux, dataming, reports, Apache web server
+emperor: Linux, monitoring server
+fairy: Linux, Squid caching proxy
+little-blue: Linux, print server
+macaroni: Linux, development server
+omares-util: NT 4.0, file & print sharing, PDC
+omares-ts1: Win2K, terminal server
+omares-ts2: Win2K, terminal server
+omares-pms: NT 4.0, MS-SQL development, BDC
+datamoverX: NT 4.0, HIS datamover server
+datamover2: NT 4.0, HIS datamover server (development)
+AspectPrimNT: NT 4.0, Aspect (switch) software
+AspectSecNT: NT 4.0, Aspect (switch) software
+AspectBmpNT: NT 4.0, Aspect (switch) software
+acsa-gw-1p-1a: NT 4.0, ACSA gateway
+acsa-gw-aa-ua: NT 4.0, ACSA gateway
+acsa-autorates: Win95, ACSA scripting
+asca-autostatus-1p: Win95, ACSA scripting
+asca-autostatus-1a: Win95, ACSA scripting
+asca-autostatus-aa: Win95, ACSA scripting
+asca-autostatus-ua: Win95, ACSA scripting
+

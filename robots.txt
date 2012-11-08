@@ -1,0 +1,22 @@
+User-agent: *
+
+# Mediawiki stuff:
+Disallow: /w/
+Disallow: /wiki/Special:Search
+Disallow: /wiki/Special:Random
+
+Disallow: /*.jpg
+Disallow: /*.mpg
+Disallow: /*.gif
+
+Disallow: /cgi-bin/
+Disallow: /manual/
+Disallow: /test/
+Disallow: /tmp/
+Disallow: /mvn/
+Disallow: /stats/
+Disallow: /images/
+Disallow: /sounds/
+Disallow: /bbe/
+Disallow: /remls/
+

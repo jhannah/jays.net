@@ -1,0 +1,198 @@
+﻿TITLE::Takahashi-Method-based Presentation in XUL 
+Takahashi-Method-based Presentation
+in XUL
+[[EM:RETURNS:EM]]
+(Right Arrow to next slide)
+----
+HEADER::TMbP in XUL
+CHAPTER::An Introduction
+Huh?
+----
+[[EM:Takahashi:EM]]
+----
+very smart fellow
+----
+presentation method
+invention
+----
+1
+----
+or a few words
+----
+per slide
+----
+See [[PresentationZen.com|http://presentationzen.blogs.com/presentationzen/2005/09/living_large_ta.html]]
+----
+[[EM:Piro:EM]]
+----
+very smart fellow
+----
+developed 
+software
+----
+for 
+Takahashi-Method-based 
+presentations
+----
+in Mozilla browsers
+----
+[[Click here for Piro's website|http://piro.sakura.ne.jp/]]
+----
+CHAPTER::Driving it
+Keys
+----
+↵ - Step
+PgDn - Step
+----
+→ - Step
+↓ - Step 
+----
+Left Click -  
+Forward a whole slide
+----
+PgUp, ←,↑
+Back one slide
+----
+Home - Go to start
+End - Go to end
+----
+Ctrl-R
+Reload
+----
+Ctrl-E
+to enter 
+Edit mode
+----
+Ctrl-E
+again to exit
+[Try it now!]
+----
+HEADER::
+CHAPTER::Editing
+Edit Mode
+----
+HEADER::Edit Mode
+Ctrl-N
+Insert New page
+----
+Plain text is just printed
+----
+Use [[monta|http://presentationzen.blogs.com/presentationzen/2005/10/the_monta_metho.html]] sections to hide text
+[it creates suspense]
+----
+Use [[PRE:EM:PRE]] tags for
+[[EM:emphasis:EM]]
+----
+Use [[PRE:PRE:PRE]] tags for 
+[[PRE:preformatted text:PRE]]
+----
+You can even include code in [[PRE:PRE:PRE]] sections:
+[[PRE:&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Page title&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;XUL Rules!&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;:PRE]]
+----
+Links
+----
+[[Link with Label|http://piro.sakura.ne.jp/]]
+Or with no label:
+[[http://piro.sakura.ne.jp/]]
+----
+Include images with [[PRE:image:PRE]] tag
+[[image src="takahashi.png" width="300" height="168"]]
+----
+You can even include them inline [[image src="takahashi.png" width="150" height="84"]]
+Or more than one per page:
+[[image src="takahashi.png" width="300" height="168"]]
+----
+If you are editting
+Press Ctrl-E to go back now
+----
+HEADER::URL parameters
+FOOTER::
+CHAPTER::URL parameters
+Customise behaviour 
+with URL parameters
+----
+?page=[page number]
+----
+Start on any page
+----
+?data=[filename.data]
+----
+Show a particular presentation
+----
+?edit=[true]
+----
+Start in edit mode
+----
+?eva=[true]
+----
+White on Black
+----
+HEADER::
+NOTICE
+----
+Several slides were 
+[[EM:not:EM]]
+“translated”
+----
+because I only know 
+----
+3
+----
+Japanese phrases
+----
+① 
+----
+Toyota
+----
+② 
+----
+Nintendo
+----
+③ 
+----
+[[Domo Arigato,|http://ultrasoft.8k.com/roboto.swf]]
+[[Mr Roboto|http://ultrasoft.8k.com/roboto.swf]]
+----
+If you know more 
+Japanese than me …
+----
+Please email a 
+translation!
+----
+takahashi ． translate AT cardboard ． nu
+----
+HEADER::Important point!
+CHAPTER::Download
+Users can download this
+software from any site
+that uses it in a presentation
+----
+Just 3 files
+to download
+----
+HEADER::Download here
+[[takahashi.xul]]
+[[takahashi.css]]
+[[monta-label.png]]
+----
+HEADER::
+Open Source License
+[MPL1.1]
+----
+Share!
+----
+Encourage!
+----
+Evangelise!
+----
+Let's Enjoy
+Takahashi
+Method
+Life !!

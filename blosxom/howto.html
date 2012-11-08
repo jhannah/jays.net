@@ -1,0 +1,112 @@
+<html>
+<head>
+<title>How I Set Up My Blog</title>
+</head>
+
+<body>
+<h1>How I Set Up My Blog</h1>
+
+Today is 2005-11-06. My blog is <a href="jays.net">jays.net</a>
+<p>
+
+<h3>The Goal</h3>
+
+I wanted a blog, I wanted to control it myself on my server, I wanted it to
+be as easy as possible to add entrties from the Linux command line, and 
+I wanted it to be RSS compatible so I'd be one of the cool kids. I figure
+if <a href="http://www.google.com/ig">Google's customized homepages</A> can
+read it and my Mac OS X client "<a href="http://keeto.net/feed/">Feed</a>"
+can read it then that's good enough.
+
+<h3>The Pieces</h3>
+
+<ul>
+<li>Linux, Apache, Perl
+<li><a href="http://www.blosxom.com/">Blosxom</a>
+<ul>
+  <li>a plugin called <a href="http://www.blosxom.com/plugins/syndication/rss10.htm">rss10</a> 
+  <ul>
+    <li>flavour files: <a href="flavour.rss10.tgz">flavour.rss10.tgz</a> (contains content_type.rss10, date.rss10, foot.rss10, head.rss10, story.rss10)
+  </ul>
+  <li>a plugin called <a href="http://www.blosxom.com/plugins/headers/lastmodified.htm">lastmodified</a>
+  </ul>
+</ul>
+
+<h3>Installation</h3>
+
+My home directory is /home/jhannah, and my website lives in my public_html
+directory. So everything below starts in /home/jhannah/public_html. From there:
+
+<pre>
+   mkdir blosxom
+   mkdir blosxom/data
+   mkdir blosxom/plugins
+   mkdir blosxom/plugins/state
+</pre>
+
+Save blosxom.cgi (download from the first Blosxom link above) into blosxom/.
+<p>
+Unzip all the *rss10 files from the .tgz above into blosxom/data.
+<p>
+Save the rss10 plugin above into blosxom/plugins as filename "rss10".
+<p>
+Save the lastmodified plugin above into blosxom/plugins as filename "lastmodified".
+<p>
+Edit blosxom.cgi, setting $datadir and $plugin_dir (in my case
+<pre>
+   $datadir    = "/home/jhannah/public_html/blosxom/data";
+   $plugin_dir = "/home/jhannah/public_html/blosxom/plugins";
+</pre>
+). Also set the $blog_title, etc.
+<p>
+That should do it. Now add your entries into blosxom/data, one entry per file. I'm using dates as my filenames (20051105.txt), but that part's up to you. Blosxom lifts the datetime of the entry from the last mod stamp of the 
+file itself. So be careful tweaking old entries -- they'll pop to the top of your blog as if they
+were just written. I use "touch" to set the last mod stamp back to the filename date.
+<p>
+Once you have a couple entries in there, your blog should be 
+<pre>
+   http://jays.net/~jhannah/blosxom/blosxom.cgi
+</pre>
+and your RSS feed should be
+<pre>
+   http://jays.net/~jhannah/blosxom/blosxom.cgi?flav=rss10
+</pre>
+
+<h3>All Done!</h3>
+That's it, I think. Heck, here's a behind the scenes look at my entire config:
+<pre>
+   <a href="/blosxom">http://jays.net/blosxom/</a>
+</prE>
+Knock yourself out!
+
+<h3>Make it prettier</h3>
+To shorted my URLs I sym linked from public_html:
+<pre>
+   ln -s blosxcom/blosxcom.cgi index.cgi
+</pre>
+and set
+<pre>
+   $url = "http://jays.net/blosxcom/blosxom.cgi";
+</pre>
+so my links would work when viewing individual entries. 
+<p>
+Then I changed blosxom/data/head.html to add a pretty site header (and
+blosxom/data/foot.html for a footer).
+
+<h3>RSS notes</h3>
+
+Your RSS feed won't work correctly if you have HTML tags in the RSS "title". In Blosxom, 
+the title of each of your entries is the first line of your entry file. So keep that first
+line HTML free, and you should be golden.
+<p>
+
+Good luck!
+<p>
+email me: jay(at)jays(dot)net
+<br><br><br>
+<i>-eot-</i>
+
+
+</body>
+</html>
+

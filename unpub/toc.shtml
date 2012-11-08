@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>Jay's Unpublished Stuff</title>
+</head>
+<body>
+
+<h2>Jay's Unpublished Stuff</h2>
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="jay@jays.net">
+<input type="hidden" name="item_name" value="jays.net Starving Artists Fund">
+<input type="hidden" name="item_number" value="Unpublished Stuff">
+<input type="image" src="https://www.paypal.com/images/x-click-but04.gif" border="0" name="submit"
+   alt="Make payments with PayPal - it's fast, free and secure!" align="left" hspace=10>
+</form>
+
+This is my small collection of things that weren't published anywhere on the
+Internet, but should be. I've been threatening to sit down and become a
+writer for years now. If I ever do, I'll start those things out here
+until my agent starts negotiating checks with lots of zeros. -grin-
+<p>
+Questions / comments should go to Jay Hannah &lt;jay(at)jays(dot)net&gt;
+1-402-571-8036.
+
+<h3>Brad Hannah</h3>
+The papers below can probably be licensed for publication if you're nice
+and/or philanthropic. Brad can be reached at &lt;brad(at)jays(dot)net&gt;.
+<ul>
+<li><a href="bh1.shtml">Why I Don't Eat Donuts</a>
+<li><a href="bh2.shtml">Corporate America: Reflections from the Bottom of 
+  the Totem Pole</a>
+</ul>
+
+<h3>Roberta Jenkins</h3>
+Roberta can be reached at &lt;robertajenkins(at)hotmail(dot)com&gt;.
+
+<ul>
+<li>20030409: <a href="rj8.shtml">Confessions of a wandering soul</a>
+<li>20030106: <a href="rj4.shtml">Creature Capers</a>
+<li>20021211: <a href="rj7.shtml">A trick of the light</a>
+<li>20021210: <a href="rj6.shtml">God bless the Snowbirds!!</a>
+<li>20020930: <a href="rj5.shtml">Darwin's Donkey</a>
+<li>20020303: <a href="rj3.shtml">Well Cinderella, I think it fits!</a>
+<li>20020201: <a href="rj2.shtml">The greatest little group activity in the west</a>
+<li>20020105: <a href="rj1.shtml">Ad Absurdium</a>
+</ul>
+
+<hr>
+<font size=2>
+This document last modified <!--#flastmod file="toc.shtml" --><br>
+http://jays.net/unpub/
+</font>
+
+
+</body>
+</html>
+
