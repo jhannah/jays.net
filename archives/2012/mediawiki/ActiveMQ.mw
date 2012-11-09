@@ -1,0 +1,54 @@
+Q1/Q2 2008 we tried to put ActiveMQ into production. It failed. Here's a discussion I had today about that experience. --[[User:Jhannah|Jhannah]] 12:56, 1 March 2009 (UTC)
+
+<pre>
+06:42 -!- Irssi: Starting query in Freenode with rjbs
+06:42 <deafferret> In 2008 we tried to put ActiveMQ in our critical path. Everything went swimingly until multiple 
+                   unexplained crashes. We abandoned it and went back to database tables
+06:45 <deafferret> I/O to ActiveMQ via Net::Stomp. works great and easy until ActiveMQ itself pukes after a few 
+                   million messages
+06:45 <deafferret> but then we'd load test it and it would be fine for 10M records. Then we'd roll it back into 
+                   production and it would barf again after a while
+06:46 <rjbs> morning!
+06:46 <rjbs> That is a discouraging story. :/
+06:47 <rjbs> We currently have our own db-based job queue (like basically eveybody does) but it stinks and I'd 
+             rather replace it with something well-known than rewrite it with a new internal thing... 
+06:47 <deafferret> ya. sounds like me, Q1 2008  :)
+06:47 <deafferret> it's insanely fast
+06:47 <rjbs> still using your own db thing, then?
+06:48 <deafferret> Maybe our guy didn't try hard enough? (I wasn't the lead for the puking, he was)
+06:48 <rjbs> yeah, I played with it just enough to see that I could create and complete jobs with stomp
+06:48 <deafferret> I basically set the whole thing up for him and handed it over
+06:48 <rjbs> I -think- that Net::Stomp was written to talk to ActiveMQ, so I should try talking to its author.
+06:48 <deafferret> he's a java guy, so he was really comfortable on that side
+06:48 <deafferret> he messed around with different persistance plugins and everything, but in the end it wasn't 
+                   worth the trouble
+06:49 <deafferret> maybe it's more stable now, a year later?
+06:49 <rjbs> Heh.  Yeah, that's another of my (minor) problems.  All the docs are for using the Java libraries
+06:49 <deafferret> well, Net::Stomp is dead easy and works, and ActiveMQ is dead easy to configure
+06:49 <rjbs> looks like no releases since april
+06:49 <deafferret> so theoretically the fact that the black box is java shouldn't matter
+06:50 <deafferret> oh. that's not goo
+06:50 <deafferret> d
+06:50 <rjbs> right.  i don't mind that it's written in java, caml, haskell or anything else
+06:50 <rjbs> Oh, no, I misread their site.
+06:50 <deafferret> ya, I was pretty bummed when we had to give up on it
+06:50 <rjbs> November.
+06:50 <rjbs> that's much better
+06:50 <deafferret> oh ok
+06:51 <rjbs> Nov, May, April.  Those are all v5, which came out as 5.0.0 in Dec 07.  
+06:51 <rjbs> Anyway, thanks for the datapoint, even if it is somewhat discouraging!;)
+06:52 <deafferret> so what we did was create an abstraction namespace called OmniMQ. for now that namespace is using 
+                   sub classes that use database tables, but the ActiveMQ stuff is still out there just in case we 
+                   go back to it (or something else?) someday
+06:52 <deafferret> but we're pretty happy with the performance of our cheesy-inefficient MySQL setup, shrug
+06:52 <rjbs> cool
+06:52 <rjbs> yeah, replacing our crappy one with a much better crappy internal one woud surely be sufficient
+06:53 <deafferret> it's just AWESOME when ActiveMQ pushess thousands of messages with no delays, all in RAM  :)
+06:53 <rjbs> I just really like not writing code for things other than our core competencies.
+06:53 <deafferret> ya
+06:53 <deafferret> the benchmarking of ActiveMQ freaked me out. the create-new-queues-on-the-fly feature freaked me 
+                   out. the multiple subscriptions was way cool
+06:53 <deafferret> oh well   shrug
+06:55 <rjbs> I'm also looking at TheSchwartz, but it's less documented.
+06:55 <deafferret> :)
+</pre>

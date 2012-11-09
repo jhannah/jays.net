@@ -1,0 +1,72 @@
+[http://kcdilettante.blogspot.com/2008/02/hack-day-is-on.html Official website] includes when, where, what...
+
+==2008-03-15 (Saturday, [http://en.wikipedia.org/wiki/The_ides_of_march the Ides of March])==
+
+===Attendees, Interests===
+
+What are you interested in nowadays? Throw yourself and your interests in here so we can see what overlaps.  :)
+
+* [http://jays.net Jay Hannah]
+** Bioinformatics
+*** [http://www.perl.org Perl], [http://www.r-project.org/ R] programming language, [http://bioperl.org BioPerl]
+** [http://catalyst.perl.org/ Catalyst] Perl web development framework
+*** [http://template-toolkit.org/ Template Toolkit]
+** Databases / data munging
+*** [http://xmltwig.com/ XML::Twig], DBI, DBD::*, DBIx::Class
+** [http://jays.net/genealogy/index.shtml Genealogy]
+* [http://kcdilettante.blogspot.com Kit Peters]
+** [http://perl.apache.org mod_perl]
+** [http://livejournal.com LiveJournal] 
+** Motorcycles
+** Web development in Perl
+* [http://john-benson.com John Benson]
+** Lawyer & web developer (Linux, Apache, mysql, misc. CMSs)
+** Set up this MediaWiki during the hack day: http://www.cowtowncomputercongress.org/
+* Doug Greer
+* add yourself here
+
+===Things that Were Hacked===
+
+'''Generic payment tracking system'''
+
+ DROP TABLE IF EXISTS `users`;
+ CREATE TABLE `users` (
+   `user_id` int(11) UNSIGNED NOT NULL auto_increment PRIMARY KEY,
+   `username` char(30) default NULL,
+   `password` char(30) default NULL,
+   `active` tinyint(1) NOT NULL DEFAULT 1
+    # etc., specific stuff your your application 
+ ) ENGINE=InnoDB; 
+ 
+ CREATE TABLE `orders` (
+    `order_id` int(11) UNSIGNED NOT NULL auto_increment PRIMARY KEY, # order ID
+    `total` decimal(10,2) NOT NULL DEFAULT 0.00
+    # etc.. specific stuff for your application 
+ ) ENGINE=InnoDB;
+
+ DROP TABLE IF EXISTS `sources`; # external payment sources
+ CREATE TABLE `sources` (
+   `source_id` mediumint(11) UNSIGNED NOT NULL auto_increment PRIMARY KEY, # unique identifier for this source
+   `name` varchar(255) NOT NULL # name of the source, e.g. PayPal
+   # etc., specific stuff for your application 
+ ) ENGINE=InnoDB;
+
+ DROP TABLE IF EXISTS `payments`; # internal payment history.
+ CREATE TABLE `payments` (
+   `payment_id` int(11) UNSIGNED NOT NULL auto_increment PRIMARY KEY, # internal transaction ID
+   `transaction_id` varchar(255) NOT NULL, # External transaction ID
+   `source_id` mediumint(11) UNSIGNED NOT NULL, # source, e.g. PayPal
+   `order_id` int(11) UNSIGNED NOT NULL, # order ID
+   `user_id` int(11) UNSIGNED NOT NULL, # user who made the payment
+   `amount` decimal(10, 2) NOT NULL DEFAULT 0.00, # amount of the payment
+   `time` datetime NOT NULL, # time of the payment
+   `status` enum('accepted', 'rejected', 'disputed', 'invalid'),
+   FOREIGN KEY (source_id) REFERENCES `sources` (source_id) ON DELETE CASCADE,
+   FOREIGN KEY (order_id) REFERENCES `orders` (order_id) ON DELETE CASCADE,
+   FOREIGN KEY (user_id) REFERENCES `users` (user_id) ON DELETE CASCADE,
+   UNIQUE KEY `transaction_id` (transaction_id, source_id)
+ ) ENGINE=InnoDB;
+
+I'm working over here: [[Catalyst + PayPal]]. --[[User:Jhannah|Jhannah]] 13:32, 15 March 2008 (CDT)
+
+

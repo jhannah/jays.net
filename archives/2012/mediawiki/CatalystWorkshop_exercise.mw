@@ -1,0 +1,373 @@
+{{stop|line1=You missed it!|line2=This workshop was held on Dec. 14 2009. Email the [[Omaha Perl Mongers]] mailing list if you'd like us to schedule another workshop.}}
+
+These are the /gl?orious/ details of the '''[[Catalyst Workshop]]'''. You do not need to know or understand what's going on here in advance of the workshop. If you bring a general comfort with ssh'ing into a Linux box and typing commands you should be fine. Unless I turn out to be a worse guide than we all hope I am.  :)   --[[User:Jhannah|Jhannah]] 00:34, 24 November 2009 (UTC)
+
+==Registrants==
+
+Catalyst ships with a splendid little development server built in. We'll each be running our own dev server, which will be running our own copies of the exercise. Conceptually, the dev server is like running a single-process Apache server, serving YourApp only, and with lots of Catalyst-specific bells and whistles thrown in for free. 
+
+So, we need to assign the port that each registrant will use on the server. These ports will only work when the user assigned that port has their dev server running.
+
+ Full Name            username     Dev server location
+ -------------------  -----------  ---------------------------------
+ Jay Hannah           jhannah      http://clab.ist.unomaha.edu:3000/
+ Matt Payne           mpayne       http://clab.ist.unomaha.edu:3001/
+ Robert Fulkerson     rfulkerson   http://clab.ist.unomaha.edu:3002/
+ Todd Hamilton        thamilton    http://clab.ist.unomaha.edu:3003/
+ Dave Thacker         dthacker     http://clab.ist.unomaha.edu:3004/
+ Zainab Aljubran      zaljubran    http://clab.ist.unomaha.edu:3005/
+ Pedro Buenrostro     pbuenrostro  http://clab.ist.unomaha.edu:3006/
+ John Dickson         jdickson     http://clab.ist.unomaha.edu:3007/
+ Ben Hefner           bhefner      http://clab.ist.unomaha.edu:3008/
+ Branden Folino-Haye  bfolinohaye  http://clab.ist.unomaha.edu:3009/
+ Paul Birdsong        pbirdsong    http://clab.ist.unomaha.edu:3010/
+ Eric Kennedy         ekennedy     http://clab.ist.unomaha.edu:3011/
+ Ishwor Thapa         ithapa       http://clab.ist.unomaha.edu:3012/
+ 
+ Add yourself! Or, [[Catalyst Workshop|register via email]].
+ 
+ There are 30 PCs in PKI 276. So unless some people are on wireless 
+ using their own laptops, only the first 30 registrants can participate.
+
+==Catalyst "Hello, world"==
+
+:'''''PLEASE''' feel free to interrupt me with questions at any time, or if you get stuck. This is my first attempt at a Catalyst Workshop, so my attempt to balance covering enough detail vs. too much detail may need adjustment repeatedly as we go. Thanks! --[[User:Jhannah|Jhannah]] 12:20, 8 December 2009 (UTC)''
+ 
+Let's tell Catalyst what port we want the dev server to run on. My port, assigned above, is 3000. Find your port in the list above, and set the environment variable accordingly: 
+
+ $ export CATALYST_PORT=3000
+
+Now we'll create our Catalyst application. Since everyone loves dirt biking (right? -grin-), we're going to write a little application to log all our off-road adventures. We'll call this application Trails. Create a subdirectory for all your source code, cd into it, and create your application. 
+
+ $ mkdir src
+ $ cd src
+ ~/src$ catalyst.pl Trails
+
+Now we'll start up the dev server:
+
+ ~/src$ cd Trails/
+ ~/src/Trails$ ./script/trails_server.pl -k
+
+Leave your dev server running in PuTTY, and use your web browser to hit it at your assigned URL above.
+
+Congratulations, you're a Catalyst developer!  :)
+
+Notice all the debug information that appears in your dev server every time you hit Reload in your browser. We'll talk about all that briefly.
+
+The scaffolding lays out like so:
+
+* '''<code>trails.conf</code>''' - configuration settings
+* '''<code>root/</code>''' - all our templates (HTML, etc.)
+* '''<code>script/</code>''' - helpers and the dev server
+* '''<code>t/</code>''' - unit tests for our application
+* '''<code>lib/Trails.pm</code>''' - plugins and plugin configuration
+* '''<code>lib/Trails/Controller/</code>''' - each of our Actions (a subroutine mapped to a URL) lives in a class in this directory. A typical application has lots of controllers. 
+* '''<code>lib/Trails/Model/</code>''' - data persistence layers. We'll have just one for our SQLite database.
+* '''<code>lib/Trails/View/</code>''' - ways to interface with our application. A typical application has just one, for Template Toolkit.
+
+==Creating a View (Template Toolkit)==
+
+Being a microcosm of Perl, there's lots of ways to do everything in Catalyst. Template Toolkit is probably the most popular templating system, but there are many others.
+
+Let's leave our development server running in one PuTTY session, and make changes in another. (You can use the <code>-r</code> switch to have the dev server automatically reload every time you change source code, but let's leave that until you're more accustomed to what the dev server looks like in action.)
+
+So in a 2nd PuTTY Window, let's create a view.
+
+ ~/src/Trails$ ./script/trails_create.pl view TT TT
+
+Let's also create a Controller quick so we can map out some URLs:
+
+ ~/src/Trails$ ./script/trails_create.pl controller Parks
+
+Whenever we change our source code we'll go to our dev server window, hit <code>Control-C</code> to kill our application, then up-arrow and Enter to restart it. Let's do that now. Once it's restarted, we can now hit our new Controller and see what happens:
+
+ http://clab.ist.unomaha.edu:3000/parks
+                             ^^^^ change to your port number
+
+You should see this:
+
+ Matched Trails::Controller::Parks in Parks.
+
+Which is a pretty boring result. Let's add a subroutine to display a list of parks:
+
+ ~/src/Trails$ cd lib/Trails/Controller
+ ~/src/Trails/lib/Trails/Controller$ vi Parks.pm
+
+Find the subroutine <code>index()</code>. Below that one, let's add a new subroutine called <code>list()</code>, which will list all the parks.
+
+ =head2 index
+ 
+ =cut
+ 
+ sub index :Path :Args(0) {
+    my ( $self, $c ) = @_;
+ 
+    $c->response->body('Matched Trails::Controller::Parks in Parks.');
+ }
+ 
+ 
+ =head2 list
+ 
+ Display a list of all parks.
+ 
+ =cut
+ 
+ sub list : Local {
+    my ($self, $c) = @_;
+ }
+
+Notes: 
+* "Local" is one Catalyst [http://search.cpan.org/~hkclark/Catalyst-Manual-5.8002/lib/Catalyst/Manual/Intro.pod#Action_types Action type]
+* If that colon freaks you out, [http://perlmonks.org/?node_id=631931 read this (attributes)]
+
+Restart the dev server, hit the URL for this subroutine, and you'll throw a fascinating error:
+
+ http://clab.ist.unomaha.edu:3000/parks/list
+                             ^^^^ change to your port number
+ 
+ Couldn't render template "file error - parks/list.tt: not found"
+
+This tells us exactly which template file Catalyst is now expecting to find, and we haven't provided. Let's create that file:
+
+ $ cd ~/src/Trails/root/
+ ~/src/Trails/root$ mkdir parks
+ ~/src/Trails/root$ cd parks
+ ~/src/Trails/root/parks$ vi list.tt
+
+ &lt;ul>
+ &lt;li>Park 1&lt;/l1>
+ &lt;li>Park 2&lt;/l1>
+ &lt;li>Park 3&lt;/l1>
+ &lt;li>...&lt;/l1>
+ &lt;/ul>
+
+Now hit Reload on that URL and we should see our little list of parks.
+
+(Did you notice that you didn't have to reload the dev server when you changed your templates? You only have to reload the dev server when you change Perl classes, not when you change Template Toolkit files.)
+
+Progress, eh? At this point we're using lots of Catalyst defaults. Let's review what's happening. When we hit the URL <code>/parks/list</code>:
+* Catalyst dispatches to the Controller Parks.pm (<code>lib/Trails/Controller/Parks.pm</code>), the first part of the URL. 
+* It runs the subroutine <code>list()</code>, the second part of the URL. (Subroutines in Controllers that are mapped to URLs are called "Actions.") There's no code in our subroutine, so not much happens in there. -grin-
+** (Pro tip: [http://dev.catalyst.perl.org/attachment/wiki/WikiStart/catalyst-flow.png Catalyst flow chart].)
+* Catalyst uses Template Toolkit to display the template for this "Action." 
+* The default template file has the same path as the URL we're hitting, starting in the template root <code>root/</code>. So this template is <code>root/parks/list.tt</code>.
+
+==WRAPPER==
+
+Often a web site will have lots of common HTML, CSS, and JS above and below the content of any given page. Template Toolkit has a [http://template-toolkit.org/docs/manual/Directives.html#section_WRAPPER WRAPPER directive] that does just that. Let's add one.
+
+ $ cd ~/src/Trails/lib/Trails/View
+ ~/src/Trails/lib/Trails/View$ vi TT.pm
+
+Change this line:
+
+ __PACKAGE__->config(TEMPLATE_EXTENSION => '.tt');
+
+to this:
+
+ __PACKAGE__->config(
+    TEMPLATE_EXTENSION => '.tt',
+    WRAPPER            => 'wrapper.tt',
+ );
+
+Then create a <code>wrapper.tt</code> template like so:
+
+ $ cd ~/src/Trails/root
+ ~/src/Trails/root$ vi wrapper.tt
+
+ &lt;h1>Trails&lt;/h1>
+ 
+ [% content %]
+ 
+ &lt;br>&lt;br>&lt;br>&lt;hr>
+ (c) 2009 Neato Stuff, Inc.
+
+Restart your dev server, hit that URL again, and you should see your header and footer pop in. Add all the fancy graphics, stylesheets, and javascript / flash / whatever you desire.
+
+==Creating and Using a Model==
+
+Most applications use an RDBMS to store data. We'll use SQLite for this application. Once finished, this is easily portable to MySQL or Oracle or Postgres or whatever makes you happy.
+
+There's lots of ways to handle this in Catalyst, and many helpers try to build these things automatically for you. The following is my preferred method. We're going to create a SQLite database manually, and then use <code>[http://search.cpan.org/~ilmari/DBIx-Class-Schema-Loader-0.04006/lib/DBIx/Class/Schema/Loader.pm DBIx::Class::Schema::Loader]</code> to create a static set of <code>[http://search.cpan.org/~frew/DBIx-Class-0.08114/lib/DBIx/Class.pm DBIx::Class]</code> objects that we can use for OO database manipulation.
+
+Often you have many things outside of this one Catalyst application that need to manipulate your database, so let's create a stand-alone ORM, then hook Catalyst to it.
+
+ $ cd ~/src/
+ ~/src$ mkdir Schema
+ ~/src$ cd Schema
+ ~/src/Schema$ vi trailsdb.sql
+
+ create table parks (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    state text,
+    description text
+ );
+ create table users (
+    username text PRIMARY KEY,
+    password text
+ );
+ create table journal_entries (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username text,
+    park_id integer,
+    entry text,
+    timestamp text
+ );
+
+ ~/src/Schema$ sqlite trailsdb.sqlite < trailsdb.sql
+ ~/src/Schema$ vi refresh.sh
+
+ perl -MDBIx::Class::Schema::Loader=make_schema_at,dump_to_dir:../Schema \
+ -e 'make_schema_at("TrailsDB", { debug => 1 }, [ "dbi:SQLite:trailsdb.sqlite" ])'
+
+ ~/src/Schema$ chmod +x refresh.sh
+ ~/src/Schema$ ./refresh.sh
+
+Hey, look at that. <code>DBIx::Class::Schema::Loader</code> auto-discovered our database schema for us and created one class per table. We can now use these classes in any Perl we want to (including our new little Trails application) to manipulate our database via <code>DBIx::Class</code>. That might come in handy. (For the most part, you can hand any <code>DBI</code> connection string for any RDBMS in and this will work. Try it on your databases at $work!)
+
+As a quick tangent, let's see how we might use these classes outside of Catalyst:
+
+ ~/src/Schema$ vi add_a_row.pl
+
+ #!/usr/bin/perl
+ 
+ use TrailsDB;
+ 
+ my $schema = TrailsDB->connect('dbi:SQLite:/home/jhannah/src/Schema/trailsdb.sqlite');
+                                                # ^^^ your username here
+ $new_park = $schema->resultset('Parks')->create({ 
+    id          => 1,
+    state       => 'IA', 
+    description => 'River Valley OHV Park'
+ });
+
+ ~/src/Schema$ export DBIC_TRACE=1
+ ~/src/Schema$ chmod +x add_a_row.pl 
+ ~/src/Schema$ ./add_a_row.pl 
+
+Hopefully this demonstrates that it's easy to use <code>DBIx::Class</code> in little stand-alone programs, and easy to add <code>DBIx::Class</code> to any existing Perl program. Feel free to run whatever mixture of traditional <code>DBI</code> and <code>DBIx::Class</code> you want to in your applications. <code>DBIx::Class</code> is great for CRUD, but I use <code>DBI</code> directly whenever I have complex joins or read-only statistics type SQL to run, or whenever the magic of [http://search.cpan.org/~ribasushi/SQL-Abstract-1.60/lib/SQL/Abstract.pm SQL::Abstract] overwhelms me.  :)
+
+If, at any point, you want to nuke your database and start over, you can do so like this:
+
+ ~/src/Schema$ rm trailsdb.sqlite 
+ ~/src/Schema$ sqlite trailsdb.sqlite < trailsdb.sql
+
+Now let's hook Catalyst into our stand-alone Model.
+
+ $ cd ~/src/Trails/lib/Trails/Model
+ ~/src/Trails/lib/Trails/Model$ vi TrailsDB.pm
+
+ package Trails::Model::TrailsDB;
+ 
+ use strict;
+ use base 'Catalyst::Model::DBIC::Schema';
+ use lib '/home/jhannah/src/Schema';
+              # ^^^ your username
+ use TrailsDB;
+ 
+ __PACKAGE__->config(
+    schema_class => 'TrailsDB',
+    connect_info => [
+        'dbi:SQLite:/home/jhannah/src/Schema/trailsdb.sqlite',
+                        # ^^^ your username
+   ],
+ );
+
+That should do it. Let's run over and start our dev server (or re-start it if you still have in running in a window):
+
+ $ cd ~/src/Trails
+ ~/src/Trails$ ./script/trails_server.pl -k
+
+Catalyst seems happy? Excellent. Let's leave the dev server running in this window, and use our other window to go change our list of parks to pull from the database instead of the hard-coded list we added earlier.
+
+ $ cd ~/src/Trails/root/parks
+ ~/src/Trails/root/parks$ vi list.tt
+
+ List of all parks:
+ &lt;ul>
+ [% FOREACH park IN c.model('TrailsDB::Parks').search({}) %]
+    &lt;li>[% park.description %]&lt;/li>
+ [% END %]
+ &lt;/ul>
+
+Now when we hit our URL again
+
+ http://clab.ist.unomaha.edu:3000/parks/list
+                             ^^^^ your port
+
+We see that our park list comes from our database. Neato.  :)
+
+==Forms==
+
+:''Warning: I use an extremely non-magical approach to handling forms. If you prefer magic, check out [http://dev.catalyst.perl.org/wiki/howtos/forms/formfu FormFu] or [http://search.cpan.org/~mstrout/Reaction-0.002000/lib/Reaction/Manual/Intro.pod Reaction]. If you get those working, please present them at an upcoming meeting, I'd love to see your take on them!  :)  --[[User:Jhannah|Jhannah]] 13:05, 8 December 2009 (UTC)''
+
+Let's add a way to add a park. We'll add it as the URL <code>/parks/add</code>. Since we're using all the Catalyst defaults that means we need a new subroutine <code>add()</code> inside <code>Parks.pm</code>. Let's add it below <code>list()</code>.
+
+ ~/src/Trails/lib/Trails/Controller$ vi Parks.pm
+
+ =head2 add
+ 
+ Add a new park.
+ 
+ =cut
+ 
+ sub add : Local {
+    my ($self, $c) = @_;
+ }
+
+(At this point, you might want 3 PuTTYs open. One for the dev server, one in your Controllers directory, and one in your templates directory (<code>root/parks</code>).)
+
+ ~/src/Trails/root/parks$ vi add.tt
+
+ &lt;form>
+ &lt;input name="state"> State&lt;br/>
+ &lt;input name="description"> Description&lt;br/>
+ &lt;input type="submit" value="add park">
+ &lt;/form>
+ 
+ [% INCLUDE parks/list.tt %]
+
+Restart your dev server and hit your URL
+
+ http://clab.ist.unomaha.edu:3000/parks/add
+                             ^^^^ your port
+
+We'll discuss everything that happened here briefly. Check out the dev server output every time you submit the form.  :)
+
+But you'll notice that new parks are not actually being added to the database. Let's add code that makes that happen to our Controller. 
+
+ ~/src/Trails/lib/Trails/Controller$ vi Parks.pm
+
+ =head2 add
+ 
+ Add a new park.
+ 
+ =cut
+ 
+ sub add : Local {
+    my ($self, $c) = @_;
+    if ($c->req->param) {
+       $c->model('TrailsDB::Parks')->create({
+          state       => $c->req->param('state'),
+          description => $c->req->param('description'),
+       });
+    }
+ }
+
+Cool. We've now added a zero-security method of adding parks to the database. I can't see what state each park is in though. Bummer. Let's tweak our list.tt template, adding the state field:
+
+ ~/src/Trails/root/parks$ vi list.tt 
+
+ List of all parks:
+ &lt;ul>
+ [% FOREACH park IN c.model('TrailsDB::Parks').search({}) %]
+    &lt;li>[% park.description %] ([% park.state %])&lt;/li>
+ [% END %]
+ &lt;/ul>
+
+Ahh... much better.  :)
+
+In a real application, or course, you can't just let anybody add any garbage to your database. You'll need authentication, authorization, and form validation.
+
+
+

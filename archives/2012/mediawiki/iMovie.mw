@@ -1,0 +1,11 @@
+To import .avi files:
+
+First install Perian, which lets Finder preview your stuff.
+
+Then use MPEG Streamclip.app:
+* File > Export to QuickTime.
+* Select the Apple Intermediate Codec.
+
+Now you've got .mov files that iMovie will actually load.
+
+iMovie: File > Import > Movies

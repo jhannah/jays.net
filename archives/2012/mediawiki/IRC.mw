@@ -1,0 +1,30 @@
+1 hour ban: <code>/knockout 3600 brianfreud</code>
+
+IRC bots in action...
+
+* [http://github.com/dagbrown/flooterbuck/ #catalyst purl is a flooterbuck]
+
+ #poe
+ 04:54 <+LotR> no purl, be jhannah is <reply>\what did you call me!
+ 04:54 < purl> okay, LotR.
+ 04:54 <+LotR> purl, be jhannah =~ s/!/?!/
+ 04:54 < purl> OK, LotR
+ 04:54 <@jhannah> purl, be jhannah
+ 04:54 < purl> what did you call me?!
+
+==irc.perl.org #catalyst: purl==
+
+ 19:01 < netp> Pedro?
+ 19:01 < purl> Pedro is pitching today
+ 19:01 <@hobbs> purl, no, pedro is <reply>One Pedro does not a team make.
+ 19:01 < purl> okay, hobbs.
+ 19:01 < jhannah> pedro?
+ 19:01 < purl> One Pedro does not a team make.
+
+==irc.freenode.net #R: R==
+
+ 14:51 < mdsumner> eval: df <- data.frame(x = 1:4, y = rnorm(4));sum(unlist(lapply(df, length)))
+ 14:51 < R> mdsumner: [1] 8
+ 14:51 < mdsumner> eval: df <- data.frame(x = 1:4, y = rnorm(4));nrow(df) * ncol(df)
+ 14:51 < R> mdsumner: [1] 8
+

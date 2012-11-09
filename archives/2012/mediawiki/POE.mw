@@ -1,0 +1,40 @@
+'''[http://poe.perl.org POE]''' is a framework for creating event-driven cooperative multitasking programs in Perl.
+
+* [http://poe.perl.org/?POE_Cookbook/Chat_Server Chat server demo]
+* [http://search.cpan.org/~rcaputo/POE-1.0000/lib/POE.pm POE]
+* [http://search.cpan.org/~rcaputo/POE-1.0000/lib/POE/Component/Server/TCP.pm POE::Component::Server::TCP]
+** [http://search.cpan.org/~rcaputo/POE-1.0000/lib/POE/Filter.pm POE::Filter]
+*** [http://search.cpan.org/~rcaputo/POE-1.0000/lib/POE/Filter/Line.pm POE::Filter::Line]
+* [http://search.cpan.org/~kesteb/POE-Component-Client-Stomp-0.05/lib/POE/Component/Client/Stomp.pm POE::Component::Client::Stomp]
+** [http://search.cpan.org/~lbrocard/Net-Stomp-0.32/lib/Net/Stomp/Frame.pm Net::Stomp::Frame]
+** [http://search.cpan.org/~lbrocard/Net-Stomp-0.32/lib/Net/Stomp.pm Net::Stomp]
+*** Apache [http://activemq.apache.org ActiveMQ]
+* [http://search.cpan.org/~apocal/POE-Component-SSLify-0.10/lib/POE/Component/SSLify.pm POE::Component::SSLify]
+** [http://www.perl.com/pub/a/2004/07/22/poe.html tutorial]
+
+==Passing messages between sessions==
+
+ 13:51 <+integral> POE has a mechanism for passing messages between sessions, would
+                   that help?
+ 14:14 <@dngor> magnet_: post() and alias_set()
+ 14:14 <@dngor> perldoc POE::Kernel
+
+==POE::Filter::Line==
+
+ 13:05 < jhannah> sanity check:   I'm receiving a stream of XML blocks via TCP.
+                  Between each XML block is the ASCII 00 character (\x00). In
+                  POE-land I'm thinking I should define a POE::Filter::Line with an
+                  \x00 delim, and everything's golden?
+ 13:06 <@dngor> sounds good to me
+ 13:06  * jhannah jumps for joy, giddy with excitement
+ 13:06 <@dngor> The only potential insanity: If the last block isn't terminated by
+                \0 it won't be returned by the filter.
+ 13:07 <@dngor> May be significant if the \0 is a separator rather than a terminator.
+ 14:18 < jhannah> dngor: Thank you. I consider \x00 a record terminator, so if the
+                  sender doesn't send \x00 and disconnects, then shame on them and
+                  their last message is not processed.
+ 14:42 < jhannah> laugh.... actually my XML payload is in the middle, here:
+                  /^\x02(.*?)\x03/ ... I'm not sure POE::Filter::Line handles
+                  this...  :)
+
+

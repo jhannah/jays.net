@@ -1,0 +1,64 @@
+My [http://www.perlfoundation.org/perl5/index.cgi?darkpan DarkPANs] and how I'm wrestling them lately. --[[User:Jhannah|jhannah]] 19:55, 4 February 2010 (UTC)
+
+I work in a couple different "ball of mud" environments where we create and maintain dozens/hundreds of applications, mostly written in Perl. We Develop/QA them somewhere and tag a new release candidate. Once approved, we deploy that tag to Production servers. We deploy all ~50 applications all at once in a single "svn checkout" command. Awfully convenient deployment. 
+
+Lately we've decided we want the same methodology for our CPAN dependencies. We want to version our CPAN stack so that we know for sure that the latest-greatest release of a module ({{cpan|DBIx::Class::Schema::Loader}} 0.05000 for example) works fine as far as our software is concerned, and that all Production servers we deploy to are using that, and only that, version. We have ~70 CPAN dependencies nowadays, so betting on "latest from CPAN" for these 5 servers we just (re-)built is a pretty big gamble. We lose that bet occasionally and want to avoid it.
+
+(Some day we'll probably be using entire server images instead of just versioning our CPAN stack, but we're not there yet. Amazon EC2? VMWare?)
+
+You'll see "Omni2" throughout this document. That's $employer[0].
+
+So, I've taken up {{cpan|local::lib}} this week. It lets me install CPAN dependencies into ~/src/Omni2_local_lib as jhannah (not root! woot!). If that install works for me, I "svn add; svn commit" all those files. If that install is not compatible, I just nuke the directory and back up to a previous revision. Suddenly installing CPAN modules feels far less dangerous and irreversible, especially if your backed into a corner doing it on Production (eep!).
+
+And if you're shooting for a major version transition of a large dependency like {{cpan|Catalyst}} requiring significant refactoring, working your code and your CPAN dependency stack in branches is very comforting.
+
+Below, our new SOPs that I'm writing that detail how to get the job done. 
+
+==Deploying Omni2 to QA/Production==
+
+ cd /usr/lib/omni
+ svn checkout svn://etl/Omni2/tags/ThisTag Omni2
+ svn checkout svn://etl/Omni2_local_lib/tags/ThisTag Omni2_local_lib
+
+ /etc/profile.local:
+ export PERL5LIB=/usr/lib/omni
+ export PERL5LIB=/usr/lib/omni/Omni2_local_lib/lib/perl5:$PERL5LIB
+ export PERL5LIB=/usr/lib/omni/Omni2_local_lib/lib/perl5/i586-linux-thread-multi:$PERL5LIB
+
+ Verify that users don't wipe out PERL5LIB in their ~/.profile or ~/.bash_profile:
+ OK:     export PERL5LIB=/home/jhannah/src:$PERL5LIB
+ WRONG:  export PERL5LIB=/home/jhannah/src
+
+==Add/update CPAN packages (Omni2_local_lib) on Development==
+
+Some CPAN stuff is compiled. You have to add the .so and .al files (and others?)
+that are created into Omni2_local_lib. But by default, SVN ignores those files 
+so you won't see them at all or you'll see status 'I' in svn stat. So change your 
+SVN config.
+
+ ~/.subversion/config:
+ global-ignores =
+
+Now you're ready to use your own home directory to experiment with new CPAN modules. 
+If you're doing any major upgrades you might want to branch instead of experimenting
+directly in trunk.
+
+ cd ~/src/
+ svn checkout svn://etl/Omni2/trunk Omni2
+ svn checkout svn://etl/Omni2_local_lib/trunk Omni2_local_lib
+ perl -MCPAN -Mlocal::lib=Omni2_local_lib -e 'CPAN::install(GD)'
+
+Make sure that perl is using your local checkouts instead of other libraries. '''This is the opposite of QA/Production.'''
+
+ ~/.profile:
+ export PERL5LIB=~/src/
+ export PERL5LIB=~/src/Omni2_local_lib/lib/perl5:$PERL5LIB
+ export PERL5LIB=~/src/Omni2_local_lib/lib/perl5/i586-linux-thread-multi:$PERL5LIB
+
+Now test your Omni2 code to see if your CPAN upgrades worked and didn't break anything.  
+
+If everything looks good then you'll commit your changes to Omni2_local_lib
+
+ svn stat; svn diff; svn add; svn commit
+
+

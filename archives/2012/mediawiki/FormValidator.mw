@@ -1,0 +1,92 @@
+==April 8, 2009==
+<pre>
+16:24 <@jhannah> t0m: can I whine about being perfectly happy with Catalyst-Plugin-FormValidator? You marked it deprecated 6 days ago.
+16:25 <@castaway> jhannah: you could rewrite as not a plugin ;)
+16:25 <@jhannah> So if I moved it to Catalyst::View::Role::FillInForm and Catalyst::Controller::Role::FormValidation
+16:25 <@jhannah> everyone would be happy?
+16:25 <@castaway> role?
+16:26 <@castaway> I dunno, whats current $trend ? ;)
+16:26 <@rafl> eww.. '::Role::' in role names :-)
+16:26 <@jhannah> that was mst's suggesions. I don't know anything about roles
+16:27 <@jhannah> who says "Data::FormValidator itself is not recommended for use" ?
+16:27 <@jhannah> that package is not marked deprecated
+16:28 <@castaway> good Q that
+16:28 <@castaway> dice tossing?
+16:28 <@jhannah> t0m r9643
+16:29 <@jhannah> seen t0m?
+16:29 < purl> t0m was last seen on #catalyst 4 hours, 43 minutes and 48 seconds ago, saying: dhoss: kd, I think.
+17:14 <@t0m> jhannah: gnip, looking
+17:15 <@t0m> jhannah: and yes, DEPRECATION
+17:16 <@jhannah> t0m: who says "Data::FormValidator itself is not recommended for use" ?
+17:17 <@t0m> me
+17:17 <@t0m> formvalidator validates content
+17:17 <@t0m> not structure
+17:18 <@t0m> FAIL
+17:18 <@jhannah> ok, so mst's Catalyst::Controller::Role::FormValidation suggestion is DOA too?
+17:19 <@jhannah> trying to plan my production transition to SomethingElse
+17:19 < confound> are FormValidation and FormValidator the same thing?
+17:19 <@jhannah> ya. sorry
+17:19 <@jhannah> err... I don't know if that was my typo or mst's suggestion
+17:20 <@jhannah> since my happy production MyApp's rug has been yanked  :)
+17:20 <@t0m> jhannah: Well, my big issue with DFV is that if you have it @stuff, it could say yes, when @stuff wasn't what you expected..
+17:20 <@t0m> especially in the case where you had ?param=value1&param=value2
+17:20 <@t0m> and you get { param => [qw/ value1 value2 /] }
+17:21 <@t0m> if your solution fixes (or doesn't fall for) that evil.
+17:21 <@t0m> Then all is well.
+17:21 <@t0m> Please make marcus ship code with a better deprecation notice :)
+17:21 <@t0m> I've just been attacking things uninformed people accidentally fell over, which have been untouched for 3 years.
+17:22 <@t0m> And then complained about on the list.
+17:22 <@jhannah> -ponder- so if I can write a test which shows this hypothetical I don't yet understand, and then patch it, then it might be undeprecated?
+17:22 <@jhannah> and/or I'd be happy to be the official finger of blame until I $transition
+17:22 <@t0m> jhannah: No, as its a plugin :) But the underlying module itslef, I'm sure can be used less evily :)
+17:23 <@t0m> the issue is where you end up with some_function(%params);, or more specifically, some_function( param1 => $c->req->param('param1') );
+17:24 <@jhannah> so plugins are uncool and are to be killed?
+17:24 <@t0m> as if ?param1=one&param1=two
+17:24 <@t0m> then bad things happen.
+17:24 <@t0m> Unless you _need_ to fiddle with dispatch, its not a plugin
+17:24 <@t0m> adding random shit to $c is evil
+17:24 <@t0m> I want multiple form processors in one app.
+17:25 <@t0m> This conversation validates how there is no one right solution ;)
+17:25 <@rafl> (although probably not as evil as the hacks we pull to keep it working in 5.8 ;-)
+17:25 <@t0m> And if the only solution is $c->form
+17:25 <@jhannah> ok. I'm happy to do The Right Thing. this is production, so they'll pay me to transition to $something_else so... just trying to figure out what that is
+17:25 <@t0m> Then you're totally screwed for changing over, ever :)
+17:25 <@t0m> $self->form - totally fine
+17:26 <@t0m> that can be on a controller by controller basis :)
+17:26 <@t0m> which is a small enough chunk to convert at once..
+17:26 <@t0m> rafl: Are you calling my code a hack?
+17:26 <@t0m> bah
+17:27 <@t0m> you're still sore as B::Hooks::EndOfScope didn't do what I wanted
+17:27 <@t0m> <grin>
+17:27 <@rafl> yeah, that too. but that's fine now you use one of my other B::Hooks to get the dev server restarting right ;-)
+17:28 <@jhannah> $c->form evil, $self->form ok? but *::Plugin::* namespace is dead regardless? ... What Catalyst namespace would be acceptable if I make Data::FormValidator use less evil?
+17:29 <@rafl> a controller role or at least baseclass
+17:29 <@jhannah> or do I need to punt all my stuff to Catalyst::Controller::FormBuilder?
+17:29 <@t0m> jhannah: Catalyst::Controller::FormValidator is fine :) It's a controller base class (or perhaps a role?)
+17:29 <@jhannah> oh, ok. want me to write that on github.com? or start writing it in Cat SVN somewhere?
+17:30 <@t0m> the point being anything you can compose onto a subsection of your app, as opposed to applying to your whole app
+17:30 <@jhannah> roger that
+17:30 < confound> jhannah: *::Plugin::* isn't dead, just very, very overused
+17:30 <@t0m> jhannah: either/or, cat svn _slightly_ prefered from my end right now
+17:30 <@t0m> Only because I haven't taught the smoke tests about git
+17:31 <@jhannah> is it cool to Module::Starter an "svn mkdir" in the Cat repo then?
+17:31 <@rafl> jhannah: either is fine. in my experience you get a lot more contributions from others by using github tho :-)
+17:32 <@t0m> jhannah: CX::Starter is worthwhile IMO
+17:35 <@jhannah> t0m: So it's cool if I "svn mkdir Catalyst-Controller-FormValidator" in http://dev.catalyst.perl.org/repos/Catalyst/trunk/ and grab another C::C::* as a template to get started?
+17:35 <@t0m> jhannah: yes. You may not be able to as you don't have those permissions.
+17:36 <@t0m> jhannah: if so yell
+17:36 <@t0m> it shall be sorted
+17:38 <@jhannah> woot! r9668
+17:38 <@jhannah> I'm unstoppable!  mwoohahahhahahaha
+17:39 <@t0m> Good man
+17:40 <@t0m> well volunteered
+17:40  * jhannah wonders if anyone will notice an svn cp of Catalyst::Plugin::FormValidator
+17:40  * jhannah ducks, hides back in his little SVN hole
+17:42 <@jhannah> t0m: you volunteered me by pushing my $production off the DEPRECATED cliff   ;)   well played, sir
+17:44 <@t0m> awesome.
+17:44 <@hobbs> t0m is THE DEPRECATOR
+17:44 <@t0m> I'll do that more
+17:44 <@t0m> purl: t0m is also THE DEPRECATOR
+17:44 < purl> okay, t0m.
+</pre>
+

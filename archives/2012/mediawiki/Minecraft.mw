@@ -1,0 +1,60 @@
+==Welcome to the BeefLands!==
+
+If you get insanely lost you can toggle F3 and run to the x, z coordinates listed here.
+
+'''x''' is east, '''z''' is south
+
+x -424
+y 64
+z -440
+new PolishHammer1856, themontwurst, Cmswagers home
+
+x -541
+y 83
+z 793
+kurtpavlik7, Cornhuskersfan home
+
+x -1
+y 67
+z -36
+Church of Alvis, original PolishHammer1856, themontwurst, Cmswagers home
+
+x -1154
+y 65
+z 287
+stronghold west of roller coaster
+
+x -519
+y 16
+z 119
+exit back to tunnel (under roller coaster)
+
+x 1318 
+y 27
+z 1639
+started spelunking w/ Dave
+
+x 1448
+y 12
+z 1692
+cool cavern spelunking w/ Dave
+
+x 1466
+y 69
+z 1735
+exit we made spelunking w/ Dave
+
+x -368
+z 311
+Dave's glass tower, town square ('''all the original buildings''')
+
+x -844
+z 720
+Another NPC village
+
+==Items and Stuff==
+
+http://www.minecraftwiki.net/wiki/Data_values
+  /give deafferret 358 1 0        map qty map#
+
+

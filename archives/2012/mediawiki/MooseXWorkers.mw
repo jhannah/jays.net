@@ -1,0 +1,20 @@
+Source code: [http://github.com/jhannah/moosex-workers MooseX::Workers]
+
+Brainstorming. --[[User:Jhannah|Jhannah]] 16:00, 12 May 2009 (UTC)
+
+We have 6 nightly batch processes that do basically the same thing. The file formats of each and delivery mechanisms are very different, but they are all launched at midnight or so, connect out to 40 different sites gathering data, compose that data in their unique formats, send that data somewhere, and exit. Along the way all kinds of things can go wrong, which need to be handled.
+
+Right now 2 of those programs are already derivations of [http://poe.perl.org/?POE_Cookbook/Child_Processes_3 POE Cookbook: Child Processes 3], which works great. But there are slight variations in each and I don't want to copy/paste/compile that stuff 4 additional times. So I'm thinking I'll write a reusable, Moosey class where you provide attributes and overload whatever methods you want, and you're done. The plumbing is a derivation of "Child Processes 3" under the hood.
+
+Source code: [http://github.com/jhannah/moosex-workers MooseX::Workers]
+
+So a tree at $work might be
+
+ x.pl
+   MyRunner (inside x.pl)
+     Omni2::View::Runner
+       MooseX::Workers
+         Moose
+         POE
+
+

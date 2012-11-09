@@ -1,0 +1,64 @@
+<pre>
+http://search.cpan.org/dist/perl-5.10.0/pod/perl5100delta.pod#Defined-or_operator
+
+http://perldoc.perl.org/perlop.html
+
+irc.perl.org #perl-help
+
+11:08 <@jhannah> what doc does ||= live in?
+11:09 < apeiron> perlop
+11:10 < apeiron> It's under Assignment Operators.
+11:10 <@jhannah> it's mentioned there, but not explained really?
+11:11 <@jhannah> I'm in Perl 5.8.8  hmmm
+11:11 < apeiron> a op= b is the same as a = a op b
+11:11 < apeiron> Feel free to send a doc patch. :)
+11:11 <@jhannah> ya... -ponder-
+11:14 <@jhannah> and with //= you're totally up a creek?
+11:14 <@jhannah> cause // is only explained in terms of regex
+11:15 < apeiron> //= is new in 5.10.
+11:15 < apeiron> Unless you're on FreeBSD?
+11:15 < apeiron> FreeBSD's perl maintainer backported // and //= before dropping off the face of the planet.
+11:15 <@jhannah> ya. I'm reading 5.10 docs now.  http://perldoc.perl.org/perlop.html
+11:15 <@jhannah> and //= isn't explained at all?
+11:16 < apeiron> It's explained in terms of the op= stuff.
+11:17 <@jhannah> it is? where is // explained outside of regex stuff?
+11:19 <@jhannah> here... but not in perlop?  http://search.cpan.org/dist/perl-5.10.0/pod/perl5100delta.pod#Defined-or_operator
+11:20 < apeiron> C-style Logical Defined-Or
+11:20 < apeiron> ^ that's the heading
+11:20 < apeiron> Basically it works like || except it looks at definedness rather than truth.
+11:20 < apeiron> (which is handy if you have things like 0)
+11:21 <@jhannah> ya. I know what it does, but couldn't find the doc for it.  yes, you're right. // is there. I will send a patch adding //=
+11:21 < apeiron> Be aware that //= is explained along with all the other op= stuff.
+11:22 < apeiron> So I can't say whether a patch specifically detailing //= would be accepted.
+11:22 < apeiron> If the op= stuff is unclear, then please do clarify it. :)
+11:22 < apeiron> It's clear to me, so I can't see how someone wouldn't understand it.
+11:22 <@jhannah> understood. ... eek. so much simpler to have a 2 line example saying exactly what //= does
+11:23 <@jhannah> I search for //=, can't find it. Can't be bothered to spend an hour scratching the surface of understanding perlop...
+11:23 <@jhannah> apeiron: I understand what you're saying.
+11:24 < apeiron> jhannah, Odd, I found //= in my 5.10 docs.
+11:24  * jhannah boggles
+11:24 < apeiron> jhannah, Are you using perldoc on unix?
+11:24 <@jhannah> http://perldoc.perl.org/perlop.html
+11:24 < apeiron> Yeah, I found it there, too.
+11:24 <@jhannah> it says 5.10.0
+11:25 < apeiron> If your Web browser applies regular expressions to searches, you'll need to escape the two / in the expression.
+11:25 <@jhannah> it's listed in "Assignment Operators", but not explained
+11:25 <@jhannah> and "//" is mentioned in regex stuff a billion times
+11:26 <@jhannah> so I couldn't find the magical "C-style Logical Defined-Or" connection to "Assignment Operators"
+11:26 <@jhannah> so if I hadn't read that perldelta months ago, I never would have figured out what //= does  :)
+11:27 <@jhannah> so I'll submit a 4 line patch and whoever can reject it as redundant if they want to  :)
+11:27 <@jhannah> it would certainly help me and this dude in #bioperl  :)
+11:27 < apeiron> // is explained as the C-style [...] bit first in perlop.
+11:27 < apeiron> Before the regex stuff.
+11:27 < apeiron> So a search, properly escaped from any regex engine, would have turned it up quickly.
+11:28 <@jhannah> no, the first mention of // is "Quote and Quote-like Operators"
+11:28 <@jhannah> "Pattern match"
+11:28 < apeiron> Quote and Quote-like Operators is later in perlop than C-style Logical Defined-Or.
+11:28 < apeiron> Or at least it is in my local copy and on the page you linked me to. :)
+11:29 <@jhannah> ah, yes. I was doing (1) search for //=  (2) search for //, which started searching from first search down  :)
+11:29 <@jhannah> anyhoo, I've spent too much time on this already  :)
+11:30 <@jhannah> apeiron: thanks for the help. I understand the perlop doc better now
+11:30 <@jhannah> apeiron++  # any bots listening?
+11:31 -!- mode/#perl-help [+o apeiron] by jhannah
+</pre>
+

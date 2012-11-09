@@ -1,0 +1,113 @@
+[[Category:Omaha Perl Mongers]]
+I've been hacking Perl for about 10 years now. When I say that I feel really old. I'm 28, I've lived in Omaha for 5 years. For 3 years I've been Applications Development Manager for Omni Hotels' Central Reservation Center in Old Mill. We have 5 programmers that are versed in Perl to varying degrees. We sit on 1/4 million lines of Informix 4GL source code which we're migrating to Perl and VB.NET if my latest plot for global domination comes to fruition. -grin-
+
+My strongest Perly skill sets are in DBI.pm (DBD::Informix and DBD::Sybase (freetds to MS-SQL) primarily) and CGI.pm. I'm pretty much a professional data monkey, bending largish database to whatever purpose and building misc. connectivity conduits to them. We're hell bent on OOP Perl lately (rewriting our core business engines), so that's been fun.
+
+I was curious, so I wrote the little diddy below, which pulls the 'use XXX;' statements out of our CVS repository. I have a good to passing familiarity with most of those modules. Please forgive the fodder.
+
+What are the plans for Omaha.pm? I'd love to see some basic membership info and bios on the website. I think it'd be great to have meetings to help newbies, teach misc. modules, get to know a bunch of people, etc... I'd love to pull a Perl celebrity to Omaha some day if we can get the head count up...
+
+Of course I'm the new guy, so feel free to tell me to shut up and sit down. -grin-
+
+Cheers,
+
+[[Jay]]
+
+<pre>
+open (IN, "find /cvs |");
+while (<IN>) {
+   next unless (/\.(pl|pm),v$/);
+   open (IN2, $_);
+   while (<IN2>) {
+      next unless (($used) = (/^use (.*?)[ ;]/));
+      next if (/(Omni|Model|Control)/);  # Skip these (Omni OOP)
+      $cnt{$used}++;
+   }
+   close IN2; 
+}
+close IN;
+
+foreach (sort keys %cnt) {
+   print "$_ $cnt{$_}\n";
+}
+
+AnyDBM_File 1
+Apache::Session 1
+Apache::Session::File 1
+BB_vars 20
+CGI 144
+CGI::Carp 51
+CRS 3
+Carp 133
+Class::DBI 1
+Convert::EBCDIC 2
+Crypt::PasswdMD5 1
+Crypt::Rot13 1
+Crypt::SSLeay 1
+Cwd 3
+DBD::Informix 1
+DBD::Sybase 1
+DBI 140
+DBI::DBD 107
+Data::Dumper 1
+Date::Calc 294
+Date::Calc(Today_and_Now) 1
+Expect 5
+Fcntl 2
+File::Copy 1
+File::Find 4
+FileHandle 106
+FileHandle() 5
+GD 1
+GD::Graph::area 1
+GD::Graph::bars 3
+GD::Text 1
+Getopt::Long 2
+HotelResRQ 1
+HotelResRS 1
+HotelReservations 1
+IO::Handle 2
+IO::Socket::INET 1
+IPC::Open2 1
+Informix_env 126
+LWP::Simple 1
+MD5 1
+MIME::Base64 1
+Mail::Folder::Mbox 1
+Mail::POP3Client 1
+Net::DNS 1
+Net::Domain 5
+Net::FTP 30
+Net::LDAP 2
+Net::LDAP::Constant 1
+OTA 1
+PDF::Create 5
+POSIX 3
+Proc::ProcessTable 1
+SOAP::Lite 2
+Socket 8
+Spreadsheet::ParseExcel 1
+Spreadsheet::WriteExcel 2
+Sybase_env 33
+Sys::Hostname 1
+Term::ANSIColor 1
+Term::Cap 1
+Term::ReadKey 1
+Time::HiRes 3
+Time::localtime 1
+VCS::Rcs::Parser 1
+View::OTA::HotelResRQ 6
+View::OTA::HotelResRS 4
+Win32 2
+XBase 1
+XML::Parser 1
+XML::Twig 7
+base 1
+constant 2
+diagnostics 1
+strict 416
+the 1
+vars 131
+</pre>
+
+

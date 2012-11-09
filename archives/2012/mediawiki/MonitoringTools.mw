@@ -1,0 +1,16 @@
+Our Big Brother 1.9e from 2004 is quite long in the tooth.
+ 
+If you were going to start over today what open source monitoring system would you install to watch your servers / disk / processes / etc and do paging / email notifications, and escalation? --[[User:Jhannah|Jhannah]] 12:32, 16 April 2009 (UTC)
+
+[http://lists.olug.org/pipermail/olug/2009-April/025415.html Email thread]
+
+* [http://www.nagios.org/ Nagios] - 9 votes
+* [http://www.zabbix.com/ Zabbix] - 2 votes
+* [http://www.zenoss.com/ Zenoss] - 1 vote
+* [http://www.opennms.org/ OpenNMS] - 1 vote
+* [http://www.cacti.net/ Cacti] - 1 vote
+* [http://munin.projects.linpro.no/ Munin] - 1 vote
+* [http://www.hyperic.com/ Hyperic] - 1 vote
+* [http://bb4.com/ Big Brother] - 0 votes
+
+

@@ -1,0 +1,36 @@
+ confound deiter
+ Sartek sean
+
+ git://jules.scsys.co.uk/gitmo/Moose.git
+   -> mirrors to
+      http://github.com/nothingmuch/moose/tree/master
+ 
+ git clone gitmo@jules.scsys.co.uk:Moose.git
+ 
+ 1.6 feature (can't use):
+ git checkout -t origin/attribute_helpers
+    local tracking branch w/ same short name
+ 
+ cmu-339774:~/src/moose jhannah$ git checkout origin/attribute_helpers
+ Note: moving to "origin/attribute_helpers" which isn't a local branch
+ If you want to create a new branch from this checkout, you may do so
+ (now or later) by using -b with the checkout command again. Example:
+   git checkout -b <new_branch_name>
+ HEAD is now at e3c07b1... copy in and rename AttributeHelpers
+ cmu-339774:~/src/moose jhannah$ git checkout -b attribute_helpers
+ Switched to a new branch "attribute_helpers"
+ 
+ git pull origin attribute_helpers
+
+===Shake and Bake! And I helped!===
+
+MooseX::AttributeHelpers -> Moose::AttributeHelpers
+
+ provides -> handles
+ curries -> merged into handles
+ 
+ 15:40 <@Sartak> jhannah: git config --global alias.record '!git add -p && git commit'
+ 15:40 <@Sartak> then "git record"
+
+
+

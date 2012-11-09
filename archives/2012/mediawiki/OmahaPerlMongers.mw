@@ -1,0 +1,49 @@
+[[Category:Omaha Perl Mongers]]
+[[Category:User Groups]]
+[[Image:Omaha.pm.jpg|frame]]
+__NOTOC__
+Welcome! Omaha.pm is the Omaha, Nebraska, USA Perl users group.
+
+[http://www.perl.org Perl] is a computer programming language popular for a wide variety of tasks. [http://omaha.pm.org Perl Mongers] are programmers/dabblers of all skill levels interested in learning more about programming Perl, programming other languages, and general computer geekiness.
+
+Join our mailing list and come to our meetings! We welcome new members of all skill levels. New to computer programming and motivated to learn? You're in luck! Perl is free, and so are our meetings, mailing list, etc.
+
+Chat with us in IRC! [http://webchat.freenode.net/?channels=omaha.dev #omaha.dev] [http://widget.mibbit.com/?settings=a113650009300eee3f63869556cd53e3&server=irc.perl.org&channel=%23perl-help #perl-help] [http://widget.mibbit.com/?settings=a113650009300eee3f63869556cd53e3&server=irc.perl.org&channel=%23mongers #mongers]
+
+==Mailing List==
+
+Our email mailing list is the primary vehicle for monger chat. To subscribe, unsubscribe, see the archive, get help, etc, click here:
+
+* http://www.pm.org/mailman/listinfo/omaha-pm 
+
+If you just subscribed, go ahead and introduce yourself to the list -- we won't bite and we like to know when people join up.
+ 
+ Before 5/24/2004 we used Majordomo instead of MailMan. 
+ Archives: [http://jays.net/omaha.pm.org/emails/2004/maillist.html 1/1/2004 - 5/24/2004], [http://jays.net/omaha.pm.org/emails/2003/maillist.html 2003], [http://jays.net/omaha.pm.org/emails/1998-2002/maillist.html 1998-2002]. 
+ Re-live those memories! -grin-
+
+==Meetings==
+We organize Perl-specific meetings whenever anyone requests that we do so on the mailing list.
+
+Every month we crash the [http://odlug.org Omaha Dynamic Language Users Group] meetings and sneak Perl into every solution. :)
+
+Peruse and add yourself to the [[ODynUG|presentation wish/volunteer list]]. Check out out [[meeting history]].
+
+==Misc==
+* [[Omaha Perl Mongers - Member Bios|Member Bios]]
+* [[ODynUG#Version_Control|git, svn repositories]]
+* Other [[Omaha User Groups]], [[Local Organizations Who Use Perl]]
+* [[Local Perl Swag]], [[Our Mascot]]
+* [http://clamtk.sourceforge.net/ ClamTK] - Dave M.: GUI front-end for ClamAV (virus scanner) using gtk2-perl
+* [http://clab.ist.unomaha.edu/ CLAB] and [http://gsaf.ist.unomaha.edu/ GSAF] - Jay and Kiran running amok with [http://omaha.pm.org/kwiki/index.cgi?BioPerl BioPerl]
+* Book library
+** Jay, i have 3 of the Perl books from the late RebootTheUser library. MacOSX for Linux Users(?), Perl (Camel), Perl References, Modules, and ... (LLAMA). --Rob Townley 
+** The rest of the library is in the back of my car since I'm not where to put it. :)  --[[User:Jhannah|Jhannah]] 18:40, 14 March 2009 (UTC)
+* [[Perl Examples]] scratchpad.
+* Whatever else anyone wants to put here -- got for it!
+
+==Presentations==
+* [[ODynUG|Wish / volunteer list]]
+* "[[ChemChains sandbox]]" lightning talk [http://conferences.mongueurs.net/yn2008/talk/1411 abstract] and [[Media:Chemchains_yapc na_2008.pdf|slides]] by [[User:Jhannah|Jay Hannah]], YAPC::NA 2008.
+* [[Media:Perl_Bio.pdf|"Introduction to Perl and Bioinformatics"]] by [[User:Jhannah|Jay Hannah]], 2006
+* Old [http://omaha.pm.org/presentations/ presentations archive]

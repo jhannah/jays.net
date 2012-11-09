@@ -1,0 +1,16 @@
+ Routes
+ 11.81  x2     23.62m
+ 4.2    x2     8.4m 
+ 
+ motor 50 mpg
+ truck 16 mpg
+ 
+ Option 1:
+ Drive truck the whole way.
+ 23.6m  16miles/gallon    1.47g 
+ 
+ Option 2:
+ Drive truck  8.4m        0.5g
+ Drive motor  23.6m       0.5g
+                          1.0g
+

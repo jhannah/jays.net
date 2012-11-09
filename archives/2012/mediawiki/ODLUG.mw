@@ -1,0 +1,83 @@
+__NOTOC__
+[[Category:Omaha Perl Mongers]]
+[[Category:User Groups]]
+'''Official homepage: http://odlug.org'''
+
+This wiki is overflow for whenever wikis are handy.  :)
+
+[[Meeting history]]
+
+===Wish List===
+
+Have a topic you wish someone would present on? Add it here. 
+
+* XML manipulation. I'm always looking for cooler ways to read and manipulate large, complex XML documents. --[[User:Jhannah|Jhannah]] 05:47, 8 May 2008 (CDT)
+* Any application of [http://en.wikipedia.org/wiki/Graph_theory graph theory]. --[[User:Jhannah|Jhannah]] 05:47, 8 May 2008 (CDT)
+* Add your wish here!
+
+===Volunteers===
+
+What have you been working on recently? Willing to give a 5 minute talk on it? Longer? Great! Add yourself here.
+
+* [[User:Jhannah|Jay Hannah]]. Stuff I like that I've been working with recently (Perl / Bioinformatics):
+** [[ChemChains sandbox]]
+** [http://catalyst.perl.org/ Catalyst] the elegant MVC framework, makes web development something you had never expected it to be: Fun, rewarding and quick. 
+** [http://search.cpan.org/~ash/DBIx-Class-0.08010/lib/DBIx/Class.pm DBIx::Class] ORM (Object-Relational Mapper) database fanciness. From schemas to OO manipulation in 7 seconds.
+** [http://www.iinteractive.com/moose/ Moose] is a postmodern object system for Perl 5 that takes the tedium out of writing object-oriented Perl.
+** [http://search.cpan.org/~mirod/XML-Twig-3.32/Twig.pm XML::Twig] for low-pain XML I/O.
+** [http://poe.perl.org POE] is a framework for creating event-driven cooperative multitasking programs.
+*** An IRC-style chat server in < 50 lines of code. 
+*** POE + Stomp + [http://activemq.apache.org/ Apache Active MQ] (JMS (Java Messaging Service)) for complex message queue management.
+** Pick any [http://cpan.org CPAN] package that interests you. I'll learn it and present it. :)
+** Intro to DNA sequence inspection and manipulation w/ [http://www.bioperl.org BioPerl.]
+
+* Matt Secoske Topics:
+** Languages: Groovy, Ruby [someday: lisp, Io, Javascript, Scala]
+** Web Frameworks in dynamic languages (*ails, etc)
+** Refactoring
+** Design
+
+* Stephen Haberman Topics
+** Scala hobby project, [http://github.com/stephenh/fakesdb fakesdb], local/fake version of Amazon SimpleDB (longer)
+** Ruby hobby project, [http://github.com/stephenh/s3fsr s3fsr], FUSE file system interface to Amazon S3 (shorter)
+
+* Bryan Roth Topics:
+** Languages: Ruby, JavaScript
+** Frameworks: Rails, Mojo, Prototype
+** Focusing on [http://en.wikipedia.org/wiki/WebOS webOS] development.
+*** [http://developer.palm.com/webChannel/index.php?packageid=com.mojoapps.shoppinglist Shopping List] - current webOS project
+
+* John Christopher Topics
+** Languages: Ruby, JavaScript
+** Server-side JS: Nodejs, CommonJS, Narwhal
+** Client-side: Dojo, Prototype, jQuery, Flex, etc ... it's all just ECMAScript!
+
+* Add yourself here!
+
+===Lightning Talks===
+
+[http://www.justanotherperlhacker.org/lightning/index.shtml What is a lightning talk?]
+
+Here's the line-up (in no particular order) of people who have volunteered to give a 5 minute presentation on something that interests them. 
+
+* Jay Hannah: recent [http://clab.ist.unomaha.edu CLAB], Perl projects.
+* Matt Secoske: ?
+* Corey Spitzer: ?
+
+==Alumni==
+
+These people rock, but have moved away from Omaha, so have been slid down here. :(
+
+* [http://blog.blainebuxton.com/ Blaine Buxton]
+* [http://blog.alieniloquent.com Samuel Tesla]
+
+==Version Control==
+
+ [http://github.com/jhannah/odlug/tree/master Browse]
+ git clone git://github.com/jhannah/odlug.git
+
+Add your code samples (or whatever) for group discussion / collaboration.  :)
+
+To get your changes in, send me a pull request or email me (or the list) your github username and I'll add you as a co-maintainer. --[[User:Jhannah|jhannah]] 23:37, 11 May 2010 (UTC)
+
+

@@ -1,0 +1,67 @@
+'''[http://catalyst.perl.org/ Catalyst]''' is a web application framework. I do all of my web stuff using it nowadays. --[[User:Jhannah|Jhannah]] 11:37, 1 April 2008 (CDT)
+
+[[Catalyst Workshop]]
+
+==How to call Actions==
+
+([http://search.cpan.org/~jrockway/Catalyst-Manual-5.701003/lib/Catalyst/Manual/Cookbook.pod#Action_Types Actions] are Perl subs (methods) with special Catalyst magic on top.)
+
+These do the same thing, for the most part? Best practice / recommendations, anyone?
+
+ $c->forward('MyController', 'MyMethod');          [http://search.cpan.org/~mramberg/Catalyst-Runtime-5.7012/lib/Catalyst.pm forward()]    
+ $c->forward('/MyController/MyMethod');
+ 
+ $c->controller('MyController')->MyMethod($c);     [http://search.cpan.org/~mramberg/Catalyst-Runtime-5.7012/lib/Catalyst.pm controller()]
+                                         ^^^^  Don't forget to pass $c!
+ 
+ $c->controller('MyController')->action_for('MyMethod');
+ $c->forward($c->controller('MyController')->action_for('MyMethod'));
+
+If you're feeling really saucy, an alternate bleeding edge thing is [http://search.cpan.org/~jrockway/Catalyst-Component-ACCEPT_CONTEXT-0.05/lib/Catalyst/Component/ACCEPT_CONTEXT.pm Catalyst::Component::ACCEPT_CONTEXT]
+
+===Returning multiple values===
+
+ From: Sean Baker
+ Date: Tue, 1 Apr 2008 15:26:42 -0500
+ Subject: returning multiple values when using Catalyst forward or controller
+ 
+ In Catalyst land, when calling a method that returns multiple values:
+  
+ This works:
+  
+ ($response,$success) = $c->controller("OWS")->UpdateQuestion($c);
+  
+ This does not:
+  
+ ($response, $success) = $c->forward(“OWS”,”UpdateQuestion”);
+
+==Everything is an Action?==
+
+ 12:10 < rdj> jhannah: I'm not sure "everything-is-an-action" is common or
+              recommended.
+ 12:14 < jhannah> rdj: I'm not sure what the alternative to
+                  "everything-is-an-action" is. All our subs are Actions, but maybe
+                  that's Bad(tm).
+ 12:20 < rdj> jhannah: I'm fairly new, so probably not the best to expound on it, I
+              did everything-as-an-action at first as well. But two things dissuaded
+              me:
+ 12:20 < rdj> jhannah: (1) $c->forward swallows exceptions
+ 12:21 < rdj> jhannah: (2) The action table when starting the dev server just gets
+              huge.
+ 12:22 < Caelum> there's a MortalForward plugin if you don't like the exception
+                 swallowing :)
+ 12:22 < rdj> yeah, it's very new
+
+==Patching Catalyst==
+
+ # Grab the thing you want to patch
+ $ svn co http://dev.catalyst.perl.org/repos/Catalyst/trunk/Catalyst-Plugin-FillInForm
+ # And an example that actually has some tests...
+ $ svn co http://dev.catalyst.perl.org/repos/Catalyst/trunk/Catalyst-Plugin-SubRequest
+
+Then bug marcus in irc.perl.org #catalyst. He'll commit and release.
+
+As far as the CPAN overhead goes, [http://search.cpan.org/~adamk/Module-Install-0.71/lib/Module/Install.pod Module::Install] is the place to start learning the standard CPAN toolchain.
+
+The wiki is: http://catwiki.toeat.com/, not [http://dev.catalystframework.org/ Trac] apparently.
+

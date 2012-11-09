@@ -1,0 +1,47 @@
+Some common abbreviations used on <code>irc.perl.org</code>.
+
+<code>::</code> sometimes becomes <code>:</code> or <code>-</code> or is left out altogether. 
+
+ BHEOS    {{cpan|B::Hooks::EndOfScope}}
+ C        {{cpan|Catalyst}}
+ CAF      {{cpan|Class::Accessor::Fast}}
+ CAG      {{cpan|Class::Accessor::Grouped}}
+ Cat      {{cpan|Catalyst}}
+ C::P     {{cpan|Catalyst::Plugin}}
+ CDA      {{cpan|Class::Data::Accessor}} (deprecated)
+ CMOP     {{cpan|Class::MOP}}
+ DBIC     {{cpan|DBIx::Class}}
+          {{cpan|DataBuild::InputControl}}
+ DBICSL   {{cpan|DBIx::Class::Schema::Loader}}
+ D::D     {{cpan|Devel::Declare}}
+ D::FV    {{cpan|Data::FormValidator}}
+ dzil     {{cpan|Dist::Zilla}}
+ EUMM     {{cpan|ExtUtils::MakeMaker}}
+ F::S     {{cpan|Form::Sensible}}
+ MB       {{cpan|Module::Build}}
+ MI       {{cpan|Module::Install}}
+ MMANT    {{cpan|Moose::Meta::Attribute::Native::Trait}}
+ MMC      {{cpan|Moose::Meta::Class}}
+ MXAC     {{cpan|MooseX::Attributes::Curried}}
+ MXAH     {{cpan|MooseX::AttributeHelpers}} (deprecated by {{cpan|Moose::Meta::Attribute::Native::Trait}})
+ MXD      {{cpan|MooseX::Declare}}
+ MXT      {{cpan|MooseX::Types}}
+ MXTS     {{cpan|MooseX::Types::Structured}}
+ MXMM     {{cpan|MooseX::MultiMethods}}
+ MXMS     {{cpan|MooseX::Method::Signatures}}
+ MXS      {{cpan|MooseX::Storage}}
+ MXRP     {{cpan|MooseX::Role::Parameterized}}
+ N::T     {{cpan|Number::Tolerant}}
+          {{cpan|Moose::Meta::Attribute::Native::Trait}}
+ n:c      {{cpan|namespace::clean}}
+ n:ac     {{cpan|namespace::autoclean}}
+ P::W::R  {{cpan|POE::Wheel::Run}}
+ PoCo     {{cpan|POE::Component}}
+ RT       {{cpan|Request::Tracker}}
+ S::L     {{cpan|DBIx::Class::Schema::Loader}}
+ SQLA     {{cpan|SQL::Abstract}}
+ SQLT     {{cpan|SQL::Translator}}
+ S::S     {{cpan|Catalyst::Plugin::Static::Simple}}
+ TWM      {{cpan|Test::WWW::Mechanize}}
+ TWMC     {{cpan|Test::WWW::Mechanize::Catalyst}}
+

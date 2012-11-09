@@ -1,0 +1,127 @@
+[[Category:Omaha Perl Mongers]]
+[http://mathbio.unomaha.edu/wiki/index.php/ChemChains ChemChains] is an awesome chunk of software simulating cell biology in a boolean network.
+
+This page is the ChemChains sandbox, where [[ODynUG|Omaha Dynamic Language Users Group]] folk are messing around with various implementations of ChemChains in whatever programming languages fit their mood. You too can play along at home:
+
+ $ mkdir ChemChains
+ $ svn co --username odynug --password odynugmathbio \
+   <nowiki>http://mathbio.unomaha.edu/svn/chemchains/perl/trunk/</nowiki> ChemChains/perl
+ $ svn co --username odynug --password odynugmathbio \
+   -r{20080702} \
+   <nowiki>http://mathbio.unomaha.edu/svn/chemchains/cpp/trunk/</nowiki> ChemChains/cpp 
+ $ cd ChemChains/perl
+ $ perl chemchains.pl 10
+
+Congrats -- you just simulated cell biology.  :)
+
+Email questions / concerns to [http://groups.google.com/group/chemchains our mailing list], or to jay(at)jays(dot)net.
+
+==Links==
+* [http://mathbio.unomaha.edu/wiki/index.php/ChemChains ChemChains]
+** Official [http://www.bioinformatics.org/chemchains/wiki/Main/Tutorial cpp/ tutorial]
+* [[User:Jhannah|Jay]]'s YAPC::NA 2008 lightning talk [http://conferences.mongueurs.net/yn2008/talk/1411 abstract] and [[Media:Chemchains_yapc na_2008.pdf|slides]].
+
+==Regression Testing==
+
+4 C++ versions of ChemChains exist. You can regression test them all with <code>perl/trunk/TAP</code>. This tests that each version outputs the same results as <code>ChemChains1.0_clean</code> when running a simple network.  
+
+ # Get all releases from svn
+ svn co http://mathbio.unomaha.edu/svn/chemchains/ chemchains/svn
+ # Get tarball releases
+ mkdir chemchains/tarballs
+ cd chemchains/tarballs/
+ wget http://www.bioinformatics.org/download.php?fileid=450
+ tar xvzf ChemChains1.0.tar.gz
+ 
+ # Compile all C++ versions
+ cd ChemChains1.0_clean
+ make
+ cd ../../svn/cpp/branches/CC1_0-rc1
+ make
+ cd ../MathbioRelease
+ make
+ cd ../../trunk
+ make
+ 
+ # Run the test suite
+ cd ../../perl/trunk
+ prove -r 2>/dev/null
+
+Current prove output:   --[[User:Jhannah|Jhannah]] 20:44, 24 August 2008 (UTC)
+
+ TAP/000_mkdir..............ok                                                
+ TAP/CC1_0-rc1..............ok                                                
+ TAP/ChemChains1.0_clean....ok                                                
+ TAP/MathbioRelease.........FAILED tests 3-5, 7-9, 11-13, 15-17, 19-21, 23-25, 27-29, 31-33, 35-37, 39-41, 43-45, 47-49, 51-53, 55-57, 59-61, 63-65, 67-69, 71-73, 75-77, 79-81, 83-85, 87-89, 91-93, 95-97, 99
+         Failed 73/99 tests, 26.26% okay
+ TAP/trunk..................ok                                                
+ Failed Test          Stat Wstat Total Fail  List of Failed
+ -------------------------------------------------------------------------------
+ TAP/MathbioRelease.t               99   73  3-5 7-9 11-13 15-17 19-21 23-25 27-
+                                             29 31-33 35-37 39-41 43-45 47-49
+                                             51-53 55-57 59-61 63-65 67-69 71-73
+                                             75-77 79-81 83-85 87-89 91-93 95-97
+                                             99
+ Failed 1/5 test scripts. 73/399 subtests failed.
+ Files=5, Tests=399,  1 wallclock secs ( 0.60 cusr +  0.17 csys =  0.77 CPU)
+
+==The network repeats?==
+In my Perl version it looks like the network repeats after T+16: back to 13,14,15,16, then again 13,14,15,16, etc. Even running out to 1000 iterations shows this same pattern, apparently. Have you seen this is the C++ version?
+
+The output below shows each node in the network (sorted by node name, ASCII sort). The underscores are the Input nodes, which are not iterated after the initial state (T+0).
+
+Over on the far right is a new counter I added tonight which tracks all states of the network that have been seen before (whether or not the string of zeros and ones is unique). When a state is novel it assigns a new number for that state. When a state has been seen before, it prints the number of that state. So apparently T+17 is NOT unique, it is exactly the same state as T+13, etc.
+
+... Come to think of it I think the way my code currently works any loop back to any previous state will always cause such a loop. I suppose this may no longer be true once I add Chaos and Delay nodes?
+
+Just curious if you've seen this before in C++. --[[User:Jhannah|Jhannah]] 05:20, 17 August 2008 (UTC)
+
+ Hannah-Mac-Mini:~/src/ChemChains/perl jhannah$ perl chemchains.pl 30
+ Reading node configuration...
+ 139 nodes memorized.
+ T+0000 1000000000000000000000001101000000000000000000000000000001000000110000010100000000100000000001000000000100000000010000000000000000000000000 0
+ T+0001 0001000000000011000010__00_10000000000011_010000000000000110010100011011000000001000100000000000001000000000000101_00001000000_0_0_0_000100 1
+ T+0002 0010001001000011011000__10_10000000000011_000000000000000100011100011110010001001010000000000000001000000010000001_00000000000_0_0_0_000100 2
+ T+0003 0011000000000011011011__10_10001000000011_010000000010000110011100011001101001001000000000010000101100000010000110_00000000000_0_0_0_000100 3
+ T+0004 0011000001000000011110__10_00000000000001_001000000000000100001100001111110001000100000000000000100110010000010001_00010000000_0_0_0_000000 4
+ T+0005 0001000000000000000010__10_00000000000001_010000000010000110001110011110111001001100000000010000111110010000000010_00001000100_0_0_0_000100 5
+ T+0006 0001000001000000000110__10_00001000000001_011000000000000100011110001111110001001100000000000000010010010000000011_00010000000_0_0_0_001000 6
+ T+0007 0001000001000001000010__10_00001000000001_011000000000000110011110011110111001001100000000010000011000010000010011_00001000100_0_0_0_000100 7
+ T+0008 0001001001000000000110__10_00000000000001_011000000000000100011110011111110001001100000000010000011000010000010011_00011000000_0_0_0_000100 8
+ T+0009 0001001001000000000010__10_00000000000001_011000000000000110011110011110111001001100000000010000011000010000000011_00001000100_0_0_0_000100 9
+ T+0010 0001001001000001000110__10_00001000000001_011000000000000100011110011111110001001100000000010000011000010000000011_00011000000_0_0_0_000100 10
+ T+0011 0001001001000001001010__10_00001000000001_011000000000000110011110011110111001001100000000010000011000010000010011_00001000100_0_0_0_000100 11
+ T+0012 0001001001000000000110__10_00000000000001_011000000000000100011110011111110001001100000000010000011000010000010010_00011000000_0_0_0_000100 12
+ T+0013 0001001001000000000010__10_00000000000001_011000000000000110011110001110111001001100000000010000011000010000000011_00010000000_0_0_0_001000 13
+ T+0014 0001001001000001000110__10_00001000000001_011000000000000100011110011111110001001100000000010000011000010000000011_00001000100_0_0_0_000100 14
+ T+0015 0001001001000001001010__10_00001000000001_011000000000000110011110011110111001001100000000010000011000010000010011_00011000000_0_0_0_000100 15
+ T+0016 0001001001000000000110__10_00000000000001_011000000000000100011110011111110001001100000000010000011000010000010010_00001000100_0_0_0_000100 16
+ T+0017 0001001001000000000010__10_00000000000001_011000000000000110011110001110111001001100000000010000011000010000000011_00010000000_0_0_0_001000 13
+ T+0018 0001001001000001000110__10_00001000000001_011000000000000100011110011111110001001100000000010000011000010000000011_00001000100_0_0_0_000100 14
+ T+0019 0001001001000001001010__10_00001000000001_011000000000000110011110011110111001001100000000010000011000010000010011_00011000000_0_0_0_000100 15
+ T+0020 0001001001000000000110__10_00000000000001_011000000000000100011110011111110001001100000000010000011000010000010010_00001000100_0_0_0_000100 16
+ T+0021 0001001001000000000010__10_00000000000001_011000000000000110011110001110111001001100000000010000011000010000000011_00010000000_0_0_0_001000 13
+ T+0022 0001001001000001000110__10_00001000000001_011000000000000100011110011111110001001100000000010000011000010000000011_00001000100_0_0_0_000100 14
+ T+0023 0001001001000001001010__10_00001000000001_011000000000000110011110011110111001001100000000010000011000010000010011_00011000000_0_0_0_000100 15
+ T+0024 0001001001000000000110__10_00000000000001_011000000000000100011110011111110001001100000000010000011000010000010010_00001000100_0_0_0_000100 16
+ T+0025 0001001001000000000010__10_00000000000001_011000000000000110011110001110111001001100000000010000011000010000000011_00010000000_0_0_0_001000 13
+ T+0026 0001001001000001000110__10_00001000000001_011000000000000100011110011111110001001100000000010000011000010000000011_00001000100_0_0_0_000100 14
+ T+0027 0001001001000001001010__10_00001000000001_011000000000000110011110011110111001001100000000010000011000010000010011_00011000000_0_0_0_000100 15
+ T+0028 0001001001000000000110__10_00000000000001_011000000000000100011110011111110001001100000000010000011000010000010010_00001000100_0_0_0_000100 16
+ T+0029 0001001001000000000010__10_00000000000001_011000000000000110011110001110111001001100000000010000011000010000000011_00010000000_0_0_0_001000 13
+ T+0030 0001001001000001000110__10_00001000000001_011000000000000100011110011111110001001100000000010000011000010000000011_00001000100_0_0_0_000100 14
+ All done. We're at T+30. Here are your final result:
+ AA:0 AC:0 AND_3_4:0 ARF:1 ASK1:0 Actin:0 Akt:1 Arp_2_3:0 B_Arrestin:0 B_Parvin:1 Ca:0 CaM:0 CaMK:0  CaMKK:0 
+ Cas:0 Cbp:1 Cdc42:0 Crk:0 Csk:0 DAG:1 DGK:1 DOCK180:0 ECM:0 (Input) EGF:0 (Input) EGFR:1 Erk:0 ExtPump:0 
+ (Input) Fak:0 GCK:0 GRK:0 Ga_12_13:0 Gab1:1 Gai:0 Gaq:0 Gas:0 Gbg_12_13:0 Gbg_i:0 Gbg_q:0 Gbg_s:0 Graf:0 
+ Grb2:1 IL1_TNF:0 (Input) IL1_TNFR:0 ILK:1 IP3:1 IP3R1:0 Integrins:0 MKK3:0 MKK6:0 MKK7:0 MKPs:0 MLCK:0 
+ MLCP:0 MLK1:0 MLK2:0 MLK3:0 Mek:0 Mekk1:1 Mekk2:0 Mekk3:0 Mekk4:0 Myosin:1 NIK:1 Nck:1 PA:1 PAK:0 PDE4:0 
+ PDK1:1 PI3K:1 PI4K:1 PI5K:1 PIP2_34:1 PIP2_45:1 PIP3_345:1 PIP_4:0 PKA:0 PKC:0 PKC_primed:1 PLA2:0 PLC_B:0 
+ PLC_g:1 PLD:1 PP2A:0 PTEN:0 PTP1b:0 PTPPEST:0 PTPa:0 Palpha_12_13_R:0 Palpha_i_R:0 Palpha_q_R:0 
+ Palpha_s_R:0 Pix_Cool:1 RGS:0 RKIP:0 Rac:0 Raf:0 Raf_DeP:0 Raf_Loc:1 Raf_Rest:1 Ral:0 RalBP1:0 RalGDS:0 
+ Rap1:0 Ras:1 RasGRF_GRP:0 Rho:0 RhoGDI:0 RhoK:0 SAPK:0 SHP2:0 Sek1:0 Shc:0 Sos:1 Src:1 Stress:0 (Input) 
+ TAK1:0 TAO_1_2:0 Tab_1_2:0 Talin:0 Tiam:1 Tpl2:0 Trafs:0 Trx:0 Vinc:1 WASP:0 alpha_12_13_R:0 
+ alpha_12_13_lig:0 (Input) alpha_i_R:0 alpha_i_lig:0 (Input) alpha_q_R:0 alpha_q_lig:0 (Input) alpha_s_R:0 
+ alpha_s_lig:0 (Input) cAMP:0 p115RhoGEF:0 p120RasGAP:0 p190RhoGAP:1 p38:0 p90RSK:0
+
+

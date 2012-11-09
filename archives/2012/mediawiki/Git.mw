@@ -1,0 +1,129 @@
+Work flow for this is (while calling 'git status' all the time):
+ git branch $new
+ git checkout $new
+ # work
+ git commit
+ ...
+ git checkout master
+ git merge $new
+ git push
+ ...
+ git branch -d $new
+ 
+   -Heikki
+   Heikki Lehvaslaiho - skype:heikki_lehvaslaiho
+
+==Deleting a remote branch==
+
+To delete the remote branch 'branch_to_delete', you push '' (nothing) with it as the push target.
+
+ git push origin :branch_to_delete
+
+If someone else deleted them, you can prune them out of your local 'origin/' list:
+
+ git remote prune origin
+
+==Merging branches==
+
+ 08:50 <@pyrimidine> http://github.com/guides/pull-requests
+ git remote add vinanna git://github.com/vinanna/bioperl-live.git
+ git fetch vinanna
+ git checkout master
+ git merge vinanna/master -m "looks good to me!"
+
+To delete the remote branch 'jhannah', you push <nowiki>''</nowiki> (nothing) as 'jhannah':
+
+ git push origin :jhannah
+
+ 19:21 <@arcanez> how do I merge a git branch to master
+ 19:21 <@perigrin> git checkout master; git merge [branch]
+
+<pre>
+++doy++
+git remote add arcanez git://github.com/arcanez/moosex-workers.git
+git fetch arcanez
+git checkout -b arcanez-merge arcanez/master
+git rebase master
+git checkout master
+git merge arcanez-merge
+git branch -d arcanez-merge
+
+jhannah@dev:~/src/moosex-workers> git remote add arcanez git://github.com/arcanez/moosex-workers.git
+jhannah@dev:~/src/moosex-workers> git fetch arcanez
+remote: Counting objects: 21, done.
+Unpacking objects: 100% (13/13), done.2)
+remote: Compressing objects: 100% (12/12), done.
+remote: Total 13 (delta 7), reused 0 (delta 0)
+From git://github.com/arcanez/moosex-workers
+ * [new branch]      master     -> arcanez/master
+jhannah@dev:~/src/moosex-workers> git checkout -b arcanez-merge arcanez/master
+Branch arcanez-merge set up to track remote branch refs/remotes/arcanez/master.
+Switched to a new branch "arcanez-merge"
+jhannah@dev:~/src/moosex-workers> git rebase master
+First, rewinding head to replay your work on top of it...
+Applying: weaken should be weak_ref
+error: patch failed: t/02.wheel.t:37
+error: t/02.wheel.t: patch does not apply
+Using index info to reconstruct a base tree...
+Falling back to patching base and 3-way merge...
+Auto-merging t/02.wheel.t
+CONFLICT (content): Merge conflict in t/02.wheel.t
+Failed to merge in the changes.
+Patch failed at 0001 weaken should be weak_ref
+
+When you have resolved this problem run "git rebase --continue".
+If you would prefer to skip this patch, instead run "git rebase --skip".
+To restore the original branch and stop rebasing run "git rebase --abort".
+
+jhannah@dev:~/src/moosex-workers> vi t/02.wheel.t
+jhannah@dev:~/src/moosex-workers> git add t/02.wheel.t
+jhannah@dev:~/src/moosex-workers> git rebase --continue
+Applying: weaken should be weak_ref
+Applying: get rid of MXAH in favor of Native::Trait, also remove auto_deref in favor of Native::Trait handles
+Applying: remove MXAH dep and require Moose 0.90 (Native::Trait added in 0.89_01)
+jhannah@dev:~/src/moosex-workers> git checkout master
+Switched to branch "master"
+jhannah@dev:~/src/moosex-workers> git merge arcanez-merge
+Updating a01607e..53dd563
+Fast forward
+ Makefile.PL                  |    3 +-
+ lib/MooseX/Workers/Engine.pm |   54 +++++++++++++++++++----------------------
+ t/02.wheel.t                 |    1 -
+ 3 files changed, 26 insertions(+), 32 deletions(-)
+jhannah@dev:~/src/moosex-workers> git branch -d arcanez-merge
+Deleted branch arcanez-merge (53dd563).
+jhannah@dev:~/src/moosex-workers> git log
+jhannah@dev:~/src/moosex-workers> git push
+Counting objects: 21, done.
+Compressing objects: 100% (12/12), done.
+Writing objects: 100% (13/13), 1.59 KiB, done.
+Total 13 (delta 7), reused 0 (delta 0)
+To git@github.com:jhannah/moosex-workers.git
+   a01607e..53dd563  master -> master
+</pre>
+
+==git svn==
+ http://www.lostechies.com/blogs/scottcreynolds/archive/2009/05/05/getting-up-and-running-on-git-svn-5-minute-quickstart.aspx
+ git svn clone svn://etl.omnihotels.com/Omni2/trunk Omni2_git
+
+==Misc==
+
+ $ git config user.name "Jay Hannah"
+ $ git config user.email jay(at)jays(dot)net
+
+ jhannah@dev:~/src/PDF-TextBlock> git branch -a
+ * master
+   origin/master
+ jhannah@dev:~/src/PDF-TextBlock> git pull origin master
+ From git@github.com:jhannah/pdf-textblock
+  * branch            master     -> FETCH_HEAD
+ Already up-to-date.
+
+* http://dev.perl.org/perl5/docs/perlrepository.html
+
+ git reset --hard HEAD^
+ git reset --hard 2c16106
+ git checkout 2c16106
+    only if doing something temporary or going to start a new branch here
+
+
