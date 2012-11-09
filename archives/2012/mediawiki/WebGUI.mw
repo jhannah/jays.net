@@ -1,0 +1,71 @@
+http://gsaf.ist.unomaha.edu/GSAF/index.php/MycoAlign_Programmer_Notes
+
+ 16:37 < deafferret> do I need to install wre and friends to run t/POD.t?
+ 16:37 <+perlDreamer> no
+ 16:37 <+perlDreamer> but you do need a database, and a config file
+ 16:38 <+perlDreamer> once that is setup, then
+ 16:38 <+perlDreamer> env POD_COVERAGE=2 perl POD.t 2>&1 > pod
+ 16:38 <+perlDreamer> that will tell you every subroutine in every module that
+                      needs POD
+ 
+ 17:39 <+perlDreamer> you can put two copies of WebGUI on 1 box
+ 17:39 <+perlDreamer> that what most of us do
+ 17:40 <+perlDreamer> WebGUI == perl and javascript, not WRE binaries
+ 17:41 <+perlDreamer> you guys have your own IRC channel?
+ 
+ cd src
+ svn co https://svn.webgui.org/plainblack/WebGUI
+ cd WebGUI
+ mysql -u root
+ create database jhannah_WebGUI;
+ grant ALL on jhannah_WebGUI.* to 'jhannah'@'%';
+ mysql jhannah_WebGUI < docs/create.sql
+ 
+ jhannah@klab:~/src/WebGUI$ export WEBGUI_CONFIG=/home/jhannah/src/WebGUI/config.pl
+ jhannah@klab:~/src/WebGUI$ perl -Ilib t/POD.t
+ Called UNIVERSAL::can() as a function, not a method at /usr/local/share/perl/5.8.8/DateTime/Locale.pm line 298
+ Failed to require package 'WebGUI::Session'. Reason: 'Can't locate Image/Magick.pm in @INC (@INC  contains: /home/jhannah/src/WebGUI/t/lib lib /home/jhannah/src/bioperl-live /etc/perl /usr/local/lib/perl/5.8.8 /usr/local/share/perl/5.8.8 /usr/lib/perl5 /usr/share/perl5 /usr/lib/perl/5.8 /usr/share/perl/5.8 /usr/local/lib/site_perl . /home/jhannah/src/WebGUI/config.p/lib) at lib/WebGUI/Storage.pm line 25.
+
+This didn't help:
+
+ root@klab:~/src/WebGUI# apt-get install libperl-dev
+ Reading package lists... Done
+ Building dependency tree
+ Reading state information... Done
+ The following extra packages will be installed:
+   libperl5.8 perl perl-base perl-modules
+ The following NEW packages will be installed:
+   libperl-dev
+ The following packages will be upgraded:
+   libperl5.8 perl perl-base perl-modules
+ 4 upgraded, 1 newly installed, 0 to remove and 159 not upgraded.
+ Need to get 7569kB of archives.
+ After this operation, 1352kB of additional disk space will be used.
+ Do you want to continue [Y/n]? Y
+ Get:1 http://hive.gds.unomaha.edu hardy-updates/main perl-modules 5.8.8-12ubuntu0.4 [2300kB]
+ Get:2 http://hive.gds.unomaha.edu hardy-updates/main perl 5.8.8-12ubuntu0.4 [3379kB]
+ Get:3 http://hive.gds.unomaha.edu hardy-updates/main libperl5.8 5.8.8-12ubuntu0.4 [535kB]
+ Get:4 http://hive.gds.unomaha.edu hardy-updates/main perl-base 5.8.8-12ubuntu0.4 [779kB]
+ Get:5 http://hive.gds.unomaha.edu hardy-updates/main libperl-dev 5.8.8-12ubuntu0.4 [577kB]
+ Fetched 7569kB in 0s (24.3MB/s)
+ (Reading database ... 160193 files and directories currently installed.)
+ Preparing to replace perl-modules 5.8.8-12 (using .../perl-modules_5.8.8-12ubuntu0.4_all.deb) ...
+ Unpacking replacement perl-modules ...
+ Preparing to replace perl 5.8.8-12 (using .../perl_5.8.8-12ubuntu0.4_i386.deb) ...
+ Unpacking replacement perl ...
+ Preparing to replace libperl5.8 5.8.8-12 (using .../libperl5.8_5.8.8-12ubuntu0.4_i386.deb) ...
+ Unpacking replacement libperl5.8 ...
+ Preparing to replace perl-base 5.8.8-12 (using .../perl-base_5.8.8-12ubuntu0.4_i386.deb) ...
+ Unpacking replacement perl-base ...
+ Setting up perl-base (5.8.8-12ubuntu0.4) ...
+ Selecting previously deselected package libperl-dev.
+ (Reading database ... 160173 files and directories currently installed.)
+ Unpacking libperl-dev (from .../libperl-dev_5.8.8-12ubuntu0.4_i386.deb) ...
+ Setting up libperl5.8 (5.8.8-12ubuntu0.4) ...
+ Setting up perl-modules (5.8.8-12ubuntu0.4) ...
+ Setting up perl (5.8.8-12ubuntu0.4) ...
+ Setting up libperl-dev (5.8.8-12ubuntu0.4) ...
+ Processing triggers for libc6 ...
+ ldconfig deferred processing now taking place
+
+

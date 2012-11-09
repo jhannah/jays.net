@@ -1,0 +1,44 @@
+[[Image:Xyz.png]]
+
+==Use Cases==
+
+1. www.xyz.com
+1.1 Login.
+1.1.1 Customer username, password management.
+1.1.1 Customer username, password management.
+1.2 See account information
+
+2. Intranet
+2.1 Login
+2.1.1 Employee username, password management.
+
+3. Reports
+
+4. Invoicing
+
+5. Data imports
+
+* [http://developer.intuit.com/technical_resources/default.aspx?id=1492 QuickBooks SDK]
+* [http://www.devx.com/xml/Article/30482/1954 qbXML + Perl]
+
+==Existing scope==
+
+Everything except Flash and .pdf's [https://clabsvn.ist.unomaha.edu/svn/user/jhannah/protec/rptsvr.protec-usa.net committed.]
+
+ -bash-2.05b$ find ./ -name "*.pl" | xargs wc -l    58 of these
+     8153 total
+ -bash-2.05b$ find ./ -name "*.pm" | xargs wc -l     76 of these
+    17499 total
+ -bash-2.05b$ find ./ -name "*.cgi" | xargs wc -l    58 of these    All #!/usr/bin/perl
+     6952 total
+ -bash-2.05b$ du -h -c `find ./ -name "*.fla"`    67 of these
+ 266M    total
+ -bash-2.05b$ du -h -c `find ./ -name "*.swf"`    73 of these
+  37M    total
+ 
+ -bash-2.05b$ find ./ | wc -l
+    37029
+ -bash-2.05b$ find ./ | grep -v .pdf | wc -l
+      459
+
+

@@ -1,0 +1,87 @@
+So here's a ton of stuff I emailed to myself that I haven't done yet. I decided my email Inbox is a dump place to keep things I haven't gotten around to for a long time... --[[User:Jhannah|Jhannah]] 20:48, 23 January 2009 (UTC)
+
+* https://addons.mozilla.org/en-US/firefox/addon/60/ Firefox plugin: Web Developer per pbaker
+* http://www.huntmidwest.com/subtropolis/movies/overview.html
+* [http://www.verkehrslage.at/jart/prj3/mmagazin/main.jart?rel=de&content-id=1162818505415&reserve-mode=active Enduro at Erzberg], http://www.throttleentertainment.com/
+* [[Media:Dgc07-poster.pdf]] - A machine learning approach to genome assembly validation
+* [http://www.schutzhund.ws/Home/Index/index.html Nebraska Schutzhund] (Zato Thurlby)
+* [http://traffic.libsyn.com/poetry/indiefeed_anismojgani_hereami.mp3 Anis Mojgani, Here Am I]
+* [http://www.biotele.com/magenta.html magenta] [http://blog.plover.com/aliens/color-perception-2.html 2]
+* [http://www.themorningnews.org/archives/reviews/mindfuck_movies.php movies]
+* '''START SMALL AND USEFUL!''' [http://mooreslore.corante.com/archives/2004/10/26/linus_calls_hurd_dead.php Linus calls HURD dead], [http://en.wikipedia.org/wiki/Second-system_effect Second-system effect]
+* Trip hop podcast http://www.daveslounge.com/
+* War diaries http://www.msnbc.msn.com/id/17636144/
+* The Moose Song: 15:38 <PopeFelix> http://www.midcoast.com/~martucci/2nh/Moose.html 
+* http://jjnapiorkowski.vox.com/library/post/catamoose.html 
+* http://poe.perl.org/?Evolution_of_a_POE_Server 
+* http://en.wikipedia.org/wiki/Pascal's_Wager
+* http://www.dtschmitz.com/dts/2008/09/catalyst-perls-answer-to-ruby-on-rails-and-ajax.html 
+* http://tr.im/65c Sumo Paint - sweet graphics program in your browser!!? WOW 
+* http://www.npr.org/templates/story/story.php?storyId=95430242
+* Put this somewhere: http://vim.wikia.com/wiki/Change_end-of-line_format_for_dos-mac-unix <code>:set ff=dos</code>
+* http://www.shadowcat.co.uk/archive/conference-video/yapc-eu-2008/you-arent-good-enough
+* <code>Module::Build</code> [http://www.perlmonks.org/?node_id=158999 How to make a CPAN Module Distribution]
+* Karen O'Boyle (Micros) parents live near here: http://www.boldtcastle.com/virtualtour.html
+* Blog what a shitty day trader I am:
+[[Image:day_trader.png]]
+
+ 16:01 <@Leolo> and a wikipedia
+ 16:01 <+purl> hmmm... a wikipedia is actually useful or the slashdot's book
+               report or "mostly harmless" or UNEMPLOYED PH.D. DEATHMATCH!!!! or
+               often authoritative or often inaccurate or the "faith-based"
+               encyclopedia or full of very sill^Wuseful information or
+               http://www.penny-arcade.com/comic/2005/12/16 or
+               http://jerkcity.com/jerkcity2650.html or
+               http://xkcd.com/c214.html or
+               http://www.aaronsw.com/weblog/whowriteswikipedia
+
+==Perl 6==
+
+http://www.perlfoundation.org/perl6/index.cgi?rakudo
+
+ cd src/parrot
+ $ perl Makefile.PL
+ $ make
+ $ make perl6
+
+==Cholesterol==
+
+ 11/17/2009:
+ total 148
+ trig 107
+ hdl 35
+ ldl 92
+
+ 11/19/2008:
+ total chol 158
+ trig    161
+ hdl   46
+ ldl   80
+
+==CSS==
+
+ 16:14 <@jshirley> dhoss-laptop: use this to generate your layout, then be
+                   happy: http://williamduff.name/YahooPages/
+ 16:14 <@dhoss-laptop> NO WAY!!!
+ 16:14 < purl> WAY!
+ 16:15 <@dhoss-laptop> that's going to put a lot of designers out of a job, and
+                       that makes me happy :-)
+ 16:15 < mkjellman> jshirley: still not sticking at the bottom
+ 16:16 < mkjellman> nothing about possitioning
+ 16:16 < mkjellman> made the changes to body and still have a boarder
+ 16:16 < billens> http://matthewjamestaylor.com/blog/holy-grail-no-quirks-mode.htm <-- is also very good
+ 16:16 <@jshirley> is it at the http://scu.internalcircle.com/property/list link?
+ 16:16 <@mst> mdk: ^^ people discussing CSS stuff, may be vaguely interesting
+ 16:17 < mkjellman> yes
+ 16:17 <@jshirley> Ok, so you have two divs with the id of footer
+ 16:17 <@jshirley> Which is broken
+ 16:17 <@jshirley> and #footer still has position: absoolute
+ 16:17 <@jshirley> absolute, too
+ 16:17 < mkjellman> i've got someone else who keeps editing it
+ 16:17 < mkjellman> maybe thats it right now
+ 16:17 < mkjellman> fuck, one sec
+ 16:17 < jhannah> maybe shoot that guy
+ 16:17 <@jshirley> source control ftw.
+ 16:18 < mkjellman> he wants to use a floral background
+
+

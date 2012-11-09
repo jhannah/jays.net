@@ -1,0 +1,55 @@
+__NOTOC__
+Alpha release of a Smolder server:
+
+  http://biobase2.ist.unomaha.edu:8080/app/projects/smoke_reports/1
+
+Run around in there and click all the pretty buttons and such. Neat? Not?
+
+==Sending a report to Smolder==
+
+To report into Smolder, first you create a report. (If you grabbed bioperl-live out of SVN or git you'll need to run <code>./Build.pl</code> once.)
+
+ # From bioperl-live (trunk) directory:
+ prove -I. --recurse --archive test_run.tar.gz
+
+Then you [http://search.cpan.org/~wonko/Smolder-1.51/lib/Smolder/Manual.pm#Uploading_to_Smolder Upload that report to Smolder.]
+
+===LWP::UserAgent===
+ 
+If you have LWP installed and don't want to install the Smolder dependency stack just to get <code>smolder_smoke_signal</code>, you can use LWP::UserAgent:
+
+ use LWP::UserAgent; 
+ my $response = LWP::UserAgent->new()->post(
+        'http://biobase2.ist.unomaha.edu:8080/app/projects/process_add_report/1',
+        Content_Type => 'form-data',
+        Content      => [
+            architecture => 'Mac OS X v10.6.3, Darwin cplreynoldslpt.omnihotels.net 10.3.0 Darwin Kernel Version 10.3.0: Fri Feb 26 11:58:09 PST 2010; root:xnu-1504.3.12~1/RELEASE_I386 i386',
+            platform     => 'perl v5.10.0',
+            username     => 'BioPerl_tester',
+            password     => 'bptester',
+            report_file  => ['test_run.tar.gz'],
+            tags         => 'trunk',
+            revision     => '16962',
+        ]
+ );
+ print $response->content;
+ # TODO: Smolder::Manual needs updating, the URL in that POD is apparently wrong.
+ # The URL above works like a champ.  :)  --[[User:Jhannah|jhannah]] 03:10, 6 May 2010 (UTC)
+
+===<code>smolder_smoke_signal</code>===
+Or, if you install Smolder you'll now have a copy of <code>smolder_smoke_signal</code>:
+
+ # biobase2.unomaha.edu version
+ smolder_smoke_signal --server 137.48.128.112 \
+   --username BioPerl_tester --password bptester \
+   --file test_run.tar.gz --project BioPerl --tags trunk --revision 16962 \
+   --architecture "Ubuntu lenny/sid, Linux biobase2 2.6.24-26-server #1 SMP Tue Dec 1 19:19:20 UTC 2009 i686 GNU/Linux" \
+   --platform "perl, v5.8.8 built for i486-linux-gnu-thread-multi"
+
+==Jay's other random notes==
+ 
+ # ff.unl.edu version
+           architecture => 'CentOS release 5.3 (Final), Linux logon.local 2.6.18-164.9.1.el5 #1 SMP Tue Dec 15 20:57:57 EST 2009 x86_64 x86_64 x86_64 GNU/Linux',
+           platform     => 'perl v5.12.0',
+
+
