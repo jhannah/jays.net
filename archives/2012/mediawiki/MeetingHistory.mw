@@ -1,0 +1,206 @@
+[[Category:User Groups]]
+
+[[Omaha Dynamic Language Users Group]] / [[Omaha Perl Mongers]] meeting history.
+
+==2011==
+
+'''August 9'''
+* Shawn Hermans: "Lately I have being a lot of work with [http://code.google.com/apis/gdata/ GData.] They are an Atom based data service used by Google. We are taking their base Atom library and doing extensions to suit our needs. Also a lot of fun recently setting up a Redmine, Git and Hudson based Python development environment. Seems to be working pretty well for now." [http://www.meetup.com/Omaha-Agile-Development/members/13486208/ Shawn] also talked about [http://sphinx.pocoo.org/ Sphinx] document creation (HTML, text, man, Latex, pdf, books all from one markup), [http://rhodesmill.org/pyephem/index.html PyEphem] for space (satellite) coordinate math.
+
+'''July 12'''
+* Nick Nisi, Jay Hannah, ?:  "Web development with Sinatra and Rack (Ruby), Plack (Perl's Rack), WSGI (Python) volunteer needed. See 3 languages joining forces for webby justice!"
+
+'''Mar, Apr, May, Jun'''
+* Oops. Forgot to record these. See the [http://mail.pm.org/pipermail/omaha-pm/ mailing list archives.]  :)
+
+'''February 8'''
+* Ben Heath presents [http://www.appcelerator.com/ Appcelerator Titanium]
+
+'''January 11'''
+* Scott Hickey: I have received my copy of the "Land of Lisp". I worked through the first example using DrRacket (aka DrScheme/PLT-Scheme). [http://groups.google.com/group/odynug/browse_thread/thread/b1478d3d65ae7bec# tons of links]
+
+==2010==
+
+'''December 14''' 
+* Holiday party w/ [http://www.beerandcode.org/ Beer && Code Omaha]
+
+'''November 10'''
+* [[User:Jhannah|Jay]] presents [http://jquery.com/ jQuery] (and jQuery UI) fanciness he's been working on lately: [http://jqueryui.com/demos/datepicker/ Datepicker,] .append(), .change(), .clone(), highlightFade, [http://www.appelsiini.net/projects/jeditable Jeditable,] [http://jqueryui.com/demos/sortable/ Sortable,] ; and [http://catalyst.perl.org Catalyst] persisting to "noSQL" [http://www.mongodb.org/ mongoDB] and traditional RDBMSs via the Perl ORM [http://search.cpan.org/perldoc?DBIx::Class DBIx::Class].
+* Food, drink sponsored by: '''[http://mutationgrid.com Mutation Grid]'''
+
+'''September, October'''
+* Moved homepage to http://odlug.org, didn't update this list. I remember hanging out with the [http://home.omahamakergroup.org/ Omaha Maker Group]. What else did we do? --[[User:Jhannah|jhannah]] 15:28, 20 October 2010 (UTC)
+
+'''August 10'''
+* Stephen Haberman guides us through his [http://draconianoverlord.com/git-workshop.html Git Workshop.] Also don't miss his [http://draconianoverlord.com/2010/03/04/git-config.html git config] blog entry. We got about everybody added to the [http://github.com/jhannah/odynug main github repo,] so hopefully that repository will see a lot of use.
+* Food, drink sponsored by: '''[http://mutationgrid.com Mutation Grid]'''
+
+'''July 13'''
+* Writing up some scenarios for next month's [http://github.com/jhannah/odynug/tree/master/git_workshop/ git Workshop.]
+* Food, drink sponsored by: '''[http://mutationgrid.com Mutation Grid]'''
+
+'''June 8'''
+* Michael Kolakowski (Union Pacific) presents "Coding Kata" (Eclipse/Java). 
+* Food, drink sponsored by: '''[http://mutationgrid.com Mutation Grid]'''
+
+'''May 11'''
+* [http://blog.alieniloquent.com/ Sam Tesla] performs a shallow dive into both [http://golang.org/ GO] and [http://www.haskell.org Haskell]
+
+'''April 13'''
+* [http://www.stonehenge.com/merlyn/ Randal Schwartz] ''"Forget the ORM! Persistent Data with non-traditional databases."'' What an Object-Relational Mapper is, why it sucks, and a couple dozen alternatives (most open source, many with Perl bindings). It's his [http://www.infotec.org/ Infotec] presentation, only free. [[Media:Forget the ORM!.pdf|Slides]]
+* [[SIG]]-beer,karaoke with Randal "merlyn" Schwartz!
+
+'''March 9'''
+* Food, drink sponsored by: '''Sara Bachman, [http://www.teksystems.com/ TEKsystems]'''
+* [[User:Jhannah|Jay]] presents his [https://rtg.ist.unomaha.edu/Ticket/Display.html?id=884 cluster R processing] (username: guest password: guest) [https://clabsvn.ist.unomaha.edu/anonsvn/CLAB/RT884/ source] [http://clab.ist.unomaha.edu/~jhannah/RT566/201003/work/ results]
+* Watch [http://www.infoq.com/presentations/Are-We-There-Yet-Rich-Hickey Rich Hickey "Are We There Yet?"]
+* Scott talks about Clojure.
+
+'''February 9'''
+* Scott Hickey presents [http://www.plt-scheme.org/ PLT Scheme and DrScheme,] which are [http://svn.plt-scheme.org/ available via SVN.]
+
+ It is wicked cool that [http://svn.plt-scheme.org/plt/trunk/collects/scribblings/quick/quick.scrbl quick.scrbl] turns into [http://docs.plt-scheme.org/quick/index.html index.html] - HTML and .png files!
+ @mr-interaction[5 "art gallery"]
+ @mr-interaction[(circle 10)]
+
+'''January 12'''
+* New challenge: [http://github.com/jhannah/odynug/tree/master/check_the_check/ Check the check]
+
+==2009==
+
+'''December 14'''
+* Food, drink sponsored by: '''Sara Bachman, [http://www.teksystems.com/ TEKsystems]'''
+* Jay leads Omaha's first-ever [[Catalyst Workshop|Catalyst Web Development Workshop]]
+
+'''November 10'''
+* Scott Hickey presents [http://grails.org/Grails Grails.] (See also: [http://hudson-ci.org/ Hudson] [http://www.springsource.org/ Spring] [https://www.hibernate.org/ Hibernate] [http://www.opensymphony.com/sitemesh/ SiteMesh] [http://groovy.codehaus.org/ Groovy]) Also, [http://csillustrated.berkeley.edu/ Computer Science Illustrated] and [http://www.logicomix.com/en/ LOGICOMIX.]
+* Dave Kerber presents more Grails and Groovy goodness; data conversion mojo.
+
+'''October 13'''
+* Juan presents [http://grails.org/Grails Grails] on [http://code.google.com/appengine/ Google App Engine]
+
+'''September 8'''
+* Food, drink sponsored by: '''Sara Bachman, [http://www.teksystems.com/Locations/United-States/Nebraska/Omaha.aspx TEKsystems]'''
+* Samuel Tesla talks about the Engine Yard Cloud
+* Stephen Haberman talks about Scala
+
+'''August 11'''
+* Jay presents Modern Perl Programming: [http://moose.perl.org Moose] and [http://catalyst.perl.org Catalyst.]
+* Scott Hickey presents Scheme version of Bob Martin's Bowling Game
+
+'''July 14'''
+* Food, drink provided by '''Ken Koehn, [http://seraphcorp.com Seraph Corporation]'''. Thanks!
+* [[User:Jhannah|Jay Hannah]] presents [http://search.cpan.org/~jhannah/MooseX-Workers-0.08/lib/MooseX/Workers.pm MooseX::Workers]
+* [http://techmonkey4u.net Corey Spitzer] presents OpenCV, an open-source computer vision framework
+* [http://defgroovy.com Scott Hickey] presents PLT-Scheme. [http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html Tiobe Index]
+** This stuff is way over my head, but check out [http://search.cpan.org/~sisyphus/Inline-0.45/Inline.pod Inline]: "Write Perl subroutines in other programming languages" -laugh- --[[User:Jhannah|Jhannah]] 00:44, 15 July 2009 (UTC)
+* [http://www.linkedin.com/in/ryanstille Ryan Stille] presents VoIP management via ColdFusion
+
+
+* '''Jun. 9''' - Meeting! [[ODynUG]]: Matt Secoske presents "Ideas"
+* '''May 12''' - Meeting! [[ODynUG]]: Stephan Wessels present [http://www.squeak.org Squeak] tour de force.
+* '''Apr. 28''' - Lightning talks @ UNO PKI. woot!
+* '''Apr. 14''' - Meeting! [[ODynUG]]: Andy Lester presents "Get Out Of Technical Debt Now!"; Randal Schwartz presents "Seaside: your next web framework."
+* '''Mar. 10''' - Meeting! [[ODynUG]]: [http://github.com/jhannah/odynug/tree/master/pet_paradise Pet paradise challenge] launched.
+* '''Feb. 10''' - Meeting! [[ODynUG]]: (Work emergency kept me away.)
+* '''Jan. 13''' - Meeting! [[ODynUG]]: Jay presented [http://www.catalystframework.org/ Catalyst], a Perl MVC web development framework. Mario presented [http://wxruby.rubyforge.org wxRuby] (which sits on top of [http://www.wxwidgets.org/ wxWidgets] (formerly known as wxWindows)), [http://wxride.ruby-im.net/ wxRIDE], and [http://wxformbuilder.org wxFormBuilder].
+
+==1998..2008==
+
+* '''Dec. 9''' - Meeting! [[ODynUG]]: Jay presented a recent genetics [http://clab.ist.unomaha.edu/CLAB/index.php/Talk:RT386 visualization project] written in Perl / HTML / Javascript. Blaine presented Advanced Ruby.
+* '''Dec. 9''' - Lightning talks @ UNO PKI. I had another work crisis. Did anyone go? :(
+* '''Nov. 11''' - Meeting! [[ODynUG]]: But I missed it (work crisis). Did anyone go? :(
+* '''Oct. 14''' - Meeting! [[ODynUG]]: Samuel Tesla presents Advanced Erlang. Jay ponders [http://www.rabbitmq.com/ RabbitMQ] and testing frameworks like [http://svn.process-one.net/contribs/trunk/eunit/doc/overview-summary.html EUnit] (or perhaps the one that comes with OTP).
+* '''Sep. 9''' - Meeting! [[ODynUG]]: Prototype by [http://www.tconl.com/~benheath/ Ben Heath.] [http://developer.apple.com/internet/webcontent/xmlhttpreq.html XMLHttpRequest] r0x0r5? Good [http://w3schools.com/ajax/default.asp AJAX tutorial.]
+* '''Sep. 2''' - [http://search.cpan.org/search?query=Text%3A%3AFixedWidth Text::FixedWidth] makes [[User:Jhannah|Jay]] a CPAN author.
+* '''Aug. 15-17''' - [http://barcampomaha.org BarCamp Omaha]
+* '''Aug. 12''' - Meeting! [[ODynUG]]: Samuel Tesla presents git.
+* '''Jul. 1''' - Meeting! [[ODynUG]]: [[User:Jhannah|Jay]] gives his [[ChemChains sandbox]] lightning talk from YAPC::NA. Mike Hostetler presents [http://www.djangoproject.com/ Django]. Also check out [http://www.satchmoproject.com Satchmo] and [http://barcampomaha.org/ BarCamp Omaha.]
+* '''Jun. 3''' - Meeting! [[ODynUG]]: [[User:Jhannah|Jay]] does a 10m intro to the [[ChemChains sandbox]]. Blaine Buxton presents [http://seaside.st Seaside,] a web framework which contains [http://www.squeak.org/ Squeak,] an implementation of [http://www.smalltalk.org Smalltalk.] Also, check out [http://dabbledb.com/ Dabble DB.]
+* '''May. 6''' - Meeting! [[ODynUG]]: Advanced Ruby - Matt Secoske
+* oops... I forgot to wiki some meetings
+* '''Jan. 8''' - Meeting! [[ODynUG]]: Bob McCoy presents [http://en.wikipedia.org/wiki/Windows_PowerShell Windows PowerShell].
+
+'''2007'''
+
+*'''12/04/2007''' - Meeting! [[ODynUG]]: [http://processing.org Processing].
+*'''11/06/2007''' - Meeting! [[ODynUG]]
+*'''10/02/2007''' - Meeting! [[ODynUG]]: Erlang. Awesome stuff for SNMP, phone switches, MMORPGs, distributed processing, etc.
+*'''09/04/2007''' - Meeting! [[ODynUG]]: Rexx. Many examples in text processing are, naturally, compared to Perl. Pretty neat set of default behaviors. Rexx is huge in the mainframe space.
+*'''08/12/2007''' - Jay's first contribution hits CPAN: [http://search.cpan.org/~szabgab/Devel-Timer-0.04/lib/Devel/Timer.pm Devel-Timer-0.04].
+*'''08/07/2007''' - Meeting! Hanging out at Omaha Dynamic Language Users Group ([[ODynUG]]). Jay wrote a Perl proof of concept for [http://vc.jays.net/viewvc.cgi/carwash/?root=dynamic_omaha Blaine's car wash challenge].
+*'''07/10/2007''' - Meeting! Jay presents intro to Genetics, BioPerl, and SeqLab.net @ Omaha Dynamic Language Users Group.
+*'''05/08/2007''' - Meeting! Mike, Kiran, and Jay BioPerl geekery.
+*'''04/24/2007''' - Perl+ lightning talks @ UNO!
+*'''04/10/2007''' - Meeting! Ryan gets all a[http://twittervision.com/ twitter], Kiran and Jay GBrowse Staph stuff.
+*'''03/13/2007''' - Meeting! Kiran and Jay BioPerl geekery.
+*'''02/13/2007''' - Meeting! [http://clab.ist.unomaha.edu/CLAB/index.php/SeqLab_(Perl) SeqLab] goes public. BioPerl in Omaha. Bioinformatics will never be the same. :)
+*'''01/09/2007''' - Meeting! 6 mongers tip and trick exchange.
+
+'''2006'''
+
+*'''12/12/2006''' - Meeting! An extraveganza of miscellanous computer nerdery.
+*'''12/05/2006''' - Perl+ lightning talks @ UNO!
+*'''11/14/2006''' - Meeting! Kiran and Jay geek out all BioPerly style.
+*'''10/10/2006''' - Meeting! Ryan Stille, Dave M., Kiran, and Mike gather around as Jay presents Object Oriented Perl 101.
+*'''09/12/2006''' - Meeting! Dave M. and Jay trick Matt into coming out to his first Omaha user group meeting ever. -mwoo hahahaha-
+*'''08/08/2006''' - Meeting! Dave M. [http://clamtk.sourceforge.net/recognition.html ClamTk news], BlackHat, DEFCON, gtk2. Jay OSCON.
+*'''07/25/2006''' - OSCON 2006! In a staggering clerical error, Jay Hannah (defacto Omaha.pm group leader) is awarded a [http://www.perl.org/advocacy/white_camel/ 2006 white camel award].
+*'''07/11/2006''' - Meeting! Miscellaneous BioPerly goo.
+*'''06/13/2006''' - Meeting! OpenLab, [http://onthisdate.net onthisdate.net], Perl "vs." Ruby on Rails, [http://search.cpan.org/~pvandry/gettext-1.00/gettext.pod gettext], [http://sourceforge.net/projects/clamtk/ ClamTk].
+*'''05/09/2006''' - Meeting! Tons of random Perl+ hackery!
+*'''04/25/2006''' - Perl+ lightning talks @ UNO!
+*'''04/18/2006''' - Perl+ lightning talks @ UNO!
+*'''03/14/2006''' - Meeting! Random Perl hackery.
+*'''02/26/2006''' - BioPerl lab! Brainstorming primer/primer groups extensions to toolsets. Launch a web portal project on sourceforge?
+*'''02/22/2006''' - BioPerl lab! Kiran and Jay discover the CVS repository which already had a patch for their Bio::SeqIO::gedcom problem. We're on the bleeding edge now, baby!
+*'''02/14/2006''' - Meeting! BioPerl neophytism, Mac stuff, PHP props, pizza, etc. 
+*'''01/28/2006''' - Meeting! BioPerl blitz: Bio::Seq, Bio::SeqIO, Bio::DB::BioDB, Bio::Tools::Run::Alignment::Clustalw!
+*'''01/17/2006''' - Meeting! Lots of BioPerl hackery! Check out our new books/magazines.
+
+'''2005'''
+
+*'''12/15/2005''' - Meeting! 5 mongers munch pizza, operator overloading, Class::Date, geek knitting, etc.
+*'''12/06/2005''' - Perl+ lightning talks @ UNO! Jay presents Operator Overloading & Class::Date.
+*'''11/29/2005''' - Perl+ lightning talks @ UNO!
+*'''10/21/2005''' - Meeting! 5 mongers munch pizza, Google maps, Template Toolkit, XML::Twig, etc.
+*'''09/15/2005''' - Meeting! Ron, Sidney, and Jay play hookey @ Cheesburgers in Paradise. ... /(Was that|I saw) a(nother)? mouse[?!]/
+*'''08/25/2005''' - Meeting! Turned into Java user group chat night. Sign up for NoFluffJustStuff conference!
+*'''07/21/2005''' - Meeting! Jay and Dave muck w/ Template Toolkit.
+*'''05/17/2005''' - Meeting! Just shooting the Perly breeze. CGI.pm 101.
+*'''04/15/2005''' - Meeting! Jay presents OO Practicum #2: 5 fixed width file formats in one OO structure.
+*'''03/18/2005''' - Meeting! Misc OO design pattern discussions.
+*'''02/17/2005''' - Meeting! Jay does a quick OO demo. Conversations range from beginner Perl to OO Perl to IBM pSeries to poker.
+*'''01/20/2005''' - Meeting! 4 mongers do secret stuff. Jay wasn't there... What '''did''' happen, anyway?
+
+'''2004'''
+
+*'''12/16/2004''' - Meeting! Ron, Sidney and Jay wax philosophic about log4perl then diddle w/ deep Tie::STDERR and Handler black magic.
+*'''11/18/2004''' - Meeting! 5 mongers hack out a latitude/longitude spidering program to help the Perl Mongers master XML file.
+*'''10/21/2004''' - Meeting! Jay demos packages, objects, nested complex data structures, references, and CGI.pm.
+*'''09/30/2004''' - Jay's 2nd core Perl patch is applied! [http://public.activestate.com/cgi-bin/perlbrowse?patch=23341&action=patch patch#23341]
+*'''09/20/2004''' - Emergency Perl tutoring session held for a UNO student.
+*'''09/16/2004''' - Dinner! Quoting Homer Simpson: Sooo lazy...
+*'''08/19/2004''' - Meeting! Sidney gives a tour of her Perly animal rescue websites & associated flat-file databases.
+*'''05/25/2004''' - Meeting! 2 mongers drove 90 miles to attend! That's a new record -- never before has 360 man-miles been expended for remote attendance. WWW::Mechanize again, and misc other topics.
+*'''02/23/2004''' - Meeting! Presentation: WWW::Mechanize, Time::HiRes, and fork(): How to spider the FAA's web site when your boss' boss' boss' boss' personal pilot calls you.
+*'''01/14/2004''' - Meeting! JayH, Dean, JayS and Scott socialize, diddle around with pipes to sendmail, Scott's patch to core perl (below), and MIME::QuotedPrint. They don't get around to chatting about Test::Harness.
+
+'''2003..1998'''
+
+*'''12/16/2003''' - Meeting! Jay Hannah gave a Perl debugger demo, almost none of which was new to Richard, who taught about stack traces. We explored some new commands in the 5.8.0 debugger.
+*'''10/21/2003''' - Meeting! Jay Hannah gave a presentation on Expect.pm: [http://omaha.pm.org/presentations/pscrawl_pl.txt pscrawl.pl]
+*'''09/26/2003''' - Dinnner! Jeff Bisbee of [http://southflorida.pm.org SouthFlorida.pm] drops by to have dinner w/ 5 local mongers. Conversation ranged from [http://www.yapc.org/ YAPC::NA] to WWW::Mechanize shell to [http://poe.perl.org/ POE].
+*'''08/21/2003''' - Meeting! Justin Hopkins gives intro to building automated test suites with Test::Simple and WWW::Mechanize.
+*'''07/24/2003''' - Meeting! Kent Tegels shows off his XML wizardry.
+*'''06/19/2003''' - Meeting! 10 Mongers showed up to Mojo's Coffeehouse! A new record!  After many A/V problems, Jay Hannah gave a quick and informal Intro to Perl / Intro to Object Oriented Perl presentation.
+*'''05/15/2003''' - Meeting! [http://omaha.pm.org/emails/2003/msg00078.html Attendance was up 25%!]
+*'''04/02/2003''' - Meeting! Mongers from the four corners of the Earth came, saw, and conquered. (Or was it four Mongers from the corners of Omaha? -grin-)
+* '''03/17/2003''' - Supreme executive power (which should be derived from a mandate of the masses) transferred from long-time group lead Patrick Timmins to Jay Hannah. Trumpets blared, jets screamed overhead, etc. [http://omaha.pm.org/2003/pt-jh.txt emails].
+*'''02/11/2003''' - After 10 years of Perl hacking, Jay gets his first patch to [http://simon-cozens.org/writings/p5p-faq core Perl] applied! [http://public.activestate.com/cgi-bin/perlbrowse?patch=18683&action=patch patch#18683] Sure, it's just a 9 line addition to .pod, but Jay was pretty excited none the less.
+*'''05/27/2001''' - Scott L Miller (loyal Omaha Perl Monger) gets [http://public.activestate.com/cgi-bin/perlbrowse?patch=10696">[patch#10696]] applied to core Perl.
+*'''04/??/1997''' - Jim Lawless (loyal Omaha Perl Monger) takes 2nd place in the [http://www.foo.be/docs/tpj/issues/vol2_3/tpj0203-0012.html 1st Annual Obfuscated Perl Contest]!
+
+Our [[Omaha_Perl_Mongers#Mailing_List|mailing list archive]] begins in 1998.
+
+
