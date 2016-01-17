@@ -10,7 +10,7 @@ Mail only, no SD: postscanmail.com
 
 ## Picking a trailer
 
-30K all-aluminum trailer (no wood, no steel):
+30K new 7x20 all-aluminum trailer (no wood, no steel):
 
 * https://www.youtube.com/watch?v=YuuPLabRT6E
 * http://www.livinlite.com/toy-haulers.php
@@ -19,13 +19,14 @@ Mail only, no SD: postscanmail.com
 
 ----
 
+17K used 8.5x16 [Jayco Octane Super Lite 161](http://www.rvtrader.com/dealers/Camptown-RV-730182/listing/2014-Jayco-Octane-Super-Lite-161-111625901)
+
+----
+
 11K [new wood, steel trailer](http://desmoines.craigslist.org/rvd/5395058894.htm)
 with terrifying [under-bed construction](https://www.dropbox.com/s/fnzxddjaz9yp0vh/Screenshot%202016-01-16%2017.01.31.png?dl=0).
 
-After 7 years, $30K(?) trailer [sells for 12](http://www.outletrecreation.com/RV.aspx?qs=6BkLA1eG9yfIIDGUYpGbwQ==)?
+----
 
-
-
-
-
+12K 7 year old$30K(?) [2008 Cargo Mate 8X22](http://www.outletrecreation.com/RV.aspx?qs=6BkLA1eG9yfIIDGUYpGbwQ==) sells for 11?
 
