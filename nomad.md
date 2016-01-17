@@ -10,7 +10,7 @@ Mail only, no SD: postscanmail.com
 
 ## Picking a trailer
 
-My current truck is a small V8, only tows 7000 lbs. So unless I want to trade up to a $55K truck (or used variation thereof), 7k is my limit.
+My current truck is a small V8, only tows 7000 lbs. So unless I want to trade up to a $55K truck (or used variation thereof), 7k is my limit including 2 motorcycles.
 
 30K new 7x20 all-aluminum trailer (no wood, no steel):
 
