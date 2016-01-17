@@ -25,8 +25,9 @@ My current truck is a small V8, only tows 7000 lbs. So unless I want to trade up
 
 ----
 
-11K [new wood, steel trailer](http://desmoines.craigslist.org/rvd/5395058894.htm)
-with terrifying [under-bed construction](https://www.dropbox.com/s/fnzxddjaz9yp0vh/Screenshot%202016-01-16%2017.01.31.png?dl=0).
+11K 2016 Forest River RV Cherokee 17RP wood, steel trailer, but the 
+[under-bed construction](https://www.dropbox.com/s/fnzxddjaz9yp0vh/Screenshot%202016-01-16%2017.01.31.png?dl=0)
+terrifies my fat ass.
 
 ----
 
