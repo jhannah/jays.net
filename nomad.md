@@ -10,19 +10,19 @@ Mail only, no SD: postscanmail.com
 
 ## Picking a trailer
 
-11K new wood, steel trailer:
-
-http://desmoines.craigslist.org/rvd/5395058894.html
-
 30K all-aluminum trailer (no wood, no steel):
 
-https://www.youtube.com/watch?v=YuuPLabRT6E
-http://www.livinlite.com/toy-haulers.php
-http://www.livinlite.com/vrv-floorplans.php
-http://www.livinlite.com/pdf/stdopts/7x20vrv.pdf
+* https://www.youtube.com/watch?v=YuuPLabRT6E
+* http://www.livinlite.com/toy-haulers.php
+* http://www.livinlite.com/vrv-floorplans.php
+* http://www.livinlite.com/pdf/stdopts/7x20vrv.pdf
 
-After 7 years, $30K(?) trailer sells for 12?
-http://www.outletrecreation.com/RV.aspx?qs=6BkLA1eG9yfIIDGUYpGbwQ==
+----
+
+11K [new wood, steel trailer](http://desmoines.craigslist.org/rvd/5395058894.htm)
+with terrifying [under-bed construction](https://www.dropbox.com/s/fnzxddjaz9yp0vh/Screenshot%202016-01-16%2017.01.31.png?dl=0).
+
+After 7 years, $30K(?) trailer [sells for 12](http://www.outletrecreation.com/RV.aspx?qs=6BkLA1eG9yfIIDGUYpGbwQ==)?
 
 
 
