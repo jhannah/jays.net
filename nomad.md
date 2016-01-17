@@ -31,5 +31,5 @@ terrifies my fat ass.
 
 ----
 
-12K 7 year old$30K(?) [2008 Cargo Mate 8X22](http://www.outletrecreation.com/RV.aspx?qs=6BkLA1eG9yfIIDGUYpGbwQ==) sells for 11?
+12K 7 year old ($30K?) [2008 Cargo Mate 8X22](http://www.outletrecreation.com/RV.aspx?qs=6BkLA1eG9yfIIDGUYpGbwQ==) sells for 11?
 
