@@ -21,7 +21,7 @@ My current truck is a small V8, only tows 7000 lbs. So unless I want to trade up
 
 ----
 
-17K used 8.5x16 [Jayco Octane Super Lite 161](http://www.rvtrader.com/dealers/Camptown-RV-730182/listing/2014-Jayco-Octane-Super-Lite-161-111625901)
+17K used 8.5x16 [Jayco Octane Super Lite 161](http://www.rvtrader.com/dealers/Camptown-RV-730182/listing/2014-Jayco-Octane-Super-Lite-161-111625901) (wood)
 
 ----
 
