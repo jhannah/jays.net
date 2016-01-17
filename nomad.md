@@ -10,6 +10,8 @@ Mail only, no SD: postscanmail.com
 
 ## Picking a trailer
 
+My current truck is a small V8, only tows 7000 lbs. So unless I want to trade up to a $55K truck (or used variation thereof), 7k is my limit.
+
 30K new 7x20 all-aluminum trailer (no wood, no steel):
 
 * https://www.youtube.com/watch?v=YuuPLabRT6E
