@@ -9,6 +9,11 @@ The year is 2016. Jay is threatening to live in a toy hauler full time.
 * Mail only, no SD: postscanmail.com
 * [Tax implications](http://wheelingit.us/2011/04/09/tax-season-fulltime-rving-making-the-most-of-it/)
 
+## Lifestyle
+
+* [Owners Manual](http://www.amazon.com/gp/product/B000I8G5D0/ref=atv_feed_catalog?ref_=imdbref_tt_pv_vi_aiv_1&tag=imdbtag_tt_pv_vi_aiv-20) - RV w/ Robin Williams
+* Butt stuff: Scott's Extra Soft - good biodegradable TP. And/or [squirty options](http://www.biffy.com/attachable-bidet-biffy-classic-bidet-attachment-the-1-bidet-spray-available/)
+
 ## Picking a trailer
 
 My current truck is a small V8, only tows 7000 lbs. So unless I want to trade up to a $55K truck (or used variation thereof), 7k is my limit including 2 motorcycles.
