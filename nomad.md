@@ -6,6 +6,7 @@ The year is 2016. Jay is threatening to live in a toy hauler full time.
 
 * Nomad "in SD": snail mail, residency, vehicle registrations, titling, etc: [Americas Mailbox](http://www.americas-mailbox.com/)
 * [SD vehicle registration / renewal](http://www.sdcars.org/)
+* [North Sioux City, SD DMV](http://www.northsiouxcity-sd.gov/comm/comm_relo_license&registration.html)
 * Mail only, no SD: postscanmail.com
 * [Tax implications](http://wheelingit.us/2011/04/09/tax-season-fulltime-rving-making-the-most-of-it/)
 
