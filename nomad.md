@@ -10,6 +10,10 @@ The year is 2016. Jay is threatening to live in a toy hauler full time.
 * Mail only, no SD: postscanmail.com
 * [Tax implications](http://wheelingit.us/2011/04/09/tax-season-fulltime-rving-making-the-most-of-it/)
 
+## Don't miss
+
+* Sean Baker says: Hugs Point [near Arch Cape, Oregon](https://www.google.com/maps/place/45%C2%B048'21.2%22N+123%C2%B057'55.1%22W/@45.805901,-123.9658851,152m/data=!3m2!1e3!4b1!4m2!3m1!1s0x0:0x0).
+
 ## Lifestyle
 
 * [Owners Manual](http://www.amazon.com/gp/product/B000I8G5D0/ref=atv_feed_catalog?ref_=imdbref_tt_pv_vi_aiv_1&tag=imdbtag_tt_pv_vi_aiv-20) - RV w/ Robin Williams
