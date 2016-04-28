@@ -13,6 +13,15 @@ The year is 2016. Jay is threatening to live in a toy hauler full time.
 ## Don't miss
 
 * Sean Baker says: Hugs Point [near Arch Cape, Oregon](https://www.google.com/maps/place/45%C2%B048'21.2%22N+123%C2%B057'55.1%22W/@45.805901,-123.9658851,152m/data=!3m2!1e3!4b1!4m2!3m1!1s0x0:0x0).
+* Ben Donohue says: [Goldbug Hot Springs](https://www.google.com/maps/place/Goldbug+Hot+Springs/@44.861619,-115.8820069,6z/data=!4m2!3m1!1s0x0:0xce17406dbdeee00e) in Idaho.
+
+## Cool links
+
+* [Finding Marshall](https://findingmarshall.com/). I met him briefly in 2015, apparently. :)
+* [Non-Retired Younger Full-Time RVing Nomad Blogs](http://www.technomadia.com/young-full-time-rving-nomads/)
+* [Technomadia Travel Maps](http://www.technomadia.com/travel-maps/)
+* [RV Park Reviews](http://www.rvparkreviews.com/)
+* [Sweth's Peregrinations](https://www.google.com/maps/d/u/0/viewer?mid=z51063MNwvFo.k7vpUSW9kZ4o)
 
 ## Lifestyle
 
