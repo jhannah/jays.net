@@ -25,6 +25,7 @@ The year is 2016. Jay is threatening to live in a toy hauler full time.
 
 ## Lifestyle
 
+* Oregon ATV: [Safety certificate](http://www.rideatvoregon.org/), [permits](http://www.oregon.gov/oprd/ATV/Pages/Permits.aspx)
 * [Owners Manual](http://www.amazon.com/gp/product/B000I8G5D0/ref=atv_feed_catalog?ref_=imdbref_tt_pv_vi_aiv_1&tag=imdbtag_tt_pv_vi_aiv-20) - RV w/ Robin Williams
 * Butt stuff: Scott's Extra Soft - good biodegradable TP. And/or [squirty options](http://www.biffy.com/attachable-bidet-biffy-classic-bidet-attachment-the-1-bidet-spray-available/)
 
