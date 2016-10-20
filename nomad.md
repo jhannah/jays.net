@@ -1,6 +1,6 @@
 # Nomadic Living
 
-The year is 2016. Jay is threatening to live in a toy hauler full time. 
+The year is 2016. Jay is in Omaha, NE falls and springs, and [in the RV](https://goo.gl/vqZzQG) summers and winters. 
 
 ## Legal residency
 
