@@ -1,7 +1,9 @@
 List of terms for "everyone else" ("the other"):
 
-no cryptocurrency:  nocoiner
+no cryptocurrency:  normie (ignorant)
+                    nocoiner (aware rejection)
 non-academia:       industry 
+non-Amish:          English
 non-Catholic:       protestant
 non-gun-owner:      sheeple
 non-Jewish:         gentile
@@ -11,4 +13,3 @@ non-Mormon:         gentile
 non-Muslim:         infidel
 non-Scientologist:  SP (suppressive person)
 
-sort -f
