@@ -1,13 +1,12 @@
-non-Muslim:        infidel
-non-gun:           sheeple
-non-Mormon:        gentile
-non-Catholic:      protestant
-non-Jewish:        gentile
-non-academia:      industry 
-non-Scientologist: SP (suppressive person)
-non-military:      civilians
-non-LGBTQI:        cisgender
-
-
+non-Muslim:         infidel
+non-gun owner:      sheeple
+non-Mormon:         gentile
+non-Catholic:       protestant
+non-Jewish:         gentile
+non-academia:       industry 
+non-Scientologist:  SP (suppressive person)
+non-military:       civilian
+non-LGBTQI:         cisgender
+non-cryptocurrency: nocoiner
 
 
