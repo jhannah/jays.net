@@ -1,12 +1,14 @@
-non-Muslim:         infidel
-non-gun owner:      sheeple
-non-Mormon:         gentile
-non-Catholic:       protestant
-non-Jewish:         gentile
+List of terms for "everyone else" ("the other"):
+
+no cryptocurrency:  nocoiner
 non-academia:       industry 
-non-Scientologist:  SP (suppressive person)
-non-military:       civilian
+non-Catholic:       protestant
+non-gun-owner:      sheeple
+non-Jewish:         gentile
 non-LGBTQI:         cisgender
-non-cryptocurrency: nocoiner
+non-military:       civilian
+non-Mormon:         gentile
+non-Muslim:         infidel
+non-Scientologist:  SP (suppressive person)
 
-
+sort -f
