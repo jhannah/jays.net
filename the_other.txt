@@ -6,7 +6,7 @@ non-academia:       industry
 non-Amish:          English
 non-Catholic:       protestant
 non-gun-owner:      sheeple
-non-Jewish:         gentile
+non-Jewish:         gentile, goy
 non-LGBTQI:         cisgender
 non-military:       civilian
 non-Mormon:         gentile
