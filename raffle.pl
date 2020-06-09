@@ -26,7 +26,7 @@ sub draw_a_winner {
       push @all_tickets, $name;
     }
   }
-  print "$total_tickets total tickets<br/>\n";
+  print "$total_tickets total tickets.<br/>\n";
   my $selection = int(rand($total_tickets));
   print "I randomly chose ticket " . ($selection + 1) . ".<br/>\n";
   my $winner = $all_tickets[$selection];
