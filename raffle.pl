@@ -22,7 +22,7 @@ sub draw_a_winner {
     chomp $line;
     my ($name, $count) = (split m#/#, $line);
     $total_tickets += $count;
-    for (0..$count) {
+    for (1..$count) {
       push @all_tickets, $name;
     }
   }
