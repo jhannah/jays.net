@@ -37,6 +37,7 @@ cd ne.tif.report
 git checkout static-www
 cd ../
 git clone git@github.com:opennebraska/tif.report
+git clone git@github.com:jhannah/omaha.foodnotbombs.us
 
 cpanm --local-lib=~/perl5 local::lib && eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
 cpanm Template
