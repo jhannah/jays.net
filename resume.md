@@ -7,17 +7,18 @@ jay@jays.net
 
 **Objective:** Identify challenging technical leadership opportunity managing large scale data systems. 100% telecommute.
 
-**Leadership skill set:** 10 years of experience in e-commerce applications across various industries. Have spent
-the last 6 years managing a team of 8-12 programmers and database/system administrators in a mission critical
-OLTP database environment ($400M revenue stream). Daily management of operations problems while
-simultaneously managing high level expectations and deliverables for senior management team and ownership.
+**Leadership:** For seven years in the early 2000s I managed 8-12 programmers and database/system
+administrators in a mission critical OLTP database environment ($400M revenue stream). Daily management of
+operations problems while simultaneously managing high level expectations and deliverables for senior management
+team and ownership.
 
-**Technical skill set:** 10 years of experience as lead developer of e-commerce applications. Very strong
-programming and data modeling skills. Sustained focus on the construction and maintenance of TCP/IP services
-with intranet, extranet, and Internet distributions. Experience in SOAP and large-scale XML standards data
-processing. Developed multi-site load balancing, high availability, and disaster recovery solutions; including
+**Technical:** 27 years of programming / lead developer experience. Strong data modeling skills. Sustained focus
+on the construction and maintenance of TCP/IP services with intranet, extranet, and Internet distributions.
+Experience in large-scale JSON / XML standards data processing.
+Developed multi-site load balancing, high availability, and disaster recovery solutions; including
 procedure definition, enforcement, and trials. Versed and experienced in most open standard TCP/IP services.
-Strong focus on open source technologies. Passingly skilled with network design and firewall concepts.
+Strong focus on open source technologies. Passingly skilled with network design concepts. I pride myself on 
+my documentation skills. Throughout my career I have championed documentation efforts for many companies.
 
 ## Experience
 
