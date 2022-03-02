@@ -82,7 +82,7 @@ for researchers and students across the University of Nebraska system. CLAB is b
 In one project I wrote a bunch of Perl, deployed it to UNO's super computer cluster, crunched a ton of data, and that work ended
 up being useful enough to the scientists that I was listed as a co-author on a scientific paper. Don't ask me to explain
 the science (my biology / chemistry is weak) but I can try to remember a vague outline of the software I wrote if you're interested:
-[Loss of Dnmt3b function upregulates the tumor modifier Ment and accelerates mouse lymphomagenesis](https://pubmed.ncbi.nlm.nih.gov/22133874/)
+[Loss of Dnmt3b function upregulates the tumor modifier Ment and accelerates mouse lymphomagenesis](https://pubmed.ncbi.nlm.nih.gov/22133874/).
 
 ### Senior Software Engineer, Webmaster | Viatel, Inc. ($570M) | 1998 - 1999
 
