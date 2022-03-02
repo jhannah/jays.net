@@ -23,9 +23,28 @@ Strong focus on open source technologies. Passingly skilled with network design 
 
 ### Project Lead / Programmer | Infinity Interactive | 2011 - Present
 
-Telecommuting consultant. Mostly Perl, large scale databases, REST APIs, web. Industries include
-e-commerce (retail), large event / venue equipment rental (and data mining thereof), advertising technology,
-and various start-ups.
+Telecommuting consultant. Perl, Golang, Python, PL/pgSQL, large scale databases, REST APIs, minor web.
+Industries have included e-commerce (retail), large event / venue equipment rental (and data mining thereof),
+advertising technology, and various start-ups.
+
+Currently I am assigned to a company with ~140 engineers. In principle we have a lot of DevOps support so
+I can focus on programming (Golang, Perl, Python). In practice I've been learning a lot of DevOps because
+resources aren't (immediately?) available and sometimes I have access to fix things.
+
+I am not a DevOps professional (priceless). But I have a functional / "emergency" understanding of deployment
+of our various stacks. We have monoliths and "micro-services." We've swung back and forth between those strategies
+over the last 6 years. We're currently deployed on: "bare metal," Xen VMs, in-house managed Kubernetes,
+and AWS (EC2, ECS, S3, etc.). Those stacks are variously driven by Docker, Docker Compose, Chef/Ansible, Helm
+Charts (of which I know very little), and various other tools.
+
+We run a variety of stats / monitoring / paging systems. We host and/or pay for hosting of various logging
+and tracing (OpenTelemetry) systems. Recently k8s -> Sumologic Tracing has been popular, I've been working with
+that a lot in recent weeks.
+
+Our Perl monolith still drives much of the revenue of the company. Our team is re-implementing our Perl REST APIs
+in Golang. I've been modifying existing Golang for 1.5 years now. I am very new to modifying the open source
+stacks upon which our Golang is built. `go mod vendor` was an interesting learning experience this week, 
+fighting OpenTelemetry (HTTP OTLP).
 
 ### Software Architect / Director of Development | Omni Hotels ($720M) | 1999 - 2010
 
