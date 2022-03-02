@@ -16,7 +16,7 @@ team and ownership.
 on the construction and maintenance of TCP/IP services (over "trusted" and untrusted networks).
 Large-scale JSON / XML standards data processing and REST APIs exposing those.
 Developed multi-site load balancing, high availability, and disaster recovery solutions; including
-procedure definition, enforcement, and trials. Versed and experienced in most open standard TCP/IP services.
+procedure definition, enforcement, and trials.
 Strong focus on open source technologies. Passingly skilled with network design concepts. I pride myself on 
 my documentation skills. Throughout my career I have championed documentation efforts for many companies.
 
