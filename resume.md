@@ -13,8 +13,8 @@ operations problems while simultaneously managing high level expectations and de
 team and ownership.
 
 **Technical:** 27 years of programming / lead developer experience. Strong data modeling skills. Sustained focus
-on the construction and maintenance of TCP/IP services with intranet, extranet, and Internet distributions.
-Experience in large-scale JSON / XML standards data processing.
+on the construction and maintenance of TCP/IP services (over "trusted" and untrusted networks).
+Large-scale JSON / XML standards data processing and REST APIs exposing those.
 Developed multi-site load balancing, high availability, and disaster recovery solutions; including
 procedure definition, enforcement, and trials. Versed and experienced in most open standard TCP/IP services.
 Strong focus on open source technologies. Passingly skilled with network design concepts. I pride myself on 
