@@ -160,7 +160,7 @@ Member, Delta Tau Delta social fraternity.
 ### Interests
 
 Philosophy, “blitz” Go (Igo/Wei Qi/Baduk), chess, podcasting, motorcycles, genetics, genealogy.
-Group Leader, Omaha Perl Mongers
+Group Leader, Omaha Perl Mongers.
 
 ### References
 
