@@ -21,17 +21,13 @@ Strong focus on open source technologies. Passingly skilled with network design 
 
 ## Experience
 
-Project Lead / Programmer |
-Infinity Interactive |
-2011 - Present
+### Project Lead / Programmer | Infinity Interactive | 2011 - Present
 
 Telecommuting consultant. Mostly Perl, large scale databases, REST APIs, web. Industries include
 e-commerce (retail), large event / venue equipment rental (and data mining thereof), advertising technology,
 and various start-ups.
 
-Software Architect / Director of Development |
-Omni Hotels, Omaha NE ($720M) |
-1999 - 2010
+### Software Architect / Director of Development | Omni Hotels ($720M) | 1999 - 2010
 
 * Design, manage, implement, and document complex software/data systems to fulfill the stated technology goals
 of the senior management team. Provide regular status updates and cost estimates.
@@ -52,19 +48,18 @@ balanced cluster of low-cost Linux servers running a single application framewor
 Established documentation systems, revision control, operating procedures, monitoring and paging, and
 departmental cross training.
 
-Application Support / Development Specialist |
-University of Nebraska Medical Center |
-2007 - 2010
+### Application Support / Development Specialist | University of Nebraska Medical Center | 2007 - 2010
 
 Worked part-time from UNMC while persuing a B.S. in Bioinformatics.
 
-Genetic Sequence Analysis Facility (GSAF) provides application and hardware support and development for researchers at the University of Nebraska Medical Center.
+Genetic Sequence Analysis Facility (GSAF) provides application and hardware support and development for researchers
+at the University of Nebraska Medical Center.
 
-Collaborative Laboratory of Applied Bioinformatics (CLAB) provides application and hardware support and development for researchers and students across the University of Nebraska system. CLAB is based at the Peter Kiewit Institute (PKI) of the University of Nebraska, Omaha (UNO).
+Collaborative Laboratory of Applied Bioinformatics (CLAB) provides application and hardware support and development
+for researchers and students across the University of Nebraska system. CLAB is based at the Peter Kiewit Institute
+(PKI) of the University of Nebraska, Omaha (UNO).
 
-Senior Software Engineer, Webmaster |
-Viatel, Inc., Omaha NE ($570M) |
-1998 - 1999
+### Senior Software Engineer, Webmaster | Viatel, Inc. ($570M) | 1998 - 1999
 
 * Lead developer of Internet / Intranet applications.
 * Designed and lead ongoing technical production, implementation and maintenance of Viatel’s first Internet /
@@ -85,9 +80,7 @@ applications).
 responsibilities (e.g.: built and maintaining Internet / Intranet server rack of 3 dual-processor x86 Linux servers
 providing all Internet, Intranet ,and Extranet services worldwide.
 
-Director of Software Development |
-Quality Service Management, Inc., Omaha NE ($16M) |
-1997 - 1998
+### Director of Software Development | Quality Service Management, Inc. ($16M) | 1997 - 1998
 
 * Director of Software Development and telecommunications coordinator for $16 million direct marketing
 consulting firm with 700+ employees and a 4 year trend of 100% annual growth (1995-1998).
@@ -105,9 +98,7 @@ expansion, cost/benefit analysis, and crisis management of a 5 point wide area n
 Internet access), 14 voice T1s and 30-odd analog circuits. Role also included the monitoring and approval of all
 telecommunications bills, totaling $75K (2 million calls) per month.
 
-President |
-Global Shopping Club, Inc., Yankton SD ($7M) |
-1996 - 1997
+### President | Global Shopping Club, Inc., Yankton SD ($7M) | 1996 - 1997
 
 * Founding partner in Internet-based computer components and home electronics distribution company with 25
 employees.
@@ -123,9 +114,7 @@ and television interviews. Wrote press releases and promotional materials for su
 * Wrote and presented “Successful Internet Commerce – One Flourishing Model” at 1996 Techlaunch 2000
 technology conference held in Sioux City, IA.
 
-Network Systems Coordinator |
-General Service Computers, Inc., Yankton SD ($7M) |
-1995 - 1996
+### Network Systems Coordinator | General Service Computers, Inc., Yankton SD ($7M) | 1995 - 1996
 
 * Designed, implemented, and managed Perl-based CGI web site allowing customers to access inventory
 information and place orders via the Internet.
@@ -145,12 +134,12 @@ Persued B.S. in Bioinformatics. Earned no degrees.
 
 Iowa State University, Ames IA 1993-1995
 
-Majored in Mechanical Engineering, Psychology & Philosophy. Psychology minor completed. Member, Delta Tau
-Delta social fraternity. Earned no degrees.
+Majored in Mechanical Engineering, Psychology & Philosophy. Psychology minor completed. Earned no degrees.
+Member, Delta Tau Delta social fraternity. 
 
 ### Interests
 
-Philosophy, “blitz” Go (Igo/Wei Qi/Baduk), chess, genetics, genealogy.
+Philosophy, “blitz” Go (Igo/Wei Qi/Baduk), chess, podcasting, motorcycles, genetics, genealogy.
 Group Leader, Omaha Perl Mongers
 
 ### References
