@@ -2,7 +2,7 @@
 
 12238 N 40th St
 Omaha, NE 68112 |
-1-402-578-3976 |
+1-402-598-7782 |
 jay@jays.net
 
 **Objective:** Identify challenging technical leadership opportunity managing large scale data systems. 100% telecommute.
