@@ -13,8 +13,8 @@ Lost? Call Jay at 402-598-7782
 
 ## Covid-19
 
-As far as we know all our friends are vaccinated. If you're not feeling well, please don't come this month.
-There's always next month. 🙂
+As far as we know all our friends are vaccinated. If anyone in your household is not feeling well recently
+please don't come this month. There's always next month. 🙂
 
 We're keeping the invite / RSVP list small. 6-9 total players over the course of however many hours.
 We love you, but Covid sucks.
