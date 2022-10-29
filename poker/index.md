@@ -1,6 +1,6 @@
 % Poker @ Jay & Steph's
 
-# Sat Sep 24, 2022. 7pm - whenever
+# Sat Nov 5, 2022. 7pm - whenever
 
 What? It's 2022?? "New" cult house in the woods?
 Let's play Texas Hold 'Em!
