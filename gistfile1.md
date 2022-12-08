@@ -40,7 +40,7 @@ Ireland
 * Northern Lights viewing at Maulin Head 
 * Hurling match in Dublin (he meant caber toss?)
   * Mom's research: Highland Games on May 28, but we're at the Hannay Clan stuff.
-* See The Irish House Party perform
+* See [The Irish House Party](https://theirishhouseparty.com/) perform - dinner & show in Dublin
 * Giant’s Causeway
 * Carrick-a-Rede Rope Bridge 
 
