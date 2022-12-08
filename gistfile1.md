@@ -1,3 +1,5 @@
+[Map of locations](https://www.google.com/maps/d/u/0/edit?mid=1j1DS9LPMQ_lPf9eKMI3_ekz23dfgVXA&usp=sharing)
+
 ## May
 
 ANNUAL GENERAL MEETING AND CLAN GATHERING Saturday 27th May 2023
