@@ -35,14 +35,14 @@ List of Things To Do
 
 Ireland
 
-* Night kayaking on Lough Hyne (bioluminescence lake) [Bioluminescence kayaking](https://www.youtube.com/watch?v=Unj1BVOUzdc) in southern Ireland
-* Fota wildlife Park
-* Northern Lights viewing at Maulin Head 
+* Night kayaking on Lough Hyne (bioluminescence lake) [Bioluminescence kayaking](https://www.youtube.com/watch?v=Unj1BVOUzdc) in southern Ireland (on map)
+* Fota wildlife Park (on map)
+* Northern Lights viewing at Maulin Head (on map)
 * Hurling match in Dublin (he meant caber toss?)
   * Mom's research: Highland Games on May 28, but we're at the Hannay Clan stuff.
-* See [The Irish House Party](https://theirishhouseparty.com/) perform - dinner & show in Dublin
-* Giant’s Causeway
-* Carrick-a-Rede Rope Bridge 
+* See [The Irish House Party](https://theirishhouseparty.com/) perform - dinner & show in Dublin (on map)
+* Giant’s Causeway (on map)
+* Carrick-a-Rede Rope Bridge (on map)
 
 Scotland
 
