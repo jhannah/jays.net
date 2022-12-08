@@ -4,7 +4,7 @@
 
 ANNUAL GENERAL MEETING AND CLAN GATHERING Saturday 27th May 2023
 
-Please visit: www.clanhannay.org/kilkeeltrip for further details and separate booking forms.   
+Please visit: www.clanhannay.org/kilkeel-trip for further details and separate booking forms.   
 
 * Friday 26th
   * 19.00 hrs to 21.00 hrs – Reception - Sorbie Tower MEMBERS AND ACCOMPANYING GUESTS £15 each
