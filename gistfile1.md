@@ -18,6 +18,8 @@ Please visit: www.clanhannay.org/kilkeeltrip for further details and separate bo
 * Monday 29th – Tuesday 30th
   * 11:30 hrs (Cairnryan) to 22:00 hrs Tuesday 30th May A special unique SCOTCH-IRISH / ULSTER SCOTS HISTORICAL and CULTURAL TRIP to Kilkeel, Co. Down, N. Ireland including a visit to Hanna’s Close, the Mourne Mountains, the Schomberg Society and an Ulster Clan Hanna/y Town Hall Meeting and Dinner MEMBERS AND ACCOMPANYING GUESTS
 
+Hanna's Close B&B: 
+https://www.mournecountrycottages.com/callaghans-cottage/
 
 May 29 - June 10: Isle of Mann TT
 
