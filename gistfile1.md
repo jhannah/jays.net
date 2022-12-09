@@ -2,37 +2,62 @@
 
 ## May
 
-ANNUAL GENERAL MEETING AND CLAN GATHERING Saturday 27th May 2023
+ANNUAL GENERAL MEETING AND CLAN GATHERING Saturday 27th May 2023. Please visit: www.clanhannay.org/kilkeel-trip for further details and separate booking forms.   
 
-Please visit: www.clanhannay.org/kilkeel-trip for further details and separate booking forms.   
+Friday 19th
+* Fly KC -> Glasgow
 
-* Friday 26th
-  * 19.00 hrs to 21.00 hrs – Reception - Sorbie Tower MEMBERS AND ACCOMPANYING GUESTS £15 each
-* Saturday 27th
-  * 10.30 hrs for 11.00 hrs - Annual General Meeting - Garlieston Village Hall MEMBERS AND ACCOMPANYING GUESTS Free of charge
-  * 13.00 hrs - Buffet Lunch following AGM - Garlieston Village Hall MEMBERS AND ACCOMPANYING GUESTS £15 each
-  * 15.00 hrs. Clan Gathering - Piping in of the colours - Sorbie Tower OPEN TO ALL Free of charge
-  * 18.30 hrs for 19.00 hrs prompt. Clan Hannay Dinner Dance - Creebridge House Hotel MEMBERS AND ACCOMPANYING GUESTS £30 each
-* Sunday 28th
-  * 12 noon onwards - Picnic (Bring your Own) and Clan games - Sorbie Tower Donations for games welcome OPEN TO ALL – ADULTS AND CHILDREN Free of charge
-* Monday 29th May 2023
-  * 11.30hr – 13.45hr – Depart from Cairnryan Ferry Terminal in Scotland on the Stenaline ferry to N. Ireland (arrive 1hr early; car parking @£5/day)
-  * 13.45hr – 17.00hr – Coach pickup in Belfast and Scotch-Irish tour of north Co. Down including Groomsport, Donaghadee and Ballynahinch arriving at the Kilmorey Arms Hotel in Kilkeel via the scenic coastal route
-  * 18:00hr – 19.00hr – Clan Hannay Town Hall Meeting in the Kilmorey Arms Hotel, Kilkeel
-  * 19.30hr – 22.00hr – Clan Hannay Ulster Scot Dinner with Schomberg Society Entertainment
-* Tuesday 30th May 2023
-  * 9.00hr – 10.00hr – Hanna’s Close 17th Century Ulster Scots Clachan Settlement visit, Kilkeel
-  * 10.00hr – 12.00hr – Introduction to the Schomberg Ulster Scot Society and visit to the Statue of Robert Hanna V.C., Kilkeel
-  * 12.00hr – 14.00hr – Lunch in Kilkeel and free time
-  * 14.00hr – 18.30hr – Scenic Tour of The MourneMountains and Scotch-Irish sites in Co. Down including Scarva and Hillsborough
-  * 19.30hr – 21.52hr – Return via Stena Ferry from Belfast back to Cairnryan Terminal
+Sat 20th
+* Free in Glasgow / Edinburgh
+
+Sun 21st
+* Train to Falls of Cruachan and back to Glasgow
+
+Mon 22nd
+* Free in Glasgow
+
+Tue 23rd-25th
+* Dad wants to explore the ~Wigtown area on our own
+
+Friday 26th
+* 19.00 hrs to 21.00 hrs – Reception - Sorbie Tower MEMBERS AND ACCOMPANYING GUESTS £15 each
+
+Saturday 27th
+* 10.30 hrs for 11.00 hrs - Annual General Meeting - Garlieston Village Hall MEMBERS AND ACCOMPANYING GUESTS Free of charge
+* 13.00 hrs - Buffet Lunch following AGM - Garlieston Village Hall MEMBERS AND ACCOMPANYING GUESTS £15 each
+* 15.00 hrs. Clan Gathering - Piping in of the colours - Sorbie Tower OPEN TO ALL Free of charge
+* 18.30 hrs for 19.00 hrs prompt. Clan Hannay Dinner Dance - Creebridge House Hotel MEMBERS AND ACCOMPANYING GUESTS £30 each
+
+Sunday 28th
+* 12 noon onwards - Picnic (Bring your Own) and Clan games - Sorbie Tower Donations for games welcome OPEN TO ALL – ADULTS AND CHILDREN Free of charge
+
+Monday 29th May 2023
+* 11.30hr – 13.45hr – Depart from Cairnryan Ferry Terminal in Scotland on the Stenaline ferry to N. Ireland (arrive 1hr early; car parking @£5/day)
+* 13.45hr – 17.00hr – Coach pickup in Belfast and Scotch-Irish tour of north Co. Down including Groomsport, Donaghadee and Ballynahinch arriving at the Kilmorey Arms Hotel in Kilkeel via the scenic coastal route
+* 18:00hr – 19.00hr – Clan Hannay Town Hall Meeting in the Kilmorey Arms Hotel, Kilkeel
+* 19.30hr – 22.00hr – Clan Hannay Ulster Scot Dinner with Schomberg Society Entertainment
+
+Tuesday 30th May 2023
+* 9.00hr – 10.00hr – Hanna’s Close 17th Century Ulster Scots Clachan Settlement visit, Kilkeel
+* 10.00hr – 12.00hr – Introduction to the Schomberg Ulster Scot Society and visit to the Statue of Robert Hanna V.C., Kilkeel
+* 12.00hr – 14.00hr – Lunch in Kilkeel and free time
+* 14.00hr – 18.30hr – Scenic Tour of The MourneMountains and Scotch-Irish sites in Co. Down including Scarva and Hillsborough
+* 19.30hr – 21.52hr – Return via Stena Ferry from Belfast back to Cairnryan Terminal
 
 May 29 - June 10: Isle of Mann TT
 
+Wed 31st
+* Free in Belfast (Northern Ireland)
+
 ## June 
 
-* 1-10: Isle of Mann TT
-* 3: first race Isle of Mann TT [Spectator reactions](https://www.youtube.com/watch?v=EcMN2WGQm2k)
+* 1-10: Isle of Mann TT. 3rd: first race Isle of Mann TT [Spectator reactions](https://www.youtube.com/watch?v=EcMN2WGQm2k)
+
+Thu Jun 1 - Thu Jun 8
+* Free in Northern/Ireland
+
+Friday Jun 9:
+* Fly home to KC
 
 
 # UNSORTED (move to above)
