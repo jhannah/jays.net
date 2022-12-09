@@ -5,13 +5,16 @@
 Friday 19th
 * Fly KC -> Glasgow
 
-Sat 20th
+Sat 20th - Sun 21st
 * Free in Glasgow / Edinburgh
 
-Sun 21st
-* Train to Falls of Cruachan and back to Glasgow
+Mon 22nd TRAIN
+* 08:21 - Leave Glasgow Queen St
+* 10:52 - Arrive [Falls of Cruachan](https://www.visitcruachan.co.uk/visit-us/)
+* 15:14 - Leave Falls of Cruachan
+* 17:44 - Arrive Glasgow Queen St
 
-Mon 22nd - Tue 23rd
+Tue 23rd
 * Free in Glasgow / Edinburgh
 
 Wed 24th - Thu 25th
