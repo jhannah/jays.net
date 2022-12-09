@@ -2,8 +2,6 @@
 
 ## May
 
-ANNUAL GENERAL MEETING AND CLAN GATHERING Saturday 27th May 2023. Please visit: www.clanhannay.org/kilkeel-trip for further details and separate booking forms.   
-
 Friday 19th
 * Fly KC -> Glasgow
 
@@ -13,13 +11,14 @@ Sat 20th
 Sun 21st
 * Train to Falls of Cruachan and back to Glasgow
 
-Mon 22nd
-* Free in Glasgow
+Mon 22nd - Tue 23rd
+* Free in Glasgow / Edinburgh
 
-Tue 23rd-25th
+Wed 24th - Thu 25th
 * Dad wants to explore the ~Wigtown area on our own
 
 Friday 26th
+* [ANNUAL GENERAL MEETING AND CLAN GATHERING](https://www.clanhannay.org/kilkeel-trip)   
 * 19.00 hrs to 21.00 hrs – Reception - Sorbie Tower MEMBERS AND ACCOMPANYING GUESTS £15 each
 
 Saturday 27th
@@ -44,14 +43,12 @@ Tuesday 30th May 2023
 * 14.00hr – 18.30hr – Scenic Tour of The MourneMountains and Scotch-Irish sites in Co. Down including Scarva and Hillsborough
 * 19.30hr – 21.52hr – Return via Stena Ferry from Belfast back to Cairnryan Terminal
 
-May 29 - June 10: Isle of Mann TT
-
 Wed 31st
 * Free in Belfast (Northern Ireland)
 
 ## June 
 
-* 1-10: Isle of Mann TT. 3rd: first race Isle of Mann TT [Spectator reactions](https://www.youtube.com/watch?v=EcMN2WGQm2k)
+* May 29 - June 10 (3rd: first race): Isle of Mann TT [Spectator reactions](https://www.youtube.com/watch?v=EcMN2WGQm2k)
 
 Thu Jun 1 - Thu Jun 8
 * Free in Northern/Ireland
