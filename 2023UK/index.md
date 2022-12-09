@@ -5,14 +5,17 @@
 ## May
 
 Friday 19th
+
 * Fly KC -> Glasgow [$970 per ticket](https://www.google.com/travel/flights/search?tfs=CBwQAhojagcIARIDTUNJEgoyMDIzLTA1LTE5cgwIAxIIL20vMGh5eHZwAYIBCwj___________8BQAFIAZgBAg&tfu=EgYIBRAAGAA)
 * 3 rooms 4 adults 5 nights [Glasgow-Queen-Street-hotel](https://www.travelodge.co.uk/hotels/593/Glasgow-Queen-Street-hotel?checkIn=19/05/2023&checkOut=24/05/2023&rooms[0][adults]=2&rooms[0][children]=0&rooms[1][adults]=1&rooms[1][children]=0&rooms[2][adults]=1&rooms[2][children]=0) £830.85. 5 minutes from train station.
 
 Sat 20th - Sun 21st
+
 * Free in Glasgow / Edinburgh
 * [Sight-seeing tour bus](https://citysightseeingglasgow.co.uk/)
 
 Mon 22nd TRAIN
+
 * [West Highlands Line](https://westhighlandline.org.uk/), [the most scenic rail journey in the world](https://www.goodhousekeeping.com/uk/lifestyle/travel/g37863844/scenic-scotland-railway). [Scotrail schedule](https://www.scotrail.co.uk/sites/default/files/assets/download_ct/20220512/WHPtGSXS8aKkVtZ6zraYyGu2Velt_o3Z0DndrBcMQW4/sr248_west_highlands.pdf)
 * 08:21 - Leave Glasgow Queen St
 * 10:52 - Arrive [Falls of Cruachan](https://www.visitcruachan.co.uk/visit-us/)
@@ -20,31 +23,38 @@ Mon 22nd TRAIN
 * 17:44 - Arrive Glasgow Queen St
 
 Tue 23rd
+
 * Free in Glasgow / Edinburgh
 
 Wed 24th - Thu 25th
+
 * Dad wants to explore the ~Wigtown area on our own
 
 Friday 26th
+
 * [HANNAY CLAN ANNUAL GENERAL MEETING AND GATHERING](https://www.clanhannay.org/kilkeel-trip)   
 * 19.00 hrs to 21.00 hrs – Reception - Sorbie Tower MEMBERS AND ACCOMPANYING GUESTS £15 each
 
 Saturday 27th
+
 * 10.30 hrs for 11.00 hrs - Annual General Meeting - Garlieston Village Hall MEMBERS AND ACCOMPANYING GUESTS Free of charge
 * 13.00 hrs - Buffet Lunch following AGM - Garlieston Village Hall MEMBERS AND ACCOMPANYING GUESTS £15 each
 * 15.00 hrs. Clan Gathering - Piping in of the colours - Sorbie Tower OPEN TO ALL Free of charge
 * 18.30 hrs for 19.00 hrs prompt. Clan Hannay Dinner Dance - Creebridge House Hotel MEMBERS AND ACCOMPANYING GUESTS £30 each
 
 Sunday 28th
+
 * 12 noon onwards - Picnic (Bring your Own) and Clan games - Sorbie Tower Donations for games welcome OPEN TO ALL – ADULTS AND CHILDREN Free of charge
 
 Monday 29th May 2023
+
 * 11.30hr – 13.45hr – Depart from Cairnryan Ferry Terminal in Scotland on the Stenaline ferry to N. Ireland (arrive 1hr early; car parking @£5/day)
 * 13.45hr – 17.00hr – Coach pickup in Belfast and Scotch-Irish tour of north Co. Down including Groomsport, Donaghadee and Ballynahinch arriving at the Kilmorey Arms Hotel in Kilkeel via the scenic coastal route
 * 18:00hr – 19.00hr – Clan Hannay Town Hall Meeting in the Kilmorey Arms Hotel, Kilkeel
 * 19.30hr – 22.00hr – Clan Hannay Ulster Scot Dinner with Schomberg Society Entertainment
 
 Tuesday 30th May 2023
+
 * 9.00hr – 10.00hr – Hanna’s Close 17th Century Ulster Scots Clachan Settlement visit, Kilkeel
 * 10.00hr – 12.00hr – Introduction to the Schomberg Ulster Scot Society and visit to the Statue of Robert Hanna V.C., Kilkeel
 * 12.00hr – 14.00hr – Lunch in Kilkeel and free time
@@ -52,6 +62,7 @@ Tuesday 30th May 2023
 * 19.30hr – 21.52hr – Return via Stena Ferry from Belfast back to Cairnryan Terminal
 
 Wed 31st
+
 * Free in Belfast (Northern Ireland)
 
 ## June 
@@ -59,9 +70,11 @@ Wed 31st
 * NOPE: May 29 - June 10 (3rd: first race): Isle of Mann TT [Spectator reactions](https://www.youtube.com/watch?v=EcMN2WGQm2k) [Duke Travel](https://www.duketravel.com/experiences/tt-day-trips/)
 
 Thu Jun 1 - Thu Jun 8
+
 * Free in Northern/Ireland
 
 Friday Jun 9:
+
 * Fly home to KC
 
 
