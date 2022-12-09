@@ -14,7 +14,7 @@ Sat 20th - Sun 21st
 * Free in Glasgow / Edinburgh
 * [Sight-seeing tour bus](https://citysightseeingglasgow.co.uk/)
 
-Mon 22nd TRAIN
+Mon 22nd TRAIN!
 
 * [West Highlands Line](https://westhighlandline.org.uk/), [the most scenic rail journey in the world](https://www.goodhousekeeping.com/uk/lifestyle/travel/g37863844/scenic-scotland-railway). [Scotrail schedule](https://www.scotrail.co.uk/sites/default/files/assets/download_ct/20220512/WHPtGSXS8aKkVtZ6zraYyGu2Velt_o3Z0DndrBcMQW4/sr248_west_highlands.pdf)
 * 08:21 - Leave Glasgow Queen St
@@ -95,9 +95,9 @@ Ireland
 
 Scotland
 
-* Great Scenic Rail Journey - West Highland Line near Loch Lomond & Trossachs National Park 
-* Auchindrain (historic common live village)
-* Skara Brae (prehistoric village archeological sight) 
+* Great Scenic Rail Journey - West Highland Line near Loch Lomond & Trossachs National Park (1 version is on schedule above)
+* [Auchindrain](http://www.auchindrain.org.uk) (historic common live village) - this is on our map. It's way up on the train line we're taking NW, but we won't see it under the current schedule so we'd have to rework if we're motivated to see this.
+* [Skara Brae](https://www.historicenvironment.scot/visit-a-place/places/skara-brae/) (prehistoric village archeological sight) - on our map. Holy crap this is WAAAAY up north so we'd have to want to see this REALLY BAD and take several days to get up there.
 
 Sleep a night in a castle 
 
