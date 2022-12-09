@@ -15,11 +15,17 @@ Please visit: www.clanhannay.org/kilkeel-trip for further details and separate b
   * 18.30 hrs for 19.00 hrs prompt. Clan Hannay Dinner Dance - Creebridge House Hotel MEMBERS AND ACCOMPANYING GUESTS £30 each
 * Sunday 28th
   * 12 noon onwards - Picnic (Bring your Own) and Clan games - Sorbie Tower Donations for games welcome OPEN TO ALL – ADULTS AND CHILDREN Free of charge
-* Monday 29th – Tuesday 30th
-  * 11:30 hrs (Cairnryan) to 22:00 hrs Tuesday 30th May A special unique SCOTCH-IRISH / ULSTER SCOTS HISTORICAL and CULTURAL TRIP to Kilkeel, Co. Down, N. Ireland including a visit to Hanna’s Close, the Mourne Mountains, the Schomberg Society and an Ulster Clan Hanna/y Town Hall Meeting and Dinner MEMBERS AND ACCOMPANYING GUESTS
-
-Hanna's Close B&B: 
-https://www.mournecountrycottages.com/callaghans-cottage/
+* Monday 29th May 2023
+  * 11.30hr – 13.45hr – Depart from Cairnryan Ferry Terminal in Scotland on the Stenaline ferry to N. Ireland (arrive 1hr early; car parking @£5/day)
+  * 13.45hr – 17.00hr – Coach pickup in Belfast and Scotch-Irish tour of north Co. Down including Groomsport, Donaghadee and Ballynahinch arriving at the Kilmorey Arms Hotel in Kilkeel via the scenic coastal route
+  * 18:00hr – 19.00hr – Clan Hannay Town Hall Meeting in the Kilmorey Arms Hotel, Kilkeel
+  * 19.30hr – 22.00hr – Clan Hannay Ulster Scot Dinner with Schomberg Society Entertainment
+* Tuesday 30th May 2023
+  * 9.00hr – 10.00hr – Hanna’s Close 17th Century Ulster Scots Clachan Settlement visit, Kilkeel
+  * 10.00hr – 12.00hr – Introduction to the Schomberg Ulster Scot Society and visit to the Statue of Robert Hanna V.C., Kilkeel
+  * 12.00hr – 14.00hr – Lunch in Kilkeel and free time
+  * 14.00hr – 18.30hr – Scenic Tour of The MourneMountains and Scotch-Irish sites in Co. Down including Scarva and Hillsborough
+  * 19.30hr – 21.52hr – Return via Stena Ferry from Belfast back to Cairnryan Terminal
 
 May 29 - June 10: Isle of Mann TT
 
