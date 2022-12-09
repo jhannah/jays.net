@@ -53,7 +53,7 @@ Wed 31st
 
 ## June 
 
-* May 29 - June 10 (3rd: first race): Isle of Mann TT [Spectator reactions](https://www.youtube.com/watch?v=EcMN2WGQm2k)
+* NOPE: May 29 - June 10 (3rd: first race): Isle of Mann TT [Spectator reactions](https://www.youtube.com/watch?v=EcMN2WGQm2k) [Duke Travel](https://www.duketravel.com/experiences/tt-day-trips/)
 
 Thu Jun 1 - Thu Jun 8
 * Free in Northern/Ireland
