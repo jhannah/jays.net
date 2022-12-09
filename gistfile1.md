@@ -4,6 +4,7 @@
 
 Friday 19th
 * Fly KC -> Glasgow
+* 3 rooms 4 adults 5 nights [Glasgow-Queen-Street-hotel](https://www.travelodge.co.uk/hotels/593/Glasgow-Queen-Street-hotel?checkIn=19/05/2023&checkOut=24/05/2023&rooms[0][adults]=2&rooms[0][children]=0&rooms[1][adults]=1&rooms[1][children]=0&rooms[2][adults]=1&rooms[2][children]=0) £830.85. 5 minutes from train station.
 
 Sat 20th - Sun 21st
 * Free in Glasgow / Edinburgh
