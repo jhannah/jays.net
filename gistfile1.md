@@ -18,7 +18,7 @@ Wed 24th - Thu 25th
 * Dad wants to explore the ~Wigtown area on our own
 
 Friday 26th
-* [ANNUAL GENERAL MEETING AND CLAN GATHERING](https://www.clanhannay.org/kilkeel-trip)   
+* [HANNAY CLAN ANNUAL GENERAL MEETING AND GATHERING](https://www.clanhannay.org/kilkeel-trip)   
 * 19.00 hrs to 21.00 hrs – Reception - Sorbie Tower MEMBERS AND ACCOMPANYING GUESTS £15 each
 
 Saturday 27th
