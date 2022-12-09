@@ -8,6 +8,7 @@ Friday 19th
 
 Sat 20th - Sun 21st
 * Free in Glasgow / Edinburgh
+* [Sight-seeing tour bus](https://citysightseeingglasgow.co.uk/)
 
 Mon 22nd TRAIN
 * [West Highlands Line](https://westhighlandline.org.uk/), [the most scenic rail journey in the world](https://www.goodhousekeeping.com/uk/lifestyle/travel/g37863844/scenic-scotland-railway). [Scotrail schedule](https://www.scotrail.co.uk/sites/default/files/assets/download_ct/20220512/WHPtGSXS8aKkVtZ6zraYyGu2Velt_o3Z0DndrBcMQW4/sr248_west_highlands.pdf)
