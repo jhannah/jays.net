@@ -74,7 +74,7 @@ Tue 30th
 Wed 31st
 
 * Free in Belfast (Northern Ireland)
-* Car rental? (TBD)
+* TODO car rental?
 
 ## June 
 
@@ -86,15 +86,18 @@ Thu Jun 1
 
 Wed Jun 7
 
-* TODO: book night [kayaking](https://www.atlanticseakayaking.com/booking/lough-hyne-night-kayaking/) on Lough Hyne (bioluminescence lake) [Bioluminescence kayaking](https://www.youtube.com/watch?v=Unj1BVOUzdc) in southern Ireland (on map)
+* TODO book night [kayaking](https://www.atlanticseakayaking.com/booking/lough-hyne-night-kayaking/) on Lough Hyne (bioluminescence lake) [Bioluminescence kayaking](https://www.youtube.com/watch?v=Unj1BVOUzdc) in southern Ireland (on map)
 
 Thu Jun 8
 
 * Drive back to Dublin
+* TODO hotel in Dublin near airport
 
 Fri Jun 9
 
-* Fly Dublin -> KC
+* 11:05 - Fly Dublin -> KC
+* 17:22 - Arrive KC
+
 
 # UNSORTED (move to above)
 
