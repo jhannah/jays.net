@@ -18,11 +18,11 @@ Sat 20th
 Sun 21st
 
 * Free in Glasgow / Edinburgh
-* Not booked yet: [Sight-seeing tour bus](https://citysightseeingglasgow.co.uk/)
+* TODO [Sight-seeing tour bus](https://citysightseeingglasgow.co.uk/)
 
-Mon 22nd TRAIN!
+Mon 22nd TRAIN! GLQ <-> FOC
 
-* Not booked yet: [West Highlands Line](https://westhighlandline.org.uk/), [the most scenic rail journey in the world](https://www.goodhousekeeping.com/uk/lifestyle/travel/g37863844/scenic-scotland-railway). [Scotrail schedule](https://www.scotrail.co.uk/sites/default/files/assets/download_ct/20220512/WHPtGSXS8aKkVtZ6zraYyGu2Velt_o3Z0DndrBcMQW4/sr248_west_highlands.pdf)
+* TODO Can't [book](https://www.scotrail.co.uk/scotland-by-rail/great-scenic-rail-journeys/west-highland-line-glasgow-oban-and-fort-williammallaig) until 3 months out (Feb 22?): [West Highlands Line](https://westhighlandline.org.uk/), [the most scenic rail journey in the world](https://www.goodhousekeeping.com/uk/lifestyle/travel/g37863844/scenic-scotland-railway). [Scotrail schedule](https://www.scotrail.co.uk/sites/default/files/assets/download_ct/20220512/WHPtGSXS8aKkVtZ6zraYyGu2Velt_o3Z0DndrBcMQW4/sr248_west_highlands.pdf)
 * 08:21 - Leave Glasgow Queen St
 * 10:52 - Arrive [Falls of Cruachan](https://www.visitcruachan.co.uk/visit-us/)
 * 15:14 - Leave Falls of Cruachan
@@ -58,7 +58,7 @@ Mon 29th
 * 11.30hr – 13.45hr – Depart from Cairnryan Ferry Terminal in Scotland on the Stenaline ferry to N. Ireland (arrive 1hr early; car parking @£5/day)
 * 13.45hr – 17.00hr – Coach pickup in Belfast and Scotch-Irish tour of north Co. Down including Groomsport, Donaghadee and Ballynahinch arriving at the 
 [Kilmorey Arms Hotel](https://kilmoreyarmshotel.co.uk/) in Kilkeel via the scenic coastal route
-* ^ hotel not booked yet
+* ^ TODO hotel not booked yet
 * 18:00hr – 19.00hr – Clan Hannay Town Hall Meeting in the Kilmorey Arms Hotel, Kilkeel
 * 19.30hr – 22.00hr – Clan Hannay Ulster Scot Dinner with Schomberg Society Entertainment
 
