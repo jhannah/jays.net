@@ -58,9 +58,9 @@ Mon 29th
 * 11.30hr – 13.45hr – Depart from Cairnryan Ferry Terminal in Scotland on the Stenaline ferry to N. Ireland (arrive 1hr early; car parking @£5/day)
 * 13.45hr – 17.00hr – Coach pickup in Belfast and Scotch-Irish tour of north Co. Down including Groomsport, Donaghadee and Ballynahinch arriving at the 
 [Kilmorey Arms Hotel](https://kilmoreyarmshotel.co.uk/) in Kilkeel via the scenic coastal route
-* ^ TODO hotel not booked yet
 * 18:00hr – 19.00hr – Clan Hannay Town Hall Meeting in the Kilmorey Arms Hotel, Kilkeel
 * 19.30hr – 22.00hr – Clan Hannay Ulster Scot Dinner with Schomberg Society Entertainment
+* 1 night in Kilmorey Arms Hotel
 
 Tue 30th
 
@@ -69,7 +69,7 @@ Tue 30th
 * 12.00hr – 14.00hr – Lunch in Kilkeel and free time
 * 14.00hr – 18.30hr – Scenic Tour of The MourneMountains and Scotch-Irish sites in Co. Down including Scarva and Hillsborough
 * 19.30hr – 21.52hr – Return via Stena Ferry from Belfast back to Cairnryan Terminal
-* Hotel in Belfast TBD
+* TODO Hotel in Belfast
 
 Wed 31st
 
@@ -80,14 +80,21 @@ Wed 31st
 
 * NOPE: May 29 - June 10 (3rd: first race): Isle of Mann TT [Spectator reactions](https://www.youtube.com/watch?v=EcMN2WGQm2k) [Duke Travel](https://www.duketravel.com/experiences/tt-day-trips/)
 
-Thu Jun 1 - Thu Jun 8
+Thu Jun 1 
 
 * Free in Northern/Ireland
 
-Fri Jun 9:
+Wed Jun 7
 
-* Fly home to KC
+* TODO: book night [kayaking](https://www.atlanticseakayaking.com/booking/lough-hyne-night-kayaking/) on Lough Hyne (bioluminescence lake) [Bioluminescence kayaking](https://www.youtube.com/watch?v=Unj1BVOUzdc) in southern Ireland (on map)
 
+Thu Jun 8
+
+* Drive back to Dublin
+
+Fri Jun 9
+
+* Fly Dublin -> KC
 
 # UNSORTED (move to above)
 
@@ -95,7 +102,6 @@ List of Things To Do
 
 Ireland
 
-* Night kayaking on Lough Hyne (bioluminescence lake) [Bioluminescence kayaking](https://www.youtube.com/watch?v=Unj1BVOUzdc) in southern Ireland (on map)
 * Fota wildlife Park (on map)
 * Northern Lights viewing at Maulin Head (on map)
 * Caber toss?
