@@ -119,7 +119,7 @@ Wed Jun 7
 
 Thu Jun 8
 
-* TODO book [The Irish House Party](https://theirishhouseparty.com/) perform - dinner & show in Dublin (on map)
+* TODO book [The Irish House Party](https://theirishhouseparty.com/) perform - dinner & show in Dublin. This Thursday show is available currently, Wed and Fri are not.
 
 Fri Jun 9
 
