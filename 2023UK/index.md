@@ -36,6 +36,7 @@ Thu 25th
 
 * Check out of Glasgow Queen Street Hotel
 * Dad wants to explore the ~Wigtown area on our own
+* TODO book next hotel(s) 4 nights
 
 Fri 26th
 
@@ -69,12 +70,14 @@ Tue 30th
 * 12.00hr – 14.00hr – Lunch in Kilkeel and free time
 * 14.00hr – 18.30hr – Scenic Tour of The MourneMountains and Scotch-Irish sites in Co. Down including Scarva and Hillsborough
 * 19.30hr – 21.52hr – Return via Stena Ferry from Belfast back to Cairnryan Terminal
-* TODO Hotel in Belfast
+* TODO book hotel in Belfast
 
 Wed 31st
 
 * Free in Belfast (Northern Ireland)
 * TODO car rental?
+* TODO book hotel(s) for exploring Northern/Ireland
+* Giant’s Causeway (on map)
 
 ## June 
 
@@ -83,15 +86,40 @@ Wed 31st
 Thu Jun 1 
 
 * Free in Northern/Ireland
+* Carrick-a-Rede Rope Bridge (on map)
+* Northern Lights viewing at Malin Head (on map)
 
-Wed Jun 7
+Fri Jun 2
+
+* Free in Northern/Ireland
+
+Sat Jun 3
+
+* Drive to southern Ireland: Galway (4 hours)
+* TODO book hotel
+
+Sun Jun 4
+
+* Drive to southern Ireland: Skibbereen (4 hours)
+* TODO book hotel
+
+Mon Jun 5
 
 * TODO book night [kayaking](https://www.atlanticseakayaking.com/booking/lough-hyne-night-kayaking/) on Lough Hyne (bioluminescence lake) [Bioluminescence kayaking](https://www.youtube.com/watch?v=Unj1BVOUzdc) in southern Ireland (on map)
 
+Tue Jun 6
+
+* Fota wildlife Park (on map)
+
+Wed Jun 7
+
+* Drive to Dublin
+* TODO book hotel in Dublin
+* TODO [Guinness Storehouse Experience](https://www.guinness-storehouse.com/en/tickets) - Discover the fascinating 250-year old story of Guinness at its original home
+
 Thu Jun 8
 
-* Drive back to Dublin
-* TODO hotel in Dublin near airport
+* TODO book [The Irish House Party](https://theirishhouseparty.com/) perform - dinner & show in Dublin (on map)
 
 Fri Jun 9
 
@@ -105,17 +133,11 @@ List of Things To Do
 
 Ireland
 
-* Fota wildlife Park (on map)
-* Northern Lights viewing at Maulin Head (on map)
 * Caber toss?
   * Mom's research: Highland Games on May 28, but we're at the Hannay Clan stuff...
-* See [The Irish House Party](https://theirishhouseparty.com/) perform - dinner & show in Dublin (on map)
-* Giant’s Causeway (on map)
-* Carrick-a-Rede Rope Bridge (on map)
 
 Scotland
 
-* Great Scenic Rail Journey - West Highland Line near Loch Lomond & Trossachs National Park (1 version is on schedule above)
 * [Auchindrain](http://www.auchindrain.org.uk) (historic common live village) - this is on our map. It's way up on the train line we're taking NW, but we won't see it under the current schedule so we'd have to rework if we're motivated to see this.
 * [Skara Brae](https://www.historicenvironment.scot/visit-a-place/places/skara-brae/) (prehistoric village archeological sight) - on our map. Holy crap this is WAAAAY up north so we'd have to want to see this REALLY BAD and take several days to get up there.
 
@@ -134,3 +156,4 @@ d) I would like to schedule no less than two weeks for the trip, and probably no
 e) I will ramp up my research on our branch of the Hannay Clan so we will be more informed about when and where they lived, using ancestry.com, the Internet, our local genealogy center, etc.  
 
 [Source code](https://github.com/jhannah/jays.net/blob/main/2023UK/index.md)
+
