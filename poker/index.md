@@ -1,8 +1,8 @@
 % Poker @ Jay & Steph's
 
-# Sat Nov 5, 2022. 7pm - whenever
+# Sat Feb 4, 2023. 7pm - whenever
 
-What? It's 2022?? "New" cult house in the woods?
+What? It's 2023?? "New" cult house in the woods?
 Let's play Texas Hold 'Em!
 
 [12238 N 40th St, Omaha NE 68112](https://goo.gl/maps/7jy3mT22T7wADNtG7)
