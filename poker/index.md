@@ -2,7 +2,7 @@
 
 # Sat May 6, 2023. 7pm - whenever
 
-Clan Hannay Reunion is imminent!
+Clan Hannay Reunion is imminent! 🏴
 Let's play Texas Hold 'Em!
 
 [12238 N 40th St, Omaha NE 68112](https://goo.gl/maps/7jy3mT22T7wADNtG7)
