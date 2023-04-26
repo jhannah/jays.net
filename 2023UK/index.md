@@ -22,7 +22,7 @@ Sun 21st
 
 Mon 22nd TRAIN! GLQ <-> FOC
 
-* TODO Can't [book](https://www.scotrail.co.uk/scotland-by-rail/great-scenic-rail-journeys/west-highland-line-glasgow-oban-and-fort-williammallaig) until 3 months out (Feb 22?): [West Highlands Line](https://westhighlandline.org.uk/), [the most scenic rail journey in the world](https://www.goodhousekeeping.com/uk/lifestyle/travel/g37863844/scenic-scotland-railway). [Scotrail schedule](https://www.scotrail.co.uk/sites/default/files/assets/download_ct/20220512/WHPtGSXS8aKkVtZ6zraYyGu2Velt_o3Z0DndrBcMQW4/sr248_west_highlands.pdf)
+* [Scotrail Train](https://www.scotrail.co.uk/scotland-by-rail/great-scenic-rail-journeys/west-highland-line-glasgow-oban-and-fort-williammallaig) is booked. Ticket in ScotRail app in Jay's phone. More details: [West Highlands Line](https://westhighlandline.org.uk/), [the most scenic rail journey in the world](https://www.goodhousekeeping.com/uk/lifestyle/travel/g37863844/scenic-scotland-railway). [Scotrail schedule](https://www.scotrail.co.uk/sites/default/files/assets/download_ct/20220512/WHPtGSXS8aKkVtZ6zraYyGu2Velt_o3Z0DndrBcMQW4/sr248_west_highlands.pdf)
 * 08:21 - Leave Glasgow Queen St
 * 10:52 - Arrive [Falls of Cruachan](https://www.visitcruachan.co.uk/visit-us/)
 * 15:14 - Leave Falls of Cruachan
@@ -43,6 +43,7 @@ Fri 26th
 
 * [HANNAY CLAN ANNUAL GENERAL MEETING AND GATHERING](https://www.clanhannay.org/kilkeel-trip)   
 * 19.00 hrs to 21.00 hrs – Reception - Sorbie Tower MEMBERS AND ACCOMPANYING GUESTS £15 each
+* Check into [The View in Garlieston](https://www.vrbo.com/en-gb/p10540879?arrival=2023-05-25&departure=2023-05-30)
 
 Sat 27th
 
@@ -57,6 +58,7 @@ Sun 28th
 
 Mon 29th
 
+* Check out [The View in Garlieston](https://www.vrbo.com/en-gb/p10540879?arrival=2023-05-25&departure=2023-05-30)
 * 11.30hr – 13.45hr – Depart from Cairnryan Ferry Terminal in Scotland on the Stenaline ferry to N. Ireland (arrive 1hr early; car parking @£5/day)
 * 13.45hr – 17.00hr – Coach pickup in Belfast and Scotch-Irish tour of north Co. Down including Groomsport, Donaghadee and Ballynahinch arriving at the 
 [Kilmorey Arms Hotel](https://kilmoreyarmshotel.co.uk/) in Kilkeel via the scenic coastal route
