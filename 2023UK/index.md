@@ -22,7 +22,7 @@ Sun 21st
 
 Mon 22nd TRAIN! GLQ <-> FOC
 
-* [Scotrail Train](https://www.scotrail.co.uk/scotland-by-rail/great-scenic-rail-journeys/west-highland-line-glasgow-oban-and-fort-williammallaig) is booked. Ticket in ScotRail app in Jay's phone. More details: [West Highlands Line](https://westhighlandline.org.uk/), [the most scenic rail journey in the world](https://www.goodhousekeeping.com/uk/lifestyle/travel/g37863844/scenic-scotland-railway). [Scotrail schedule](https://www.scotrail.co.uk/sites/default/files/assets/download_ct/20220512/WHPtGSXS8aKkVtZ6zraYyGu2Velt_o3Z0DndrBcMQW4/sr248_west_highlands.pdf)
+* [Scotrail Train](https://www.scotrail.co.uk/scotland-by-rail/great-scenic-rail-journeys/west-highland-line-glasgow-oban-and-fort-williammallaig) is booked. 4 tickets in ScotRail app in Jay's phone. More details: [West Highlands Line](https://westhighlandline.org.uk/), [the most scenic rail journey in the world](https://www.goodhousekeeping.com/uk/lifestyle/travel/g37863844/scenic-scotland-railway). [Scotrail schedule](https://www.scotrail.co.uk/sites/default/files/assets/download_ct/20220512/WHPtGSXS8aKkVtZ6zraYyGu2Velt_o3Z0DndrBcMQW4/sr248_west_highlands.pdf)
 * 08:21 - Leave Glasgow Queen St
 * 10:52 - Arrive [Falls of Cruachan](https://www.visitcruachan.co.uk/visit-us/)
 * 15:14 - Leave Falls of Cruachan
