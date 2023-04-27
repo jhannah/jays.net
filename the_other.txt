@@ -13,3 +13,6 @@ non-Mormon:         gentile
 non-Muslim:         infidel
 non-Scientologist:  SP (suppressive person)
 
+From fiction:
+non-Grisha:         Otkazat'sya (Shadow & Bone)
+
