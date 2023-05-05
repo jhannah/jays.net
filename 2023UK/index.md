@@ -34,13 +34,14 @@ Tue 23rd - Wed 24th
 
 Thu 25th
 
-* Rent car. e.g. [stressfreecarrental.com](https://www.stressfreecarrental.com/en/search-results?searchRef=2ED1FD47A30240A7A44E71A42E1DE926&currencyCode=USD&pickupLocation=Glasgow+International+Airport&pickupLocationCode=GLA&pickupLatitude=&pickupLongitude=&pickupCountryCode=&pickupLocationName=&pickupLocationType=&returnToDifferentLocation=on&dropoffLocation=Stranraer%2C+UK&dropoffLocationCode=N%2FA&dropoffLatitude=54.903367&dropoffLongitude=-5.024055&dropoffCountryCode=GB&dropoffLocationName=Stranraer%2C+UK&dropoffLocationType=map-marker-alt&pickupDate=03%2F05%2F2023&dropoffDate=06%2F05%2F2023&pickupHour=10&pickupMinute=00&dropoffHour=10&dropoffMinute=00&countryCode=US&driverStandardAge=on&driverAge=35&tr_cid=&gclid=&tr_ag=&tr_l=&tr_kw=&tr_mt=&tr_tid=&tr_d=&affiliateCode=&enableBookingJourney=en%2Cfr%2Ces%2Cit%2Cnl%2Cpt%2Ctr%2Cbr%2Cde%2Cgr%2Cmx%2Cpl%2Ccz%2Cbg%2Cdk%2Car%2Cee%2Cfi%2Chu%2Clt%2Clv%2Cno%2Cro%2Cse&redirectMapSearch=True&searchType=noneAirport&clickId=&language=en) pick up Glasgow International Airport, drop off Stranraer, UK.
 * Check out of Glasgow Queen Street Hotel
+* Rent car. e.g. [stressfreecarrental.com](https://www.stressfreecarrental.com/en/search-results?searchRef=2ED1FD47A30240A7A44E71A42E1DE926&currencyCode=USD&pickupLocation=Glasgow+International+Airport&pickupLocationCode=GLA&pickupLatitude=&pickupLongitude=&pickupCountryCode=&pickupLocationName=&pickupLocationType=&returnToDifferentLocation=on&dropoffLocation=Stranraer%2C+UK&dropoffLocationCode=N%2FA&dropoffLatitude=54.903367&dropoffLongitude=-5.024055&dropoffCountryCode=GB&dropoffLocationName=Stranraer%2C+UK&dropoffLocationType=map-marker-alt&pickupDate=03%2F05%2F2023&dropoffDate=06%2F05%2F2023&pickupHour=10&pickupMinute=00&dropoffHour=10&dropoffMinute=00&countryCode=US&driverStandardAge=on&driverAge=35&tr_cid=&gclid=&tr_ag=&tr_l=&tr_kw=&tr_mt=&tr_tid=&tr_d=&affiliateCode=&enableBookingJourney=en%2Cfr%2Ces%2Cit%2Cnl%2Cpt%2Ctr%2Cbr%2Cde%2Cgr%2Cmx%2Cpl%2Ccz%2Cbg%2Cdk%2Car%2Cee%2Cfi%2Chu%2Clt%2Clv%2Cno%2Cro%2Cse&redirectMapSearch=True&searchType=noneAirport&clickId=&language=en) pick up Glasgow International Airport, drop off Stranraer, UK.
 * Dad wants to explore the ~Wigtown area on our own
-* TODO book next hotel(s) 4 nights
+* TODO: Book [Portpatrick Hotel](https://www.hotels.com/Stranraer-Hotels-Portpatrick-Hotel.h13430754.Hotel-Information) for 1 night.
 
 Fri 26th
 
+* Check out Portpatrick Hotel.
 * [HANNAY CLAN ANNUAL GENERAL MEETING AND GATHERING](https://www.clanhannay.org/kilkeel-trip)   
 * 19.00 hrs to 21.00 hrs – Reception - Sorbie Tower MEMBERS AND ACCOMPANYING GUESTS £15 each
 * Check into [The View in Garlieston](https://www.vrbo.com/en-gb/p10540879?arrival=2023-05-25&departure=2023-05-30)
@@ -68,6 +69,7 @@ Mon 29th
 
 Tue 30th
 
+* Check out Kilmorey Arms Hotel
 * 9.00hr – 10.00hr – Hanna’s Close 17th Century Ulster Scots Clachan Settlement visit, Kilkeel
 * 10.00hr – 12.00hr – Introduction to the Schomberg Ulster Scot Society and visit to the Statue of Robert Hanna V.C., Kilkeel
 * 12.00hr – 14.00hr – Lunch in Kilkeel and free time
