@@ -130,7 +130,7 @@ Guillermo torches the biker gang's grow field, which starts a massive wildfire w
 many houses..
 
 E15: Guillermo wants Nancy to sell heroin, she says no. She burns the house down (arson) for
-a fresh start away from her dead first husband.
+a fresh start away from her first husband's memory.
 
 ## Season 4
 
@@ -138,10 +138,70 @@ E1: Guillermo wants Nancy to work back and forth across the Mexican border. She 
 weed, not heroin.
 
 E2: Nancy drives to Tijuana and back, thinking they packed weed in her car to mule back to the US.
+(They didn't, it was a test run.)
 
 E3: Guillermo schools Nancy on drug muleing. Nancy discovers she's also going to be hiding people
 in her car (illegal border crossings). Assisted suicide(?) occurs.
 
 E4: Guillermo sends Nancy for a drug pick up (no border crossing) with a gun "for rattlesnakes."
-She agrees to do the job.
+She agrees to do the job. The Mexican police are the ones delivering the drugs to Nancy.
+Celia was outside Guillermo's spying for the DEA. She's discovered, threatened at gunpoint.
+
+E5: Nancy assaults Celia and one of Guillermo's men, probably saving Celia's life.
+Andy learns how exploitative coyotes can be to migrants. He shoots the coyote in the knee in
+self defense (largely by accident). Nancy discovers her retail front has a tunnel to Mexico
+in the back room.
+
+E6: Nancy goes through the tunnel, sees the big boss (Esteban). Nancy is kidnapped by Esteban,
+quickly sent back to America.
+
+E7: Nancy insists on seeing Esteban again, discovers he's the mayor of the town where the tunnel
+ends.
+
+E8: Nancy goes over Guillermo's head to Esteban, making Guillermo angry. 
+Andy is a coyote now, running people across the border. Nancy and Esteban are at lunch, a drive-by
+shooting interupts them. Esteban is grazed.
+
+E9: The coyote Andy shot tracks him down and threatens him at gunpoint. The crew he crossed over
+the border saves him. Celia gets kidnapped for being a horrible employee, person.
+
+E10: Nancy gets her first glimpse that maybe "her" tunnel is also being used for human trafficking.
+
+E11: "Nancy's" tunnel now being used for human trafficking, guns, and heroin.
+Nancy gets a meeting with the DEA to put an end to it.
+
+E12: Shane (13) skips school to score weed for him and his girlfriends.
+Nancy's tunnel is raided by the DEA, one man dies in the gun battle.
+Underground, the Mexican municiple police face off against the DEA.
+Esteban green lights the killing of whoever tipped the DEA, without wanting to know the details.
+Agent Shlatter is brutally tortured, giving up Nancy as the source, and is killed.
+
+E13: Esteban refuses to green light killing Nancy based solely on the tortured confession.
+Silas (17) has been sleeping with a 40 year old, her husand comes home and uses statutory rape
+as leverage to get custody of their son.
+Nancy lies to the DEA saying she doesn't know Esteban is the boss.
+Esteban now has photos of Nancy meeting with the DEA, summons Nancy to Mexico.
+Celia's daughter sells Celia to a Mexican revolutionary org for future hostage money.
+
+## Season 5
+
+E1: Cesar murders two guards so they don't talk about Nancy's pregnancy.
+Esteban threatens to kill Nancy if she doesn't let a Mexican doctor he chose verify that she's pregnant.
+Celia's daughter threatens to sell Celia for her body parts.
+
+E2 / E3: A bunch of threatening at gunpoint while watching Nancy. Esteban hasn't decided if he's
+going to kill Nancy after the baby is born or not.
+
+E4: DEA agent (Roy) was stalking Nancy off the books. He's caught by Egnacio, intends to kill him.
+Nancy ties them both up, because they're both going to kill the other one.
+A cop demands kickbacks from Doug and Silas to open a dispensary, they form a partnership.
+Andy and a banker collude to commit bank fraud.
+Shane is robbed by his teacher.
+Esteban arrives, it's implied that they kill Roy.
+
+E5: Shane and Egnacio raid the teacher to get Shane's weed back. Shane shoots a real gun for
+the first time. Ceilia discovers Sucio's corpse in a freezer.
+
+E6: Cop is now extorting Silas (and Doug) at gunpoint.
+
 
