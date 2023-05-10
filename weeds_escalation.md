@@ -149,14 +149,13 @@ Celia was outside Guillermo's spying for the DEA. She's discovered, threatened a
 
 E5: Nancy assaults Celia and one of Guillermo's men, probably saving Celia's life.
 Andy learns how exploitative coyotes can be to migrants. He shoots the coyote in the knee in
-self defense (largely by accident). Nancy discovers her retail front has a tunnel to Mexico
+self defense (largely by accident). Nancy discovers her retail front has a tunnel to Tijuana
 in the back room.
 
 E6: Nancy goes through the tunnel, sees the big boss (Esteban). Nancy is kidnapped by Esteban,
 quickly sent back to America.
 
-E7: Nancy insists on seeing Esteban again, discovers he's the mayor of the town where the tunnel
-ends.
+E7: Nancy insists on seeing Esteban again, discovers he's the mayor of Tijuana.
 
 E8: Nancy goes over Guillermo's head to Esteban, making Guillermo angry. 
 Andy is a coyote now, running people across the border. Nancy and Esteban are at lunch, a drive-by
@@ -202,6 +201,37 @@ Esteban arrives, it's implied that they kill Roy.
 E5: Shane and Egnacio raid the teacher to get Shane's weed back. Shane shoots a real gun for
 the first time. Ceilia discovers Sucio's corpse in a freezer.
 
-E6: Cop is now extorting Silas (and Doug) at gunpoint.
+E6: Cop is now extorting Silas (and Doug) at gunpoint. Shane is being "babysit" by the new bodyguard,
+who escalates from pranks to assault, which Shane isn't OK with.
+
+E7: The wedding is delayed by the arrival of political operative Pilar Zuazo. Nancy and Shane start thinking
+they're trapped and will be killed after a home birth of the baby. Cop is busted by internal affairs.
+Nancy flees, their son is born in a US hospital.
+
+E9: An assassin tries to kill Esteban, hits Shane in the arm. Egnacio kills the assassin.
+
+E10: Nancy tries to hire Guillermo to kill Pilar.
+
+E11: The Mexican police arrest Esteban for conspiracy, tax evasion.
+
+E12: Kids try to rape Esteban's daughter, Silas stops them. She's a heroin addict.
+An abortion center protestor stalks, threatens Andy and his girlfriend with a crossbow.
+
+E13: Pilar finds out Nancy tried to have her killed. Pilar threatens to kill Nancy's kids.
+Shane kills Pilar (his first murder).
+
+## Season 6
+
+E1: The family flees.
+
+E4: Esteban's goons are going to kill Doug. They shoot a homeless guy accidentally.
+Doug is spared by a phone call.
+
+E5: The goons catch up with Nancy and the family, capture Shane.
+
+E6: Nancy shoots Cesar with a crossbow. Cesar's wife tells him to kill Nancy and come home.
+The entire favily is captured. They're released when Shane threatens to shoot the remaining
+goon.
+
 
 
