@@ -222,9 +222,9 @@ Shane kills Pilar (his first murder).
 
 ## Season 6
 
-E1: The family flees.
+E1: The family flees on a roadtrip north.
 
-E4: Esteban's goons are going to kill Doug. They shoot a homeless guy accidentally.
+E4: Esteban's goons are going to kill Doug. They shoot (kill) a homeless guy accidentally.
 Doug is spared by a phone call.
 
 E5: The goons catch up with Nancy and the family, capture Shane.
@@ -232,6 +232,42 @@ E5: The goons catch up with Nancy and the family, capture Shane.
 E6: Nancy shoots Cesar with a crossbow. Cesar's wife tells him to kill Nancy and come home.
 The entire favily is captured. They're released when Shane threatens to shoot the remaining
 goon.
+
+E12: Dude is writing a book about Nancy's hijinks. She gives him interviews for money.
+Family aquires fake passports to flee to Europe.
+Esteban catches up with Nancy.
+
+E13: Esteban / Guillermo kill the guy writing the book, kidnap Nancy.
+Nancy / Esteban / Guillermo arrested at airport because she called the FBI confessing to killing
+Pilar. The rest of the family escapes to Europe.
+
+## Season 7
+
+E1: Nancy has been in prison for 3 years, the family + Doug in Denmark.
+Nancy released to a halfway house.
+Esteban was killed in a different prison.
+Nancy picks up a bag full of guns and grenades from a parking lot.
+
+E2: Nancy immediately fails drug testing at halfway house, they threaten to send her back
+to prison, she talks them out of it.
+
+E3: Nancy leaves bag of grenades with Andy.
+Andy does research into drug dealers for Nancy, who's trying to re-establish weed dealing.
+Nancy leaves weed at Silas' apartment, who claims half of all inventory / profits for himself.
+Shane commits some bank fraud (multiple student loans).
+
+E4: Shane loans money to Nancy / Silas for weed. So all 3 are back in the weed business.
+A suicide bomber blows up the supply in Afghanistan with a bomb vest.
+
+E5: Doug finds out his new corporate accounting job on Wall Street is rife with corruption / theft.
+
+E7: The SEC wants Nancy to pull files so they can bust Doug's firm (where Nancy also works).
+The pull her from the halfway house.
+
+E9: Doug gets Nancy out of trouble with the SEC by blackmailing them.
+Shane gets arrested for stealing data from a police station.
+
+E10: Andy threatens rival dealer with a nailgun. Kidnaps her. This is Andy's first threat of violence?
 
 
 

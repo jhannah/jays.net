@@ -16,4 +16,5 @@ non-Scientologist:  SP (suppressive person)
 From fiction:
 non-Grisha:         Otkazat'sya (Shadow & Bone)
 non-wizard:         muggle (Harry Potter)
+non-witch:          fain (Half Bad)
 
