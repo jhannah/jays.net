@@ -268,6 +268,17 @@ E9: Doug gets Nancy out of trouble with the SEC by blackmailing them.
 Shane gets arrested for stealing data from a police station.
 
 E10: Andy threatens rival dealer with a nailgun. Kidnaps her. This is Andy's first threat of violence?
+The SEC, now fully aware of all the fraud at Doug's firm, are worried about their pension funds, so
+are ensuring Doug's firm replaces all their pension fund money without the markets or customers
+finding out about all the OTHER fraud going on.
+Nancy manipulates the police into busting her competition. (Again.)
+
+E13: The family moves into a big house in Connecticut. Shane joins the police academy.
+Nancy is shot by a sniper.
+
+## Season 8
+
+E1: Nancy is in the hospital. The shooter was Peter's son from season 1. 
 
 
 
