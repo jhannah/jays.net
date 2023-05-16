@@ -280,5 +280,9 @@ Nancy is shot by a sniper.
 
 E1: Nancy is in the hospital. The shooter was Peter's son from season 1. 
 
+... Season 8 doesn't seem to ratchet up the criminal stakes after this point.
+It mainly focuses on reconciliation and the evolution of the aging characters.
+There's plenty of crime and misconduct, of similar orders of magnitude as previous
+seasons.
 
 
