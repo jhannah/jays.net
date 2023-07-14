@@ -47,7 +47,7 @@ in Golang. I've been modifying existing Golang for 1.5 years now. I am very new 
 stacks upon which our Golang is built. `go mod vendor` was an interesting learning experience this week, 
 fighting OpenTelemetry (HTTP OTLP).
 
-#### At MediaMath Inc. 2014-2023
+### Staff Augmentation | MediaMath Inc. ($170M) | 2014-2023
 
 Worked as staff augmentation consultant for REST API team and associated services. Our primary mission was to design,
 maintain, and enhance a PostgreSQL schema and REST APIs for modifying data in that schema, primarily for configuration
