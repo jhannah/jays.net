@@ -28,30 +28,21 @@ Telecommuting consultant. Perl, Golang, Python, PL/pgSQL, large scale databases,
 Industries have included e-commerce (retail), large event / venue equipment rental (and data mining thereof),
 advertising technology, and various start-ups.
 
-Currently I am assigned to a company with ~140 engineers. In principle we have a lot of DevOps support so
-I can focus on programming (Golang, Perl, Python). In practice I've been learning a lot of DevOps because
-resources aren't (immediately?) available and sometimes I have access to fix things.
+In principle recent clents have a lot of DevOps support so I can focus on programming (Golang, Perl, Python).
+In practice I've been learning a lot of DevOps because resources aren't (immediately?) available and sometimes
+I have access to fix things.
 
 I am not a DevOps professional (priceless). But I have a functional / "emergency" understanding of deployment
-of our various stacks. We have monoliths and "micro-services." We've swung back and forth between those strategies
-over the last 6 years. We're currently deployed on: "bare metal," Xen VMs, in-house managed Kubernetes,
-and AWS (EC2, ECS, S3, etc.). Those stacks are variously driven by Docker, Docker Compose, Chef/Ansible, Helm
-Charts (of which I know very little), and various other tools.
-
-We run a variety of stats / monitoring / paging systems. We host and/or pay for hosting of various logging
-and tracing (OpenTelemetry) systems. Recently k8s -> Sumologic Tracing has been popular, I've been working with
-that a lot in recent weeks.
-
-Our Perl monolith still drives much of the revenue of the company. Our team is re-implementing our Perl REST APIs
-in Golang. I've been modifying existing Golang for 1.5 years now. I am very new to modifying the open source
-stacks upon which our Golang is built. `go mod vendor` was an interesting learning experience this week, 
-fighting OpenTelemetry (HTTP OTLP).
+of various stacks for monoliths and "micro-services." Clients have swung back and forth between those strategies
+over time. Most recent deployments on "bare metal," Xen VMs, in-house managed Kubernetes, and AWS (EC2, ECS, S3,
+etc.). Those stacks are variously driven by Docker, Docker Compose, Chef/Ansible, Helm Charts (of which I know
+very little), and various other tools.
 
 ### Staff Augmentation | MediaMath Inc. ($170M) | 2014-2023
 
-Worked as staff augmentation consultant for REST API team and associated services. Our primary mission was to design,
-maintain, and enhance a PostgreSQL schema and REST APIs for modifying data in that schema, primarily for configuration
-of advertising campaigns.
+Worked as staff augmentation consultant for REST API team and associated services. The company totalled ~140
+engineers. Our primary mission was to design, maintain, and enhance a PostgreSQL schema and REST APIs for
+modifying data in that schema, primarily for configuration of advertising campaigns.
 
 Primary PostgreSQL: 273 tables, 75 views, 234 functions (mostly PL/pgSQL). ~500GB, 80M rows
 
