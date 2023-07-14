@@ -47,6 +47,57 @@ in Golang. I've been modifying existing Golang for 1.5 years now. I am very new 
 stacks upon which our Golang is built. `go mod vendor` was an interesting learning experience this week, 
 fighting OpenTelemetry (HTTP OTLP).
 
+#### At MediaMath Inc. 2014-2023
+
+Worked as staff augmentation consultant for REST API team and associated services. Our primary mission was to design,
+maintain, and enhance a PostgreSQL schema and REST APIs for modifying data in that schema, primarily for configuration
+of advertising campaigns.
+
+Primary PostgreSQL: 273 tables, 75 views, 234 functions (mostly PL/pgSQL). ~500GB, 80M rows
+
+API v3 stack: Golang 1.20.5, gin 1.9.1 web framework. 67K lines of tests, 116K total lines of code. Stack
+built locally (development) via Docker Compose (DB and application). IDE: Visual Studio Code plus custom
+linting rules (revive). Continuous integration via CircleCI. If tests all pass, topic branches deployed
+automatically to in-house Kubernetes cluster for both QA and PROD. Fully automated continuous delivery via
+Helm Charts. Prometheus integration for statistics. Production alerting via PagerDuty. Log aggregation via
+SumoLogic, including Sumologic Traces (in-app OpenTelemetry hooks).
+
+API v2 stack: Perl 5.30.1, Catalyst 5.90128 web framework. 98K lines of tests, 232K total lines of code. Stack
+built locally (development) via Docker Compose (DB and applications (main API and ancillary applications)).
+IDE: Whatever the developer prefers. Visual Studio Code and vim were both common. Continuous integration via
+Jenkins, which also served as our "continuous delivery" mechanism to pre-allocated in-house clusters of QA
+servers (18 sets). Production deployment automated and integrated into Slack, sending status updates for ~15
+different phases of production rollout. All hardware pre-allocated, dedicated (not dynamic). statsd
+integration for statistics. Production alerting via PagerDuty. Log aggregation via SumoLogic. No
+OpenTelemetry.
+
+core-serializer: Perl 5.34.0, Python3 (Dockerfile "latest"). 12K lines of tests, 17K total lines of code.
+Stack built locally (DEV and QA) via Docker Compose (DB and application). Continuous integration and delivery
+via CircleCI. If tests all pass, production deployed automatically via Chef recipe updates and published via
+in-house Chef Manage server (chef-client on dedicated hardware).
+
+My primary duties were responding to Jira requests for enhancements and bug reports of the systems above. Some
+tasks were small and self contained. Over the last 3 years many were re-implementing API v2 into the API v3
+framework. Some requests required high level design and implementation of novel systems to address business
+needs. Coordinated with product owners and stakeholders as needed to design and deliver solutions. Wrote reams
+of documentation for those systems, drew countless diagrams. Emphasized solving problems and implementing
+features once since our historical one-off ad-hoc solutions continued to be inconsistent and extremely
+expensive (time, resource consuming) to maintain over years and multiple generations of product, leadership,
+and engineering staff.
+
+The APIs also serve as orchestration layers, back-ending requests to other services (APIs and others). We
+spent lots of time and effort developing and maintaining integrations to those systems, hosted by other
+MediaMath departments, and many third party vendors.
+
+For three years the company went through an AWS microservices phase. We split large chunks of the above DB and
+APIs out into AWS EC2, RDS, ECS, and a dozen other AWS services. Eventually AWS proved too expensive
+($3M/month), and several of those microservices were re-absorbed back into the above services. I designed,
+developed, and tore-down services on both sides of those transitions.
+
+I served as an informal part-time trainer / mentor for several new hires. I upgraded thousands of lines of
+abandoned (yet business critical) Python2 into Python3 and modernized that software stack. I proposed
+high-level overhauls of systems that were causing long-running inefficiencies in business operations.
+
 ### Software Architect / Director of Development | Omni Hotels ($720M) | 1999 - 2010
 
 * Design, manage, implement, and document complex software/data systems to fulfill the stated technology goals
