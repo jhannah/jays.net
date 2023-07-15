@@ -111,16 +111,13 @@ departmental cross training.
 
 ### Application Support / Development Specialist | University of Nebraska Medical Center | 2007 - 2010
 
-Worked part-time from UNMC while persuing a B.S. in Bioinformatics.
-
-Genetic Sequence Analysis Facility (GSAF) provides application and hardware support and development for researchers
+* Worked part-time from UNMC while persuing a B.S. in Bioinformatics.
+* Genetic Sequence Analysis Facility (GSAF) provides application and hardware support and development for researchers
 at the University of Nebraska Medical Center.
-
-Collaborative Laboratory of Applied Bioinformatics (CLAB) provides application and hardware support and development
+* Collaborative Laboratory of Applied Bioinformatics (CLAB) provides application and hardware support and development
 for researchers and students across the University of Nebraska system. CLAB is based at the Peter Kiewit Institute
 (PKI) of the University of Nebraska, Omaha (UNO).
-
-In one project I wrote a bunch of Perl, deployed it to UNO's super computer cluster, crunched a ton of data, and that work ended
+* In one project I wrote a bunch of Perl, deployed it to UNO's super computer cluster, crunched a ton of data, and that work ended
 up being useful enough to the scientists that I was listed as a co-author on a scientific paper. Don't ask me to explain
 the science (my biology / chemistry is weak) but I can try to remember a vague outline of the software I wrote if you're interested:
 [Loss of Dnmt3b function upregulates the tumor modifier Ment and accelerates mouse lymphomagenesis](https://pubmed.ncbi.nlm.nih.gov/22133874/).
