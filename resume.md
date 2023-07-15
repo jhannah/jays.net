@@ -105,8 +105,7 @@ standards body) XML specification to ensure data integrity and consistent applic
 design, all data exchange inside and outside the company will be served by a single highly available and load
 balanced cluster of low-cost Linux servers running a single application framework enforcing all business rules.
 * First hired to replace a primarily one-man development team who was departing and a series of consultants.
-
-Established documentation systems, revision control, operating procedures, monitoring and paging, and
+* Established documentation systems, revision control, operating procedures, monitoring and paging, and
 departmental cross training.
 
 ### Application Support / Development Specialist | University of Nebraska Medical Center | 2007 - 2010
