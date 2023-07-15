@@ -201,7 +201,8 @@ Psychology minor completed. Earned no degrees. Member, Delta Tau Delta social fr
 
 ### Interests
 
-Philosophy, “blitz” Go (Igo / Wei Qi / Baduk), chess, podcasting, motorcycles, genetics, genealogy, dog management.
+Philosophy, “blitz” Go (Igo / Wei Qi / Baduk), chess, podcasting, motorcycles, scuba diving (SSI Master Diver), 
+genetics, genealogy, advanced dog management.
 Volunteer, Open/Nebraska aka Code for Nebraska (formerly a Code for America Brigade).
 Volunteer, Food Not Bombs (Omaha).
 
