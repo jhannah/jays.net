@@ -190,18 +190,14 @@ critical repair scenarios.
 
 ### Training
 
-Certified Informix Database Specialist - 1998
+1998: Certified Informix Database Specialist.
 
 ### Education
 
-University of Nebraska at Omaha 2007-2010
+2007-2010: University of Nebraska at Omaha: Persued B.S. in Bioinformatics. Earned no degrees.
 
-Persued B.S. in Bioinformatics. Earned no degrees.
-
-Iowa State University, Ames IA 1993-1995
-
-Majored in Mechanical Engineering, Psychology & Philosophy. Psychology minor completed. Earned no degrees.
-Member, Delta Tau Delta social fraternity. 
+1993-1995: Iowa State University: Majored in Mechanical Engineering, Psychology, and Philosophy. 
+Psychology minor completed. Earned no degrees. Member, Delta Tau Delta social fraternity. 
 
 ### Interests
 
