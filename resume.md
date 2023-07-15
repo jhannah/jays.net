@@ -1,7 +1,6 @@
 # Jay W. Hannah
 
-12238 N 40th St
-Omaha, NE 68112 |
+Omaha, Nebraska USA |
 1-402-598-7782 |
 jay@jays.net
 
@@ -206,8 +205,9 @@ Member, Delta Tau Delta social fraternity.
 
 ### Interests
 
-Philosophy, “blitz” Go (Igo/Wei Qi/Baduk), chess, podcasting, motorcycles, genetics, genealogy.
-Group Leader, Omaha Perl Mongers.
+Philosophy, “blitz” Go (Igo / Wei Qi / Baduk), chess, podcasting, motorcycles, genetics, genealogy, dog management.
+Volunteer, Open/Nebraska aka Code for Nebraska (formerly a Code for America Brigade).
+Volunteer, Food Not Bombs (Omaha).
 
 ### References
 
