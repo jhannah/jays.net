@@ -21,9 +21,8 @@ my documentation skills. Throughout my career I have championed documentation ef
 
 **Dream Job:** Using my backend / database / programming skills to help with massively scaled providers of emergency /
 low-income housing and food. The UNHCR (High Council on Refugees) and WFP (World Food Program)
-are the largest examples of that mission I'm aware of. I'm very interested in logistics. If the projects I work on
-could empower thousands / millions of deliveries of food / clothing / shelter, that would be the highest
-calling I could imagine.
+are the largest examples of that mission I'm aware of. I'm very interested in logistics.
+The highest calling I can imagine is working on empowering thousands / millions of deliveries of food / clothing / shelter.
 
 ## Experience
 
