@@ -32,11 +32,11 @@ Telecommuting consultant. Perl, Golang, Python, PL/pgSQL, large scale databases,
 Industries have included e-commerce (retail), large event / venue equipment rental (and data mining thereof),
 advertising technology, and various start-ups.
 
-In principle recent clents have a lot of DevOps support so I can focus on programming (Golang, Perl, Python).
-In practice I've been learning a lot of DevOps because resources aren't (immediately?) available and sometimes
+In principle recent clients have a lot of DevOps support so I can focus on programming (Golang, Perl, Python).
+In practice I've been learning a lot of DevOps because resources aren't available and sometimes
 I have access to fix things.
 
-I am not a DevOps professional (priceless). But I have a functional / "emergency" understanding of deployment
+I have a functional / "emergency" understanding of deployment
 of various stacks for monoliths and "micro-services." Clients have swung back and forth between those strategies
 over time. Most recent deployments on "bare metal," Xen VMs, in-house managed Kubernetes, and AWS (EC2, ECS, S3,
 etc.). Those stacks are variously driven by Docker, Docker Compose, Chef/Ansible, Helm Charts (of which I know
