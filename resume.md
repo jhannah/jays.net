@@ -71,14 +71,14 @@ Stack built locally (DEV and QA) via Docker Compose (DB and application). Contin
 via CircleCI. If tests all pass, production deployed automatically via Chef recipe updates and published via
 in-house Chef Manage server (chef-client on dedicated hardware).
 
-My primary duties were responding to Jira requests for enhancements and bug reports of the systems above. Some
-tasks were small and self contained. Over the last 3 years many were re-implementing API v2 into the API v3
-framework. Some requests required high level design and implementation of novel systems to address business
-needs. Coordinated with product owners and stakeholders as needed to design and deliver solutions. Wrote reams
-of documentation for those systems, drew countless diagrams. Emphasized solving problems and implementing
-features once since our historical one-off ad-hoc solutions continued to be inconsistent and extremely
-expensive (time, resource consuming) to maintain over years and multiple generations of product, leadership,
-and engineering staff.
+In 2020 Golang was chosen as an API v2 replacement (Perl), API v3 expansion
+began in earnest. We re-implemented core functions, driven by next-generation
+UI layer requirements. I coordinated with product owners and stakeholders as
+needed to design and deliver those solutions. I wrote reams of documentation
+for those systems, with countless diagrams. I emphasized solving problems once
+since our historical one-off ad-hoc solutions continued to be inconsistent and
+extremely expensive (time, resource consuming) over years and multiple
+generations of product, leadership, and engineering staff.
 
 The APIs also serve as orchestration layers, back-ending requests to other services (APIs and others). We
 spent lots of time and effort developing and maintaining integrations to those systems, hosted by other
