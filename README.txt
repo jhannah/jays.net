@@ -4,7 +4,10 @@ jays.net
 http://jays.net - Jay Hannah's personal home page
 
 linode.com latest Debian
+# https://wiki.debian.org/DebianUpgrade
 apt-get update
+apt-get upgrade
+apt-get full-upgrade
 apt-get dist-upgrade
 apt-get install apache2
 apt-get install git
