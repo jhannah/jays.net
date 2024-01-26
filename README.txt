@@ -3,8 +3,9 @@ jays.net
 
 http://jays.net - Jay Hannah's personal home page
 
-linode.com latest Debian
-# https://wiki.debian.org/DebianUpgrade
+linode.com latest Debian  # https://www.debian.org/releases/index.en.html
+                          # https://wiki.debian.org/DebianUpgrade
+lsb_release -a
 apt-get update
 apt-get upgrade
 apt-get full-upgrade
