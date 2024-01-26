@@ -3,6 +3,10 @@ jays.net
 
 http://jays.net - Jay Hannah's personal home page
 
+Most of our hosting is on Netlify nowadays (github.com/jhannah-netlify).
+But we can't host jays.net there because we use Apache Server Side Includes,
+want people to be able to browse random directories, etc...
+
 linode.com latest Debian  # https://www.debian.org/releases/index.en.html
                           # https://wiki.debian.org/DebianUpgrade
 lsb_release -a
