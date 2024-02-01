@@ -5,7 +5,10 @@ http://jays.net - Jay Hannah's personal home page
 
 Most of our hosting is on Netlify nowadays (github.com/jhannah-netlify).
 But we can't host jays.net there because we use Apache Server Side Includes,
-want people to be able to browse random directories, etc...
+want people to be able to browse random directories, and other random Apache
+features...
+
+We also can't host usshoustondive.com there because we want to rsync a huge
 
 linode.com latest Debian  # https://www.debian.org/releases/index.en.html
                           # https://wiki.debian.org/DebianUpgrade
@@ -26,26 +29,20 @@ adduser jhannah
 chown -R jhannah /etc/apache2
 chown -R jhannah /var/www
 su - jhannah
+
+Add this to the end of ~/.bashrc:
+  eval "$(ssh-agent)"
+  ssh-add ~/.ssh/github-jhannah.id_rsa
+
 cd /etc/apache2/sites-available
-svn checkout https://github.com/jhannah/admin/trunk/jays.net/etc/apache2/sites-available
-mv sites-available/.svn ./
-rm -rf sites-available
-svn update
+Copy/paste jays.net.conf and usshoustondive.com.conf from https://github.com/jhannah/admin/tree/main/jays.net/etc/apache2/sites-available
 
 cd /etc/apache2/sites-enabled
 ln -s ../sites-available/jays.net.conf jays.net.conf
-ln -s ../sites-available/tif.report.conf tif.report.conf
 ln -s ../sites-available/usshoustondive.com.conf usshoustondive.conf
-ln -s ../sites-available/ne.tif.report.conf ne.tif.report.conf
 
 cd /var/www
 git clone git@github.com:jhannah/jays.net
-git clone git@github.com:opennebraska/pri-tif.git ne.tif.report
-cd ne.tif.report
-git checkout static-www
-cd ../
-git clone git@github.com:opennebraska/tif.report
-git clone git@github.com:jhannah/omaha.foodnotbombs.us
 
 cpanm --local-lib=~/perl5 local::lib && eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
 cpanm Template
