@@ -42,6 +42,15 @@ over time. Most recent deployments on "bare metal," Xen VMs, in-house managed Ku
 etc.). Those stacks are variously driven by Docker, Docker Compose, Chef/Ansible, Helm Charts (of which I know
 very little), and various other tools.
 
+### REST API / Schema Dev | -NDA- | 2023-2024 (4 months)
+
+AI (LLM) start-up client further developing their Python (FastAPI) REST API stack (deployed via Google Cloud Run),
+and their Google FireStore (FireBase) NoSQL schema, expanding their feature set.
+Established Pytest CI regime, added/refactored many REST endpoints, bridged them to also include PostgreSQL
+("Cloud SQL") when FireBase statistical capacities proved massively inefficient (slow) for some of their use cases.
+Traditional RDBMS schemas can be vastly simpler, faster for statistics gathering over multiple business org
+and timeframe roll-ups. 
+
 ### Staff Augmentation | MediaMath Inc. ($170M) | 2014-2023
 
 Worked as staff augmentation consultant for REST API team and associated services. The company totalled ~140
