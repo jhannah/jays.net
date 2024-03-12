@@ -1,0 +1,140 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] IO::Multiplex + IO::Socket::SSL ? -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 30 Jul 2007 20:01:52 &#45;0000 -->
+<!--X-Message-Id: 46AE4379.2000701@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: Pine.LNX.4.58.0707231945080.3237@razorbill.omnihotels.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] IO::Multiplex + IO::Socket::SSL ?</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01461.html">Date Prev</a>][<a href="msg01463.html">Date Next</a>][<a href="msg01460.html">Thread Prev</a>][<a href="msg01461.html">Thread Next</a>][<a href="maillist.html#01462">Date Index</a>][<a href="threads.html#01462">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] IO::Multiplex + IO::Socket::SSL ?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] IO::Multiplex + IO::Socket::SSL ?</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Mon, 30 Jul 2007 15:00:57 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01460.html">Pine.LNX.4.58.0707231945080.3237@razorbill.omnihotels.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01460.html">Pine.LNX.4.58.0707231945080.3237@razorbill.omnihotels.com</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: Thunderbird 2.0.0.5 (Windows/20070716)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<tt>Here was Steffen's response. No response from Rob... I don't think my 
+</tt><tt>company wants me to spend the time it would take to get into the guts of 
+</tt><tt>this, so I think maybe I'm SOL... Ugly work-around time...?
+</tt><pre style="margin: 0em;">
+
+j
+
+
+
+From: Steffen Ullrich [<a  rel="nofollow" href="mailto:Steffen_Ullrich@genua.de">mailto:Steffen_Ullrich@genua.de</a>]
+Sent: Tuesday, July 24, 2007 6:53 AM
+To: Jay Hannah
+Cc: bbb@cpan.org; omaha-pm@pm.org
+Subject: Re: IO::Multiplex + IO::Socket::SSL ?
+
+Hi,
+
+Looks like IO::Multiplex assumes that an accept(2) either fails permanently
+or succeeds immediatly, which is usually the case, because the kernel
+already established the connection and just needs to give a new file
+descriptor to user space.
+
+But with an SSL socket it is different, because accept not only needs to
+establish the TCP connection but it also does the SSL handshake.
+
+</pre><tt>With the &quot;old&quot; IO::Socket::SSL ( &lt;= version 0.97 ) accept would block 
+</tt><tt>for the
+</tt><tt>handshake, even if the socket was set to non-blocking. With the newer 
+</tt><tt>version
+</tt><pre style="margin: 0em;">
+accept returns EAGAIN and should be called again later. Depending on the
+value of $SSL_ERROR it should be called again when the fd gets readable
+(SSL_WANT_READ) or writable (SSL_WANT_WRITE).
+But the best thing would be to call accept only on the underlying
+IO::Socket::INET object and then upgrade the result with accept_SSL,
+because only in this case one could handle multiple accepts in parallel.
+
+But even then I have doubts, that IO::Multiplex works fine with
+IO::Socket::SSL. It uses POSIX::read and POSIX::write to write directly
+to the file descriptors instead of using sysread und syswrite, which
+wrap around SSL_read and SSL_write from openssl. So it would maybe
+establish an SSL connection but then write unencrypted data to it which
+the peer does not expect.
+
+Regards,
+Steffen
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01460" href="msg01460.html">[Omaha.pm] IO::Multiplex + IO::Socket::SSL ?</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jhannah@omnihotels.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01461.html">[Omaha.pm] Help the Perl community better understand its users at	perlsurvey.org</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01463.html">Re: [Omaha.pm] [olug] [OT]: Learning Perl Resources</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01460.html">[Omaha.pm] IO::Multiplex + IO::Socket::SSL ?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01461.html">[Omaha.pm] Help the Perl community better understand its users at	perlsurvey.org</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01462"><strong>Date</strong></a></li>
+<li><a href="threads.html#01462"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

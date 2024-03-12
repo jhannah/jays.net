@@ -1,0 +1,168 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Fwd: Crypt::Tea -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: Fri, 3 Dec 2004 20:15:04 &#45;0600 -->
+<!--X-Message-Id: 4A045F7E&#45;459A&#45;11D9&#45;B690&#45;000A95E317B8@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Fwd: Crypt::Tea</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00226.html">Date Prev</a>][<a href="msg00228.html">Date Next</a>][<a href="msg00237.html">Thread Prev</a>][<a href="msg00228.html">Thread Next</a>][<a href="maillist.html#00227">Date Index</a>][<a href="threads.html#00227">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Fwd: Crypt::Tea</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Subject</em>: [Omaha.pm] Fwd: Crypt::Tea</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Fri, 3 Dec 2004 20:14:55 -0600</li>
+<li><em>Cc</em>: </li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/archives/omaha-pm">http://mail.pm.org/archives/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=help">mailto:omaha-pm-request@mail.pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.mail.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@mail.pm.org">mailto:omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=subscribe">mailto:omaha-pm-request@mail.pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe">mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+The Man responds...
+
+j
+
+--------------
+From: pjbillam@pjb.com.au
+Date: December 3, 2004 1:51:03 PM CST
+To: jay@jays.net
+Subject: Re: Crypt::Tea
+Reply-To: pjbillam@pjb.com.au
+
+Greetings Jay,
+
+great to hear from you, and I'm glad I've been able to be helpful!
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+We painted ourselves into a corner on a huge project with a tiny flaw.
+I thought to myself -- what I really need is some tiny Perl gizmo that
+would allow me to encrypt an integer, let me hand that off to the web
+client's browser (into a cookie), and be able to decrypt it when it
+comes back to the web server. (So they can't jack w/ the integer in
+their browser.) I had never used such a thing before.
+</pre></blockquote><pre style="margin: 0em;">
+
+And Crypt::Tea is one of the very few ways of doing it.  The hard part
+about Crypt::Tea is maintaining compatible encryption engines in Perl
+and in Javascript.   Every browser is quirky (in fact there's currently
+</pre><tt>a problem with &quot;Konqueror 5.0 (compatible; Konqueror/3.1; Linux)&quot;, 
+</tt><tt>though
+</tt><pre style="margin: 0em;">
+the &quot;3.2&quot; subversion is fine)  but Crypt::Tea now runs perfectly on all
+the major browsers.
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+5 minutes on CPAN and I stumbled into Crypt::Tea.
+   <a  rel="nofollow" href="http://search.cpan.org/~pjb/Crypt-Tea-2.04/Tea.pm">http://search.cpan.org/~pjb/Crypt-Tea-2.04/Tea.pm</a>
+</pre></blockquote><pre style="margin: 0em;">
+
+I maintain an HTML page at  <a  rel="nofollow" href="http://www.pjb.com.au/comp/tea.html">http://www.pjb.com.au/comp/tea.html</a>
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><tt>$key = '18*71^asdj 1$$![&amp;.={[ 0182312m'; my $secret = &quot;My secret! 
+</tt><tt>shhh!&quot;;
+</tt><pre style="margin: 0em;">
+for (1..20) { push @secrets, encrypt($secret, $key); }
+</pre><tt>foreach (@secrets) { print &quot;$_ -&gt; &quot;; print decrypt($_, $key); print 
+</tt><tt>&quot;\n&quot;; }
+</tt><pre style="margin: 0em;">
+...
+mgb7NpXEhmY_DcnWFs6_thmm8dEmW2zz -&gt; My secret! shhh!
+QCOd3vpp6QZjD__c25nJtVlQ_sfT-rMm -&gt; My secret! shhh!
+eapzrEU30v1y8Lqo53QW6R51y2QVvA2J -&gt; My secret! shhh!
+WKgMDakGJjofJCPcSmsFTKHLvlsllokc -&gt; My secret! shhh!
+... etc ...
+</pre></blockquote><pre style="margin: 0em;">
+
+The reason why the cyphertext is different every time is that the
+encryption works on 8-byte blocks, so your plaintext has to be padded
+out to an 8-byte multiple. This padding is done with random bits so as
+not to hand the intruder a free known-plaintext attack.
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+Awesome. I love Perl + CPAN.
+</pre></blockquote><pre style="margin: 0em;">
+
+I love Perl too, because I have yet to meet anything that needs to be
+done on a computer that Perl can't do.  CPAN is a great global community
+achievement.  My main gripe with it arises when every module you need
+to install has a prerequisite of several other modules, and so on ..
+So in my modules I've try to minimise dependencies.
+
+</pre><tt>My favourite among my modules is Term::Clui 
+</tt><tt>www.pjb.com.au/comp/clui.html
+</tt><pre style="margin: 0em;">
+
+Somewhere on CPAN there is a page where you can vote for modules; when
+they get enough votes, they get included on the ModuleList and things
+like that.  So if you like Crypt::Tea, feel free to give it a vote :-)
+
+Good to hear from you,  Regards,  Peter Billam
+
+Peter Billam   www.pjb.com.au   pjbillam@pjb.com.au   (03) 6278 9410
+GPO Box 669, Hobart TAS 7001, Australia.  Original compositions made
+to be played, arrangements of Bach, Schubert, Brahms... Free Music !
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00226.html">[Omaha.pm] || quickie</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00228.html">[Omaha.pm] Re: Omaha-pm Digest, Vol 7, Issue 10</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00237.html">[Omaha.pm] 'Practical mod_perl' book goes opensource</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00228.html">[Omaha.pm] Re: Omaha-pm Digest, Vol 7, Issue 10</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00227"><strong>Date</strong></a></li>
+<li><a href="threads.html#00227"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

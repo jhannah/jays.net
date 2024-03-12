@@ -1,0 +1,131 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] rename, link -->
+<!--X-From-R13: Oaql Zrfgre &#60;naqlNcrgqnapr.pbz> -->
+<!--X-Date: 19 May 2006 15:42:19 &#45;0000 -->
+<!--X-Message-Id: CFB3F35A&#45;85E8&#45;4C47&#45;9760&#45;EF486C4FF07F@petdance.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 29AB736ABCE5C745ABF9C93B02F2C27B04432D42@exchange2k3.omnihotels.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] rename, link</title>
+<link rev="made" href="mailto:andy@petdance.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00984.html">Date Prev</a>][<a href="msg00986.html">Date Next</a>][<a href="msg00984.html">Thread Prev</a>][<a href="msg00986.html">Thread Next</a>][<a href="maillist.html#00985">Date Index</a>][<a href="threads.html#00985">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] rename, link</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] rename, link</li>
+<li><em>From</em>: Andy Lester &lt;<a href="mailto:andy%40petdance.com">andy@petdance.com</a>&gt;</li>
+<li><em>Date</em>: Fri, 19 May 2006 10:41:53 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00984.html">29AB736ABCE5C745ABF9C93B02F2C27B04432D42@exchange2k3.omnihotels.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00984.html">29AB736ABCE5C745ABF9C93B02F2C27B04432D42@exchange2k3.omnihotels.net</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+
+So I wonder if its better to just system() out to &quot;mv&quot; on Linux if I
+don't care about portability?
+
+  @sysargs = ('mv', &quot;$outbound/$file&quot;,
+&quot;/datamining/intrasight/CRS/archive&quot;);
+  system (@sysargs);
+</pre></blockquote><pre style="margin: 0em;">
+
+Yes.
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+
+Is that the same thing as making a system() call to &quot;cp&quot; on Linux?
+symlink() is for symbolic links, link() is the same thing as &quot;cp&quot;?
+</pre></blockquote><pre style="margin: 0em;">
+
+no, link() is for hard links.
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+Or would I be cooler if I just used some File::* class off CPAN
+nowadays? -grin-
+</pre></blockquote><pre style="margin: 0em;">
+
+File::Copy has been core since 5.002.
+
+xoa
+
+--
+Andy Lester =&gt; andy@petdance.com =&gt; www.petdance.com =&gt; AIM:petdance
+
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00986" href="msg00986.html">Re: [Omaha.pm] rename, link</a></strong>
+<ul><li><em>From:</em> &quot;Dave M&quot; &lt;dave.nerd@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00984" href="msg00984.html">[Omaha.pm] rename, link</a></strong>
+<ul><li><em>From:</em> &quot;Jay Hannah&quot; &lt;jhannah@omnihotels.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00984.html">[Omaha.pm] rename, link</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00986.html">Re: [Omaha.pm] rename, link</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00984.html">[Omaha.pm] rename, link</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00986.html">Re: [Omaha.pm] rename, link</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00985"><strong>Date</strong></a></li>
+<li><a href="threads.html#00985"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

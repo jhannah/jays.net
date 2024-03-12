@@ -1,0 +1,117 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] DBIx::Class &#45; join on a joined table -->
+<!--X-From-R13: Xnl Vnaanu &#60;wunaanuNzhgngvbatevq.pbz> -->
+<!--X-Date: 10 Nov 2010 20:40:55 &#45;0000 -->
+<!--X-Message-Id: 155B22C0&#45;C121&#45;4777&#45;8B8C&#45;EF635021CDAC@mutationgrid.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] DBIx::Class - join on a joined table</title>
+<link rev="made" href="mailto:jhannah@mutationgrid.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02542.html">Date Prev</a>][<a href="msg02544.html">Date Next</a>][<a href="msg02540.html">Thread Prev</a>][<a href="msg02544.html">Thread Next</a>][<a href="maillist.html#02543">Date Index</a>][<a href="threads.html#02543">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] DBIx::Class - join on a joined table</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Nebraska USA Perl Mongers of Omaha &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] DBIx::Class - join on a joined table</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jhannah%40mutationgrid.com">jhannah@mutationgrid.com</a>&gt;</li>
+<li><em>Date</em>: Wed, 10 Nov 2010 14:40:45 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha1; c=relaxed; d=pobox.com; h=subject:from	:content-type:message-id:date:to:content-transfer-encoding	:mime-version; s=sasl; bh=D1vDrq2TtE3zqCe4tHIHcFWm/3g=; b=iMNG1l	FORwJ0zn/vk5qiFaHWABv6/hdTyw+h5lbVGfJsSCjH6U15Oa6cOJw3r6fNPoXnxm	CsS/8gPgdyB0JbXjixBdJj8Bvdy+ZO6qDZKjY0gEtws/AgzdhLWZtbgtYoFbZH4w	xMRF+jI330yCu0ByaFtC4NG69EXGZzhp/Xrbc=</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Whoah, neat. I just did my first &quot;join on a joined table&quot; in DBIC. It guessed at the syntax and it &quot;Just Worked.&quot;   :)
+
+   prefetch =&gt; [ qw( program ), { exercise =&gt; 'instruction' } ],
+
+   SELECT ... FROM program_details me JOIN programs program ON program.id = me.program_id JOIN exercises exercise ON exercise.id = me.exercise_id JOIN instructions instruction ON instruction.id = exercise.instruction_id WHERE ...
+
+I gained 2 XP for that one. Full context below.   :)
+
+Jay Hannah
+Software Architect
+jhannah@mutationgrid.com | <a  rel="nofollow" href="http://mutationgrid.com">http://mutationgrid.com</a> | 1-402-598-7782
+
+
+
+
+   my $rows =    $c-&gt;model('amd::ProgramDetail')-&gt;search(
+      {
+         program_id     =&gt; $program-&gt;id,
+         workout_number =&gt; $workout_number,
+      },
+      {
+         prefetch =&gt; [ qw( program ), { exercise =&gt; 'instruction' } ],
+         order_by =&gt; { -asc =&gt; [ qw( workout_number exercise_number ) ] },
+      }
+   );
+
+
+export DBIC_TRACE=1
+
+SELECT me.id, me.program_id, me.workout_number, me.exercise_number, me.exercise_id, me.extype, me.sets, me.reps, me.style, me.step, me.worktype, me.primex, me.primperc, me.compperc, me.percstop, me.targethigh, me.targetlow, me.highset, me.lowset, me.valinc, me.valdec, program.id, program.short_desc, program.skill_level, program.category, program.long_desc, exercise.id, exercise.short_desc, exercise.instruction_id, exercise.long_desc, instruction.id, instruction.long_desc FROM program_details me JOIN programs program ON program.id = me.program_id JOIN exercises exercise ON exercise.id = me.exercise_id JOIN instructions instruction ON instruction.id = exercise.instruction_id WHERE ( ( program_id = ? AND workout_number = ? ) ) ORDER BY workout_number ASC, exercise_number ASC: '63', '1'
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02542.html">Re: [Omaha.pm] community development server</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02544.html">[Omaha.pm] Fwd: weird perl bug</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02540.html">[Omaha.pm] odlug.org template</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02544.html">[Omaha.pm] Fwd: weird perl bug</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02543"><strong>Date</strong></a></li>
+<li><a href="threads.html#02543"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Net::SSH::Perl and sudo or su -->
+<!--X-From-R13: "Fbal Evzbaf" &#60;jroznfgreNgibegrk.arg> -->
+<!--X-Date: 6 Dec 2007 17:04:06 &#45;0000 -->
+<!--X-Message-Id: dd7f36190712060903w4404bda5j3aa40f2574dc91f6@mail.gmail.com -->
+<!--X-Content-Type: multipart/alternative -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Net::SSH::Perl and sudo or su</title>
+<link rev="made" href="mailto:webmaster@tvortex.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01566.html">Date Prev</a>][<a href="msg01568.html">Date Next</a>][<a href="msg01566.html">Thread Prev</a>][<a href="msg01568.html">Thread Next</a>][<a href="maillist.html#01567">Date Index</a>][<a href="threads.html#01567">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Net::SSH::Perl and sudo or su</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Subject</em>: [Omaha.pm] Net::SSH::Perl and sudo or su</li>
+<li><em>From</em>: &quot;Tony Simons&quot; &lt;<a href="mailto:webmaster%40tvortex.net">webmaster@tvortex.net</a>&gt;</li>
+<li><em>Date</em>: Thu, 6 Dec 2007 11:03:44 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Sender</em>: <a href="mailto:tonys%40mcsimons.com">tonys@mcsimons.com</a></li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+I&#39;m a bit new to perl and am having a bit of trouble getting a sudo (or su for that matter) to work through Net::SSH::Perl.<br><br>Interactive
+with a shell doesn&#39;t seem to do anything for me.&nbsp; And I&#39;d like to not
+have to fuss with the sudoers to turn off the requiretty.
+<br><br><br>Snippets of my code utilizing it...<br><br>#!/usr/bin/perl -w<br>#---------------Includes------<div id="mb_0">----------<br>use strict;<br>use warnings;<br>#use Getopt::Std;<br>use Net::SSH::Perl;<br>use Term::ReadKey;
+<br>use Getopt::Long;
+<br><br>....<br><br>my $cmd = &quot;sudo test&quot;;<br>my $ssh =
+Net::SSH::Perl-&gt;new($hos, interactive =&gt;1, use_pty =&gt; 1, debug
+=&gt; 1, port =&gt; $port, protocol =&gt; &#39;2,1&#39;, options =&gt;
+[&quot;BatchMode yes&quot;]) or die(&quot;Could not connect&quot;);
+<br><br>#$ssh-&gt;login($user, $pass);<br>$ssh-&gt;login($user);<br>#$ssh-&gt;shell;<br>my ($stdout, $stderr, $exit) = $ssh-&gt;cmd($cmd);<br>print &quot;OUT:$stdout \nERR:$stderr \nEXIT:$exit \n&quot;;<br><br>....<br>Response from a sudo test
+<br><br>Use of uninitialized value in concatenation (.) or string at ./SerialPush.pl line 79.<br>OUT: <br>ERR:sudo: sorry, you must have a tty to run sudo<br>&nbsp;<br>EXIT:1 <br><br>...<br>Response from a su root test<br><br>
+
+Use of uninitialized value in concatenation (.) or string at ./SerialPush.pl line 79.<br>OUT: <br>ERR:standard in must be a tty<br>&nbsp;<br>EXIT:1 <br><br><br>Any ideas on how I can get this to work?<br>What
+I&#39;m trying to do is get a perl script to move a file from tmp to etc,
+or just simply write a&nbsp; config file to /etc on a ton of remote systems.
+</div>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01568" href="msg01568.html">Re: [Omaha.pm] Net::SSH::Perl and sudo or su</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01566.html">[Omaha.pm] Perl (and BioPerl?) - BIIG Meeting This Monday!</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01568.html">Re: [Omaha.pm] Net::SSH::Perl and sudo or su</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01566.html">[Omaha.pm] Perl (and BioPerl?) - BIIG Meeting This Monday!</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01568.html">Re: [Omaha.pm] Net::SSH::Perl and sudo or su</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01567"><strong>Date</strong></a></li>
+<li><a href="threads.html#01567"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] 'Here' Documents don't do method calls -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 21 Aug 2006 18:48:16 &#45;0000 -->
+<!--X-Message-Id: 29AB736ABCE5C745ABF9C93B02F2C27B05A37B42@exchange2k3.omnihotels.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] 'Here' Documents don't do method calls</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01102.html">Date Prev</a>][<a href="msg01104.html">Date Next</a>][<a href="msg01102.html">Thread Prev</a>][<a href="msg01104.html">Thread Next</a>][<a href="maillist.html#01103">Date Index</a>][<a href="threads.html#01103">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] 'Here' Documents don't do method calls</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] 'Here' Documents don't do method calls</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Mon, 21 Aug 2006 13:48:45 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcbFUmyQUP3jSVStR6apn52GiwCKHA==</li>
+<li><em>Thread-topic</em>: 'Here' Documents don't do method calls</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+Bug fix...
+
+Before
+
+   my $strsql = &lt;&lt;EOT;
+update rates set 
+  eff_start_booking = '$date10', 
+where rate_code IN ( 
+  select rate_code 
+  from master_rate_info
+  where prop = '$self-&gt;get_property()'
+)
+EOT
+
+After
+
+   my $prop = $self-&gt;get_property();
+   my $strsql = &lt;&lt;EOT;
+update rates set 
+  eff_start_booking = '$date10', 
+where rate_code IN ( 
+  select rate_code 
+  from master_rate_info
+  where prop = '$prop'
+)
+EOT
+
+The lesson there is that scalars work in 'Here' Documents, but you can't
+do method calls. 
+
+What's a '&quot;Here&quot; Document'?
+<a  rel="nofollow" href="http://www.stonehenge.com/merlyn/UnixReview/col12.html">http://www.stonehenge.com/merlyn/UnixReview/col12.html</a>
+Programming Perl 3rd Edition, Chapter 2, Scalar Values, '&quot;Here&quot;
+Documents'
+
+I was surprised I couldn't find any mainline perldoc info on '&quot;Here&quot;
+Documents'. And if you don't know what they're called its hard to find
+out...
+
+j
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01102.html">[Omaha.pm] Uncyclopedia</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01104.html">[Omaha.pm] sprintf is your friend</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01102.html">[Omaha.pm] Uncyclopedia</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01104.html">[Omaha.pm] sprintf is your friend</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01103"><strong>Date</strong></a></li>
+<li><a href="threads.html#01103"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

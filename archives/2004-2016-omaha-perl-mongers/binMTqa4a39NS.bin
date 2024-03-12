@@ -1,0 +1,11 @@
+Reporting-MTA: dns; smtp4-out.smtp-out.msg.nordnet.fr
+X-Postfix-Queue-ID: A5C37340E2
+X-Postfix-Sender: rfc822; prvs=1854689b47=jhannah@omnihotels.com
+Arrival-Date: Fri,  3 Sep 2010 00:32:01 +0200 (CEST)
+
+Final-Recipient: rfc822; mi.rodriguez@tiscali.it
+Original-Recipient: rfc822;mi.rodriguez@tiscali.it
+Action: failed
+Status: 5.1.1
+Remote-MTA: dns; imp-1.mail.tiscali.it
+Diagnostic-Code: smtp; 550 5.1.1 <mi.rodriguez@tiscali.it> recipient rejected

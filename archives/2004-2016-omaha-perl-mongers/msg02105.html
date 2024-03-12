@@ -1,0 +1,194 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Perl, fork, and waitpid() -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 21 Apr 2009 12:57:38 &#45;0000 -->
+<!--X-Message-Id: A2CBD5BC&#45;0EF8&#45;47F9&#45;B3F1&#45;3346BD80CA8B@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 3e2be50904191542r314c81ddpe212d54dcef2a5b8@mail.gmail.com -->
+<!--X-Reference: 238502E5&#45;0A61&#45;41EC&#45;BB56&#45;155020D6FFF1@jays.net -->
+<!--X-Reference: a8ca0c1f0904201916w2a0a3f0x852a674868eb3929@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Perl, fork, and waitpid()</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02104.html">Date Prev</a>][<a href="msg02106.html">Date Next</a>][<a href="msg02103.html">Thread Prev</a>][<a href="msg02104.html">Thread Next</a>][<a href="maillist.html#02105">Date Index</a>][<a href="threads.html#02105">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Perl, fork, and waitpid()</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Perl, fork, and waitpid()</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Tue, 21 Apr 2009 07:57:21 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg02101.html">a8ca0c1f0904201916w2a0a3f0x852a674868eb3929@mail.gmail.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg02097.html">3e2be50904191542r314c81ddpe212d54dcef2a5b8@mail.gmail.com</a>&gt;	&lt;<a href="msg02099.html">238502E5-0A61-41EC-BB56-155020D6FFF1@jays.net</a>&gt;	&lt;<a href="msg02101.html">a8ca0c1f0904201916w2a0a3f0x852a674868eb3929@mail.gmail.com</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+On Apr 20, 2009, at 9:16 PM, George Neill wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+cat test.input | xargs --max-procs=4 --replace=timeout perl -e 'print
+&quot;starting timeout\n&quot;; sleep(timeout); print &quot;finished timeout\n&quot;;'
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>Oh, neat! I had no idea xargs did that. I use xargs all the time, but  
+</tt><tt>hadn't seen --max-procs before. Thanks!  :)
+</tt><pre style="margin: 0em;">
+
+On Apr 20, 2009, at 10:38 PM, Dan Linder wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><tt>Thanks for the pointers to POE and xargs.  Unfortunately I'm  
+</tt><tt>restricted to using Perl core modules (and probably back to Perl  
+</tt><tt>5.001 from 1995).
+</tt></blockquote><pre style="margin: 0em;">
+
+</pre><tt>How so? root is handy, but you don't need root to build you own perl  
+</tt><tt>+ POE (or anything CPAN). You can do it all in your home directory if  
+</tt><tt>root isn't playing ball.
+</tt><pre style="margin: 0em;">
+
+On Apr 20, 2009, at 11:00 PM, George Neill wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+Do you know the POE internals?
+
+# Detect the CHLD signal as each of our children exits.
+
+sub sig_child {
+</pre><tt>    my ( $heap, $sig, $pid, $exit_val ) = @_[ HEAP, ARG0, ARG1,  
+</tt><tt>ARG2 ];
+</tt><pre style="margin: 0em;">
+    my $details = delete $heap-&gt;{$pid};
+    # warn &quot;$$: Child $pid exited&quot;;
+}
+
+... got me thinking about the back-end.  I am guessing POE might give
+some weird results on the old sysV signal implementations as SIGCHLD
+has different semantics there.
+</pre></blockquote><pre style="margin: 0em;">
+
+I am not versed in POE internals.
+
+</pre><tt>From a users perspective, everything is driven by POE::Kernel  
+</tt><tt>sig_child():
+</tt><pre style="margin: 0em;">
+
+</pre><tt><a  rel="nofollow" href="http://search.cpan.org/~rcaputo/POE-1.005/lib/POE/">http://search.cpan.org/~rcaputo/POE-1.005/lib/POE/</a> 
+</tt><tt>Kernel.pm#sig_child_PROCESS_ID_[,_EVENT_NAME]
+</tt><pre style="margin: 0em;">
+
+</pre><tt>Internally it appears POE::Resource::Signals is the place where  
+</tt><tt>waitpid() is called in two different places:
+</tt><pre style="margin: 0em;">
+
+
+sub _data_sig_handle_poll_event {
+  ...
+  # Reap children for as long as waitpid(2) says something
+  # interesting has happened.
+  my $pid;
+  while ($pid = waitpid(-1, WNOHANG)) {
+    # waitpid(2) returned a process ID.  Emit an appropriate SIGCHLD
+    # event and loop around again.
+
+    if ((RUNNING_IN_HELL and $pid &lt; -1) or ($pid &gt; 0)) {
+      if (RUNNING_IN_HELL or WIFEXITED($?) or WIFSIGNALED($?)) {
+
+        if (TRACE_SIGNALS) {
+</pre><tt>          _warn(&quot;&lt;sg&gt; POE::Kernel detected SIGCHLD (pid=$pid; exit= 
+</tt><tt>$?)&quot;);
+</tt><pre style="margin: 0em;">
+        }
+        ...
+
+
+### End-run leak checking.
+sub _data_sig_finalize {
+  ...
+  unless (RUNNING_IN_HELL) {
+    local $!;
+    local $?;
+    until ((my $pid = waitpid( -1, 0 )) == -1) {
+      _warn( &quot;!!! Child process PID:$pid reaped: $!\n&quot; ) if $pid;
+      $finalized_ok = 0;
+    }
+  }
+
+
+</pre><tt>I see no mention anywhere in the tarball of &quot;sys v&quot; or &quot;sysv&quot; (case  
+</tt><tt>insensitive).
+</tt><pre style="margin: 0em;">
+
+j
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="02097" href="msg02097.html">[Omaha.pm] Perl, fork, and waitpid()</a></strong>
+<ul><li><em>From:</em> Dan Linder &lt;dan@linder.org&gt;</li></ul></li>
+<li><strong><a name="02099" href="msg02099.html">Re: [Omaha.pm] Perl, fork, and waitpid()</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+<li><strong><a name="02101" href="msg02101.html">Re: [Omaha.pm] Perl, fork, and waitpid()</a></strong>
+<ul><li><em>From:</em> George Neill &lt;georgen@neillnet.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02104.html">Re: [Omaha.pm] Perl, fork, and waitpid()</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02106.html">Re: [Omaha.pm] Yup, it's Student Lightning Talk Time in Omaha Again!</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02103.html">Re: [Omaha.pm] Perl, fork, and waitpid()</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02104.html">Re: [Omaha.pm] Perl, fork, and waitpid()</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02105"><strong>Date</strong></a></li>
+<li><a href="threads.html#02105"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Net::SSH::Perl and sudo or su -->
+<!--X-From-R13: Fbal Evzbaf &#60;jroznfgreNgibegrk.arg> -->
+<!--X-Date: 10 Dec 2007 21:19:41 &#45;0000 -->
+<!--X-Message-Id: 475DAD40.8030304@tvortex.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 475DA1C7.60401@tvortex.net -->
+<!--X-Reference: 54818.63.230.40.25.1197320248.squirrel@webmail.linder.org -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Net::SSH::Perl and sudo or su</title>
+<link rev="made" href="mailto:webmaster@tvortex.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01591.html">Date Prev</a>][<a href="msg01593.html">Date Next</a>][<a href="msg01593.html">Thread Prev</a>][<a href="msg01572.html">Thread Next</a>][<a href="maillist.html#01592">Date Index</a>][<a href="threads.html#01592">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Net::SSH::Perl and sudo or su</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:dan%40linder.org">dan@linder.org</a></li>
+<li><em>Subject</em>: Re: [Omaha.pm] Net::SSH::Perl and sudo or su</li>
+<li><em>From</em>: Tony Simons &lt;<a href="mailto:webmaster%40tvortex.net">webmaster@tvortex.net</a>&gt;</li>
+<li><em>Date</em>: Mon, 10 Dec 2007 15:18:56 -0600</li>
+<li><em>Cc</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01593.html">54818.63.230.40.25.1197320248.squirrel@webmail.linder.org</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: <a href="msg01584.html">475ADF2A.5010202@tvortex.net</a> &lt;<a href="msg01589.html">475DA1C7.60401@tvortex.net</a>&gt;	&lt;<a href="msg01593.html">54818.63.230.40.25.1197320248.squirrel@webmail.linder.org</a>&gt;</li>
+<li><em>Reply-to</em>: <a href="mailto:webmaster%40tvortex.net">webmaster@tvortex.net</a>, &quot;Perl Mongers of Omaha,	Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Sender</em>: Tony Simons &lt;<a href="mailto:tonys%40mcsimons.com">tonys@mcsimons.com</a>&gt;</li>
+<li><em>User-agent</em>: Thunderbird 2.0.0.6 (X11/20071018)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Got past the login which seems normal...things change when I do the sudo
+......
+        ***Got past login***
+azelf: channel 1: new [client-session]
+azelf: Requesting channel_open for channel 1.
+azelf: Entering interactive session.
+azelf: Sending command: whoami
+azelf: Requesting service exec on channel 1.
+azelf: channel 1: open confirm rwindow 0 rmax 32768
+azelf: channel 1: rcvd eof
+azelf: channel 1: output open -&gt; drain
+azelf: input_channel_request: rtype exit-status reply 0
+azelf: channel 1: rcvd close
+azelf: channel 1: input open -&gt; closed
+azelf: channel 1: close_read
+azelf: channel 1: obuf empty
+azelf: channel 1: output drain -&gt; closed
+azelf: channel 1: close_write
+azelf: channel 1: send close
+azelf: channel 1: full closed
+OUT:tonys
+
+Use of uninitialized value in printf at ./test.pl line 19.
+ERR:
+EXIT:0
+
+-----------------------------------------------------------------------------------
+&gt; OUT:
+&gt; ERR:sudo: sorry, you must have a tty to run sudo
+&gt;
+&gt; EXIT:1
+
+
+
+Daniel Linder wrote:
+&gt; On Mon, December 10, 2007 14:29, Tony Simons wrote:
+&gt;   
+&gt;&gt; I take it I have you stumped on the initial problem. :)   I was hoping
+&gt;&gt; to get the whole thing to work under perl in one shot as I have with the
+&gt;&gt; bash script.
+&gt;&gt;     
+&gt;
+&gt; To recap, you're trying to use the Net::SSH:Perl module and you provided
+&gt; this basic code in your initial e-mail:
+&gt; &lt;BEGIN&gt;
+&gt; #!/usr/bin/perl -w
+&gt; $|=1;
+&gt; use strict;
+&gt; use warnings;
+&gt; use Net::SSH::Perl;
+&gt; use Term::ReadKey;
+&gt; use Getopt::Long;
+&gt; my $hos=&quot;192.168.99.99&quot;;
+&gt; my $port=22;
+&gt; my $user=&quot;dan&quot;;
+&gt;
+&gt; my $cmd = &quot;whoami&quot;;
+&gt; my $ssh = Net::SSH::Perl-&gt;new($hos, interactive =&gt;1, use_pty =&gt; 1, debug
+&gt; =&gt; 1, port =&gt; $port, protocol =&gt; '2,1', options =&gt; [&quot;BatchMode yes&quot;]) or
+&gt; die(&quot;Could not connect&quot;);
+&gt;
+&gt; $ssh-&gt;login($user);
+&gt; printf (&quot;\n\t***Got past login***\n&quot;);
+&gt; my ($stdout, $stderr, $exit) = $ssh-&gt;cmd($cmd);
+&gt; printf (&quot;OUT:%s\n&quot;,$stdout);
+&gt; printf (&quot;ERR:%s\n&quot;,$stderr);
+&gt; printf (&quot;EXIT:%s\n&quot;,$exit);
+&gt; &lt;END&gt;
+&gt;
+&gt; (You'll need to change the $hos and $port to match your machines IP and
+&gt; port that SSHd is running on.)
+&gt;
+&gt; When I run it, I get the following output:
+&gt; &lt;BEGIN OUTPUT&gt;
+&gt; dan@titan:~/tmp/PerlTests$ perl d5.pl
+&gt; titan: Reading configuration data /home/dan/.ssh/config
+&gt; titan: Reading configuration data /etc/ssh_config
+&gt; titan: Connecting to 192.168.99.99, port 22.
+&gt; titan: Remote version string: SSH-2.0-OpenSSH_4.2p1 Debian-7ubuntu3.1
+&gt;
+&gt; titan: Remote protocol version 2.0, remote software version OpenSSH_4.2p1
+&gt; Debian-7ubuntu3.1
+&gt; titan: Net::SSH::Perl Version 1.30, protocol version 2.0.
+&gt; titan: No compat match: OpenSSH_4.2p1 Debian-7ubuntu3.1.
+&gt; titan: Connection established.
+&gt; titan: Sent key-exchange init (KEXINIT), wait response.
+&gt; titan: Algorithms, c-&gt;s: 3des-cbc hmac-sha1 none
+&gt; titan: Algorithms, s-&gt;c: 3des-cbc hmac-sha1 none
+&gt; titan: Entering Diffie-Hellman Group 1 key exchange.
+&gt; titan: Sent DH public key, waiting for reply.
+&gt; titan: Received host key, type 'ssh-dss'.
+&gt; titan: Host '192.168.99.99' is known and matches the host key.
+&gt; titan: Computing shared secret key.
+&gt; titan: Verifying server signature.
+&gt; titan: Waiting for NEWKEYS message.
+&gt; titan: Enabling incoming encryption/MAC/compression.
+&gt; titan: Send NEWKEYS, enable outgoing encryption/MAC/compression.
+&gt; titan: Sending request for user-authentication service.
+&gt; titan: Service accepted: ssh-userauth.
+&gt; titan: Trying empty user-authentication request.
+&gt; titan: Authentication methods that can continue: publickey.
+&gt; titan: Next method to try is publickey.
+&gt; titan: Trying pubkey authentication with key file '/home/dan/.ssh/id_dsa'
+&gt; titan: Authentication methods that can continue: publickey.
+&gt; titan: Next method to try is publickey.
+&gt; Permission denied at d5.pl line 15
+&gt; dan@titan:~/tmp/PerlTests$
+&gt; &lt;END OUTPUT&gt;
+&gt;
+&gt; Line 15 is the &quot;$ssh-&gt;login($user);&quot; line so I have to think the login()
+&gt; routine is having issues.  From the command line I can perform a &quot;ssh
+&gt; dan@192.168.99.99 whoami&quot; and it runs and returns &quot;dan&quot; (the output from
+&gt; 'whoami').
+&gt;
+&gt; For now it looks like the &quot;login()&quot; subroutine isn't handling the ssh
+&gt; public key correctly.  Is it possibly related to one of the options
+&gt; supplied to the Net::SSH::Perl-&gt;new() call?  Does yours die at the same
+&gt; login() call?
+&gt;
+&gt; Dan
+&gt;
+&gt; - - - -
+&gt; &quot;There are four boxes to be used in defense of liberty: soap, ballot,
+&gt; jury, and ammo. Please use in that order.&quot;
+&gt; -- Ed Howdershelt (Author)
+&gt;
+&gt; &quot;I do not fear computers, I fear the lack of them.&quot; -- Isaac Asimov (Author)
+&gt; ** *** ***** ******* *********** *************
+&gt; SIRC, CID, subversives, 414, Flu, utopia, &amp;
+&gt; basement, GEO, Information Security, DSD, cocaine, SIGDEV, Keyhole
+&gt; CESID, PRIME, Lexis-Nexis, CTP, DynCorp, gorilla, Recce
+&gt;
+&gt;
+&gt;   
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01589" href="msg01589.html">[Omaha.pm]  Net::SSH::Perl and sudo or su</a></strong>
+<ul><li><em>From:</em> Tony Simons &lt;webmaster@tvortex.net&gt;</li></ul></li>
+<li><strong><a name="01593" href="msg01593.html">Re: [Omaha.pm] Net::SSH::Perl and sudo or su</a></strong>
+<ul><li><em>From:</em> &quot;Daniel Linder&quot; &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01591.html">[Omaha.pm] Regexp::Common::zip is pretty slick</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01593.html">Re: [Omaha.pm] Net::SSH::Perl and sudo or su</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01593.html">Re: [Omaha.pm] Net::SSH::Perl and sudo or su</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01572.html">[Omaha.pm]   Net::SSH::Perl and sudo or su</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01592"><strong>Date</strong></a></li>
+<li><a href="threads.html#01592"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

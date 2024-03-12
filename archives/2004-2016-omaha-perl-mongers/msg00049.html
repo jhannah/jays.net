@@ -1,0 +1,156 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] FW: Pod::Tree &#45; .pm files w/ no POD? -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: Thu, 22 Jul 2004 11:14:26 &#45;0500 -->
+<!--X-Message-Id: 001301c47006$f5487e20$4722000a@omarests2 -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] FW: Pod::Tree - .pm files w/ no POD?</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00048.html">Date Prev</a>][<a href="msg00050.html">Date Next</a>][<a href="msg00048.html">Thread Prev</a>][<a href="msg00050.html">Thread Next</a>][<a href="maillist.html#00049">Date Index</a>][<a href="threads.html#00049">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] FW: Pod::Tree - .pm files w/ no POD?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] FW: Pod::Tree - .pm files w/ no POD?</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 22 Jul 2004 11:14:24 -0500</li>
+<li><em>Importance</em>: Normal</li>
+<li><em>List-archive</em>: &lt;<a href="http://www.pm.org/pipermail/omaha-pm">http://www.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: <a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>, &quot;Perl Mongers of Omaha,	Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+Steven's response...
+
+j
+
+
+-----Original Message-----
+From: Steven W McDougall [<a  rel="nofollow" href="mailto:swmcd@theworld.com">mailto:swmcd@theworld.com</a>]
+Sent: Thursday, July 22, 2004 7:29 AM
+To: jhannah@omnihotels.com
+Subject: Re: Pod::Tree - .pm files w/ no POD?
+
+
+&gt; I just discovered pods2html. Very cool! 
+
+Thank you :)
+
+
+&gt; We have a lot of .pm files that do have POD, and even more .pm files
+  that don't have POD. Unfortunately, the no POD .pm files do create
+  an (empty) .html file, and are added to the index.
+
+People have complained about this before, and I've taken the position
+that pods2html correctly translates an empty POD file to an empty HTML
+file, and that I didn't want to special-case the code to suppress the
+HTML files. BUT...having empty HTML files show up in the index is
+obviously the Wrong Thing. 
+
+
+&gt; I noticed you're also the author of Pod::Tree, so I just thought I'd
+  send this to you, wondering if you'd want a patch to
+  Pod::Tree::has_pod() which would (optionally?) return false if the
+  .pm file didn't actually have any POD in it...? Then I guess an
+  option would have to be added to pods2html as well to pass that in?
+
+Some new options to the modues and executables to suppress empty HTML
+files is probably the simplest fix. I'll try to get a release out
+sometime in August.
+
+
+&gt; (First I played with Pod::Tree::PerlPod, which seems to create the
+  same phenomenon. I'm unclear about the differences between
+  Pod::Tree::PerlPod and pods2html...)
+
+Modules
+Pod::Tree	 parses a POD into a syntax tree
+Pod::Tree::HTML  walks a syntax tree and generates HTML
+Pod::Tree::Perl* converts the PODs in the Perl source distribution to HTML
+
+Executables
+pod2html	 calls Pod::Tree and Pod::Tree:HTML to 
+		 convert a single POD file to an HTML file
+
+pods2html	 calls Pod::Tree and Pod::Tree:HTML to 
+		 convert all the POD files in a directory tree to HTML
+		 files in a parallel directory tree
+
+perl2html	 calls Pod::Tree::Perl* to convert all the PODs in 
+		 - the Perl source distribution
+		 - installed Perl modules
+		 - installed Perl executables
+		 to HTML files. An example of the resulting HTML tree 
+		 can be seen at <a  rel="nofollow" href="http://www.perldoc.com/">http://www.perldoc.com/</a>
+
+
+
+Let me know if you need more help with this.
+
+
+
+- SWM
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00048.html">Re: [Omaha.pm] Mail::Folder missing person</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00050.html">[Omaha.pm] RE: Pod::Tree - .pm files w/ no POD?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00048.html">Re: [Omaha.pm] Mail::Folder missing person</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00050.html">[Omaha.pm] RE: Pod::Tree - .pm files w/ no POD?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00049"><strong>Date</strong></a></li>
+<li><a href="threads.html#00049"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

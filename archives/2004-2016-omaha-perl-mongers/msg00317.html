@@ -1,0 +1,128 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Re: [olug] [OT] Of parents and children -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 2 Mar 2005 19:05:06 &#45;0000 -->
+<!--X-Message-Id: c11e5dcb339bfc6b517564f56e70079f@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 5aeb7d3f050224084849efd1b7@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Re: [olug] [OT] Of parents and children</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00316.html">Date Prev</a>][<a href="msg00318.html">Date Next</a>][<a href="msg00315.html">Thread Prev</a>][<a href="msg00318.html">Thread Next</a>][<a href="maillist.html#00317">Date Index</a>][<a href="threads.html#00317">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Re: [olug] [OT] Of parents and children</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Omaha Linux User Group &lt;<a href="mailto:olug%40olug.org">olug@olug.org</a>&gt;, Kevin Lanik &lt;<a href="mailto:kevin.lanik%40gmail.com">kevin.lanik@gmail.com</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Re: [olug] [OT] Of parents and children</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Wed, 2 Mar 2005 13:04:38 -0600</li>
+<li><em>Cc</em>: Omaha Perl Mongers &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;5aeb7d3f050224084849efd1b7@mail.gmail.com&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;5aeb7d3f050224084849efd1b7@mail.gmail.com&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+(see OLUG thread for discussion to date)
+
+On Feb 24, 2005, at 10:48 AM, Kevin Lanik wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+Slightly off topic, but an interesting programming problem here. I'm
+programming in objective-c (language doesn't matter much though) and I
+basically have a tree. My problem is that I'd like to be able to take
+a node and move it into one of it's children (or, since there is X
+level of depth) or somewhere in it's own lineage. It's been decided to
+preserve as much hierarchy as possible, so if a node moves to it's
+subnode it retains its children. For example, node 1's parent is the
+root node: it has children 2 and 3. 2 has children 4 and 5. I want to
+move node 1 into node 4's list. The first of two scenarios now is that
+node 2's parent becomes the root node and node 1's parent  becomes
+node 4, all other nodes stay the same. The other scenario makes node
+4's parent the root node and node 1's parent 4, with all other nodes
+retaining thier parents. Does this make sense? The current solution is
+that we don't allow a node to be dropped in one of its children (or
+down the line) but would choosing one of these two be more appropriate
+than the other? I know this isn't exactly the forum for the question,
+but who doesn't enjoy a puzzler!
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>When you get to actually implementing and persisting a solution I'd use  
+</tt><tt>OO Perl (I'm biased), or I'd jump into declaritive programming and try  
+</tt><tt>my hand at prolog (for the logic engine, at least):
+</tt><pre style="margin: 0em;">
+
+</pre><tt><a  rel="nofollow" href="http://www.augustana.ca/~mohrj/courses/common/csc370/lecture_notes/">http://www.augustana.ca/~mohrj/courses/common/csc370/lecture_notes/</a> 
+</tt><tt>prolog2.html?presentation
+</tt><pre style="margin: 0em;">
+
+mmmmm... Prolog... AI... ggrggrllgggghh...
+
+(also see Perl/CPAN's AI::Prolog for the merger of both worlds. -grin-)
+
+j
+Omaha Perl Mongers: <a  rel="nofollow" href="http://omaha.pm.org">http://omaha.pm.org</a>
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00316.html">RE: [Omaha.pm] Converting an array of strings into a scalar</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00318.html">[Omaha.pm] Programming languages poster</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00315.html">RE: [Omaha.pm] Converting an array of strings into a scalar</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00318.html">[Omaha.pm] Programming languages poster</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00317"><strong>Date</strong></a></li>
+<li><a href="threads.html#00317"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

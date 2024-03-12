@@ -1,0 +1,152 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Class::Date objects in scalar context perl 5.8.3 vs.	5.8.7? or something else? -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 29 Dec 2005 14:24:15 &#45;0000 -->
+<!--X-Message-Id: 29AB736ABCE5C745ABF9C93B02F2C27B037AFC34@exchange2k3.omnihotels.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Class::Date objects in scalar context perl 5.8.3 vs.	5.8.7? or something else?</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00745.html">Date Prev</a>][<a href="msg00747.html">Date Next</a>][<a href="msg00745.html">Thread Prev</a>][<a href="msg00797.html">Thread Next</a>][<a href="maillist.html#00746">Date Index</a>][<a href="threads.html#00746">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Class::Date objects in scalar context perl 5.8.3 vs.	5.8.7? or something else?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:dlux%40dlux.hu">dlux@dlux.hu</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Class::Date objects in scalar context perl 5.8.3 vs.	5.8.7? or something else?</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 29 Dec 2005 08:24:37 -0600</li>
+<li><em>Cc</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcYMg5oqtmCJmgpVQAC0z4HTVc5eRA==</li>
+<li><em>Thread-topic</em>: Class::Date objects in scalar context perl 5.8.3 vs. 5.8.7? or	something else?</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+Hi dLux --
+
+I was wondering if you had any idea what is happening here off the top
+of your head... Here's my test script:
+
+
+$ cat j.t
+use Test::More tests =&gt; 1;
+use Class::Date qw(:errors -DateParse ) ;
+my $d = Class::Date-&gt;new(&quot;2005-08-03&quot;);
+print &quot;$d\n&quot;;
+is($d, &quot;2005-08-03&quot;, &quot;???&quot;);
+
+
+Pretty straight-forward, right? Yet undef Perl 5.8.3 the test script
+passes when it shouldn't?
+
+
+$ /usr/bin/perl5.8.3 j.t
+1..1
+2005-08-03 00:00:00
+ok 1 - ???
+
+
+Perl 5.8.7 fails as expected:
+
+
+$ /usr/bin/perl5.8.7 j.t
+1..1
+2005-08-03 00:00:00
+not ok 1 - ???
+#   Failed test '???'
+#   in j.t at line 5.
+#          got: '2005-08-03 00:00:00'
+#     expected: '2005-08-03'
+# Looks like you failed 1 test of 1.
+
+
+And I'm having a hard time blaming Test::More, since this behaves as
+expected under 5.8.3:
+
+
+$ cat j.t
+use Test::More tests =&gt; 1;
+is(&quot;2005-08-03 00:00:00&quot;, &quot;2005-08-03&quot;, &quot;???&quot;);
+
+$ /usr/bin/perl5.8.3 j.t
+1..1
+not ok 1 - ???
+#     Failed test (j.t at line 2)
+#          got: '2005-08-03 00:00:00'
+#     expected: '2005-08-03'
+# Looks like you failed 1 test of 1.
+
+
+So somewhere something is going wrong inside Test::More's use of your
+string() overload in Class::Date? uhhh...
+
+Any thoughts would be appreciated.
+
+Thanks!
+
+j
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00745.html">[Omaha.pm] Test::More skip_all</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00747.html">[Omaha.pm] My lost week problem..</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00745.html">[Omaha.pm] Test::More skip_all</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00797.html">Re: [Omaha.pm] Class::Date objects in scalar context perl 5.8.3 vs.	5.8.7? or something else?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00746"><strong>Date</strong></a></li>
+<li><a href="threads.html#00746"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

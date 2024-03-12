@@ -1,0 +1,147 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] FWD: FIXME, July 2001 -->
+<!--X-From-R13: "Rnavry Zvaqre" &#60;qnaNyvaqre.bet> -->
+<!--X-Date: 21 Nov 2006 15:27:41 &#45;0000 -->
+<!--X-Message-Id: 41985.68.13.153.38.1164120571.squirrel@www.linder.org -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 455EE046.6010402@jays.net -->
+<!--X-Reference: 0229FD96&#45;6A7E&#45;4652&#45;AB04&#45;5034DE44826B@jays.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] FWD: FIXME, July 2001</title>
+<link rev="made" href="mailto:dan@linder.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01215.html">Date Prev</a>][<a href="msg01217.html">Date Next</a>][<a href="msg01215.html">Thread Prev</a>][<a href="msg01228.html">Thread Next</a>][<a href="maillist.html#01216">Date Index</a>][<a href="threads.html#01216">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] FWD: FIXME, July 2001</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] FWD: FIXME, July 2001</li>
+<li><em>From</em>: &quot;Daniel Linder&quot; &lt;<a href="mailto:dan%40linder.org">dan@linder.org</a>&gt;</li>
+<li><em>Date</em>: Tue, 21 Nov 2006 08:49:31 -0600 (CST)</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Importance</em>: Normal</li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01215.html">0229FD96-6A7E-4652-AB04-5034DE44826B@jays.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;455EE046.6010402@jays.net&gt;	&lt;<a href="msg01215.html">0229FD96-6A7E-4652-AB04-5034DE44826B@jays.net</a>&gt;</li>
+<li><em>Reply-to</em>: <a href="mailto:dan%40linder.org">dan@linder.org</a>, &quot;Perl Mongers of Omaha,	Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: SquirrelMail/1.4.5</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Jay Hannah wrote:
+&gt; Justin: Remember this? Scary, huh?
+[...snip...]
+&gt; 1.1  (jhopkins 30-Jul-01):     $/ = '||||'; # FIXME?
+&gt; 1.1  (jhopkins 30-Jul-01):     my $errmsg = &lt;$readfh&gt;;
+
+So, what does the FIXME line do?
+
+&gt;From &quot;<a  rel="nofollow" href="http://www.kichwa.com/quik_ref/spec_variables.html&quot">http://www.kichwa.com/quik_ref/spec_variables.html&quot</a>;, it says the
+&quot;$/&quot; variable contains...:
+    The input record separator, newline by default.
+    $/ may be set to a value longer than one character
+    in order to match a multi-character delimiter. If
+    $/ is undefined, no record separator is matched,
+    and &lt;FILEHANDLE&gt; will read everything to the end
+    of the current file.
+
+So, If I read it right, this causes the next line to continue reading from
+the file $readfh, and put all characters up to but not including four
+'pipe' symbols, right?
+
+I.e. if the $readfh file handle pointed to a file whose contents was this:
+This is line 1\n
+this is line 2\n
+this is line 3||||This is the beginning of a new &quot;record&quot;\n
+This is really on line 4\n||||This is the end of the file.
+
+Then, the first time $readfh is used, the $errmsg variable contains:
+&quot;This is line 1\nthis is line 2\nthis is line 3&quot;
+
+The next time, it would contain:
+&quot;This is the beginning of a new &quot;record&quot;\nThis is really on line 4\n&quot;
+
+And finally, it would contain:
+&quot;This is the end of the file.&quot;
+
+If I understand this, the kicker here is that the &quot;\n&quot; characters are also
+placed into the $errmsg variable.
+
+Correct?
+
+Dan
+
+- - - -
+&quot;Wait for that wisest of all counselors, time.&quot; -- Pericles
+&quot;I do not fear computers, I fear the lack of them.&quot; -- Isaac Asimov
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01228" href="msg01228.html">Re: [Omaha.pm] FWD: FIXME, July 2001</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01215" href="msg01215.html">[Omaha.pm] FWD: FIXME, July 2001</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01215.html">[Omaha.pm] FWD: FIXME, July 2001</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01217.html">[Omaha.pm] 2007 daylight savings time change</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01215.html">[Omaha.pm] FWD: FIXME, July 2001</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01228.html">Re: [Omaha.pm] FWD: FIXME, July 2001</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01216"><strong>Date</strong></a></li>
+<li><a href="threads.html#01216"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

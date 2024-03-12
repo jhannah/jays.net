@@ -1,0 +1,193 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Class::Date &#45; change once set -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 11 Nov 2005 14:35:39 &#45;0000 -->
+<!--X-Message-Id: 6d43a5d8d650d34d88c7ddc1584ffc9b@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 29AB736ABCE5C745ABF9C93B02F2C27B037AFA2D@exchange2k3.omnihotels.net -->
+<!--X-Reference: 3f7fee6f912d3be34f6da6adf63131de@jays.net -->
+<!--X-Reference: 43745EF9.1050307@dlux.hu -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Class::Date - change once set</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00645.html">Date Prev</a>][<a href="msg00647.html">Date Next</a>][<a href="msg00644.html">Thread Prev</a>][<a href="msg00638.html">Thread Next</a>][<a href="maillist.html#00646">Date Index</a>][<a href="threads.html#00646">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Class::Date - change once set</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Bal&#xE1;zs Szab&#xF3; (dLux)&quot; &lt;<a href="mailto:dlux%40dlux.hu">dlux@dlux.hu</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Class::Date - change once set</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Fri, 11 Nov 2005 08:35:25 -0600</li>
+<li><em>Cc</em>: Omaha Perl Mongers &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;43745EF9.1050307@dlux.hu&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00635.html">29AB736ABCE5C745ABF9C93B02F2C27B037AFA2D@exchange2k3.omnihotels.net</a>&gt;	&lt;<a href="msg00644.html">3f7fee6f912d3be34f6da6adf63131de@jays.net</a>&gt;	&lt;43745EF9.1050307@dlux.hu&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+On Nov 11, 2005, at 3:06 AM, Bal&#xE1;zs Szab&#xF3; (dLux) wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+   $x = $_[0];
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>$x is created, a new obj in year 2000.  (via clone() inside 
+</tt><tt>Class::Date)
+</tt></blockquote><pre style="margin: 0em;">
+
+Not correct.  $_[0] is always points to the same object as $a, $_[1]
+always points to the same object as $b; In this case, we have a new
+object, $x, which is also points to the same as $a and $_[0];
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>Oh. At a glance inside the guts of your class and not knowing 
+</tt><tt>&quot;overload&quot; well I thought Class::Date was doing operator overloading on 
+</tt><tt>the assignment operator (=), invoking clone().
+</tt><pre style="margin: 0em;">
+
+</pre><tt>Now I've read up a little (perldoc overload) and may understand your 
+</tt><tt>guts better. Your explanation above explains that the assigment above 
+</tt><tt>is a vanilla Perl reference assignment, not some deep overloaded 
+</tt><tt>magic...
+</tt><pre style="margin: 0em;">
+
+This part of &quot;perldoc overload&quot; wigs me out:
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+SPECIAL SYMBOLS FOR &quot;use overload&quot;
+
+...
+
+       Copy Constructor
+
+</pre><tt>       The value for &quot;=&quot; is a reference to a function with three 
+</tt><tt>arguments,
+</tt><tt>       i.e., it looks like the other values in &quot;use overload&quot;. 
+</tt><tt>However, it
+</tt><tt>       does not overload the Perl assignment operator. This would go 
+</tt><tt>against
+</tt><pre style="margin: 0em;">
+       Camel hair.
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>&quot;would go against camel hair?&quot; lol! Jay swoons w/ bemused 
+</tt><tt>incomprehension. I thought NOTHING was sacred inside overload. -laugh-
+</tt><pre style="margin: 0em;">
+
+</pre><tt>Debugging your class objects always trips me up because of your (very 
+</tt><tt>useful)
+</tt><pre style="margin: 0em;">
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+use overload
+  '&quot;&quot;'     =&gt; &quot;string&quot;,
+</pre></blockquote><pre style="margin: 0em;">
+
+I'm used to debugging and seeing this:
+
+  DB&lt;1&gt; p $x
+main=HASH(0x8d3a28)
+
+But on your objects I get this:
+
+  DB&lt;2&gt; p $a
+2000-11-11 00:00:00
+
+</pre><tt>So when I'm trying to understand what happens during/after an 
+</tt><tt>assignment operation I fail. -grin-  Now that I know there's no magic 
+</tt><tt>going on I can understand it, but I won't know for sure when I'm 
+</tt><tt>looking at it in the debugger.
+</tt><pre style="margin: 0em;">
+
+</pre><tt>Is there any way to get the &quot;main=HASH(0x8d3a28)&quot; to kick out on your 
+</tt><tt>objects? (So I can SEEE if its the same obj or some new one?)
+</tt><pre style="margin: 0em;">
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+So, it does not copy OBJECTS, it just increasing and decreasing
+</pre><tt>reference counters to objects (since perl is a reference-counting 
+</tt><tt>language).
+</tt><pre style="margin: 0em;">
+
+Please see the perlobj and perlref (or perlreftut) manual to get what I
+had talked about.
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>Yes. I understand that default behavior. I thought Class::Date was 
+</tt><tt>being sneakier than the default.
+</tt><pre style="margin: 0em;">
+
+Thanks again for the help, you mad scientist genius you,  -grin-
+
+j
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00635" href="msg00635.html">[Omaha.pm] FW: FW: Class::Date - change once set</a></strong>
+<ul><li><em>From:</em> &quot;Jay Hannah&quot; &lt;jhannah@omnihotels.com&gt;</li></ul></li>
+<li><strong><a name="00644" href="msg00644.html">Re: [Omaha.pm] FW: FW: Class::Date - change once set</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00645.html">Re: [Omaha.pm] Class::Date - change once set</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00647.html">[Omaha.pm] TEST please ignore</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00644.html">Re: [Omaha.pm] FW: FW: Class::Date - change once set</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00638.html">[Omaha.pm] PerlWar</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00646"><strong>Date</strong></a></li>
+<li><a href="threads.html#00646"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

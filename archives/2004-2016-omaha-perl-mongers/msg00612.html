@@ -1,0 +1,111 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] sort hackery -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 25 Oct 2005 15:43:26 &#45;0000 -->
+<!--X-Message-Id: 29AB736ABCE5C745ABF9C93B02F2C27B031ACDE7@exchange2k3.omnihotels.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] sort hackery</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00611.html">Date Prev</a>][<a href="msg00613.html">Date Next</a>][<a href="msg00645.html">Thread Prev</a>][<a href="msg00624.html">Thread Next</a>][<a href="maillist.html#00612">Date Index</a>][<a href="threads.html#00612">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] sort hackery</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] sort hackery</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Tue, 25 Oct 2005 10:43:13 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcXZexsIXx+hT55AQKOIO1EeHCqRgw==</li>
+<li><em>Thread-topic</em>: sort hackery</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+So I've got this array of hashrefs that was built like this:
+
+   push @arr, { code=&gt;$prop, desc=&gt;$desc, };
+
+And I want to sort them alphabetically based of desc.
+
+So I do this:
+
+  # Sort the list by descriptions
+  @arr = sort sort_by_desc @arr;
+
+  sub sort_by_desc {
+     $a-&gt;{desc} cmp $b-&gt;{desc}; 
+  }
+
+And it worked, 2nd try. 
+
+Yay! It appears I've learned a little Perl over the years. -grin-
+
+Custom sorting methods in Perl rule. Do any other languages allow you to
+define custom arbitrary sorting rulesets so easily?
+
+j
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00611.html">Re: [Omaha.pm] Class::Date - change once set</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00613.html">[Omaha.pm] Downloading CPAN modules on G5 Mac</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00645.html">Re: [Omaha.pm] Class::Date - change once set</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00624.html">Re: [Omaha.pm] sort hackery</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00612"><strong>Date</strong></a></li>
+<li><a href="threads.html#00612"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

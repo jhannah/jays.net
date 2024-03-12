@@ -1,0 +1,222 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Fwd: iCal::Parser &#45; or how to iterate through this hash? -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 24 Feb 2006 02:15:13 &#45;0000 -->
+<!--X-Message-Id: 43FE6C21.7010302@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Fwd: iCal::Parser - or how to iterate through this hash?</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00855.html">Date Prev</a>][<a href="msg00857.html">Date Next</a>][<a href="msg00854.html">Thread Prev</a>][<a href="msg00857.html">Thread Next</a>][<a href="maillist.html#00856">Date Index</a>][<a href="threads.html#00856">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Fwd: iCal::Parser - or how to iterate through this hash?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Fwd: iCal::Parser - or how to iterate through this hash?</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Thu, 23 Feb 2006 20:14:57 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: Mozilla Thunderbird 1.0.7 (Macintosh/20050923)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+Forwarding Brian's message while Brian and I try to figure out why his post didn't go straight through...
+
+j
+
+
+-------- Original Message --------
+Subject: [Fwd: iCal::Parser - or how to iterate through this hash?]
+Date: Wed, 22 Feb 2006 22:10:42 -0800
+From: Brian Wiese &lt;bwiese@cotse.com&gt;
+To: jay@jays.net
+
+Any idea why this didn't go through to the list?
+
+Brian
+
+-------- Original Message --------
+Subject: 	iCal::Parser - or how to iterate through this hash?
+Date: 	Wed, 22 Feb 2006 09:47:23 -0800
+From: 	Brian Wiese &lt;bwiese@cotse.com&gt;
+To: 	Perl Mongers of Omaha, Nebraska USA &lt;omaha-pm@pm.org&gt;
+
+
+
+</pre><tt>I've been out of touch with perl for some time now, but have remained on 
+</tt><tt>the list and now I need some help. =)  For a little project, I'd like to 
+</tt><tt>parse my iCal files and (eventually) populate a mysql db.  (I thought it 
+</tt><tt>sounded simple too!)  I've been messing with out iCal::Parser (since it 
+</tt><tt>sounds good) but am in over my head and am thinking maybe there is an 
+</tt><tt>easier route?
+</tt><pre style="margin: 0em;">
+
+<a  rel="nofollow" href="http://search.cpan.org/~rfrankel/iCal-Parser-1.11/lib/iCal/Parser.pm">http://search.cpan.org/~rfrankel/iCal-Parser-1.11/lib/iCal/Parser.pm</a>
+
+ {
+   calendars=&gt;[\%cal, ...],
+   events=&gt;{yyyy=&gt;{mm=&gt;{dd}=&gt;{UID=&gt;\%event}}
+   todos=&gt;[\%todo, ...]
+ }
+
+</pre><tt>I'd just like to iterate over each of my events/todo items and then 
+</tt><tt>populate a db.  First issue is how to access this reference hash?  
+</tt><tt>Secondly, to get to each event - can I get an Iterator or do I need to 
+</tt><tt>search through every yyyy-mm-dd-uid combination?
+</tt><pre style="margin: 0em;">
+
+</pre><tt>Also, I used a dumper to see what's inside... and it's ugly, much more 
+</tt><tt>complicated than the actual .ics file itself.  Am I going in the wrong 
+</tt><tt>direction?  Easier to just regex each line myself?
+</tt><pre style="margin: 0em;">
+
+Thanks,
+Brian
+
+my test.ics file (from Sunbird - still a little buggy at times)
+
+bw@freedom:proj $ cat test.ics
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Mozilla.org/NONSGML Mozilla Calendar V1.0//EN
+BEGIN:VEVENT
+CREATED:20060207T005839Z
+LAST-MODIFIED:20060207T005839Z
+DTSTAMP:20060207T005839Z
+UID:uuid:1139273884656
+SUMMARY:title Project Discussion
+PRIORITY:5
+STATUS:CONFIRMED
+CLASS:PUBLIC
+DTSTART:20060206T120000
+DTEND:20060206T125000
+LOCATION:location SP408\, NPS\, Monterey\, CA 93943 (no geo)
+CATEGORIES:Issues
+DESCRIPTION:description Plan out project and subprojet ideas for Mobile
+Alert\nmain topics: profile\, calendar\, \ntesting out vcal format -
+brian
+URL:<a  rel="nofollow" href="http://sharedonline.com/nps/">http://sharedonline.com/nps/</a>
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT30M
+X-EMAILADDRESS:bwiese@example.com
+END:VALARM
+END:VEVENT
+END:VCALENDAR
+
+
+my ical2sql start...
+
+#!/usr/bin/perl -w
+use strict;
+use iCal::Parser;
+# <a  rel="nofollow" href="http://www.codecomments.com/showthread.php?postid=2514293">http://www.codecomments.com/showthread.php?postid=2514293</a>
+use Data::Dumper;
+
+my $icalFile = &quot;test.ics&quot;;
+open(INFILE,$icalFile) or die &quot;could not open $icalFile: $!&quot;;
+my $c = 1;
+while(&lt;INFILE&gt;) { print &quot;$c: $_&quot;; $c++; }
+close INFILE;
+
+print &quot;-- using iCal:Parser --\n&quot;;
+my $parser=iCal::Parser-&gt;new();
+my $hash=$parser-&gt;parse($icalFile);
+
+open(DUMPFILE, &quot;&gt;ical.dump.txt&quot;);
+print DUMPFILE Dumper($parser); # from Data::Dumper
+close DUMPFILE;
+
+print &quot;SUMMARY: &quot;;
+# <a  rel="nofollow" href="http://search.cpan.org/~rfrankel/iCal-Parser-1.11/lib/iCal/Parser.pm">http://search.cpan.org/~rfrankel/iCal-Parser-1.11/lib/iCal/Parser.pm</a>
+</pre><tt>print 
+</tt><tt>$hash-&gt;{events}-&gt;{2006}-&gt;{2}-&gt;{6}-&gt;{'uuid:1139273884656'}-&gt;{SUMMARY} . &quot;\n&quot;;
+</tt><pre style="margin: 0em;">
+# Don't know what to do with this stuff here, probably need to READ more. =)
+#my @hkeys = keys $hash-&gt;{\%cal};
+#my @hvals = values $hash-&gt;{\%cal};
+#print @hkeys;
+
+#while(@hkeys) {
+#    print pop(@hkeys), '=', pop(@hvals), &quot;\n&quot;;
+#}
+
+
+
+
+
+--
+bwiese[at]cotse.com | brianwiese.net | 402.297.9392
+&quot;What we do in life echoes in eternity&quot; - Gladiator
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00857" href="msg00857.html">Re: [Omaha.pm] Fwd: iCal::Parser - or how to iterate through this hash?</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+<li><strong><a name="00859" href="msg00859.html">Re: [Omaha.pm] Fwd: iCal::Parser - or how to iterate through this hash?</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+<li><strong><a name="00860" href="msg00860.html">Re: [Omaha.pm] Fwd: iCal::Parser - or how to iterate through this	hash?</a></strong>
+<ul><li><em>From:</em> Brian Edwards &lt;dutch@tconl.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00855.html">Re: [Omaha.pm] Next BioPerl lab</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00857.html">Re: [Omaha.pm] Fwd: iCal::Parser - or how to iterate through this hash?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00854.html">Re: [Omaha.pm] fork() only goes 2 procs at a time?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00857.html">Re: [Omaha.pm] Fwd: iCal::Parser - or how to iterate through this hash?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00856"><strong>Date</strong></a></li>
+<li><a href="threads.html#00856"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

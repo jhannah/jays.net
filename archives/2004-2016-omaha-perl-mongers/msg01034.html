@@ -1,0 +1,175 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Debugger (or Carp?): How can I detect the creation	of a key in a hash object? -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 6 Jul 2006 23:37:41 &#45;0000 -->
+<!--X-Message-Id: 29AB736ABCE5C745ABF9C93B02F2C27B05A378D3@exchange2k3.omnihotels.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Debugger (or Carp?): How can I detect the creation	of a key in a hash object?</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01033.html">Date Prev</a>][<a href="msg01035.html">Date Next</a>][<a href="msg01033.html">Thread Prev</a>][<a href="msg01035.html">Thread Next</a>][<a href="maillist.html#01034">Date Index</a>][<a href="threads.html#01034">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Debugger (or Carp?): How can I detect the creation	of a key in a hash object?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Debugger (or Carp?): How can I detect the creation	of a key in a hash object?</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 6 Jul 2006 18:36:36 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcahGDargCHk/du/RvqVYTjHp/ELngAADpxAAA3LZwA=</li>
+<li><em>Thread-topic</em>: [Omaha.pm] Debugger (or Carp?): How can I detect the creation of	a key in a hash object?</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Wow. Got it. tie'd that hash to JayDebug subclass (see previous email),
+ran the program and POW!:
+
+---
+key [INBOUND] is being set to [HASH(0x8c338dc)] at
+/usr/lib/perl5/site_perl/Omni/MVC/JayDebug.pm line 7
+        JayDebug::STORE('JayDebug=HASH(0x8bdd9b8)', 'INBOUND',
+'HASH(0x8c338dc)') called at
+/usr/lib/perl5/site_perl/Omni/MVC/Control/Multiplex/Buffers.pm line 359
+ 
+Control::Multiplex::Buffers::process_backlog('Control::Multiplex::Buffer
+s=HASH(0x8bdd91c)', 'INBOUND') called at
+/usr/lib/perl5/site_perl/Omni/MVC/Control/Multiplex/Buffers.pm line 334
+ 
+Control::Multiplex::Buffers::write('Control::Multiplex::Buffers=HASH(0x8
+bdd91c)', 'INBOUND',
+'D00181HDRA2|GDSWB|SGAR7|HRSOM|IAT857114|GMT061542|MSN1801485A...')
+called at /usr/lib/perl5/site_perl/Omni/MVC/Control/Multiplex.pm line
+460
+        Control::Multiplex::write('Control::Multiplex=HASH(0x8bdd850)',
+'INBOUND',
+'D00181HDR2|GDSWB|SGAR7|HRSOM|IAT857114|GMT061542|MSN1801485A...')
+called at /usr/lib/perl5/site_perl/Omni/MVC/Model/Pegasus/Comserver.pm
+line 199
+ 
+Model::Pegasus::Comserver::read('Model::Pegasus::Comserver=HASH(0x8b7c82
+8)', 'PALS-2', 'Control::Multiplex::Payload::USW=HASH(0x8c33654)')
+called at /usr/lib/perl5/site_perl/Omni/MVC/Control/Multiplex.pm line
+636
+        Control::Multiplex::_read('Control::Multiplex=HASH(0x8bdd850)',
+'FileHandle=GLOB(0x8c24160)',
+'Control::Multiplex::Payload::USW=HASH(0x8c33654)') called at
+/usr/lib/perl5/site_perl/Omni/MVC/Control/Multiplex/Buffer.pm line 139
+ 
+Control::Multiplex::Buffer::mux_input('Control::Multiplex::Buffer::FIFO=
+HASH(0x8c24268)', 'IO::Multiplex=HASH(0x8bdde14)',
+'FileHandle=GLOB(0x8c24160)', 'SCALAR(0x8c23c5c)') called at
+/usr/lib/perl5/site_perl/5.8.7/IO/Multiplex.pm line 631
+        IO::Multiplex::loop('IO::Multiplex=HASH(0x8bdde14)') called at
+/usr/lib/perl5/site_perl/Omni/MVC/Control/Multiplex.pm line 573
+        Control::Multiplex::loop('Control::Multiplex=HASH(0x8bdd850)')
+called at /usr/lib/perl5/site_perl/Omni/MVC/Model/Pegasus/Comserver.pm
+line 216
+ 
+Model::Pegasus::Comserver::run('Model::Pegasus::Comserver=HASH(0x8b7c828
+)') called at com.pl line 59
+---
+
+That's the most beautiful chunk of garbledygook I've seen today. :)
+
+Buffers.pm line 359 was indeed my problem. I fixed the bug by adding the
+top test:
+
+   unless (exists $self-&gt;{outbound}-&gt;{$label}) {
+      # This isn't even an outbound label! You can't process the backlog
+on this
+      # label!    DO NOT DELETE these 3 lines. The test below this one
+will autovivify
+      # {outbound}-&gt;{$label} into existance if you get rid of this
+block. That's
+      # very bad, and will cause com.pl to die elsewhere. -jhannah
+20060706
+      return undef;
+   }
+   unless (exists $self-&gt;{outbound}-&gt;{$label}-&gt;{waiting_to_be_sent}) {
+      # No backlog exists.
+      return undef;
+   }
+
+And here's a debugger demo of the bug behavior:
+
+---
+main::(j2.pl:2):        my $j = { a =&gt; {} };
+   DB&lt;2&gt; n
+main::(j2.pl:3):        if (exists $j-&gt;{a}-&gt;{b}-&gt;{c}) {
+   DB&lt;2&gt; n
+main::(j2.pl:7):        exit;
+   DB&lt;2&gt; x $j
+0  HASH(0x823f04c)
+   'a' =&gt; HASH(0x823f064)
+      'b' =&gt; HASH(0x823f034)
+           empty hash
+---
+
+Wow. I sort of understand tie's now. :)  I wonder, historically, how
+Perl ended up with tie's and its OO model (bless, etc.)? Lots of overlap
+there? TIMTOWTDI indeed.
+
+j
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01033.html">Re: [Omaha.pm] Debugger (or Carp?): How can I detect the creation	of a key in a hash object?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01035.html">Re: [Omaha.pm] Debugger (or Carp?): How can I detect the creationof	a key in a hash object?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01033.html">Re: [Omaha.pm] Debugger (or Carp?): How can I detect the creation	of a key in a hash object?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01035.html">Re: [Omaha.pm] Debugger (or Carp?): How can I detect the creationof	a key in a hash object?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01034"><strong>Date</strong></a></li>
+<li><a href="threads.html#01034"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Perl: datetime stamps (2006&#45;09&#45;28T18:38:07.97&#45;05:0	0) -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 6 Oct 2006 12:29:37 &#45;0000 -->
+<!--X-Message-Id: CDCAB7C6&#45;2686&#45;4CD6&#45;8773&#45;2C91BDEA7D7A@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 16F8D15756891C4EA961565331A3B350056D402F@JDHEXC01.heiskell.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Perl: datetime stamps (2006-09-28T18:38:07.97-05:0	0)</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01173.html">Date Prev</a>][<a href="msg01175.html">Date Next</a>][<a href="msg01163.html">Thread Prev</a>][<a href="msg01164.html">Thread Next</a>][<a href="maillist.html#01174">Date Index</a>][<a href="threads.html#01174">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Perl: datetime stamps (2006-09-28T18:38:07.97-05:0	0)</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Perl: datetime stamps (2006-09-28T18:38:07.97-05:0	0)</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Fri, 6 Oct 2006 07:29:25 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01163.html">16F8D15756891C4EA961565331A3B350056D402F@JDHEXC01.heiskell.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01163.html">16F8D15756891C4EA961565331A3B350056D402F@JDHEXC01.heiskell.com</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+On Sep 29, 2006, at 8:53 AM, Thompson, Kenn wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+Sean Baker wrote:
+Class::Date and Gmtime perhaps? Hmmm.....
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>Seems I remember a wrapper being written for Class::Date that did  
+</tt><tt>nothing
+</tt><tt>but format the output of Class::Date into various local application  
+</tt><tt>formats.
+</tt><tt>Why wouldn't that approach apply here, unless you were trying to  
+</tt><tt>improve on
+</tt><pre style="margin: 0em;">
+performance?
+</pre></blockquote><pre style="margin: 0em;">
+
+Ya, I thought so too so I tried that back on Sep 29.
+
+But %z and tzoffset doesn't seem to work. At least not on my Mac...
+
+----
+$ cat j.pl
+#!/usr/bin/perl
+
+use Class::Date;
+my $stamp = Class::Date::date(time);
+local $Class::Date::DATE_FORMAT=&quot;%Y-%m-%dT%H:%M:%S %z %Z&quot;;
+print &quot;$stamp\n&quot;;
+print $stamp-&gt;tzoffset;
+print &quot;\n&quot;;
+
+$ perl j.pl
+2006-10-06T07:20:57 +0000 CDT
+-18000
+----
+
+
+</pre><tt>Over on the OTA forum Stephen Adkins posted really tight Date::Format  
+</tt><tt>examples (below). They work great on my Mac and are tighter than my  
+</tt><tt>Date::Calc version so I think Stephen wins the cookie.
+</tt><pre style="margin: 0em;">
+
+(One of these days I'm going to win me one of those cookies. -grin-)
+
+j
+
+
+
+------ Forwarded Message
+From: Stephen Adkins &lt;spadkins@gmail.com&gt;
+Date: Fri, 29 Sep 2006 16:58:31 -0400
+To: &lt;OTA-Impl-Forum@googlegroups.com&gt;
+</pre><tt>Subject: [OTA-Impl-Forum] Re: Perl: datetime stamps  
+</tt><tt>(2006-09-28T18:38:07.97-05:00)
+</tt><pre style="margin: 0em;">
+
+
+Jay,
+
+I use Date::Format and Date::Parse for most of my time/date handling
+</pre><tt>needs in perl.  The following two scripts are alternate (and easy)  
+</tt><tt>ways to
+</tt><pre style="margin: 0em;">
+print out dates in ISO (and hence OTA) format (depending on whether you
+need fractions of seconds or not).
+
+Stephen
+
+::::::::::::::
+go
+::::::::::::::
+#!/usr/bin/perl -w
+use strict;
+use Date::Format;
+my $time = time();
+print time2str(&quot;%Y-%m-%dT%H:%M:%S%z&quot;, $time), &quot;\n&quot;;
+
+::::::::::::::
+go2
+::::::::::::::
+#!/usr/bin/perl -w
+use strict;
+use Date::Format;
+use Time::HiRes;
+my ($time, $usec) = Time::HiRes::gettimeofday();
+my $frac = sprintf(&quot;%02d&quot;, int($usec/10000));   # only top two digits,
+zero padded
+print time2str(&quot;%Y-%m-%dT%H:%M:%S.$frac%z&quot;, $time), &quot;\n&quot;;
+
+spadkins@pompeii:/home/spadkins&gt; go; go2
+2006-09-29T16:51:34-0400
+2006-09-29T16:51:34.79-0400
+
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01163" href="msg01163.html">Re: [Omaha.pm] Perl: datetime stamps (2006-09-28T18:38:07.97-05:0	0)</a></strong>
+<ul><li><em>From:</em> &quot;Thompson, Kenn&quot; &lt;KThompson@heiskell.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01173.html">[Omaha.pm] Reminder: Meeting Tue, 10 Oct @ 7pm!</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01175.html">[Omaha.pm] Fwd: [Kc] draft bylaws of Kansas City netflixprize team</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01163.html">Re: [Omaha.pm] Perl: datetime stamps (2006-09-28T18:38:07.97-05:0	0)</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01164.html">[Omaha.pm] LWP</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01174"><strong>Date</strong></a></li>
+<li><a href="threads.html#01174"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Unexpected internal vs shell command speed result... -->
+<!--X-From-R13: Rna Zvaqre &#60;qnaNyvaqre.bet> -->
+<!--X-Date: 18 Feb 2011 17:07:50 &#45;0000 -->
+<!--X-Message-Id: AANLkTimTUtkdOsm220t+5wUNzAXpZMgF_bie6o=WfCXj@mail.gmail.com -->
+<!--X-Content-Type: multipart/alternative -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Unexpected internal vs shell command speed result...</title>
+<link rev="made" href="mailto:dan@linder.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02612.html">Date Prev</a>][<a href="msg02614.html">Date Next</a>][<a href="msg02612.html">Thread Prev</a>][<a href="msg02614.html">Thread Next</a>][<a href="maillist.html#02613">Date Index</a>][<a href="threads.html#02613">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Unexpected internal vs shell command speed result...</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Unexpected internal vs shell command speed result...</li>
+<li><em>From</em>: Dan Linder &lt;<a href="mailto:dan%40linder.org">dan@linder.org</a>&gt;</li>
+<li><em>Date</em>: Fri, 18 Feb 2011 11:07:23 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+My code currently calls the UNIX &quot;du&quot; command to get the size of a directory structure:<div><div>&#xFFFD;&#xFFFD; &#xFFFD; &#xFFFD; &#xFFFD;$size = `/usr/bin/du -sk $DATA_DIR | cut -f1`;</div></div><div><br></div><div>Knowing that shells are CPU time expensive and generally not portable across platforms I am looking into replacing it with a pure perl implementation:</div>
+
+<div><div>&#xFFFD;&#xFFFD; &#xFFFD; &#xFFFD; &#xFFFD;find( sub { -f and ( $size += -s _ ) }, $DATA_DIR );</div><div><br></div><div>Wanting to be able to brag about the speed increase, I timed them with the Benchmark routines, and got a shock when I tested against my /tmp directory:</div>
+
+<div><div><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">&#xFFFD;&#xFFFD; &#xFFFD; &#xFFFD; &#xFFFD; &#xFFFD; Rate Internal Shell_du</font></div><div><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">Internal 11.6/s &#xFFFD; &#xFFFD; &#xFFFD; -- &#xFFFD; &#xFFFD; -99%</font></div>
+
+<div><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">Shell_du 1538/s &#xFFFD; 13123% &#xFFFD; &#xFFFD; &#xFFFD; --</font></div></div><div><br></div><div>WOW! &#xFFFD;The shell to du was 13 TIMES faster than the internal find code. &#xFFFD;(FYI, the /tmp/ directory has 349MB across 6400 files.)</div>
+
+<div><br></div><div>As a test, I created a very small directory structure (12 files, 2 sub-directories, 120KB) and the results for 10,000 timings are opposite:</div>
+
+<div><div><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">&#xFFFD;&#xFFFD; &#xFFFD; &#xFFFD; &#xFFFD; &#xFFFD; Rate Shell_du Internal</font></div><div><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">Shell_du 1664/s &#xFFFD; &#xFFFD; &#xFFFD; -- &#xFFFD; &#xFFFD; -68%</font></div>
+
+<div><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">Internal 5208/s &#xFFFD; &#xFFFD; 213% &#xFFFD; &#xFFFD; &#xFFFD; --</font></div></div><div><br></div><div>This time the internal code was faster...</div><div><br></div><div><div>
+
+My test system is a CentOS 5.5 64-bit (2GB RAM, mostly free RAM used for caching), with Perl 5.8.8, and the /tmp filesystem is an EXT3.</div><div><br></div><div>This bit of code isn&#39;t time critical and the actual data that will be processed is closer to the 120K test case, so I may continue and remove the shell/du line, but I&#39;d like to know how this got so slow!</div>
+
+</div><div><br></div><div>Dan</div><div><br></div><div>Just in case I made a blunder, here&#39;s the test code:</div><div><div><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">#!/usr/bin/perl -w</font></div>
+
+<div><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">use strict;</font></div><div><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">use Benchmark qw(:all);</font></div><div><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">use File::Find;</font></div>
+
+<div><font class="Apple-style-span" face="&#39;courier new&#39;, monospace"><br></font></div><div><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">my $foo &#xFFFD; &#xFFFD; &#xFFFD; &#xFFFD; &#xFFFD; &#xFFFD; &#xFFFD; = 0;</font></div><div><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">my $count &#xFFFD; &#xFFFD; &#xFFFD; &#xFFFD; &#xFFFD; &#xFFFD; = shift || 2000;</font></div>
+
+<div><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">my $DATA_DIR &#xFFFD; &#xFFFD; &#xFFFD; &#xFFFD; &#xFFFD;= shift || &quot;/tmp&quot;;</font></div><div><font class="Apple-style-span" face="&#39;courier new&#39;, monospace"><br></font></div>
+
+<div><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">sub shell_du {</font></div><div><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">&#xFFFD;&#xFFFD; &#xFFFD; &#xFFFD; &#xFFFD;my $size = 0;</font></div><div><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">&#xFFFD;&#xFFFD; &#xFFFD; &#xFFFD; &#xFFFD;$size = `/usr/bin/du -sk $DATA_DIR | cut -f1`;</font></div>
+
+<div><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">&#xFFFD;&#xFFFD; &#xFFFD; &#xFFFD; &#xFFFD;chomp $size;</font></div><div><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">&#xFFFD;&#xFFFD; &#xFFFD; &#xFFFD; &#xFFFD;return $size;</font></div><div>
+
+<font class="Apple-style-span" face="&#39;courier new&#39;, monospace">}</font></div><div><font class="Apple-style-span" face="&#39;courier new&#39;, monospace"><br></font></div><div><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">sub internal_du {</font></div>
+
+<div><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">&#xFFFD;&#xFFFD; &#xFFFD; &#xFFFD; &#xFFFD;my $size = 0;</font></div><div><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">&#xFFFD;&#xFFFD; &#xFFFD; &#xFFFD; &#xFFFD;find( sub { -f and ( $size += -s _ ) }, $DATA_DIR );</font></div>
+
+<div><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">&#xFFFD;&#xFFFD; &#xFFFD; &#xFFFD; &#xFFFD;return $size;</font></div><div><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">}</font></div><div><font class="Apple-style-span" face="&#39;courier new&#39;, monospace"><br>
+
+</font></div><div><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">cmpthese ($count, {</font></div><div><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">&#xFFFD;&#xFFFD; &#xFFFD; &#xFFFD; &#xFFFD;&#39;Shell_du&#39; =&gt; sub { $foo = shell_du(); &#xFFFD; &#xFFFD;},</font></div>
+
+<div><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">&#xFFFD;&#xFFFD; &#xFFFD; &#xFFFD; &#xFFFD;&#39;Internal&#39; =&gt; sub { $foo = internal_du(); },</font></div><div><font class="Apple-style-span" face="&#39;courier new&#39;, monospace">});</font></div>
+
+</div><div><br></div><div>--&#xFFFD;</div>***************** ************* *********** ******* ***** *** **<br>&quot;Quis custodiet ipsos custodes?&quot;<br>&#xFFFD; &#xFFFD; (Who can watch the watchmen?)<br>
+
+&#xFFFD; &#xFFFD; -- from the Satires of Juvenal<br>&quot;I do not fear computers, I fear the lack of them.&quot;<br>&#xFFFD; &#xFFFD; -- Isaac Asimov (Author)<br>** *** ***** ******* *********** ************* *****************<br>
+</div>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="02614" href="msg02614.html">Re: [Omaha.pm] Unexpected internal vs shell command speed result...</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jhannah@mutationgrid.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02612.html">[Omaha.pm] perl 5.12.3 on DreamHost VPS</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02614.html">Re: [Omaha.pm] Unexpected internal vs shell command speed result...</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02612.html">[Omaha.pm] perl 5.12.3 on DreamHost VPS</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02614.html">Re: [Omaha.pm] Unexpected internal vs shell command speed result...</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02613"><strong>Date</strong></a></li>
+<li><a href="threads.html#02613"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] requesting quick help -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 11 Jan 2007 13:51:28 &#45;0000 -->
+<!--X-Message-Id: 189A688A&#45;C30A&#45;4537&#45;84C4&#45;2AEA07046621@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 4DDFD9DB&#45;AA66&#45;4646&#45;8C10&#45;89821458A5B4@jays.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] requesting quick help</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01274.html">Date Prev</a>][<a href="msg01276.html">Date Next</a>][<a href="msg01274.html">Thread Prev</a>][<a href="msg01276.html">Thread Next</a>][<a href="maillist.html#01275">Date Index</a>][<a href="threads.html#01275">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] requesting quick help</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Nebraska USA Perl Mongers of Omaha &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] requesting quick help</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Thu, 11 Jan 2007 07:51:16 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;4DDFD9DB-AA66-4646-8C10-89821458A5B4@jays.net&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<tt>[Hmmm... Weird. Cox didn't forward this to the pm.org server? Let's  
+</tt><tt>try again using my smtp server so I can debug...]
+</tt><pre style="margin: 0em;">
+
+
+From: Jay Hannah &lt;jay@jays.net&gt;
+Date: January 10, 2007 9:11:30 PM CST
+To: kiran bina &lt;kiranbina@gmail.com&gt;
+Cc: Nebraska USA Perl Mongers of Omaha &lt;omaha-pm@pm.org&gt;
+Subject: Re: requesting quick help
+
+(1) You've got a &quot;sleep 1&quot; on line 44 slowing you down. :)
+
+(2) Given your filename list
+
+Org1_Org2.common
+Org1-Org2-Org3.A_unique
+Org1_Org2_Org3.common
+Org1_Org3.common
+Org2-Org1-Org3.B_unique
+Org2_Org3.common
+Org3-Org1-Org2.C_unique
+
+In this block of code
+
+</pre><tt>    if($fileName =~ /\.BC98/ || $fileName =~ /\.BC90/ || $fileName  
+</tt><tt>=~ /B_Unique/
+</tt><tt>            || $fileName =~ /Org2_Org3.common/ || $fileName =~ /Org2- 
+</tt><tt>Org1-Org3.B_unique/)
+</tt><pre style="margin: 0em;">
+    {
+        print &quot; 1 Searching file: $file_names[0]&quot;;
+       @file_names = ($file_names[0]); # ATC
+    }
+</pre><tt>    elsif($fileName =~ /C_Unique/ || $fileName =~ /Org3-Org1- 
+</tt><tt>Org2.C_unique/)
+</tt><pre style="margin: 0em;">
+    {
+        print &quot;2 Searching file: $file_names[1]&quot;;
+       @file_names = ($file_names[1]); # SE_Org3
+    }
+</pre><tt>    elsif($fileName =~ /ABC/ || $fileName =~ /AB/ || $fileName =~ / 
+</tt><tt>AC98/ || $fileName =~ /AC90/
+</tt><tt>            || $fileName =~ /A_Unique/ || $fileName =~ /Org1-Org2- 
+</tt><tt>Org3.A_unique/ || $fileName =~ /Org1_Org2.common/
+</tt><tt>            || $fileName =~ /Org1_Org2_Org3.common/ || $fileName =~ / 
+</tt><tt>Org1_Org3.common/)
+</tt><pre style="margin: 0em;">
+    {
+        print &quot;3 Searching file: $file_names[2]&quot;;
+       @file_names = ($file_names[2]); # RP62A
+    }
+    print &quot;$fileName =&gt; $file_names[0]\n&quot;;
+
+</pre><tt>you were probably expecting the file &quot;Org1_Org2_Org3.common&quot; to fall  
+</tt><tt>into the &quot;3 Searching file&quot; block, but it doesn't because you're  
+</tt><tt>catching that filename with your
+</tt><pre style="margin: 0em;">
+
+   $fileName =~ /Org2_Org3.common/
+
+</pre><tt>regex up in the &quot;1 Searching file&quot; block. That's because  
+</tt><tt>&quot;Org1_Org2_Org3.common&quot; does indeed contain the string  
+</tt><tt>&quot;Org2_Org3.common&quot;, which is the question your regex asks Perl to  
+</tt><tt>answer.
+</tt><pre style="margin: 0em;">
+
+</pre><tt>You don't need regexs to do what you're doing, so you're less likely  
+</tt><tt>to get stung by just avoiding them like so:
+</tt><pre style="margin: 0em;">
+
+</pre><tt>    if($fileName eq &quot;Org2_Org3.common&quot; || $fileName eq &quot;Org2-Org1- 
+</tt><tt>Org3.B_unique&quot;)
+</tt><pre style="margin: 0em;">
+    {
+        print &quot;1 Searching file: $file_names[0]&quot;;
+       @file_names = ($file_names[0]); # ATC
+    }
+    elsif($fileName eq &quot;Org3-Org1-Org2.C_unique&quot;)
+    {
+        print &quot;2 Searching file: $file_names[1]&quot;;
+       @file_names = ($file_names[1]); # SE_Org3
+    }
+</pre><tt>    elsif($fileName eq &quot;Org1-Org2-Org3.A_unique&quot; || $fileName eq  
+</tt><tt>&quot;Org1_Org2.common&quot; ||
+</tt><tt>          $fileName eq &quot;Org1_Org2_Org3.common&quot;   || $fileName eq  
+</tt><tt>&quot;Org1_Org3.common&quot;)
+</tt><pre style="margin: 0em;">
+    {
+        print &quot;3 Searching file: $file_names[2]&quot;;
+       @file_names = ($file_names[2]); # RP62A
+    }
+    print &quot;$fileName =&gt; $file_names[0]\n&quot;;
+
+... or something even tighter... :)
+
+Looks like that produces the output you were expecting?
+
+HTH,
+
+j
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01276" href="msg01276.html">Re: [Omaha.pm] requesting quick help</a></strong>
+<ul><li><em>From:</em> &quot;Daniel Linder&quot; &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01274.html">[Omaha.pm] Taunting Java</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01276.html">Re: [Omaha.pm] requesting quick help</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01274.html">[Omaha.pm] Taunting Java</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01276.html">Re: [Omaha.pm] requesting quick help</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01275"><strong>Date</strong></a></li>
+<li><a href="threads.html#01275"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

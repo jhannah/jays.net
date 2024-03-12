@@ -1,0 +1,122 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Huh? -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 17 Jan 2007 16:30:59 &#45;0000 -->
+<!--X-Message-Id: E59FF64509EEEA4C96BE4723AE9668532F7A2F@exchange2k3.omnihotels.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Huh?</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01281.html">Date Prev</a>][<a href="msg01283.html">Date Next</a>][<a href="msg01280.html">Thread Prev</a>][<a href="msg01283.html">Thread Next</a>][<a href="maillist.html#01282">Date Index</a>][<a href="threads.html#01282">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Huh?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Thompson, Kenn&quot; &lt;<a href="mailto:KThompson%40heiskell.com">KThompson@heiskell.com</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Huh?</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Wed, 17 Jan 2007 10:30:51 -0600</li>
+<li><em>Cc</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: Acc6Uz2+covtzfMqQ+i5eVEAWK+jYgAALpag</li>
+<li><em>Thread-topic</em>: Huh?</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>&gt; Just ran across this and it stuck me as weird. Any idea why this
+happens?
+&gt;  
+&gt; Given a regex &quot;^$|^\d{1,7}$&quot; ,  the rule says 
+&gt; &quot;A 0 length string OR a number 1 to 7 characters in length&quot;. 
+
+It does? Are you sure about that first dollar sign? Wacky. 
+
+In Perl the regex you describe would be 
+
+    /^(|\d{1,7})$/   (untested)
+
+or
+
+    /^\d{1,7}?$/     (untested)
+
+^ and $ would only occur at the very start and the very end.
+
+&gt; Given a regex &quot;^\d{1,7}|^$&quot; ,  the rule says 
+&gt; &quot;A number 1 to 7 characters in length OR a 0 length string &quot;.
+&gt; 
+&gt; For reasons I can't seem to fathom, the first regex evals the 
+&gt; way I want, the second fails the empty string test. Ever seen 
+&gt; this before? Perhaps it's just a weird .NET regex quirk?
+ 
+Uhh... I think my examples would pass in Perl. I can't comment on .NET
+off the top of my head. :)
+
+j
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01283" href="msg01283.html">Re: [Omaha.pm] Huh?</a></strong>
+<ul><li><em>From:</em> Andy Lester &lt;andy@petdance.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01281.html">Re: [Omaha.pm] Testing DNS servers</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01283.html">Re: [Omaha.pm] Huh?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01280.html">Re: [Omaha.pm] use Storable;   vs. Log::Log4perl</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01283.html">Re: [Omaha.pm] Huh?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01282"><strong>Date</strong></a></li>
+<li><a href="threads.html#01282"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

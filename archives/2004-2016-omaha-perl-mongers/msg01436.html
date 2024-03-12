@@ -1,0 +1,122 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Count occurrences of the value of an attribute in XML -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 30 May 2007 04:57:05 &#45;0000 -->
+<!--X-Message-Id: 24C25244&#45;3DB8&#45;4D7A&#45;8465&#45;6DC983440D83@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: E59FF64509EEEA4C96BE4723AE966853BEE97A@exchange2k3.omnihotels.net -->
+<!--X-Reference: 541E5D90&#45;E5AA&#45;4D52&#45;AD93&#45;8CA1751FAD2E@petdance.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Count occurrences of the value of an attribute in XML</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01435.html">Date Prev</a>][<a href="msg01437.html">Date Next</a>][<a href="msg01434.html">Thread Prev</a>][<a href="msg01435.html">Thread Next</a>][<a href="maillist.html#01436">Date Index</a>][<a href="threads.html#01436">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Count occurrences of the value of an attribute in XML</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Count occurrences of the value of an attribute in XML</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Tue, 29 May 2007 23:56:36 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01434.html">541E5D90-E5AA-4D52-AD93-8CA1751FAD2E@petdance.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01432.html">E59FF64509EEEA4C96BE4723AE966853BEE97A@exchange2k3.omnihotels.net</a>&gt;	&lt;<a href="msg01434.html">541E5D90-E5AA-4D52-AD93-8CA1751FAD2E@petdance.com</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+On May 29, 2007, at 9:03 PM, Andy Lester wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+On May 29, 2007, at 7:39 PM, Jay Hannah wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><tt>$ perl -lne '/rt=&quot;(\w+)&quot;/; print $1' RevData.DALMAN.20070529.xml |  
+</tt><tt>uniq
+</tt></blockquote><pre style="margin: 0em;">
+
+I would put a \b in front of the rt so you don't match cart=&quot;foo&quot;.
+</pre></blockquote><pre style="margin: 0em;">
+
+Ya. I like that. Thanks!
+
+On May 29, 2007, at 9:04 PM, Andy Lester wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+Actually, this is wrong.  You cannot rely on the value of $1 if the
+m// did not match.  Your &quot;optimization&quot; to /rt.../ &amp;&amp; print $1 is
+necessary or else it is wrong.
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>Yup. That's why I posted that correction 2 minutes after my first  
+</tt><tt>post. Thanks,
+</tt><pre style="margin: 0em;">
+
+j
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01432" href="msg01432.html">[Omaha.pm] Count occurrences of the value of an attribute in XML</a></strong>
+<ul><li><em>From:</em> &quot;Jay Hannah&quot; &lt;jhannah@omnihotels.com&gt;</li></ul></li>
+<li><strong><a name="01434" href="msg01434.html">Re: [Omaha.pm] Count occurrences of the value of an attribute in XML</a></strong>
+<ul><li><em>From:</em> Andy Lester &lt;andy@petdance.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01435.html">Re: [Omaha.pm] Count occurrences of the value of an attribute in XML</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01437.html">[Omaha.pm] Introductory message ... and already I need help!</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01434.html">Re: [Omaha.pm] Count occurrences of the value of an attribute in XML</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01435.html">Re: [Omaha.pm] Count occurrences of the value of an attribute in XML</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01436"><strong>Date</strong></a></li>
+<li><a href="threads.html#01436"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

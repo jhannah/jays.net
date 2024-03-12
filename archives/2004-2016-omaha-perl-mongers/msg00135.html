@@ -1,0 +1,126 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Rename all files in a directory -->
+<!--X-From-R13: Vhtu Xnepr &#60;uwnepr2001Nlnubb.pbz> -->
+<!--X-Date: Thu, 9 Sep 2004 18:43:13 &#45;0500 -->
+<!--X-Message-Id: 20040909234312.51299.qmail@web90003.mail.scd.yahoo.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 000c01c496b1$db88f420$4722000a@omarests2 -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Rename all files in a directory</title>
+<link rev="made" href="mailto:hjarce2001@yahoo.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00134.html">Date Prev</a>][<a href="msg00136.html">Date Next</a>][<a href="msg00131.html">Thread Prev</a>][<a href="msg00132.html">Thread Next</a>][<a href="maillist.html#00135">Date Index</a>][<a href="threads.html#00135">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Rename all files in a directory</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>,	&quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;,	<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Subject</em>: Re: [Omaha.pm] Rename all files in a directory</li>
+<li><em>From</em>: Hugh Jarce &lt;<a href="mailto:hjarce2001%40yahoo.com">hjarce2001@yahoo.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 9 Sep 2004 16:43:12 -0700 (PDT)</li>
+<li><em>Cc</em>: </li>
+<li><em>In-reply-to</em>: &lt;000c01c496b1$db88f420$4722000a@omarests2&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=help">mailto:omaha-pm-request@mail.pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.mail.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@mail.pm.org">mailto:omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=subscribe">mailto:omaha-pm-request@mail.pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe">mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Jay Hannah wrote:
+&gt; 
+&gt; Another 5 minute hack...
+&gt; 
+&gt; j
+&gt; 
+&gt; #!/usr/bin/perl
+&gt; 
+&gt; opendir DIR, &quot;.&quot;;
+&gt; @files = grep /^ppm/, readdir DIR;
+&gt; closedir DIR;
+&gt; 
+&gt; foreach (@files) {
+&gt;    $new = $_;
+&gt;    $new =~ s/^ppm/its/;
+&gt;    print &quot;rename $_ $new\n&quot;;
+&gt;    rename $_, $new;
+&gt; }
+
+Great minds think alike. A certain larry also solved this problem
+with a little Perl script (not sure if he did it in less than
+five minutes though ;-):
+
+&lt;<a  rel="nofollow" href="http://iis1.cps.unizar.es/Oreilly/perl/cookbook/ch09_10.htm">http://iis1.cps.unizar.es/Oreilly/perl/cookbook/ch09_10.htm</a>&gt;
+&lt;<a  rel="nofollow" href="http://www.csit.fsu.edu/~burkardt/pl_src/rename/rename.html">http://www.csit.fsu.edu/~burkardt/pl_src/rename/rename.html</a>&gt;
+&lt;<a  rel="nofollow" href="http://www.faqs.org/faqs/unix-faq/faq/part2/section-6.html">http://www.faqs.org/faqs/unix-faq/faq/part2/section-6.html</a>&gt;
+
+h
+
+
+
+		
+__________________________________
+Do you Yahoo!?
+Yahoo! Mail Address AutoComplete - You start. We finish.
+<a  rel="nofollow" href="http://promotions.yahoo.com/new_mail">http://promotions.yahoo.com/new_mail</a> 
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00131" href="msg00131.html">[Omaha.pm] Rename all files in a directory</a></strong>
+<ul><li><em>From:</em> &quot;Jay Hannah&quot; &lt;jhannah@omnihotels.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00134.html">Re: [Omaha.pm] converting dates</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00136.html">[Omaha.pm] Re: LWP form posts</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00131.html">[Omaha.pm] Rename all files in a directory</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00132.html">RE: [Omaha.pm] Rename [x] files in a directory</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00135"><strong>Date</strong></a></li>
+<li><a href="threads.html#00135"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

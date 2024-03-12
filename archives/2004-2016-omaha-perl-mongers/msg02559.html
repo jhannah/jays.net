@@ -1,0 +1,105 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Strftime between Linux/Unix and Windows differences. -->
+<!--X-From-R13: Rna Zvaqre &#60;qnaNyvaqre.bet> -->
+<!--X-Date: 13 Dec 2010 14:59:20 &#45;0000 -->
+<!--X-Message-Id: AANLkTim8sLjaGag4FqucDVP0=&#45;8uBJg1Q1w_AS81GDGU@mail.gmail.com -->
+<!--X-Content-Type: multipart/alternative -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Strftime between Linux/Unix and Windows differences.</title>
+<link rev="made" href="mailto:dan@linder.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02558.html">Date Prev</a>][<a href="msg02560.html">Date Next</a>][<a href="msg02558.html">Thread Prev</a>][<a href="msg02560.html">Thread Next</a>][<a href="maillist.html#02559">Date Index</a>][<a href="threads.html#02559">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Strftime between Linux/Unix and Windows differences.</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Strftime between Linux/Unix and Windows differences.</li>
+<li><em>From</em>: Dan Linder &lt;<a href="mailto:dan%40linder.org">dan@linder.org</a>&gt;</li>
+<li><em>Date</em>: Mon, 13 Dec 2010 08:58:53 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+Ran into an interesting gotcha between Perl on Linux and Perl on Windows. &#xA0;See this example code:<br>$ cat -n ./<a rel="nofollow" href="http://d0039.pl">d0039.pl</a><br>&#xA0;&#xA0; &#xA0; 1 &#xA0;#!perl<br>&#xA0;&#xA0; &#xA0; 2 &#xA0;use strict;<br>&#xA0;&#xA0; &#xA0; 3 &#xA0;use POSIX;<br>&#xA0;&#xA0; &#xA0; 4 &#xA0;my $epoc_sec = 1296482400;<br>
+
+&#xA0;&#xA0; &#xA0; 5 &#xA0;printf (&quot;%s\n&quot;, strftime(&quot;%A, %B %e %Y at %l:%M%p&quot;, localtime($epoc_sec)));<br>&#xA0;&#xA0; &#xA0; 6 &#xA0;my $TT=localtime($epoc_sec);<br>&#xA0;&#xA0; &#xA0; 7 &#xA0;print qq{$TT \n};<div><br>On my Linux system:<br>$ perl ./<a rel="nofollow" href="http://d0039.pl">d0039.pl</a><br>
+
+Monday, January 31 2011 at &#xA0;8:00AM<br>Mon Jan 31 08:00:00 2011</div><div><br>But when run from my Windows box (Win 7, 64bit) using ActiveState:<br>C:\temp&gt;perl <a rel="nofollow" href="http://d0039.pl">d0039.pl</a><br>%A, %B %e %Y at %l:%M%p<br>
+
+Mon Jan 31 08:00:00 2011</div><div><br>After a bit of Googling, I found this section from the POSIX documentation:<br><br><a rel="nofollow" href="http://perldoc.perl.org/POSIX.html"></a></div><div><a rel="nofollow" href="http://perldoc.perl.org/POSIX.html">http://perldoc.perl.org/POSIX.html</a><br>
+
+<blockquote class="gmail_quote" style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0.8ex; border-left-width: 1px; border-left-color: rgb(204, 204, 204); border-left-style: solid; padding-left: 1ex; ">
+
+If you want your code to be portable, your format (fmt&#xA0;) argument should use only the conversion specifiers defined by the ANSI C standard (C89, to play safe). These are&#xA0;aAbBcdHIjmMpSUwWxXyYZ%&#xA0;. But even then, the&#xA0;results&#xA0;of some of the conversion specifiers are non-portable. For example, the specifiers&#xA0;aAbBcpZchange according to the locale settings of the user, and both how to set locales (the locale names) and what output to expect are non-standard. The specifier&#xA0;c&#xA0;changes according to the timezone settings of the user and the timezone computation rules of the operating system. The&#xA0;Z&#xA0;specifier is notoriously unportable since the names of timezones are non-standard. Sticking to the numeric specifiers is the safest route.</blockquote>
+
+<br>What I don&#39;t get is why ALL of my formatting code entries don&#39;t seem to be accepted in the strftime() call...</div><div><br>DanL<br>--<br>***************** ************* *********** ******* ***** *** **<br>&quot;Quis custodiet ipsos custodes?&quot;<br>
+
+&#xA0; &#xA0; (Who can watch the watchmen?)<br>&#xA0; &#xA0; -- from the Satires of Juvenal<br>&quot;I do not fear computers, I fear the lack of them.&quot;<br>&#xA0; &#xA0; -- Isaac Asimov (Author)<br>** *** ***** ******* *********** ************* *****************<br>
+
+</div>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="02560" href="msg02560.html">Re: [Omaha.pm] Strftime between Linux/Unix and Windows differences.</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jhannah@mutationgrid.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02558.html">[Omaha.pm] Don't blame Perl for all ugly code!</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02560.html">Re: [Omaha.pm] Strftime between Linux/Unix and Windows differences.</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02558.html">[Omaha.pm] Don't blame Perl for all ugly code!</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02560.html">Re: [Omaha.pm] Strftime between Linux/Unix and Windows differences.</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02559"><strong>Date</strong></a></li>
+<li><a href="threads.html#02559"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

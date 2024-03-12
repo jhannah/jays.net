@@ -1,0 +1,129 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Net::SSH::Perl and sudo or su -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 10 Dec 2007 16:09:01 &#45;0000 -->
+<!--X-Message-Id: 63335754&#45;CCA0&#45;482A&#45;A6B9&#45;10BD0976BB4E@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 475ADF2A.5010202@tvortex.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Net::SSH::Perl and sudo or su</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01586.html">Date Prev</a>][<a href="msg01588.html">Date Next</a>][<a href="msg01584.html">Thread Prev</a>][<a href="msg01588.html">Thread Next</a>][<a href="maillist.html#01587">Date Index</a>][<a href="threads.html#01587">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Net::SSH::Perl and sudo or su</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Net::SSH::Perl and sudo or su</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Mon, 10 Dec 2007 10:08:18 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01584.html">475ADF2A.5010202@tvortex.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: <a href="msg01578.html">4759608E.40505@tvortex.net</a> &lt;<a href="msg01584.html">475ADF2A.5010202@tvortex.net</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+On Dec 8, 2007, at 12:15 PM, Anthony Simons wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+The script will be making the permission work for our new user but
+distributing the file is still the issue.
+The idea is to get the file to many hosts +200 systems.  Manually
+visiting every one of them would not be a pretty sight.
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>Can you use your whatever-is-already working sudo mojo to implement  
+</tt><tt>Chris' security suggestion?
+</tt><pre style="margin: 0em;">
+
+</pre><tt>Then you'd have a clean slate from a security perspective and could  
+</tt><tt>just copy files with scp.
+</tt><pre style="margin: 0em;">
+
+</pre><tt>At that juncture you can cleanly pick and choose whatever scripting  
+</tt><tt>language you want.
+</tt><pre style="margin: 0em;">
+
+</pre><tt>For example, replacing icky bash scripts with oh-so-gorgeous Perl  
+</tt><tt>scripts*.
+</tt><pre style="margin: 0em;">
+
+j
+* tongue firmly in cheek
+</pre><tt><a  rel="nofollow" href="http://www.rowan.edu/philosop/clowney/Aesthetics/philos_artists_onart/">http://www.rowan.edu/philosop/clowney/Aesthetics/philos_artists_onart/</a> 
+</tt><tt>plato.htm
+</tt><pre style="margin: 0em;">
+Perl... the contemplation of the ideal Form of Beauty itself.
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01588" href="msg01588.html">Re: [Omaha.pm] Net::SSH::Perl and sudo or su</a></strong>
+<ul><li><em>From:</em> &quot;Thompson, Kenn&quot; &lt;KThompson@heiskell.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01584" href="msg01584.html">[Omaha.pm]  Net::SSH::Perl and sudo or su</a></strong>
+<ul><li><em>From:</em> Anthony Simons &lt;webmaster@tvortex.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01586.html">Re: [Omaha.pm] Net::SSH::Perl and sudo or su</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01588.html">Re: [Omaha.pm] Net::SSH::Perl and sudo or su</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01584.html">[Omaha.pm]  Net::SSH::Perl and sudo or su</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01588.html">Re: [Omaha.pm] Net::SSH::Perl and sudo or su</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01587"><strong>Date</strong></a></li>
+<li><a href="threads.html#01587"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

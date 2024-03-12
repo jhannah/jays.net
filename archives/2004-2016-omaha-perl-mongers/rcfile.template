@@ -1,0 +1,3 @@
+<LITEMPLATE>
+<li>$YYYYMMDD$ <strong>$SUBJECT:40$</strong> ($NUMFOLUP$) <em>$FROMNAME$</em></li>
+</LITEMPLATE>

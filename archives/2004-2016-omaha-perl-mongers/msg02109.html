@@ -1,0 +1,130 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Differences to expect when using flock() on	different OS	and Filesystems. -->
+<!--X-From-R13: "Xnzrf Vnee" &#60;wuneeNvfg.habznun.rqh> -->
+<!--X-Date: 21 Apr 2009 20:13:56 &#45;0000 -->
+<!--X-Message-Id: FEA05FFE1F7E7348A9ACA24B9EFD334424CAEB@exchange.ist.unomaha.edu -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 3e2be50904210651n44cd6956r96425f7c0f136965@mail.gmail.com -->
+<!--X-Reference: 226316B3E1F749498E28ACA66321D5BA14CBE78F@oma00cexmbx03.corp.westworlds.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Differences to expect when using flock() on	different OS	and Filesystems.</title>
+<link rev="made" href="mailto:jharr@ist.unomaha.edu">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02108.html">Date Prev</a>][<a href="msg02110.html">Date Next</a>][<a href="msg02108.html">Thread Prev</a>][<a href="msg02110.html">Thread Next</a>][<a href="maillist.html#02109">Date Index</a>][<a href="threads.html#02109">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Differences to expect when using flock() on	different OS	and Filesystems.</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Differences to expect when using flock() on	different OS	and Filesystems.</li>
+<li><em>From</em>: &quot;James Harr&quot; &lt;<a href="mailto:jharr%40ist.unomaha.edu">jharr@ist.unomaha.edu</a>&gt;</li>
+<li><em>Date</em>: Tue, 21 Apr 2009 15:13:46 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg02108.html">226316B3E1F749498E28ACA66321D5BA14CBE78F@oma00cexmbx03.corp.westworlds.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg02107.html">3e2be50904210651n44cd6956r96425f7c0f136965@mail.gmail.com</a>&gt;	&lt;<a href="msg02108.html">226316B3E1F749498E28ACA66321D5BA14CBE78F@oma00cexmbx03.corp.westworlds.com</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcnCiGNd/gy/03TpSlmIFaKMiJtxwQAAnMqQAAvyK/A=</li>
+<li><em>Thread-topic</em>: [Omaha.pm] Differences to expect when using flock() on different	OS	and Filesystems.</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>It wouldn't be the first time perl didn't (or couldn't) hide a scary OS behavior from the programmer. If you can't find anything on the subject, just write a test program to hammer flock() for a while and see if it grants two mutual locks on the same file. Win32:: might also have something that'd work for you and behaves better on that platform.
+
+-----Original Message-----
+From: omaha-pm-bounces+jharr=ist.unomaha.edu@pm.org [<a  rel="nofollow" href="mailto:omaha-pm-bounces+jharr=ist.unomaha.edu@pm.org">mailto:omaha-pm-bounces+jharr=ist.unomaha.edu@pm.org</a>] On Behalf Of Larson, Timothy E.
+Sent: Tuesday, April 21, 2009 9:15 AM
+To: Perl Mongers of Omaha, Nebraska USA
+Subject: Re: [Omaha.pm] Differences to expect when using flock() on different OS and Filesystems.
+
+&gt; A co-worker cast a vague warning that the flock() implementation varies
+&gt; widely based on the OS and filesystem it's working on.  I Googled quite a
+&gt; bit last night and I can't find any specific examples of other warnings
+&gt; (and work-arounds).
+
+The underlying implementation of Perl's flock() may differ widely based on OS (maybe flock(), lockf(), or fcntl()) but I'd think that Larry and co. would be careful enough to make sure the Perl version works everywhere.  One huge advantage of Perl disappears if you can't abstract away those OS differences.
+
+
+Tim
+
+--
+      Tim Larson&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; AMT2 Unix Systems Administrator
+&#xA0;&#xA0;&#xA0;       InterCall, a division of West Corporation
+
+Be always sure you are right, then go ahead. - David Crockett
+
+_______________________________________________
+Omaha-pm mailing list
+Omaha-pm@pm.org
+<a  rel="nofollow" href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="02110" href="msg02110.html">Re: [Omaha.pm] Differences to expect when using flock() on	different OS and Filesystems.</a></strong>
+<ul><li><em>From:</em> Dan Linder &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="02107" href="msg02107.html">[Omaha.pm] Differences to expect when using flock() on different OS	and Filesystems.</a></strong>
+<ul><li><em>From:</em> Dan Linder &lt;dan@linder.org&gt;</li></ul></li>
+<li><strong><a name="02108" href="msg02108.html">Re: [Omaha.pm] Differences to expect when using flock() on different OS	and Filesystems.</a></strong>
+<ul><li><em>From:</em> &quot;Larson, Timothy E.&quot; &lt;TELarson@west.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02108.html">Re: [Omaha.pm] Differences to expect when using flock() on different OS	and Filesystems.</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02110.html">Re: [Omaha.pm] Differences to expect when using flock() on	different OS and Filesystems.</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02108.html">Re: [Omaha.pm] Differences to expect when using flock() on different OS	and Filesystems.</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02110.html">Re: [Omaha.pm] Differences to expect when using flock() on	different OS and Filesystems.</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02109"><strong>Date</strong></a></li>
+<li><a href="threads.html#02109"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

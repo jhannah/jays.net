@@ -1,0 +1,134 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] How can I log to metalog from Perl? -->
+<!--X-From-R13: [vxr Vbfgrgyre &#60;ubfgrgyrezNtznvy.pbz> -->
+<!--X-Date: Wed, 15 Sep 2004 13:51:28 &#45;0500 -->
+<!--X-Message-Id: c60e627c04091511512e226a26@mail.gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 001201c49b51$417db470$4722000a@omarests2 -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] How can I log to metalog from Perl?</title>
+<link rev="made" href="mailto:hostetlerm@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00138.html">Date Prev</a>][<a href="msg00140.html">Date Next</a>][<a href="msg00137.html">Thread Prev</a>][<a href="msg00138.html">Thread Next</a>][<a href="maillist.html#00139">Date Index</a>][<a href="threads.html#00139">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] How can I log to metalog from Perl?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>,	&quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] How can I log to metalog from Perl?</li>
+<li><em>From</em>: Mike Hostetler &lt;<a href="mailto:hostetlerm%40gmail.com">hostetlerm@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Wed, 15 Sep 2004 13:51:18 -0500</li>
+<li><em>Cc</em>: </li>
+<li><em>In-reply-to</em>: &lt;001201c49b51$417db470$4722000a@omarests2&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=help">mailto:omaha-pm-request@mail.pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.mail.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@mail.pm.org">mailto:omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=subscribe">mailto:omaha-pm-request@mail.pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe">mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;001201c49b51$417db470$4722000a@omarests2&gt;</li>
+<li><em>Reply-to</em>: Mike Hostetler &lt;<a href="mailto:hostetlerm%40gmail.com">hostetlerm@gmail.com</a>&gt;, &quot;Perl Mongers of Omaha,	Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>On Wed, 15 Sep 2004 13:24:35 -0500, Jay Hannah &lt;jhannah@omnihotels.com&gt; wrote:
+&gt; 
+&gt; Hola --
+&gt; 
+&gt; I'm trying to log to metalog from Perl w/o forking a call to &quot;logger&quot;. (I'm worried about 
+&gt; performance since my app will be high volume).
+
+That is a good thing . . .  Sys::Syslog is a wonderful.
+
+&gt; 
+&gt; I use this program:
+&gt;
+[snip] 
+&gt; 
+&gt; And, in a syslogd log, I see this:
+&gt; 
+&gt; Sep 15 10:34:25 king ProgramX: Test 1
+&gt; Sep 15 10:34:25 king ProgramX: What?: Test 2
+&gt; 
+&gt; Which is great. In a metalog log, I see this:
+&gt; 
+&gt; ProgramX: [What?] Test 2_
+
+I got the same thing . . .
+
+A google brought me to this thread: 
+
+  <a  rel="nofollow" href="http://www.mail-archive.com/beginners@perl.org/msg50054.html">http://www.mail-archive.com/beginners@perl.org/msg50054.html</a>
+
+Upgrading Metalog to the latest my Gentoo box has (0.8_pre20031130)
+showed the same thing.
+
+&gt;From the thread I linked to above, they seem to say that Unix::Syslog
+works better with metalog.  I haven't tried it at all.
+
+Methinks that metalog is broken somehow.
+
+My $0.02 . . .
+
+-- 
+Mike Hostetler
+thehaas@binary.net
+<a  rel="nofollow" href="http://www.binary.net/thehaas">http://www.binary.net/thehaas</a>
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00137" href="msg00137.html">[Omaha.pm] How can I log to metalog from Perl?</a></strong>
+<ul><li><em>From:</em> &quot;Jay Hannah&quot; &lt;jhannah@omnihotels.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00138.html">[Omaha.pm] RE: Net::Dev::Tools::Syslog -- local?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00140.html">[Omaha.pm] [patch] Sys::Syslog POD - $Sys::Syslog::host</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00137.html">[Omaha.pm] How can I log to metalog from Perl?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00138.html">[Omaha.pm] RE: Net::Dev::Tools::Syslog -- local?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00139"><strong>Date</strong></a></li>
+<li><a href="threads.html#00139"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

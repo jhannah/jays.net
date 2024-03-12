@@ -1,0 +1,148 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] RE: event_notify.pl is done. -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: Wed, 10 Nov 2004 17:58:05 &#45;0600 -->
+<!--X-Message-Id: 200411102357.iAANvwYq000847@mail&#45;omaha.omnihotels.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 200410181810.i9IIAGs0004067@mail&#45;omaha.omnihotels.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] RE: event_notify.pl is done.</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00201.html">Date Prev</a>][<a href="msg00203.html">Date Next</a>][<a href="msg00201.html">Thread Prev</a>][<a href="msg00203.html">Thread Next</a>][<a href="maillist.html#00202">Date Index</a>][<a href="threads.html#00202">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] RE: event_notify.pl is done.</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:pbaker%40omnihotels.com">pbaker@omnihotels.com</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] RE: event_notify.pl is done.</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Wed, 10 Nov 2004 17:57:56 -0600</li>
+<li><em>Cc</em>: </li>
+<li><em>In-reply-to</em>: &lt;200410181810.i9IIAGs0004067@mail-omaha.omnihotels.com&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/archives/omaha-pm">http://mail.pm.org/archives/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=help">mailto:omaha-pm-request@mail.pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.mail.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@mail.pm.org">mailto:omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=subscribe">mailto:omaha-pm-request@mail.pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe">mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcTHgRlmds3rQQtZRdSB+JovIdXZig==</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+-laugh-  Ya. I think I'm going to delegate out the methods for my &quot;Core&quot; class this week... I've already designed the interface.
+
+
+use Core;
+
+my $c = Core-&gt;new();
+$c-&gt;do('everything');
+$c-&gt;be(what =&gt; 'all things',
+       to   =&gt; 'all people');
+$c-&gt;close_tickets('*');
+$c-&gt;get_fame;
+$c-&gt;get_fortune;
+$c-&gt;dominate(globe =&gt; 'earth');
+$c-&gt;set_hunger(scope =&gt; 'global', value =&gt; 0);
+$c-&gt;set_peace(scope =&gt; 'global', value =&gt; 1);
+$c-&gt;cure(ailment =&gt; 'cancer');
+$c-&gt;retire;
+
+j
+
+
+&gt; -----Original Message-----
+&gt; The event_notify.pl is done.  Here it is:
+&gt;
+&gt;
+&gt; #!/usr/bin/perl
+&gt;
+&gt; use strict;
+&gt; use Control::Globals;
+&gt; use Control::Hotels;
+&gt; use Model::omares::crs::L_EventNotify;
+&gt; use Omni::DB;
+&gt;
+&gt;
+&gt; my $dbh     = Omni::DB::connect_test_with_pw;
+&gt; my $Globals = new Control::Globals;
+&gt; $Globals-&gt;add('dbh',$dbh);
+&gt; $Globals-&gt;add('defaults',1);
+&gt;
+&gt; my $h = new Control::Hotels(Globals=&gt;$Globals);
+&gt;
+&gt; $Globals-&gt;add('Hotels',$h);
+&gt;
+&gt; while (1) {
+&gt;   my $L_EN = new Model::omares::crs::L_EventNotify(Globals=&gt;$Globals);
+&gt;   $L_EN-&gt;load(source=&gt;&quot;event_notify&quot;);
+&gt;   $L_EN-&gt;process;
+&gt;   sleep 30;
+&gt; }
+&gt;
+&gt;
+&gt; $dbh-&gt;disconnect;
+&gt;
+&gt; exit;
+&gt;
+&gt;
+&gt; Now I just have to finish the process() method.
+&gt;
+&gt; Sean Baker
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00201.html">Re: [Omaha.pm] cisco vpn script</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00203.html">[Omaha.pm] Fwd: Newsletter from O'Reilly UG Program, November 3</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00201.html">Re: [Omaha.pm] cisco vpn script</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00203.html">[Omaha.pm] Fwd: Newsletter from O'Reilly UG Program, November 3</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00202"><strong>Date</strong></a></li>
+<li><a href="threads.html#00202"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

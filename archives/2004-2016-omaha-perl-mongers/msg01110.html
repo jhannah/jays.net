@@ -1,0 +1,191 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] sprintf is your friend -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 29 Aug 2006 02:17:31 &#45;0000 -->
+<!--X-Message-Id: 44F39436.1010809@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 29AB736ABCE5C745ABF9C93B02F2C27B05A37BC2@exchange2k3.omnihotels.net -->
+<!--X-Reference: 56663.63.230.40.25.1156776106.squirrel@www.linder.org -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] sprintf is your friend</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01109.html">Date Prev</a>][<a href="msg01111.html">Date Next</a>][<a href="msg01105.html">Thread Prev</a>][<a href="msg01106.html">Thread Next</a>][<a href="maillist.html#01110">Date Index</a>][<a href="threads.html#01110">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] sprintf is your friend</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] sprintf is your friend</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Mon, 28 Aug 2006 20:11:18 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01105.html">56663.63.230.40.25.1156776106.squirrel@www.linder.org</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01104.html">29AB736ABCE5C745ABF9C93B02F2C27B05A37BC2@exchange2k3.omnihotels.net</a>&gt;	&lt;<a href="msg01105.html">56663.63.230.40.25.1156776106.squirrel@www.linder.org</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: Thunderbird 1.5.0.5 (Macintosh/20060719)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+Daniel Linder wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+On Fri, August 25, 2006 15:47, Jay Hannah wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+Before:
+
+sub prepend_pegheader
+  {
+    my ($str, $msgtype) = (@_);
+    my $len = length($str) + 6;
+    $len = &quot;00000&quot; . $len;       # Just slap 5 zeroes onto the front and
+only
+    $len =~ s/^\d+(\d{5})$/$1/;  # take the last 5 characters.
+    $str = &quot;$msgtype$len$str&quot;;
+    return $str;
+  }
+</pre></blockquote><pre style="margin: 0em;">
+
+I don't like this -- it seems to use a lot of extra steps to achieve the
+same result.  I'd only use this over the other one if it was faster and
+that was a paramount issue in the program.
+</pre></blockquote><pre style="margin: 0em;">
+
+Indeed. Whenever I post &quot;Before:&quot; and &quot;After:&quot; code samples I'm asserting that the &quot;After:&quot; is a better way to do the same thing. It appears you and I agree in this case. :)
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+The only place I can realistically see this breaking is if &quot;len&quot; is &gt;99999
+</pre><tt>- thus only the last five digits of the real number would get captured. 
+</tt><tt>At least with &quot;sprintf&quot; it will expand the &quot;%05d&quot; to show all six digits
+</tt><pre style="margin: 0em;">
+if needed.  Of course that might be the intent so that the sixth column is
+*always* the start of &quot;str&quot; nomatter what.
+
+dan@dglinder:~/tmp$ cat d.pl
+#!perl -w
+
+$number = 123;
+$line = sprintf (&quot;1: %05d\n&quot;, $number);
+printf (&quot;%s&quot;, $line);
+
+$number = 123123;
+$line = sprintf (&quot;2: %05d\n&quot;, $number);
+printf (&quot;%s&quot;, $line);
+
+dan@dglinder:~/tmp$ perl ./d.pl
+1: 00123
+2: 123123
+</pre></blockquote><pre style="margin: 0em;">
+
+Ah, yes. Good point about numbers &gt; 99999. In my particular context, such a thing is not supposed to be possible so I think my conversion was valid.
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+After:
+sub prepend_pegheader
+  {
+    my ($str, $msgtype) = (@_);
+    my $len = sprintf(&quot;%05d&quot;, length($str) + 6);
+    return &quot;$msgtype$len$str&quot;;
+  }
+</pre></blockquote><pre style="margin: 0em;">
+
+This is my pick, even if it is a slight bit slower in the end -- much more
+readable.  If you do get six digits showing up where you only wanted five
+then I would recommend that you check why the length of &quot;str&quot; is so great,
+and either adjust the five digits to six or larger, or fix the input being
+placed into &quot;str&quot;.
+</pre></blockquote><pre style="margin: 0em;">
+
+In my particular context the vendor specification does not allow for lengths &gt; 99999. So I don't know what I &quot;should do&quot; if the length was longer. Dump core and page everyone, probably. :)
+
+</pre><tt>After I posted that I was have tempted to Perl golf it down to 
+</tt><tt>
+</tt><pre style="margin: 0em;">
+ sub prepend_pegheader {
+    my ($str, $msgtype) = (@_);
+    return sprintf(&quot;%s%05d%s&quot;, $msgtype, length($str) + 6, $str);
+ }
+
+</pre><tt>or 
+</tt><tt>
+</tt><pre style="margin: 0em;">
+ sub prepend_pegheader {
+    sprintf(&quot;%s%05d%s&quot;, $_[1], length($_[0]) + 6, $_[0]);
+ }
+
+or no sub at all since it's one line now. :)
+
+</pre><tt>But I'm not that evil. I like being able to read the code I wrote yesterday without excessive quantities of ellicit drugs. 
+</tt><tt>
+</tt><pre style="margin: 0em;">
+j
+
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01104" href="msg01104.html">[Omaha.pm] sprintf is your friend</a></strong>
+<ul><li><em>From:</em> &quot;Jay Hannah&quot; &lt;jhannah@omnihotels.com&gt;</li></ul></li>
+<li><strong><a name="01105" href="msg01105.html">Re: [Omaha.pm] sprintf is your friend</a></strong>
+<ul><li><em>From:</em> &quot;Daniel Linder&quot; &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01109.html">Re: [Omaha.pm] object -&gt; object mappings</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01111.html">[Omaha.pm] regex'ing binary goo??</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01105.html">Re: [Omaha.pm] sprintf is your friend</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01106.html">[Omaha.pm] object -&gt; object mappings</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01110"><strong>Date</strong></a></li>
+<li><a href="threads.html#01110"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

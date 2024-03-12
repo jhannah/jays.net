@@ -1,0 +1,113 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Pulling in a hash via "exec"...FAIL -->
+<!--X-From-R13: "Rna Zvaqre" &#60;qnaNyvaqre.bet> -->
+<!--X-Date: 7 Aug 2008 01:03:32 &#45;0000 -->
+<!--X-Message-Id: 3e2be50808061803x6d1a11cidffeb17fdab9bf58@mail.gmail.com -->
+<!--X-Content-Type: multipart/alternative -->
+<!--X-Reference: 3e2be50808061508x68b59c87u9ea4716e347ec474@mail.gmail.com -->
+<!--X-Reference: 880B65DE&#45;B3BB&#45;475F&#45;82E7&#45;CDFD8CF6752C@jays.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Pulling in a hash via &quot;exec&quot;...FAIL</title>
+<link rev="made" href="mailto:dan@linder.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01800.html">Date Prev</a>][<a href="msg01802.html">Date Next</a>][<a href="msg01800.html">Thread Prev</a>][<a href="msg01802.html">Thread Next</a>][<a href="maillist.html#01801">Date Index</a>][<a href="threads.html#01801">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Pulling in a hash via &quot;exec&quot;...FAIL</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Pulling in a hash via &quot;exec&quot;...FAIL</li>
+<li><em>From</em>: &quot;Dan Linder&quot; &lt;<a href="mailto:dan%40linder.org">dan@linder.org</a>&gt;</li>
+<li><em>Date</em>: Wed, 6 Aug 2008 20:03:16 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01800.html">880B65DE-B3BB-475F-82E7-CDFD8CF6752C@jays.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01799.html">3e2be50808061508x68b59c87u9ea4716e347ec474@mail.gmail.com</a>&gt;	&lt;<a href="msg01800.html">880B65DE-B3BB-475F-82E7-CDFD8CF6752C@jays.net</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<div dir="ltr">On Aug 6, 2008, at 5:08 PM, Dan Linder wrote:<br>
+<blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;">
+I&#39;ve got one program that generates a hash and then uses Data::Dump to write this structure to a text file:<br>
+printf FILE Data::Dumper-&gt;Dump(\%fields],[&#39;fields&#39;]);<br>
+</blockquote>
+<br>On Wed, Aug 6, 2008 at 5:22 PM, Jay Hannah <span dir="ltr">&lt;<a rel="nofollow" href="mailto:jay@jays.net">jay@jays.net</a>&gt;</span> wrote:<br><div class="gmail_quote"><blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;">
+
+Data::Dump isn&#39;t meant to be used like that. Use Storable instead:<br>
+<a rel="nofollow" href="http://search.cpan.org/%7Eams/Storable-2.18/Storable.pm#EXAMPLES" target="_blank">http://search.cpan.org/~ams/Storable-2.18/Storable.pm#EXAMPLES</a><br>
+Much easier to use, and it works. &nbsp;:)<br>
+</blockquote><div><br>When I&#39;m able to re-write the entire system I&#39;ll look at that. :-)<br><br>For now I&#39;m saddled with making the &quot;eval&quot; work ... unless I can figure out the magic of the &quot;use vars&quot; piece I&#39;ll have to manually touch up the first line of the output file.<br>
+<br>Thanks,<br><br>Dan <br></div></div><br>-- <br>&quot;Quis custodiet ipsos custodes?&quot; (Who can watch the watchmen?) -- from the Satires of Juvenal<br>&quot;I do not fear computers, I fear the lack of them.&quot; -- Isaac Asimov (Author)<br>
+** *** ***** ******* *********** *************<br>
+</div>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01802" href="msg01802.html">Re: [Omaha.pm] Pulling in a hash via &quot;exec&quot;...FAIL</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01799" href="msg01799.html">[Omaha.pm] Pulling in a hash via &quot;exec&quot;...FAIL</a></strong>
+<ul><li><em>From:</em> &quot;Dan Linder&quot; &lt;dan@linder.org&gt;</li></ul></li>
+<li><strong><a name="01800" href="msg01800.html">Re: [Omaha.pm] Pulling in a hash via &quot;exec&quot;...FAIL</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01800.html">Re: [Omaha.pm] Pulling in a hash via &quot;exec&quot;...FAIL</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01802.html">Re: [Omaha.pm] Pulling in a hash via &quot;exec&quot;...FAIL</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01800.html">Re: [Omaha.pm] Pulling in a hash via &quot;exec&quot;...FAIL</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01802.html">Re: [Omaha.pm] Pulling in a hash via &quot;exec&quot;...FAIL</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01801"><strong>Date</strong></a></li>
+<li><a href="threads.html#01801"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

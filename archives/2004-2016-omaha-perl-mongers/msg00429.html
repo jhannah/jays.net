@@ -1,0 +1,136 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Template Toolkit syntax choices, whitespace -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 15 Jul 2005 19:59:25 &#45;0000 -->
+<!--X-Message-Id: 200507151959.j6FJxHic012064@omares&#45;email.omnihotels.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Template Toolkit syntax choices, whitespace</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00428.html">Date Prev</a>][<a href="msg00430.html">Date Next</a>][<a href="msg00428.html">Thread Prev</a>][<a href="msg00430.html">Thread Next</a>][<a href="maillist.html#00429">Date Index</a>][<a href="threads.html#00429">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Template Toolkit syntax choices, whitespace</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Template Toolkit syntax choices, whitespace</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Fri, 15 Jul 2005 15:00:27 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcWJd9irRLlUeLl7QICuJF1eTlk5Zg==</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+Ever played with Template Toolkit? If you're accustomed to Perl 5 syntax, TT has multiple syntaxes to choose from, all different from Perl 5 syntax. 
+
+For instance, I just changed this TT code:
+
+[% FOREACH selection = options %]
+  [% IF display_type == 'code' %]
+    [% IF selection.code == default %]
+      &lt;OPTION selected value=&quot;${selection.code}&quot;&gt;${selection.code}&lt;/OPTION&gt;
+    [% ELSE %]
+      &lt;OPTION value=&quot;${selection.code}&quot;&gt;${selection.code}&lt;/OPTION&gt;
+    [% END %]
+  [% ELSE %]
+    [% IF selection.code == default OR q.param(selectname) == selection.code %]
+      &lt;OPTION selected value=&quot;${selection.code}&quot;&gt;${selection.desc}&lt;/OPTION&gt;
+    [% ELSE %]
+      &lt;OPTION value=&quot;${selection.code}&quot;&gt;${selection.desc}&lt;/OPTION&gt;
+    [% END %]
+  [% END %]
+[% END %]
+
+To this TT code:
+
+[%-
+  selected = &quot;&quot;;
+  value = selection.desc;
+  FOREACH selection = options;
+    IF display_type == 'code';
+      value = selection.code;
+      IF selection.code == default;
+        selected = &quot;selected&quot;;
+      END;
+    ELSE;
+      IF selection.code == default OR q.param(selectname) == selection.code;
+        selected = &quot;selected&quot;;
+      END;
+    END;
+    &quot;   &lt;OPTION $selected value='${selection.code}'&gt;${selection.desc}&lt;/OPTION&gt;\n&quot;;
+    selected = &quot;&quot;;
+  END;
+-%]
+
+Those two snippets do almost the same thing. The primary difference is the first outputs tons of unintentional whitespace. In the second you don't have to use [% %] everywhere... (I tried fighting the whitespace with [%- -%] everywhere to no avail.)
+
+After 2 weeks of full time TT, I think I'm starting to get pretty good at it. It's does some really amazing things if you're building large, extremely modular websites. The book says its good for other stuff too.
+
+Looks like our total TT footprint is 15K lines of control code and 8K lines of TT templates... woof!
+
+j
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00428.html">Re: [Omaha.pm] xargs is kinda handy!</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00430.html">Re: [Omaha.pm] Getting To Know You</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00428.html">Re: [Omaha.pm] xargs is kinda handy!</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00430.html">Re: [Omaha.pm] Getting To Know You</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00429"><strong>Date</strong></a></li>
+<li><a href="threads.html#00429"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

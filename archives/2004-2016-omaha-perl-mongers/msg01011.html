@@ -1,0 +1,129 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Fwd: potential pitfall with "return undef" -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 31 May 2006 00:55:45 &#45;0000 -->
+<!--X-Message-Id: 447CE958.2090001@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Fwd: potential pitfall with &quot;return undef&quot;</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01010.html">Date Prev</a>][<a href="msg01012.html">Date Next</a>][<a href="msg01009.html">Thread Prev</a>][<a href="msg01012.html">Thread Next</a>][<a href="maillist.html#01011">Date Index</a>][<a href="threads.html#01011">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Fwd: potential pitfall with &quot;return undef&quot;</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Fwd: potential pitfall with &quot;return undef&quot;</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Tue, 30 May 2006 19:54:48 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: Thunderbird 1.5.0.2 (Macintosh/20060308)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+Oops! I &quot;return undef;&quot; ALL THE TIME...
+
+Ponder,
+
+j
+
+
+-------- Original Message --------
+Subject: [Bioperl-l] For CVS developers - potential pitfall with &quot;return	undef&quot;
+Date: Tue, 30 May 2006 18:18:45 +1000
+From: Torsten Seemann &lt;torsten.seemann@infotech.monash.edu.au&gt;
+Organization: Victorian Bioinformatics Consortium, Monash University
+To: bioperl-l@lists.open-bio.org
+
+FYI Bioperl developers:
+
+</pre><tt>I just audited the bioperl-live CVS and found about 450 occurrences of 
+</tt><tt>&quot;return undef&quot;.
+</tt><pre style="margin: 0em;">
+
+Page 199 of &quot;Perl Best Practices&quot; by Damian Conway, and this URL
+<a  rel="nofollow" href="http://www.perl.com/lpt/a/2006/02/23/advanced_subroutines.html">http://www.perl.com/lpt/a/2006/02/23/advanced_subroutines.html</a> suggest:
+
+</pre><tt>&quot;Use return; instead of return undef; if you want to return nothing. If 
+</tt><tt>someone assigns the return value to an array, the latter creates an 
+</tt><tt>array of one value (undef), which evaluates to true. The former will 
+</tt><tt>correctly handle all contexts.&quot;
+</tt><pre style="margin: 0em;">
+
+</pre><tt>So I'm guessing at least some of these 450 occurrences *could* result in 
+</tt><tt>bugs and should probably be changed.
+</tt><pre style="margin: 0em;">
+
+Your opinion may differ :-)
+
+--
+Dr Torsten Seemann               <a  rel="nofollow" href="http://www.vicbioinformatics.com">http://www.vicbioinformatics.com</a>
+Victorian Bioinformatics Consortium, Monash University, Australia
+
+_______________________________________________
+Bioperl-l mailing list
+Bioperl-l@lists.open-bio.org
+<a  rel="nofollow" href="http://lists.open-bio.org/mailman/listinfo/bioperl-l">http://lists.open-bio.org/mailman/listinfo/bioperl-l</a>
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01010.html">Re: [Omaha.pm] FWD: &quot;Build Tag Clouds in Perl and PHP&quot;</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01012.html">[Omaha.pm] YAPC::NA</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01009.html">[Omaha.pm] [Fwd: Only 2 days left to buy the Perl eBook Bundle from	Apress!]</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01012.html">[Omaha.pm] YAPC::NA</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01011"><strong>Date</strong></a></li>
+<li><a href="threads.html#01011"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

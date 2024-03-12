@@ -1,0 +1,201 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Class::Date &#45; change once set -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 11 Nov 2005 14:17:45 &#45;0000 -->
+<!--X-Message-Id: 708f502864ccfdb6eeb90f225b4ca942@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Class::Date - change once set</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00644.html">Date Prev</a>][<a href="msg00646.html">Date Next</a>][<a href="msg00637.html">Thread Prev</a>][<a href="msg00612.html">Thread Next</a>][<a href="maillist.html#00645">Date Index</a>][<a href="threads.html#00645">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Class::Date - change once set</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Omaha Perl Mongers &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Class::Date - change once set</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Fri, 11 Nov 2005 08:17:23 -0600</li>
+<li><em>Cc</em>: Szab&#xF3; Bal&#xE1;zs &lt;<a href="mailto:dlux%40dlux.hu">dlux@dlux.hu</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+Forwarding dLux's message.
+
+j
+
+
+From: &quot;Bal&#xE1;zs Szab&#xF3; (dLux)&quot; &lt;dlux@dlux.hu&gt;
+Date: November 11, 2005 3:06:01 AM CST
+To: Jay Hannah &lt;jay@jays.net&gt;
+Subject: Re: [Omaha.pm] FW: FW: Class::Date - change once set
+
+Hi,
+
+Jay Hannah wrote:
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+From: &quot;Bal&#xE1;zs Szab&#xF3; (dLux)&quot; [<a  rel="nofollow" href="mailto:dlux@dlux.hu">mailto:dlux@dlux.hu</a>]
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+use Class::Date qw(date);
+$a = date &quot;2000-11-11&quot;;
+$b = date &quot;1970-10-21&quot;;
+
+print &quot;a: $a, b: $b\n&quot;;
+swap1($a, $b);
+print &quot;a: $a, b: $b\n&quot;;
+
+sub swap1 {
+   $x = $_[0];
+   $_[0] = $_[1];
+   $_[1] = $x;
+}
+</pre></blockquote><pre style="margin: 0em;">
+
+
+Ahhh, yes. I misread your email the first time. To make sure I know
+what's happening let me walk through it...
+</pre></blockquote><pre style="margin: 0em;">
+
+Ok.
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+sub swap1 {
+</pre></blockquote><pre style="margin: 0em;">
+
+
+$a is obj in year 2000. $b is obj in year 1970. $_[0] is a ref to $a.
+$_[1] is a ref to $b.
+</pre></blockquote><pre style="margin: 0em;">
+
+Correct.
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+   $x = $_[0];
+</pre></blockquote><pre style="margin: 0em;">
+
+
+</pre><tt>$x is created, a new obj in year 2000.  (via clone() inside 
+</tt><tt>Class::Date)
+</tt></blockquote><pre style="margin: 0em;">
+
+Not correct.  $_[0] is always points to the same object as $a, $_[1]
+always points to the same object as $b; In this case, we have a new
+object, $x, which is also points to the same as $a and $_[0];
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+   $_[0] = $_[1];
+</pre></blockquote><pre style="margin: 0em;">
+
+$a obj is destroyed. A new $a is created, year 1970.  (via clone()
+inside Class::Date)
+</pre></blockquote><pre style="margin: 0em;">
+
+Not correct. Now $a is points to the original $b, while $x keeps the
+reference to $a;
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+   $_[1] = $x;
+}
+</pre></blockquote><pre style="margin: 0em;">
+
+$b obj is destroyed. A new $b is created, year 2000.  (via clone()
+inside Class::Date)
+
+Is that right?
+</pre></blockquote><pre style="margin: 0em;">
+
+Not correct. $b now points to the $x, which kept the reference to the
+original $a, and in the previous step, we saw that $a is now pointing to
+the original $b;
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+
+Thanks,
+
+j
+
+</pre></blockquote><pre style="margin: 0em;">
+So, it does not copy OBJECTS, it just increasing and decreasing
+</pre><tt>reference counters to objects (since perl is a reference-counting 
+</tt><tt>language).
+</tt><pre style="margin: 0em;">
+
+Please see the perlobj and perlref (or perlreftut) manual to get what I
+had talked about.
+
+Regards,
+
+--
+
+Szab&#xF3; Bal&#xE1;zs (dLux)
+--   --  - - - -- -
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00644.html">Re: [Omaha.pm] FW: FW: Class::Date - change once set</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00646.html">Re: [Omaha.pm] Class::Date - change once set</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00637.html">Re: [Omaha.pm] Class::Date - change once set</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00612.html">[Omaha.pm] sort hackery</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00645"><strong>Date</strong></a></li>
+<li><a href="threads.html#00645"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: RE: [Omaha.pm] Sort quickie -->
+<!--X-From-R13: "[vyyre, Epbgg Z (Aznun @rgjbexf)" &#60;fpbgg.y.zvyyreNuc.pbz> -->
+<!--X-Date: Wed, 7 Jul 2004 15:07:04 &#45;0500 -->
+<!--X-Message-Id: 1F7C0C8F4BD7C54A8BC55012FEF3DF6D0302E605@omaexc11.americas.cpqcorp.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>RE: [Omaha.pm] Sort quickie</title>
+<link rev="made" href="mailto:scott.l.miller@hp.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00036.html">Date Prev</a>][<a href="msg00038.html">Date Next</a>][<a href="msg00041.html">Thread Prev</a>][<a href="msg00038.html">Thread Next</a>][<a href="maillist.html#00037">Date Index</a>][<a href="threads.html#00037">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>RE: [Omaha.pm] Sort quickie</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha,  Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: RE: [Omaha.pm] Sort quickie</li>
+<li><em>From</em>: &quot;Miller, Scott L (Omaha Networks)&quot; &lt;<a href="mailto:scott.l.miller%40hp.com">scott.l.miller@hp.com</a>&gt;</li>
+<li><em>Date</em>: Wed, 7 Jul 2004 15:07:01 -0500</li>
+<li><em>List-archive</em>: &lt;<a href="http://www.pm.org/pipermail/omaha-pm">http://www.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcRWVYyUGJnfiURXQiqwD9ZZfj9ORwN9lYHg</li>
+<li><em>Thread-topic</em>: [Omaha.pm] Sort quickie</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Along these lines, here's something that I've stuck into most of my 
+scripts; whether it is actually used or not.
+
+	############################################################
+	# Sorting routine to sort by number
+	# below subroutine is equivalent to these 3 lines
+	#  if($a &lt; $b) { -1; }
+	#  elsif($a == $b) { 0; }
+	#  elsif($a &gt; $b) { 1; }
+	############################################################
+	sub by_number {
+	   $a &lt;=&gt; $b;
+	}
+
+In use, it looks like this:
+
+	@numary = (2,9,5,4,30,21,11,10,1,7,215,&quot;Two&quot;,&quot;Three&quot;,&quot;Four&quot;);
+
+	print &quot;Sorted by ASCII\n&quot;;
+	foreach (sort @numary) {
+	        print &quot;$_\n&quot;;
+	}
+
+	print &quot;\nSorted by number\n&quot;;
+	foreach (sort by_number @numary) {
+	        print &quot;$_\n&quot;;
+	}
+
+Output is:
+	Sorted by ASCII
+	1
+	10
+	11
+	2
+	21
+	215
+	30
+	4
+	5
+	7
+	9
+	Four
+	Three
+	Two
+
+	Sorted by number
+	Three
+	Two
+	Four
+	1
+	2
+	4
+	5
+	7
+	9
+	10
+	11
+	21
+	30
+	215
+
+Another interesting possibility, expanding on what Jay started;
+it might be possible to use Jay's technique to sort IP addresses
+without first converting the addresses to their &quot;long int&quot; form...
+
+-Scott
+-----Original Message-----
+From: omaha-pm-bounces@pm.org [<a  rel="nofollow" href="mailto:omaha-pm-bounces@pm.org]On">mailto:omaha-pm-bounces@pm.org]On</a> Behalf
+Of m&#xD8;ntar3
+Sent: Saturday, June 19, 2004 6:29 PM
+To: Perl Mongers of Omaha, Nebraska USA
+Subject: Re: [Omaha.pm] Sort quickie
+
+
+I use(d) that functionality to sort tabular data (two-dimensional 
+arrays, or an array hashes)---work(s|ed) well with CGI, allowing user(s) 
+to specify what column to sort on (and hides detail like comparisons of 
+text vs numerals vs dates in the called function). It's about as useful 
+as the Unix &quot;find&quot; utility.
+
+Jay Hannah wrote:
+
+&gt;
+&gt; I had a bunch of hash keys that were dates in MMDDYYYY format. I 
+&gt; wanted to get a sorted list of the keys. Perl to the rescue! Have 
+&gt; y'all configured custom sort subroutines before? They're cool...
+&gt;
+&gt; The real code in context...
+&gt; ------------
+&gt;    print &quot;\n\nGroup pickup by cap_date (running total):\n&quot;;
+&gt;    foreach (sort sort_by_cap_date keys %{$group_pickup{by_cap_date}}) {
+&gt;       my $val = $group_pickup{by_cap_date}{$_};
+&gt;       next if $val == 0;
+&gt;       print &quot;$_: $val\n&quot;;
+&gt;    }
+&gt; }
+&gt;
+&gt; sub sort_by_cap_date ($$) {
+&gt;    # We have to throw some mojo here since capdate is MMDDYYYY and 
+&gt; obviously
+&gt;    # we can't sort until we turn it into YYYYMMDD... -jhannah 6/14/04
+&gt;    my ($a, $b) = @_;
+&gt;    for ($a, $b) {
+&gt;       s/(\d\d)(\d\d)(\d\d\d\d)/$3$1$2/;
+&gt;    }
+&gt;    $a &lt;=&gt; $b;
+&gt; }
+&gt; ---------------
+&gt;
+&gt; Same idea, distilled out to see the results easier and so you can play 
+&gt; with it:
+&gt; ---------------
+&gt; my @dates = qw( 05012003 02012004 11012002 );
+&gt; print join &quot;, &quot;, sort @dates;
+&gt; print &quot;\n&quot;;
+&gt; print join &quot;, &quot;, sort by_date @dates;
+&gt; print &quot;\n&quot;;
+&gt;
+&gt; sub by_date ($$) {
+&gt;    my ($a, $b) = @_;
+&gt;    for ($a, $b) {
+&gt;       s/(\d\d)(\d\d)(\d\d\d\d)/$3$1$2/;
+&gt;    }
+&gt;    $a &lt;=&gt; $b;
+&gt; }
+&gt; ----------------
+&gt;
+&gt; &quot;sort&quot; just does an ASCII sort, which isn't in date order for MMDDYYYY 
+&gt; dates. Instead, &quot;sort by_date&quot; does a comparison after converting 
+&gt; MMDDYYYY into YYYYMMDD, which does sort dates correctly. It doesn't 
+&gt; munge the real values though.
+&gt;
+&gt; Neat, huh?
+&gt;
+&gt; perldoc -f sort
+&gt;
+&gt; j
+&gt;
+&gt; _______________________________________________
+&gt; Omaha-pm mailing list
+&gt; Omaha-pm@pm.org
+&gt; <a  rel="nofollow" href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>
+&gt;
+_______________________________________________
+Omaha-pm mailing list
+Omaha-pm@pm.org
+<a  rel="nofollow" href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00038" href="msg00038.html">Re: [Omaha.pm] Sort quickie</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00036.html">Re: [Omaha.pm] Sort quickie</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00038.html">Re: [Omaha.pm] Sort quickie</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00041.html">Re: [Omaha.pm] Sort quickie</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00038.html">Re: [Omaha.pm] Sort quickie</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00037"><strong>Date</strong></a></li>
+<li><a href="threads.html#00037"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

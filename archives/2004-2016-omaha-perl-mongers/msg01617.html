@@ -1,0 +1,124 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] code reduction  :) -->
+<!--X-From-R13: Oaql Zrfgre &#60;naqlNcrgqnapr.pbz> -->
+<!--X-Date: 2 Jan 2008 17:17:05 &#45;0000 -->
+<!--X-Message-Id: 0B193032&#45;C52C&#45;4A79&#45;A3CA&#45;E7CD648D87C9@petdance.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 21CC699E&#45;66B9&#45;4789&#45;9B8A&#45;FF6BBC015B73@jays.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] code reduction  :)</title>
+<link rev="made" href="mailto:andy@petdance.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01616.html">Date Prev</a>][<a href="msg01618.html">Date Next</a>][<a href="msg01616.html">Thread Prev</a>][<a href="msg01618.html">Thread Next</a>][<a href="maillist.html#01617">Date Index</a>][<a href="threads.html#01617">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] code reduction  :)</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] code reduction  :)</li>
+<li><em>From</em>: Andy Lester &lt;<a href="mailto:andy%40petdance.com">andy@petdance.com</a>&gt;</li>
+<li><em>Date</em>: Wed, 2 Jan 2008 11:16:39 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01616.html">21CC699E-66B9-4789-9B8A-FF6BBC015B73@jays.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01616.html">21CC699E-66B9-4789-9B8A-FF6BBC015B73@jays.net</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+
+</pre><tt>Yeah, any time you're doing &quot;see if this exists or is found&quot;, you're  
+</tt><tt>talkin' hashes.  Soooo much nicer than that loopy loopy stuff.
+</tt><pre style="margin: 0em;">
+
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+  my $pages = {
+    &quot;RR&quot;      =&gt; [ &quot;RR1&quot;,&quot;RR1_1&quot;,&quot;RR1_2&quot;,&quot;RR2&quot;,&quot;RR_more_rooms&quot; ],
+    &quot;RR1&quot;     =&gt; [ &quot;RR1_2&quot;,&quot;RR_more_rooms&quot; ],
+  };
+</pre></blockquote><pre style="margin: 0em;">
+
+
+   my $pages = {
+     RR      =&gt; [qw( RR1 RR1_1 RR1_2 RR2 RR_more_rooms )],
+     RR1     =&gt; [qw( RR1_2 RR_more_rooms )],
+   };
+
+Quotes are no fun!
+
+xoxo,
+Andy
+
+
+--
+Andy Lester =&gt; andy@petdance.com =&gt; www.petdance.com =&gt; AIM:petdance
+
+
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01616" href="msg01616.html">[Omaha.pm] code reduction  :)</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01616.html">[Omaha.pm] code reduction  :)</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01618.html">[Omaha.pm] warnings... boo!</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01616.html">[Omaha.pm] code reduction  :)</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01618.html">[Omaha.pm] warnings... boo!</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01617"><strong>Date</strong></a></li>
+<li><a href="threads.html#01617"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

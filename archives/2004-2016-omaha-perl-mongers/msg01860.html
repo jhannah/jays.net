@@ -1,0 +1,119 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Catalyst&#45;Plugin&#45;Session&#45;Store&#45;DBIC v0.07 -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 17 Sep 2008 00:31:01 &#45;0000 -->
+<!--X-Message-Id: BF284516&#45;D20D&#45;4BB0&#45;9D27&#45;D305220F8A94@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Catalyst-Plugin-Session-Store-DBIC v0.07</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01859.html">Date Prev</a>][<a href="msg01861.html">Date Next</a>][<a href="msg01859.html">Thread Prev</a>][<a href="msg01861.html">Thread Next</a>][<a href="maillist.html#01860">Date Index</a>][<a href="threads.html#01860">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Catalyst-Plugin-Session-Store-DBIC v0.07</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:danieltwc%40cpan.org">danieltwc@cpan.org</a></li>
+<li><em>Subject</em>: [Omaha.pm] Catalyst-Plugin-Session-Store-DBIC v0.07</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Tue, 16 Sep 2008 19:30:18 -0500</li>
+<li><em>Cc</em>: Nebraska USA Perl Mongers of Omaha &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+Hi Daniel,
+
+I threw a patch into SVN for you. Let me know what you think.
+
+Cheers,
+
+j
+
+
+$ svn info
+</pre><tt>URL: <a  rel="nofollow" href="http://dev.catalyst.perl.org/repos/Catalyst/trunk/Catalyst-">http://dev.catalyst.perl.org/repos/Catalyst/trunk/Catalyst-</a> 
+</tt><tt>Plugin-Session-Store-DBIC
+</tt><pre style="margin: 0em;">
+$ svn log -v -r8424:8425
+------------------------------------------------------------------------
+r8425 | jhannah | 2008-09-16 19:22:59 -0500 (Tue, 16 Sep 2008) | 4 lines
+Changed paths:
+   M /trunk/Catalyst-Plugin-Session-Store-DBIC/Changes
+</pre><tt>   M /trunk/Catalyst-Plugin-Session-Store-DBIC/lib/Catalyst/Plugin/ 
+</tt><tt>Session/Store/DBIC.pm
+</tt><pre style="margin: 0em;">
+   M /trunk/Catalyst-Plugin-Session-Store-DBIC/t/04dbic.t
+   M /trunk/Catalyst-Plugin-Session-Store-DBIC/t/05dbic-schema.t
+</pre><tt>   M /trunk/Catalyst-Plugin-Session-Store-DBIC/t/lib/TestApp/Model/ 
+</tt><tt>DBIC/Session.pm
+</tt><tt>   M /trunk/Catalyst-Plugin-Session-Store-DBIC/t/lib/TestApp/Schema/ 
+</tt><tt>Session.pm
+</tt><pre style="margin: 0em;">
+
+Code was silently truncating storage to MySQL, rendering the session
+unreadable. Patched to check DBIx::Class size from column_info (if
+available).
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01859.html">[Omaha.pm] Fwd: New Perl Projects</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01861.html">[Omaha.pm] Perl Catalyst, Ruby on Rails</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01859.html">[Omaha.pm] Fwd: New Perl Projects</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01861.html">[Omaha.pm] Perl Catalyst, Ruby on Rails</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01860"><strong>Date</strong></a></li>
+<li><a href="threads.html#01860"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

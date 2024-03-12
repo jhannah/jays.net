@@ -1,0 +1,118 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Term::ProgressBar is neato -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 8 Oct 2009 14:39:20 &#45;0000 -->
+<!--X-Message-Id: 09073539&#45;D844&#45;4437&#45;B406&#45;CCD23B02B378@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Term::ProgressBar is neato</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02201.html">Date Prev</a>][<a href="msg02203.html">Date Next</a>][<a href="msg02201.html">Thread Prev</a>][<a href="msg02203.html">Thread Next</a>][<a href="maillist.html#02202">Date Index</a>][<a href="threads.html#02202">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Term::ProgressBar is neato</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Nebraska USA Perl Mongers of Omaha &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Term::ProgressBar is neato</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Thu, 8 Oct 2009 09:38:57 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+<a  rel="nofollow" href="http://headrattle.blogspot.com/search/label/perl">http://headrattle.blogspot.com/search/label/perl</a>   :)
+
+</pre><tt>Here's a super easy CPAN module I started using last week. Ever have  
+</tt><tt>a long running process that a human is watching, and you want to add  
+</tt><tt>a progress bar? Here you go!
+</tt><pre style="margin: 0em;">
+
+use Term::ProgressBar;
+my $progress = Term::ProgressBar-&gt;new({
+  name =&gt; 'MySlowThing()',
+  count =&gt; 100,
+  ETA =&gt; 'linear',
+});
+$progress-&gt;max_update_rate(1);
+
+for (1..100) {
+  sleep 1;
+  $progress-&gt;update($_);
+}
+
+</pre><tt>Gives you a nifty ASCII timer bar with major and minor movements,  
+</tt><tt>updating clock, the whole nine. :)
+</tt><pre style="margin: 0em;">
+
+MySlowThing(): 26% [====        *        ]1m16s Left
+
+j
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="02203" href="msg02203.html">Re: [Omaha.pm] Term::ProgressBar is neato</a></strong>
+<ul><li><em>From:</em> Dan Linder &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02201.html">Re: [Omaha.pm] Glimmer output parser.</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02203.html">Re: [Omaha.pm] Term::ProgressBar is neato</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02201.html">Re: [Omaha.pm] Glimmer output parser.</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02203.html">Re: [Omaha.pm] Term::ProgressBar is neato</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02202"><strong>Date</strong></a></li>
+<li><a href="threads.html#02202"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

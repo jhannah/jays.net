@@ -1,0 +1,142 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] XML::Parser test (install) failures -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 15 Oct 2005 12:27:35 &#45;0000 -->
+<!--X-Message-Id: b0c3f85d0fc20eca63edef6070bbcf51@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] XML::Parser test (install) failures</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00597.html">Date Prev</a>][<a href="msg00599.html">Date Next</a>][<a href="msg00597.html">Thread Prev</a>][<a href="msg00599.html">Thread Next</a>][<a href="maillist.html#00598">Date Index</a>][<a href="threads.html#00598">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] XML::Parser test (install) failures</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Omaha Perl Mongers &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] XML::Parser test (install) failures</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Sat, 15 Oct 2005 07:27:22 -0500</li>
+<li><em>Cc</em>: Josh K &lt;<a href="mailto:josh%40joshs.net">josh@joshs.net</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+So I was trying to run
+
+  perl -MCPAN -e 'install XML::Parser'
+
+and when the tests ran it would throw this goo:
+
+Running make test
+make[1]: Entering directory `/tmp/.cpan/build/XML-Parser-2.34/Expat'
+make[1]: Leaving directory `/tmp/.cpan/build/XML-Parser-2.34/Expat'
+</pre><tt>PERL_DL_NONLAZY=1 /usr/bin/perl &quot;-MExtUtils::Command::MM&quot; &quot;-e&quot;  
+</tt><tt>&quot;test_harness(0, 'blib/lib', 'blib/arch')&quot; t/*.t
+</tt><tt>t/astress.........Can't load  
+</tt><tt>'/tmp/.cpan/build/XML-Parser-2.34/blib/arch/auto/XML/Parser/Expat/ 
+</tt><tt>Expat.so' for module XML::Parser::Expat:  
+</tt><tt>/tmp/.cpan/build/XML-Parser-2.34/blib/arch/auto/XML/Parser/Expat/ 
+</tt><tt>Expat.so: failed to map segment from shared object: Operation not  
+</tt><tt>permitted at /usr/lib/perl5/5.8.6/i386-linux-thread-multi/DynaLoader.pm  
+</tt><tt>line 230.
+</tt><pre style="margin: 0em;">
+ at /tmp/.cpan/build/XML-Parser-2.34/blib/lib/XML/Parser.pm line 14
+</pre><tt>Compilation failed in require at  
+</tt><tt>/tmp/.cpan/build/XML-Parser-2.34/blib/lib/XML/Parser.pm line 14.
+</tt><tt>BEGIN failed--compilation aborted at  
+</tt><tt>/tmp/.cpan/build/XML-Parser-2.34/blib/lib/XML/Parser.pm line 18.
+</tt><pre style="margin: 0em;">
+Compilation failed in require at t/astress.t line 11.
+BEGIN failed--compilation aborted at t/astress.t line 11.
+t/astress.........dubious
+        Test returned status 255 (wstat 65280, 0xff00)
+DIED. FAILED tests 1-27
+        Failed 27/27 tests, 0.00% okay
+
+Since the tests fail, the install would fail. Bummer.
+
+</pre><tt>I am not a C programmer, so this stuff usually makes no sense to me at  
+</tt><tt>all.
+</tt><pre style="margin: 0em;">
+
+</pre><tt>I googled around a bit and found that apparently this has something to  
+</tt><tt>do with the fact that my /tmp directory is mounted as noexec  
+</tt><tt>(/etc/fstab). So I switch CPAN/Config.pm to tell it to build everything  
+</tt><tt>in /root instead of /tmp (so it uses /root/.cpan instead of  
+</tt><tt>/tmp/.cpan).
+</tt><pre style="margin: 0em;">
+
+Voila, everything is peachy again.
+
+</pre><tt>I don't understand dynamic linking libraries or any of that goo. Maybe  
+</tt><tt>I should learn C some day. I seem to need to know C for about 3 hours  
+</tt><tt>per year, usually when building stuff... Not really motivated to study  
+</tt><tt>C for 3 years just to save myself a few hours a year... :)  Perl has  
+</tt><tt>made me lazzzzy...
+</tt><pre style="margin: 0em;">
+
+j
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00597.html">[Omaha.pm] Test::More warning</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00599.html">[Omaha.pm] Meeting: Thr Oct 20 @ 7pm. Free food!</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00597.html">[Omaha.pm] Test::More warning</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00599.html">[Omaha.pm] Meeting: Thr Oct 20 @ 7pm. Free food!</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00598"><strong>Date</strong></a></li>
+<li><a href="threads.html#00598"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

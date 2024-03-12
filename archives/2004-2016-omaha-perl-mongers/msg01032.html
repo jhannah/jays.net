@@ -1,0 +1,148 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Debugger (or Carp?): How can I detect the creation	of a key in a hash object? -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 6 Jul 2006 16:28:26 &#45;0000 -->
+<!--X-Message-Id: 29AB736ABCE5C745ABF9C93B02F2C27B05A378C3@exchange2k3.omnihotels.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Debugger (or Carp?): How can I detect the creation	of a key in a hash object?</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01031.html">Date Prev</a>][<a href="msg01033.html">Date Next</a>][<a href="msg01031.html">Thread Prev</a>][<a href="msg01033.html">Thread Next</a>][<a href="maillist.html#01032">Date Index</a>][<a href="threads.html#01032">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Debugger (or Carp?): How can I detect the creation	of a key in a hash object?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Debugger (or Carp?): How can I detect the creation	of a key in a hash object?</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 6 Jul 2006 11:28:17 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcahGDargCHk/du/RvqVYTjHp/ELngAADpxA</li>
+<li><em>Thread-topic</em>: [Omaha.pm] Debugger (or Carp?): How can I detect the creation of	a key in a hash object?</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>&gt; From: Andy Lester &lt;andy@petdance.com&gt;
+&gt; Why are you trying to detect the creation of a key?  Is it so 
+&gt; you can set a breakpoint on it?
+
+That specific key should never be set. My program is correctly puking
+because it exists. For the life of me, though, I can't find where that
+key is springing into existence. 
+
+So, I want the debugger to stop wherever that key is being set, or I
+want some Carp noise (w/ stack backtrace) to print out when it just got
+set. Either way I'd then now where it happened. 
+
+Right now I just know that it did happen somewhere, which doesn't
+help...
+
+------------
+
+God save the queen, I'm subclassing Tie::Hash:
+
+$ cat j.pl
+package JayDebug;
+use Carp qw( cluck );
+use Tie::Hash;
+our @ISA = (&quot;Tie::StdHash&quot;);
+sub STORE {
+   my ($self, $key, $value) = @_;
+   cluck &quot;key [$key] is being set to [$value]&quot;;
+   $self-&gt;{$key} = $value;
+}
+
+package main;
+my %j;
+tie %j, &quot;JayDebug&quot;;
+$j{a} = 1;
+$j{b} = 2;
+$j{a} = 3;
+print join &quot;|&quot;, keys %j;
+print &quot;\n&quot;;
+
+$ perl j.pl
+key [a] is being set to [1] at j.pl line 8
+        JayDebug::STORE('JayDebug=HASH(0x81599c8)', 'a', 1) called at
+j.pl line 15
+key [b] is being set to [2] at j.pl line 8
+        JayDebug::STORE('JayDebug=HASH(0x81599c8)', 'b', 2) called at
+j.pl line 16
+key [a] is being set to [3] at j.pl line 8
+        JayDebug::STORE('JayDebug=HASH(0x81599c8)', 'a', 3) called at
+j.pl line 17
+a|b
+
+
+Wow. I'm deep in it now...
+
+j
+gathering more deep black magic 
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01033" href="msg01033.html">Re: [Omaha.pm] Debugger (or Carp?): How can I detect the creation	of a key in a hash object?</a></strong>
+<ul><li><em>From:</em> Andy Lester &lt;andy@petdance.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01031.html">[Omaha.pm] &quot;Any technology sufficiently advanced is	indistinguishable from a Perl script.&quot;</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01033.html">Re: [Omaha.pm] Debugger (or Carp?): How can I detect the creation	of a key in a hash object?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01031.html">[Omaha.pm] &quot;Any technology sufficiently advanced is	indistinguishable from a Perl script.&quot;</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01033.html">Re: [Omaha.pm] Debugger (or Carp?): How can I detect the creation	of a key in a hash object?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01032"><strong>Date</strong></a></li>
+<li><a href="threads.html#01032"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

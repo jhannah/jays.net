@@ -1,0 +1,146 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Perl and recursion... -->
+<!--X-From-R13: "Rnavry Zvaqre" &#60;qnaNyvaqre.bet> -->
+<!--X-Date: 15 Nov 2005 17:34:33 &#45;0000 -->
+<!--X-Message-Id: 2379.68.13.86.85.1132076062.squirrel@mail.linder.org -->
+<!--X-Content-Type: multipart/alternative -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Perl and recursion...</title>
+<link rev="made" href="mailto:dan@linder.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00651.html">Date Prev</a>][<a href="msg00653.html">Date Next</a>][<a href="msg00651.html">Thread Prev</a>][<a href="msg00653.html">Thread Next</a>][<a href="maillist.html#00652">Date Index</a>][<a href="threads.html#00652">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Perl and recursion...</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Subject</em>: [Omaha.pm] Perl and recursion...</li>
+<li><em>From</em>: &quot;Daniel Linder&quot; &lt;<a href="mailto:dan%40linder.org">dan@linder.org</a>&gt;</li>
+<li><em>Date</em>: Tue, 15 Nov 2005 11:34:22 -0600 (CST)</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Importance</em>: Normal</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: <a href="mailto:dan%40linder.org">dan@linder.org</a>, &quot;Perl Mongers of Omaha,	Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: SquirrelMail/1.4.5</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+I'm trying to setup a script to recursively step through a directory and
+take action on files and directories.&nbsp; Pretty simple, eh?&nbsp; <br/>
+<br/>
+My script runs perfectly well and can handle the files and directory
+entries differently, it is only when I recursively call the subroutine
+that it fails.&nbsp; The script recursively dives into the sub-directory,
+but when it is done with that directory the recursive call appears to kill
+the whole loop.<br/>
+<br/>
+Here is my code -- what am I missing?<br/>
+<br/>
+<pre>     1        #!/bin/perl -w<br/>
+2        use strict;<br/>
+3        <br/>
+4        sub ProcFiles {<br/>
+5                my $dir = shift;<br/>
+6        <br/>
+7                opendir (DIR, $dir) or die $!;<br/>
+8        <br/>
+9                while (my $file = readdir(DIR)) {<br/>
+10                        next if ( -d &quot;$dir/$file&quot; &amp;&amp;
+$file =~ /^\./);<br/>
+11                        if (-d &quot;$dir/$file&quot;) {<br/>
+12                                printf (&quot;Diving into
+\&quot;%s/%s\&quot;.\n&quot;, $dir, $file);<br/>
+13
+&amp;ProcFiles(&quot;$dir/$file&quot;);<br/>
+14                                next;<br/>
+15                        }<br/>
+16        <br/>
+17                        printf (&quot;Adding
+\&quot;%s/%s\&quot;.\n&quot;, $dir, $file);<br/>
+18                }<br/>
+19        <br/>
+20                closedir(DIR);<br/>
+21        }<br/>
+22        <br/>
+23        &amp;ProcFiles (&quot;/tmp&quot;);</pre>
+Dan<br/>
+<br/>
+<br/>
+- - - - -<br/>
+&quot;Wait for that wisest of all counselors, time.&quot; -- Pericles<br/>
+&quot;I do not fear computer, I fear the lack of them.&quot; -- Isaac
+Asimov<br/>
+GPG fingerprint:6FFD DB94 7B96 0FD8 EADF  2EE0 B2B0 CC47 4FDE 9B68
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.1 (GNU/Linux)
+
+iD8DBQFDehwesrDMR0/em2gRAmPOAKCFjcQ3dUGuDjPx1jrr8xPDT57JegCgg/W6
+mNoWjzNdW7e1BjjoP0x6VdE=
+=kDJ/
+-----END PGP SIGNATURE-----
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00653" href="msg00653.html">Re: [Omaha.pm] Perl and recursion...</a></strong>
+<ul><li><em>From:</em> Theodore Katseres &lt;tedkat@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00651.html">[Omaha.pm] Nov 17th mtg CANCELLED (This Thr)</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00653.html">Re: [Omaha.pm] Perl and recursion...</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00651.html">[Omaha.pm] Nov 17th mtg CANCELLED (This Thr)</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00653.html">Re: [Omaha.pm] Perl and recursion...</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00652"><strong>Date</strong></a></li>
+<li><a href="threads.html#00652"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

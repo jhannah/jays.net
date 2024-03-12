@@ -1,0 +1,167 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: RE: [Omaha.pm] cisco vpn script -->
+<!--X-From-R13: "[vyyre, Epbgg Z (Aznun @rgjbexf)" &#60;fpbgg.y.zvyyreNuc.pbz> -->
+<!--X-Date: Tue, 9 Nov 2004 12:54:15 &#45;0600 -->
+<!--X-Message-Id: 1F7C0C8F4BD7C54A8BC55012FEF3DF6D0302E749@omaexc11.americas.cpqcorp.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>RE: [Omaha.pm] cisco vpn script</title>
+<link rev="made" href="mailto:scott.l.miller@hp.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00199.html">Date Prev</a>][<a href="msg00201.html">Date Next</a>][<a href="msg00199.html">Thread Prev</a>][<a href="msg00201.html">Thread Next</a>][<a href="maillist.html#00200">Date Index</a>][<a href="threads.html#00200">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>RE: [Omaha.pm] cisco vpn script</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>Subject</em>: RE: [Omaha.pm] cisco vpn script</li>
+<li><em>From</em>: &quot;Miller, Scott L (Omaha Networks)&quot; &lt;<a href="mailto:scott.l.miller%40hp.com">scott.l.miller@hp.com</a>&gt;</li>
+<li><em>Date</em>: Tue, 9 Nov 2004 12:54:13 -0600</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/archives/omaha-pm">http://mail.pm.org/archives/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=help">mailto:omaha-pm-request@mail.pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.mail.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@mail.pm.org">mailto:omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=subscribe">mailto:omaha-pm-request@mail.pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe">mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcTGhZh1wuGWLU5ITgGGOUplmwgJdAABmtrQ</li>
+<li><em>Thread-topic</em>: [Omaha.pm] cisco vpn script</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Yeah, I've done quite a bit in expect as well, but my current
+implementation is using the native TCL expect was originally
+developed under.  But those scripts are called from perl which
+collects status codes and creates the &quot;task reports&quot;.
+
+Anyway, the best solution I've come across to the password issue
+is to store the passwords in a read only file, under a read only
+directory for only that one user account that actually runs that
+code. (The directory part is optional, but a separate directory
+dedicated for keeping only password files helps make sure the
+permissions are set, and kept, correctly). That way you don't care
+if anyone else can read or attempt to run the script(s), the script
+itself won't be able to read the password data file if run by anyone
+else.  Of course this also means no fooling with the Effective UID's
+or anything like that.
+
+  Syntax error, Jay: You're missing a begin &lt;rant&gt; block :)
+
+-Scott
+
+-----Original Message-----
+From: omaha-pm-bounces@mail.pm.org
+[<a  rel="nofollow" href="mailto:omaha-pm-bounces@mail.pm.org]On">mailto:omaha-pm-bounces@mail.pm.org]On</a> Behalf Of Jay Hannah
+Sent: Tuesday, November 09, 2004 11:57 AM
+To: Perl Mongers of Omaha, Nebraska USA
+Subject: Re: [Omaha.pm] cisco vpn script
+
+
+
+On Nov 8, 2004, at 11:35 PM, Terry wrote:
+&gt; &lt;&lt;BRAINDUMP;
+&gt; One could argue about storing your VPN password in a script
+&gt; file....wonder if you could store it differently.....has to be passed
+&gt; to vpnclient in the clear.....can't reverse a hash....mmm...
+&gt; BRAINDUMP
+&gt;
+&gt;
+&gt; #!/usr/bin/perl
+&gt;
+&gt; use Expect;
+&gt;
+&gt; $username = 'terry';
+&gt; $password = 'password';
+
+Ahh, Expect.pm. I have a soft spot for it. -sniff!- -grin-
+
+Our passwords are in the clear in our source code too. I don't know how 
+to really get around that. Sure, you can obfuscate the heck out of it, 
+but you can't really make it unbreakable or you won't be able to use 
+it. -grin-
+
+chmod your source unreadable by untrusted accounts, and I guess you're 
+as OK as you can be.
+
+A vendor of ours forced us to start using a commercial version of PGP a 
+few years ago. It's a real pain to install, use, and fix (thank 
+goodness it is stable once running). You can't just run commands 
+command line and have the PGP engine do its thing, you have to have a 
+pgp daemon running and jump through a bunch of hoops to get anything 
+done. At the end of the day the data's on disk somewhere, unreadable by 
+untrusted users. Sure, it's obfuscated to the nth degree so even if you 
+were root it would probably be hard to break, but if you know what 
+you're doing I can't imagine it would be any harder than brute forcing 
+/etc/shadow...
+
+So much security stuff strikes me as existing solely for its own sake. 
+Yes, I'm agitated by the entire registrar &quot;certificate of authority&quot; 
+universe too. -grin-
+
+&lt;/rant&gt;
+
+j
+
+_______________________________________________
+Omaha-pm mailing list
+Omaha-pm@mail.pm.org
+<a  rel="nofollow" href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00201" href="msg00201.html">Re: [Omaha.pm] cisco vpn script</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00199.html">Re: [Omaha.pm] cisco vpn script</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00201.html">Re: [Omaha.pm] cisco vpn script</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00199.html">Re: [Omaha.pm] cisco vpn script</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00201.html">Re: [Omaha.pm] cisco vpn script</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00200"><strong>Date</strong></a></li>
+<li><a href="threads.html#00200"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

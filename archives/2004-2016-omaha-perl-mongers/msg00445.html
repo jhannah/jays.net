@@ -1,0 +1,116 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Fwd: [pm_admins] XML::LibXML choking on &#38;oum; -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 27 Jul 2005 05:30:44 &#45;0000 -->
+<!--X-Message-Id: d01c74b1a7485f901fcc4b5563401e35@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Fwd: [pm_admins] XML::LibXML choking on &amp;oum;</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00444.html">Date Prev</a>][<a href="msg00446.html">Date Next</a>][<a href="msg00444.html">Thread Prev</a>][<a href="msg00446.html">Thread Next</a>][<a href="maillist.html#00445">Date Index</a>][<a href="threads.html#00445">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Fwd: [pm_admins] XML::LibXML choking on &amp;oum;</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Omaha Perl Mongers &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Fwd: [pm_admins] XML::LibXML choking on &amp;oum;</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Wed, 27 Jul 2005 00:30:28 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+This is cool stuff, so I have to log it into our archive :)
+
+j
+
+
+From: Robert Spier &lt;rspier@pobox.com&gt;
+Date: July 26, 2005 11:27:21 PM CDT
+To: Jay Hannah &lt;jay@jays.net&gt;
+Cc: Perl Monger Admins &lt;pm_admins@pm.org&gt;
+Subject: Re: [pm_admins] XML::LibXML choking on &amp;oum;
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+./perl_mongers.xml:16445: parser error : Entity 'oum' not defined
+                         &lt;name&gt;Michel Kr&amp;oum;ll&lt;/name&gt;
+Thoughts? I'm going to take out whatever the fancy &amp;oum; character is
+supposed to be. Doesn't seem to render in my web browser anyway...
+</pre></blockquote><pre style="margin: 0em;">
+
+That's not valid barebones XML.  XML only declares 5 internal
+entities.  <a  rel="nofollow" href="http://www.xml.com/pub/a/98/08/xmlqna1.html#INTENT">http://www.xml.com/pub/a/98/08/xmlqna1.html#INTENT</a>
+
+HTML on the other hand, declares many:
+<a  rel="nofollow" href="http://www.w3.org/TR/REC-html40/sgml/entities.html">http://www.w3.org/TR/REC-html40/sgml/entities.html</a>
+
+&amp;oum; could be declared as an eternal entity.. but lets not go there.
+
+I'm guessing &amp;oum; is a typo for the HTML &amp;ouml; which in XML would be
+&amp;#246;
+
+-R
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00444.html">[Omaha.pm] Spreadsheet::WriteExcel hack</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00446.html">[Omaha.pm] New to the Omaha.pm list...</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00444.html">[Omaha.pm] Spreadsheet::WriteExcel hack</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00446.html">[Omaha.pm] New to the Omaha.pm list...</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00445"><strong>Date</strong></a></li>
+<li><a href="threads.html#00445"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

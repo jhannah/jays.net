@@ -1,0 +1,107 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] FW: Checking for installed PERL modules -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 5 Jan 2006 00:31:33 &#45;0000 -->
+<!--X-Message-Id: 29AB736ABCE5C745ABF9C93B02F2C27B037AFC7C@exchange2k3.omnihotels.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] FW: Checking for installed PERL modules</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00757.html">Date Prev</a>][<a href="msg00759.html">Date Next</a>][<a href="msg00762.html">Thread Prev</a>][<a href="msg00759.html">Thread Next</a>][<a href="maillist.html#00758">Date Index</a>][<a href="threads.html#00758">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] FW: Checking for installed PERL modules</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] FW: Checking for installed PERL modules</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Wed, 4 Jan 2006 18:32:15 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcYRbcBYSsMOFs/BTWW/OF5Xht7zpwAIXrtQAAAJk0A=</li>
+<li><em>Thread-topic</em>: Checking for installed PERL modules</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>From: Sean J. Edwards
+&gt; I found this on CPAN to check for installed modules:
+&gt; 
+&gt; #!/usr/local/bin/perl
+&gt; 
+&gt; use ExtUtils::Installed;
+&gt; my $instmod = ExtUtils::Installed-&gt;new();
+&gt; foreach my $module ($instmod-&gt;modules()) {
+&gt; my $version = $instmod-&gt;version($module) || &quot;???&quot;;
+&gt;        print &quot;$module -- $version\n&quot;;
+&gt; }
+
+Cool. &quot;perldoc perllocal&quot; is handy sometimes too.
+
+j
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00759" href="msg00759.html">Re: [Omaha.pm] FW: Checking for installed PERL modules</a></strong>
+<ul><li><em>From:</em> Jeff Bisbee &lt;jbisbee@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00757.html">[Omaha.pm] Preparation for use of GD::Graph &amp; Perl</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00759.html">Re: [Omaha.pm] FW: Checking for installed PERL modules</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00762.html">Re: [Omaha.pm] Preparation for use of GD::Graph &amp; Perl</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00759.html">Re: [Omaha.pm] FW: Checking for installed PERL modules</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00758"><strong>Date</strong></a></li>
+<li><a href="threads.html#00758"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

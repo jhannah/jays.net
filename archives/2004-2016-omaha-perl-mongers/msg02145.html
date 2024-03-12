@@ -1,0 +1,132 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Parsing a Text File -->
+<!--X-From-R13: "Quevf Eg. Bvreer" &#60;fgcvreerN@roeIrfyrlna.rqh> -->
+<!--X-Date: 29 May 2009 21:02:27 &#45;0000 -->
+<!--X-Message-Id: alpine.LFD.2.00.0905291559500.20336@grunthos.nebrwesleyan.edu -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 5261016f0905291340q170d6829xb049c9d7ec823848@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Parsing a Text File</title>
+<link rev="made" href="mailto:stpierre@NebrWesleyan.edu">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02144.html">Date Prev</a>][<a href="msg02146.html">Date Next</a>][<a href="msg02144.html">Thread Prev</a>][<a href="msg02146.html">Thread Next</a>][<a href="maillist.html#02145">Date Index</a>][<a href="threads.html#02145">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Parsing a Text File</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Parsing a Text File</li>
+<li><em>From</em>: &quot;Chris St. Pierre&quot; &lt;<a href="mailto:stpierre%40NebrWesleyan.edu">stpierre@NebrWesleyan.edu</a>&gt;</li>
+<li><em>Date</em>: Fri, 29 May 2009 16:02:18 -0500 (CDT)</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg02144.html">5261016f0905291340q170d6829xb049c9d7ec823848@mail.gmail.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg02144.html">5261016f0905291340q170d6829xb049c9d7ec823848@mail.gmail.com</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: Alpine 2.00 (LFD 1167 2008-08-23)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+On Fri, 29 May 2009, Andrew Embury wrote:
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+Can anyone point me in the right direction on a good way to regex match a
+file and only output the lines that contain one of the patterns in the
+array?  The text file is large, so iterating the file mutiple times is not a
+good solution for me.
+</pre></blockquote><pre style="margin: 0em;">
+
+If I understand your question correctly, you might try using
+Regexp::Assemble.   I.e., something like:
+
+use Regexp::Assemble;
+
+my $ra = Regexp::Assemble-&gt;new();
+foreach (@regexps) {
+  $ra-&gt;add($_);
+}
+my $re = $ra-&gt;re;
+
+open(my $FH, '&lt;', &quot;/path/to/file&quot;)
+  or die &quot;Couldn't read from /path/to/file: $!&quot;;
+while (&lt;$FH&gt;) {
+  /$re/ and print;
+}
+close($FH);
+
+Untested, YMMV, use only as directed, etc. :)
+
+Chris St. Pierre
+Unix Systems Administrator
+Nebraska Wesleyan University
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="02146" href="msg02146.html">Re: [Omaha.pm] Parsing a Text File</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="02144" href="msg02144.html">[Omaha.pm] Parsing a Text File</a></strong>
+<ul><li><em>From:</em> Andrew Embury &lt;drazak@ingenii.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02144.html">[Omaha.pm] Parsing a Text File</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02146.html">Re: [Omaha.pm] Parsing a Text File</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02144.html">[Omaha.pm] Parsing a Text File</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02146.html">Re: [Omaha.pm] Parsing a Text File</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02145"><strong>Date</strong></a></li>
+<li><a href="threads.html#02145"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

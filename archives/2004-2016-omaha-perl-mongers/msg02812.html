@@ -1,0 +1,133 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Learning perl &#45; working with LDAP -->
+<!--X-From-R13: Pvyy Pehfu &#60;ooehfuNtznvy.pbz> -->
+<!--X-Date: 24 Feb 2012 16:36:07 &#45;0000 -->
+<!--X-Message-Id: CAF&#45;Fg+gOkiKngJOGFBMzugDtvnf220KsuA53HNUcRzhFW53Kvw@mail.gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Learning perl - working with LDAP</title>
+<link rev="made" href="mailto:bbrush@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02811.html">Date Prev</a>][<a href="msg02813.html">Date Next</a>][<a href="msg02811.html">Thread Prev</a>][<a href="msg02813.html">Thread Next</a>][<a href="maillist.html#02812">Date Index</a>][<a href="threads.html#02812">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Learning perl - working with LDAP</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Subject</em>: [Omaha.pm] Learning perl - working with LDAP</li>
+<li><em>From</em>: Bill Brush &lt;<a href="mailto:bbrush%40gmail.com">bbrush@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Fri, 24 Feb 2012 10:36:00 -0600</li>
+<li><em>Authentication-results</em>: mr.google.com;	spf=pass (google.com: domain of <a href="mailto:bbrush%40gmail.com">bbrush@gmail.com</a>	designates 10.229.105.71 as permitted sender)	smtp.mail=<a href="mailto:bbrush%40gmail.com">bbrush@gmail.com</a>; dkim=pass header.i=<a href="mailto:bbrush%40gmail.com">bbrush@gmail.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=mime-version:date:message-id:subject:from:to:content-type;	bh=HtZAjMEYa0aq4HHMvNNt+Hc5fk3fYWRBZVmKUF6EKXk=;	b=hT1EfATzvsa7iBKdd04aoTt/1SzcV20Moub8JwcPuATVOwTM58NaYXxldTMYSsOHtq	GTDd7YdIoV6OTibOANBKn+N7UwJoZ3MtSTMEPDYoKj+jGyuQZmcP0U0k/WhoD29v9y8Q	RcKM9B0G6A80suWHaBNlZNdUG7S3+tBjGlRI8=</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hello everyone.  I just recently started down the path of learning
+Perl, and I'm working on my first script (program?  which is the
+correct term for Perl?).
+
+Anyway, I'm basing it on the example here:
+<a  rel="nofollow" href="http://www.developer.com/open/article.php/10930_3106601_3/Searching-Active-Directory-with-Perl.htm">http://www.developer.com/open/article.php/10930_3106601_3/Searching-Active-Directory-with-Perl.htm</a>
+
+Getting down to the details of the code, I want to throw out some
+lines and how I interpret them to make sure I'm reading them right.
+
+This line seems to be the money line of the example:
+
+my $results = $ad-&gt;search(base=&gt;$base,filter=&gt;$filter,attrs=&gt;$attrs);
+
+The way I read that is:
+
+my $results  =  (the output of this command will be stored in $results)
+
+$ad-&gt;search   (Use the search method in the previously created object $ad)
+
+(base=&gt;$base,filter=&gt;$filter,attrs=&gt;$attrs)  (The search method has 3
+inputs required [base,filter, attrs] which are stored in the 3
+variables.  Base corresponds to the LDAP context where the search will
+be performed, filter gives the criteria of the objects selected, and
+attrs gives the attributes to be returned.  Presumably these could
+have been written out explicitly rather than stored in variables, but
+this is infinitely more readable and flexible.)
+
+So am I reading that command correctly?
+
+Another question about the example script is minor, but I haven't
+found the answer elsewhere.  The author uses the operator .= (dot
+equal).  What does that do?
+
+A final question is more of a code style and efficiency question.  The
+author uses a FOR-NEXT loop to cycle through the alphabet.  Wouldn't a
+While (letter&lt;z) or Until (letter =z) loop structure be more concise?
+I'm trying to understand if there's an advantage to the author's
+method that I'm not grasping.
+
+Thanks!
+Bill
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="02813" href="msg02813.html">Re: [Omaha.pm] Learning perl - working with LDAP</a></strong>
+<ul><li><em>From:</em> Theodore Katseres &lt;tedkat@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02811.html">[Omaha.pm] HTTP 1.1 activity diagram</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02813.html">Re: [Omaha.pm] Learning perl - working with LDAP</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02811.html">[Omaha.pm] HTTP 1.1 activity diagram</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02813.html">Re: [Omaha.pm] Learning perl - working with LDAP</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02812"><strong>Date</strong></a></li>
+<li><a href="threads.html#02812"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

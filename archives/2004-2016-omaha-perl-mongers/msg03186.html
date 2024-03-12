@@ -1,0 +1,137 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Simplifying Time? -->
+<!--X-From-R13: Egreyvat Vnaraxnzc &#60;fgreyvatNunaraxnzc.pbz> -->
+<!--X-Date: 20 Mar 2014 17:53:00 &#45;0000 -->
+<!--X-Message-Id: CAEeqgLmDY&#45;F7vE+rKPP6E1NMjDurjR4vg7NtPo5t2kaCFRUwCg@mail.gmail.com -->
+<!--X-Content-Type: multipart/alternative -->
+<!--X-Reference: CAOXayVvcs4S3JL4HBL7dO090+vM3Bwv5PxYFTu2r4PyAcUtGdQ@mail.gmail.com -->
+<!--X-Reference: F761E54B&#45;1C66&#45;462F&#45;990C&#45;D0A6EBA74916@jays.net -->
+<!--X-Reference: CAOXayVuCeCw72&#45;PEnewaT1JHDpV7GYVXKEqfT70BtCVtK&#45;8mpg@mail.gmail.com -->
+<!--X-Reference: BDC66850&#45;70C1&#45;4F80&#45;9010&#45;4EDEEAA05870@jays.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Simplifying Time?</title>
+<link rev="made" href="mailto:sterling@hanenkamp.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg03185.html">Date Prev</a>][<a href="msg03187.html">Date Next</a>][<a href="msg03185.html">Thread Prev</a>][<a href="msg03187.html">Thread Next</a>][<a href="maillist.html#03186">Date Index</a>][<a href="threads.html#03186">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Simplifying Time?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Simplifying Time?</li>
+<li><em>From</em>: Sterling Hanenkamp &lt;<a href="mailto:sterling%40hanenkamp.com">sterling@hanenkamp.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 20 Mar 2014 12:52:57 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg03185.html">BDC66850-70C1-4F80-9010-4EDEEAA05870@jays.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm/">http://mail.pm.org/pipermail/omaha-pm/</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;CAOXayVvcs4S3JL4HBL7dO090+vM3Bwv5PxYFTu2r4PyAcUtGdQ@mail.gmail.com&gt;	&lt;<a href="msg03184.html">F761E54B-1C66-462F-990C-D0A6EBA74916@jays.net</a>&gt;	&lt;CAOXayVuCeCw72-PEnewaT1JHDpV7GYVXKEqfT70BtCVtK-8mpg@mail.gmail.com&gt;	&lt;<a href="msg03185.html">BDC66850-70C1-4F80-9010-4EDEEAA05870@jays.net</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<div dir="ltr">If you use DateTime instead of Class::Date, there&#39;s the DateTime::Duration class which will let you add durations:<div><br></div><div>my $duration = DateTime::Duration-&gt;new( seconds =&gt; 15 );</div><div>
+$duration-&gt;add( seconds =&gt; 73 );</div><div>$duration-&gt;add( weeks =&gt; 12 );</div><div><br></div><div>There are some modules to help with formatting durations too. I think the nicest of which is this one:</div><div>
+<br></div><div><a rel="nofollow" href="https://metacpan.org/pod/DateTime::Format::Human::Duration">https://metacpan.org/pod/DateTime::Format::Human::Duration</a></div><div><br></div><div>It&#39;s a pretty nice module.</div></div><div class="gmail_extra">
+<br><br><div class="gmail_quote">On Thu, Mar 20, 2014 at 11:23 AM, Jay Hannah <span dir="ltr">&lt;<a rel="nofollow" href="mailto:jay@jays.net" target="_blank">jay@jays.net</a>&gt;</span> wrote:<br><blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">
+On Mar 20, 2014, at 11:06 AM, Robert L. Harris &lt;<a rel="nofollow" href="mailto:robert.l.harris@gmail.com">robert.l.harris@gmail.com</a>&gt; wrote:<br>
+&gt; It looks like the reldate is what I want, not figure out how to use it. &#xA0;No clear examples on &quot;convert 561 seconds to 9 minutes, 21 seconds&quot; :)<br>
+<br>
+Does this help?<br>
+<br>
+<a rel="nofollow" href="https://github.com/jhannah/sandbox/blob/master/robertlharris/go.pl" target="_blank">https://github.com/jhannah/sandbox/blob/master/robertlharris/go.pl</a><br>
+<br>
+<br>
+$ cat <a rel="nofollow" href="http://go.pl" target="_blank">go.pl</a><br>
+use Class::Date;<br>
+use 5.10.0;<br>
+<br>
+my $reldate = new Class::Date::Rel &quot;561s&quot;;<br>
+say &quot;In minutes: &quot; . $reldate-&gt;min;<br>
+say &quot;In seconds: &quot; . $reldate-&gt;sec;<br>
+<br>
+my $seconds_only = $reldate - (int($reldate-&gt;min) * 60 . &#39;m&#39;); &#xA0;# subtract minutes away<br>
+say &quot;Seconds only: $seconds_only&quot;;<br>
+printf(&quot;%d minutes %d seconds\n&quot;, int($reldate / 60), $seconds_only);<br>
+<br>
+<br>
+$ perl <a rel="nofollow" href="http://go.pl" target="_blank">go.pl</a><br>
+In minutes: 9.35<br>
+In seconds: 561<br>
+Seconds only: 21<br>
+9 minutes 21 seconds<br>
+<div class="HOEnZb"><div class="h5"><br>
+<br>
+j<br>
+<br>
+<br>
+_______________________________________________<br>
+Omaha-pm mailing list<br>
+<a rel="nofollow" href="mailto:Omaha-pm@pm.org">Omaha-pm@pm.org</a><br>
+<a rel="nofollow" href="http://mail.pm.org/mailman/listinfo/omaha-pm" target="_blank">http://mail.pm.org/mailman/listinfo/omaha-pm</a><br>
+</div></div></blockquote></div><br><br clear="all"><div><br></div>-- <br>Andrew Sterling Hanenkamp<br><a rel="nofollow" href="mailto:sterling@hanenkamp.com">sterling@hanenkamp.com</a><br>785.370.4454
+</div>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="03184" href="msg03184.html">Re: [Omaha.pm] Simplifying Time?</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+<li><strong><a name="03185" href="msg03185.html">Re: [Omaha.pm] Simplifying Time?</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg03185.html">Re: [Omaha.pm] Simplifying Time?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg03187.html">Re: [Omaha.pm] Sample HTTP interaction script.</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg03185.html">Re: [Omaha.pm] Simplifying Time?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg03187.html">Re: [Omaha.pm] Sample HTTP interaction script.</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#03186"><strong>Date</strong></a></li>
+<li><a href="threads.html#03186"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

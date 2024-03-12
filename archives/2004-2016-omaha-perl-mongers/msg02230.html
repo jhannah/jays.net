@@ -1,0 +1,145 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Self monitoring a perl scripts memory usage... -->
+<!--X-From-R13: Rna Zvaqre &#60;qnaNyvaqre.bet> -->
+<!--X-Date: 28 Oct 2009 19:10:43 &#45;0000 -->
+<!--X-Message-Id: 3e2be50910281210s4e088cdcl438df6c26710d2bf@mail.gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 3e2be50910211217o50073897nc0570dc073d4e548@mail.gmail.com -->
+<!--X-Reference: 8FB7FD39&#45;F9D2&#45;4340&#45;A2F6&#45;7804F6AB2389@jays.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Self monitoring a perl scripts memory usage...</title>
+<link rev="made" href="mailto:dan@linder.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02229.html">Date Prev</a>][<a href="msg02231.html">Date Next</a>][<a href="msg02221.html">Thread Prev</a>][<a href="msg02241.html">Thread Next</a>][<a href="maillist.html#02230">Date Index</a>][<a href="threads.html#02230">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Self monitoring a perl scripts memory usage...</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Self monitoring a perl scripts memory usage...</li>
+<li><em>From</em>: Dan Linder &lt;<a href="mailto:dan%40linder.org">dan@linder.org</a>&gt;</li>
+<li><em>Date</em>: Wed, 28 Oct 2009 14:10:18 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg02221.html">8FB7FD39-F9D2-4340-A2F6-7804F6AB2389@jays.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg02218.html">3e2be50910211217o50073897nc0570dc073d4e548@mail.gmail.com</a>&gt; 	&lt;<a href="msg02221.html">8FB7FD39-F9D2-4340-A2F6-7804F6AB2389@jays.net</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>On Wed, Oct 21, 2009 at 15:40, Jay Hannah &lt;jay@jays.net&gt; wrote:
+&gt; Wow. That's a big process. &#xA0;:) &#xA0;You have to have all that in memory all at
+&gt; once? Can you cache out some of it or something? (Cache::FileCache?)
+
+The script is building up a large hash table in RAM which is then
+dumped to a text file when it finishes.  In this exact instance, the
+system is expanding user/group entries that were dumped from a Windows
+domain controller.  Since the domain is very dynamic, the actual RAM
+requirements change day-to-day so it doesn't fail every day.
+
+The quick and dirty solution is to bump up the ulimit on the account
+that the process is running under.  But, that's not the Perl solution.
+
+My first inclination was to capture the system events and exit the
+subroutine cleanly.  Unfortunately the OOM signal is not allowed to be
+captured by the program...
+
+I did some digging around and there is a special Perl variable $^M -
+the &quot;Emergency Memory pool&quot; variable.  In short, the variable is
+_documented_ to allow a Perl script to cleanly handle getting low on
+memory, but apparently it is not handled within the Perl interperter
+itself.
+
+See &quot;Is $^M a leftover April Fool?&quot; :
+<a  rel="nofollow" href="http://www.perlmonks.org/index.pl?node_id=287850">http://www.perlmonks.org/index.pl?node_id=287850</a>
+
+The only work around I have right now is that the Perl interpreter
+seems (or the OS?) prints &quot;out of memory&quot; to the screen as it is being
+killed.  When I run the script from within a wrapper script, the
+wrapper can capture the &quot;out of memory&quot; in the output and I can search
+for that and report back.  Not a great answer, but it's something.
+
+I'm still pursuing the $^M variable.  I'm hoping I can find the key
+code that makes it work.
+
+Dan
+
+-- 
+******************* ***************** ************* ***********
+******* ***** *** **
+&quot;Quis custodiet ipsos custodes?&quot; (Who can watch the watchmen?) -- from
+the Satires of Juvenal
+&quot;I do not fear computers, I fear the lack of them.&quot; -- Isaac Asimov (Author)
+** *** ***** ******* *********** ************* *****************
+*******************
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="02241" href="msg02241.html">Re: [Omaha.pm] Self monitoring a perl scripts memory usage...</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="02218" href="msg02218.html">[Omaha.pm] Self monitoring a perl scripts memory usage...</a></strong>
+<ul><li><em>From:</em> Dan Linder &lt;dan@linder.org&gt;</li></ul></li>
+<li><strong><a name="02221" href="msg02221.html">Re: [Omaha.pm] Self monitoring a perl scripts memory usage...</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02229.html">[Omaha.pm] Pet Paradise: Ruby &gt; Perl &gt; Erlang!</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02231.html">[Omaha.pm] Fwd: Web site consulting work</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02221.html">Re: [Omaha.pm] Self monitoring a perl scripts memory usage...</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02241.html">Re: [Omaha.pm] Self monitoring a perl scripts memory usage...</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02230"><strong>Date</strong></a></li>
+<li><a href="threads.html#02230"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

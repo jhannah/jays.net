@@ -1,0 +1,107 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Pulling in a hash via "exec"...FAIL -->
+<!--X-From-R13: "Rna Zvaqre" &#60;qnaNyvaqre.bet> -->
+<!--X-Date: 6 Aug 2008 22:09:12 &#45;0000 -->
+<!--X-Message-Id: 3e2be50808061508x68b59c87u9ea4716e347ec474@mail.gmail.com -->
+<!--X-Content-Type: multipart/alternative -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Pulling in a hash via &quot;exec&quot;...FAIL</title>
+<link rev="made" href="mailto:dan@linder.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01798.html">Date Prev</a>][<a href="msg01800.html">Date Next</a>][<a href="msg01798.html">Thread Prev</a>][<a href="msg01800.html">Thread Next</a>][<a href="maillist.html#01799">Date Index</a>][<a href="threads.html#01799">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Pulling in a hash via &quot;exec&quot;...FAIL</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Pulling in a hash via &quot;exec&quot;...FAIL</li>
+<li><em>From</em>: &quot;Dan Linder&quot; &lt;<a href="mailto:dan%40linder.org">dan@linder.org</a>&gt;</li>
+<li><em>Date</em>: Wed, 6 Aug 2008 17:08:58 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<div dir="ltr"><span style="font-family: courier new,monospace;">I&#39;ve got one program that generates a hash and then uses Data::Dump to write this structure to a text file:</span><br style="font-family: courier new,monospace;">
+<span style="font-family: courier new,monospace;">printf FILE Data::Dumper-&gt;Dump(\%fields],[&#39;fields&#39;]);</span><br style="font-family: courier new,monospace;"><br style="font-family: courier new,monospace;"><span style="font-family: courier new,monospace;">The resulting file contains this:</span><br style="font-family: courier new,monospace;">
+<span style="font-family: courier new,monospace;">--- begin contents ---</span><br style="font-family: courier new,monospace;"><span style="font-family: courier new,monospace;">$fields = {</span><br style="font-family: courier new,monospace;">
+<span style="font-family: courier new,monospace;">&nbsp; &#39;FIELD1&#39; =&gt; {</span><br style="font-family: courier new,monospace;"><span style="font-family: courier new,monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; FIRSTNAME =&gt; &#39;Joe&#39;</span>,<br style="font-family: courier new,monospace;">
+<span style="font-family: courier new,monospace;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; LASTNAME =&gt; &#39;Smith&#39;</span><br style="font-family: courier new,monospace;"><span style="font-family: courier new,monospace;">&nbsp; }</span><br style="font-family: courier new,monospace;">
+<span style="font-family: courier new,monospace;">}</span><br style="font-family: courier new,monospace;"><span style="font-family: courier new,monospace;">--- end contents ---</span><br style="font-family: courier new,monospace;">
+<br style="font-family: courier new,monospace;"><span style="font-family: courier new,monospace;">Unfortunately, when I try to use &quot;eval&quot; to pull this hash variable construct into a second running process:</span><br style="font-family: courier new,monospace;">
+<span style="font-family: courier new,monospace;">--- begin contents ---</span><br style="font-family: courier new,monospace;" clear="all"><span style="font-family: courier new,monospace;">sub retrieve_fields {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; my ( $file )=@_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; my %fields;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; open(FILE, $file)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; local $/;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; eval &lt;FILE&gt;;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return %fields;<br>}<br></span><span style="font-family: courier new,monospace;">--- end contents ---</span><br style="font-family: courier new,monospace;" clear="all">
+<br style="font-family: courier new,monospace;"><span style="font-family: courier new,monospace;">When I run the second program, perl dies on the &quot;eval&quot; line with this error:</span><br style="font-family: courier new,monospace;">
+<span style="font-family: courier new,monospace;">Variable &quot;$fields&quot; is not imported at (eval 125)[testprog.pl:33] line 1, &lt;FILE&gt; chunk 1.</span><br style="font-family: courier new,monospace;"><br style="font-family: courier new,monospace;">
+<span style="font-family: courier new,monospace;">The odd thing is if the Data::Dump file is changed to &quot;%fields = ( ... )&quot; then the &quot;eval&quot; works!?!?</span><br style="font-family: courier new,monospace;">
+<br style="font-family: courier new,monospace;"><span style="font-family: courier new,monospace;">I&#39;ve found some notes about using &quot;our&quot; and &quot;use vars qw(...)&quot;.&nbsp; Anyone else have any suggestions?</span><br style="font-family: courier new,monospace;">
+<br style="font-family: courier new,monospace;"><span style="font-family: courier new,monospace;">Dan</span><br style="font-family: courier new,monospace;"><br style="font-family: courier new,monospace;"><span style="font-family: courier new,monospace;">-- </span><br style="font-family: courier new,monospace;">
+<span style="font-family: courier new,monospace;">&quot;Quis custodiet ipsos custodes?&quot; (Who can watch the watchmen?) -- from the Satires of Juvenal</span><br style="font-family: courier new,monospace;"><span style="font-family: courier new,monospace;">&quot;I do not fear computers, I fear the lack of them.&quot; -- Isaac Asimov (Author)</span><br style="font-family: courier new,monospace;">
+<span style="font-family: courier new,monospace;">** *** ***** ******* *********** *************</span><br style="font-family: courier new,monospace;">
+</div>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01800" href="msg01800.html">Re: [Omaha.pm] Pulling in a hash via &quot;exec&quot;...FAIL</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+<li><strong><a name="01803" href="msg01803.html">Re: [Omaha.pm] Pulling in a hash via &quot;exec&quot;...FAIL</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01798.html">[Omaha.pm] perl -MTest::WWW::Mechanize::Catalyst\ 100</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01800.html">Re: [Omaha.pm] Pulling in a hash via &quot;exec&quot;...FAIL</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01798.html">[Omaha.pm] perl -MTest::WWW::Mechanize::Catalyst\ 100</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01800.html">Re: [Omaha.pm] Pulling in a hash via &quot;exec&quot;...FAIL</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01799"><strong>Date</strong></a></li>
+<li><a href="threads.html#01799"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

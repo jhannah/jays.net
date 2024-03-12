@@ -1,0 +1,113 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] [OT] Subversion assistance... -->
+<!--X-From-R13: Rna Zvaqre &#60;qnaNyvaqre.bet> -->
+<!--X-Date: 16 Feb 2009 19:20:19 &#45;0000 -->
+<!--X-Message-Id: 3e2be50902161120h647713c4i4fc8c17b16894bbb@mail.gmail.com -->
+<!--X-Content-Type: multipart/alternative -->
+<!--X-Reference: 3e2be50902110909w503033d5g929d1dcc259094fb@mail.gmail.com -->
+<!--X-Reference: 499312C1.3030608@travisbsd.org -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] [OT] Subversion assistance...</title>
+<link rev="made" href="mailto:dan@linder.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02028.html">Date Prev</a>][<a href="msg02030.html">Date Next</a>][<a href="msg02014.html">Thread Prev</a>][<a href="msg02030.html">Thread Next</a>][<a href="maillist.html#02029">Date Index</a>][<a href="threads.html#02029">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] [OT] Subversion assistance...</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] [OT] Subversion assistance...</li>
+<li><em>From</em>: Dan Linder &lt;<a href="mailto:dan%40linder.org">dan@linder.org</a>&gt;</li>
+<li><em>Date</em>: Mon, 16 Feb 2009 13:20:09 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg02014.html">499312C1.3030608@travisbsd.org</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg02013.html">3e2be50902110909w503033d5g929d1dcc259094fb@mail.gmail.com</a>&gt;	&lt;<a href="msg02014.html">499312C1.3030608@travisbsd.org</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+Thanks for the notes.&nbsp; I&#39;ve got one more question - probably much more basic but I&#39;m banging my head against it.<br><br>Regarding the trunk/tags/branch (TTB) directories that show up within the subversion repository...&nbsp; Should those be automatically created when I do the &quot;svnadmin create&quot;, or should I be creating them myself manually?<br>
+<br>Here are the steps I&#39;ve done but it seems like the mkdir steps shouldn&#39;t be needed since TTB are so central to the functioning of subversion.<br><br>1: svnadmin create $NEWREPO<br>2: chown -R apache:apache $NEWREPO<br>
+3: TEMPDIR=`mktemp -d $NEWREPO.XX`<br>4: svn co file:///path/to/$NEWREPO/ $TEMPDIR<br>5: mkdir $TEMPDIR/{branches,tags,trunk}<br>6: svn add $TEMPDIR/{branches,tags,trunk}<br>7: svn ci -m &quot;Initial repository setup&quot; $TEMPDIR/<br>
+8: Create the entries in the Apache configuration file (/etc/httpd/conf.d/subversion.conf in RedHat/CentOS, /etc/apache2/mods-enabled/dav_svn.conf in Ubuntu/Debian):<br>&lt;Location /path/to/$NEWREPO&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DAV svn<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SVNPath /srv/path/to/$NEWREPO<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AuthType Basic<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AuthName &quot;$NEWREPO Repository&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AuthUserFile /srv/path/to/.htpasswd<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Require valid-user<br>&lt;/Location&gt;<br>9: Restart apache<br>
+<br>After doing all this, I am able to perform a &quot;svn co <a rel="nofollow" href="http://svnserver/path/to/$NEWREPO/trunk">http://svnserver/path/to/$NEWREPO/trunk</a>&quot;.<br><br>Dan<br><br><div class="gmail_quote">On Wed, Feb 11, 2009 at 12:02 PM, Travis McArthur <span dir="ltr">&lt;<a rel="nofollow" href="mailto:travis@travisbsd.org">travis@travisbsd.org</a>&gt;</span> wrote:<br>
+<blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;">svnadmin help dump<br>
+svnadmin help load<br>
+<br>
+That should take care of you.<br>
+<br>
+Best Regards,<br>
+Travis<br></blockquote></div><br clear="all"><br>-- <br>&quot;Quis custodiet ipsos custodes?&quot; (Who can watch the watchmen?) -- from the Satires of Juvenal<br>&quot;I do not fear computers, I fear the lack of them.&quot; -- Isaac Asimov (Author)<br>
+** *** ***** ******* *********** *************<br>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="02030" href="msg02030.html">Re: [Omaha.pm] [OT] Subversion assistance...</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="02013" href="msg02013.html">[Omaha.pm] [OT] Subversion assistance...</a></strong>
+<ul><li><em>From:</em> Dan Linder &lt;dan@linder.org&gt;</li></ul></li>
+<li><strong><a name="02014" href="msg02014.html">Re: [Omaha.pm] [OT] Subversion assistance...</a></strong>
+<ul><li><em>From:</em> Travis McArthur &lt;travis@travisbsd.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02028.html">[Omaha.pm] Class::Sniff</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02030.html">Re: [Omaha.pm] [OT] Subversion assistance...</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02014.html">Re: [Omaha.pm] [OT] Subversion assistance...</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02030.html">Re: [Omaha.pm] [OT] Subversion assistance...</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02029"><strong>Date</strong></a></li>
+<li><a href="threads.html#02029"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

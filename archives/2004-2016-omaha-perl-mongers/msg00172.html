@@ -1,0 +1,198 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Test::More SKIP -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: Tue, 5 Oct 2004 11:27:20 &#45;0500 -->
+<!--X-Message-Id: 002201c4aaf8$27870d30$4722000a@omarests2 -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Test::More SKIP</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00171.html">Date Prev</a>][<a href="msg00173.html">Date Next</a>][<a href="msg00171.html">Thread Prev</a>][<a href="msg00174.html">Thread Next</a>][<a href="maillist.html#00172">Date Index</a>][<a href="threads.html#00172">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Test::More SKIP</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Test::More SKIP</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Tue, 5 Oct 2004 11:27:05 -0500</li>
+<li><em>Cc</em>: </li>
+<li><em>Importance</em>: Normal</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/archives/omaha-pm">http://mail.pm.org/archives/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=help">mailto:omaha-pm-request@mail.pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.mail.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@mail.pm.org">mailto:omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=subscribe">mailto:omaha-pm-request@mail.pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe">mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: <a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>, &quot;Perl Mongers of Omaha,	Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+The SKIP feature of Test::More is pretty slick. I've got a test file in which some tests will only work on one server, other tests will only work on another server, and the rest won't work anywhere.
+
+&gt;From the first server, only the first 19 tests are valid:
+
+bash-2.03$ perl SQLManipulate.t
+1..25
+ok 1 - new()
+ok 2 - rpt_rcmnd...
+ok 3 -    extent before
+ok 4 -    extent_size
+ok 5 -    next_extent_size
+ok 6 -    manipulate
+ok 7 -    extent after
+ok 8 - d_rate_code...
+ok 9 -    index before
+ok 10 -    manipulate
+ok 11 -    index after
+ok 12 - o_bid_adj...
+ok 13 -    2 indexes before
+ok 14 -    manipulate
+ok 15 -    2 indexes after
+ok 16 - rpt_comp_rates...
+ok 17 -    index before
+ok 18 -    manipulate
+ok 19 -    index after
+ok 20 # skip omni-res server tests
+ok 21 # skip omni-res server tests
+ok 22 # skip omni-res server tests
+ok 23 # skip omni-res server tests
+ok 24 # skip omni-res server tests
+ok 25 # skip omni-res server tests
+
+&gt;From the 2nd server, only test 1 and 21-25 are valid:
+
+(jhannah@omni-res.omnihotels.com) &gt; perl SQLManipulate.t
+1..25
+ok 1 - new()
+ok 2 # skip charm server tests
+ok 3 # skip charm server tests
+ok 4 # skip charm server tests
+ok 5 # skip charm server tests
+ok 6 # skip charm server tests
+ok 7 # skip charm server tests
+ok 8 # skip charm server tests
+ok 9 # skip charm server tests
+ok 10 # skip charm server tests
+ok 11 # skip charm server tests
+ok 12 # skip charm server tests
+ok 13 # skip charm server tests
+ok 14 # skip charm server tests
+ok 15 # skip charm server tests
+ok 16 # skip charm server tests
+ok 17 # skip charm server tests
+ok 18 # skip charm server tests
+ok 19 # skip charm server tests
+ok 20 - smls_bk_codes2...
+ok 21 -    create index ... using btree before
+ok 22 -    extent_size
+ok 23 -    next_extent_size
+ok 24 -    manipulate
+ok 25 -    create index ... using btree after
+
+And from this server, only test 1 is valid:
+
+[jhannah@king t]$ perl SQLManipulate.t
+1..25
+ok 1 - new()
+ok 2 # skip charm server tests
+ok 3 # skip charm server tests
+ok 4 # skip charm server tests
+ok 5 # skip charm server tests
+ok 6 # skip charm server tests
+ok 7 # skip charm server tests
+ok 8 # skip charm server tests
+ok 9 # skip charm server tests
+ok 10 # skip charm server tests
+ok 11 # skip charm server tests
+ok 12 # skip charm server tests
+ok 13 # skip charm server tests
+ok 14 # skip charm server tests
+ok 15 # skip charm server tests
+ok 16 # skip charm server tests
+ok 17 # skip charm server tests
+ok 18 # skip charm server tests
+ok 19 # skip charm server tests
+ok 20 # skip omni-res server tests
+ok 21 # skip omni-res server tests
+ok 22 # skip omni-res server tests
+ok 23 # skip omni-res server tests
+ok 24 # skip omni-res server tests
+ok 25 # skip omni-res server tests
+
+
+In the .t file, the first server code looks like this:
+
+----------------------
+use Sys::Hostname;
+my $hostname = hostname;
+
+SKIP: {
+   skip &quot;charm server tests&quot;, 18 unless ($hostname =~ /^charm/);
+   # all the tests are here...
+}
+----------------------
+
+
+Neat,
+
+j
+
+
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00171.html">[Omaha.pm] Randomize an array</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00173.html">[Omaha.pm] [patch] Sys::Syslog POD - $Sys::Syslog::host</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00171.html">[Omaha.pm] Randomize an array</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00174.html">[Omaha.pm] Test::More is() is cool</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00172"><strong>Date</strong></a></li>
+<li><a href="threads.html#00172"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,5 @@
+<LiTemplate>
+<li><strong>$SUBJECT$</strong>
+<ul><li>$DATE$ <em>From</em>: $FROM$</li></ul>
+</li>
+</LiTemplate>

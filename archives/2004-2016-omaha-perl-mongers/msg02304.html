@@ -1,0 +1,138 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Sanitizing user input to use in a regexp search. -->
+<!--X-From-R13: Egreyvat Vnaraxnzc &#60;fgreyvatNunaraxnzc.pbz> -->
+<!--X-Date: 22 Jan 2010 23:24:05 &#45;0000 -->
+<!--X-Message-Id: c185b40e1001221523n604231fev2538a80e8dceafd3@mail.gmail.com -->
+<!--X-Content-Type: multipart/alternative -->
+<!--X-Reference: 3e2be51001221455i5727be1eu277bf9cf6a7137e5@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Sanitizing user input to use in a regexp search.</title>
+<link rev="made" href="mailto:sterling@hanenkamp.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02303.html">Date Prev</a>][<a href="msg02305.html">Date Next</a>][<a href="msg02303.html">Thread Prev</a>][<a href="msg02305.html">Thread Next</a>][<a href="maillist.html#02304">Date Index</a>][<a href="threads.html#02304">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Sanitizing user input to use in a regexp search.</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Sanitizing user input to use in a regexp search.</li>
+<li><em>From</em>: Sterling Hanenkamp &lt;<a href="mailto:sterling%40hanenkamp.com">sterling@hanenkamp.com</a>&gt;</li>
+<li><em>Date</em>: Fri, 22 Jan 2010 17:23:58 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg02303.html">3e2be51001221455i5727be1eu277bf9cf6a7137e5@mail.gmail.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg02303.html">3e2be51001221455i5727be1eu277bf9cf6a7137e5@mail.gmail.com</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<div class="gmail_quote">On Fri, Jan 22, 2010 at 4:55 PM, Dan Linder <span dir="ltr">&lt;<a rel="nofollow" href="mailto:dan@linder.org">dan@linder.org</a>&gt;</span> wrote:<br><blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;">
+I&#39;m working on my inherited project trying to fix the various &quot;search&quot;<br>
+fields that have been added over the years. &#xA0;Some fields perform a<br>
+strict search for the text, others do the search but ignore case, some<br>
+allow basic ^$ regexp modifiers, others treat them as the characters<br>
+themselves. &#xA0; *sigh*<br>
+<br>
+Since the search string being supplied is coming straight from a text<br>
+field on a web page, I don&#39;t think I should use that text directly<br>
+inside a regexp query like this, should I:<br>
+<br>
+ &#xA0; &#xA0;$mycgi = CGI-&gt;new();<br>
+ &#xA0; &#xA0;$search_string = $mycgi-&gt;param(&#39;SEARCHSTRING);<br>
+ &#xA0; &#xA0;if ($data =~ /$search_string/io) {<br>
+ &#xA0; &#xA0; &#xA0; &#xA0;# Do something if we match...<br>
+ &#xA0; &#xA0;}<br>
+<br>
+My understanding is that it is/might be possible to get bad data<br>
+pushed into the $search_string and cause the /regexp/ call execute it<br>
+or perform something not intended. &#xA0;But if I<br>
+<br>
+Or am I/we being overly cautious? &#xA0;I&#39;ve tried stuffing a number of bad<br>
+things into the field and they don&#39;t seem to have any bad effect.<br></blockquote><div><br></div><div>You are definitely not being overcautious. Try searching for:&#xA0;</div><div><br></div><div>(?{open FH,&quot;/etc/passwd&quot;;local $/;print &lt;FH&gt;})</div>
+<div><br></div><div>I&#39;d recommend running anything through quotemeta() before using it in your regexp.</div><div>&#xA0;</div><blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;">
+
+<br>
+Thanks,<br>
+Dan<br>
+<br>
+--<br>
+***************** ************* *********** ******* ***** *** **<br>
+&quot;Quis custodiet ipsos custodes?&quot;<br>
+ &#xA0; &#xA0;(Who can watch the watchmen?)<br>
+ &#xA0; &#xA0;-- from the Satires of Juvenal<br>
+&quot;I do not fear computers, I fear the lack of them.&quot;<br>
+ &#xA0; &#xA0;-- Isaac Asimov (Author)<br>
+** *** ***** ******* *********** ************* *****************<br>
+_______________________________________________<br>
+Omaha-pm mailing list<br>
+<a rel="nofollow" href="mailto:Omaha-pm@pm.org">Omaha-pm@pm.org</a><br>
+<a rel="nofollow" href="http://mail.pm.org/mailman/listinfo/omaha-pm" target="_blank">http://mail.pm.org/mailman/listinfo/omaha-pm</a><br>
+</blockquote></div><br><br clear="all"><br>-- <br>Andrew Sterling Hanenkamp<br><a rel="nofollow" href="mailto:sterling@hanenkamp.com">sterling@hanenkamp.com</a><br>785.370.4454<br>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="02305" href="msg02305.html">Re: [Omaha.pm] Sanitizing user input to use in a regexp search.</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="02303" href="msg02303.html">[Omaha.pm] Sanitizing user input to use in a regexp search.</a></strong>
+<ul><li><em>From:</em> Dan Linder &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02303.html">[Omaha.pm] Sanitizing user input to use in a regexp search.</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02305.html">Re: [Omaha.pm] Sanitizing user input to use in a regexp search.</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02303.html">[Omaha.pm] Sanitizing user input to use in a regexp search.</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02305.html">Re: [Omaha.pm] Sanitizing user input to use in a regexp search.</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02304"><strong>Date</strong></a></li>
+<li><a href="threads.html#02304"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

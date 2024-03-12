@@ -1,0 +1,123 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] perl &#45;MTest::WWW::Mechanize::Catalyst\ 100 -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 6 Aug 2008 00:46:54 &#45;0000 -->
+<!--X-Message-Id: 8FF7E4AA&#45;0BCC&#45;46B2&#45;8DA9&#45;D73ED6E4E55A@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] perl -MTest::WWW::Mechanize::Catalyst\ 100</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01797.html">Date Prev</a>][<a href="msg01799.html">Date Next</a>][<a href="msg01797.html">Thread Prev</a>][<a href="msg01799.html">Thread Next</a>][<a href="maillist.html#01798">Date Index</a>][<a href="threads.html#01798">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] perl -MTest::WWW::Mechanize::Catalyst\ 100</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Nebraska USA Perl Mongers of Omaha &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] perl -MTest::WWW::Mechanize::Catalyst\ 100</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Tue, 5 Aug 2008 19:46:37 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<tt>Here's a neat way of figuring out what version of any given module  
+</tt><tt>you have. For example, if I tell Perl that I require  
+</tt><tt>Test::WWW::Mechanize::Catalyst version 100 it will fail and report to  
+</tt><tt>me what version I actually have:
+</tt><pre style="margin: 0em;">
+
+
+$ perl -MTest::WWW::Mechanize::Catalyst\ 100
+</pre><tt>Test::WWW::Mechanize::Catalyst version 100 required--this is only  
+</tt><tt>version 0.42.
+</tt><pre style="margin: 0em;">
+BEGIN failed--compilation aborted.
+
+
+Pretty slick, eh?  Thanks to rjbs @ YAPC &amp; IRC.  :)
+
+</pre><tt>(This trick isn't nearly as cool as the DBI-specific magic below, but  
+</tt><tt>this trick works for ANY module.)
+</tt><pre style="margin: 0em;">
+
+j
+
+
+
+$ perl -MDBI -e 'DBI-&gt;installed_versions'
+  Perl            : 5.008008    (i586-linux-thread-multi)
+  OS              : linux       (2.6.16)
+  DBI             : 1.601
+  DBD::mysql      : 3.0002
+  DBD::Sybase     : 1.08
+  DBD::Sponge     : 12.010002
+  DBD::SQLite     : 1.14
+  DBD::Proxy      : 0.2004
+  DBD::Informix   : 2007.0914
+  DBD::Gofer      : 0.010103
+  DBD::File       : 0.35
+  DBD::ExampleP   : 12.010007
+  DBD::DBM        : 0.03
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01797.html">Re: [Omaha.pm] Perl - Print current date as UTC(Zulu)</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01799.html">[Omaha.pm] Pulling in a hash via &quot;exec&quot;...FAIL</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01797.html">Re: [Omaha.pm] Perl - Print current date as UTC(Zulu)</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01799.html">[Omaha.pm] Pulling in a hash via &quot;exec&quot;...FAIL</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01798"><strong>Date</strong></a></li>
+<li><a href="threads.html#01798"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

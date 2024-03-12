@@ -1,0 +1,141 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] File migration quicky -->
+<!--X-From-R13: Urbetr @rvyy &#60;trbetraNarvyyarg.pbz> -->
+<!--X-Date: 16 Apr 2007 06:58:31 &#45;0000 -->
+<!--X-Message-Id: 20070416015814.erzq9rxf4so84k0w@www.neillnet.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: E59FF64509EEEA4C96BE4723AE9668537DDAED@exchange2k3.omnihotels.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] File migration quicky</title>
+<link rev="made" href="mailto:georgen@neillnet.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01375.html">Date Prev</a>][<a href="msg01377.html">Date Next</a>][<a href="msg01349.html">Thread Prev</a>][<a href="msg01350.html">Thread Next</a>][<a href="maillist.html#01376">Date Index</a>][<a href="threads.html#01376">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] File migration quicky</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Subject</em>: Re: [Omaha.pm] File migration quicky</li>
+<li><em>From</em>: George Neill &lt;<a href="mailto:georgen%40neillnet.com">georgen@neillnet.com</a>&gt;</li>
+<li><em>Date</em>: Mon, 16 Apr 2007 01:58:14 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01349.html">E59FF64509EEEA4C96BE4723AE9668537DDAED@exchange2k3.omnihotels.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01349.html">E59FF64509EEEA4C96BE4723AE9668537DDAED@exchange2k3.omnihotels.net</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: Internet Messaging Program (IMP) H3 (4.1)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+Jay,
+
+Quoting Jay Hannah &lt;jhannah@omnihotels.com&gt;:
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+Wrote this quick and dirty thing today.
+
+*nix gods probably have a command-line way? I suppose I could Perl golf
+it just for fun...
+</pre></blockquote><pre style="margin: 0em;">
+
+host:~ george$ cat move.sh
+#!/bin/bash
+
+if [ $# -ne 2 ]; then
+  echo &quot;Usage $0 &lt;old&gt; &lt;new&gt;&quot;
+  exit
+fi
+
+for entry in $1
+do
+  mv ${entry} ${entry/$1/$2}
+done
+
+
+host:~ george$ ls -ld /tmp/gg
+drwxr-xr-x   4 george  wheel  136 Apr 16 01:40 /tmp/gg
+host:~ george$ ./move.sh /tmp/gg/ /tmp/george/
+host:~ george$ ls -ld /tmp/gg
+ls: /tmp/gg: No such file or directory
+host:~ george$ ls -ld /tmp/george
+drwxr-xr-x   4 george  wheel  136 Apr 16 01:40 /tmp/george
+
+
+</pre><tt>... of course this script by itself doesn't do exactly what yours  
+</tt><tt>does, but it does show how nifty bash can be.  I am sure you could  
+</tt><tt>'find ... | xargs -n2 mv ...' to do the work of your .pl
+</tt><pre style="margin: 0em;">
+
+</pre><tt>Also, you might want to do a mkdir(dirname($new))  before your rename.  
+</tt><tt> Just incase your $dir2 doesn't have the same directory structure as  
+</tt><tt>$dir1 (unless, rename does that for you?)
+</tt><pre style="margin: 0em;">
+
+Later,
+George.
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01349" href="msg01349.html">[Omaha.pm] File migration quicky</a></strong>
+<ul><li><em>From:</em> &quot;Jay Hannah&quot; &lt;jhannah@omnihotels.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01375.html">Re: [Omaha.pm] Database -&gt; XML</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01377.html">[Omaha.pm] garbage in perldoc (dashes become &#xE2; characters, etc.)</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01349.html">[Omaha.pm] File migration quicky</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01350.html">Re: [Omaha.pm] GroovyQuiz.com is live, and has a Quiz for you!</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01376"><strong>Date</strong></a></li>
+<li><a href="threads.html#01376"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

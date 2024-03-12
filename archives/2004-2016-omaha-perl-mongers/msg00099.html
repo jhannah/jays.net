@@ -1,0 +1,156 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: RE: [Omaha.pm] bad perl &#45; need help &#45; dispatch table -->
+<!--X-From-R13: Vhtu Xnepr &#60;uwnepr2001Nlnubb.pbz> -->
+<!--X-Date: Sat, 28 Aug 2004 21:30:24 &#45;0500 -->
+<!--X-Message-Id: 20040829023024.77518.qmail@web90005.mail.scd.yahoo.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1F7C0C8F4BD7C54A8BC55012FEF3DF6D0302E68A@omaexc11.americas.cpqcorp.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>RE: [Omaha.pm] bad perl - need help - dispatch table</title>
+<link rev="made" href="mailto:hjarce2001@yahoo.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00098.html">Date Prev</a>][<a href="msg00100.html">Date Next</a>][<a href="msg00097.html">Thread Prev</a>][<a href="msg00093.html">Thread Next</a>][<a href="maillist.html#00099">Date Index</a>][<a href="threads.html#00099">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>RE: [Omaha.pm] bad perl - need help - dispatch table</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>Subject</em>: RE: [Omaha.pm] bad perl - need help - dispatch table</li>
+<li><em>From</em>: Hugh Jarce &lt;<a href="mailto:hjarce2001%40yahoo.com">hjarce2001@yahoo.com</a>&gt;</li>
+<li><em>Date</em>: Sat, 28 Aug 2004 19:30:24 -0700 (PDT)</li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00097.html">1F7C0C8F4BD7C54A8BC55012FEF3DF6D0302E68A@omaexc11.americas.cpqcorp.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=help">mailto:omaha-pm-request@mail.pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.mail.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@mail.pm.org">mailto:omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=subscribe">mailto:omaha-pm-request@mail.pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe">mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Miller, Scott L wrote:
+&gt; Said another way, you expect the files supplied on the command line
+&gt; to be processed in order, STDIN is usually on the line before the
+&gt; program even:
+&gt;
+&gt; cat somefile.txt | thisprogram.pl process-this-file.too and-this.one
+&gt;
+&gt; Therefore, the STDIN stuff comes before the first filename listed...
+
+No. Here is how a typical UNIX &quot;filter&quot; command works: if you put
+filenames on the command line, it will read those files (and ignore
+stdin); with no filenames, it reads stdin. Some commands (including
+cat and perl) further recognize a special &quot;filename&quot; of - which is
+just a shorthand for &quot;read stdin&quot;. Try it yourself.
+
+# cat a.tmp
+this is file a.tmp
+# cat b.tmp
+this is file b.tmp
+# cat c.tmp
+this is file c.tmp
+
+# cat a.tmp
+this is file a.tmp
+# cat &lt;a.tmp
+this is file a.tmp
+# cat b.tmp &lt;a.tmp
+this is file b.tmp
+
+# cat b.tmp | cat a.tmp c.tmp
+this is file a.tmp
+this is file c.tmp
+# cat b.tmp | cat a.tmp - c.tmp
+this is file a.tmp
+this is file b.tmp
+this is file c.tmp
+# cat a.tmp - c.tmp &lt;b.tmp
+this is file a.tmp
+this is file b.tmp
+this is file c.tmp
+
+# perl -ne 'print&quot;$ARGV:$_&quot;' a.tmp - c.tmp &lt;b.tmp
+a.tmp:this is file a.tmp
+-:this is file b.tmp
+c.tmp:this is file c.tmp
+
+&gt; is it correct to be able to say
+&gt;     thisprogram.pl &lt; somefile.txt ?
+
+Yes. And it is better style (and more efficient) than:
+
+cat somefile.txt | thisprogram.pl
+
+Quoting Tom Christiansen:
+  &quot;A wise man once said: if you find yourself calling cat with just
+   one argument, then you're probably doing something you shouldn't&quot;
+See &lt;<a  rel="nofollow" href="http://doc.novsu.ac.ru/oreilly/unix/upt/ch13_02.htm">http://doc.novsu.ac.ru/oreilly/unix/upt/ch13_02.htm</a>&gt;.
+
+Hugh.
+
+
+
+		
+_______________________________
+Do you Yahoo!?
+Win 1 of 4,000 free domain names from Yahoo! Enter now.
+<a  rel="nofollow" href="http://promotions.yahoo.com/goldrush">http://promotions.yahoo.com/goldrush</a>
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00097" href="msg00097.html">RE: [Omaha.pm] bad perl - need help - dispatch table</a></strong>
+<ul><li><em>From:</em> &quot;Miller, Scott L (Omaha Networks)&quot; &lt;scott.l.miller@hp.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00098.html">Re: [Omaha.pm] RE: wrong</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00100.html">[Omaha.pm] Re: [olug] Expect script help...</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00097.html">RE: [Omaha.pm] bad perl - need help - dispatch table</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00093.html">[Omaha.pm] RE: wrong</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00099"><strong>Date</strong></a></li>
+<li><a href="threads.html#00099"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

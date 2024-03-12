@@ -1,0 +1,111 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Perl and (horrors) calling an Assembly routine. -->
+<!--X-From-R13: Rna Zvaqre &#60;qnaNyvaqre.bet> -->
+<!--X-Date: 13 Oct 2009 18:07:33 &#45;0000 -->
+<!--X-Message-Id: 3e2be50910131107v49135a52nae60198b359a19c0@mail.gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Perl and (horrors) calling an Assembly routine.</title>
+<link rev="made" href="mailto:dan@linder.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02208.html">Date Prev</a>][<a href="msg02210.html">Date Next</a>][<a href="msg02250.html">Thread Prev</a>][<a href="msg02211.html">Thread Next</a>][<a href="maillist.html#02209">Date Index</a>][<a href="threads.html#02209">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Perl and (horrors) calling an Assembly routine.</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Perl and (horrors) calling an Assembly routine.</li>
+<li><em>From</em>: Dan Linder &lt;<a href="mailto:dan%40linder.org">dan@linder.org</a>&gt;</li>
+<li><em>Date</em>: Tue, 13 Oct 2009 13:07:08 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Considering how OS/platform agnostic Perl is, this might sound like a
+really odd question...
+
+Does anyone know if there is a way to include assembly routines or
+call out to an external binary blob?
+
+I am trying to write a CPU detection routine and on the Intel/AMD
+platform there is the &quot;cpuid&quot; operation that will return all the gory
+details about the hardware (cache size, number of physical processors,
+number of cores per processor, CPU family, speed, etc).
+
+I have some C code that I gleaned from Intel and AMDs websites, but it
+would be great if I could put this in a Perl script and then run it on
+all of my x86 systems (Linux, Solaris x86, etc), rather than having to
+re-compile it each time I need to update a section of the logic
+(outside the cpuid routines).
+
+DanL
+
+-- 
+******************* ***************** ************* ***********
+******* ***** *** **
+&quot;Quis custodiet ipsos custodes?&quot; (Who can watch the watchmen?) -- from
+the Satires of Juvenal
+&quot;I do not fear computers, I fear the lack of them.&quot; -- Isaac Asimov (Author)
+** *** ***** ******* *********** ************* *****************
+*******************
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02208.html">Re: [Omaha.pm] Meeting tonight</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02210.html">Re: [Omaha.pm] [odynug] Re: Meeting tonight</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02250.html">Re: [Omaha.pm] Wow. \d is a lot  :)</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02211.html">[Omaha.pm] DBIx::Class::Schema::Loader moniker_map</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02209"><strong>Date</strong></a></li>
+<li><a href="threads.html#02209"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

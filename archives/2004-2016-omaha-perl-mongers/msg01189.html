@@ -1,0 +1,480 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Jay on IRC &#45; print "$j " . int($j) . "\n";	# prints '14 13' -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 27 Oct 2006 11:22:42 &#45;0000 -->
+<!--X-Message-Id: B5FB5425&#45;F0B0&#45;4ADD&#45;B7C9&#45;82B9F2A21756@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Jay on IRC - print &quot;$j &quot; . int($j) . &quot;\n&quot;;	# prints '14 13'</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01188.html">Date Prev</a>][<a href="msg01190.html">Date Next</a>][<a href="msg01188.html">Thread Prev</a>][<a href="msg01190.html">Thread Next</a>][<a href="maillist.html#01189">Date Index</a>][<a href="threads.html#01189">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Jay on IRC - print &quot;$j &quot; . int($j) . &quot;\n&quot;;	# prints '14 13'</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Nebraska USA Perl Mongers of Omaha &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Jay on IRC - print &quot;$j &quot; . int($j) . &quot;\n&quot;;	# prints '14 13'</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Fri, 27 Oct 2006 06:21:57 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<tt>For the archive, here's me on IRC a year ago or something. #perl is  
+</tt><tt>explaining perl and C black magic to me. There may or may not have  
+</tt><tt>been a bug in my Perl / kernel installation...
+</tt><pre style="margin: 0em;">
+
+</pre><tt>That was one of those mind blowing mornings where perl was not doing  
+</tt><tt>what I thought it should.  :)
+</tt><pre style="margin: 0em;">
+
+j
+
+
+
+
+#perl: +ascent_ +phuct +nocarrier +Skunk
+*** End of /NAMES list.
+</pre><tt>*** Channel Mode is +spmtnl 123 *** Channel created at Monday, April  
+</tt><tt>16, 2001 5:48:56 AM
+</tt><pre style="margin: 0em;">
+*** #perl You're not channel operator
+*** Mode change &quot;+v dferret&quot; on #perl by Roderick
+  dferret: my $j = (log 16384) / (log 2);
+  dferret: print &quot;$j &quot; . int($j) . &quot;\n&quot;;  # prints '14 13'
+</pre><tt>  dferret: Whats up with that? If $j is really 13.9999999999 why  
+</tt><tt>doesn't it print like that?
+</tt><pre style="margin: 0em;">
+  dferret: (Linux 2.4.17)
+   joe321: number_format($num, 2) == 12.34
+   joe321: oops
+   joe321: wrong language
+   Kyriel: Beat me, daddy, eight-to-the-bar.
+    Somni: perldoc -q decimal
+    Somni: and follow the perlop reference
+</pre><tt>  dferret: I understand perldoc -q decimal. I don't understand why,  
+</tt><tt>if $j is really 13.99999999999 when I do a print $j it prints &quot;14&quot;...?
+</tt><tt>  dferret: If 'print $j' spit out 13.999999999999 I'd understand the  
+</tt><tt>problem.
+</tt><tt>*** taer (~tdunn@adsl-64-175-241-190.dsl.sntc01.pacbell.net) has  
+</tt><tt>joined channel #perl
+</tt><pre style="margin: 0em;">
+*** Mode change &quot;+v taer&quot; on #perl by Roderick
+    Somni: dferret: because floating point numbers are imprecise
+</pre><tt>  corwin_: [corwin@gw3 corwin]$ perl -le '$a = 13.99999999999; print  
+</tt><tt>$a'
+</tt><pre style="margin: 0em;">
+  corwin_: 13.99999999999
+</pre><tt>   cfedde: remember all that limit stuff from calculus?  Well here  
+</tt><tt>it is again.
+</tt><tt>  Psyche^: they are precise... they're just not real numbers in the  
+</tt><tt>mathematical sense :-)
+</tt><tt>    Somni: the floating point value doesn't match the reality of the  
+</tt><tt>calculation; I would call that imprecise
+</tt><tt>  dferret: So you're saying that print might round a floating point  
+</tt><tt>up to 14? I thought print would always print 13.9999999999 as  
+</tt><tt>13.9999999999999, but I'm getting &quot;14&quot;. I didn't think print would  
+</tt><tt>round.
+</tt><pre style="margin: 0em;">
+    wadi3: how can I store the output of an sql statement in a $var?
+   cfedde: wadi3: read about the DBI
+  corwin_: beat me to it cfedde :-)
+</pre><tt>  Psyche^: floats are computer numbers and not mathematical numbers.  
+</tt><tt>you just expect too much from the poor things...
+</tt><tt>   cfedde: dferret: perl -le 'my $j = (log 16384) / (log 2); print  
+</tt><tt>&quot;$j &quot; . int($j)'
+</tt><pre style="margin: 0em;">
+   cfedde: 14 14
+*** Signoff: taer (Ping timeout: 378 seconds)
+  dferret: I get '14 13' w/ Perl 5.8.0 on Linux 2.4.17
+   cfedde: perl -v -&gt; This is perl, v5.8.2 built for i386-freebsd
+  dferret: Did I compile in the PRINT_FUNCTION_ROUNDS var? :p
+    Somni: I get 14 14 with 5.8.0 on Linux 2.4.22
+    Somni: dferret: it has nothing to do with print
+  Psyche^: 14 14 5.8.2 2.6.0t11
+  dferret: Must be a Linux bug. I'll email Linus. -grin-
+*** Signoff: wadi3 ()
+</pre><tt>  dferret: What do you mean it's not print? The only reason int($j)  
+</tt><tt>would spit out 13 on my box is that $j is really 13.9999999999 but  
+</tt><tt>print $j is showing 14 -- meaning that print is rounding, right? - 
+</tt><tt>ponder-
+</tt><tt>    Somni: dferret: print is how you happen to be stringifying the  
+</tt><tt>number
+</tt><tt>    Somni: it has to do with how computers deal with floating point  
+</tt><tt>values
+</tt><tt>  dferret: I expected it to stringify 13.999999999 as 13.9999999999,  
+</tt><tt>not 14. I didn't know print would stringify upwards.
+</tt><tt>    Somni: how have you determined 13.9999999999 is the correct  
+</tt><tt>result?  even bc says it's supposed to be 14.00000000000000000014
+</tt><tt>   cfedde: dferret: there has to be something odd in the way that  
+</tt><tt>your math libraries are working.  Is your perl using some wierd  
+</tt><tt>version of log?
+</tt><tt>  dferret: I figured it must be slightly &lt; 14 because int($j) spits  
+</tt><tt>out 13. int() rounds down, right?
+</tt><pre style="margin: 0em;">
+    Somni: my TI-85 says it's 14
+</pre><tt>*** alkatraz (~ugh@ip68-9-124-191.ri.ri.cox.net) has joined channel  
+</tt><tt>#perl
+</tt><pre style="margin: 0em;">
+*** Mode change &quot;+v alkatraz&quot; on #perl by Roderick
+  dferret: How would I know what log perl is using?
+</pre><tt>    Somni: int rounds towards zero, effectively; it just strips off  
+</tt><tt>the integral part
+</tt><pre style="margin: 0em;">
+   cfedde: s/ingegral/fractional/
+</pre><tt>  dferret: Right, do that's how I &quot;deetermined&quot; that it must be  
+</tt><tt>13.9999999999 not 14.000000000001
+</tt><pre style="margin: 0em;">
+    Somni: integral, and returns it
+*** Signoff: morfic (Quit: Leaving)
+  dferret: s/do/so/
+*** morfic (~U3N@cs662583-130.satx.rr.com) has joined channel #perl
+*** Mode change &quot;+v morfic&quot; on #perl by Roderick
+    Somni: dferret: what does bc or dc say?
+</pre><tt>  dferret: ...err... command line? Can't find those commands.  
+</tt><tt>(Excuse my ignorance.)
+</tt><pre style="margin: 0em;">
+    Somni: echo &quot;l(16384) / l(2)&quot; | bc -l
+  dferret: bc: command not found
+    Somni: write a C program then
+   cfedde: what kind of flakey linux distribution does not have bc?
+</pre><tt>    Somni: #include &lt;math.h&gt;\n#include &lt;stdio.h&gt;\nint main ()  
+</tt><tt>{ printf(&quot;%.20f\n&quot;, log(16384) / log(2)); return 1; }
+</tt><pre style="margin: 0em;">
+    Somni: or something to that effect
+*** Signoff: zerologic (Read error: Connection reset by peer)
+  dferret: jhannah@hannibal:~/cgi-bin$ ./j
+  dferret: 14.00000000000000000000
+    Somni: is perl linked to the same libm your new program is?
+*** Signoff: epyon_II (Ping timeout: 624 seconds)
+</pre><tt>*** tdunn (~tdunn@adsl-64-175-241-190.dsl.sntc01.pacbell.net) has  
+</tt><tt>joined channel #perl
+</tt><pre style="margin: 0em;">
+*** Mode change &quot;+v tdunn&quot; on #perl by Roderick
+    Somni: ldd j; ldd `which perl`
+</pre><tt>  dferret: ldd shows both my perl and my new C prog are using the  
+</tt><tt>exact same /lib/lib* files...
+</tt><pre style="margin: 0em;">
+    Somni: do you have Devel::Peek installed?
+</pre><tt>*** zubs (~zubz@user-0ccemmv.cable.mindspring.com) has joined channel  
+</tt><tt>#perl
+</tt><pre style="margin: 0em;">
+*** Mode change &quot;+v zubs&quot; on #perl by Roderick
+  dferret: yes...
+</pre><tt>     zubs: if i want to find any of these characters \/:*?&quot;&lt;&gt;| what  
+</tt><tt>would the regex code look like?
+</tt><tt>    Somni: perl -MDevel::Peek -wle '$j = log(16384) / log(2); Dump 
+</tt><tt>($j);'
+</tt><pre style="margin: 0em;">
+    Somni: zubs: perldoc perlre, perldoc perlretut, perldoc perlrequick
+*** Signoff: morfic (Quit: Leaving)
+    Somni: dferret: paste the result to knowpaced
+knowpaced: I'm a pastebot!  Paste stuff at <a  rel="nofollow" href="http://pastebot.nd.edu/perl">http://pastebot.nd.edu/perl</a>
+     zubs: thx
+  dferret: SV = PVNV(0x8165510) at 0x814bfb0
+  dferret:   REFCNT = 1
+  dferret:   FLAGS = (NOK,pIOK,pNOK)
+  dferret:   IV = 13
+  dferret:   NV = 14
+  dferret:   PV = 0
+    Somni: ugh
+  dferret: What does that mean? -laugh-
+    dngor: dferret: Bzt.
+  corwin_: dferret: knowpaced
+knowpaced: I'm a pastebot!  Paste stuff at <a  rel="nofollow" href="http://pastebot.nd.edu/perl">http://pastebot.nd.edu/perl</a>
+*** Signoff: tdunn (Ping timeout: 240 seconds)
+*** Signoff: joe321 ()
+*** Mode change &quot;+l 121&quot; on #perl by Roderick
+</pre><tt>    Somni: dferret: at most it's proof your problem has nothing to  
+</tt><tt>do with print
+</tt><tt>    Somni: that perl is shoving two different values in the IV and  
+</tt><tt>NV elements is a little odd
+</tt><pre style="margin: 0em;">
+  dferret: -ponder-  We're way over my head here.
+           dferret grins
+*** morfic (~U3N@cs662583-130.satx.rr.com) has joined channel #perl
+*** Mode change &quot;+v morfic&quot; on #perl by Roderick
+  Psyche^: i get  FLAGS = (NOK,pNOK) NV = 14
+</pre><tt>*** tdunn (~tdunn@adsl-64-175-241-190.dsl.sntc01.pacbell.net) has  
+</tt><tt>joined channel #perl
+</tt><pre style="margin: 0em;">
+  Psyche^: why is IV set at all?
+*** Mode change &quot;+v tdunn&quot; on #perl by Roderick
+    Somni: it's set on mine too
+    Somni: but to 14
+  Psyche^: your perl sucks, mine is better. bwuahahaha
+*** Signoff: tdunn (Read error: Operation timed out)
+    Somni: heh
+  dferret: 5.8.0 problem?
+    Somni: dferret: nope
+    Somni: probably some combination of compile flags
+    Somni: paste perl -V output to knowpaced, that's PASTE TO KNOWPACED
+knowpaced: I'm a pastebot!  Paste stuff at <a  rel="nofollow" href="http://pastebot.nd.edu/perl">http://pastebot.nd.edu/perl</a>
+</pre><tt>knowpaced: &quot;dferret&quot; at 68.13.20.113 pasted &quot;perl -V&quot; at http:// 
+</tt><tt>pastebot.nd.edu:80/304
+</tt><pre style="margin: 0em;">
+    Somni: Psyche^: do you have uselongdouble defined in your perl -V?
+  Psyche^: uselongdouble=undef
+    Somni: dferret: that may be your culprit, though it's hard to say
+</pre><tt>    Somni: you could try recompiling without it, upgrade to 5.8.2,  
+</tt><tt>or just stick it out
+</tt><tt>    Somni: I may compile a perl with it enabled to see if that's it  
+</tt><tt>when I get back
+</tt><pre style="margin: 0em;">
+  cwilbur: evening all.
+*** zubs has left channel #perl
+</pre><tt>  dferret: I was justs surprised as all sheeot that it happened. I  
+</tt><tt>thought print always printed whatever.... I guess something wacky  
+</tt><tt>must be happening internally. Anyhoozit, I'll probaby just use  
+</tt><tt>sprintf to turn 13.999999999999 into 14?
+</tt><tt>    Somni: the value -is- 14, something is being miscalculated  
+</tt><tt>internally
+</tt><pre style="margin: 0em;">
+  cwilbur: this sounds like a floating point rounding problem.
+    Somni: it did initially
+  cwilbur: though I have only skimmed about a page of scrollback.
+</pre><tt>    Somni: but the IV for the value is 13, when every calculation  
+</tt><tt>I've done makes it out as 14
+</tt><pre style="margin: 0em;">
+    Somni: and several versions of perl agree
+    Somni: anyways, afk, dinner
+*** Signoff: Somni (dinner)
+</pre><tt>  cwilbur: right, but if the floating-point math comes out to  
+</tt><tt>13.999999, wouldn't the IV most appropriately be 13?
+</tt><tt>  dferret: I don't know anything about IV, so w/ Somni gone talking  
+</tt><tt>to me will be like talking to a wall. -grin-
+</tt><tt>   cfedde: It appears that different implementations of the log  
+</tt><tt>function over estemate or underestemate.
+</tt><tt>  dferret: Ya, my mystery though was that print is printing 14, not  
+</tt><tt>13.99999999999 like I'd expect.
+</tt><tt>  dferret: perl -le 'my $j = (log 16384) / (log 2); print &quot;$j &quot; . int 
+</tt><tt>($j)'
+</tt><tt>  dferret: On my system that prints &quot;14 13&quot;. Everyone else gets &quot;14  
+</tt><tt>14&quot;.
+</tt><tt>   cfedde: yes.  I was the silly person that pasted the command line  
+</tt><tt>yuo just pasted back
+</tt><tt>  dferret: My explanation is that $j is 13.9999999999999 so int  
+</tt><tt>takes it to 13, which I expect. I didn't expect print to &quot;round&quot; to  
+</tt><tt>14 though...?  (I'm just recapping for cwilbur.)
+</tt><tt>  cwilbur: well, the next question is, what's different about your  
+</tt><tt>system?
+</tt><pre style="margin: 0em;">
+  cwilbur: (both my systems say 14 14.)
+</pre><tt>  dferret: Somni's theory was that I have USE_LONG_DOUBLE  compiled  
+</tt><tt>into perl.
+</tt><pre style="margin: 0em;">
+  cwilbur: that could be.
+  cwilbur: neither of my systems have USE_LONG_DOUBLE compiled in.
+</pre><tt>   cfedde: dferret: is this a perl that came with your distribution?  
+</tt><tt>or did you compile it yourself?
+</tt><tt>  dferret: ?  I'm on perl 5.8.0. Is this something I should take the  
+</tt><tt>time to actually formalize for Perl 5 porters?
+</tt><tt>  dferret: This isn't my server -- I don't know what distro it is or  
+</tt><tt>how Perl got on there. I can call the guy.
+</tt><pre style="margin: 0em;">
+   cfedde: don't worry about it.
+  cwilbur: it's probably worth documenting.
+</pre><tt>  dferret: Is it a bug? I expected print to print 13.9999999999, but  
+</tt><tt>maybe that was a bad assumption?
+</tt><tt>  dferret: Maybe I should just learn that print might &quot;round&quot; too?  
+</tt><tt>Or would that be a lesson that no one should learn?
+</tt><pre style="margin: 0em;">
+   cfedde: perl -le 'print 13.9999999999999, &quot; &quot;, 13.99999999999999'
+   cfedde: 13.9999999999999 14
+   cfedde: isn't that odd?
+  Psyche^: no, 14 is even.
+  cwilbur: print probably tries to do the right thing.
+  dferret: I get 13.9999999999999 13.99999999999999
+  cwilbur: having taken rounding error into account.
+   cfedde: Keep extending the 9s on the second one till you get 14
+  dferret: (Because of my USE_LONG_DOUBLE?)
+  Psyche^: same as cfedde here
+   cfedde: it's the default number template for printf
+   cfedde: because of USE_LONG_DOUBLE, yes
+   cfedde: s/f$//;
+*** elkane (kane@phree.ne.client2.attbi.com) has joined channel #perl
+*** Mode change &quot;+v elkane&quot; on #perl by Roderick
+</pre><tt>  dferret: perl -le 'print 13.9999999999999999, &quot; &quot;,  
+</tt><tt>13.99999999999999999'
+</tt><pre style="margin: 0em;">
+  dferret: 13.9999999999999999 14
+  dferret: Your cutoff is 14 9s, mine is 17?
+   cfedde: I guess that you win!
+</pre><tt>*** peanuter (worldapart@host-64-179-13-126.syr.choiceone.net) has  
+</tt><tt>joined channel #perl
+</tt><pre style="margin: 0em;">
+  cwilbur: well, you're using long doubles.
+*** Mode change &quot;+v peanuter&quot; on #perl by Roderick
+  dferret: So my log is rounding to a precision my print can't handle?
+   cfedde: dferret: no that's not it.
+*** Signoff: jaredy (Quit: leaving)
+   cfedde: read the description of $# in perldoc perlvar
+</pre><tt>*** jaredy (~jaredy@dorms-pppoe-1-74-225.pittsburgh.resnet.pitt.edu)  
+</tt><tt>has joined channel #perl
+</tt><pre style="margin: 0em;">
+*** Mode change &quot;+v jaredy&quot; on #perl by Roderick
+  dferret: perldoc says: Use of $# is deprecated.  -grin-
+   cfedde: but it gives you a hint about what is happening.
+  dferret: perl -e 'print $#'  doesn't print anything
+</pre><tt>   cfedde: perl's print is written in terms of printf.  If your perl  
+</tt><tt>defines USE_LONG_DOUBLE then it changes the number of digits that  
+</tt><tt>print prints before rounding.
+</tt><tt>  dferret: hmm... Why would you ever want print to round? Wouldn't  
+</tt><tt>you want it to always print the full float? Rounding is for printf,  
+</tt><tt>isn't it?
+</tt><pre style="margin: 0em;">
+   cfedde: perl -e 'printf &quot;%5.2f %5.2f\n&quot;, 13.99, 13.999'
+</pre><tt>   cfedde: perl's print rounds by default.     cfedde: and  
+</tt><tt>apparently USE_LONG_DOUBLE controls some aspect of it.
+</tt><pre style="margin: 0em;">
+    Leolo: purl, seen kismet
+</pre><tt>     purl: kismet was last seen on #perl 4 hours, 31 minutes and 3  
+</tt><tt>seconds ago, saying: Ok, IBMs little download dealio is.... weird  
+</tt><tt>[Wed Dec 10 19:33:59 2003]
+</tt><pre style="margin: 0em;">
+*** Signoff: elkane ()
+</pre><tt>  dferret: Seems strange to me. I would think that print wouldn't  
+</tt><tt>round by default so it would be easy to see the whole float.
+</tt><tt>  dferret: perl -le 'my $j = (log 16384) / (log 2); printf(&quot;% 
+</tt><tt>0.200f&quot;, $j)'
+</tt><tt>  dferret:  
+</tt><tt>13.999999999999999999132638262011596452794037759304046630859375000000000 
+</tt><tt>000000000000000000000000000000000000000000000000000000000000000000000000 
+</tt><tt>00000000000000000000000000000000000000000000000000000000000
+</tt><pre style="margin: 0em;">
+      arp: nice
+</pre><tt>   cfedde: Where do you suppose accuracy of that number begins to  
+</tt><tt>falter?
+</tt><tt>  dferret: So what's the easy way to print a whole float? If I can't  
+</tt><tt>trust print to do it because print is rounding? I can't printf 'cause  
+</tt><tt>I don't know where the float actually ends?
+</tt><tt>  dferret: &quot;whole float&quot; as in to whatever precision $j is actually  
+</tt><tt>living in memory.
+</tt><tt>   cfedde: remember that even double floats are approximations of  
+</tt><tt>the actual value with some posible error.
+</tt><tt>  dferret: Sure. I understand.   In the case above I would expect  
+</tt><tt>print to print  
+</tt><tt>&quot;13.999999999999999999132638262011596452794037759304046630859375&quot;. If  
+</tt><tt>I wanted it rounded I'd printf it myself. You said print rounds by  
+</tt><tt>default -- is there a way to disable that?
+</tt><pre style="margin: 0em;">
+   cfedde: nope
+  whorian: hi
+*** yoo (~momo@200.86.20.13) has joined channel #perl
+*** Mode change &quot;+v yoo&quot; on #perl by Roderick
+  dferret: weird.
+</pre><tt>   cfedde: and the the authors of perl are probably smarter than you  
+</tt><tt>about were the error begins.
+</tt><tt>  dferret: I'm sure they are. Listening to a Damian lecture gives me  
+</tt><tt>a headache due to excessive brilliance. -grin- *** yoo has left  
+</tt><tt>channel #perl
+</tt><tt>   cfedde: the number of decemal places that print uses is usualy  
+</tt><tt>too many for most practical purposes anyway.
+</tt><pre style="margin: 0em;">
+   cfedde: perldoc perlnumber
+    dngor: EYE-NUMBINGLY BRIGHT
+  whorian: WHAT
+</pre><tt>  dferret: The lesson I learned tonight is: Just because print spits  
+</tt><tt>out a round number doesn't mean that your scalar has a round number  
+</tt><tt>in it. It may be rounded. I didn't know that. I thought print would  
+</tt><tt>always print all the precision in memory.    cfedde: usualy when you  
+</tt><tt>are working with floating point numbers you want to see if your  
+</tt><tt>result is within some error brackets.
+</tt><tt>  dferret: s/It may be rounded/print may be rounding your scalar for  
+</tt><tt>you/
+</tt><pre style="margin: 0em;">
+  dferret: error brackets?
+   cfedde: s/ may be/is/
+  dferret: ya.
+</pre><tt>   cfedde: usualy you want to test that your result is within say  
+</tt><tt>10e-3 or 10e-6 of what you expect
+</tt><pre style="margin: 0em;">
+   cfedde: digits beyond the expected accuracy are just noise.
+    Leolo: there's a var that controls print's precision, iirc
+</pre><tt>  dferret: Ya, but I don't know what I'm expecting, I'm just  
+</tt><tt>expecting something rediculously close to an integer, so I'll just  
+</tt><tt>use sprintf(&quot;%.0f&quot;, $j) to force it into an int for me... I didn't  
+</tt><tt>know I had to be paranoid in that way.    cfedde: Leolo: we found  
+</tt><tt>$#.  but it appears to be depreciated.
+</tt><pre style="margin: 0em;">
+    Leolo: $#      The output format for printed numbers.
+    Leolo: right
+           dferret grins
+    Leolo: dferret : why not use int() to force it into an int?
+</pre><tt>   cfedde: dferret: you need to decide what &quot;rediculously close&quot;  
+</tt><tt>means in your context.
+</tt><pre style="margin: 0em;">
+   cfedde: Leolo: read the backlog
+           dferret laughs
+  dferret: I could paste the backlog into channel? -mischevious grin-
+</pre><tt>    Leolo: the back-log can't be nearly as boring as the proposal  
+</tt><tt>I'm writting
+</tt><pre style="margin: 0em;">
+  dferret: I hope it's a bikeshed. I like bikesheds.
+
+
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01188.html">Re: [Omaha.pm] Pick a random array element ... beware the web	experts :)</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01190.html">[Omaha.pm] Did someone borrow &quot;Beginning Perl for Bioinformatics&quot;	from me?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01188.html">Re: [Omaha.pm] Pick a random array element ... beware the web	experts :)</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01190.html">[Omaha.pm] Did someone borrow &quot;Beginning Perl for Bioinformatics&quot;	from me?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01189"><strong>Date</strong></a></li>
+<li><a href="threads.html#01189"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

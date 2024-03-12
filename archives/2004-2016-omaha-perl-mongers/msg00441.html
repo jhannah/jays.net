@@ -1,0 +1,140 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] best practice: podchecker -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 21 Jul 2005 22:39:27 &#45;0000 -->
+<!--X-Message-Id: e6286ed0761e9d5b4e842ca838c3263c@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: bb2ee270242118bb1c753f7325859325@jays.net -->
+<!--X-Reference: 200507212209.j6LM9aic031485@omares&#45;email.omnihotels.com -->
+<!--X-Reference: 20050721221539.GB17650@petdance.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] best practice: podchecker</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00440.html">Date Prev</a>][<a href="msg00442.html">Date Next</a>][<a href="msg00440.html">Thread Prev</a>][<a href="msg00442.html">Thread Next</a>][<a href="maillist.html#00441">Date Index</a>][<a href="threads.html#00441">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] best practice: podchecker</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] best practice: podchecker</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Thu, 21 Jul 2005 17:39:18 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00440.html">20050721221539.GB17650@petdance.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;bb2ee270242118bb1c753f7325859325@jays.net&gt;	&lt;<a href="msg00439.html">200507212209.j6LM9aic031485@omares-email.omnihotels.com</a>&gt;	&lt;<a href="msg00440.html">20050721221539.GB17650@petdance.com</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+
+On Jul 21, 2005, at 5:15 PM, Andy Lester wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><tt>On Thu, Jul 21, 2005 at 05:10:49PM -0500, Jay Hannah 
+</tt><tt>(jhannah@omnihotels.com) wrote:
+</tt><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><tt>perl -e 'use Test::Harness; undef $Test::Harness::switches; 
+</tt><tt>runtests(@ARGV)' t/pod.t
+</tt></blockquote><pre style="margin: 0em;">
+t/pod....ok
+All tests successful.
+</pre><tt>Files=1, Tests=1404,  3 wallclock secs ( 2.46 cusr +  0.19 csys =  
+</tt><tt>2.65 CPU)
+</tt></blockquote><pre style="margin: 0em;">
+
+You mean
+
+prove t/pod.t
+</pre></blockquote><pre style="margin: 0em;">
+
+What is that?
+
+</pre><tt>I don't know anything about distributing Perl code, if that's a 
+</tt><tt>distribution thing. I've never prepared any Perl for CPAN or anything 
+</tt><tt>like that, it all just lives in CVS here and we do checkouts.
+</tt><pre style="margin: 0em;">
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+ike padding your test suite stats. -grin-
+</pre></blockquote><pre style="margin: 0em;">
+
+It's hardly padding.   POD is crucial.
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>Sure, but only 474 of the 1404 &quot;POD files&quot; that Test::Pod detects 
+</tt><tt>actually have any POD in them.
+</tt><pre style="margin: 0em;">
+
+j
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00442" href="msg00442.html">Re: [Omaha.pm] best practice: podchecker</a></strong>
+<ul><li><em>From:</em> Andy Lester &lt;andy@petdance.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00439" href="msg00439.html">Re: [Omaha.pm] best practice: podchecker</a></strong>
+<ul><li><em>From:</em> &quot;Jay Hannah&quot; &lt;jhannah@omnihotels.com&gt;</li></ul></li>
+<li><strong><a name="00440" href="msg00440.html">Re: [Omaha.pm] best practice: podchecker</a></strong>
+<ul><li><em>From:</em> Andy Lester &lt;andy@petdance.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00440.html">Re: [Omaha.pm] best practice: podchecker</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00442.html">Re: [Omaha.pm] best practice: podchecker</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00440.html">Re: [Omaha.pm] best practice: podchecker</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00442.html">Re: [Omaha.pm] best practice: podchecker</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00441"><strong>Date</strong></a></li>
+<li><a href="threads.html#00441"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

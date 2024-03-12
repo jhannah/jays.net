@@ -1,0 +1,157 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] One&#45;liner regexp to check for password strength... -->
+<!--X-From-R13: "Rnavry Zvaqre" &#60;qnaNyvaqre.bet> -->
+<!--X-Date: 16 Jun 2005 04:24:22 &#45;0000 -->
+<!--X-Message-Id: 22962.24.252.28.96.1118895986.squirrel@24.252.28.96 -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] One-liner regexp to check for password strength...</title>
+<link rev="made" href="mailto:dan@linder.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00415.html">Date Prev</a>][<a href="msg00417.html">Date Next</a>][<a href="msg00415.html">Thread Prev</a>][<a href="msg00422.html">Thread Next</a>][<a href="maillist.html#00416">Date Index</a>][<a href="threads.html#00416">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] One-liner regexp to check for password strength...</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Subject</em>: [Omaha.pm] One-liner regexp to check for password strength...</li>
+<li><em>From</em>: &quot;Daniel Linder&quot; &lt;<a href="mailto:dan%40linder.org">dan@linder.org</a>&gt;</li>
+<li><em>Date</em>: Wed, 15 Jun 2005 23:26:26 -0500 (CDT)</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Importance</em>: Normal</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: <a href="mailto:dan%40linder.org">dan@linder.org</a>, &quot;Perl Mongers of Omaha,	Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: SquirrelMail/1.5.0</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Guys,
+
+I'm looking for a Perl one-liner regexp that will check a given password
+string to see if it meets a 'strength' requiement.
+
+The tests are:
+1:  Length &gt;= 6 characters
+2a: Contains number(s) (0-9)
+2b: Contains lowercase letter(s) (a-z)
+2c: Contains uppercase letter(s) (A-Z)
+2d: Contains symbol character(s) (!@#$%^&amp;*()-=_+`~\|&quot;:;&lt;&gt;,.?/ ... etc)
+
+A password is good if it meets rule #1 and three of the four in #2.
+
+At first glance a check such as /[a-z]+[A-Z]+[0-9]+/ could be a start, but
+it requires that the order of the lower case characters be before any
+upper-case characters or numbers, plus it ignores the length requirement.
+
+I've pretty much given up on a one-liner and this is the closest I can
+come up with (ugly):
+
+#!/usr/bin/perl
+
+$PASSWD=shift;
+
+$LEN = length($PASSWD);
+printf (&quot;LEN: $LEN\n&quot;);
+
+$NumDigits = ($PASSWD =~ tr/[0-9]*//);
+printf (&quot;NumDigits: $NumDigits\n&quot;);
+
+$NumUpperCase = ($PASSWD =~ tr/[A-Z]*//);
+printf (&quot;NumUpperCase: $NumUpperCase\n&quot;);
+
+$NumLowerCase = ($PASSWD =~ tr/[a-z]*//);
+printf (&quot;NumLowerCase: $NumLowerCase\n&quot;);
+
+$NumSpecial   = ($PASSWD =~
+tr/[\!\@\#\$\%\^\&amp;\*\(\)\_\+\-\=\{\}\[\]\\\|;\':\&quot;\,\.\/\&lt;\&gt;\?\~\`]*//);
+printf (&quot;NumSpecial: $NumSpecial\n&quot;);
+
+if ( ( $LEN &gt;= 6 )
+     and
+     ( ($NumDigits?1:0) + ($NumUpperCase?1:0) + ($NumLowerCase?1:0) +
+($NumSpecial?1:0) &gt;= 3 )
+   ) {
+        printf (&quot;Password \&quot;%s\&quot; passed.\n&quot;, $PASSWD);
+}
+
+Dan
+
+- - - - -
+&quot;Wait for that wisest of all counselors, time.&quot; -- Pericles
+&quot;I do not fear computer, I fear the lack of them.&quot; -- Isaac Asimov
+GPG fingerprint:9EE8 ABAE 10D3 0B55 C536  E17A 3620 4DCA A533 19BF
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.2.1 (GNU/Linux)
+
+iD8DBQFCsP9yNiBNyqUzGb8RAgsPAJ4lIEf4iu8GVvgc/ad9mGGTQOXEkgCfc4jG
+5V5mgha1r4/BjlOqR0c6K24=
+=MUv8
+-----END PGP SIGNATURE-----
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00422" href="msg00422.html">Re: [Omaha.pm] One-liner regexp to check for password strength...</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00415.html">[Omaha.pm] Reminder: No June mtg</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00417.html">[Omaha.pm] Last-minute reminder -- YAPC::NA 2005</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00415.html">[Omaha.pm] Reminder: No June mtg</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00422.html">Re: [Omaha.pm] One-liner regexp to check for password strength...</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00416"><strong>Date</strong></a></li>
+<li><a href="threads.html#00416"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

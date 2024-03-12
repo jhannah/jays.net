@@ -1,0 +1,149 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] DBI odbc question -->
+<!--X-From-R13: "Dlna Egvyyr" &#60;ecfNjvyypbzzvap.pbz> -->
+<!--X-Date: 15 Dec 2005 18:53:46 &#45;0000 -->
+<!--X-Message-Id: 9A8B75E3985324438F1BFA08B160E82057B2CD@suxsvr.willconsult.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] DBI odbc question</title>
+<link rev="made" href="mailto:rps@willcomminc.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00713.html">Date Prev</a>][<a href="msg00715.html">Date Next</a>][<a href="msg00724.html">Thread Prev</a>][<a href="msg00715.html">Thread Next</a>][<a href="maillist.html#00714">Date Index</a>][<a href="threads.html#00714">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] DBI odbc question</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] DBI odbc question</li>
+<li><em>From</em>: &quot;Ryan Stille&quot; &lt;<a href="mailto:rps%40willcomminc.com">rps@willcomminc.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 15 Dec 2005 12:53:29 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcYBqNcBp2rOFsT3QdCi/2p20KvUpQ==</li>
+<li><em>Thread-topic</em>: DBI odbc question</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>I am working on a script that inserts records into a Progress database.
+The script connects via DBI and odbc.
+
+As I loop through each potential record to import, I query the database
+for some info.  Occasionally I get errors like this:
+
+DBD::ODBC::st execute failed: [OpenLink][ODBC][Progress Server]Stale
+request handle. Request was not opened or has been closed. (1253)
+(SQL-S1000)(DBD: st_execute/SQLExecute err=-1) at ./siimport.pl line
+170.
+DBD::ODBC::st fetchrow_array failed: (DBD: no select statement currently
+executing err=-1) at ./siimport.pl line 171.
+DBD::ODBC::st execute failed: [OpenLink][ODBC][Progress Server]Stale
+request handle. Request was not opened or has been closed. (1253)
+(SQL-S1000)(DBD: st_execute/SQLExecute err=-1) at ./siimport.pl line
+170.
+DBD::ODBC::st fetchrow_array failed: (DBD: no select statement currently
+executing err=-1) at ./siimport.pl line 171.
+DBD::ODBC::st execute failed: [OpenLink][ODBC][Progress Server]Stale
+request handle. Request was not opened or has been closed. (1253)
+(SQL-S1000)(DBD: st_execute/SQLExecute err=-1) at ./siimport.pl line
+170.
+DBD::ODBC::st fetchrow_array failed: (DBD: no select statement currently
+executing err=-1) at ./siimport.pl line 171.
+
+On some of the queries I was able to switch from:
+$sth = $dbh-&gt;prepare($query);
+$rc = $sth-&gt;execute();
+($si_owner) = $sth-&gt;fetchrow_array();
+
+To:
+($si_owner) = $dbh-&gt;selectrow_array($query);
+
+Which make the problem go away for some reason.  I was not able to
+change all the queries to use selectrow_array of course.  But after
+googling the &quot;select statement currently executing&quot; I came up with this:
+
+$dbh-&gt;{odbc_exec_direct} = 1;
+
+Which made the problem go away completely.  But I'd really like to
+understand why.  I hate to see this problem come up again when I put the
+script into production.  The blurb from the documentation was no help:
+
+odbc_exec_direct
+Force DBD::ODBC to use SQLExecDirect instead of SQLPrepare() then
+SQLExecute. There are drivers that only support SQLExecDirect and the
+DBD::ODBC do() override doesn't allow returning result sets. Therefore,
+the way to do this now is to set the attributed odbc_exec_direct. There
+are currently two ways to get this: $dbh-&gt;prepare($sql, {
+odbc_exec_direct =&gt; 1}); and $dbh-&gt;{odbc_exec_direct} = 1; When
+$dbh-&gt;prepare() is called with the attribute &quot;ExecDirect&quot; set to a
+non-zero value dbd_st_prepare do NOT call SQLPrepare, but set the sth
+flag odbc_exec_direct to 1.
+
+
+Thanks for any help.
+-Ryan
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00715" href="msg00715.html">Re: [Omaha.pm] DBI odbc question</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00713.html">[Omaha.pm] Template Toolkit MACRO</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00715.html">Re: [Omaha.pm] DBI odbc question</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00724.html">Re: [Omaha.pm] Template Toolkit MACRO</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00715.html">Re: [Omaha.pm] DBI odbc question</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00714"><strong>Date</strong></a></li>
+<li><a href="threads.html#00714"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

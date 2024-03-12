@@ -1,0 +1,123 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Template Toolkit l33t hax0rs -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 4 Aug 2005 14:46:48 &#45;0000 -->
+<!--X-Message-Id: 200508041446.j74Ekcic028361@omares&#45;email.omnihotels.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Template Toolkit l33t hax0rs</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00454.html">Date Prev</a>][<a href="msg00456.html">Date Next</a>][<a href="msg00457.html">Thread Prev</a>][<a href="msg00456.html">Thread Next</a>][<a href="maillist.html#00455">Date Index</a>][<a href="threads.html#00455">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Template Toolkit l33t hax0rs</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Template Toolkit l33t hax0rs</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 4 Aug 2005 09:47:59 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcWZA4ICO8t9/CVSS7WBVy8CYdjvwQ==</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+Our TT stuff is getting pretty slick... We're doing multilanguage templates
+
+[% lang_code = q.param(&quot;lang_code&quot;) || &quot;en-us&quot; %]
+[% IF lang_code == &quot;fr&quot;;
+  lang_text8   = &quot;fr:Rate total:&quot;
+  lang_text9   = &quot;fr:Taxes:&quot;
+  lang_text10  = &quot;fr:Fees:&quot;
+  lang_text11  = &quot;fr:Total:&quot;
+;ELSE;
+  lang_text8   = &quot;Rate total:&quot;
+  lang_text9   = &quot;Taxes:&quot;
+  lang_text10  = &quot;Fees:&quot;
+  lang_text11  = &quot;Total:&quot;
+;END %]
+
+Obviously we don't speak french or those fr: strings would actually be in French. We've got a company translating for us at some point.
+
+Then, later, we're using my objects directly in TT, TT pipes, format(), basic TT algebra and flow control...
+
+        [% IF suppressed != &quot;S&quot; %]
+          [% rates = detail.rates_total;
+             taxes = detail.L_surcharges_data.total_taxes | format('%0.2f');
+             fees  = detail.L_surcharges_data.total_fees  | format('%0.2f');
+             total = rates + taxes + fees  %]
+          $lang_text8  $rates $detail.currency&lt;br&gt;
+          $lang_text9  $taxes $detail.currency&lt;br&gt;
+          $lang_text10 $fees  $detail.currency&lt;br&gt;
+          $lang_text11 $total $detail.currency&lt;br&gt;
+        [% END %]
+
+$TT_5k1lz++;
+
+Grin,
+
+j
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00454.html">Re: [Omaha.pm] SQL Attack exception</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00456.html">[Omaha.pm] Subclassing Class::Date</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00457.html">Re: [Omaha.pm] SQL Attack exception</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00456.html">[Omaha.pm] Subclassing Class::Date</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00455"><strong>Date</strong></a></li>
+<li><a href="threads.html#00455"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

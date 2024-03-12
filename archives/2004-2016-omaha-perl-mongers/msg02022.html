@@ -1,0 +1,167 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] need 315k alpha&#45;numeric numbers with a width of 6? -->
+<!--X-From-R13: "Erna Pnxre" &#60;conxreNbzavubgryf.pbz> -->
+<!--X-Date: 13 Feb 2009 17:27:58 &#45;0000 -->
+<!--X-Message-Id: 396CEDAA86B38646ACE2FEAA22C3FBF10170734A@l3exchange.omnihotels.net -->
+<!--X-Content-Type: multipart/alternative -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] need 315k alpha-numeric numbers with a width of 6?</title>
+<link rev="made" href="mailto:pbaker@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02021.html">Date Prev</a>][<a href="msg02023.html">Date Next</a>][<a href="msg02023.html">Thread Prev</a>][<a href="msg02024.html">Thread Next</a>][<a href="maillist.html#02022">Date Index</a>][<a href="threads.html#02022">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] need 315k alpha-numeric numbers with a width of 6?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] need 315k alpha-numeric numbers with a width of 6?</li>
+<li><em>From</em>: &quot;Sean Baker&quot; &lt;<a href="mailto:pbaker%40omnihotels.com">pbaker@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Fri, 13 Feb 2009 11:12:46 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcmN/koNQsn/MEUSSa223vZVczalDA==</li>
+<li><em>Thread-topic</em>: need 315k alpha-numeric numbers with a width of 6?</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<table width="100%"><tr><td style="a:link { color: blue } a:visited { color: purple } ">
+
+
+
+
+
+<div class=Section1>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'>I just had a request to generate 315k alpha-numeric numbers
+with a width of 6.<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'>Base 36 comes in handy!&nbsp; <o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'>#!/usr/bin/perl<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'>use strict;<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'>use Math::Base36 ':all';<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'>my $number = &quot;60466176&quot;;&nbsp; # = 100000 in base 36,
+width of 6<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'>my $ctr=1;<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'>while ($ctr &lt; 315001) {<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp; my $b36 = encode_base36($number);<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp; $number+=15;<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp; print &quot;$b36\n&quot;;<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'>&nbsp; $ctr++;<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'>}<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'>Wallah! &nbsp;I&#8217;m adding 15 to each number because I need a
+gap.<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face=Arial><span style='font-size:10.0pt;
+font-family:Arial'>Sean </span></font><o:p></o:p></p>
+
+<p class=MsoNormal><font size=3 face="Times New Roman"><span style='font-size:
+12.0pt'><o:p>&nbsp;</o:p></span></font></p>
+
+</div>
+
+
+
+
+</td></tr></table>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02021.html">[Omaha.pm] Carwash Challenge 2 - Lightning Talk Edition</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02023.html">Re: [Omaha.pm] [odynug] Carwash Challenge 2 - Lightning Talk Edition</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02023.html">Re: [Omaha.pm] [odynug] Carwash Challenge 2 - Lightning Talk Edition</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02024.html">[Omaha.pm] What time is it? 1234567890?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02022"><strong>Date</strong></a></li>
+<li><a href="threads.html#02022"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

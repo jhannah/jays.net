@@ -1,0 +1,179 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Could use your help -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 19 Jan 2007 13:13:17 &#45;0000 -->
+<!--X-Message-Id: C2D1E9DA&#45;7001&#45;4125&#45;82D8&#45;748B30FA540B@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 531681ec0701180938u35e451bfq724d68fe7406e565@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Could use your help</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01286.html">Date Prev</a>][<a href="msg01288.html">Date Next</a>][<a href="msg01286.html">Thread Prev</a>][<a href="msg01288.html">Thread Next</a>][<a href="maillist.html#01287">Date Index</a>][<a href="threads.html#01287">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Could use your help</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Nebraska USA Perl Mongers of Omaha &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Could use your help</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Fri, 19 Jan 2007 07:13:08 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;531681ec0701180938u35e451bfq724d68fe7406e565@mail.gmail.com&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;531681ec0701180938u35e451bfq724d68fe7406e565@mail.gmail.com&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+On Jan 18, 2007, at 11:38 AM, kiran bina wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><tt>FILE: Has a lot of entries  in random order of entries of my  
+</tt><tt>interest.  I am interested in selected few whose name I wish to get  
+</tt><tt>from IN using the subroutine
+</tt><tt>Problem: This  prints only  'C' even when I have entries in IN  
+</tt><tt>which should allow printing A or B.
+</tt><pre style="margin: 0em;">
+I think I do not have my return statement at the right place.
+
+while &lt;FILE&gt;
+{
+   $string= 'Foo';
+   $status= find_member_status($string)
+      if ($string eq $status)
+        {
+           if (defined $object)
+             {
+  Print &quot;A&quot;;
+             }
+             else
+             {
+ Print &quot;B&quot;;
+             }
+         }
+        else
+        {
+               Print &quot;C&quot;;
+        }
+}
+
+
+sub find_member_status
+{
+    my $name= shift;
+    my $rval= 'NA';
+    my $no_match_name;
+    while (my $line=&lt;IN&gt;)
+    {
+        if ($line=~ /\&gt;/)
+        {
+            $line=~ m/\&gt;(gi\|\d+\|gb\|\S+\|)/;
+            $no_match_name= $1;
+            print &quot;Name= $name\n&quot;;
+            print &quot;After: $no_match_name\n&quot;;
+            if ($name eq $no_match_name)
+             {
+               $rval= $no_match_name;
+               # return $rval;
+                last;
+            }
+
+        }
+    }
+                return $rval;
+}
+</pre></blockquote><pre style="margin: 0em;">
+
+Hmm... I think down here
+
+    $line=~ m/\&gt;(gi\|\d+\|gb\|\S+\|)/;
+    $no_match_name= $1;
+    print &quot;Name= $name\n&quot;;
+    print &quot;After: $no_match_name\n&quot;;
+
+your regex is demanding 'gi|' followed by digits, etc.
+
+</pre><tt>So $no_match_name will always be undef or start with 'gi|' followed  
+</tt><tt>by digits, etc. You should see that when you print &quot;After:  
+</tt><tt>$no_match_name&quot; ... ?
+</tt><pre style="margin: 0em;">
+
+So, when we back up to the top:
+
+   $string= 'Foo';
+   $status= find_member_status($string)
+      if ($string eq $status)
+
+</pre><tt>$status will always be undef or start with 'gi|' followed by digits.  
+</tt><tt>So it will never eq 'Foo'.
+</tt><pre style="margin: 0em;">
+
+Perhaps you meant to test if $status *contains* 'Foo'?
+
+   if ($status =~ /\Q$string\E/)
+
+?
+
+HTH,
+
+j
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01286.html">Re: [Omaha.pm] debugger question</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01288.html">Re: [Omaha.pm] Could you take a look</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01286.html">Re: [Omaha.pm] debugger question</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01288.html">Re: [Omaha.pm] Could you take a look</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01287"><strong>Date</strong></a></li>
+<li><a href="threads.html#01287"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

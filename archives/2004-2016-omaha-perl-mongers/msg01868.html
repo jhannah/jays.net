@@ -1,0 +1,141 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] My first hash slice -->
+<!--X-From-R13: Oaql Zrfgre &#60;naqlNcrgqnapr.pbz> -->
+<!--X-Date: 1 Oct 2008 19:48:38 &#45;0000 -->
+<!--X-Message-Id: F638F33B&#45;AA3E&#45;40EF&#45;9AAA&#45;0B7ED624787C@petdance.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 2e6b16146effa5abf66cc2af12a6d819@jays.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] My first hash slice</title>
+<link rev="made" href="mailto:andy@petdance.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01867.html">Date Prev</a>][<a href="msg01869.html">Date Next</a>][<a href="msg01867.html">Thread Prev</a>][<a href="msg01869.html">Thread Next</a>][<a href="maillist.html#01868">Date Index</a>][<a href="threads.html#01868">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] My first hash slice</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] My first hash slice</li>
+<li><em>From</em>: Andy Lester &lt;<a href="mailto:andy%40petdance.com">andy@petdance.com</a>&gt;</li>
+<li><em>Date</em>: Wed, 1 Oct 2008 14:48:25 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01867.html">2e6b16146effa5abf66cc2af12a6d819@jays.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01867.html">2e6b16146effa5abf66cc2af12a6d819@jays.net</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+
+On Oct 1, 2008, at 2:34 PM, &lt;jay@jays.net&gt; wrote:
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+  while (my $href = $sth-&gt;fetchrow_hashref) {
+     foreach my $key (keys %$href) {
+        $href-&gt;{$key} =~ s/\s+$//;
+     }
+     $DB::single = 1;
+</pre><tt>     my $key = join &quot;|&quot;, @$href{ qw(rate_cat room_code hrms_room_cat  
+</tt><tt>stod
+</tt><pre style="margin: 0em;">
+etod) };
+     print &quot;$key\n&quot;;
+     unless ($self-&gt;_Band2s-&gt;{$key}) {
+        my $b2 = Omni2::Control::OmniCRS::HRMS::Band2-&gt;new($href);
+        $self-&gt;_Band2s-&gt;{$key} = $b2;
+     }
+  }
+</pre></blockquote><pre style="margin: 0em;">
+
+
+</pre><tt>Now, note that you have a $key in the foreach loop, AND you're  
+</tt><tt>overriding it inside the loop, too.  That's confusing.
+</tt><pre style="margin: 0em;">
+
+Also, how about instead of
+
+    print &quot;$key\n&quot;;
+
+you use
+
+    say $key;
+
+xoxo,
+andy
+
+
+--
+Andy Lester =&gt; andy@petdance.com =&gt; www.petdance.com =&gt; AIM:petdance
+
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01869" href="msg01869.html">Re: [Omaha.pm] My first hash slice</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01867" href="msg01867.html">[Omaha.pm] My first hash slice</a></strong>
+<ul><li><em>From:</em> &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01867.html">[Omaha.pm] My first hash slice</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01869.html">Re: [Omaha.pm] My first hash slice</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01867.html">[Omaha.pm] My first hash slice</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01869.html">Re: [Omaha.pm] My first hash slice</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01868"><strong>Date</strong></a></li>
+<li><a href="threads.html#01868"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

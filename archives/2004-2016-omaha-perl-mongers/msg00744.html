@@ -1,0 +1,161 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Why I hack Perl -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 28 Dec 2005 19:40:56 &#45;0000 -->
+<!--X-Message-Id: Pine.LNX.4.64.0512281336130.14360@ferret.jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Why I hack Perl</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00743.html">Date Prev</a>][<a href="msg00745.html">Date Next</a>][<a href="msg00743.html">Thread Prev</a>][<a href="msg00747.html">Thread Next</a>][<a href="maillist.html#00744">Date Index</a>][<a href="threads.html#00744">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Why I hack Perl</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Subject</em>: [Omaha.pm] Why I hack Perl</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Wed, 28 Dec 2005 13:40:48 -0600 (CST)</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+
+This is Date.xs, some C code that Class::Date uses.
+
+</pre><tt>Glancing at this today reminded me how spoiled I am by being a Perl 
+</tt><tt>programmer.
+</tt><pre style="margin: 0em;">
+
+j
+(I'm in pine. I hope this doesn't line wrap.)
+
+
+void
+strftime_xs(fmt, sec, min, hour, mday, mon, year, wday = -1, yday = -1,
+isdst = -1)
+        char *          fmt
+        int             sec
+        int             min
+        int             hour
+        int             mday
+        int             mon
+        int             year
+        int             wday
+        int             yday
+        int             isdst
+    PPCODE:
+        {
+            char tmpbuf[128];
+            struct tm mytm;
+            int len;
+            memset(&amp;mytm, 0, sizeof(mytm));
+            mytm.tm_sec = sec;
+            mytm.tm_min = min;
+            mytm.tm_hour = hour;
+            mytm.tm_mday = mday;
+            mytm.tm_mon = mon;
+            mytm.tm_year = year;
+            mytm.tm_wday = wday;
+            mytm.tm_yday = yday;
+            mytm.tm_isdst = isdst;
+            classdate_mini_mktime(&amp;mytm);
+            CLASSDATE_TM_DEBUG(mytm);
+            len = strftime(tmpbuf, sizeof tmpbuf, fmt, &amp;mytm);
+            /*
+            ** The following is needed to handle to the situation where
+            ** tmpbuf overflows.  Basically we want to allocate a buffer
+            ** and try repeatedly.  The reason why it is so complicated
+            ** is that getting a return value of 0 from strftime can indicate
+            ** one of the following:
+            ** 1. buffer overflowed,
+            ** 2. illegal conversion specifier, or
+            ** 3. the format string specifies nothing to be returned(not
+            ** an error).  This could be because format is an empty string
+            ** or it specifies %p that yields an empty string in some locale.
+            ** If there is a better way to make it portable, go ahead by
+            ** all means.
+            */
+            if ((len &gt; 0 &amp;&amp; len &lt; sizeof(tmpbuf)) || (len == 0 &amp;&amp; *fmt == '\0'))
+                ST(0) = sv_2mortal(newSVpv(tmpbuf, len));
+            else {
+                /* Possibly buf overflowed - try again with a bigger buf*/
+                int     fmtlen = strlen(fmt);
+                int     bufsize = fmtlen + sizeof(tmpbuf);
+                char*   buf;
+                int     buflen;
+
+                New(0, buf, bufsize, char);
+                while (buf) {
+                    CLASSDATE_TM_DEBUG(mytm);
+
+...etc...
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00747" href="msg00747.html">[Omaha.pm] My lost week problem..</a></strong>
+<ul><li><em>From:</em> sidney.omaha.pm@gmail.com</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00743.html">Re: [Omaha.pm] Favorite code</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00745.html">[Omaha.pm] Test::More skip_all</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00743.html">Re: [Omaha.pm] Favorite code</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00747.html">[Omaha.pm] My lost week problem..</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00744"><strong>Date</strong></a></li>
+<li><a href="threads.html#00744"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

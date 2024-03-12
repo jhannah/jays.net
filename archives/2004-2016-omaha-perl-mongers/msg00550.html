@@ -1,0 +1,128 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] TT fun! -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 15 Sep 2005 18:26:42 &#45;0000 -->
+<!--X-Message-Id: 29AB736ABCE5C745ABF9C93B02F2C27B031ACC3A@exchange2k3.omnihotels.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] TT fun!</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00549.html">Date Prev</a>][<a href="msg00551.html">Date Next</a>][<a href="msg00549.html">Thread Prev</a>][<a href="msg00554.html">Thread Next</a>][<a href="maillist.html#00550">Date Index</a>][<a href="threads.html#00550">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] TT fun!</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] TT fun!</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 15 Sep 2005 13:28:04 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcW6IyZP88v+NbzDRkKm2Mgm9rz96A==</li>
+<li><em>Thread-topic</em>: TT fun!</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+(1) Oops! In Template Toolkit this fails:
+
+[%  lang_para1   = &quot;Thank you $guest_name for booking ...snip... you at
+$prop_name.&quot;  %]
+
+Because TT sees $prop_name. as an attempt to envoke a method on the
+prop_name object. What method? The undef method perhaps? Dunno, but I
+had to change it to this:
+
+[%  lang_para1   = &quot;Thank you $guest_name for booking ...snip... you at
+${prop_name}.&quot;  %]
+
+I hadn't seen that pattern before.
+
+
+
+(2) TT + Date::Class + our custom OO business layer (Res) + our
+multi-language hackery = FUN!!
+
+HTML-mode snippet from a TT template:
+
+  &lt;font class=small&gt;$lang_text1
+${Res.get_arrival_date('obj').format('%m-%b-%Y (%a)')}&lt;br&gt;
+                    $lang_text2 ${Res.get_depart_date(
+'obj').format('%m-%b-%Y (%a)')}&lt;br&gt;
+
+Output:
+
+  &lt;font class=small&gt;Arrival: 09-Sep-2005 (Thu)&lt;br&gt;
+                    Depart: 09-Sep-2005 (Fri)&lt;br&gt;
+
+
+
+Mwoo ha ha ha ha hah ah ahaha,
+
+j
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00554" href="msg00554.html">Re: [Omaha.pm] TT fun!</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00549.html">[Omaha.pm] OT: Free wireless @ Zio's 80th &amp; Dodge</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00551.html">[Omaha.pm] Hey OO Perl 5: Do my base classes thing plus my thing</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00549.html">[Omaha.pm] OT: Free wireless @ Zio's 80th &amp; Dodge</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00554.html">Re: [Omaha.pm] TT fun!</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00550"><strong>Date</strong></a></li>
+<li><a href="threads.html#00550"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Quick shorter code tip:  for() {} -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: Fri, 28 May 2004 18:51:42 &#45;0500 -->
+<!--X-Message-Id: F8EE3587&#45;B101&#45;11D8&#45;9FDA&#45;000A95E317B8@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Quick shorter code tip:  for() {}</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00005.html">Date Prev</a>][<a href="msg00007.html">Date Next</a>][<a href="msg00008.html">Thread Prev</a>][<a href="msg00009.html">Thread Next</a>][<a href="maillist.html#00006">Date Index</a>][<a href="threads.html#00006">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Quick shorter code tip:  for() {}</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Subject</em>: [Omaha.pm] Quick shorter code tip:  for() {}</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Fri, 28 May 2004 18:51:43 -0500</li>
+<li><em>List-archive</em>: &lt;<a href="http://www.pm.org/pipermail/omaha-pm">http://www.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+
+This came up at work this week...
+
+j
+
+
+BEFORE:
+
+    while (($item_code,$enabled,$descript) = $sth-&gt;fetchrow_array)
+    {
+        $item_code =~ s/[^ -~]//g;
+        $item_code =~ s/\s+$//;
+        $enabled =~ s/[^ -~]//g;
+        $enabled =~ s/\s+$//;
+        $descript =~ s/[^ -~]//g;
+        $descript =~ s/\s+$//;
+
+AFTER
+
+    my @row;
+    while (@row = $sth-&gt;fetchrow_array)
+    {
+        for (@row) {
+           s/[^ -~]//g;
+           s/\s+$//;
+        }
+        ($item_code,$enabled,$descript) = @row;
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00009" href="msg00009.html">Re: [Omaha.pm] Quick shorter code tip:  for() {}</a></strong>
+<ul><li><em>From:</em> &quot;Ted Kat.&quot; &lt;dark_house_666@yahoo.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00005.html">[Omaha.pm] Re: [olug] Report Generator</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00007.html">[Omaha.pm] Re: Welcome to the &quot;Omaha-pm&quot; mailing list</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00008.html">[Omaha.pm] Re: [olug] Report Generator</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00009.html">Re: [Omaha.pm] Quick shorter code tip:  for() {}</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00006"><strong>Date</strong></a></li>
+<li><a href="threads.html#00006"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

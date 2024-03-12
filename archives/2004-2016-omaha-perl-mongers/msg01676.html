@@ -1,0 +1,155 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Find all the keys present in two files -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 3 Mar 2008 21:39:36 &#45;0000 -->
+<!--X-Message-Id: 47CC6FE8.70506@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Find all the keys present in two files</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01675.html">Date Prev</a>][<a href="msg01677.html">Date Next</a>][<a href="msg01675.html">Thread Prev</a>][<a href="msg01677.html">Thread Next</a>][<a href="maillist.html#01676">Date Index</a>][<a href="threads.html#01676">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Find all the keys present in two files</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Find all the keys present in two files</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Mon, 03 Mar 2008 15:38:48 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: Thunderbird 2.0.0.12 (Windows/20080213)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+
+Another quicky I was given today.
+
+Problem:
+
+</pre><tt>  Given one file which is a list of keys, and another file which is 
+</tt><tt>tab-delimited and the key is the 0th column, find all the keys that are 
+</tt><tt>present in both files.
+</tt><pre style="margin: 0em;">
+
+
+
+5m solution and example run below.
+
+j
+
+
+
+
+$ cat /tmp/j.pl
+#!/usr/bin/perl
+
+my %hash;
+
+open (IN, $ARGV[0]);
+while (&lt;IN&gt;) {
+  chomp;
+  $hash{$_} = 1;
+}
+close IN;
+
+my @matches;
+
+open (IN, $ARGV[1]);
+while (&lt;IN&gt;) {
+  chomp;
+  my @l = split /\t/;
+  if ($hash{$l[0]}) {
+     push @matches, $l[0];
+  }
+}
+close IN;
+
+print join &quot;, &quot;, @matches;
+print &quot;\n&quot;;
+
+$ /tmp/j.pl probeName.list2 lookup.file
+</pre><tt>200644_at, 200754_x_at, 200761_s_at, 200892_s_at, 200923_at, 
+</tt><tt>201277_s_at, 201381_x_at, 201663_s_at, 201885_s_at, 202007_at, 
+</tt><tt>202095_s_at, 202164_s_at, 202181_at, 202336_s_at, 202376_at, 202589_at, 
+</tt><tt>202779_s_at, 203234_at, 203418_at, 203432_at, 203434_s_at, 204281_at, 
+</tt><tt>204441_s_at, 205053_at, 205240_at, 205574_x_at, 205676_at, 206074_s_at, 
+</tt><tt>206102_at, 206316_s_at, 206336_at, 207165_at, 207345_at, 208079_s_at, 
+</tt><tt>208084_at, 208779_x_at, 209183_s_at, 209714_s_at, 209774_x_at, 
+</tt><tt>209974_s_at, 209980_s_at, 210987_x_at, 211066_x_at, 211747_s_at, 
+</tt><tt>211762_s_at, 212281_s_at, 212417_at, 212438_at, 212503_s_at, 213008_at, 
+</tt><tt>213226_at, 213462_at, 213861_s_at, 214710_s_at, 215446_s_at, 
+</tt><tt>216250_s_at, 217783_s_at, 218016_s_at, 218115_at, 218804_at, 219212_at, 
+</tt><tt>219725_at, 219770_at, 219933_at, 219981_x_at, 221729_at, 221922_at, 
+</tt><tt>221986_s_at, 222077_s_at, 38149_at, 59625_at, 222549_at, 222673_x_at, 
+</tt><tt>223194_s_at, 223307_at, 224779_s_at, 224944_at, 225300_at, 225541_at, 
+</tt><tt>225687_at, 226104_at, 226325_at, 226932_at, 227212_s_at, 227379_at, 
+</tt><tt>228286_at, 228654_at, 229538_s_at, 229610_at, 231823_s_at, 235509_at, 
+</tt><tt>242517_at, 242873_at, 1552348_at, 1552619_a_at, 1553768_a_at, 
+</tt><tt>1554696_s_at, 1555007_s_at, 1555758_a_at, 1564911_at
+</tt><pre style="margin: 0em;">
+
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01675.html">[Omaha.pm] Little tab-delimited file manipulator</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01677.html">[Omaha.pm] Pulling data from a crappy MS-SQL server somewhere in	Mexico...</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01675.html">[Omaha.pm] Little tab-delimited file manipulator</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01677.html">[Omaha.pm] Pulling data from a crappy MS-SQL server somewhere in	Mexico...</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01676"><strong>Date</strong></a></li>
+<li><a href="threads.html#01676"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

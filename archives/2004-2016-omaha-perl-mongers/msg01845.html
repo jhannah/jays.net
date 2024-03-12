@@ -1,0 +1,162 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] The many faces of return; -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 3 Sep 2008 17:11:27 &#45;0000 -->
+<!--X-Message-Id: 6A40C083&#45;205B&#45;40F5&#45;996A&#45;611E2A89CAA4@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] The many faces of return;</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01844.html">Date Prev</a>][<a href="msg01846.html">Date Next</a>][<a href="msg01844.html">Thread Prev</a>][<a href="msg01846.html">Thread Next</a>][<a href="maillist.html#01845">Date Index</a>][<a href="threads.html#01845">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] The many faces of return;</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Nebraska USA Perl Mongers of Omaha &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] The many faces of return;</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Wed, 3 Sep 2008 12:11:12 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<tt>I got hung up on &quot;return false&quot; today. Apparently &quot;return false&quot; is  
+</tt><tt>common lingo for   return;   or   return ();    which are both  
+</tt><tt>guaranteed to be false in scalar or array context. As opposed to    
+</tt><tt>return undef;   or   return 0;   which are false in scalar context,  
+</tt><tt>but true in array context.
+</tt><pre style="margin: 0em;">
+
+Fun, huh?   :)
+
+j
+
+
+
+
+$ cat perl_return_and_context.t
+use Test::More tests =&gt; 8;
+
+foreach my $sub (qw(
+   return_0 return_undef return_empty_list return_semi_colon
+)) {
+   my $ret = &amp;$sub();
+   ok(! $ret,       &quot;$sub in scalar context&quot;);
+   my @ret = &amp;$sub();
+   ok(! @ret,       &quot;$sub in array context&quot;);
+   &amp;$sub();
+}
+
+sub return_0 {
+   #print_context(wantarray);
+   return 0;
+}
+sub return_undef {
+   #print_context(wantarray);
+   return undef;
+}
+sub return_empty_list {
+   #print_context(wantarray);
+   return ();
+}
+sub return_semi_colon {
+   #print_context(wantarray);
+   return;
+}
+
+
+sub print_context {
+   my ($wantarray) = @_;
+   if (not defined $wantarray) {
+      print &quot;[void]&quot;;
+   } elsif ($wantarray) {
+      print &quot;[list]&quot;;
+   } else {
+      print &quot;[scalar]&quot;;
+   }
+}
+
+
+$ perl perl_return_and_context.t
+1..8
+ok 1 - return_0 in scalar context
+not ok 2 - return_0 in array context
+#   Failed test 'return_0 in array context'
+#   at perl_return_and_context.t line 9.
+ok 3 - return_undef in scalar context
+not ok 4 - return_undef in array context
+#   Failed test 'return_undef in array context'
+#   at perl_return_and_context.t line 9.
+ok 5 - return_empty_list in scalar context
+ok 6 - return_empty_list in array context
+ok 7 - return_semi_colon in scalar context
+ok 8 - return_semi_colon in array context
+# Looks like you failed 2 tests of 8.
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01846" href="msg01846.html">Re: [Omaha.pm] The many faces of return;</a></strong>
+<ul><li><em>From:</em> Andy Lester &lt;andy@petdance.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01844.html">[Omaha.pm] Text::FixedWidth</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01846.html">Re: [Omaha.pm] The many faces of return;</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01844.html">[Omaha.pm] Text::FixedWidth</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01846.html">Re: [Omaha.pm] The many faces of return;</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01845"><strong>Date</strong></a></li>
+<li><a href="threads.html#01845"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

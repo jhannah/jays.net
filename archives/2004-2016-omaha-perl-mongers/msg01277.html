@@ -1,0 +1,146 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Testing DNS servers -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 13 Jan 2007 17:57:38 &#45;0000 -->
+<!--X-Message-Id: 665fe04386b8f07d501b3b5305df14a6@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Testing DNS servers</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01276.html">Date Prev</a>][<a href="msg01278.html">Date Next</a>][<a href="msg01276.html">Thread Prev</a>][<a href="msg01281.html">Thread Next</a>][<a href="maillist.html#01277">Date Index</a>][<a href="threads.html#01277">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Testing DNS servers</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Omaha Perl Mongers &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Testing DNS servers</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Sat, 13 Jan 2007 11:57:28 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<tt>We're taking over DNS services for 113 domains on 3 new DNS servers w/ 
+</tt><tt>firewall mappings to the Internet.... How can I KNOW that everything is 
+</tt><tt>working?
+</tt><pre style="margin: 0em;">
+
+I'm using Perl (surprise! -laugh-).
+
+</pre><tt>Now I can just run &quot;prove -r&quot; from inside and outside our networks and 
+</tt><tt>180 tests pass or fail. Across 3 DNS servers it'll be some 600ish 
+</tt><tt>tests.
+</tt><pre style="margin: 0em;">
+
+:)
+
+j
+
+
+e.g.:  dns_from_inside.t
+
+use Test::More;
+
+eval { require Sys::HostIP };
+plan skip_all =&gt; &quot;Sys::HostIP required&quot; if $@;
+
+my $ip_address = Sys::HostIP-&gt;ip;
+if ($ip_address =~ /^10\./) {
+   plan tests =&gt; 88;
+} else {
+</pre><tt>   plan skip_all =&gt; &quot;You can only run these tests from inside the Omni 
+</tt><tt>network. Your IP: [$ip_address]&quot;;
+</tt><pre style="margin: 0em;">
+}
+
+my @servers = (
+   '@10.0.64.14 -p53',    # royal
+   '@10.0.33.164 -p53',  # omares-netservices
+   # etc...
+);
+
+my @expect = qw(
+   omnihotels.com                    A   63.241.199.252
+   www.omnihotels.com                A   63.241.199.252
+   omnihotels.com                    MX  mail.omnihotels.com
+   # etc...
+);
+
+run_tests(\@servers, \@expect);
+
+sub run_tests {
+   my ($servers, $expect) = @_;
+   for ($j = 0; $j &lt; @$expect; $j += 3) {
+      foreach my $server (@$servers) {
+         my ($q, $type, $a) = @$expect[$j .. $j + 2];
+         my $cmd = &quot;dig $server $q $type +noall +answer&quot;;
+         #print &quot;[$cmd]\n&quot;;
+         my $resp = `$cmd`;
+         #print &quot;[$resp]\n&quot;;
+         ok($resp =~ /\Q$a\E/, &quot;'$cmd' returns $a&quot;);
+      }
+   }
+}
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01276.html">Re: [Omaha.pm] requesting quick help</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01278.html">[Omaha.pm] use Storable;</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01276.html">Re: [Omaha.pm] requesting quick help</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01281.html">Re: [Omaha.pm] Testing DNS servers</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01277"><strong>Date</strong></a></li>
+<li><a href="threads.html#01277"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

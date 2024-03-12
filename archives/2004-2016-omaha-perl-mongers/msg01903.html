@@ -1,0 +1,151 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Benchmark.pm (cont'd from August) -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 21 Nov 2008 21:36:13 &#45;0000 -->
+<!--X-Message-Id: 49272979.6080707@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Benchmark.pm (cont'd from August)</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01902.html">Date Prev</a>][<a href="msg01904.html">Date Next</a>][<a href="msg01902.html">Thread Prev</a>][<a href="msg01904.html">Thread Next</a>][<a href="maillist.html#01903">Date Index</a>][<a href="threads.html#01903">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Benchmark.pm (cont'd from August)</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Benchmark.pm (cont'd from August)</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Fri, 21 Nov 2008 15:34:49 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: Thunderbird 2.0.0.18 (Windows/20081105)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+Benchmark.pm:
+  <a  rel="nofollow" href="http://search.cpan.org/~rgarcia/perl-5.10.0/lib/Benchmark.pm">http://search.cpan.org/~rgarcia/perl-5.10.0/lib/Benchmark.pm</a>
+
+</pre><tt>Back in August I complained. Yesterday I got interesting &amp; useful info 
+</tt><tt>on irc.perl.org #poe:
+</tt><pre style="margin: 0em;">
+
+
+
+12:44 &lt;@Leolo&gt; Benchmark: timing 1000000 iterations of amore, less, more...
+</pre><tt>12:44 &lt;@Leolo&gt;      amore:  4 wallclock secs ( 2.57 usr +  0.00 sys =  
+</tt><tt>2.57 CPU) @ 389105.06/s (n=1000000)
+</tt><tt>12:44 &lt;@Leolo&gt;       less:  2 wallclock secs ( 2.52 usr +  0.00 sys =  
+</tt><tt>2.52 CPU) @ 396825.40/s (n=1000000)
+</tt><tt>12:44 &lt;@Leolo&gt;       more:  2 wallclock secs ( 2.58 usr +  0.00 sys =  
+</tt><tt>2.58 CPU) @ 387596.90/s (n=1000000)
+</tt><tt>12:47 &lt;@jhannah&gt; Am I the only one that gave up on Benchmark?   
+</tt><tt><a  rel="nofollow" href="http://mail.pm.org/pipermail/omaha-pm/2008-August/001855.html">http://mail.pm.org/pipermail/omaha-pm/2008-August/001855.html</a>
+</tt><tt>12:54 &lt;@dngor&gt; jhannah: Yes, wall clock is useless for benchmarking.  
+</tt><tt>That's why I use a CPU-time cutoff and compare the iterations/cpu time.
+</tt><pre style="margin: 0em;">
+12:55 &lt;@jhannah&gt; wouldn't an accurate wallclock be insanely trivial to list?
+12:55 &lt;@Leolo&gt; wallclock is useless
+12:55 &lt;@dngor&gt; Wall time isn't accurate in a pre-emptive OS.
+12:55 &lt;@dngor&gt; You're at the whim of other processes.
+</pre><tt>12:55 &lt;@Leolo&gt; other processes will hog the CPU, throwing off the .... 
+</tt><tt>what dngor said
+</tt><tt>12:55 &lt;@dngor&gt; Now, if you nice -19 the benchmark, that would make it 
+</tt><tt>better. :)
+</tt><tt>12:57 &lt;@dngor&gt; It may also require a reboot.  Be sure your benchmark 
+</tt><tt>will eventually exit. :)
+</tt><tt>12:57 &lt;@jhannah&gt; I understand the point you're making. What I don't 
+</tt><tt>understand why Benchmark would label something &quot;wallclock&quot; when it has 
+</tt><tt>no bearing, whatsoever, on how much clock-on-the-wall-time elapsed. It 
+</tt><tt>should be removed or accurate...?
+</tt><pre style="margin: 0em;">
+12:57  * jhannah adds an &quot;is&quot; in there somewhere
+</pre><tt>12:58 &lt;@dngor&gt; Oh, I see.  Well, there's Benchmark.pm overhead which I 
+</tt><tt>presume it tries to discount.
+</tt><tt>13:00 &lt;@dngor&gt; I admit I'm just guessing at this point.  The CPU/wall 
+</tt><tt>ratio implies that the program wasn't pre-empted much.
+</tt><tt>13:01 &lt;@dngor&gt; Program run time, from start to exit, also involves 
+</tt><tt>loading Perl and the source, compiling it, and tearing down the 
+</tt><tt>process.  Those may be significant, but Benchmark.pm won't report them.
+</tt><pre style="margin: 0em;">
+13:02 &lt;@dngor&gt; Whether these apply, I don't know.
+13:03  * jhannah hugs purl, shoots Benchmark
+13:03 &lt;@jhannah&gt; call it anything EXCEPT &quot;wallclock&quot; and I'm happy.  :)
+</pre><tt>13:07 &lt;@dngor&gt; Example of a cpu-time limit: 
+</tt><tt><a  rel="nofollow" href="http://poe.dyndns.org/~troc/benchmarks/bench-calls.perl">http://poe.dyndns.org/~troc/benchmarks/bench-calls.perl</a>
+</tt><tt>13:08 &lt;@dngor&gt; Example of &quot;rolling your own&quot; for jhannah: 
+</tt><tt><a  rel="nofollow" href="http://poe.dyndns.org/~troc/benchmarks/arguments.perl">http://poe.dyndns.org/~troc/benchmarks/arguments.perl</a>
+</tt><tt>13:11 &lt;@jhannah&gt; dngor: so you just ignore the &quot;wallclock secs&quot;? Or you 
+</tt><tt>trust them as accurate relative to each other but unrelated to a clock 
+</tt><tt>on the wall?
+</tt><pre style="margin: 0em;">
+13:11 &lt;@dngor&gt; I ignore them and look at n per X cpu seconds.
+13:11 &lt;@dngor&gt; CPU time is the only objective measurement.
+13:12 &lt;@dngor&gt; The CPU is the universe.
+</pre><tt>13:13 &lt;@dngor&gt; There is no coupling at all between the CPU and the wall 
+</tt><tt>clock.  Consider that many machines dynamically clock now to conserve power.
+</tt><pre style="margin: 0em;">
+
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01902.html">Re: [Omaha.pm] Visual map of a Perl program structure?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01904.html">[Omaha.pm] Fishing for GUI ideas...</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01902.html">Re: [Omaha.pm] Visual map of a Perl program structure?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01904.html">[Omaha.pm] Fishing for GUI ideas...</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01903"><strong>Date</strong></a></li>
+<li><a href="threads.html#01903"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

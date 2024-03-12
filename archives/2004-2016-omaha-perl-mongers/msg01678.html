@@ -1,0 +1,180 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] get_xpath via Perl, Template Toolkit  (XML::Twig) -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 7 Mar 2008 20:48:36 &#45;0000 -->
+<!--X-Message-Id: 47D1A9D6.9010703@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] get_xpath via Perl, Template Toolkit  (XML::Twig)</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01677.html">Date Prev</a>][<a href="msg01679.html">Date Next</a>][<a href="msg01694.html">Thread Prev</a>][<a href="msg01679.html">Thread Next</a>][<a href="maillist.html#01678">Date Index</a>][<a href="threads.html#01678">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] get_xpath via Perl, Template Toolkit  (XML::Twig)</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] get_xpath via Perl, Template Toolkit  (XML::Twig)</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Fri, 07 Mar 2008 14:47:18 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: Thunderbird 2.0.0.12 (Windows/20080213)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+When parsing XML your xpath statement can say things like:
+
+  'b/c[@jay=&quot;rules&quot; and @justin=&quot;rules too&quot;]/d'
+
+</pre><tt>Which says... 
+</tt><tt>
+</tt><pre style="margin: 0em;">
+  foreach b node that has a
+    child c node that has
+       an attribute &quot;jay&quot; set to &quot;rules&quot;
+       AND an attribute &quot;justin&quot; set to &quot;rules too&quot;
+          and has a child d node
+
+...grab those d nodes.
+
+</pre><tt>We were having problems, though. The AND part seemed not to be working 
+</tt><tt>deep in the bowels of our real-world scenario inside Template Toolkit.
+</tt><pre style="margin: 0em;">
+
+So I made the simplest possible recreation set, below.
+
+XML::Twig rules.  :)
+
+j
+
+
+
+$ cat blah.xml
+&lt;a&gt;
+ &lt;b&gt;
+   &lt;c jay=&quot;rules&quot;/&gt;
+   &lt;c jay=&quot;rules&quot; justin=&quot;rules too&quot;&gt;
+     &lt;d&gt;boo-ya!&lt;/d&gt;
+   &lt;/c&gt;
+   &lt;c justin=&quot;rules too&quot;/&gt;
+ &lt;/b&gt;
+&lt;/a&gt;
+
+
+$ cat j.pl
+#!/usr/bin/perl
+
+use Template;
+use XML::Twig;
+
+my $twig = XML::Twig-&gt;new( pretty_print =&gt; 'indented' );
+$twig-&gt;parsefile('blah.xml');
+$twig = $twig-&gt;root;
+
+# -----------------------------
+#  Using Perl
+# -----------------------------
+print &quot;Using Perl:\n&quot;;
+</pre><tt>foreach my $d ($twig-&gt;get_xpath('b/c[@jay=&quot;rules&quot; and @justin=&quot;rules 
+</tt><tt>too&quot;]/d')) {
+</tt><pre style="margin: 0em;">
+  print $d-&gt;text;
+}
+print &quot;\n\n&quot;;
+
+# -----------------------------
+#  Using Template Toolkit
+# -----------------------------
+my $template = Template-&gt;new();
+$template-&gt;process('j.tt', { twig =&gt; $twig })
+  || die $template-&gt;error();
+
+
+$ cat j.tt
+Using Template Toolkit:
+[%
+</pre><tt>  FOREACH d IN twig.get_xpath('b/c[@jay=&quot;rules&quot; and @justin=&quot;rules 
+</tt><tt>too&quot;]/d');
+</tt><pre style="margin: 0em;">
+     d.text;
+  END;
+%]
+
+
+$ perl j.pl
+Using Perl:
+boo-ya!
+
+Using Template Toolkit:
+boo-ya!
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01679" href="msg01679.html">Re: [Omaha.pm] get_xpath via Perl, Template Toolkit  (XML::Twig)</a></strong>
+<ul><li><em>From:</em> &quot;Sean Baker&quot; &lt;pbaker@omnihotels.com&gt;</li></ul></li>
+<li><strong><a name="01681" href="msg01681.html">Re: [Omaha.pm] get_xpath via Perl, Template Toolkit  (XML::Twig)</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01677.html">[Omaha.pm] Pulling data from a crappy MS-SQL server somewhere in	Mexico...</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01679.html">Re: [Omaha.pm] get_xpath via Perl, Template Toolkit  (XML::Twig)</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01694.html">Re: [Omaha.pm] Pulling data from a crappy MS-SQL server somewhere	in Mexico...</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01679.html">Re: [Omaha.pm] get_xpath via Perl, Template Toolkit  (XML::Twig)</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01678"><strong>Date</strong></a></li>
+<li><a href="threads.html#01678"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

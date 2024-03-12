@@ -1,0 +1,126 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] IO/Multiplex.pm warning -->
+<!--X-From-R13: Xrss Pvforr &#60;bznun&#45;czNwovforr.pbz> -->
+<!--X-Date: Wed, 4 Aug 2004 12:17:41 &#45;0500 -->
+<!--X-Message-Id: 20040804171747.GC21599@jbisbee.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 20040804003329.GA7215@jbisbee.com -->
+<!--X-Reference: 001801c47a3d$69fb7f20$4722000a@omarests2 -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] IO/Multiplex.pm warning</title>
+<link rev="made" href="mailto:omaha-pm@jbisbee.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00059.html">Date Prev</a>][<a href="msg00061.html">Date Next</a>][<a href="msg00059.html">Thread Prev</a>][<a href="msg00062.html">Thread Next</a>][<a href="maillist.html#00060">Date Index</a>][<a href="threads.html#00060">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] IO/Multiplex.pm warning</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>,	&quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;,	&quot;Omaha.pm&quot; &lt;<a href="mailto:omaha-list%40happyfunball.pm.org">omaha-list@happyfunball.pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] IO/Multiplex.pm warning</li>
+<li><em>From</em>: Jeff Bisbee &lt;<a href="mailto:omaha-pm%40jbisbee.com">omaha-pm@jbisbee.com</a>&gt;</li>
+<li><em>Date</em>: Wed, 4 Aug 2004 13:17:47 -0400</li>
+<li><em>Cc</em>: </li>
+<li><em>In-reply-to</em>: &lt;001801c47a3d$69fb7f20$4722000a@omarests2&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=help">mailto:omaha-pm-request@mail.pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.mail.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@mail.pm.org">mailto:omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=subscribe">mailto:omaha-pm-request@mail.pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe">mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Mail-followup-to</em>: <a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>,	&quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;,	&quot;Omaha.pm&quot; &lt;<a href="mailto:omaha-list%40happyfunball.pm.org">omaha-list@happyfunball.pm.org</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00058.html">20040804003329.GA7215@jbisbee.com</a>&gt;	&lt;001801c47a3d$69fb7f20$4722000a@omarests2&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>Sender</em>: Jeff Bisbee &lt;<a href="mailto:jbisbee%40jbisbee.com">jbisbee@jbisbee.com</a>&gt;</li>
+<li><em>User-agent</em>: Mutt/1.5.6+20040523i</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>* Jay Hannah (jhannah@omnihotels.com) wrote:
+&gt; In terms of pure multitasking capacity and maintenance... 
+&gt; (Process 100 simultaneous inbound requests)
+&gt; Is POE typically used on top of Apache/mod_perl? Instead of Apache/mod_perl?
+
+Neither, POE is basically a perl kernel centered around slicing execution
+into tiny bits so they don't block. (at its core its an event loop with
+hires time stamps so you can schedule events to execute in the future)
+I haven't done anything hardcore, but I asked on #poe on irc.perl.org and 
+got this answer...
+
+    &lt;biz&gt;   anybody know any limits os POE handle socket connections?
+    &lt;biz&gt;   someone on a perl monger mailing list mentioned IO::Multiplex
+            and I suggested POE as an alternative
+    &lt;biz&gt;   I've never pushed any limits, his current implementation
+            handles 100 simultaneous connections
+    &lt;hachi&gt; eh... on short order tests I've pushed 1000 easily, but it
+            all depends on what you're doing
+
+I would just suggest playing with it.  It's EXTREMELY well tested and
+just takes a bit to wrap your head around it.  You might want to sign up
+to the mailing list, or hop on irc.perl.org, #poe if you have questions.
+
+-- Jeff Bisbee / omaha-pm@jbisbee.com / jbisbee.com
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00062" href="msg00062.html">Re: [Omaha.pm] IO/Multiplex.pm warning</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00058" href="msg00058.html">Re: [Omaha.pm] IO/Multiplex.pm warning</a></strong>
+<ul><li><em>From:</em> Jeff Bisbee &lt;omaha-pm@jbisbee.com&gt;</li></ul></li>
+<li><strong><a name="00059" href="msg00059.html">RE: [Omaha.pm] IO/Multiplex.pm warning</a></strong>
+<ul><li><em>From:</em> &quot;Jay Hannah&quot; &lt;jhannah@omnihotels.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00059.html">RE: [Omaha.pm] IO/Multiplex.pm warning</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00061.html">Re: [Omaha.pm] Date::Calc</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00059.html">RE: [Omaha.pm] IO/Multiplex.pm warning</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00062.html">Re: [Omaha.pm] IO/Multiplex.pm warning</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00060"><strong>Date</strong></a></li>
+<li><a href="threads.html#00060"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: RE: [Omaha.pm] AI&#45;type string comparisons using Perl... -->
+<!--X-From-R13: "[vyyre, Epbgg Z (Aznun @rgjbexf)" &#60;fpbgg.y.zvyyreNuc.pbz> -->
+<!--X-Date: Thu, 12 Aug 2004 17:57:41 &#45;0500 -->
+<!--X-Message-Id: 1F7C0C8F4BD7C54A8BC55012FEF3DF6D0302E668@omaexc11.americas.cpqcorp.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>RE: [Omaha.pm] AI-type string comparisons using Perl...</title>
+<link rev="made" href="mailto:scott.l.miller@hp.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00072.html">Date Prev</a>][<a href="msg00074.html">Date Next</a>][<a href="msg00078.html">Thread Prev</a>][<a href="msg00075.html">Thread Next</a>][<a href="maillist.html#00073">Date Index</a>][<a href="threads.html#00073">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>RE: [Omaha.pm] AI-type string comparisons using Perl...</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:dan%40linder.org">dan@linder.org</a>&gt;,	&quot;Perl Mongers of Omaha,  Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>Subject</em>: RE: [Omaha.pm] AI-type string comparisons using Perl...</li>
+<li><em>From</em>: &quot;Miller, Scott L (Omaha Networks)&quot; &lt;<a href="mailto:scott.l.miller%40hp.com">scott.l.miller@hp.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 12 Aug 2004 17:57:39 -0500</li>
+<li><em>Cc</em>: </li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=help">mailto:omaha-pm-request@mail.pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.mail.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@mail.pm.org">mailto:omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=subscribe">mailto:omaha-pm-request@mail.pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe">mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcSAf6cuhL0974aeSeiKjepQl6CZQgAPNVSg</li>
+<li><em>Thread-topic</em>: [Omaha.pm] AI-type string comparisons using Perl...</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>You think that's ugly?  Try parsing through a syslog file that has various Cisco routers, Cisco Catalyst switches, Nortel BN routers, Nortel Passport switches, foundry gear, and old Centillion (now Nortel) switches all reporting into the same file.  And then you want to try to identify the &quot;important&quot; events...  
+
+The best solution I've created is to first split each and every line into a generic array, then depending on what exactly you were looking in any particular case, you've got both the original line still stored in $_, and the various fields broken by spaces.  So, for instance, here is a bit
+of sample code from that code I described above...
+
+sub GuessBoxType {
+   #We've got the whole line in $_, that line split by spaces in @a
+   #the IP address (better have anyway), and maybe a name...
+
+   #A &quot;message repeated&quot; message doesn't give enough info to guess...
+   if ( /last message repeated/ ) { #ignore
+      return &quot;&quot;;
+   } elsif ( /previous event / ) {  #ignore
+      return &quot;&quot;;
+   }
+
+   if ( /ENTITY\/EVENT CODE:/ ) {  #Nortel RS router
+      #nortel BN router log msgs include the string &quot;ENTITY/EVENT CODE:&quot;
+      return &quot;nortel-rtr&quot;;
+   }
+
+   if ( /[0-9]+\/[0-9]+ [0-9]+ [\w\-]+:/ ) { #Cisco CSS
+      #matching on the &quot;slot/port msg# subSystemName-level:&quot; portion of logmsg
+      return &quot;cisco-css&quot;;
+   }
+
+   if ( $a[4] =~ /^CPU[0-9]+$/ ) { #Passport 8600 switch
+      #Each message includes which CPU is reporting the issue.
+      return &quot;passport-8600&quot;;
+   }
+
+   if ( substr($a[4],-1,1) eq ',' ) { #Foundry Server Iron
+      #Each message starts with the &quot;boxname&quot; as known by the serveriron itself
+      #followed by a comma ','.
+      return &quot;foundry-svrirn&quot;;
+   }
+
+   if ( /\[[0-9]+ ([0-9]{2}:){3}[0-9]{3}\]/ ) { #Excellar
+      #matching on &quot;[msg# hour:min:sec:msec]&quot; portion of log message
+      return &quot;accelar&quot;;
+   }
+...
+
+So, depending on what device I'm attempting to identify, I'll use either a straight regex, or some portions of the generic array @a, which is created with the following line near the top of my while(&lt;&gt;) loop:
+  @a=split(/\s+/);
+
+(The above isn't usable out of the box, BTW, @a is modified some before 'Guess_box_type' gets called...)
+
+Although I'm not entirely clear what you're trying to do, my gut reaction is that you don't want to grep for various things and then later try to put it all together.  If at all possible, just process the file one line at a time.
+
+If you'd like to provide more information about what you're trying to do, I, and probably others, would be happy to help find the best way to accomplish the task.
+
+-Scott 
+
+PS. If anyone is actually interested in my syslog processing code, I'd be happy to oblige...
+
+
+
+-----Original Message-----
+From: omaha-pm-bounces@mail.pm.org
+[<a  rel="nofollow" href="mailto:omaha-pm-bounces@mail.pm.org]On">mailto:omaha-pm-bounces@mail.pm.org]On</a> Behalf Of Daniel Linder
+Sent: Thursday, August 12, 2004 10:12 AM
+To: omaha-pm@mail.pm.org
+Subject: [Omaha.pm] AI-type string comparisons using Perl...
+
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Hello everyone!
+
+  I am working on a small script that will compare some text output from a
+program and parse out the numbers I want to act upon.  Unfortunatly the
+output from the script is quite &quot;humanized&quot; and really ugly to parse
+using RegExp.
+  Does anyone know of a perl module/function that can take a template
+string and use that to extract the values into variables for further
+use?
+
+Here is how I am starting to work on this:
+ 1  @OUTPUT = `/path/to/ovstatus`;
+ 2  #--begin output---
+ 3  #  object manager name: netmon
+ 4  #...snip...
+ 5  # 14:30:00 Polling 0 interfaces, 0 polls/hour.  0 overdue polls,
+current maximum 0 [...etc...] average 0.2 msec/lookup.
+ 6  #--end output---
+ 7  ($LINE) = grep /overdue.polls/i, @OUTPUT;
+ 8  $RAWRATE =~ /Polling.*, (\d*) ([^\s]*)\. /i;
+ 9  $RATE = $1;
+10  $RATEUNITS = $2;
+...and so on...
+
+Line 7 finds the single line that I want to work with and puts that into
+$LINE.
+I have to repeat lines 8-10 for all the values I want to pull out of that
+line.  I started with a single large regexp that was a nightmare to debug
+if I got off in my RegExp syntax. :(
+
+Anyone got other ideas?  I will be using this method for many other
+programs on the system I want to monitor so the more flexible the parsing
+routine the better.
+
+Dan
+
+- - - - -
+&quot;I do not fear computer,
+I fear the lack of them.&quot;
+ -- Isaac Asimov
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.2.1 (GNU/Linux)
+
+iD8DBQFBG4jcNiBNyqUzGb8RAlE9AJwO6dFCgsPy4lfIhYvAtER2DcI/SACZAf5R
+RU8GrLUCrHhchmF53ASntm0=
+=EJd3
+-----END PGP SIGNATURE-----
+_______________________________________________
+Omaha-pm mailing list
+Omaha-pm@mail.pm.org
+<a  rel="nofollow" href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00072.html">[Omaha.pm] AI-type string comparisons using Perl...</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00074.html">[Omaha.pm] Meeting this Thr!</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00078.html">Re: [Omaha.pm] AI-type string comparisons using Perl...</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00075.html">[Omaha.pm] [OT]For Sale: two 512MB ECC DDR PC2100</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00073"><strong>Date</strong></a></li>
+<li><a href="threads.html#00073"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

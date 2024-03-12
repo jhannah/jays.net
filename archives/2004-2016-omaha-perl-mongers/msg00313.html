@@ -1,0 +1,105 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Converting an array of strings into a scalar -->
+<!--X-From-R13: "Dlna Egvyyr" &#60;ecfNjvyypbafhyg.pbz> -->
+<!--X-Date: 22 Feb 2005 16:59:54 &#45;0000 -->
+<!--X-Message-Id: 9A8B75E3985324438F1BFA08B160E8203FE2CF@suxsvr.willconsult.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Converting an array of strings into a scalar</title>
+<link rev="made" href="mailto:rps@willconsult.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00312.html">Date Prev</a>][<a href="msg00314.html">Date Next</a>][<a href="msg00381.html">Thread Prev</a>][<a href="msg00314.html">Thread Next</a>][<a href="maillist.html#00313">Date Index</a>][<a href="threads.html#00313">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Converting an array of strings into a scalar</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Converting an array of strings into a scalar</li>
+<li><em>From</em>: &quot;Ryan Stille&quot; &lt;<a href="mailto:rps%40willconsult.com">rps@willconsult.com</a>&gt;</li>
+<li><em>Date</em>: Tue, 22 Feb 2005 10:59:46 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcUY/+kVbqaRwbFMT1evtt5TEsSt7Q==</li>
+<li><em>Thread-topic</em>: Converting an array of strings into a scalar</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>I have an array of lines, each one containing a newline character at the
+end.  I want to convert this to a scalar variable that I will pass on to
+something else.
+
+I was using
+$body = &quot;@filecontents&quot;;
+
+But that ends up adding a space to the beginning of each line except the
+first one.  So I changed it to this:
+
+$body = '';
+foreach $line (@filecontents) {
+  $body .= $line;
+  }
+
+But I wonder if there is a more elegant way?
+
+-Ryan
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00312.html">Re: [Omaha.pm] Perl &lt;-&gt; PHP translation guide</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00314.html">RE: [Omaha.pm] Converting an array of strings into a scalar</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00381.html">Re: [Omaha.pm] Perl, PHP UG Battle Royale and/or Share the Love</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00314.html">RE: [Omaha.pm] Converting an array of strings into a scalar</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00313"><strong>Date</strong></a></li>
+<li><a href="threads.html#00313"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

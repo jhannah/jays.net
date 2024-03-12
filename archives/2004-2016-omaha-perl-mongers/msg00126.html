@@ -1,0 +1,118 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Re: LWP form posts -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: Wed, 8 Sep 2004 19:56:39 &#45;0500 -->
+<!--X-Message-Id: 2BDBB172&#45;01FB&#45;11D9&#45;9CB3&#45;000A95E317B8@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 6.1.2.0.2.20040908115750.0279aec0@mail.aurora&#45;e&#45;solutions.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Re: LWP form posts</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00125.html">Date Prev</a>][<a href="msg00127.html">Date Next</a>][<a href="msg00124.html">Thread Prev</a>][<a href="msg00136.html">Thread Next</a>][<a href="maillist.html#00126">Date Index</a>][<a href="threads.html#00126">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Re: LWP form posts</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Michael D. Maynard&quot; &lt;<a href="mailto:michael.maynard%40auroraesolutions.com">michael.maynard@auroraesolutions.com</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Re: LWP form posts</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Wed, 8 Sep 2004 19:57:06 -0500</li>
+<li><em>Cc</em>: Nebraska USA Perl Mongers of Omaha &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>In-reply-to</em>: &lt;6.1.2.0.2.20040908115750.0279aec0@mail.aurora-e-solutions.com&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=help">mailto:omaha-pm-request@mail.pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.mail.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@mail.pm.org">mailto:omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=subscribe">mailto:omaha-pm-request@mail.pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe">mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;6.1.2.0.2.20040908115750.0279aec0@mail.aurora-e-solutions.com&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+
+On Sep 8, 2004, at 12:08 PM, Michael D. Maynard wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><tt> I've got a Perl question for you.&#xA0; Don't know if you have much 
+</tt><tt>experience with form posts through Perl or not, but I thought I would 
+</tt><tt>give it a shot.&#xA0; LWP is the standard for doing form posts with Perl.&#xA0; 
+</tt><tt>However, it expects a response from the other side.&#xA0; This is where I 
+</tt><tt>am running into trouble.&#xA0; I need to pass the data off to the other 
+</tt><tt>side and let their server take over.&#xA0; I am posting to an external CGI 
+</tt><tt>that returns HTML.&#xA0; I need their server to handle that rather than 
+</tt><tt>processing it myself.&#xA0; I can't redirect because I lose the 
+</tt><tt>relationship to the data i just posted.&#xA0; Is there anyway to post and 
+</tt><tt>go without a response?
+</tt></blockquote><pre style="margin: 0em;">
+
+</pre><tt>Hmm... I'm not sure I follow what you're trying to do. Are there 3 
+</tt><tt>computers in your scenario? Can you explain what computers A, B, and C 
+</tt><tt>are each supposed to each be doing? Which of the computers do you 
+</tt><tt>control w/ Perl?
+</tt><pre style="margin: 0em;">
+
+</pre><tt>With any http(s) POST action, the client needs to wait for the server 
+</tt><tt>to hang up (w/ or w/o output) to know that the POST actually reached 
+</tt><tt>the server, right?
+</tt><pre style="margin: 0em;">
+
+Have you looked at WWW::Mechanize?
+
+j
+
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00125.html">Re: [Omaha.pm] ignoring undefined subroutines</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00127.html">Re: [Omaha.pm] ignoring undefined subroutines</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00124.html">Re: [Omaha.pm] help!!</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00136.html">[Omaha.pm] Re: LWP form posts</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00126"><strong>Date</strong></a></li>
+<li><a href="threads.html#00126"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,45 @@
+#!/usr/bin/perl
+# This is a sample program that illustrates some loop structures and 
+# input and output to a file.  
+# The file input is from a file in the instructors directory, but the 
+# resulting output file is written to your current working directory. 
+# Note that to run this sampole program you will have to copy it into your
+# perl directory on the server, chmod it executable (chmod 777 runme.pl)
+# and execute it with an explicit path (./runme.pl). You should save the 
+# output from the program (the three series of cubes) to a file.  You can
+# either capture the output in your terminal or use the redirect (>) operator
+# to save the output to a file on phpdev.    
+#
+#
+print "Helloooooo, World\n";
+
+foreach (1..10) {
+   my($cube)=$_ * $_ * $_;
+   print "The cube of $_ is $cube.\n";
+   }
+
+$_ = 1;
+while ($_ < 11) {
+   my($cube)=$_ * $_ * $_;
+   print "The cube of $_ is $cube.\n";
+   $_ = $_ + 1;
+   }
+
+for ($i = 1; $i <= 10; $i++) {
+   my($cube)=$i * $i * $i;
+   print "The cube of $i is $cube.\n";
+   }
+
+unless (open INP_ASSETS, "</home/q8050_1/fixed_assets.dat") {
+   die "Arghhhhh, cannot open the input file";
+   }
+unless (open OUT_ASSETS, ">fixed_assets.out") {
+   die "Arghhhhh, cannot open the output file";
+   }
+
+while (<INP_ASSETS>) {
+   print OUT_ASSETS "$_";
+   }
+
+close INP_ASSETS;
+close OUT_ASSETS;

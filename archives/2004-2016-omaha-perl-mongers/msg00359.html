@@ -1,0 +1,117 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Stack traces rule! -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 6 Apr 2005 23:06:56 &#45;0000 -->
+<!--X-Message-Id: 200504062306.j36N6kxm024627@omares&#45;email.omnihotels.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Stack traces rule!</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00358.html">Date Prev</a>][<a href="msg00360.html">Date Next</a>][<a href="msg00361.html">Thread Prev</a>][<a href="msg00362.html">Thread Next</a>][<a href="maillist.html#00359">Date Index</a>][<a href="threads.html#00359">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Stack traces rule!</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Stack traces rule!</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Wed, 6 Apr 2005 18:07:00 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcU6/SRmnsZkuH5jSSaNvSdpoEkI+AAAAHxA</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre> 
+('T' in the debugger)
+
+How else could you ever trace goo like this?
+
+Neato,
+
+j
+
+
+2005-04-06 18:02:07,846 (SlaveBot.pm:118)&gt; cro_resno:1004411618|airline_ff_id:00300560016|partner_id:UA|class:Model::omares::crs::Rewards
+2005-04-06 18:02:08,385 (SlaveBot.pm:126)&gt;    Successfully loaded fg_id:14040489
+2005-04-06 18:02:08,388 (SlaveBot.pm:191)&gt;    status_program:000|status_omni:900
+Model::omares::Prod::Common::load(/usr/lib/perl5/site_perl/Omni/MVC/Model/omares/Prod/Common.pm:720):
+720:          $self-&gt;set_error(code=&gt;2920,text=&gt;&quot;No data in $table for filter $filter.&quot;);
+  DB&lt;5&gt; T
+$ = Model::omares::Prod::Common::load(ref(Model::omares::Prod::user), 'filter', 'user_id=\'SB-RECEIVE_FILE()\'') called from file `/usr/lib/perl5/site_perl/Omni/MVC/Model/omares/crs/Permissions.pm' line 146
+$ = Model::omares::crs::Permissions::load_user(ref(Model::omares::crs::Permissions), 'user_id', 'SB-RECEIVE_FILE()') called from file `/usr/lib/perl5/site_perl/Omni/MVC/Model/omares/crs/Permissions.pm' line 120
+$ = Model::omares::crs::Permissions::load(ref(Model::omares::crs::Permissions), 'user_id', 'SB-RECEIVE_FILE()') called from file `/usr/lib/perl5/site_perl/Omni/MVC/Model/omares/Prod/Common.pm' line 220
+$ = Model::omares::Prod::Common::_calculate_res_source(ref(Model::omares::Prod::fg_rewards)) called from file `/usr/lib/perl5/site_perl/Omni/MVC/Model/omares/Prod/Common.pm' line 169
+. = Model::omares::Prod::Common::set_who_and_when(ref(Model::omares::Prod::fg_rewards)) called from file `/usr/lib/perl5/site_perl/Omni/MVC/Model/omares/Prod/Common.pm' line 383
+$ = Model::omares::Prod::Common::update(ref(Model::omares::Prod::fg_rewards), 'filter', 'fg_id = \'14040489\' and cro_resno = \'1004411618\'') called from file `/usr/lib/perl5/site_perl/Omni/MVC/Model/omares/crs/Rewards.pm' line 541
+. = Model::omares::crs::Rewards::_fg_rewards_commit(ref(Model::omares::crs::Rewards)) called from file `/usr/lib/perl5/site_perl/Omni/MVC/Model/omares/crs/Rewards.pm' line 504
+. = Model::omares::crs::Rewards::change_omni_status(ref(Model::omares::crs::Rewards), 900) called from file `/usr/lib/perl5/site_perl/Omni/MVC/Model/Rewards/SlaveBot.pm' line 233
+. = Model::Rewards::SlaveBot::receive_file(ref(Model::Rewards::SlaveBot), 'local_filename', 'OMNIERROR_20050218_3', 'partner_id', 'UA') called from file `receive.pl' line 19
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00362" href="msg00362.html">Re: [Omaha.pm] Stack traces rule!</a></strong>
+<ul><li><em>From:</em> Andy Lester &lt;andy@petdance.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00358.html">[Omaha.pm] Wow! I used map!</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00360.html">Re: [Omaha.pm] Wow! I used map!</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00361.html">Re: [Omaha.pm] Wow! I used map!</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00362.html">Re: [Omaha.pm] Stack traces rule!</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00359"><strong>Date</strong></a></li>
+<li><a href="threads.html#00359"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

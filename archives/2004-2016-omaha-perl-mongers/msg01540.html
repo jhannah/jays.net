@@ -1,0 +1,136 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] CGI.pm is your friend -->
+<!--X-From-R13: "Rnavry Zvaqre" &#60;qnaNyvaqre.bet> -->
+<!--X-Date: 16 Oct 2007 17:23:46 &#45;0000 -->
+<!--X-Message-Id: 59831.63.230.40.25.1192554207.squirrel@webmail.linder.org -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: Pine.LNX.4.64.0710152056200.6890@ferret.jays.net -->
+<!--X-Reference: Pine.LNX.4.64.0710152113390.7052@ferret.jays.net -->
+<!--X-Reference: 4839.70.165.110.36.1192500302.squirrel@webmail.linder.org -->
+<!--X-Reference: D1028A83&#45;CA84&#45;4F4E&#45;A51D&#45;972CA04394F6@jays.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] CGI.pm is your friend</title>
+<link rev="made" href="mailto:dan@linder.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01539.html">Date Prev</a>][<a href="msg01541.html">Date Next</a>][<a href="msg01539.html">Thread Prev</a>][<a href="msg01541.html">Thread Next</a>][<a href="maillist.html#01540">Date Index</a>][<a href="threads.html#01540">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] CGI.pm is your friend</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] CGI.pm is your friend</li>
+<li><em>From</em>: &quot;Daniel Linder&quot; &lt;<a href="mailto:dan%40linder.org">dan@linder.org</a>&gt;</li>
+<li><em>Date</em>: Tue, 16 Oct 2007 12:03:27 -0500 (CDT)</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Importance</em>: Normal</li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01539.html">D1028A83-CA84-4F4E-A51D-972CA04394F6@jays.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01536.html">Pine.LNX.4.64.0710152056200.6890@ferret.jays.net</a>&gt;	&lt;<a href="msg01537.html">Pine.LNX.4.64.0710152113390.7052@ferret.jays.net</a>&gt;	&lt;<a href="msg01538.html">4839.70.165.110.36.1192500302.squirrel@webmail.linder.org</a>&gt;	&lt;<a href="msg01539.html">D1028A83-CA84-4F4E-A51D-972CA04394F6@jays.net</a>&gt;</li>
+<li><em>Reply-to</em>: <a href="mailto:dan%40linder.org">dan@linder.org</a>, &quot;Perl Mongers of Omaha,	Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: SquirrelMail/1.4.10a</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+On Mon, October 15, 2007 21:26, Jay Hannah wrote:
+&gt; popup_menu() is only called one time. It is handed an anonymous hash
+&gt; with two keys (&quot;name&quot; and &quot;values&quot;). The value of the &quot;values&quot; key is
+&gt; an anonymous array with the elements you listed in it.
+&gt;
+&gt; Did that answer your question? Nothing magical, just a hash with an
+&gt; array in it.
+
+Gotcha.  The actual popup_menu() function expands the hash itself.  I was
+thinking this was some sort of &quot;OO-magic&quot; being performed by the Perl
+interpreter auto-magically calling the function multiple times with the
+new values.
+
+Dan
+
+- - - -
+&quot;There are four boxes to be used in defense of liberty: soap, ballot,
+jury, and ammo. Please use in that order.&quot;
+-- Ed Howdershelt (Author)
+
+&quot;I do not fear computers, I fear the lack of them.&quot; -- Isaac Asimov (Author)
+** *** ***** ******* *********** *************
+Clandestine, Glock, Scully, Artichoke, SHF, virus, POCSAG
+orthodox, SABC, MSNBC, Rapid Reaction, DITSA, CCS, AVN
+BITNET, Secure, Compsec 97, Fax, EADA, B.D.M.,Sphinx, TRW
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01541" href="msg01541.html">Re: [Omaha.pm] CGI.pm is your friend</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01536" href="msg01536.html">[Omaha.pm] CGI.pm is your friend</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+<li><strong><a name="01537" href="msg01537.html">Re: [Omaha.pm] CGI.pm is your friend</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+<li><strong><a name="01538" href="msg01538.html">Re: [Omaha.pm] CGI.pm is your friend</a></strong>
+<ul><li><em>From:</em> &quot;Daniel Linder&quot; &lt;dan@linder.org&gt;</li></ul></li>
+<li><strong><a name="01539" href="msg01539.html">Re: [Omaha.pm] CGI.pm is your friend</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01539.html">Re: [Omaha.pm] CGI.pm is your friend</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01541.html">Re: [Omaha.pm] CGI.pm is your friend</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01539.html">Re: [Omaha.pm] CGI.pm is your friend</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01541.html">Re: [Omaha.pm] CGI.pm is your friend</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01540"><strong>Date</strong></a></li>
+<li><a href="threads.html#01540"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

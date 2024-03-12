@@ -1,0 +1,134 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Net::SSH::Perl and sudo or su -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 7 Dec 2007 15:57:13 &#45;0000 -->
+<!--X-Message-Id: 471AAB4F&#45;8C3D&#45;460D&#45;ACD4&#45;E5BD0433BBC1@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 47588DDD.5090700@tvortex.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Net::SSH::Perl and sudo or su</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01578.html">Date Prev</a>][<a href="msg01580.html">Date Next</a>][<a href="msg01576.html">Thread Prev</a>][<a href="msg01578.html">Thread Next</a>][<a href="maillist.html#01579">Date Index</a>][<a href="threads.html#01579">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Net::SSH::Perl and sudo or su</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Net::SSH::Perl and sudo or su</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Fri, 7 Dec 2007 09:56:27 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01576.html">47588DDD.5090700@tvortex.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: <a href="msg01571.html">47586B05.8080403@tvortex.net</a> &lt;<a href="msg01576.html">47588DDD.5090700@tvortex.net</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+On Dec 6, 2007, at 6:03 PM, Anthony Simons wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+A. The initial sudo test is to get the sudo running (for sinfp checks)
+so I don't have to do it every time. (you'll see why that is done
+after the next sentance)  Typically during a session you only have to
+run sudo once for something; then it's taken care of your sudo session
+for a certain time.
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>So your bash script has to be run manually? Do you have to enter a  
+</tt><tt>password manually? (But only once?) Isn't that bad? (Don't you want  
+</tt><tt>to be able to fully automate this task?)
+</tt><pre style="margin: 0em;">
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+Here's how this would initally read (run as me not sudo'd locally):
+   /usr/bin/ssh &quot;host&quot; &quot;echo -e [the string with all the information
+in it] to a serialnumber temp file. THEN &quot;remote sudo here' move the
+temp file to /etc and change it's permissions&quot;
+
+</pre><tt>    $SSHCMD ${SNFILE[${HOS}]} &quot;echo -e $STR &gt; /tmp/${SNFILE[$ 
+</tt><tt>{HOS}]}.sn
+</tt><pre style="margin: 0em;">
+;$SUDO mv /tmp/${SNFILE[${HOS}]}.sn /etc/serialnumber; $SUDO chmod 660
+/etc/serialnumber&quot;
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>So your username has sudo privileges on the remote server? sudo has  
+</tt><tt>the effect of running those mv and chmod commands as root on the  
+</tt><tt>remote host, right?
+</tt><pre style="margin: 0em;">
+
+</pre><tt>Are you saying that through manual sudo authentication locally the  
+</tt><tt>remote box now trusts the remote user to run things as root? (That  
+</tt><tt>sounds crazy, doesn't it?)
+</tt><pre style="margin: 0em;">
+
+j
+
+...waaaay off topic. But maybe we're building up to some Perl...   :)
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01576" href="msg01576.html">[Omaha.pm]  Net::SSH::Perl and sudo or su</a></strong>
+<ul><li><em>From:</em> Anthony Simons &lt;webmaster@tvortex.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01578.html">[Omaha.pm]  Net::SSH::Perl and sudo or su</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01580.html">[Omaha.pm]  Net::SSH::Perl and sudo or su</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01576.html">[Omaha.pm]  Net::SSH::Perl and sudo or su</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01578.html">[Omaha.pm]  Net::SSH::Perl and sudo or su</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01579"><strong>Date</strong></a></li>
+<li><a href="threads.html#01579"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

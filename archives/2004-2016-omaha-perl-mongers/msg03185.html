@@ -1,0 +1,131 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Simplifying Time? -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 20 Mar 2014 16:23:52 &#45;0000 -->
+<!--X-Message-Id: BDC66850&#45;70C1&#45;4F80&#45;9010&#45;4EDEEAA05870@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: CAOXayVvcs4S3JL4HBL7dO090+vM3Bwv5PxYFTu2r4PyAcUtGdQ@mail.gmail.com -->
+<!--X-Reference: F761E54B&#45;1C66&#45;462F&#45;990C&#45;D0A6EBA74916@jays.net -->
+<!--X-Reference: CAOXayVuCeCw72&#45;PEnewaT1JHDpV7GYVXKEqfT70BtCVtK&#45;8mpg@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Simplifying Time?</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg03184.html">Date Prev</a>][<a href="msg03186.html">Date Next</a>][<a href="msg03184.html">Thread Prev</a>][<a href="msg03186.html">Thread Next</a>][<a href="maillist.html#03185">Date Index</a>][<a href="threads.html#03185">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Simplifying Time?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;denver.pm&quot; &lt;<a href="mailto:denver-pm%40pm.org">denver-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Simplifying Time?</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Thu, 20 Mar 2014 11:23:47 -0500</li>
+<li><em>Cc</em>: Nebraska USA Perl Mongers of Omaha &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;CAOXayVuCeCw72-PEnewaT1JHDpV7GYVXKEqfT70BtCVtK-8mpg@mail.gmail.com&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm/">http://mail.pm.org/pipermail/omaha-pm/</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;CAOXayVvcs4S3JL4HBL7dO090+vM3Bwv5PxYFTu2r4PyAcUtGdQ@mail.gmail.com&gt;	&lt;<a href="msg03184.html">F761E54B-1C66-462F-990C-D0A6EBA74916@jays.net</a>&gt;	&lt;CAOXayVuCeCw72-PEnewaT1JHDpV7GYVXKEqfT70BtCVtK-8mpg@mail.gmail.com&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>On Mar 20, 2014, at 11:06 AM, Robert L. Harris &lt;robert.l.harris@gmail.com&gt; wrote:
+&gt; It looks like the reldate is what I want, not figure out how to use it.  No clear examples on &quot;convert 561 seconds to 9 minutes, 21 seconds&quot; :)
+
+Does this help?
+
+<a  rel="nofollow" href="https://github.com/jhannah/sandbox/blob/master/robertlharris/go.pl">https://github.com/jhannah/sandbox/blob/master/robertlharris/go.pl</a>
+
+
+$ cat go.pl
+use Class::Date;
+use 5.10.0;
+
+my $reldate = new Class::Date::Rel &quot;561s&quot;;
+say &quot;In minutes: &quot; . $reldate-&gt;min;
+say &quot;In seconds: &quot; . $reldate-&gt;sec;
+
+my $seconds_only = $reldate - (int($reldate-&gt;min) * 60 . 'm');  # subtract minutes away
+say &quot;Seconds only: $seconds_only&quot;;
+printf(&quot;%d minutes %d seconds\n&quot;, int($reldate / 60), $seconds_only);
+
+
+$ perl go.pl
+In minutes: 9.35
+In seconds: 561
+Seconds only: 21
+9 minutes 21 seconds
+
+
+j
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="03186" href="msg03186.html">Re: [Omaha.pm] Simplifying Time?</a></strong>
+<ul><li><em>From:</em> Sterling Hanenkamp &lt;sterling@hanenkamp.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="03184" href="msg03184.html">Re: [Omaha.pm] Simplifying Time?</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg03184.html">Re: [Omaha.pm] Simplifying Time?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg03186.html">Re: [Omaha.pm] Simplifying Time?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg03184.html">Re: [Omaha.pm] Simplifying Time?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg03186.html">Re: [Omaha.pm] Simplifying Time?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#03185"><strong>Date</strong></a></li>
+<li><a href="threads.html#03185"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

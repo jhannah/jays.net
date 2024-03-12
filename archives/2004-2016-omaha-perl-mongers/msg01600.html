@@ -1,0 +1,136 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] debugger &#45; $DB::single = 1; -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 16 Dec 2007 16:10:11 &#45;0000 -->
+<!--X-Message-Id: 9969988D&#45;9682&#45;4F2B&#45;8023&#45;00B06B84D1B7@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] debugger - $DB::single = 1;</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01599.html">Date Prev</a>][<a href="msg01601.html">Date Next</a>][<a href="msg01599.html">Thread Prev</a>][<a href="msg01601.html">Thread Next</a>][<a href="maillist.html#01600">Date Index</a>][<a href="threads.html#01600">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] debugger - $DB::single = 1;</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Nebraska USA Perl Mongers of Omaha &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] debugger - $DB::single = 1;</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Sun, 16 Dec 2007 10:09:26 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+Oh, cool...
+
+Catalyst just introduced me to
+
+   $DB::single = 1;
+
+</pre><tt>If you throw that statement in your code then run your program under  
+</tt><tt>the debugger and hit &quot;c&quot; to continue, the debugger will stop on the  
+</tt><tt>next line.
+</tt><pre style="margin: 0em;">
+
+</pre><tt>Under some circumstances this might be more convenient than the way I  
+</tt><tt>normally set breakpoints: via a .perldb file:
+</tt><pre style="margin: 0em;">
+
+===============
+$ cat .perldb
+sub afterinit {
+  my $lib = &quot;/Library/Perl/5.8.6&quot;;
+  push @DB::typeahead,
+    &quot;f $lib/Control/Rates/Avail.pm&quot;, &quot;b 189&quot;,
+}
+===============
+
+</pre><tt>While developing web apps under Catalyst $DB::single is really handy.  
+</tt><tt>You can launch your Catalyst server via the debugger, hit &quot;c&quot;, and  
+</tt><tt>then use your browser to click around in your application just like  
+</tt><tt>normal. This way the browser keeps doing all its magical javascript /  
+</tt><tt>cookie stuff, and your server stops right after $DB::single so you  
+</tt><tt>can start debugging right there in real-time.
+</tt><pre style="margin: 0em;">
+
+</pre><tt>Since I'm still learning the Catalyst framework, this is HUGE for me,  
+</tt><tt>since I'm still feeling my way through the framework.  :)  Yes, I  
+</tt><tt>could still use .perldb to accomplish the same things, but I'm still  
+</tt><tt>fumbling through Catalyst namespaces, so $DB::single is awesomely  
+</tt><tt>lazy.  :)
+</tt><pre style="margin: 0em;">
+
+j
+
+
+Catalyst:
+<a  rel="nofollow" href="http://catalyst.perl.org/">http://catalyst.perl.org/</a>
+
+More info on $DB::single:
+</pre><tt><a  rel="nofollow" href="http://search.cpan.org/~nwclark/perl-5.8.8/pod/">http://search.cpan.org/~nwclark/perl-5.8.8/pod/</a> 
+</tt><tt>perldebug.pod#Debugging_compile-time_statements
+</tt><pre style="margin: 0em;">
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01599.html">Re: [Omaha.pm] Net::SSH::Perl Alternative Solution</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01601.html">[Omaha.pm] Perl::Install</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01599.html">Re: [Omaha.pm] Net::SSH::Perl Alternative Solution</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01601.html">[Omaha.pm] Perl::Install</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01600"><strong>Date</strong></a></li>
+<li><a href="threads.html#01600"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

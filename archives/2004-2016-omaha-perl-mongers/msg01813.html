@@ -1,0 +1,129 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] strange file exists behavior -->
+<!--X-From-R13: Xnl Vnaanu &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 14 Aug 2008 13:20:31 &#45;0000 -->
+<!--X-Message-Id: C4C99B3E.156FB%jhannah@omnihotels.com -->
+<!--X-Content-Type: multipart/alternative -->
+<!--X-Reference: 396CEDAA86B38646ACE2FEAA22C3FBF1AFDA7A@l3exchange.omnihotels.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] strange file exists behavior</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01812.html">Date Prev</a>][<a href="msg01814.html">Date Next</a>][<a href="msg01812.html">Thread Prev</a>][<a href="msg01814.html">Thread Next</a>][<a href="maillist.html#01813">Date Index</a>][<a href="threads.html#01813">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] strange file exists behavior</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] strange file exists behavior</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 14 Aug 2008 08:20:14 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;396CEDAA86B38646ACE2FEAA22C3FBF1AFDA7A@l3exchange.omnihotels.net&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: Acj+DO8nON6GJi7lS/6xSrVniosEjAAA409k</li>
+<li><em>Thread-topic</em>: strange file exists behavior</li>
+<li><em>User-agent</em>: Microsoft-Entourage/11.4.0.080122</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<address>Title: <strong>Re: strange file exists behavior</strong></address>
+
+
+
+<FONT FACE="Verdana, Helvetica, Arial"><SPAN STYLE='font-size:12.0px'>I don&#8217;t think the file test operators do globbing. You can use glob() instead if you want.<BR>
+<BR>
+if (! glob(&#8220;</SPAN></FONT><FONT SIZE="4"><FONT FACE="Arial"><SPAN STYLE='font-size:13.0px'>$target_path/$filename&quot;)) {<BR>
+&nbsp;&nbsp;&nbsp;next;<BR>
+}<BR>
+</SPAN></FONT></FONT><FONT FACE="Verdana, Helvetica, Arial"><SPAN STYLE='font-size:12.0px'><BR>
+perldoc &#8211;f glob<BR>
+<BR>
+HTH,<BR>
+<BR>
+j<BR>
+<BR>
+<BR>
+<BR>
+On 8/14/08 7:54 AM, &quot;Sean Baker&quot; wrote:<BR>
+<BR>
+</SPAN></FONT><BLOCKQUOTE><FONT SIZE="4"><FONT FACE="Arial"><SPAN STYLE='font-size:13.0px'>Does anyone have any clue why my &#8220;-e&#8221; check is saying file does not exist and dropping me into the &#8220;next;&#8221; statement? &nbsp;It doesn&#8217;t like asterisks? &nbsp;It works fine when I use the entire file name.<BR>
+&nbsp;<BR>
+&nbsp;<BR>
+main::(usw_response_by_min.pl:47): &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`scp lb1:$source_path/$filename $target_path`;<BR>
+&nbsp;&nbsp;DB&lt;3&gt; n<BR>
+main::(usw_response_by_min.pl:48): &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (! -e &quot;$target_path/$filename&quot;) {<BR>
+&nbsp;&nbsp;DB&lt;3&gt; n<BR>
+main::(usw_response_by_min.pl:49): &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;next;<BR>
+&nbsp;&nbsp;DB&lt;3&gt; p &quot;$target_path/$filename&quot;<BR>
+/datamining/usw_log/ban*trans-20080813*<BR>
+&nbsp;<BR>
+&nbsp;<BR>
+pbaker@omares-etl:/datamining/usw_log&gt; ls /datamining/usw_log/ban*trans-20080813*<BR>
+/datamining/usw_log/banana_slicer.pl-trans-20080813.gz<BR>
+&nbsp;<BR>
+&nbsp;<BR>
+</SPAN></FONT></FONT></BLOCKQUOTE><FONT FACE="Verdana, Helvetica, Arial"><SPAN STYLE='font-size:12.0px'><BR>
+</SPAN></FONT>
+
+
+
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01812.html">[Omaha.pm] Fwd: [odynug] August 12: Git by Sam Tesla</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01814.html">[Omaha.pm] Using -&gt; inside double quotes</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01812.html">[Omaha.pm] Fwd: [odynug] August 12: Git by Sam Tesla</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01814.html">[Omaha.pm] Using -&gt; inside double quotes</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01813"><strong>Date</strong></a></li>
+<li><a href="threads.html#01813"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

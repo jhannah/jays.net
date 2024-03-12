@@ -1,0 +1,264 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm]  Net::SSH::Perl and sudo or su -->
+<!--X-From-R13: Fbal Evzbaf &#60;jroznfgreNgibegrk.arg> -->
+<!--X-Date: 6 Dec 2007 21:35:45 &#45;0000 -->
+<!--X-Message-Id: 47586B05.8080403@tvortex.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm]  Net::SSH::Perl and sudo or su</title>
+<link rev="made" href="mailto:webmaster@tvortex.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01570.html">Date Prev</a>][<a href="msg01572.html">Date Next</a>][<a href="msg01570.html">Thread Prev</a>][<a href="msg01574.html">Thread Next</a>][<a href="maillist.html#01571">Date Index</a>][<a href="threads.html#01571">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm]  Net::SSH::Perl and sudo or su</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Subject</em>: [Omaha.pm]  Net::SSH::Perl and sudo or su</li>
+<li><em>From</em>: Tony Simons &lt;<a href="mailto:webmaster%40tvortex.net">webmaster@tvortex.net</a>&gt;</li>
+<li><em>Date</em>: Thu, 06 Dec 2007 15:35:01 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: <a href="msg01569.html">dd7f36190712061312o2e51e174n177ebc04c7408d33@mail.gmail.com</a></li>
+<li><em>Reply-to</em>: <a href="mailto:webmaster%40tvortex.net">webmaster@tvortex.net</a>, &quot;Perl Mongers of Omaha,	Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Sender</em>: Tony Simons &lt;<a href="mailto:tonys%40mcsimons.com">tonys@mcsimons.com</a>&gt;</li>
+<li><em>User-agent</em>: Thunderbird 2.0.0.6 (X11/20071018)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Ok, but it's really long... But... this is what I have.  And it's a
+little rough but it works.
+
+#!/bin/bash
+author=&quot;Tony Simons&quot;
+altauthor=&quot;&quot;
+ver=0
+rev=1
+mod=&quot;2007.10.12&quot;
+HOS=0;
+ASS=1;
+SER=2;
+MAK=3;
+MOD=4;
+RAC=5;
+FAC=6;
+UNI=7;
+SSHCMD=&quot;/usr/bin/ssh -t&quot;
+SSHEXEC=${SSHCMD}
+DEBUG=0
+FPCHECK=1
+ERRORED=0
+ERRCODE=99
+#-------------------------------------------------
+# Functions
+#-------------------------------------------------
+function usage {
+    echo &quot;Version ${ver}.${rev}, original by ${author} ${altauthor} on
+${mod}&quot;
+    echo -e &quot;\nUsage: $0 &lt;options&gt;
+Options:
+\t -h &lt;host&gt; {for ssh purposes}
+\t -a &lt;asset number&gt;
+\t -s &lt;serial number&gt;
+\t -k &lt;make&gt;
+\t -m &lt;model&gt;
+\t -f &lt;facility&gt;
+\t -r &lt;rack#&gt;
+\t -u &lt;U's&gt;
+\t -p Turn off fingerprinting
+NOTE: this help message shows when no options are supplied\n
+another NOTE: if your running this outside of the script every value
+MUST be in double quotes
+
+Error Codes:
+99:    No options were supplied.
+2:    Sudo Failed
+3:    SinFP not found
+4:    SinFP failed
+8:    NOT A UNIX BOX
+
+&quot;
+}
+if [ $# -lt 1 ]; then
+    usage
+    exit 99
+fi
+#-------------------------------------------------
+# Sudo Checking
+#-------------------------------------------------
+echo &quot;Checking sudo status (Enter Password if asked)...&quot;
+if [ `sudo test; echo $?` -gt 1 ]; then
+    echo &quot;This script uses SinFP which requires Root privileges please
+run the script again and enter your password.&quot;
+    exit 2
+fi
+echo -e &quot;Local Sudo PASSED!\nLooking for sinfp.pl...&quot;
+#-------------------------------------------------
+# SinFP Checking
+#-------------------------------------------------
+SINFP=`which sinfp.pl`
+if [ ! -f &quot;$SINFP&quot; ]; then
+    echo &quot;This script uses SinFP for fingerprinting purposes which helps
+locate certain scripts&quot;
+    echo -e &quot;********SinFP is installed through cpan*********
+# cpan Net::SinFP
+If it fails with IOSOMETHING Interface not found...
+# perl -MCPAN -e shell
+&gt; force install Net::Pcap
+Try the cpan line again.&quot;
+    exit 61
+fi
+echo &quot;Found $SINFP!&quot;
+#-------------------------------------------------
+# Variable Assignments
+#-------------------------------------------------
+while getopts &quot;dpa:f:h:k:m:r:s:u:&quot; optname
+do
+    case ${optname} in
+        a)SNFILE[$ASS]=${OPTARG};;
+        f)SNFILE[$FAC]=${OPTARG};;
+        h)SNFILE[$HOS]=${OPTARG};;
+        k)SNFILE[$MAK]=${OPTARG};;
+        m)SNFILE[$MOD]=${OPTARG};;
+        r)SNFILE[$RAC]=${OPTARG};;
+        s)SNFILE[$SER]=${OPTARG};;
+        u)SNFILE[$UNI]=${OPTARG};;
+        p)FPCHECK=0;;
+        d)DEBUG=1
+          echo &quot;DEBUG ON; NOTHING WILL BE SENT&quot;
+          ;;
+    esac
+done
+for w in `seq 1 2`; do
+    if [ &quot;${SNFILE[${w}]}&quot; == &quot;&quot; ]; then
+        ERRORED=1
+        ERRCODE=${w}
+    fi
+done
+if [ $ERRORED -eq 1 ]; then
+    echo &quot;${SNFILE[${HOS}]} Missing Variables: ${ERRCODE}&quot;
+    echo &quot;${SNFILE[${HOS}]} Missing Variables: ${ERRCODE}&quot; &gt;&gt;
+SNPushMissingContent-`date +%Y%m%d`
+    exit
+fi
+if [ ${DEBUG} -eq 0 ]; then
+STR=&quot;ASSET=\\\&quot;${SNFILE[${ASS}]}\\\&quot;
+\\\nSERIAL=\\\&quot;${SNFILE[${SER}]}\\\&quot; \\\nMAKE=\\\&quot;${SNFILE[${MAK}]}\\\&quot;
+\\\nMODEL=\\\&quot;${SNFILE[${MOD}]}\\\&quot;
+\\\nFACILITY=\\\&quot;${SNFILE[${FAC}]}\\\&quot;
+\\\nRACK=\\\&quot;${SNFILE[${RAC}]}\\\&quot; \\\nUNITS=\\\&quot;${SNFILE[${UNI}]}\\\&quot;&quot;
+else
+STR=&quot;ASSET=${SNFILE[${ASS}]} \nSERIAL=${SNFILE[${SER}]}
+\nMAKE=${SNFILE[${MAK}]} \nMODEL=${SNFILE[${MOD}]}
+\nFACILITY=${SNFILE[${FAC}]} \nRACK=${SNFILE[${RAC}]}
+\nUNITS=${SNFILE[${UNI}]}&quot;
+fi
+#-------------------------------------------------
+# Guessing the OS
+#-------------------------------------------------
+#if [ ${FPCHECK} -eq 1 ]; then
+    echo &quot;Detecting the OS of ${SNFILE[${HOST}]} with SinFP...&quot;
+    case `sudo sinfp.pl -a -i${SNFILE[${HOS}]} -p 22 | grep IPv4 | awk
+'{print $4}' | head -n1` in
+     &quot;Linux:&quot;)
+         #echo &quot;Has Linux Fingerprint!&quot;
+        SUDO=/usr/bin/sudo
+        ;;
+     &quot;SunOS:&quot;)
+         #echo &quot;Has Solaris Fingerprint!&quot;
+        SUDO=/usr/local/bin/sudo
+        ;;
+     *)
+         echo &quot;No Unix Fingerprint Found...doing one more check!&quot;
+        if [ &quot;`sudo sinfp.pl -i${SNFILE[${HOS}]} -p 22 | grep IPv4 | awk
+'{print $2}' | head -n1`&quot; == &quot;unknown&quot; ]; then
+            SUDO=/usr/bin/sudo
+        else
+            exit 6
+        fi
+    ;;
+esac
+#else
+#    echo &quot;Fingerprint Disabled!&quot;
+#fi
+#-------------------------------------------------
+# Making the connections
+#-------------------------------------------------
+if [ ${DEBUG} -eq 0 ]; then
+    $SSHCMD ${SNFILE[${HOS}]} &quot;echo -e $STR &gt; /tmp/${SNFILE[${HOS}]}.sn
+;$SUDO mv /tmp/${SNFILE[${HOS}]}.sn /etc/serialnumber; $SUDO chmod 660
+/etc/serialnumber&quot;
+    RESULT=$?
+    if [ ${RESULT} -gt 0 ]; then
+        exit 22
+    fi
+else
+    echo &quot;This is what would be sent to ${SNFILE[${HOS}]}!&quot;
+    echo -e $STR
+fi
+exit 0
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01574" href="msg01574.html">Re: [Omaha.pm] Net::SSH::Perl and sudo or su</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01570.html">Re: [Omaha.pm] Net::SSH::Perl and sudo or su</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01572.html">[Omaha.pm]   Net::SSH::Perl and sudo or su</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01570.html">Re: [Omaha.pm] Net::SSH::Perl and sudo or su</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01574.html">Re: [Omaha.pm] Net::SSH::Perl and sudo or su</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01571"><strong>Date</strong></a></li>
+<li><a href="threads.html#01571"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

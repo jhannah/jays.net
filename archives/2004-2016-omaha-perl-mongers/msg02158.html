@@ -1,0 +1,163 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] [odynug] Linus on git rebase -->
+<!--X-From-R13: Egrcura Vnorezna &#60;fgrcuraNrkvtraprpbec.pbz> -->
+<!--X-Date: 13 Jun 2009 17:13:24 &#45;0000 -->
+<!--X-Message-Id: 20090613121311.57ff987e.stephen@exigencecorp.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 9903EC49&#45;8A34&#45;4A13&#45;A3EA&#45;5806732EE603@jays.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] [odynug] Linus on git rebase</title>
+<link rev="made" href="mailto:stephen@exigencecorp.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02157.html">Date Prev</a>][<a href="msg02159.html">Date Next</a>][<a href="msg02157.html">Thread Prev</a>][<a href="msg02159.html">Thread Next</a>][<a href="maillist.html#02158">Date Index</a>][<a href="threads.html#02158">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] [odynug] Linus on git rebase</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:odynug%40googlegroups.com">odynug@googlegroups.com</a></li>
+<li><em>Subject</em>: Re: [Omaha.pm] [odynug] Linus on git rebase</li>
+<li><em>From</em>: Stephen Haberman &lt;<a href="mailto:stephen%40exigencecorp.com">stephen@exigencecorp.com</a>&gt;</li>
+<li><em>Date</em>: Sat, 13 Jun 2009 12:13:11 -0500</li>
+<li><em>Cc</em>: Nebraska USA Perl Mongers of Omaha &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg02157.html">9903EC49-8A34-4A13-A3EA-5806732EE603@jays.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Organization</em>: Exigence</li>
+<li><em>References</em>: &lt;<a href="msg02157.html">9903EC49-8A34-4A13-A3EA-5806732EE603@jays.net</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+&gt; git rebasing, or any such repo trickery scares me. Anyone doing this,  
+&gt; or equivalent admin magic in their repo?
+
+Linus actually addresses your concerns in that post [1], to quote him:
+
+    You must never EVER destroy other peoples history.
+
+And:
+
+   Minor clarification to the rule: once you've published your history
+   in some public site, other people may be using it, and so now it's
+   clearly not your _private_ history any more.
+
+This is exactly how I've worked with git before.
+
+Once code is published to the public git repo (with &quot;git push&quot;), the
+&quot;never, ever, ever, re-work&quot; rule you note with SVN comes into play.
+You /can/ change the public git repo with rebase, just as you /can/
+rewrite SVN repo history with svnadmin commands, but neither is
+recommended, and there are settings to disallow it.
+
+(Specifically, in git it's called disabling rewinds, where rewinds
+== the undoing of commits.)
+
+The only place rebase is recommended, AFAIK, by myself and also Linus
+in [1], is on your own local commits that no one has seen yet and that you
+are just cleaning up before publishing.
+
+This is all because git is distributed--you can make commits, &quot;git
+commit&quot;, but they are only local. You could have 2-3, 10-20, whatever
+commits locally and not publish them until you &quot;git push&quot;. Since no one
+has seen these commits yet, its perfectly acceptable to clean them up
+(reorder them for clarity, remove some that ended up being mistakes,
+etc.) via rebasing.
+
+However, once you publish/share your work, the commits should become
+immutable, and you don't rebase them anymore. And, again, this can be
+enforced by the public git repo to avoid people slipping up.
+
+Most corporate teams probably don't care about rebase because they
+either do not do code reviews at all (most likely) or else do code
+reviews against branches before release and not per-commit. The nature
+of Linux development is that they review all code on a per-commit basis
+via email lists. This makes it very, very important for each commit to
+be as logically coherent as possible. Which it probably was not when the
+developer first wrote it. So, Linus/et. al really encourage their developers
+that, before publishing their commits to them for review, they step back
+and rebase them to make each individual commit about one and only one
+change. This makes per-commit review on mailing lists much easier.
+
+So, yeah, if you're not doing that, and don't care about a meticulously
+clean history, you probably don't care about git rebase and can ignore
+it. But Linus/et. al do, so they use it all the time (...on local stuff,
+before they publish).
+
+So, really, everything is the same as SVN, except you get a local
+sandbox to screw (rebase) around in.
+
+- Stephen
+
+1: <a  rel="nofollow" href="http://www.mail-archive.com/dri-devel@lists.sourceforge.net/msg39091.html">http://www.mail-archive.com/dri-devel@lists.sourceforge.net/msg39091.html</a>
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="02159" href="msg02159.html">Re: [Omaha.pm] [odynug] Linus on git rebase</a></strong>
+<ul><li><em>From:</em> Samuel Tesla &lt;samuel.tesla@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="02157" href="msg02157.html">[Omaha.pm] Linus on git rebase</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02157.html">[Omaha.pm] Linus on git rebase</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02159.html">Re: [Omaha.pm] [odynug] Linus on git rebase</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02157.html">[Omaha.pm] Linus on git rebase</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02159.html">Re: [Omaha.pm] [odynug] Linus on git rebase</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02158"><strong>Date</strong></a></li>
+<li><a href="threads.html#02158"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

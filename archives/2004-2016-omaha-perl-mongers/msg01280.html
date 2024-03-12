@@ -1,0 +1,119 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] use Storable;   vs. Log::Log4perl -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 13 Jan 2007 19:10:22 &#45;0000 -->
+<!--X-Message-Id: 5f2799d8e2d190e3c7bd2175342b2e27@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 3803904a85442045993a0eef19628ac1@jays.net -->
+<!--X-Reference: dfdbdc0848559ebe3f79443d36de7bf0@jays.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] use Storable;   vs. Log::Log4perl</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01279.html">Date Prev</a>][<a href="msg01281.html">Date Next</a>][<a href="msg01279.html">Thread Prev</a>][<a href="msg01282.html">Thread Next</a>][<a href="maillist.html#01280">Date Index</a>][<a href="threads.html#01280">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] use Storable;   vs. Log::Log4perl</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] use Storable;   vs. Log::Log4perl</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Sat, 13 Jan 2007 13:10:13 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01279.html">dfdbdc0848559ebe3f79443d36de7bf0@jays.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01278.html">3803904a85442045993a0eef19628ac1@jays.net</a>&gt;	&lt;<a href="msg01279.html">dfdbdc0848559ebe3f79443d36de7bf0@jays.net</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+Bummer. I can't use Storable on Log::Log4perl objects...
+
+   Or any object which has a Log::Log4perl in it...
+
+</pre><tt>       which is approximately all of my objects since I'm a big fan of 
+</tt><tt>Log::Log4perl...
+</tt><pre style="margin: 0em;">
+
+j
+
+
+$ cat j.pl
+use Storable;
+use Log::Log4perl;
+Log::Log4perl::init('/Users/jhannah/src/openlab/conf/log4perl.cfg');
+my $logger = Log::Log4perl-&gt;get_logger('OpenLab');
+store $logger, 'logger';
+
+$ perl j.pl
+</pre><tt>Can't store CODE items at blib/lib/Storable.pm (autosplit into 
+</tt><tt>blib/lib/auto/Storable/_store.al) line 215, at j.pl line 10
+</tt><pre style="margin: 0em;">
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01278" href="msg01278.html">[Omaha.pm] use Storable;</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+<li><strong><a name="01279" href="msg01279.html">Re: [Omaha.pm] use Storable;</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01279.html">Re: [Omaha.pm] use Storable;</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01281.html">Re: [Omaha.pm] Testing DNS servers</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01279.html">Re: [Omaha.pm] use Storable;</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01282.html">Re: [Omaha.pm] Huh?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01280"><strong>Date</strong></a></li>
+<li><a href="threads.html#01280"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] FW: DBD::Informix &#38; $SIG{ALRM} &#38; /etc/services -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 3 Nov 2006 20:53:15 &#45;0000 -->
+<!--X-Message-Id: 29AB736ABCE5C745ABF9C93B02F2C27B06F5D45A@exchange2k3.omnihotels.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] FW: DBD::Informix &amp; $SIG{ALRM} &amp; /etc/services</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01191.html">Date Prev</a>][<a href="msg01193.html">Date Next</a>][<a href="msg01191.html">Thread Prev</a>][<a href="msg01201.html">Thread Next</a>][<a href="maillist.html#01192">Date Index</a>][<a href="threads.html#01192">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] FW: DBD::Informix &amp; $SIG{ALRM} &amp; /etc/services</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] FW: DBD::Informix &amp; $SIG{ALRM} &amp; /etc/services</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Fri, 3 Nov 2006 14:52:39 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: Acb/h98iTLicI5VgSfOG6BgOA2yP5AAAaDpgAAAYr9A=</li>
+<li><em>Thread-topic</em>: DBD::Informix &amp; $SIG{ALRM} &amp; /etc/services</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+Oops! Mildly embarassing, below.  I guess I'm glad upgrading didn't fix
+it -- I would have felt pretty silly. 
+
+j
+
+
+
+-----Original Message-----
+From: Jay Hannah 
+Sent: Friday, November 03, 2006 2:52 PM
+To: dbi-users@perl.org
+Cc: jonathan.leffler@gmail.com
+Subject: RE: DBD::Informix &amp; $SIG{ALRM} &amp; /etc/services
+
+
+Oops. I noticed my versions were behind. I upgraded DBI and
+DBD::Informix.
+
+I'm still getting the same behavior (14.3 seconds to time out), so I'm
+still curious about what might be going on. 
+
+Thanks,
+
+j
+
+
+
+$ perl -MDBI -e'DBI-&gt;installed_versions'
+  Perl            : 5.008004    (i686-linux)
+  OS              : linux       (2.6.4-52-smp)
+  DBI             : 1.53
+  DBD::Sybase     : 1.04
+  DBD::Sponge     : 11.10
+  DBD::Proxy      : install_driver(Proxy) failed: Can't locate
+RPC/PlClient.pm in @INC
+  DBD::Informix   : 2005.02
+  DBD::File       : 0.35
+  DBD::ExampleP   : 11.12
+  DBD::DBM        : 0.03
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01191.html">[Omaha.pm] FW: DBD::Informix &amp; $SIG{ALRM} &amp; /etc/services</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01193.html">[Omaha.pm] FW: Test::Harness jacks PERL5LIB which jacks our SEED	tests under your new dynamic t directory thing...</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01191.html">[Omaha.pm] FW: DBD::Informix &amp; $SIG{ALRM} &amp; /etc/services</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01201.html">[Omaha.pm] FW: DBD::Informix &amp; $SIG{ALRM} &amp; /etc/services</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01192"><strong>Date</strong></a></li>
+<li><a href="threads.html#01192"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

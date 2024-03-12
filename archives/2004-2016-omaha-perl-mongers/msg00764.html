@@ -1,0 +1,109 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Preparation for use of GD::Graph &#38; Perl on Mac G5 -->
+<!--X-From-R13: cuvyvc greel &#60;cgreel2Nznp.pbz> -->
+<!--X-Date: 9 Jan 2006 03:17:16 &#45;0000 -->
+<!--X-Message-Id: 2475401.1136776626786.JavaMail.pterry2@mac.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Preparation for use of GD::Graph &amp; Perl on Mac G5</title>
+<link rev="made" href="mailto:pterry2@mac.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00763.html">Date Prev</a>][<a href="msg00765.html">Date Next</a>][<a href="msg00763.html">Thread Prev</a>][<a href="msg00769.html">Thread Next</a>][<a href="maillist.html#00764">Date Index</a>][<a href="threads.html#00764">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Preparation for use of GD::Graph &amp; Perl on Mac G5</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Subject</em>: [Omaha.pm] Preparation for use of GD::Graph &amp; Perl on Mac G5</li>
+<li><em>From</em>: philip terry &lt;<a href="mailto:pterry2%40mac.com">pterry2@mac.com</a>&gt;</li>
+<li><em>Date</em>: Sun, 08 Jan 2006 19:17:06 -0800</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hello,
+
+Jay, Mat, thanks for your responses on Jan. 05.  I followed Jay's approach and now apparently have zlib &amp; libpng installed.  Default &quot;Parent&quot; dir for both appears to be /usr/local for both.
+
+So, with zlib &amp; libpng apparently installed, time to try to install gd-2.0.33 (libgd): (gd-2.0.33.tar.gz from www.boutell.com/gd/)
+cd src
+cp gd-2.0.33.tar.gz .
+gnutar xvzf gd-2.0.33.tar.gz
+cd gd-2.0.33
+./configure
+In output: line 124, etc., &quot;configure&quot; found png, but not jpeg, or freetype as expected (since have installed libpng, but not jpeg or freetype).
+new Makefile has 19 pages
+make check   #  in documentation (install file), says optionally can do &quot;make check&quot; in place of &quot;make&quot; ?????
+In screen output:  approx. 265 lines, approx. last 125 lines with ***warnings, errors***** like syntax errors would see when compiling say a C pgm.  Looks like the file is gdft.c, a file found in gd-2.0.33 dir, is causing these errors.
+Opening gdft.c in BBEdit, it appears the purpose of this file is &quot;gd interface to freetype library&quot;.  As currently have not installed freetype library, what to think?
+
+Anyway try:
+sudo make install
+In screen output: most lines are syntax type errors referencing gdft.c.  Comparing the screen output of &quot;make install&quot; between gd-2.0.33 and libpng installations, looks like perhaps the install for gd may have stopped prematurely?
+
+Question: How to recover, succeed installing Boutell gd graphics library?  Might this be available on darwinports as Mat indicated libpng was?
+
+Thanks for any comments,
+Mike Terry
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00763.html">Re: [Omaha.pm] request help for Bioperl external module install</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00765.html">Re: [Omaha.pm] Math::BaseCalc</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00763.html">Re: [Omaha.pm] request help for Bioperl external module install</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00769.html">[Omaha.pm] Preparation for use of GD::Graph &amp; Perl on Mac G5</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00764"><strong>Date</strong></a></li>
+<li><a href="threads.html#00764"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

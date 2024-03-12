@@ -1,0 +1,126 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Lost in Plack -->
+<!--X-From-R13: Egreyvat Vnaraxnzc &#60;fgreyvatNunaraxnzc.pbz> -->
+<!--X-Date: 5 Oct 2011 21:19:27 &#45;0000 -->
+<!--X-Message-Id: CAEeqgL=Lbkmj0=O+2pukTg3=oay&#45;zMNRcckttUDsPCuRVrajgg@mail.gmail.com -->
+<!--X-Content-Type: multipart/alternative -->
+<!--X-Reference: 47D8D3ED&#45;328D&#45;4FB6&#45;8B30&#45;9DA349CF50F6@iinteractive.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Lost in Plack</title>
+<link rev="made" href="mailto:sterling@hanenkamp.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02730.html">Date Prev</a>][<a href="msg02732.html">Date Next</a>][<a href="msg02730.html">Thread Prev</a>][<a href="msg02732.html">Thread Next</a>][<a href="maillist.html#02731">Date Index</a>][<a href="threads.html#02731">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Lost in Plack</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Lost in Plack</li>
+<li><em>From</em>: Sterling Hanenkamp &lt;<a href="mailto:sterling%40hanenkamp.com">sterling@hanenkamp.com</a>&gt;</li>
+<li><em>Date</em>: Wed, 5 Oct 2011 16:19:24 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg02730.html">47D8D3ED-328D-4FB6-8B30-9DA349CF50F6@iinteractive.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg02730.html">47D8D3ED-328D-4FB6-8B30-9DA349CF50F6@iinteractive.com</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+cf sub builder:<div><span class="Apple-style-span" style="font-family: Times; font-size: medium; "><pre style="word-wrap: break-word; white-space: pre-wrap; ">    local $_mount = sub {
+        $mount_is_called++;
+        $urlmap-&gt;map(@_);
+        $urlmap;
+    };
+    local $_add = sub {
+        $self-&gt;add_middleware(@_);
+    };
+    local $_add_if = sub {
+        $self-&gt;add_middleware_if(@_);
+    };</pre></span><br><div class="gmail_quote">On Wed, Oct 5, 2011 at 4:06 PM, Jay Hannah <span dir="ltr">&lt;<a rel="nofollow" href="mailto:jay.hannah@iinteractive.com">jay.hannah@iinteractive.com</a>&gt;</span> wrote:<br><blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;">
+haha... no clue what&#39;s going on...<br>
+<br>
+j<br>
+<br>
+<br>
+<br>
+<br>
+<a rel="nofollow" href="https://github.com/miyagawa/Plack/blob/master/lib/Plack/Builder.pm#L63" target="_blank">https://github.com/miyagawa/Plack/blob/master/lib/Plack/Builder.pm#L63</a><br>
+<br>
+our $_add = our $_add_if = our $_mount = sub {<br>
+ &#xA0; &#xA0;Carp::croak(&quot;enable/mount should be called inside builder {} block&quot;);<br>
+};<br>
+<br>
+sub add &#xA0; &#xA0; &#xA0;{ Carp::carp(&quot;add is deprecated. Use &#39;enable&#39;&quot;); $_add-&gt;(@_) }<br>
+sub enable &#xA0; &#xA0; &#xA0; &#xA0; { $_add-&gt;(@_) }<br>
+<br>
+<br>
+<br>
+_______________________________________________<br>
+Omaha-pm mailing list<br>
+<a rel="nofollow" href="mailto:Omaha-pm@pm.org">Omaha-pm@pm.org</a><br>
+<a rel="nofollow" href="http://mail.pm.org/mailman/listinfo/omaha-pm" target="_blank">http://mail.pm.org/mailman/listinfo/omaha-pm</a><br>
+</blockquote></div><br><br clear="all"><div><br></div>-- <br>Andrew Sterling Hanenkamp<br><a rel="nofollow" href="mailto:sterling@hanenkamp.com">sterling@hanenkamp.com</a><br>785.370.4454<br>
+</div>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="02730" href="msg02730.html">[Omaha.pm] Lost in Plack</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay.hannah@iinteractive.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02730.html">[Omaha.pm] Lost in Plack</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02732.html">[Omaha.pm] Fwd: Potential group project: The Perl Cookbook</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02730.html">[Omaha.pm] Lost in Plack</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02732.html">[Omaha.pm] Fwd: Potential group project: The Perl Cookbook</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02731"><strong>Date</strong></a></li>
+<li><a href="threads.html#02731"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

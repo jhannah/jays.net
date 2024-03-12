@@ -1,0 +1,121 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Help with parsing HTML -->
+<!--X-From-R13: "Dlna Egvyyr" &#60;ecfNjvyypbzzvap.pbz> -->
+<!--X-Date: 28 Sep 2005 19:28:04 &#45;0000 -->
+<!--X-Message-Id: 9A8B75E3985324438F1BFA08B160E82057AE32@suxsvr.willconsult.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Help with parsing HTML</title>
+<link rev="made" href="mailto:rps@willcomminc.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00581.html">Date Prev</a>][<a href="msg00583.html">Date Next</a>][<a href="msg00581.html">Thread Prev</a>][<a href="msg00583.html">Thread Next</a>][<a href="maillist.html#00582">Date Index</a>][<a href="threads.html#00582">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Help with parsing HTML</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Help with parsing HTML</li>
+<li><em>From</em>: &quot;Ryan Stille&quot; &lt;<a href="mailto:rps%40willcomminc.com">rps@willcomminc.com</a>&gt;</li>
+<li><em>Date</em>: Wed, 28 Sep 2005 14:27:48 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcXET+ADZ6ZV8msDT7mAeeqgCktU/AAEeCrQ</li>
+<li><em>Thread-topic</em>: [Omaha.pm] Help with parsing HTML</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Andy Lester wrote:
+&gt; On Wed, Sep 28, 2005 at 12:00:55PM -0500, Ryan Stille
+&gt; (rps@willcomminc.com) wrote:
+&gt;&gt; Ok I am getting closer.  The problem is it is ignoring nested tags. 
+&gt; 
+&gt; You'll have to keep track of your own internal stack of them,
+&gt; I believe.  There may also be an option for it.
+
+I got it working, pretty much.  If I set &quot;$p-&gt;{textify} =
+{'cfqueryparam' =&gt; 'value'}&quot; it tells the parser to treat the
+&lt;cfqueryparam&gt; tag as text.  It does not display it exactly, instead it
+displays the value in the 'value' attribute, i.e.
+
+&lt;CFQUERY DATASOURCE=&quot;myfoo&quot;&gt;
+SELECT foo FROM table WHERE id = &lt;cfqueryparam value=&quot;#myvalue#&quot;&gt;
+&lt;/CFQUERY&gt;
+
+Gets returned as: SELECT foo FROM table WHERE id = #myvalue#
+
+Which is good enough for me.  Now I can count the selects, inserts,
+deletes, etc. inside each block and flag the ones that have more than
+one.  We are migrating to MySQL, which does not support more than one
+query in a single statement.
+
+Thanks for the help.
+
+-Ryan
+
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00583" href="msg00583.html">Re: [Omaha.pm] Help with parsing HTML</a></strong>
+<ul><li><em>From:</em> Andy Lester &lt;andy@petdance.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00581.html">Re: [Omaha.pm] Help with parsing HTML</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00583.html">Re: [Omaha.pm] Help with parsing HTML</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00581.html">Re: [Omaha.pm] Help with parsing HTML</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00583.html">Re: [Omaha.pm] Help with parsing HTML</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00582"><strong>Date</strong></a></li>
+<li><a href="threads.html#00582"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

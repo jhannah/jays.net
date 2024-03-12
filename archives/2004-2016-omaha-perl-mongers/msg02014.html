@@ -1,0 +1,143 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] [OT] Subversion assistance... -->
+<!--X-From-R13: Fenivf [pOeguhe &#60;genivfNgenivfofq.bet> -->
+<!--X-Date: 11 Feb 2009 18:03:41 &#45;0000 -->
+<!--X-Message-Id: 499312C1.3030608@travisbsd.org -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 3e2be50902110909w503033d5g929d1dcc259094fb@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] [OT] Subversion assistance...</title>
+<link rev="made" href="mailto:travis@travisbsd.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02013.html">Date Prev</a>][<a href="msg02015.html">Date Next</a>][<a href="msg02013.html">Thread Prev</a>][<a href="msg02029.html">Thread Next</a>][<a href="maillist.html#02014">Date Index</a>][<a href="threads.html#02014">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] [OT] Subversion assistance...</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] [OT] Subversion assistance...</li>
+<li><em>From</em>: Travis McArthur &lt;<a href="mailto:travis%40travisbsd.org">travis@travisbsd.org</a>&gt;</li>
+<li><em>Date</em>: Wed, 11 Feb 2009 12:02:41 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg02013.html">3e2be50902110909w503033d5g929d1dcc259094fb@mail.gmail.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg02013.html">3e2be50902110909w503033d5g929d1dcc259094fb@mail.gmail.com</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: Thunderbird 2.0.0.19 (Macintosh/20081209)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>svnadmin help dump
+svnadmin help load
+
+That should take care of you.
+
+Best Regards,
+Travis
+
+
+Dan Linder wrote:
+&gt; I've got some Subversion repository files (a .tar.gz of a persons
+&gt; local file:// repository) that I would like to put up on our
+&gt; Apache-hosted Subversion server for others to have access to.
+&gt;
+&gt; I've tried copying the files to a new repository directory on the
+&gt; server, but when I do a &quot;svn co <a  rel="nofollow" href="http://$server/newrepo&quot">http://$server/newrepo&quot</a>; (or
+&gt; ../$server/repo/trunk) I get the message that this repository has been
+&gt; moved. :-(
+&gt;
+&gt; I know I could just check them out, remove the .svn directories, then
+&gt; push them into a new repository, but I was hoping to keep some of the
+&gt; old change logs.
+&gt;
+&gt; Anyone have any other ideas and/or possibly a tool (perl!) that I
+&gt; could try?
+&gt;
+&gt; Thanks,
+&gt;
+&gt; Dan
+&gt;
+&gt; p.s. this is using Subversion 1.5 if that helps.
+&gt;
+&gt; -- 
+&gt; &quot;Quis custodiet ipsos custodes?&quot; (Who can watch the watchmen?) -- from
+&gt; the Satires of Juvenal
+&gt; &quot;I do not fear computers, I fear the lack of them.&quot; -- Isaac Asimov
+&gt; (Author)
+&gt; ** *** ***** ******* *********** *************
+&gt; ------------------------------------------------------------------------
+&gt;
+&gt; _______________________________________________
+&gt; Omaha-pm mailing list
+&gt; Omaha-pm@pm.org
+&gt; <a  rel="nofollow" href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="02029" href="msg02029.html">Re: [Omaha.pm] [OT] Subversion assistance...</a></strong>
+<ul><li><em>From:</em> Dan Linder &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="02013" href="msg02013.html">[Omaha.pm] [OT] Subversion assistance...</a></strong>
+<ul><li><em>From:</em> Dan Linder &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02013.html">[Omaha.pm] [OT] Subversion assistance...</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02015.html">[Omaha.pm] Gotta love perl...</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02013.html">[Omaha.pm] [OT] Subversion assistance...</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02029.html">Re: [Omaha.pm] [OT] Subversion assistance...</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02014"><strong>Date</strong></a></li>
+<li><a href="threads.html#02014"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

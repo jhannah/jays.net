@@ -1,0 +1,193 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: RE: [Omaha.pm] bad perl &#45; need help &#45; dispatch table -->
+<!--X-From-R13: "[vyyre, Epbgg Z (Aznun @rgjbexf)" &#60;fpbgg.y.zvyyreNuc.pbz> -->
+<!--X-Date: Fri, 27 Aug 2004 10:21:09 &#45;0500 -->
+<!--X-Message-Id: 1F7C0C8F4BD7C54A8BC55012FEF3DF6D0302E68A@omaexc11.americas.cpqcorp.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>RE: [Omaha.pm] bad perl - need help - dispatch table</title>
+<link rev="made" href="mailto:scott.l.miller@hp.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00096.html">Date Prev</a>][<a href="msg00098.html">Date Next</a>][<a href="msg00094.html">Thread Prev</a>][<a href="msg00099.html">Thread Next</a>][<a href="maillist.html#00097">Date Index</a>][<a href="threads.html#00097">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>RE: [Omaha.pm] bad perl - need help - dispatch table</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>Subject</em>: RE: [Omaha.pm] bad perl - need help - dispatch table</li>
+<li><em>From</em>: &quot;Miller, Scott L (Omaha Networks)&quot; &lt;<a href="mailto:scott.l.miller%40hp.com">scott.l.miller@hp.com</a>&gt;</li>
+<li><em>Date</em>: Fri, 27 Aug 2004 10:21:06 -0500</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=help">mailto:omaha-pm-request@mail.pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.mail.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@mail.pm.org">mailto:omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=subscribe">mailto:omaha-pm-request@mail.pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe">mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcSLwLrwb6Z1XU3oTRmdF7WAq7cWaAAhQHJg</li>
+<li><em>Thread-topic</em>: [Omaha.pm] bad perl - need help - dispatch table</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Jay wrote:
+&gt; I suppose you could kludge up something to do files, then wait for STDIN...? 
+
+Hmm, from the documentation you quoted below, unless you do something somewhat
+silly like:
+
+	@stinary = &lt;STDIN&gt;;  #slurp up all input from STDIN
+
+which could eat a huge amount of memory, I think you have to process STDIN
+before the files.  I think that behavior is what I would expect anyway as
+you have to have a process generate some output first before that output
+can be piped into this program. Since that output was created first, it
+should be processed before any files that might also happen to be on the
+command line of this program.
+
+Said another way, you expect the files supplied on the command line to be
+processed in order, STDIN is usually on the line before the program even:
+
+	cat somefile.txt | thisprogram.pl process-this-file.too and-this.one
+
+Therefore, the STDIN stuff comes before the first filename listed...
+I don't use the backward pipe much (ever?), is it correct to be able to say
+
+	thisprogram.pl &lt; somefile.txt ?
+
+And if so, can you also supply other files for thisprogram.pl to process?
+After a few quick tests, I don't think this is valid under UNIX.  I seem
+to be remembering DOS's broken version of 'more' many many years ago...
+
+&gt; You'd always *have to* have STDIN, though...
+
+I just tested this, it sucessfully ignores STDIN, and processes the filelist
+
+	close STDIN;
+	while(&lt;&gt;) {
+		print $_;
+	}
+
+-Scott
+
+-----Original Message-----
+From: omaha-pm-bounces@mail.pm.org
+[<a  rel="nofollow" href="mailto:omaha-pm-bounces@mail.pm.org]On">mailto:omaha-pm-bounces@mail.pm.org]On</a> Behalf Of Jay Hannah
+Sent: Thursday, August 26, 2004 6:01 PM
+To: Perl Mongers of Omaha, Nebraska USA
+Subject: Re: [Omaha.pm] bad perl - need help - dispatch table
+
+
+
+On Aug 26, 2004, at 11:01 AM, Miller, Scott L (Omaha Networks) wrote:
+&gt; Otherwise the (&lt;&gt;) will either ignore &lt;STDIN&gt; because there are 
+&gt; filename
+&gt; on ARGV, or ignore the filenames because it's got stuff to process on
+&gt; &lt;STDIN&gt;.  It's been too long since I ran into the problem to remember
+&gt; which...
+
+If does one or the other, depending.  -grin-
+
+perldoc perlop:
+
+        The null filehandle &lt;&gt; is special: it can be used to emulate the behav-
+        ior of sed and awk.  Input from &lt;&gt; comes either from standard input, or
+        from each file listed on the command line.  Here's how it works: the
+        first time &lt;&gt; is evaluated, the @ARGV array is checked, and if it is
+        empty, $ARGV[0] is set to &quot;-&quot;, which when opened gives you standard
+        input.  The @ARGV array is then processed as a list of filenames.  The
+        loop
+
+            while (&lt;&gt;) {
+                ...                     # code for each line
+            }
+
+        is equivalent to the following Perl-like pseudo code:
+
+            unshift(@ARGV, '-') unless @ARGV;
+            while ($ARGV = shift) {
+                open(ARGV, $ARGV);
+                while (&lt;ARGV&gt;) {
+                    ...         # code for each line
+                }
+            }
+
+        except that it isn't so cumbersome to say, and will actually work.  It
+        really does shift the @ARGV array and put the current filename into the
+        $ARGV variable.  It also uses filehandle ARGV internally--&lt;&gt; is just a
+        synonym for &lt;ARGV&gt;, which is magical.  (The pseudo code above doesn't
+        work because it treats &lt;ARGV&gt; as non-magical.)
+
+        You can modify @ARGV before the first &lt;&gt; as long as the array ends up
+        containing the list of filenames you really want.  Line numbers ($.)
+        continue as though the input were one big happy file.  See the example
+        in &quot;eof&quot; in perlfunc for how to reset line numbers on each file.
+
+I've always wanted what &lt;&gt; does -- files *or* wait for STDIN. I suppose 
+you could kludge up something to do files, then wait for STDIN...? 
+You'd always *have to* have STDIN, though...
+
+j
+
+_______________________________________________
+Omaha-pm mailing list
+Omaha-pm@mail.pm.org
+<a  rel="nofollow" href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00099" href="msg00099.html">RE: [Omaha.pm] bad perl - need help - dispatch table</a></strong>
+<ul><li><em>From:</em> Hugh Jarce &lt;hjarce2001@yahoo.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00096.html">Re: [Omaha.pm] RE: wrong</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00098.html">Re: [Omaha.pm] RE: wrong</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00094.html">Re: [Omaha.pm] bad perl - need help - dispatch table</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00099.html">RE: [Omaha.pm] bad perl - need help - dispatch table</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00097"><strong>Date</strong></a></li>
+<li><a href="threads.html#00097"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

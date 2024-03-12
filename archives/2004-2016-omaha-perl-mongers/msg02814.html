@@ -1,0 +1,137 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Learning perl &#45; working with LDAP -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 24 Feb 2012 17:53:08 &#45;0000 -->
+<!--X-Message-Id: FEBAFEF7&#45;5DBD&#45;41C8&#45;A167&#45;8A8D517331BF@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: CAF&#45;Fg+gOkiKngJOGFBMzugDtvnf220KsuA53HNUcRzhFW53Kvw@mail.gmail.com -->
+<!--X-Reference: CAJba5erFNbzxgo6x9UZRqQxbB0CG9c6wGpAvdgCfCW9=OA_QGg@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Learning perl - working with LDAP</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02813.html">Date Prev</a>][<a href="msg02815.html">Date Next</a>][<a href="msg02813.html">Thread Prev</a>][<a href="msg02815.html">Thread Next</a>][<a href="maillist.html#02814">Date Index</a>][<a href="threads.html#02814">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Learning perl - working with LDAP</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Learning perl - working with LDAP</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Fri, 24 Feb 2012 11:53:01 -0600</li>
+<li><em>Authentication-results</em>: mr.google.com;	spf=pass (google.com: domain of <a href="mailto:jay%40jays.net">jay@jays.net</a>	designates 10.101.3.22 as permitted sender)	smtp.mail=<a href="mailto:jay%40jays.net">jay@jays.net</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;CAJba5erFNbzxgo6x9UZRqQxbB0CG9c6wGpAvdgCfCW9=OA_QGg@mail.gmail.com&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg02812.html">CAF-Fg+gOkiKngJOGFBMzugDtvnf220KsuA53HNUcRzhFW53Kvw@mail.gmail.com</a>&gt;	&lt;CAJba5erFNbzxgo6x9UZRqQxbB0CG9c6wGpAvdgCfCW9=OA_QGg@mail.gmail.com&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>On Fri, Feb 24, 2012 at 10:36 AM, Bill Brush &lt;bbrush@gmail.com&gt; wrote:
+&gt; I'm working on my first script (program? which is the correct term for Perl?)
+
+I say &quot;script&quot; for tiny things and &quot;program&quot; for more serious things. Some people spend lots of energy arguing this topic. I don't recommend you spend any energy caring about it.  :)
+
+On Feb 24, 2012, at 11:19 AM, Theodore Katseres wrote:
+&gt; use Modern::Perl;
+
+Theodore++    I'm still doing what that does manually. I have no good reason to do so.  :)
+
+&gt; for my $letter ( a .. z ) {
+&gt;     # Filter on the staff membership and
+&gt;     # first letter of samaccountname attribute
+&gt;     my $filter = &quot;(&amp;(memberof=CN=staff,OU=groups,DC=ad,DC=wjgilmore,DC=com)(samaccountname=$letter*))&quot;;
+
+Code looks good to me if you want to make 26 LDAP queries. If 1 LDAP query would be better for some reason you could pull everything into memory and write each letter to disk later.
+
+Note a..z isn't gonna work worth a damn if you have any Japanese employees. My good friend &#x611B;&#x5B50; will feel very left out of your directory.    :)
+
+&gt;     open( FILE, '&gt;', &quot;/www/wjgilmore/directory/$letter.html&quot; );
+&gt;     say FILE $toc, $directory;
+&gt;     close FILE;
+
+I believe the preferred modern form of this is:
+
+   my $filename = &quot;/www/wjgilmore/directory/$letter.html&quot;;
+   open my $fh, '&gt;', $filename or die &quot;Can't write to '$filename'&quot;;
+   say $fh $toc, $directory;
+   close $fh;
+
+   <a  rel="nofollow" href="http://www.modernperlbooks.com/mt/2011/07/why-the-modern-perl-book-avoids-bareword-filehandles.html">http://www.modernperlbooks.com/mt/2011/07/why-the-modern-perl-book-avoids-bareword-filehandles.html</a>
+
+?
+
+Hope that helps,
+
+j
+
+
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="02812" href="msg02812.html">[Omaha.pm] Learning perl - working with LDAP</a></strong>
+<ul><li><em>From:</em> Bill Brush &lt;bbrush@gmail.com&gt;</li></ul></li>
+<li><strong><a name="02813" href="msg02813.html">Re: [Omaha.pm] Learning perl - working with LDAP</a></strong>
+<ul><li><em>From:</em> Theodore Katseres &lt;tedkat@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02813.html">Re: [Omaha.pm] Learning perl - working with LDAP</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02815.html">[Omaha.pm] version-finder-metacpan</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02813.html">Re: [Omaha.pm] Learning perl - working with LDAP</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02815.html">[Omaha.pm] version-finder-metacpan</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02814"><strong>Date</strong></a></li>
+<li><a href="threads.html#02814"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

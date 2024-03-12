@@ -1,0 +1,120 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] here doc help -->
+<!--X-From-R13: Qunq Vbzna &#60;pubznaNtznvy.pbz> -->
+<!--X-Date: 10 Jul 2009 17:25:09 &#45;0000 -->
+<!--X-Message-Id: d74b4e610907101024s2530b91are1867627cdcace18@mail.gmail.com -->
+<!--X-Content-Type: multipart/alternative -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] here doc help</title>
+<link rev="made" href="mailto:choman@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02167.html">Date Prev</a>][<a href="msg02169.html">Date Next</a>][<a href="msg02167.html">Thread Prev</a>][<a href="msg02169.html">Thread Next</a>][<a href="maillist.html#02168">Date Index</a>][<a href="threads.html#02168">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] here doc help</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Subject</em>: [Omaha.pm] here doc help</li>
+<li><em>From</em>: Chad Homan &lt;<a href="mailto:choman%40gmail.com">choman@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Fri, 10 Jul 2009 12:24:59 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:mime-version:received:date:message-id:subject	:from:to:content-type;	bh=06PbbFlzHUphly2TkACF0UzwoVbgep6R4pAX8+9O1o8=;	b=Uhry8xWmjo5JZlAAMy7bT3eNLsqAa29wqpxpYsPf+pMSRPJWRZPQ/BniK//u7/YbRx	cDERs19klUOveTlZsw50CkrOy3iWBSmSznBETxH3gE52uc7tbkofSmvdXk+enwSoUTrl	K6t4lcr/jaxvnrT5ql5sFATmzB1yBXG4OMcI8=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=mime-version:date:message-id:subject:from:to:content-type;	b=P/Pey3trRpEG7kWa+9O4FKWGCt4BtMtQ0nbUYxVA+QpgqgMtx6zsEcXRSrudhy0MOR	eijZB1FhT8Haje51UnZ5+lu1FecbB2yiJ+Fl8927MtGRnGi3s6zZImHsy0T/+8P3+b4s	PLnGz8xhuJIkJsfhrR0/o8ExW08qA/V7OB2eA=</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+Greets all<br><br>So I have a interesting issue that I need some assistance with.<br><br>I found a here doc &quot;formatting&quot; function on-line (at CPAN) that claims to &quot;expect input from a here doc&quot;.<br>I&#39;ve made one little change to preserve &quot;blank lines&quot; (i.e, changed a couple &quot;\s&quot; to &quot;[\t ]&quot;), hence the <br>
+function name.<br><br>Now I  want to offload it into a require file.&#xA0; however &quot;perl -c&quot; fails when doing so.<br><br>--------[ code #1: file1.pl ]-------------<br>sub dequote_blank_lines<br>{<br>&#xA0;&#xA0;&#xA0; local $_ = shift;<br>
+&#xA0;&#xA0;&#xA0; my ($white, $leader);&#xA0; # common white space and common leading string<br>&#xA0;&#xA0;&#xA0; if (/^[\t ]*(?:([^\w\s]+)(\s*).*\n)(?:\s*\1\2?.*\n)+$/) {<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; ($white, $leader) = ($2, quotemeta($1));<br>&#xA0;&#xA0;&#xA0; } else {<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; ($white, $leader) = (/^([\t ]+)/, &#39;&#39;);<br>
+&#xA0;&#xA0;&#xA0; }<br>&#xA0;&#xA0;&#xA0; s/^[\t ]*?$leader(?:$white)?//gm;<br>&#xA0;&#xA0;&#xA0; return $_;<br>}<br><br>&#xA0;&#xA0; $cde_script = dequote_blank_lines &lt;&lt;_EOF_;<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; #!/bin/sh<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; #real code removed for brevity<br>&#xA0;&#xA0;&#xA0;&#xA0; &#xA0; &#xA0; &#xA0; /usr/bin/echo &quot;Hello World&quot;<br>
+<br>_EOF_<br><br>&#xA0;&#xA0; print $cde_script<br><br>In this first snippet everything works fine.&#xA0; and a &quot;perl -c&quot; returns OK. <br>Now lets offload to a require file:<br><br><br>--------[ code #2: file2.pl ]-------------<br>
+
+sub dequote_blank_lines<br>
+{<br>
+&#xA0;&#xA0;&#xA0; local $_ = shift;<br>
+&#xA0;&#xA0;&#xA0; my ($white, $leader);&#xA0; # common white space and common leading string<br>
+&#xA0;&#xA0;&#xA0; if (/^[\t ]*(?:([^\w\s]+)(\s*).*\n)(?:\s*\1\2?.*\n)+$/) {<br>
+&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; ($white, $leader) = ($2, quotemeta($1));<br>
+&#xA0;&#xA0;&#xA0; } else {<br>
+&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; ($white, $leader) = (/^([\t ]+)/, &#39;&#39;);<br>
+&#xA0;&#xA0;&#xA0; }<br>
+&#xA0;&#xA0;&#xA0; s/^[\t ]*?$leader(?:$white)?//gm;<br>
+&#xA0;&#xA0;&#xA0; return $_;<br>
+}<br>
+<br>1;<br><br>--------[ code #2: file3.pl ]-------------<br><br>&#xA0;&#xA0; require &quot;file2.pl&quot;;<br><br>
+&#xA0;&#xA0; $cde_script = dequote_blank_lines &lt;&lt;_EOF_;<br>
+&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; #!/bin/sh<br>
+&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <br>
+&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; #real code removed for brevity<br>
+&#xA0;&#xA0;&#xA0;&#xA0; &#xA0; &#xA0; &#xA0; /usr/bin/echo &quot;Hello World&quot;<br>
+<br>
+_EOF_<br>
+<br>
+&#xA0;&#xA0; print $cde_script<br><br>In this case, file3.pl fails syntax check in every way imaginable.<br><br>I have tried prototyping the function: sub dequote_blank_lines ($), but this fails too.<br>I am not opposed to making this routine work like a real function and change it to:<br>
+<br><div style="margin-left: 40px;">$cde_script = HERE_DOC; # for brevity<br>$cde_script = &amp;dequote_blank_lines($cde_script);<br></div><br>But, I am one who likes flexibility and I think it should work either way.&#xA0; And I am trying <br>
+to maintain the original intent of the subroutine, expecting a here doc<br><br><br><br clear="all">Chad, CISSP<br><a rel="nofollow" href="http://www.brainyquote.com/quotes/authors/j/jack_benny.html" target="_blank">Jack Benny</a> &#xA0;- &quot;I don&#39;t deserve this award, but I have arthritis and I don&#39;t deserve that either.&quot;
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="02169" href="msg02169.html">Re: [Omaha.pm] here doc help</a></strong>
+<ul><li><em>From:</em> &quot;Chris St. Pierre&quot; &lt;stpierre@NebrWesleyan.edu&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02167.html">Re: [Omaha.pm] Next meeting: Tuesday July 14 | Call for	presentations</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02169.html">Re: [Omaha.pm] here doc help</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02167.html">Re: [Omaha.pm] Next meeting: Tuesday July 14 | Call for	presentations</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02169.html">Re: [Omaha.pm] here doc help</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02168"><strong>Date</strong></a></li>
+<li><a href="threads.html#02168"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

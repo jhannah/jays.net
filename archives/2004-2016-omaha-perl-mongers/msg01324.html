@@ -1,0 +1,130 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] DBI::Profile -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 1 Mar 2007 00:09:53 &#45;0000 -->
+<!--X-Message-Id: E59FF64509EEEA4C96BE4723AE966853610F77@exchange2k3.omnihotels.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] DBI::Profile</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01323.html">Date Prev</a>][<a href="msg01325.html">Date Next</a>][<a href="msg01320.html">Thread Prev</a>][<a href="msg01326.html">Thread Next</a>][<a href="maillist.html#01324">Date Index</a>][<a href="threads.html#01324">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] DBI::Profile</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] DBI::Profile</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Wed, 28 Feb 2007 18:09:40 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcdZ23DOMF8jz+lBTX+s2fSx/YWduwBufpAQ</li>
+<li><em>Thread-topic</em>: DBI::Profile</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+Whoah... DBI comes with a built-in profiler now. Just set the
+DBI_PROFILE environment variable and run your program. It's magic!
+
+Cool! Thanks <a  rel="nofollow" href="http://perlcast.com/">http://perlcast.com/</a> !
+
+j
+
+
+
+$ export DBI_PROFILE=2
+$ pwd
+/home/jhannah/Omni/MVC/Control/Rates/t
+$ time perl Avail_demo.pl
+
+
+DBI::Profile: 0.546727s 54.67% (1062 calls) Avail_demo.pl @ 2007-02-26
+13:20:13
+'' =&gt;
+    0.086300s / 28 = 0.003082s avg (first 0.078487s, min 0.000002s, max
+0.078487s)
+'SELECT  * FROM surcharges where prop = 'ATLCNN' ' =&gt;
+    0.003786s / 10 = 0.000379s avg (first 0.001137s, min 0.000072s, max
+0.001137s)
+'SELECT * FROM gtd_policy_dates WHERE prop = 'ATLCNN' and edate &gt;=
+'05/23/2007' and sdate &lt;= '05/23/2007'  ' =&gt;
+    0.009707s / 41 = 0.000237s avg (first 0.000948s, min 0.000137s, max
+0.001818s)
+'SELECT * FROM master_rate_info where  prop = &quot;ATLCNN&quot;  and rate_abbrv
+IN (&quot;AA1DLX&quot;, &quot;AA2DLX&quot;, &quot;AR1DLX&quot;, &quot;BABDLX&quot;, &quot;BARDLX&quot;, &quot;BARPRE&quot;, &quot;CEDLX&quot;,
+&quot;CEPRE&quot;, &quot;CORDLX&quot;, &quot;HD2DLX&quot;, &quot;HDPDLX&quot;, &quot;HOHDLX&quot;, &quot;LESDLX&quot;, &quot;PK1DLX&quot;,
+&quot;PK4DLX&quot;, &quot;PK6DLX&quot;, &quot;PK7DLX&quot;, &quot;PK8DLX&quot;, &quot;PK9DLX&quot;, &quot;PKBDLX&quot;, &quot;R42CDX&quot;,
+&quot;R42RDX&quot;, &quot;R4CHDX&quot;, &quot;REVDLX&quot;, &quot;TEST1&quot;)   ' =&gt;
+    0.011639s / 28 = 0.000416s avg (first 0.002047s, min 0.000003s, max
+0.002047s)
+'SELECT * FROM rates  where rate_code = ? and (eff_start_date &lt;= ? and
+eff_stop_date &gt;= ?) ' =&gt;
+
+...etc...
+
+
+Yes, we're hitting the database 1,062 times.  :)  :(   ?
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01323.html">Re: [Omaha.pm] Perl, Python, Ruby or PHP ...</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01325.html">Re: [Omaha.pm] Perl, Python, Ruby or PHP ...</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01320.html">Re: [Omaha.pm] &quot;Command-Line Bioinformatics&quot;</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01326.html">[Omaha.pm] Split Apache conf file into separate files</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01324"><strong>Date</strong></a></li>
+<li><a href="threads.html#01324"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

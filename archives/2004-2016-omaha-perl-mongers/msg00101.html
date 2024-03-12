@@ -1,0 +1,214 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Re: [olug] Expect script help... -->
+<!--X-From-R13: "Rnavry Zvaqre" &#60;qnaNyvaqre.bet> -->
+<!--X-Date: Mon, 30 Aug 2004 09:31:44 &#45;0500 -->
+<!--X-Message-Id: 26939.12.160.138.70.1093876522.squirrel@12.160.138.70 -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 24541.12.160.138.70.1093539223.squirrel@12.160.138.70 -->
+<!--X-Reference: D442392E&#45;F97B&#45;11D8&#45;98A7&#45;000A95E317B8@jays.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Re: [olug] Expect script help...</title>
+<link rev="made" href="mailto:dan@linder.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00100.html">Date Prev</a>][<a href="msg00102.html">Date Next</a>][<a href="msg00100.html">Thread Prev</a>][<a href="msg00102.html">Thread Next</a>][<a href="maillist.html#00101">Date Index</a>][<a href="threads.html#00101">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Re: [olug] Expect script help...</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Omaha Linux User Group&quot; &lt;<a href="mailto:olug%40olug.org">olug@olug.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Re: [olug] Expect script help...</li>
+<li><em>From</em>: &quot;Daniel Linder&quot; &lt;<a href="mailto:dan%40linder.org">dan@linder.org</a>&gt;</li>
+<li><em>Date</em>: Mon, 30 Aug 2004 09:35:22 -0500 (CDT)</li>
+<li><em>Cc</em>: Nebraska USA Perl Mongers of Omaha &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>Importance</em>: Normal</li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00100.html">D442392E-F97B-11D8-98A7-000A95E317B8@jays.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=help">mailto:omaha-pm-request@mail.pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.mail.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@mail.pm.org">mailto:omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=subscribe">mailto:omaha-pm-request@mail.pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe">mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;24541.12.160.138.70.1093539223.squirrel@12.160.138.70&gt;	&lt;<a href="msg00100.html">D442392E-F97B-11D8-98A7-000A95E317B8@jays.net</a>&gt;</li>
+<li><em>Reply-to</em>: <a href="mailto:dan%40linder.org">dan@linder.org</a>, &quot;Perl Mongers of Omaha,	Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>User-agent</em>: SquirrelMail/1.5.0</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+(I'm including the PerlMongers group on this too since Jay sent the
+request to both the PM and OLUG mailing lists... --Dan)
+
+&lt;quote who=&quot;Jay Hannah&quot;&gt;
+&gt; Can you show us what success looks like when you run through the entire
+&gt; process manually?
+
+Ok, here is the script, the output of the login session is below the script
+- --- begin script ---
+#!/usr/bin/expect
+#
+# Call like this:
+# login.exp [RemoteSystemName] [RemoteUserName]
+#
+# Description: Expect script to automate login to a remote
+# UNIX system by way of an intermediate &quot;PowerBroker&quot; controlled
+# server.  Script also sets the $DISPLAY variable to the proper
+# system for displays.
+set timeout 30;
+
+# Retrieve the remote system to login to...
+set where [lindex $argv 0];
+# Retrieve the user to login to the remote system as...
+set who [lindex $argv 1];
+
+set PowerBrokerUser &quot;&lt;PowerBrokerUserName&gt;&quot;
+set PowerBrokerPwd &quot;&lt;PowerBrokerPassword&gt;&quot;
+
+# Tell the local workstation to allow in
+# the remote system for X displays
+spawn xhost +${where}
+
+set PowerBrokerServer &quot;&lt;Power.Broker.Server.Address&gt;&quot;
+
+# Login to the PowerBroker server...
+spawn /usr/bin/telnet ${PowerBrokerServer};
+
+expect &quot;ogin:&quot;
+
+send &quot;${PowerBrokerUser}\n&quot;
+expect &quot;assword:&quot;
+
+send &quot;${PowerBrokerPwd}\n&quot;
+expect &quot;$ &quot;
+
+# Get the IP address we are coming from to set the
+# XWindows DISPLAY variable on the remote system properly
+send &quot;who am i\n&quot;;
+expect &quot;$ &quot;;
+set output_array [split $expect_out(buffer) &quot;(&quot;]
+set ip [lindex $output_array 1]
+set output_array [split ${ip} &quot;)&quot;]
+set ip [lindex $output_array 0]
+set MYDISPLAY &quot;${ip}:0.0&quot;
+
+send &quot;pbrun -h $where $who ; exit\n&quot;;
+expect &quot;assword for &quot;;
+
+send &quot;${PowerBrokerPwd}\n&quot;;
+
+send &quot;DISPLAY=${MYDISPLAY}\n&quot;;
+interact
+- --- End script ---
+
+Here is the screen output of a sample run:
+- --- Begin sample run ---
+$ ./login.exp remoteserver dlinder
+spawn xhost +remoteserver
+spawn /usr/bin/telnet pbroker
+Trying 10.20.30.40...
+Connected to 10.2.124.63.
+Escape character is '^]'.
+
+SunOS 5.8
+
+login: dlinder
+Password:
+Last login: Mon Aug 30 14:07:08 from 10.1.120.158
+Sun Microsystems Inc.   SunOS 5.8       Generic Patch   October 2001
+eutil008
+V480 for Non-Production apps
+$ who am i
+dlinder   pts/2        Aug 30 14:23    (10.1.120.158)
+$ pbrun -h remoteserver dlinder ; exit
+ Enter password for dlinder:
+
+[remoteserver:~]
+$ DISPLAY=10.1.120.158:0.0
+
+[remoteserver:~]
+$
+- --- End sample run ---
+
+There you have it.  Thanks everyone for your time, hope this can help
+someone in the future.
+
+So, can someone re-write this in Perl w/ the Expect module? :)
+
+Dan
+
+- - - - -
+&quot;I do not fear computer,
+I fear the lack of them.&quot;
+ -- Isaac Asimov
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.2.1 (GNU/Linux)
+
+iD8DBQFBMzsqNiBNyqUzGb8RAljkAJ9XHaj/KZ/fHXuEDJnjVn4s0Gb/YwCdERD2
+cDtTKhKlY+Bt7HPVf7ueTTY=
+=Mev2
+-----END PGP SIGNATURE-----
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00102" href="msg00102.html">[Omaha.pm] Re: Expect script help...</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00100" href="msg00100.html">[Omaha.pm] Re: [olug] Expect script help...</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00100.html">[Omaha.pm] Re: [olug] Expect script help...</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00102.html">[Omaha.pm] Re: Expect script help...</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00100.html">[Omaha.pm] Re: [olug] Expect script help...</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00102.html">[Omaha.pm] Re: Expect script help...</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00101"><strong>Date</strong></a></li>
+<li><a href="threads.html#00101"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] XML::Twig, get_xpath are cool -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 18 Jul 2007 20:33:57 &#45;0000 -->
+<!--X-Message-Id: E59FF64509EEEA4C96BE4723AE9668532AE027@exchange2k3.omnihotels.net -->
+<!--X-Content-Type: multipart/alternative -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] XML::Twig, get_xpath are cool</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01458.html">Date Prev</a>][<a href="msg01460.html">Date Next</a>][<a href="msg01458.html">Thread Prev</a>][<a href="msg01460.html">Thread Next</a>][<a href="maillist.html#01459">Date Index</a>][<a href="threads.html#01459">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] XML::Twig, get_xpath are cool</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] XML::Twig, get_xpath are cool</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Wed, 18 Jul 2007 15:33:48 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcfJevGnihCJneDESCSUtNJcMY0OWA==</li>
+<li><em>Thread-topic</em>: :Twig, get_xpath are cool</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<address>Title: <strong>XML::Twig, get_xpath are cool</strong></address>
+
+
+
+
+
+<BR>
+
+<P><FONT SIZE=2>The fact that you can hop up to your parent element with ../ in xpath is just way too cool.&nbsp; :)<BR>
+<BR>
+j<BR>
+<BR>
+<BR>
+<BR>
+$ cat j.pl<BR>
+use XML::Twig;<BR>
+my $xml = grab_xml();<BR>
+my $twig = XML::Twig-&gt;new();<BR>
+$twig-&gt;parse($xml);<BR>
+my $root = $twig-&gt;root;<BR>
+foreach my $i ($root-&gt;get_xpath('Inventories/Inventory/StatusApplicationControl')) {<BR>
+&nbsp;&nbsp; print $i-&gt;{att}-&gt;{InvType};<BR>
+&nbsp;&nbsp; foreach my $j ($i-&gt;get_xpath('../InvCounts/InvCount')) {<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print &quot; &quot; . $j-&gt;{att}-&gt;{Count};<BR>
+&nbsp;&nbsp; }<BR>
+&nbsp;&nbsp; print &quot;\n&quot;;<BR>
+}<BR>
+<BR>
+sub grab_xml {<BR>
+&nbsp;&nbsp; return &lt;&lt;EOT;<BR>
+&lt;OTA_HotelInvCountNotifRS&gt;<BR>
+&nbsp; &lt;Inventories&gt;<BR>
+&nbsp;&nbsp;&nbsp; &lt;Inventory&gt;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;StatusApplicationControl InvType=&quot;RODG&quot; Start=&quot;2007-07-28&quot; End=&quot;2007-07-28&quot;&gt;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/StatusApplicationControl&gt;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;InvCounts&gt;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;InvCount Count=&quot;-2&quot;&gt;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/InvCount&gt;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/InvCounts&gt;<BR>
+&nbsp;&nbsp;&nbsp; &lt;/Inventory&gt;<BR>
+&nbsp;&nbsp;&nbsp; &lt;Inventory&gt;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;StatusApplicationControl InvType=&quot;KNSUP&quot; Start=&quot;2007-07-28&quot; End=&quot;2007-07-28&quot;&gt;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/StatusApplicationControl&gt;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;InvCounts&gt;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;InvCount Count=&quot;-95&quot;&gt;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/InvCount&gt;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/InvCounts&gt;<BR>
+&nbsp;&nbsp;&nbsp; &lt;/Inventory&gt;<BR>
+&nbsp;&nbsp;&nbsp; &lt;Inventory&gt;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;StatusApplicationControl InvType=&quot;THOR&quot; Start=&quot;2007-07-28&quot; End=&quot;2007-07-28&quot;&gt;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/StatusApplicationControl&gt;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;InvCounts&gt;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;InvCount Count=&quot;1000&quot;&gt;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/InvCount&gt;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/InvCounts&gt;<BR>
+&nbsp;&nbsp;&nbsp; &lt;/Inventory&gt;<BR>
+&nbsp; &lt;/Inventories&gt;<BR>
+&nbsp; &lt;Success&gt;&lt;/Success&gt;<BR>
+&lt;/OTA_HotelInvCountNotifRS&gt;<BR>
+EOT<BR>
+}<BR>
+<BR>
+$ perl j.pl<BR>
+RODG -2<BR>
+KNSUP -95<BR>
+THOR 1000<BR>
+</FONT>
+</P>
+
+
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01458.html">Re: [Omaha.pm] Active bandwidth monitoring</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01460.html">[Omaha.pm] IO::Multiplex + IO::Socket::SSL ?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01458.html">Re: [Omaha.pm] Active bandwidth monitoring</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01460.html">[Omaha.pm] IO::Multiplex + IO::Socket::SSL ?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01459"><strong>Date</strong></a></li>
+<li><a href="threads.html#01459"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

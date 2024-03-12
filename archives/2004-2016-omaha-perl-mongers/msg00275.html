@@ -1,0 +1,118 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Quiz: select * -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 28 Jan 2005 20:38:36 &#45;0000 -->
+<!--X-Message-Id: 200501282038.j0SKcUPQ009535@omares&#45;email.omnihotels.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Quiz: select *</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00274.html">Date Prev</a>][<a href="msg00276.html">Date Next</a>][<a href="msg00274.html">Thread Prev</a>][<a href="msg00277.html">Thread Next</a>][<a href="maillist.html#00275">Date Index</a>][<a href="threads.html#00275">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Quiz: select *</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Quiz: select *</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Fri, 28 Jan 2005 14:38:12 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcUFeThj2VgJpH3ZTKO6wbTLZa+Y/AAAARfg</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre> 
+Quiz: What's wrong with doing &quot;select *&quot; followed by fetchrow_array?
+
+j
+
+
+---
+
+sub fill_airline_codes() {
+    my ($dbh,$typ)=@_;
+    my %ret;
+    my $sqlstr=&lt;&lt;EOT;
+        SELECT * FROM fg_airline_codes WHERE airline_id = ?;
+EOT
+    my $sth=$dbh-&gt;prepare($sqlstr) or fatal_error_handler(&quot;[$sqlstr][$DBI::errstr]\n&quot;);
+    $sth-&gt;execute($typ)or fatal_error_handler(&quot;Execute of [$sqlstr][[$DBI::errstr]\n&quot;);
+    my @t;
+    while (@t = $sth-&gt;fetchrow_array) {
+        for (@t) {
+            s/[^ -~]//g;
+            s/\s+$//;
+        }
+        $ret{$t[1]} = $t[3];
+    }
+    return \%ret;
+}
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00277" href="msg00277.html">Re: [Omaha.pm] Quiz: select *</a></strong>
+<ul><li><em>From:</em> Andy Lester &lt;andy@petdance.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00274.html">[Omaha.pm] Yet Another Perl Conference North America 2005 announces	call-for-papers</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00276.html">[Omaha.pm] Perl-golf -- zero-pad an IP address.</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00274.html">[Omaha.pm] Yet Another Perl Conference North America 2005 announces	call-for-papers</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00277.html">Re: [Omaha.pm] Quiz: select *</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00275"><strong>Date</strong></a></li>
+<li><a href="threads.html#00275"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

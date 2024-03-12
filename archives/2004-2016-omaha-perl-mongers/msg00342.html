@@ -1,0 +1,155 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] FW: Perl Compiler source file -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 18 Mar 2005 18:02:27 &#45;0000 -->
+<!--X-Message-Id: 200503181802.j2II2FcN017351@omares&#45;email.omnihotels.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] FW: Perl Compiler source file</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00341.html">Date Prev</a>][<a href="msg00343.html">Date Next</a>][<a href="msg00341.html">Thread Prev</a>][<a href="msg00343.html">Thread Next</a>][<a href="maillist.html#00342">Date Index</a>][<a href="threads.html#00342">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] FW: Perl Compiler source file</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] FW: Perl Compiler source file</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Fri, 18 Mar 2005 12:02:21 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcUrPuUBpKAJ0jTZQVuWYY3aMgiZxwApajfw</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+The post I was talking about @ the meeting last night.
+
+j
+ 
+
+-----Original Message-----
+From: Scott Walters [<a  rel="nofollow" href="mailto:scott@illogics.org">mailto:scott@illogics.org</a>] 
+Sent: Thursday, March 17, 2005 10:52 AM
+To: Sapna Jain
+Cc: perl-porters@perl.org
+Subject: Re: Perl Compiler source file
+
+Sapna,
+
+The &quot;compiler&quot; is written in Perl. It does no optimization, but there are comments
+about possibile optiizations in the files. The &quot;compiled&quot; code still uses
+the bytecode operation definitions - it just unrolls the inner loop, calling
+each bytecode operation function in turn in a long series. This still requires
+libperl.a. The output is C. Perl bytecode ops are very high-level -
+this makes it both harder and less rewarding to compile Perl source. Each
+bytecode does a lot of work, and an optimizing compiler can't comprehend
+the details of this work, nor can they gain benefit from rearranging the
+operations in most cases. 
+
+If you're just interested in optimizing the bytecode, there is some room
+for unrolling loops and the like. Peephole optization could replace longer
+sequences with shorter ones. See the types.pm module on CPAN for an
+example use of the optimize:
+
+<a  rel="nofollow" href="http://search.cpan.org/~abergman/types-0.05/lib/types.pm">http://search.cpan.org/~abergman/types-0.05/lib/types.pm</a>
+
+Then check out the modules it references - optimize, optimizer, 
+B::Generate, and so on. B::Generate is key - running Perl can inspect and
+change it's own bytecode. In this way, optimization and compilation are similar.
+
+Another benefit of playing with Ponie rather than Perl 5 is the code base is
+much smaller and readability is being given priority.
+
+I hope this helps.
+
+-scott
+
+On  0, Sapna Jain &lt;sapna@cse.iitb.ac.in&gt; wrote:
+&gt; 
+&gt; Hello,
+&gt; 
+&gt; I m working in optimizing compilers, So, i want to study the perl 
+&gt; compiler, how it compiles the program, and generate c code, and nay 
+&gt; opportunities to improve the compilation process.
+&gt; 
+&gt; But i could not find the files of perl source code, that usually do the 
+&gt; compilation part.
+&gt; 
+&gt; So, if you know about the source files, used for compilation please let me 
+&gt; know, also if you have any documentation related to it.
+&gt; 
+&gt; Thanks,
+&gt; 
+&gt; sapna 
+&gt; -----------------------------------------------------------------------------
+&gt; Only when you believe in your dreams...
+&gt;         you can make them come true !
+&gt; ------------------------------------------------------------------------------
+&gt; Sapna Jain 
+&gt; Mtech 1 CSE
+&gt; IITB
+&gt; ------------------------------------------------------------------------------
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00341.html">RE: [Omaha.pm] Impossible perl one-liner?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00343.html">[Omaha.pm] Yet Another Perl Conference, North America,	2005 Registration now open</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00341.html">RE: [Omaha.pm] Impossible perl one-liner?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00343.html">[Omaha.pm] Yet Another Perl Conference, North America,	2005 Registration now open</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00342"><strong>Date</strong></a></li>
+<li><a href="threads.html#00342"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

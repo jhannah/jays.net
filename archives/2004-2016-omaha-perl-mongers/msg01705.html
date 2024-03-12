@@ -1,0 +1,117 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Another XML hack -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 18 Apr 2008 19:04:00 &#45;0000 -->
+<!--X-Message-Id: Pine.LNX.4.64.0804181401490.11467@ferret.jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Another XML hack</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01704.html">Date Prev</a>][<a href="msg01706.html">Date Next</a>][<a href="msg01704.html">Thread Prev</a>][<a href="msg01706.html">Thread Next</a>][<a href="maillist.html#01705">Date Index</a>][<a href="threads.html#01705">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Another XML hack</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Subject</em>: [Omaha.pm] Another XML hack</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Fri, 18 Apr 2008 14:03:46 -0500 (CDT)</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+
+Problem:
+
+Given a directory full of xml files containing lines like this:
+
+   &lt;rmtype grpblk=&quot;29&quot; grprrev=&quot;2755&quot; invdate=&quot;20081226&quot; ooo=&quot;0&quot; physcap=&quot;319&quot; rt=&quot;DELUXE&quot;/&gt;
+
+</pre><tt>Find any lines in RevData.DALMAN*xml where grpblk &gt; physcap. Make sure to 
+</tt><tt>identify which file the data came from.
+</tt><pre style="margin: 0em;">
+
+
+Solution:
+
+$ cat j.pl
+while (&lt;&gt;) {
+   ($grpblk) =  (/grpblk=&quot;(\d+)&quot;/);
+   ($physcap) = (/physcap=&quot;(\d+)&quot;/);
+   print if ($grpblk &gt; $physcap);
+}
+
+$ grep '&lt;rmtype ' RevData.DALMAN*xml | perl j.pl
+RevData.DALMAN.20080417.xml:    &lt;rmtype grpblk=&quot;339&quot; grprrev=&quot;42771&quot; invdate=&quot;20080823&quot; ooo=&quot;0&quot; physcap=&quot;319&quot; rt=&quot;DELUXE&quot;/&gt;
+RevData.DALMAN.20080418.xml:    &lt;rmtype grpblk=&quot;339&quot; grprrev=&quot;42771&quot; invdate=&quot;20080823&quot; ooo=&quot;0&quot; physcap=&quot;319&quot; rt=&quot;DELUXE&quot;/&gt;
+RevData.DALMAN.20080418.xml:    &lt;rmtype grpblk=&quot;349&quot; grprrev=&quot;43821&quot; invdate=&quot;20080824&quot; ooo=&quot;0&quot; physcap=&quot;319&quot; rt=&quot;DELUXE&quot;/&gt;
+...
+
+
+:)
+
+j
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01704.html">[Omaha.pm] Another CPAN credit :)</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01706.html">[Omaha.pm] Are URIs still alive?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01704.html">[Omaha.pm] Another CPAN credit :)</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01706.html">[Omaha.pm] Are URIs still alive?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01705"><strong>Date</strong></a></li>
+<li><a href="threads.html#01705"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

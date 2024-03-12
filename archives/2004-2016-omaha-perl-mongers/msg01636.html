@@ -1,0 +1,105 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Catalyst: uri_with() -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 21 Jan 2008 17:50:21 &#45;0000 -->
+<!--X-Message-Id: A91AA47A&#45;EB61&#45;473E&#45;9E99&#45;480E848A585C@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Catalyst: uri_with()</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01635.html">Date Prev</a>][<a href="msg01637.html">Date Next</a>][<a href="msg01635.html">Thread Prev</a>][<a href="msg01637.html">Thread Next</a>][<a href="maillist.html#01636">Date Index</a>][<a href="threads.html#01636">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Catalyst: uri_with()</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Nebraska USA Perl Mongers of Omaha &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Catalyst: uri_with()</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Mon, 21 Jan 2008 11:50:05 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<tt>uri_with() is cool. it returns the URI for the page you're currently  
+</tt><tt>on, plus an arbitrary list of parameter overrides.
+</tt><pre style="margin: 0em;">
+
+</pre><tt>So to kick out a hyperlink to send the user to the current page, only  
+</tt><tt>in French (instead of English), you throw this in your Template  
+</tt><tt>Toolkit .tt file:
+</tt><pre style="margin: 0em;">
+
+</pre><tt>&lt;a href=&quot;${Catalyst.req.uri_with(lang_code =&gt; &quot;fr&quot;)}&quot;&gt;&lt;b&gt;$ 
+</tt><tt>{Catalyst.lang('french')}&lt;/b&gt;&lt;/a&gt;
+</tt><pre style="margin: 0em;">
+
+</pre><tt>lang() is a method we added to Catalyst to hit our home-brew  
+</tt><tt>localization database. It kicks out the word &quot;French&quot; in whatever  
+</tt><tt>language you're currently in...  :)
+</tt><pre style="margin: 0em;">
+
+j
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01635.html">[Omaha.pm] Food for Thought</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01637.html">[Omaha.pm] warnings annoying me again</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01635.html">[Omaha.pm] Food for Thought</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01637.html">[Omaha.pm] warnings annoying me again</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01636"><strong>Date</strong></a></li>
+<li><a href="threads.html#01636"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

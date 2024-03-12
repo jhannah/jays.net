@@ -1,0 +1,151 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Mapping Perl structures to a SQL table... -->
+<!--X-From-R13: [nevb Egrryr &#60;znevbNehol&#45;vz.arg> -->
+<!--X-Date: 30 Oct 2009 21:07:03 &#45;0000 -->
+<!--X-Message-Id: a4439dea0910301406p2f5b0785lc6f9a68f59a3148d@mail.gmail.com -->
+<!--X-Content-Type: multipart/alternative -->
+<!--X-Reference: 3e2be50910301131h5803fe21j5843873d37f9bd27@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Mapping Perl structures to a SQL table...</title>
+<link rev="made" href="mailto:mario@ruby-im.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02236.html">Date Prev</a>][<a href="msg02238.html">Date Next</a>][<a href="msg02253.html">Thread Prev</a>][<a href="msg02238.html">Thread Next</a>][<a href="maillist.html#02237">Date Index</a>][<a href="threads.html#02237">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Mapping Perl structures to a SQL table...</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Mapping Perl structures to a SQL table...</li>
+<li><em>From</em>: Mario Steele &lt;<a href="mailto:mario%40ruby-im.net">mario@ruby-im.net</a>&gt;</li>
+<li><em>Date</em>: Fri, 30 Oct 2009 16:06:57 -0500</li>
+<li><em>Cc</em>: Omaha Linux User Group &lt;<a href="mailto:olug%40olug.org">olug@olug.org</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg02235.html">3e2be50910301131h5803fe21j5843873d37f9bd27@mail.gmail.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg02235.html">3e2be50910301131h5803fe21j5843873d37f9bd27@mail.gmail.com</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+Heya Dan,<br><br>It would help to have a bit of information about the general structure you are currently using, before giving any ideas about storing the data in a SQL Database.&#xA0; Obviously your doing Directories and Files, but the structure helps in determining the way to make things work in the SQL Database.&#xA0; Poor design of the SQL Database, will lead to poor execution of SQL instructions, as much more is required to get the data you want.<br>
+<br>To give you some idea of how I would convert a file system database into a SQL Database, I&#39;ll give you an example of a file structure database, and a description of what entry means, then show the resulting database structure for SQL.<br>
+An example, of a simple design using Folders:<br><br>db/<br>&#xA0; cust_records/<br>&#xA0;&#xA0;&#xA0; cust1_info.dat<br>&#xA0;&#xA0;&#xA0; cust1_purchase.dat<br>&#xA0;&#xA0;&#xA0; cust2_info.dat<br>&#xA0;&#xA0;&#xA0; cust2_purchase.dat<br>&#xA0; inventory/<br>&#xA0;&#xA0;&#xA0; item1_info.dat<br>&#xA0;&#xA0;&#xA0; item2_info.dat<br>
+<br>cust#_info.dat contains:&#xA0; Customer Name, Address, Phone Number, Shipping Info, and such.<br>cust#_purchase.dat contains: Customer&#39;s a record of all the purchases that a customer has made.<br><br>item#_info.dat contains: Name of Item, Description, Price, Quantity, Shipping price, Shipping Weight.<br>
+<br>Now, to convert this into a SQL Database, I would formulate it as such:<br><br><span style="font-family: courier new,monospace;">db</span><br style="font-family: courier new,monospace;"><span style="font-family: courier new,monospace;">&#xA0; customers</span><br style="font-family: courier new,monospace;">
+<span style="font-family: courier new,monospace;">&#xA0;&#xA0;&#xA0; id&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; - INTEGER, PRIMARY KEY, AUTOINCREMENT</span><br style="font-family: courier new,monospace;"><span style="font-family: courier new,monospace;">&#xA0;&#xA0;&#xA0; name&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; - STRING</span><br style="font-family: courier new,monospace;">
+<span style="font-family: courier new,monospace;">&#xA0;&#xA0;&#xA0; address&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; - STRING</span><br style="font-family: courier new,monospace;"><span style="font-family: courier new,monospace;">&#xA0;&#xA0;&#xA0; phone&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; - STRING</span><br style="font-family: courier new,monospace;">
+<span style="font-family: courier new,monospace;">&#xA0;&#xA0;&#xA0; ship_to&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; - STRING</span><br style="font-family: courier new,monospace;"><span style="font-family: courier new,monospace;">&#xA0; transactions</span><br style="font-family: courier new,monospace;">
+<span style="font-family: courier new,monospace;">&#xA0;&#xA0;&#xA0; id&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; - INTEGER, PRIMARY KEY, AUTOINCREMENT</span><br style="font-family: courier new,monospace;"><span style="font-family: courier new,monospace;">&#xA0;&#xA0;&#xA0; cust_id&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; - INTEGER, PRIMARY KEY</span><br style="font-family: courier new,monospace;">
+<span style="font-family: courier new,monospace;">&#xA0;&#xA0;&#xA0; item_id&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; - INTEGER</span><br style="font-family: courier new,monospace;"><span style="font-family: courier new,monospace;">&#xA0;&#xA0;&#xA0; quantity&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; - INTEGER<br>
+&#xA0;&#xA0;&#xA0; purchased_date&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; - INTEGER</span><br style="font-family: courier new,monospace;"><span style="font-family: courier new,monospace;">&#xA0; inventory</span><br style="font-family: courier new,monospace;"><span style="font-family: courier new,monospace;">&#xA0;&#xA0;&#xA0; id&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; - INTEGER, PRIMARY KEY, AUTOINCREMENT</span><br style="font-family: courier new,monospace;">
+<span style="font-family: courier new,monospace;">&#xA0;&#xA0;&#xA0; item_name&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; - STRING</span><br style="font-family: courier new,monospace;"><span style="font-family: courier new,monospace;">&#xA0;&#xA0;&#xA0; description&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; - STRING</span><br style="font-family: courier new,monospace;">
+<span style="font-family: courier new,monospace;">&#xA0;&#xA0;&#xA0; price&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; - STRING </span><br style="font-family: courier new,monospace;"><span style="font-family: courier new,monospace;">&#xA0;&#xA0;&#xA0; total_per_quantity&#xA0;&#xA0; - INTEGER</span><br style="font-family: courier new,monospace;">
+<span style="font-family: courier new,monospace;">&#xA0;&#xA0;&#xA0; ship_price&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; - INTEGER</span><br style="font-family: courier new,monospace;"><span style="font-family: courier new,monospace;">&#xA0;&#xA0;&#xA0; ship_weight&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; - INTEGER</span><br>
+<br>Now some explaining about what the right hand side is all about in the above layout. The first field in all tables are &#39;id&#39;, which is marked as INTEGER, PRIMARY KEY, AUTOINCREMENT.&#xA0; Integer denotes a number, of course, Primary Key tells the SQL engine to make quick look ups based upon this field being one of the more often checked fields to look up records in a database.&#xA0; Finally the Auto increment (Which is one word in SQL), denotes the fact that each new record put into the SQL database, should take the total number of rows, and add one to that number, to assign the identification number for this record.&#xA0;&#xA0; And lastly, a String is a variable length of text data to be stored.&#xA0; Most SQL engines will allow for 5 or 6 paragraphs worth of text, but this can be expensive in storage and retrieval.&#xA0; If you know that a field is only going to be so many characters, such as Phone, maximum being 13 characters, then you can use VARCHAR(13) as the maximum length of the data that is going to be stored in that field.<br>
+<br>There&#39;s also FLOAT, which allows for decimal points, but Integers in most SQL Engines will take decimal numbers, and keep the decimals.&#xA0; But it&#39;s always best to see what data types a SQL engine supports, before making a final decision.&#xA0; Most DBI&#39;s will automatically provide a way to store common data types in the database, at their best formulation to save as much space for the database engine to handle.&#xA0; So look at Perl&#39;s DBI for Constructing Tables to see what assistance it will bring you.&#xA0; Lastly, one other data type I didn&#39;t cover in the above database, is the BLOB data type.&#xA0; BLOB data types are for storing Binary data in, should you find the need to store some binary data in the database.<br>
+<br>With blobs, there are no conversions done to store the data in the database, it&#39;s stored as is (As in, as you provide it to the SQL Database), and can contain any valid byte sequence in it.&#xA0; Meaning, anything between 0 and 255 can be stored here.&#xA0; Most SQL Engines will store UTF-8/16 characters in strings without stripping them, but when in doubt, you can use the Blob data type.<br>
+<br>Now, with the explanations of the data types out of the way, the structure is efficiently designed, for the simple fact, that if you have the ID of the customer, you can get all the items that they purchased, and get each items information from the id&#39;s that you get from the transaction table.&#xA0; You can even use the SQL Instruction JOIN to get all the data you need in a single execute, for example, if you wanted to get the name of the person, the name of the item, and the total cost, you could simply do:<br>
+<br>SELECT name, item_name, price <br>FROM transactions <br>JOIN customers<br>&#xA0; ON <a rel="nofollow" href="http://customers.id">customers.id</a> = transactions.cust_id<br>JOIN inventory<br>&#xA0; ON <a rel="nofollow" href="http://inventory.id">inventory.id</a> = transactions.item_id;<br>
+<br>This will return a list of all transactions in the format of:<br>name | item_name | price<br><br>Examples being:<br><br>&quot;John Doe&quot;,&quot;ASUS PC&quot;,299.99<br>&quot;Mary Johnson&quot;, &quot;Microsoft Mouse&quot;, 19.99<br>
+etc, etc.<br><br>It makes cross-table look ups a lot easier, to get the relevant data for what you need, and only what you need.&#xA0; And all of it is handled by the SQL Engine, not Perl, or whatever high level language you use, so the execution speed is greatly improved.<br>
+<br>HTH,<br><br>Mario<br><br><br><div class="gmail_quote">On Fri, Oct 30, 2009 at 1:31 PM, Dan Linder <span dir="ltr">&lt;<a rel="nofollow" href="mailto:dan@linder.org">dan@linder.org</a>&gt;</span> wrote:<br><blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;">
+I&#39;m taking on the task of converting our in-house tool to use the Perl<br>
+DBI module to replace the Data::Dumper/eval() it currently uses to<br>
+store and retrieve data. &#xA0;Not pretty, but it has worked pretty well<br>
+for the small data sets we&#39;ve been using.<br>
+<br>
+We now have some people commenting on the speed - some have pages take<br>
+7+ minutes to bring up waiting for the back-end perl code to ripple<br>
+through the directory structure and eval() the necessary files to<br>
+build the page. &#xA0;The &quot;eval&quot; function seems to be the bulk of the time<br>
+as I expected...<br>
+<br>
+What I&#39;m looking for is some general comments and discussion about the<br>
+mental task of mapping these hash tables into a SQL table. &#xA0;I&#39;m not<br>
+really looking for a tool, more a high level discussion about ways to<br>
+store the data and still remain flexible.<br>
+<br>
+Dan<br>
+<br>
+--<br>
+******************* ***************** ************* ***********<br>
+******* ***** *** **<br>
+&quot;Quis custodiet ipsos custodes?&quot; (Who can watch the watchmen?) -- from<br>
+the Satires of Juvenal<br>
+&quot;I do not fear computers, I fear the lack of them.&quot; -- Isaac Asimov (Author)<br>
+** *** ***** ******* *********** ************* *****************<br>
+*******************<br>
+_______________________________________________<br>
+Omaha-pm mailing list<br>
+<a rel="nofollow" href="mailto:Omaha-pm@pm.org">Omaha-pm@pm.org</a><br>
+<a rel="nofollow" href="http://mail.pm.org/mailman/listinfo/omaha-pm" target="_blank">http://mail.pm.org/mailman/listinfo/omaha-pm</a><br>
+</blockquote></div><br><br clear="all"><br>-- <br>Mario Steele<br><a rel="nofollow" href="http://www.trilake.net">http://www.trilake.net</a><br><a rel="nofollow" href="http://www.ruby-im.net">http://www.ruby-im.net</a><br><a rel="nofollow" href="http://rubyforge.org/projects/wxruby/">http://rubyforge.org/projects/wxruby/</a><br>
+<a rel="nofollow" href="http://rubyforge.org/projects/wxride/">http://rubyforge.org/projects/wxride/</a><br>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="02238" href="msg02238.html">Re: [Omaha.pm] Mapping Perl structures to a SQL table...</a></strong>
+<ul><li><em>From:</em> Todd Christopher Hamilton &lt;netarttodd@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="02235" href="msg02235.html">[Omaha.pm] Mapping Perl structures to a SQL table...</a></strong>
+<ul><li><em>From:</em> Dan Linder &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02236.html">Re: [Omaha.pm] Mapping Perl structures to a SQL table...</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02238.html">Re: [Omaha.pm] Mapping Perl structures to a SQL table...</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02253.html">Re: [Omaha.pm] Mapping Perl structures to a SQL table...</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02238.html">Re: [Omaha.pm] Mapping Perl structures to a SQL table...</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02237"><strong>Date</strong></a></li>
+<li><a href="threads.html#02237"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] All possible DNA sequences that are 5&#45;7 bases long -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 25 Nov 2008 13:48:52 &#45;0000 -->
+<!--X-Message-Id: 636BC893&#45;BB7E&#45;46F5&#45;81BA&#45;21503AAA919E@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 78178b4c4144246acf4f390ba0f9ed5d@jays.net -->
+<!--X-Reference: d5899eab0811241414u1128dbeby2b5260e694a5ce84@mail.gmail.com -->
+<!--X-Reference: 52DAA3E2&#45;406D&#45;4553&#45;82A7&#45;AC5BC4B8A9EF@jays.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] All possible DNA sequences that are 5-7 bases long</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01913.html">Date Prev</a>][<a href="msg01915.html">Date Next</a>][<a href="msg01913.html">Thread Prev</a>][<a href="msg01916.html">Thread Next</a>][<a href="maillist.html#01914">Date Index</a>][<a href="threads.html#01914">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] All possible DNA sequences that are 5-7 bases long</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] All possible DNA sequences that are 5-7 bases long</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Tue, 25 Nov 2008 07:48:44 -0600</li>
+<li><em>Cc</em>: &quot;Ramez T. Mina&quot; &lt;<a href="mailto:rtmmina%40gmail.com">rtmmina@gmail.com</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01913.html">52DAA3E2-406D-4553-82A7-AC5BC4B8A9EF@jays.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01910.html">78178b4c4144246acf4f390ba0f9ed5d@jays.net</a>&gt;	&lt;d5899eab0811241414u1128dbeby2b5260e694a5ce84@mail.gmail.com&gt;	&lt;<a href="msg01913.html">52DAA3E2-406D-4553-82A7-AC5BC4B8A9EF@jays.net</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+Perl, a journey of learning that lasts a lifetime...   :)
+
+j
+
+
+
+Quiz: Are these two the same thing?
+   (0) x 7
+    0  x 7
+If not, how are they different?
+
+
+$ perl -d -e 1
+
+  DB&lt;4&gt; @j = (0) x 7
+
+  DB&lt;5&gt; x @j
+0  0
+1  0
+2  0
+3  0
+4  0
+5  0
+6  0
+
+  DB&lt;6&gt; @j = 0 x 7
+
+  DB&lt;7&gt; x @j
+0  0000000
+
+
+</pre><tt>Answer: Nope. The first gives you an array of 7 elements, and each  
+</tt><tt>one is a zero. The second gives you an array of a single scalar which  
+</tt><tt>is seven zeros.
+</tt><pre style="margin: 0em;">
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01910" href="msg01910.html">[Omaha.pm] All possible DNA sequences that are 5-7 bases long</a></strong>
+<ul><li><em>From:</em> &lt;jay@jays.net&gt;</li></ul></li>
+<li><strong><a name="01913" href="msg01913.html">Re: [Omaha.pm] All possible DNA sequences that are 5-7 bases long</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01913.html">Re: [Omaha.pm] All possible DNA sequences that are 5-7 bases long</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01915.html">Re: [Omaha.pm] Fishing for GUI ideas...</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01913.html">Re: [Omaha.pm] All possible DNA sequences that are 5-7 bases long</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01916.html">[Omaha.pm] Suggested XML modules...</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01914"><strong>Date</strong></a></li>
+<li><a href="threads.html#01914"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

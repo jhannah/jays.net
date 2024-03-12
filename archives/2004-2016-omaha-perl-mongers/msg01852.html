@@ -1,0 +1,228 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Fumbling with formats and IO:Handle. -->
+<!--X-From-R13: Rnir Funpxre &#60;qgunpxre9Npbk.arg> -->
+<!--X-Date: 5 Sep 2008 01:39:59 &#45;0000 -->
+<!--X-Message-Id: 200809042039.50784.dthacker9@cox.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Fumbling with formats and IO:Handle.</title>
+<link rev="made" href="mailto:dthacker9@cox.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01851.html">Date Prev</a>][<a href="msg01853.html">Date Next</a>][<a href="msg01851.html">Thread Prev</a>][<a href="msg01854.html">Thread Next</a>][<a href="maillist.html#01852">Date Index</a>][<a href="threads.html#01852">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Fumbling with formats and IO:Handle.</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Fumbling with formats and IO:Handle.</li>
+<li><em>From</em>: Dave Thacker &lt;<a href="mailto:dthacker9%40cox.net">dthacker9@cox.net</a>&gt;</li>
+<li><em>Date</em>: Thu, 4 Sep 2008 20:39:50 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: <a href="mailto:dthacker9%40cox.net">dthacker9@cox.net</a>, &quot;Perl Mongers of Omaha,	Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: KMail/1.9.6 (enterprise 0.20070907.709405)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Objective.
+Read a list of records out of a database table and generate a series of roster 
+files.  Each file should have an identical two line header. 
+
+I had some help with this over on the beginners@perl.org mailing list, but I'm 
+stuck.  I'll put the full current source after the post.  My first attempt 
+using format for the rosters would only put the header lines on the first of 
+the roster file.   
+
+format RF =
+@&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;  @&lt; @&lt;&lt; @&lt; @&lt; @&lt; @&lt; @&lt;
+$name, $age, $nat, $st, $tk, $ps, $sh, $agg
+.
+
+format RF_TOP =
+Name         Age Nat St Tk Ps Sh Ag KAb TAb PAb SAb Gam Sav Ktk Kps Sht Gls 
+Ass  DP Inj Sus
+-------------------------------------------------------------------------------------------
+.
+
+    open (RF, &quot;&gt;$roster_file&quot;) or die &quot;Can't open roster file $roster_file&quot;;
+
+    while ( ($name, $age, $nat, $st, $tk, $ps, $sh, $agg  ) = 
+$sth-&gt;fetchrow_array() ) {
+        write RF;
+    }
+
+    close RF;
+
+It was suggested that I use IO:Handle and reset the position at zero everytime 
+to make sure the RF_TOP was generated.  That led me to this (non-working) 
+code.
+
+format RF =
+@&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;  @&lt; @&lt;&lt; @&lt; @&lt; @&lt; @&lt; @&lt;
+$name, $age, $nat, $st, $tk, $ps, $sh, $agg
+.
+
+format RF_TOP =
+Name         Age Nat St Tk Ps Sh Ag KAb TAb PAb SAb Gam Sav Ktk Kps Sht Gls 
+Ass  DP Inj Sus
+-------------------------------------------------------------------------------------------
+.
+
+    my $io = new IO::Handle;
+    $io-&gt;fdopen(fileno(RF),&quot;w&quot;);
+&#xA0;   $io-&gt;format_lines_left(0);
+
+    while ( ($name, $age, $nat, $st, $tk, $ps, $sh, $agg  ) = 
+$sth-&gt;fetchrow_array() ) {
+        write $io;
+    }
+
+    #close RF;
+    undef $io;
+
+}
+
+So... what do I need to tweak to get the RF_TOP to get written at the 
+beginning of every file?
+
+Entire program below.   
+
+-----------start-------------------
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+use DBI;
+use Getopt::Long;
+use IO::Handle;
+our ($opt_league, $opt_div);
+
+
+&amp;GetOptions(&quot;league=s&quot;, &quot;div=s&quot;);
+
+print &quot;Working on the $opt_league league, division $opt_div\n&quot;;
+
+#connect to database
+my $dbh = DBI-&gt;connect(&quot;DBI:mysql:database=efl&quot;,
+                      'root',
+                      'Sournak0',
+                      ) or die &quot;Can't connect to database&quot;;
+
+#set the root directory of the installation
+my $rootdir= &quot;/home/dthacker/efl/dev/&quot;;
+
+
+#open teams.dir for reading
+open( CLUB, &quot;&lt;$rootdir/teams.dir&quot;  ) or die &quot;Can't open teams.dir : $!&quot;;
+while (&lt;CLUB&gt;) {
+    print $_;
+    my $roster_file=$_;
+    my $club = substr($_, 0,3);
+    my $strsql = &lt;&lt;EOT;
+
+select name, age, nat, st, tk, ps, sh, agg
+from players where players.club=&quot;$club&quot;
+EOT
+
+    my $sth = $dbh-&gt;prepare($strsql);
+
+
+    $sth-&gt;execute() or die &quot;Couldn't execute statement: $DBI::errstr; 
+stopped&quot;;
+
+    my ($name, $age, $nat, $st, $tk, $ps, $sh, $agg);
+
+format RF =
+@&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;  @&lt; @&lt;&lt; @&lt; @&lt; @&lt; @&lt; @&lt;
+$name, $age, $nat, $st, $tk, $ps, $sh, $agg
+.
+
+format RF_TOP =
+Name         Age Nat St Tk Ps Sh Ag KAb TAb PAb SAb Gam Sav Ktk Kps Sht Gls 
+Ass  DP Inj Sus
+-------------------------------------------------------------------------------------------
+.
+
+    my $io = new IO::Handle;
+    $io-&gt;fdopen(fileno(RF),&quot;w&quot;);
+&#xA0;   $io-&gt;format_lines_left(0);
+
+    while ( ($name, $age, $nat, $st, $tk, $ps, $sh, $agg  ) = 
+$sth-&gt;fetchrow_array() ) {
+        write $io;
+    }
+
+    #close RF;
+    undef $io;
+
+}
+$dbh-&gt;disconnect();
+close CLUB;
+------end-------------------
+
+TIA Dave
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01854" href="msg01854.html">Re: [Omaha.pm] Fumbling with formats and IO:Handle.</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01851.html">Re: [Omaha.pm] Search and replace</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01853.html">[Omaha.pm] Regex X-treme!</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01851.html">Re: [Omaha.pm] Search and replace</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01854.html">Re: [Omaha.pm] Fumbling with formats and IO:Handle.</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01852"><strong>Date</strong></a></li>
+<li><a href="threads.html#01852"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

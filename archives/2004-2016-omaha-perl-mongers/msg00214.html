@@ -1,0 +1,170 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Real world application -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: Sun, 21 Nov 2004 16:39:13 &#45;0600 -->
+<!--X-Message-Id: 2ABE4136&#45;3C0E&#45;11D9&#45;BF9E&#45;000A95E317B8@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 5e2006d104112111546b65dc3a@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Real world application</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00213.html">Date Prev</a>][<a href="msg00215.html">Date Next</a>][<a href="msg00213.html">Thread Prev</a>][<a href="msg00216.html">Thread Next</a>][<a href="maillist.html#00214">Date Index</a>][<a href="threads.html#00214">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Real world application</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Real world application</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Sun, 21 Nov 2004 16:39:12 -0600</li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00213.html">5e2006d104112111546b65dc3a@mail.gmail.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/archives/omaha-pm">http://mail.pm.org/archives/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=help">mailto:omaha-pm-request@mail.pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.mail.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@mail.pm.org">mailto:omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=subscribe">mailto:omaha-pm-request@mail.pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe">mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00213.html">5e2006d104112111546b65dc3a@mail.gmail.com</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+	
+On Nov 21, 2004, at 1:54 PM, r c wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+Hi, I would like some help in finding some &quot;real world&quot; Perl
+application examples.  Everything I'm finding are short programs
+</pre><tt>without proper logging and error handling and only accomplish a simple 
+</tt><tt>task.
+</tt><pre style="margin: 0em;">
+Here's what I'm trying to accomplish for my first application:
+
+1. Write a singleton class/module that will create/hold a file handle
+to do logging (I found a singleton example in an old &quot;ThePerlReview&quot;).
+ This way all the other modules I write can simply call methods this
+object to do logging. -- Is this a good idea, how is it done in the
+real world so all modules can write to the same log?
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>Yup, we wrote one of those. It's important to us to be able to ensure 
+</tt><tt>that we can switch the logging behavior of &quot;all programs&quot; by just 
+</tt><tt>tweaking one class. How do you do it? You just write whatever logging 
+</tt><tt>routine you want into a single class, then use that class in all your 
+</tt><tt>programs. Nothing magical about it (until it saves you hours of coding 
+</tt><tt>-- that's pretty magical. -grin-).
+</tt><pre style="margin: 0em;">
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+2. Write a class/module that will read a configuration file in a
+generic way (so like the logging class, I can reuse it for other
+projects).  This way I can call get/set... methods, I've seen a great
+generic example in &quot;Object Oriented Perl&quot; for the get/set part. -- I
+want to do this instead of sourcing in a hash so it can check that
+valid methods are being called.
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>Sure, setting explicit behavior for get/set methods is half the fun of 
+</tt><tt>OO coding. -grin-
+</tt><pre style="margin: 0em;">
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+3. Write a wrapper around Net::FTP that will catch exceptions and
+retry login/put/get if time outs occur.  This class will use the
+logging singleton class to write to the same filehandle that the main
+application and all other modules are witting too.
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>We wrote something similar to that. We have many FTP partners, and I 
+</tt><tt>wanted to be able to do things like
+</tt><pre style="margin: 0em;">
+
+my $ftp = Omni::FTP::new();
+$ftp-&gt;connect('Partner X');
+$ftp-&gt;send(&quot;myfile.txt&quot;);
+
+</pre><tt>Without having to remember all the specifics of how to get that file to 
+</tt><tt>the partner is question. Our home-grawn Net::FTP wrapper does all kinds 
+</tt><tt>of things automatically (compression, encryption, etc.), and then all 
+</tt><tt>my programs don't have to remember any tricky stuff.
+</tt><pre style="margin: 0em;">
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+4. The actual application will use these modules and setup the logging
+singleton.
+</pre></blockquote><pre style="margin: 0em;">
+
+Yup.
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+Any help in pointing resources that do any of these specific things
+and especially an &quot;application&quot; that does things similar to this would
+be greatly appreciated.
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>I can't really email our source code around, but I certainly could demo 
+</tt><tt>it in any Perl Monger meeting. Did you have specific questions about 
+</tt><tt>anything?
+</tt><pre style="margin: 0em;">
+
+j
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00213" href="msg00213.html">[Omaha.pm] Real world application</a></strong>
+<ul><li><em>From:</em> r c &lt;chlo.prog@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00213.html">[Omaha.pm] Real world application</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00215.html">Re: [Omaha.pm] PERL and XML</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00213.html">[Omaha.pm] Real world application</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00216.html">[Omaha.pm] Perl Obfu Art</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00214"><strong>Date</strong></a></li>
+<li><a href="threads.html#00214"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

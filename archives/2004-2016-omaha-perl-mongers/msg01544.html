@@ -1,0 +1,138 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] print "%hash"; -->
+<!--X-From-R13: Oaql Zrfgre &#60;naqlNcrgqnapr.pbz> -->
+<!--X-Date: 16 Oct 2007 23:00:00 &#45;0000 -->
+<!--X-Message-Id: 533B403B&#45;2F33&#45;453A&#45;854F&#45;CC31E9F2E8A4@petdance.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: Pine.LNX.4.64.0710161659070.12820@ferret.jays.net -->
+<!--X-Reference: 4715415E.3030006@travisbsd.org -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] print &quot;%hash&quot;;</title>
+<link rev="made" href="mailto:andy@petdance.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01543.html">Date Prev</a>][<a href="msg01545.html">Date Next</a>][<a href="msg01543.html">Thread Prev</a>][<a href="msg01545.html">Thread Next</a>][<a href="maillist.html#01544">Date Index</a>][<a href="threads.html#01544">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] print &quot;%hash&quot;;</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] print &quot;%hash&quot;;</li>
+<li><em>From</em>: Andy Lester &lt;<a href="mailto:andy%40petdance.com">andy@petdance.com</a>&gt;</li>
+<li><em>Date</em>: Tue, 16 Oct 2007 17:59:24 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01543.html">4715415E.3030006@travisbsd.org</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01542.html">Pine.LNX.4.64.0710161659070.12820@ferret.jays.net</a>&gt;	&lt;<a href="msg01543.html">4715415E.3030006@travisbsd.org</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+
+On Oct 16, 2007, at 5:55 PM, Travis McArthur wrote:
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+That's rather unusual but very useful, I don't know any other language
+that has built in hashing functionality to have that sort of
+instrumentation (regarding allocated buckets versus full buckets).  I
+never knew that!  Awesome stuff, I like how Perl pretty intelligently
+</pre><tt>guesses what you want to know, which is nice.  Thanks for bringing  
+</tt><tt>this
+</tt><pre style="margin: 0em;">
+up Jay.
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>It also comes back as a plain zero if no buckets are used, because  
+</tt><tt>the hash is empty, so you can check to see if the hash is empty just  
+</tt><tt>by looking at it in scalar context.
+</tt><pre style="margin: 0em;">
+
+Got some keys:
+alester:~ $ perl -le'print scalar %ENV'
+26/64
+
+This hash has no keys:
+alester:~ $ perl -le'print scalar %nonexistenthash'
+0
+
+We've deleted all the keys that used to be there:
+alester:~ $ perl -le'delete @ENV{keys %ENV};print scalar %ENV'
+0
+
+
+
+
+
+
+--
+Andy Lester =&gt; andy@petdance.com =&gt; www.petdance.com =&gt; AIM:petdance
+
+
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01542" href="msg01542.html">[Omaha.pm] print &quot;%hash&quot;;</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+<li><strong><a name="01543" href="msg01543.html">Re: [Omaha.pm] print &quot;%hash&quot;;</a></strong>
+<ul><li><em>From:</em> Travis McArthur &lt;travis@travisbsd.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01543.html">Re: [Omaha.pm] print &quot;%hash&quot;;</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01545.html">[Omaha.pm] [Fwd: Newsletter from O'Reilly UG Program, October 18]</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01543.html">Re: [Omaha.pm] print &quot;%hash&quot;;</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01545.html">[Omaha.pm] [Fwd: Newsletter from O'Reilly UG Program, October 18]</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01544"><strong>Date</strong></a></li>
+<li><a href="threads.html#01544"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

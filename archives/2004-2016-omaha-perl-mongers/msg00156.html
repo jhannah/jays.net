@@ -1,0 +1,432 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] misc notes -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: Mon, 20 Sep 2004 21:41:24 &#45;0500 -->
+<!--X-Message-Id: CD4E697C&#45;0B77&#45;11D9&#45;9590&#45;000A95E317B8@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: OFE139E588.EB63F730&#45;ON86256F14.007BE7B0&#45;86256F14.007BE7E3@unomaha.edu -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] misc notes</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00155.html">Date Prev</a>][<a href="msg00157.html">Date Next</a>][<a href="msg00153.html">Thread Prev</a>][<a href="msg00157.html">Thread Next</a>][<a href="maillist.html#00156">Date Index</a>][<a href="threads.html#00156">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] misc notes</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Shemshon S Williams &lt;<a href="mailto:sswilliams%40mail.unomaha.edu">sswilliams@mail.unomaha.edu</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] misc notes</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Mon, 20 Sep 2004 21:41:55 -0500</li>
+<li><em>Cc</em>: Omaha Nebraska USA Perl Mongers of Omaha &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>In-reply-to</em>: &lt;OFE139E588.EB63F730-ON86256F14.007BE7B0-86256F14.007BE7E3@unomaha.edu&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=help">mailto:omaha-pm-request@mail.pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.mail.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@mail.pm.org">mailto:omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=subscribe">mailto:omaha-pm-request@mail.pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe">mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;OFE139E588.EB63F730-ON86256F14.007BE7B0-86256F14.007BE7E3@unomaha.edu&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+
+Here's the fruits of our labor...
+
+
+
+# ===============================================================
+
+#!/usr/bin/perl
+
+#unless (open INP_MASTER, &quot;&lt;/home/q8050_12/perl/master.in&quot;){
+unless (open INP_MASTER, &quot;&lt;master.in&quot;){
+die &quot;Cannot open the master input file.&quot;;
+}
+
+unless (open OUT_MASTER, &quot;&gt;master.out&quot;) {
+die &quot;Cannot open the master output file.&quot;;
+}
+
+unless (open INP_TRANS, &quot;&lt;trans.in&quot;) {
+die &quot;Cannot open the transaction input file.&quot;;
+}
+
+# Here's all the lenghts of all of our fields in master.in:
+my @master_field_lengths = (
+   10, 25, 15, 25, 15, 15, 15, 15, 15, 15, 15, 15, 100, 15, 5, 15
+);
+
+# ------------------------------------
+# Step 1: Read master.in into memory.
+# ------------------------------------
+my %master;   # &lt;-- we're going to slurp the entire file into this hash
+while (&lt;INP_MASTER&gt;) {
+   my $line = $_;
+   chomp $line;
+   my @columns;     # &lt;-- each line of data will go in here temporarily
+   foreach my $length (@master_field_lengths) {
+      my $column = substr $line, 0, $length, undef;
+      $column =~ s/\s+$//;
+      push @columns, $column;
+   }
+   # Debug info:
+   #print &quot;I just read this into memory:\n&quot;;
+   #print join &quot;|&quot;, @columns;
+   #print &quot;\n&quot;;
+
+   # Bug: Check for dupes in master.in before memorizing this!
+   # Remember this line of data for later.
+   $master{$columns[0]} = [ @columns ];
+}
+
+# ------------------------------------
+# Step 2: Read trans.in and do stuff
+# ------------------------------------
+my %counts;
+while (&lt;INP_TRANS&gt;) {
+   my $line = $_;
+   chomp $line;
+   $line =~ s/[^ -~]//g;  # Remove non-printable characters!
+   print &quot;[$line]\n&quot;;
+   my $code = substr $line, 0, 2;
+   my $key  = substr $line, 2, 10;
+   $key =~ s/\s+$//;
+   my $data = substr $line, 12;
+   if ($code eq &quot;00&quot;) {
+      print &quot;   Deleting $key.\n&quot;;
+      delete $master{$key};
+   } elsif ($code eq &quot;01&quot;) {
+      if (defined $master{$key}) {
+         print &quot;   ERROR! You attempted to add key '$key', &quot;;
+         print &quot;but that key already exists.\n&quot;;
+      } else {
+         print &quot;   Adding $key.\n&quot;;
+         $master{$key} = [$key];
+      }
+   } elsif ($code eq &quot;AA&quot;) {
+</pre><tt>      print &quot;   Changing location for $key from '$master{$key}[1]' to 
+</tt><tt>'$data'.\n&quot;;
+</tt><pre style="margin: 0em;">
+      $master{$key}[1] = $data;
+   } elsif ($code eq &quot;AB&quot;) {
+</pre><tt>      print &quot;   Changing model number for $key from '$master{$key}[2]' 
+</tt><tt>to '$data'.\n&quot;;
+</tt><pre style="margin: 0em;">
+      $master{$key}[2] = $data;
+   } elsif ($code eq &quot;AC&quot;) {
+</pre><tt>      print &quot;   Changing the memory configuration for $key from 
+</tt><tt>'$master{$key}[3]' to '$data'.\n&quot;;
+</tt><pre style="margin: 0em;">
+      $master{$key}[3] = $data
+   }
+
+
+   $counts{$code} = $counts{$code} + 1;
+}
+
+print &quot;\nHere are your counts:\n&quot;;
+foreach $x (sort keys %counts) {
+   print &quot;$x: $counts{$x}\n&quot;;
+}
+
+# ------------------------------------
+# Step 3: Dump %master out to master.out
+# ------------------------------------
+my $format;
+foreach my $length (@master_field_lengths) {
+   $format = $format . '%-' . $length . 's';
+}
+
+foreach $key (sort keys %master) {
+   my $dataref = $master{$key};
+   my @data = @$dataref;
+   printf OUT_MASTER $format, @data;
+   print OUT_MASTER &quot;\n&quot;;
+}
+
+
+close INP_MASTER;
+close OUT_MASTER;
+close INP_TRANS;
+
+
+
+# ===============================================================
+
+
+
+[jhannah-mac:~/Desktop/tmp] jhannah% more j4.pl
+
+my $one = 0;
+my $two = 0;
+my $three = 0;
+
+for (1..10) {
+   my $num = int(rand(3)) + 1;
+   print &quot;$num\n&quot;;
+
+   if ($num == 1) {
+      $one = $one + 1;
+   } elsif ($num == 2) {
+      $two = $two + 1;
+   } elsif ($num == 3) {
+      $three = $three + 1;
+   }
+}
+
+print &quot;Ones: $one\n&quot;;
+print &quot;Twos: $two\n&quot;;
+print &quot;Threes: $three\n&quot;;
+
+
+
+[jhannah-mac:~/Desktop/tmp] jhannah% more j5.pl
+
+my %counts;
+
+for (1..1000) {
+   my $num = int(rand(9)) + 1;
+   print &quot;$num &quot;;
+
+   $counts{$num} = $counts{$num} + 1;
+}
+
+print &quot;\nHere are your counts:\n&quot;;
+foreach $key (sort keys %counts) {
+   print &quot;$key: $counts{$key}\n&quot;;
+}
+
+
+[jhannah-mac:~/Desktop/tmp] jhannah% more j6.pl
+
+my @master_field_lengths = (
+
+   10, 25, 15, 25, 15, 15, 15, 15, 15, 15, 15, 15, 100, 15, 5, 15
+
+);
+
+
+my $format;
+foreach my $length (@master_field_lengths) {
+   $format = &quot;$format $length &quot;;
+   print &quot;$format\n&quot;;
+}
+
+#  %-10s%-25s%-15s...
+
+
+   $format = $format . &quot; $length &quot;;
+   $format .= &quot; $length &quot;;
+
+
+
+   $format = $format . '%-' . $length . 's';
+
+
+[jhannah-mac:~/Desktop/tmp/tmp] jhannah% more j.pl
+#!/usr/bin/perl
+
+my %hash = (
+  &quot;monthone&quot; =&gt; 'Jan',
+  &quot;monthtwo&quot; =&gt; 'Feb',
+  3 =&gt; 'Mar'
+);
+
+print &quot;    $hash{'monthone'}         $hash{3}       \n&quot;;
+$hash{3} = &quot;March Madness&quot;;
+print &quot;    $hash{'monthone'}         $hash{3}       \n&quot;;
+
+
+my @array = (
+   &quot;Jun&quot;, &quot;Jul&quot;, &quot;Aug&quot;
+);
+
+print &quot;   $array[0]       $array[2]       \n&quot;;
+$array[2] = &quot;Augusto!&quot;;
+print &quot;   $array[0]       $array[2]       \n&quot;;
+
+print &quot;$array[1]     $hash{'monthtwo'}  \n&quot;;
+$hash{'Jay'} = &quot;Hannah&quot;;
+$hash{3} = &quot;Three&quot;;
+print &quot;$hash{'Jay'}   $hash{3}   $array[2] \n&quot;;
+
+
+[jhannah-mac:~/Desktop/tmp/tmp] jhannah% more j2.pl
+
+my %hash = (
+   'chair'   =&gt; 'pizza',
+   'monitor' =&gt; 'screen',
+   'TV'      =&gt; 'football'
+);
+
+my $key;
+foreach $key (keys %hash) {
+   print &quot;KEY: $key           VALUE: $hash{$key}\n&quot;;
+}
+
+delete $hash{chair};
+if (defined $hash{chair}) {
+   print &quot;There is a chair!\n&quot;;
+} else {
+   print &quot;There is NO chair!\n&quot;;
+}
+
+
+
+
+delete $hash{'TV'};
+$hash{'Jay'} = &quot;Motorcycle&quot;;
+
+
+[jhannah-mac:~/Desktop/tmp/tmp] jhannah% more j3.pl
+
+
+if ($a) {
+   # ...do something...
+} elsif ($b) {
+   # ...do something...
+   # ...do something...
+   if ($x) {
+      print &quot;Blah!\n&quot;;
+   } else {
+      if ($y) {
+         print &quot;yargh!\n&quot;;
+         if ($myval) {
+            die &quot;Can't do that!&quot;;
+         }
+      }
+   }
+} elsif ($c) {
+   # ...do something...
+} else {
+   # ...do something...
+}
+
+
+[jhannah-mac:~/Desktop/tmp/tmp] jhannah% more j4.pl
+
+$var = &quot;Jay&quot;;
+
+
+print &quot;blah\n&quot;;
+print 'blah\n';
+print &quot;\n&quot;;
+
+print &quot;$var\n&quot;;
+print '$var\n';
+print &quot;\n&quot;;
+print &quot;  '$var'  \n&quot;;
+
+
+
+[jhannah-mac:~/Desktop/tmp/tmp] jhannah% more prog.pl
+#!/usr/bin/perl
+
+open (IN, &quot;infile.txt&quot;);
+open (OUT, &quot;&gt;outfile.txt&quot;);
+
+while (&lt;IN&gt;) {
+   my $line = $_;
+   print OUT &quot;I just read this line: $line&quot;;
+}
+
+
+--------------
+
+
+$a FALSE
+$b TRUE
+$x FALSE
+$y TRUE
+$myval FALSE
+
+my $string = &quot;Jay Hannah&quot;;
+$string =~ s/a/A/;
+
+&quot;JAy HAnnAh&quot;;
+
+Regular expressions
+
+$string =~ s/   /    /;
+
+\s    a space
+\s+   one or more spaces
+$     end of string
+
+[abc]   a or b or c
+[^abc]  NOT a or b or c
+[ -~]   ASCII characters -space- through ~
+[^ -~]  NOT ACII -space- through ~
+
+
+perldoc perl
+
+
+perldoc perlre
+
+s/a/b/;    Change one a to b
+s/a/b/g;   Change ALL as to bs
+s/a/b/i;   Change as or As to bs
+s/a/b/gi;  Change ALL as or As to bs
+s/a/b/ig;  Change ALL as or As to bs
+
+
+
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00155.html">Re: [Omaha.pm] Emergency Tutoring Monday night</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00157.html">[Omaha.pm] Debugging running Perl code on Windows.</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00153.html">[Omaha.pm] Anyone ever configured a bundle?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00157.html">[Omaha.pm] Debugging running Perl code on Windows.</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00156"><strong>Date</strong></a></li>
+<li><a href="threads.html#00156"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

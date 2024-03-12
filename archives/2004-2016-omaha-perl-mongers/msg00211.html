@@ -1,0 +1,178 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Next meeting: Dec. 16! -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: Sun, 21 Nov 2004 06:57:59 &#45;0600 -->
+<!--X-Message-Id: F30149BE&#45;3BBC&#45;11D9&#45;B158&#45;000A95E317B8@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Next meeting: Dec. 16!</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00210.html">Date Prev</a>][<a href="msg00212.html">Date Next</a>][<a href="msg00215.html">Thread Prev</a>][<a href="msg00213.html">Thread Next</a>][<a href="maillist.html#00211">Date Index</a>][<a href="threads.html#00211">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Next meeting: Dec. 16!</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Subject</em>: [Omaha.pm] Next meeting: Dec. 16!</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Sun, 21 Nov 2004 06:57:50 -0600</li>
+<li><em>Cc</em>: </li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/archives/omaha-pm">http://mail.pm.org/archives/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=help">mailto:omaha-pm-request@mail.pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.mail.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@mail.pm.org">mailto:omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=subscribe">mailto:omaha-pm-request@mail.pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe">mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+
+</pre><tt>Below are the fruits of our labor last Thr. Thanks to everyone that 
+</tt><tt>came out to help! Feel free to post enhancements if you want the 
+</tt><tt>continue the tinkering.
+</tt><pre style="margin: 0em;">
+
+Our next meeting is Dec. 16:
+
+   <a  rel="nofollow" href="http://omaha.pm.org">http://omaha.pm.org</a>
+
+j
+
+
+
+#!/usr/bin/perl
+
+use Data::Dumper;
+use WWW::Mechanize;
+
+my %data;
+open (IN, &quot;perl_mongers.xml&quot;) or die;
+while (&lt;IN&gt;) {
+   s/[^ -~]//g;
+   chomp;
+   if (/&lt;group id/) {
+      %data = ();
+      ($data{gid}) = (/(\d+)/);
+      next;
+   }
+   my ($ele, $data) = (/&lt;(.*)&gt;(.+)&lt;\/.*&gt;/);
+   if ($ele and $data) {
+      $data{$ele} = $data;
+   }
+   if (/&lt;\/location&gt;/ and not defined $data{longitude}) {
+      go_fetch(%data);
+   }
+}
+
+
+sub go_fetch {
+   my (%data) = @_;
+   return unless ($data{city} and $data{country});
+   #print Dumper %data;
+   my $search = &quot;$data{city}, $data{country}&quot;;
+   print &quot;$search\n&quot;;
+
+   my $mech = WWW::Mechanize-&gt;new();
+   my $url = &quot;<a  rel="nofollow" href="http://www.astro.com/atlas/horoscope?submit=Search&amp;&quot">http://www.astro.com/atlas/horoscope?submit=Search&amp;&quot</a>;;
+      # expr=Milpitas%2C+United+States+of+America
+   $url .= &quot;expr=$search&quot;;
+   $url =~ s/ /\+/g;
+   $url =~ s/,/\%2C/g;
+   #print &quot;$url\n&quot;;
+
+   $mech-&gt;get( $url );
+
+   #print $mech-&gt;content;
+   #open (OUT, &quot;&gt;out&quot;);
+   #print OUT $mech-&gt;content;
+   #close OUT;
+   #print Dumper (split /\n/s, $mech-&gt;content);
+   #print &quot;\n\n\n\n\n\n=======================&quot;;
+   my @return = grep { /ade.cgi/ } (split /\n/s, $mech-&gt;content);
+   #print Dumper @return;
+   foreach (@return) {
+      s/&lt;.*?&gt;//g;
+      conv_latlong($_);
+      print &quot;   $_\n&quot;;
+   }
+   exit;
+}
+
+sub conv_latlong {
+   my ($str) = @_;
+   my ($lat, $long) = (/(\d+[ns]\d+).*?(\d+[ew]\d+)/);
+   print &quot;[$lat $long]&quot;;
+   my ($newlat, $newlong);
+
+}
+
+
+
+__END__
+
+                &lt;location&gt;
+                        &lt;city&gt;Cascais&lt;/city&gt;
+                        &lt;state&gt;Lisbon&lt;/state&gt;
+                        &lt;region&gt;Cascais&lt;/region&gt;
+                        &lt;country&gt;Portugal&lt;/country&gt;
+                        &lt;continent&gt;Europe&lt;/continent&gt;
+                        &lt;longitude&gt;&lt;/longitude&gt;
+                        &lt;latitude&gt;&lt;/latitude&gt;
+                &lt;/location&gt;
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00210.html">[Omaha.pm] PERL and XML</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00212.html">Re: [Omaha.pm] PERL and XML</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00215.html">Re: [Omaha.pm] PERL and XML</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00213.html">[Omaha.pm] Real world application</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00211"><strong>Date</strong></a></li>
+<li><a href="threads.html#00211"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

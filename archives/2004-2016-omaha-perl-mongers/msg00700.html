@@ -1,0 +1,117 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Push/pop and guranteed order? -->
+<!--X-From-R13: "Rnavry Zvaqre" &#60;qnaNyvaqre.bet> -->
+<!--X-Date: 8 Dec 2005 22:28:22 &#45;0000 -->
+<!--X-Message-Id: 1967.68.13.86.85.1134080861.squirrel@mail.linder.org -->
+<!--X-Content-Type: multipart/alternative -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Push/pop and guranteed order?</title>
+<link rev="made" href="mailto:dan@linder.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00699.html">Date Prev</a>][<a href="msg00701.html">Date Next</a>][<a href="msg00697.html">Thread Prev</a>][<a href="msg00701.html">Thread Next</a>][<a href="maillist.html#00700">Date Index</a>][<a href="threads.html#00700">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Push/pop and guranteed order?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Subject</em>: [Omaha.pm] Push/pop and guranteed order?</li>
+<li><em>From</em>: &quot;Daniel Linder&quot; &lt;<a href="mailto:dan%40linder.org">dan@linder.org</a>&gt;</li>
+<li><em>Date</em>: Thu, 8 Dec 2005 16:27:41 -0600 (CST)</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Importance</em>: Normal</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: <a href="mailto:dan%40linder.org">dan@linder.org</a>, &quot;Perl Mongers of Omaha,	Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: SquirrelMail/1.4.5</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<p>Fellow Mongers,</p>
+<p>When I push values to an array, am I guranteed that they will be
+returned in the same order when I use &quot;foreach&quot;?&nbsp;&nbsp;Here
+is my test code:</p>
+<p>#!perl<br/>
+@CurrentList=();<br/>
+printf (&quot;Pushing: &quot;);<br/>
+foreach (&quot;A&quot; .. &quot;Z&quot;) {<br/>
+&nbsp; push @CurrentList, $_;<br/>
+&nbsp; printf (&quot;$_ &quot;);<br/>
+}<br/>
+printf (&quot;\nReview:&nbsp; &quot;);<br/>
+foreach (@CurrentList) {<br/>
+&nbsp; printf (&quot;$_ &quot;);<br/>
+}</p>
+<p>The output of the code looks correct:</p>
+<p>Pushing: A B C D E F G H I J K L M N O P Q R S T U V W X Y Z <br/>
+Review:&nbsp; A B C D E F G H I J K L M N O P Q R S T U V W X Y Z </p>
+<p>If not, is there an easy way to create a FIFO (First In, First Out)
+array?&nbsp; I don't want to resort to creating a key/value pair (i.e.
+key/value: 1:A, 2:B, 3:C,...,26:Z) and have to sort on the key.</p>
+<p>Dan<br/>
+<br/>
+- - - - <br/>
+&quot;Wait for that wisest of all counselors, time.&quot; -- Pericles <br/>
+&quot;I do not fear computers, I fear the lack of them.&quot; -- Isaac
+Asimov <br/>
+GPG fingerprint:6FFD DB94 7B96 0FD8 EADF 2EE0 B2B0 CC47 4FDE 9B68</p>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00701" href="msg00701.html">Re: [Omaha.pm] Push/pop and guranteed order?</a></strong>
+<ul><li><em>From:</em> Andy Lester &lt;andy@petdance.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00699.html">Re: [Omaha.pm] Lightning Talks from UNO on Perl! :)</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00701.html">Re: [Omaha.pm] Push/pop and guranteed order?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00697.html">[Omaha.pm] [Fwd: Newsletter from O'Reilly UG Program, December 2]</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00701.html">Re: [Omaha.pm] Push/pop and guranteed order?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00700"><strong>Date</strong></a></li>
+<li><a href="threads.html#00700"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

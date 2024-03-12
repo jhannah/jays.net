@@ -1,0 +1,213 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] FW: Test::Harness jacks PERL5LIB which jacks our SEED	tests under your new dynamic t directory thing... -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 3 Nov 2006 21:04:26 &#45;0000 -->
+<!--X-Message-Id: 29AB736ABCE5C745ABF9C93B02F2C27B06F5D482@exchange2k3.omnihotels.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] FW: Test::Harness jacks PERL5LIB which jacks our SEED	tests under your new dynamic t directory thing...</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01192.html">Date Prev</a>][<a href="msg01194.html">Date Next</a>][<a href="msg01201.html">Thread Prev</a>][<a href="msg01194.html">Thread Next</a>][<a href="maillist.html#01193">Date Index</a>][<a href="threads.html#01193">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] FW: Test::Harness jacks PERL5LIB which jacks our SEED	tests under your new dynamic t directory thing...</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] FW: Test::Harness jacks PERL5LIB which jacks our SEED	tests under your new dynamic t directory thing...</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Fri, 3 Nov 2006 15:03:44 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: Acb0l/DHUDLH1LECTPK+qvUPOBvyiAK8zKig</li>
+<li><em>Thread-topic</em>: Test::Harness jacks PERL5LIB which jacks our SEED tests under	your new dynamic t directory thing...</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+Below, a pretty geeky thing I hit recently. 
+
+I have no idea why Test::Harness messes with $PERL5LIB and then puts it
+back.
+
+Survey: Besides my coworkers and Andy, does anyone out there use
+Test::*? How many tests do you have? For software that does what? Anyone
+else use PERL5LIB?
+
+j
+ 
+
+
+
+-----Original Message-----
+From: Jay Hannah 
+Sent: Friday, October 20, 2006 5:35 PM
+To: Sean Baker
+Cc: Trey Bianchini
+Subject: Test::Harness jacks PERL5LIB which jacks our SEED tests under
+your new dynamic t directory thing...
+
+
+Doh..........
+
+
+jhannah@razorbill:~/M/Pegasus/Message&gt; prove -r
+t/AALSRQ............................ok
+t/AALSRQ_seed_1A....................Cannot read
+'/usr/lib/perl5/site_perl/Omni/MVC:/usr/lib/perl5/5.8.7/i686-linux:/usr/
+lib/perl5/5.8.7:/usr/lib/perl5/site_perl/5.8.7/i686-linux:/usr/lib/perl5
+/site_perl/5.8.7:/usr/lib/perl5/site_perl:./Model/omares/Simple/smls_rat
+es_avail.unl'.
+[[[/usr/lib/perl5/site_perl/Omni/MVC:/usr/lib/perl5/5.8.7/i686-linux:/us
+r/lib/perl5/5.8.7:/usr/lib/perl5/site_perl/5.8.7/i686-linux:/usr/lib/per
+l5/site_perl/5.8.7:/usr/lib/perl5/site_perl:.]]] at
+/usr/lib/perl5/site_perl/Omni/MVC/Model/DB/Informix.pm line 891, &lt;DATA&gt;
+line 1.
+
+
+
+
+jhannah@razorbill:~/M/Pegasus/Message&gt; cat j.t die
+&quot;[[[$ENV{PERL5LIB}]]]&quot;; jhannah@razorbill:~/M/Pegasus/Message&gt; prove -r
+j.t
+j....[[[/usr/lib/perl5/site_perl/Omni/MVC:/usr/lib/perl5/5.8.7/i686-linu
+x:/usr/lib/perl5/5.8.7:/usr/lib/perl5/site_perl/5.8.7/i686-linux:/usr/li
+b/perl5/site_perl/5.8.7:/usr/lib/perl5/site_perl:.]]] at j.t line 1.
+j....dubious
+        Test returned status 255 (wstat 65280, 0xff00)
+FAILED--1 test script could be run, alas--no output ever seen
+
+
+
+  push @DB::typeahead,
+    &quot;o pager=less&quot;,
+    &quot;f Test/Harness/Straps.pm&quot;, &quot;b 284&quot;,
+
+
+
+j....Test::Harness::Straps::analyze_file(/usr/lib/perl5/5.8.7/Test/Harne
+ss/Straps.pm:284):
+284:        local $ENV{PERL5LIB} = $self-&gt;_INC2PERL5LIB;
+ 
+DB&lt;4&gt; n
+Test::Harness::Straps::analyze_file(/usr/lib/perl5/5.8.7/Test/Harness/St
+raps.pm:285):
+285:        if ( $Test::Harness::Debug ) {
+ 
+DB&lt;4&gt; n
+Test::Harness::Straps::analyze_file(/usr/lib/perl5/5.8.7/Test/Harness/St
+raps.pm:291):
+291:        my $line = $self-&gt;_command_line($file);
+ 
+DB&lt;4&gt; n
+Test::Harness::Straps::analyze_file(/usr/lib/perl5/5.8.7/Test/Harness/St
+raps.pm:293):
+293:        unless ( open(FILE, &quot;$line|&quot; )) {
+ 
+DB&lt;4&gt; n
+Test::Harness::Straps::analyze_file(/usr/lib/perl5/5.8.7/Test/Harness/St
+raps.pm:298):
+298:        my %results = $self-&gt;analyze_fh($file, \*FILE);
+ 
+DB&lt;4&gt;
+[[[/usr/lib/perl5/site_perl/Omni/MVC:/usr/lib/perl5/5.8.7/i686-linux:/us
+r/lib/perl5/5.8.7:/usr/lib/perl5/site_perl/5.8.7/i686-linux:/usr/lib/per
+l5/site_perl/5.8.7:/usr/lib/perl5/site_perl:.]]] at j.t line 1.
+n
+Test::Harness::Straps::analyze_file(/usr/lib/perl5/5.8.7/Test/Harness/St
+raps.pm:299):
+299:        my $exit    = close FILE;
+ 
+DB&lt;4&gt; n
+Test::Harness::Straps::analyze_file(/usr/lib/perl5/5.8.7/Test/Harness/St
+raps.pm:300):
+300:        $results{'wait'} = $?;
+ 
+DB&lt;4&gt; n
+Test::Harness::Straps::analyze_file(/usr/lib/perl5/5.8.7/Test/Harness/St
+raps.pm:301):
+301:        if( $? &amp;&amp; $self-&gt;{_is_vms} ) {
+ 
+DB&lt;4&gt; n
+Test::Harness::Straps::analyze_file(/usr/lib/perl5/5.8.7/Test/Harness/St
+raps.pm:305):
+305:            $results{'exit'} = _wait2exit($?);
+ 
+DB&lt;4&gt; n
+Test::Harness::Straps::analyze_file(/usr/lib/perl5/5.8.7/Test/Harness/St
+raps.pm:307):
+307:        $results{passing} = 0 unless $? == 0;
+ 
+DB&lt;4&gt; n
+Test::Harness::Straps::analyze_file(/usr/lib/perl5/5.8.7/Test/Harness/St
+raps.pm:309):
+309:        $self-&gt;_restore_PERL5LIB();
+ 
+
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01194" href="msg01194.html">Re: [Omaha.pm] FW: Test::Harness jacks PERL5LIB which jacks our	SEED tests under your new dynamic t directory thing...</a></strong>
+<ul><li><em>From:</em> Andy Lester &lt;andy@petdance.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01192.html">[Omaha.pm] FW: DBD::Informix &amp; $SIG{ALRM} &amp; /etc/services</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01194.html">Re: [Omaha.pm] FW: Test::Harness jacks PERL5LIB which jacks our	SEED tests under your new dynamic t directory thing...</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01201.html">[Omaha.pm] FW: DBD::Informix &amp; $SIG{ALRM} &amp; /etc/services</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01194.html">Re: [Omaha.pm] FW: Test::Harness jacks PERL5LIB which jacks our	SEED tests under your new dynamic t directory thing...</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01193"><strong>Date</strong></a></li>
+<li><a href="threads.html#01193"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

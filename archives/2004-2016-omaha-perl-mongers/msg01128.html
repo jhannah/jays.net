@@ -1,0 +1,131 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] DBH statement isn't closing -->
+<!--X-From-R13: "[vxr Vbfgrgyre" &#60;ubfgrgyrezNtznvy.pbz> -->
+<!--X-Date: 19 Sep 2006 19:52:44 &#45;0000 -->
+<!--X-Message-Id: c60e627c0609191252i1317fb90oa5c5d54c75580a25@mail.gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] DBH statement isn't closing</title>
+<link rev="made" href="mailto:hostetlerm@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01127.html">Date Prev</a>][<a href="msg01129.html">Date Next</a>][<a href="msg01124.html">Thread Prev</a>][<a href="msg01130.html">Thread Next</a>][<a href="maillist.html#01128">Date Index</a>][<a href="threads.html#01128">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] DBH statement isn't closing</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] DBH statement isn't closing</li>
+<li><em>From</em>: &quot;Mike Hostetler&quot; &lt;<a href="mailto:hostetlerm%40gmail.com">hostetlerm@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Tue, 19 Sep 2006 14:52:36 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+I'm mucking around with DBI stuff for the first time.  I thought I did
+everything right, but I guess I didn't.
+
+Here is my code:
+===============
+#!/usr/bin/perl -w
+
+use DBI;
+
+my $cacheDB = DBI-&gt;connect(&quot;dbi:SQLite:waypoint.db&quot;,&quot;&quot;,&quot;&quot;) or die &quot;Couldn't fin\
+d cache database&quot;;
+
+my $stmt = $cacheDB-&gt;prepare(&quot;Select lat,lon from waypoint where name=?&quot;);
+
+$stmt-&gt;execute( (&quot;Home&quot;) );
+my ($lat,$lon);
+
+$stmt-&gt;bind_columns(undef,\$lat,\$lon);
+
+while ($stmt-&gt;fetch() ) {
+ print &quot;$lat\t$lon\n&quot;;
+}
+
+$stmt-&gt;finish();
+$cacheDB-&gt;disconnect();
+==========
+
+I get the correct output, but I also get this warning:
+
+closing dbh with active statement handles at dberror.pl line 19.
+
+I thought I did close it with the finish method.  Maybe I didn't.
+
+Anyone got an idea?
+
+
+
+
+--
+Mike Hostetler
+<a  rel="nofollow" href="http://mike.hostetlerhome.com/">http://mike.hostetlerhome.com/</a>
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01130" href="msg01130.html">Re: [Omaha.pm] DBH statement isn't closing</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01127.html">Re: [Omaha.pm] secret meeting tonight @ 7pm</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01129.html">Re: [Omaha.pm] [olug] OLUG - Omaha Linux User Group: Third Thursday	(fwd)</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01124.html">[Omaha.pm] [Fwd: Shirts printed and at shipper by 9/22]</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01130.html">Re: [Omaha.pm] DBH statement isn't closing</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01128"><strong>Date</strong></a></li>
+<li><a href="threads.html#01128"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

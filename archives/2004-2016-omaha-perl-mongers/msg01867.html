@@ -1,0 +1,142 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] My first hash slice -->
+<!--X-From-R13: &#60;wnlNwnlf.arg> -->
+<!--X-Date: 1 Oct 2008 19:34:54 &#45;0000 -->
+<!--X-Message-Id: 2e6b16146effa5abf66cc2af12a6d819@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] My first hash slice</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01866.html">Date Prev</a>][<a href="msg01868.html">Date Next</a>][<a href="msg01865.html">Thread Prev</a>][<a href="msg01868.html">Thread Next</a>][<a href="maillist.html#01867">Date Index</a>][<a href="threads.html#01867">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] My first hash slice</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Subject</em>: [Omaha.pm] My first hash slice</li>
+<li><em>From</em>: &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Wed, 01 Oct 2008 15:34:34 -0400</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: RoundCube Webmail/0.1</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Huh. I think I just coded my first hash slice in the wild (the 'my $key ='
+line). I blame Andy Lester for posting array slices last year.
+
+Is this code evil?
+
+   while (my $href = $sth-&gt;fetchrow_hashref) {
+      foreach my $key (keys %$href) {
+         $href-&gt;{$key} =~ s/\s+$//;
+      }
+      $DB::single = 1;
+      my $key = join &quot;|&quot;, @$href{ qw(rate_cat room_code hrms_room_cat stod
+etod) };
+      print &quot;$key\n&quot;;
+      unless ($self-&gt;_Band2s-&gt;{$key}) {
+         my $b2 = Omni2::Control::OmniCRS::HRMS::Band2-&gt;new($href);
+         $self-&gt;_Band2s-&gt;{$key} = $b2;
+      }
+   }
+
+In the debugger, below...
+
+Ponder,
+
+j
+
+
+
+78:           my $key = join &quot;|&quot;, @$href{ qw(rate_cat room_code
+hrms_room_cat stod etod) };
+                                                                           
+                                        DB&lt;2&gt; x $href
+0  HASH(0x8d8d3cc)
+   'accepted_len_stay' =&gt; 'YYYYYYY'
+   'break_point' =&gt; 109
+   'current' =&gt; 'N'
+   'etod' =&gt; 1600
+   'hrms_room_cat' =&gt; 'DELUXE'
+   'length_of_stay' =&gt; 'YYYYYYY'
+   'rate_cat' =&gt; 'CR'
+   'room_code' =&gt; 5637
+   'stod' =&gt; 1200
+                                                                           
+                                        DB&lt;3&gt; n
+Omni2::Control::OmniCRS::HRMS::Band1::load_from_omni_crs(/home/jhannah/src/Omni2/Control/OmniCRS/HRMS/Band1.pm:79):
+79:           print &quot;$key\n&quot;;
+                                                                           
+                                        DB&lt;3&gt; n
+CR|5637|DELUXE|1200|1600
+
+
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01868" href="msg01868.html">Re: [Omaha.pm] My first hash slice</a></strong>
+<ul><li><em>From:</em> Andy Lester &lt;andy@petdance.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01866.html">Re: [Omaha.pm] Redhat perl what a tragedy</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01868.html">Re: [Omaha.pm] My first hash slice</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01865.html">[Omaha.pm] 2005 is making a comeback!    (Test-Harness-2.56)</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01868.html">Re: [Omaha.pm] My first hash slice</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01867"><strong>Date</strong></a></li>
+<li><a href="threads.html#01867"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] silly warnings -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 17 Dec 2008 12:42:05 &#45;0000 -->
+<!--X-Message-Id: 8418B7F8&#45;AB12&#45;4F8D&#45;BF65&#45;D7023F3F12E5@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 396CEDAA86B38646ACE2FEAA22C3FBF1EDBB43@l3exchange.omnihotels.net -->
+<!--X-Reference: c185b40e0812161841v4750deb8qfef459579aa01076@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] silly warnings</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01959.html">Date Prev</a>][<a href="msg01961.html">Date Next</a>][<a href="msg01959.html">Thread Prev</a>][<a href="msg01978.html">Thread Next</a>][<a href="maillist.html#01960">Date Index</a>][<a href="threads.html#01960">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] silly warnings</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] silly warnings</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Wed, 17 Dec 2008 06:41:52 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01959.html">c185b40e0812161841v4750deb8qfef459579aa01076@mail.gmail.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01957.html">396CEDAA86B38646ACE2FEAA22C3FBF1EDBB43@l3exchange.omnihotels.net</a>&gt;	&lt;<a href="msg01959.html">c185b40e0812161841v4750deb8qfef459579aa01076@mail.gmail.com</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+On Dec 16, 2008, at 8:41 PM, Sterling Hanenkamp wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><tt>   next if ($audit-&gt;{$date} &amp;&amp; $audit-&gt;{$date}-&gt;{$hotel} &amp;&amp; $audit- 
+</tt><tt>&gt;{$date}-&gt;{$hotel} &gt; 0);
+</tt></blockquote><pre style="margin: 0em;">
+
+
+I usually prefer:
+
+next if ($audit-&gt;{$date}{$hotel} || 0) &gt; 0;
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>!! Huh. That's an interesting side-step of the warning! Much shorter  
+</tt><tt>than mine. I like it! Thanks for the tip! :)
+</tt><pre style="margin: 0em;">
+
+(I'm still bitter that you need a || 0 trick, though. -grin-)
+
+j
+
+
+$ cat j.pl
+use warnings;
+my $audit = {};
+my $date = &quot;20081217&quot;;
+my $hotel = &quot;ATLCNN&quot;;
+# $audit-&gt;{$date}-&gt;{$hotel} = 7;
+for (1) {
+   next if (($audit-&gt;{$date}-&gt;{$hotel} || 0) &gt; 0);
+   print &quot;no\n&quot;;
+}
+
+$ perl j.pl
+no
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01978" href="msg01978.html">Re: [Omaha.pm] silly warnings</a></strong>
+<ul><li><em>From:</em> &quot;Dan Linder&quot; &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01957" href="msg01957.html">[Omaha.pm] silly warnings</a></strong>
+<ul><li><em>From:</em> &quot;Jay Hannah&quot; &lt;jhannah@omnihotels.com&gt;</li></ul></li>
+<li><strong><a name="01959" href="msg01959.html">Re: [Omaha.pm] silly warnings</a></strong>
+<ul><li><em>From:</em> &quot;Sterling Hanenkamp&quot; &lt;sterling@hanenkamp.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01959.html">Re: [Omaha.pm] silly warnings</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01961.html">[Omaha.pm] Pure Perl ssh tunnel to MySQL</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01959.html">Re: [Omaha.pm] silly warnings</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01978.html">Re: [Omaha.pm] silly warnings</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01960"><strong>Date</strong></a></li>
+<li><a href="threads.html#01960"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Reading a Unix vs a DOS text file -->
+<!--X-From-R13: [vxr Vbfgrgyre &#60;ubfgrgyrezNtznvy.pbz> -->
+<!--X-Date: 26 Mar 2009 15:49:54 &#45;0000 -->
+<!--X-Message-Id: c60e627c0903260849r6af4f38fica80cb41dccfeb6d@mail.gmail.com -->
+<!--X-Content-Type: multipart/alternative -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Reading a Unix vs a DOS text file</title>
+<link rev="made" href="mailto:hostetlerm@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02066.html">Date Prev</a>][<a href="msg02068.html">Date Next</a>][<a href="msg02066.html">Thread Prev</a>][<a href="msg02068.html">Thread Next</a>][<a href="maillist.html#02067">Date Index</a>][<a href="threads.html#02067">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Reading a Unix vs a DOS text file</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Reading a Unix vs a DOS text file</li>
+<li><em>From</em>: Mike Hostetler &lt;<a href="mailto:hostetlerm%40gmail.com">hostetlerm@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 26 Mar 2009 10:49:46 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:mime-version:received:date:message-id:subject	:from:to:content-type;	bh=QjddttSdhnNFk8Et3LonOzf9vwRLgnNrvIYAXda2TtU=;	b=sbehl1KvxW9wBqxcABSpTI6KO8Ds3Q1M/n+DlY7P9nEVIHj5pLIbo2T8A794gtLOet	z9DdWSZyWvraRlyLGTUYq1LwMUXmL2dETev25a3Xy4RO9FyiV5ufk8uVo2DWlMRGCnVj	KrKdQVdqFr+lBHemPhmnM11dqEDwYzl9hBCZU=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=mime-version:date:message-id:subject:from:to:content-type;	b=m8KHVKao5gEeF4GEQL0HcTziIXjJJrLje6vlqFZyhv94VK8w6KnO/a8Ym+JNofimuN	FOSjllmTANBmD7NbbjXkqpxxdTAv/yb7rCjAktpt9Si0L9uEqqHys7xQTdbp2KLxr/Dz	D1Kgy8+Ifu8hN7pqV9vEQ9/zPE45j6ZU617TM=</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+We have this log monitoring script that mostly works.&#xA0; Sometimes.&#xA0; Once you get it configured and throw some holy penguin pee on it.&#xA0; So a few months ago I took it upon myself to rework it into something more robust and, well, better.<br>
+<br>The script itself is one of the worst programs I have ever seen (sadly, not *the* worst).&#xA0; The person who wrote it only thought they knew something about Perl but really didn&#39;t.&#xA0; So I spent some off-time working on this off and on (mostly off) until recently I told people that it&#39;s working better now -- bigger, faster, and stronger.<br>
+<br>Regardless of the fact that all our processes run on Linux, this one particular application decided that it wants to save it&#39;s log files in DOS format.&#xA0; Perl is thinking that, hey, it&#39;s in a Unix-like environment and doesn&#39;t quite read that file right.<br>
+<br>So . . . it there a way I could get Perl to detect a file that uses CRLF as it&#39;s line terminator?&#xA0; That way, I could use binmode on that file, and use ASCII on the rest.&#xA0; Or does someone have a better suggestion?<br clear="all">
+<br>-- <br>Mike Hostetler<br><a rel="nofollow" href="http://mike.hostetlerhome.com/">http://mike.hostetlerhome.com/</a><br><br><br>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="02068" href="msg02068.html">Re: [Omaha.pm] Reading a Unix vs a DOS text file</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02066.html">[Omaha.pm] github.com</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02068.html">Re: [Omaha.pm] Reading a Unix vs a DOS text file</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02066.html">[Omaha.pm] github.com</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02068.html">Re: [Omaha.pm] Reading a Unix vs a DOS text file</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02067"><strong>Date</strong></a></li>
+<li><a href="threads.html#02067"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

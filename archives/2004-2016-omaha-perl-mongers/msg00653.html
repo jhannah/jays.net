@@ -1,0 +1,154 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Perl and recursion... -->
+<!--X-From-R13: Furbqber Yngfrerf &#60;grqxngNtznvy.pbz> -->
+<!--X-Date: 15 Nov 2005 19:31:52 &#45;0000 -->
+<!--X-Message-Id: b037451c0511151131q2679fb4x14946ab01dad22ff@mail.gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 2379.68.13.86.85.1132076062.squirrel@mail.linder.org -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Perl and recursion...</title>
+<link rev="made" href="mailto:tedkat@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00652.html">Date Prev</a>][<a href="msg00654.html">Date Next</a>][<a href="msg00652.html">Thread Prev</a>][<a href="msg00654.html">Thread Next</a>][<a href="maillist.html#00653">Date Index</a>][<a href="threads.html#00653">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Perl and recursion...</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:dan%40linder.org">dan@linder.org</a>, &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Perl and recursion...</li>
+<li><em>From</em>: Theodore Katseres &lt;<a href="mailto:tedkat%40gmail.com">tedkat@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Tue, 15 Nov 2005 13:31:41 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; q=dns; c=nofws; s=beta; d=gmail.com;	h=received:message-id:date:from:to:subject:in-reply-to:mime-version:content-type:content-transfer-encoding:content-disposition:references;	b=qxMFQ7WEbTNqYk0JeLlgUohQoEqV2U0NMlcwhq3iIJU2YLQtRDHjpwVIlHXAAvC3HfPIFwXn+SNe14lgb1pedLP2W5yAQy4Oo2FoMHBNIIxH87e723ce11Ag8WkHmlaawWiEK9v5iqYWGuLvBx6evhh9r4UI17yNyVrTPJB2pI8=</li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00652.html">2379.68.13.86.85.1132076062.squirrel@mail.linder.org</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00652.html">2379.68.13.86.85.1132076062.squirrel@mail.linder.org</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>On 11/15/05, Daniel Linder &lt;dan@linder.org&gt; wrote:
+&gt; -----BEGIN PGP SIGNED MESSAGE----- Hash: SHA1 I'm trying to setup a script
+&gt; to recursively step through a directory and take action on files and
+&gt; directories.  Pretty simple, eh?
+&gt;
+&gt;  My script runs perfectly well and can handle the files and directory
+&gt; entries differently, it is only when I recursively call the subroutine that
+&gt; it fails.  The script recursively dives into the sub-directory, but when it
+&gt; is done with that directory the recursive call appears to kill the whole
+&gt; loop.
+&gt;
+&gt;  Here is my code -- what am I missing?
+
+It appears that no recursion is happening passed the initial dive. {
+ProcFiles(&quot;/tmp&quot;) }
+Check my comments.
+
+&lt;Snip &amp;&amp; Replace&gt;
+#!/bin/perl -w
+use strict;
+
+sub ProcFiles {
+    my $dir = shift;
+
+    opendir( DIR, $dir ) or die $!;
+
+    while ( my $file = readdir(DIR) ) {
+
+        next if ( -d &quot;$dir/$file&quot; &amp;&amp; $file =~ /^\./ );
+
+        # above makes sure this block of code never gets executed
+        if ( -d &quot;$dir/$file&quot; ) {
+
+            printf( &quot;Diving into\&quot;%s/%s\&quot;.\n&quot;, $dir, $file );
+
+            &amp;ProcFiles(&quot;$dir/$file&quot;);
+
+            next;
+
+        }
+
+        # your printing files that don't begin with &quot;.&quot;
+        printf( &quot;Adding\&quot;%s/%s\&quot;.\n&quot;, $dir, $file );
+
+    }
+
+    closedir(DIR);
+
+}
+
+&amp;ProcFiles(&quot;/tmp&quot;);
+
+
+--
+Ted Katseres
+      ||=O=||
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00654" href="msg00654.html">Re: [Omaha.pm] Perl and recursion...</a></strong>
+<ul><li><em>From:</em> &quot;Daniel Linder&quot; &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00652" href="msg00652.html">[Omaha.pm] Perl and recursion...</a></strong>
+<ul><li><em>From:</em> &quot;Daniel Linder&quot; &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00652.html">[Omaha.pm] Perl and recursion...</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00654.html">Re: [Omaha.pm] Perl and recursion...</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00652.html">[Omaha.pm] Perl and recursion...</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00654.html">Re: [Omaha.pm] Perl and recursion...</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00653"><strong>Date</strong></a></li>
+<li><a href="threads.html#00653"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

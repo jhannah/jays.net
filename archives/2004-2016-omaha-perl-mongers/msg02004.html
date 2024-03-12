@@ -1,0 +1,102 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] longest xpath ever? -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 3 Feb 2009 20:27:23 &#45;0000 -->
+<!--X-Message-Id: 396CEDAA86B38646ACE2FEAA22C3FBF1EDBC0F@l3exchange.omnihotels.net -->
+<!--X-Content-Type: multipart/alternative -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] longest xpath ever?</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02003.html">Date Prev</a>][<a href="msg02005.html">Date Next</a>][<a href="msg02003.html">Thread Prev</a>][<a href="msg02005.html">Thread Next</a>][<a href="maillist.html#02004">Date Index</a>][<a href="threads.html#02004">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] longest xpath ever?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] longest xpath ever?</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Tue, 3 Feb 2009 14:27:14 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcmGPcyIu078OZ5sSRiDSKdM/ia5cg==</li>
+<li><em>Thread-topic</em>: longest xpath ever?</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+
+
+<DIV><FONT face="Courier New" color=#000000 size=2>Do I win the award?&nbsp;&nbsp; :)</FONT></DIV>
+<DIV><FONT face="Courier New" size=2></FONT>&nbsp;</DIV>
+<DIV><FONT face="Courier New" size=2>j</FONT></DIV>
+<DIV><FONT face="Courier New" size=2></FONT>&nbsp;</DIV>
+<DIV><FONT face="Courier New" size=2></FONT>&nbsp;</DIV>
+<DIV><FONT face="Courier New" size=2></FONT>&nbsp;</DIV>
+<DIV><FONT face="Courier New" size=2>$ cat j.pl<BR>use XML::Twig;</FONT></DIV>
+<DIV><FONT face="Courier New" size=2>my $twig=XML::Twig-&gt;new();<BR>$twig-&gt;parsefile('j.xml');<BR>my $root = $twig-&gt;root;</FONT></DIV>
+<DIV><FONT face="Courier New" size=2>my @x = $root-&gt;get_xpath('soap:Body/AvailabilityResponse/AvailResponseSegments/a:AvailResponseSegment/a:RoomStayList/hc:RoomStay/hc:RatePlans/hc:RatePlan/hc:AdditionalDetails/hc:AdditionalDetail[@detailType="GuaranteePolicy"]/hc:AdditionalDetailDescription/hc:Text');<BR>print $x[0]-&gt;text . "\n";</FONT></DIV>
+<DIV><FONT face="Courier New" size=2></FONT>&nbsp;</DIV>
+<DIV><FONT face="Courier New" size=2>$ perl j.pl<BR>Guarantee is mandatory to reserve room,AX,DC,DS,JC,MC,VI<BR></DIV></FONT>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="02005" href="msg02005.html">Re: [Omaha.pm] longest xpath ever?</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02003.html">Re: [Omaha.pm] uppercasing some things in complex nested structures</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02005.html">Re: [Omaha.pm] longest xpath ever?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02003.html">Re: [Omaha.pm] uppercasing some things in complex nested structures</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02005.html">Re: [Omaha.pm] longest xpath ever?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02004"><strong>Date</strong></a></li>
+<li><a href="threads.html#02004"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

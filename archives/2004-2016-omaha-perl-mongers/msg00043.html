@@ -1,0 +1,116 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Sort quickie -->
+<!--X-From-R13: Vhtu Xnepr &#60;uwnepr2001Nlnubb.pbz> -->
+<!--X-Date: Wed, 14 Jul 2004 22:32:04 &#45;0500 -->
+<!--X-Message-Id: 20040715033204.71348.qmail@web90005.mail.scd.yahoo.com -->
+<!--X-Content-Type: multipart/alternative -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Sort quickie</title>
+<link rev="made" href="mailto:hjarce2001@yahoo.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00042.html">Date Prev</a>][<a href="msg00044.html">Date Next</a>][<a href="msg00039.html">Thread Prev</a>][<a href="msg00066.html">Thread Next</a>][<a href="maillist.html#00043">Date Index</a>][<a href="threads.html#00043">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Sort quickie</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Subject</em>: Re: [Omaha.pm] Sort quickie</li>
+<li><em>From</em>: Hugh Jarce &lt;<a href="mailto:hjarce2001%40yahoo.com">hjarce2001@yahoo.com</a>&gt;</li>
+<li><em>Date</em>: Wed, 14 Jul 2004 20:32:04 -0700 (PDT)</li>
+<li><em>List-archive</em>: &lt;<a href="http://www.pm.org/pipermail/omaha-pm">http://www.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<DIV><FONT face=courier>Jay Hannah wrote:</FONT></DIV>
+<DIV><FONT face=Courier>&gt; sub sort_by_cap_date ($$) {<BR>&gt; &nbsp;&nbsp;&nbsp; # We have to throw some mojo here since capdate is </FONT><FONT face=Courier>MMDDYYYY and obviously<BR>&gt;&nbsp; &nbsp;&nbsp; # we can't sort until we turn it into YYYYMMDD... -jhannah 6/14/04<BR>&gt;&nbsp;&nbsp; &nbsp; my ($a, $b) = @_;<BR>&gt;&nbsp;&nbsp;&nbsp; &nbsp;for ($a, $b) {<BR>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; s/(\d\d)(\d\d)(\d\d\d\d)/$3$1$2/;<BR>&gt;&nbsp;&nbsp;&nbsp;&nbsp; }<BR>&gt;&nbsp;&nbsp;&nbsp;&nbsp; $a &lt;=&gt; $b;<BR>&gt; }</FONT></DIV>
+<DIV><FONT face=Courier></FONT>&nbsp;</DIV>
+<DIV><FONT face=Courier>This sub can be written more efficiently as:</FONT></DIV>
+<DIV><FONT face=Courier>&nbsp; sub by_date2 { substr($a,4) cmp substr($b,4) || $a cmp $b }</FONT></DIV>
+<DIV><FONT face=Courier>or:</FONT></DIV>
+<DIV><FONT face=Courier>&nbsp; sub by_date3 { substr($a,4).$a cmp substr($b,4).$b }<BR></FONT></DIV>
+<DIV><FONT face=Courier>Out of curiosity, I benchmarked 4 different ways to do it:</FONT></DIV>
+<DIV><FONT face=Courier></FONT>&nbsp;</DIV>
+<DIV><FONT face=Courier>use strict;<BR>use Benchmark;</FONT></DIV>
+<DIV><FONT face=Courier>my @dates = ( '05012003', '02012004', '11012002',<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '05012002', '02012003', '11012001',<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '06012002', '05022002', '05022004' ) x 9999;</FONT></DIV>
+<DIV><FONT face=Courier>sub by_date ($$) {<BR>&nbsp;&nbsp;&nbsp; my ($a, $b) = @_;<BR>&nbsp;&nbsp;&nbsp; for ($a, $b) {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; s/(\d\d)(\d\d)(\d\d\d\d)/$3$1$2/;<BR>&nbsp;&nbsp;&nbsp; }<BR>&nbsp;&nbsp;&nbsp; $a &lt;=&gt; $b;<BR>}</FONT></DIV>
+<DIV><FONT face=Courier>sub by_date2 { substr($a,4) cmp substr($b,4) || $a cmp $b }</FONT></DIV>
+<DIV><FONT face=Courier>sub by_date3 { substr($a,4).$a cmp substr($b,4).$b }</FONT></DIV>
+<DIV><FONT face=Courier>sub j9 { my @x = sort by_date @dates }</FONT></DIV>
+<DIV><FONT face=Courier>sub j2 { my @x = sort by_date2 @dates }</FONT></DIV>
+<DIV><FONT face=Courier>sub j3 { my @x = sort by_date3 @dates }</FONT></DIV>
+<DIV><FONT face=Courier>sub j1 {<BR>&nbsp;&nbsp;&nbsp; my @x = map { substr($_,4) } sort map { substr($_,4).$_ } @dates<BR>}</FONT></DIV>
+<DIV><FONT face=Courier>timethese(10, {<BR>&nbsp;&nbsp;&nbsp; 'j1' =&gt; \&amp;j1,<BR>&nbsp;&nbsp;&nbsp; 'j2' =&gt; \&amp;j2,<BR>&nbsp;&nbsp;&nbsp; 'j3' =&gt; \&amp;j3,<BR>&nbsp;&nbsp;&nbsp; 'j9' =&gt; \&amp;j9 });<BR></FONT></DIV>
+<DIV><FONT face=Courier>Results on Linux were:</FONT></DIV>
+<DIV>&nbsp;</DIV>
+<DIV><FONT face=courier>perl 5.8.4:<BR>j1:&nbsp; 7 wallclock secs ( 7.54 usr +&nbsp; 0.03 sys =&nbsp; 7.57 CPU) @&nbsp; 1.32/s (n=10)<BR>j2: 10 wallclock secs (10.04 usr +&nbsp; 0.01 sys = 10.05 CPU) @&nbsp; 1.00/s (n=10)<BR>j3: 13 wallclock secs (13.45 usr +&nbsp; 0.00 sys = 13.45 CPU) @&nbsp; 0.74/s (n=10)<BR>j9: 169 wallclock secs (168.82 usr +&nbsp; 0.00 sys = 168.82 CPU) @&nbsp; 0.06/s (n=10)</FONT></DIV>
+<DIV><FONT face=courier></FONT>&nbsp;</DIV>
+<DIV><FONT face=courier>perl 5.6.1:<BR>j1:&nbsp; 6 wallclock secs ( 6.07 usr +&nbsp; 0.02 sys =&nbsp; 6.09 CPU) @&nbsp; 1.64/s (n=10)<BR>j2:&nbsp; 5 wallclock secs ( 5.34 usr +&nbsp; 0.00 sys =&nbsp; 5.34 CPU) @&nbsp; 1.87/s (n=10)<BR>j3:&nbsp; 7 wallclock secs ( 7.00 usr +&nbsp; 0.00 sys =&nbsp; 7.00 CPU) @&nbsp; 1.43/s (n=10)<BR>j9: 75 wallclock secs (74.57 usr +&nbsp; 0.00 sys = 74.57 CPU) @&nbsp; 0.13/s (n=10)</FONT></DIV>
+<DIV><FONT face=Courier></FONT>&nbsp;</DIV>
+<DIV><FONT face=Courier>Which surprised me. I expected j1 to be much faster.</FONT></DIV>
+<DIV><FONT face=Courier><BR></FONT></DIV>
+<DIV><FONT face=Courier>Hugh</FONT></DIV>
+<DIV><FONT face=Courier>&nbsp;</DIV></FONT><p>
+		<hr size=1>Do you Yahoo!?<br>
+<a rel="nofollow" href="http://us.rd.yahoo.com/mail_us/taglines/security/*http://promotions.yahoo.com/new_mail/static/protection.html">Yahoo! Mail</a> - You care about security. So do we.
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00066" href="msg00066.html">Re: [Omaha.pm] Sort quickie</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00042.html">[Omaha.pm] Odd jobs wanted: Perl, C, Python, Unix/Linux</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00044.html">Re: [Omaha.pm] s(a)(AAA) -- wow</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00039.html">RE: [Omaha.pm] Sort quickie</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00066.html">Re: [Omaha.pm] Sort quickie</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00043"><strong>Date</strong></a></li>
+<li><a href="threads.html#00043"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

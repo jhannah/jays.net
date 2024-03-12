@@ -1,0 +1,100 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] IO::Multiplex &#38; signals? -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: Thu, 21 Oct 2004 11:36:49 &#45;0500 -->
+<!--X-Message-Id: 200410211636.i9LGaQs0014079@mail&#45;omaha.omnihotels.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] IO::Multiplex &amp; signals?</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00185.html">Date Prev</a>][<a href="msg00187.html">Date Next</a>][<a href="msg00185.html">Thread Prev</a>][<a href="msg00190.html">Thread Next</a>][<a href="maillist.html#00186">Date Index</a>][<a href="threads.html#00186">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] IO::Multiplex &amp; signals?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:bbb%40cpan.org">bbb@cpan.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] IO::Multiplex &amp; signals?</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 21 Oct 2004 16:36:22 -0000</li>
+<li><em>Cc</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/archives/omaha-pm">http://mail.pm.org/archives/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=help">mailto:omaha-pm-request@mail.pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.mail.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@mail.pm.org">mailto:omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=subscribe">mailto:omaha-pm-request@mail.pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe">mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcS3jBlaHqniRiMGSZ+hOHn/cBslOQ==</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+Is it possible that IO::Multiplex is not safe under load if I start using signals as triggers to run off and do complex things? I
+don't see signals mentioned in the IO::Multiplex docs.
+
+I have a hunch that might explain some weird behavior I'm seeing. I understand that signals on top of signals in my signal handling
+routine can be a problem, but that wouldn't explain what I've observed. Is it possible a signal can throw IO::Multiplex's internal
+queues out of whack somehow because something inside IO::Multiplex is not re-entrant when it needs to be?
+
+If it's a known issue of some sort at all I won't try to write up a demo...
+
+Thanks for your time,
+
+j
+
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00185.html">Re: [Omaha.pm] perl or system problem?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00187.html">Re: [Omaha.pm] perl or system problem?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00185.html">Re: [Omaha.pm] perl or system problem?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00190.html">FW: [Omaha.pm] IO::Multiplex &amp; signals?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00186"><strong>Date</strong></a></li>
+<li><a href="threads.html#00186"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

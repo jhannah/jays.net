@@ -1,0 +1,176 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] CGI.pm start_form() bug? I guess not... -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 12 Jul 2005 14:37:50 &#45;0000 -->
+<!--X-Message-Id: 200507121437.j6CEbZic013112@omares&#45;email.omnihotels.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] CGI.pm start_form() bug? I guess not...</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00419.html">Date Prev</a>][<a href="msg00421.html">Date Next</a>][<a href="msg00419.html">Thread Prev</a>][<a href="msg00437.html">Thread Next</a>][<a href="maillist.html#00420">Date Index</a>][<a href="threads.html#00420">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] CGI.pm start_form() bug? I guess not...</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] CGI.pm start_form() bug? I guess not...</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Tue, 12 Jul 2005 09:38:44 -0500</li>
+<li><em>Cc</em>: <a href="mailto:lstein%40cshl.org">lstein@cshl.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcWG72eIZ35fWMjuTJaz00xc0mabiA==</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+Given this program:
+
+---
+#!/usr/bin/perl
+
+use CGI qw( escapeHTML );
+
+my $q = new CGI;
+print $q-&gt;header;
+
+print
+   &quot;x is &quot; . $q-&gt;param(&quot;x&quot;) . &quot;&lt;br&gt;\n&quot;,
+   escapeHTML($q-&gt;start_form), &quot;&lt;p&gt;\n&quot;;
+
+$q-&gt;param(&quot;x&quot;, &quot;one&quot;);
+print
+   &quot;x is &quot; . $q-&gt;param(&quot;x&quot;) . &quot;&lt;br&gt;\n&quot;,
+   escapeHTML($q-&gt;start_form), &quot;&lt;p&gt;\n&quot;;
+
+$q-&gt;param(&quot;x&quot;, &quot;two&quot;);
+print
+   &quot;x is &quot; . $q-&gt;param(&quot;x&quot;) . &quot;&lt;br&gt;\n&quot;,
+   escapeHTML($q-&gt;start_form), &quot;&lt;p&gt;\n&quot;;
+---
+
+Hitting it with this URL
+
+   <a  rel="nofollow" href="http://razorbill/~jhannah/index.pl?x=blah">http://razorbill/~jhannah/index.pl?x=blah</a>   
+
+I was surprised by this output:
+
+---
+x is blah
+&lt;form method=&quot;post&quot; action=&quot;/~jhannah/index.pl?x=blah&quot; enctype=&quot;multipart/form-data&quot;&gt; 
+
+x is one
+&lt;form method=&quot;post&quot; action=&quot;/~jhannah/index.pl?x=blah&quot; enctype=&quot;multipart/form-data&quot;&gt; 
+
+x is two
+&lt;form method=&quot;post&quot; action=&quot;/~jhannah/index.pl?x=blah&quot; enctype=&quot;multipart/form-data&quot;&gt; 
+---
+
+I thought that the 'action' URL should keep changing to reflect the new state of the variable x... 
+
+So, down in HTML land...
+
+What happens if you POST to a form w/ parameters in the URL? Are the URL parms honored? What if the variable x is in both the URL AND the POST with different values? Which one does it honor?
+
+Testing in raw HTML... Given this form:
+
+&lt;form method=&quot;post&quot; action=&quot;/~jhannah/parms.pl?x=blah&quot; enctype=&quot;multipart/form-data&quot;&gt;
+&lt;input type=submit&gt;
+&lt;/form&gt;
+
+I was surprised that parms.pl[1] does NOT receive/see param x set to blah.
+
+As expected, though: given this form:
+
+&lt;form method=&quot;post&quot; action=&quot;/~jhannah/parms.pl?x=blah&quot; enctype=&quot;multipart/form-data&quot;&gt;
+&lt;input type=textfield name=x&gt;
+&lt;input type=submit&gt;
+&lt;/form&gt;
+
+parms.pl will receive whatever you type into the textfield named x.
+
+
+What I learned today: You can have all the parameters you want in the querystring of the 'action' of a form (method=&quot;POST&quot;), but they will all be ignored. Pay them no heed...
+
+Go figure! -grin-
+
+j
+
+
+
+[1] parms.pl source code (Dump all params to the screen (err... browser).)
+
+#!/usr/bin/perl
+
+use CGI;
+
+my $q = new CGI;
+print $q-&gt;header,
+   &quot;&lt;h1&gt;Params you submitted:&lt;/h1&gt;&quot;;
+foreach ($q-&gt;param) {
+   print &quot;&lt;b&gt;$_:&lt;/b&gt; &quot; . $q-&gt;param($_) . &quot;&lt;br&gt;\n&quot;;
+}
+
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00419.html">[Omaha.pm] 1 night vs. 17 nights</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00421.html">Re: [Omaha.pm] http://perl.meetup.com - Omaha is #2!</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00419.html">[Omaha.pm] 1 night vs. 17 nights</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00437.html">Re: [Omaha.pm] CGI.pm start_form() bug? I guess not...</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00420"><strong>Date</strong></a></li>
+<li><a href="threads.html#00420"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

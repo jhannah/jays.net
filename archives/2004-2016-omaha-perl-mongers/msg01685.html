@@ -1,0 +1,147 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] regex to lift Crypt::Tea strings out of XML -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 18 Mar 2008 14:46:53 &#45;0000 -->
+<!--X-Message-Id: 396CEDAA86B38646ACE2FEAA22C3FBF111DB43@l3exchange.omnihotels.net -->
+<!--X-Content-Type: multipart/alternative -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] regex to lift Crypt::Tea strings out of XML</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01684.html">Date Prev</a>][<a href="msg01686.html">Date Next</a>][<a href="msg01684.html">Thread Prev</a>][<a href="msg01686.html">Thread Next</a>][<a href="maillist.html#01685">Date Index</a>][<a href="threads.html#01685">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] regex to lift Crypt::Tea strings out of XML</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Sean Baker&quot; &lt;<a href="mailto:pbaker%40omnihotels.com">pbaker@omnihotels.com</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] regex to lift Crypt::Tea strings out of XML</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Tue, 18 Mar 2008 09:46:32 -0500</li>
+<li><em>Cc</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AciJBts4cGuf+/czRn2ksK9wsNDLDQ==</li>
+<li><em>Thread-topic</em>: regex to lift Crypt::Tea strings out of XML</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<DIV><FONT face="Courier New" color=#000000 size=2>Looking at the source of Crypt/Tea.pm, it appears your 
+possible chars are</FONT></DIV>
+<DIV><FONT face="Courier New" size=2></FONT>&nbsp;</DIV>
+<DIV><FONT face="Courier New" size=2>&nbsp;&nbsp; [A-Za-z0-9\-_]</FONT></DIV>
+<DIV><FONT face="Courier New" size=2></FONT>&nbsp;</DIV>
+<DIV><FONT face="Courier New" size=2>So you could "do one or more of any of 
+those":</FONT></DIV>
+<DIV><FONT face="Courier New" size=2></FONT>&nbsp;</DIV>
+<DIV><FONT face="Courier New" size=2>&nbsp;&nbsp; my ($encrypted) = ($row =~ 
+/attr_key="([A-Za-z0-9\-_]+)"/);</FONT></DIV>
+<DIV><FONT face="Courier New" size=2></FONT>&nbsp;</DIV>
+<DIV><FONT face="Courier New" size=2>or "one or more anything that is&nbsp;not a 
+quote":</FONT></DIV>
+<DIV><FONT face="Courier New" size=2></FONT>&nbsp;</DIV>
+<DIV>
+<DIV><FONT face="Courier New" size=2>&nbsp;&nbsp; my ($encrypted) = ($row =~ 
+/attr_key="([^"]+)"/);</FONT></DIV></DIV>
+<DIV><FONT face="Courier New" size=2></FONT>&nbsp;</DIV>
+<DIV><FONT face="Courier New" size=2>or "one or more anything, 
+non-greedy":</FONT></DIV>
+<DIV><FONT face="Courier New" size=2></FONT>&nbsp;</DIV>
+<DIV>
+<DIV><FONT face="Courier New" size=2>&nbsp;&nbsp; my ($encrypted) = ($row =~ 
+/attr_key="(.+?)"/);</FONT></DIV></DIV>
+<DIV><FONT face="Courier New" size=2></FONT>&nbsp;</DIV>
+<DIV><FONT face="Courier New" size=2>?&nbsp; untested... </FONT></DIV>
+<DIV><FONT face="Courier New" size=2></FONT>&nbsp;</DIV>
+<DIV><FONT face="Courier New" size=2></FONT>&nbsp;</DIV>
+<DIV><FONT face="Courier New" size=2>---</FONT></DIV>
+<DIV><FONT face="Courier New" size=2></FONT>&nbsp;</DIV>
+<DIV><FONT face="Courier New" size=2>reverse() is neat. I didn't know/remember 
+that Perl function.&nbsp; :)</FONT></DIV>
+<DIV><FONT face="Courier New" size=2></FONT>&nbsp;</DIV>
+<DIV><FONT face="Courier New" size=2>my %a2b = 
+(<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A=&gt;000, B=&gt;001, C=&gt;002, 
+D=&gt;003, E=&gt;004, F=&gt;005, G=&gt;006, 
+H=&gt;007,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I=&gt;010, J=&gt;011, 
+K=&gt;012, L=&gt;013, M=&gt;014, N=&gt;015, O=&gt;016, 
+P=&gt;017,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Q=&gt;020, R=&gt;021, 
+S=&gt;022, T=&gt;023, U=&gt;024, V=&gt;025, W=&gt;026, 
+X=&gt;027,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Y=&gt;030, Z=&gt;031, 
+a=&gt;032, b=&gt;033, c=&gt;034, d=&gt;035, e=&gt;036, 
+f=&gt;037,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g=&gt;040, h=&gt;041, 
+i=&gt;042, j=&gt;043, k=&gt;044, l=&gt;045, m=&gt;046, 
+n=&gt;047,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; o=&gt;050, p=&gt;051, 
+q=&gt;052, r=&gt;053, s=&gt;054, t=&gt;055, u=&gt;056, 
+v=&gt;057,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; w=&gt;060, x=&gt;061, 
+y=&gt;062, z=&gt;063, '0'=&gt;064,&nbsp; '1'=&gt;065, '2'=&gt;066, 
+'3'=&gt;067,<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+'4'=&gt;070,'5'=&gt;071,'6'=&gt;072,'7'=&gt;073,'8'=&gt;074,'9'=&gt;075,'-'=&gt;076,'_'=&gt;077,<BR>);<BR>my 
+%b2a = reverse %a2b;<BR></FONT></DIV>
+<DIV><FONT face="Courier New" size=2>------</FONT></DIV>
+<DIV><FONT face="Courier New" size=2></FONT>&nbsp;</DIV>
+<DIV><FONT face="Courier New" size=2>HTH,</FONT></DIV>
+<DIV><FONT face="Courier New" size=2></FONT>&nbsp;</DIV>
+<DIV><FONT face="Courier New" size=2>j</FONT></DIV>
+<DIV><FONT face="Courier New" size=2></FONT>&nbsp;</DIV>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01686" href="msg01686.html">Re: [Omaha.pm] regex to lift Crypt::Tea strings out of XML</a></strong>
+<ul><li><em>From:</em> &quot;Dan Linder&quot; &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01684.html">[Omaha.pm] KC Hack Day</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01686.html">Re: [Omaha.pm] regex to lift Crypt::Tea strings out of XML</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01684.html">[Omaha.pm] KC Hack Day</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01686.html">Re: [Omaha.pm] regex to lift Crypt::Tea strings out of XML</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01685"><strong>Date</strong></a></li>
+<li><a href="threads.html#01685"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Debugger (or Carp?): How can I detect the creation of a	key in a hash object? -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 6 Jul 2006 15:54:29 &#45;0000 -->
+<!--X-Message-Id: 29AB736ABCE5C745ABF9C93B02F2C27B05A378C1@exchange2k3.omnihotels.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Debugger (or Carp?): How can I detect the creation of a	key in a hash object?</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01028.html">Date Prev</a>][<a href="msg01030.html">Date Next</a>][<a href="msg01028.html">Thread Prev</a>][<a href="msg01030.html">Thread Next</a>][<a href="maillist.html#01029">Date Index</a>][<a href="threads.html#01029">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Debugger (or Carp?): How can I detect the creation of a	key in a hash object?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Debugger (or Carp?): How can I detect the creation of a	key in a hash object?</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 6 Jul 2006 10:53:54 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcahFFwZu69DqfJBTPSsW+i7IbP5Bg==</li>
+<li><em>Thread-topic</em>: Debugger (or Carp?): How can I detect the creation of a key in a	hash object?</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>I just pastebot'd this to IRC and they recommended I try tie'ing the
+hash. So I'm deep in the bowels of 'perldoc perltie' unless someone
+saves me. :)
+
+j
+
+
+----
+I have an object that happens to be a hashref (bless {}). Somewhere in
+my 3000 lines of code a key is getting set in my object that should
+never be set ({outbound}-&gt;{INBOUND}). I tried finding it the old
+fashioned way, log trapping before and after every possible line I could
+see that could possibly errantly autovivify that key into my object, but
+I can't find it.
+
+(There happens to be only one instance of my class in existance at any
+one time, if that helps.)
+
+I'm very familiar with perl -d and with Carp. I tried all of this in the
+debugger with no luck:
+
+   b (exists \$self-&gt;{outbound}-&gt;{INBOUND})
+   b (exists \$mux-&gt;{outbound}-&gt;{INBOUND})
+   b (exists \$_[0]-&gt;{outbound}-&gt;{INBOUND})
+   b (exists $self-&gt;{outbound}-&gt;{INBOUND})
+   b (exists $mux-&gt;{outbound}-&gt;{INBOUND})
+   b (exists $_[0]-&gt;{outbound}-&gt;{INBOUND})
+
+It shoots right past wherever that key is getting set and dies on my
+Carp line...
+
+Any suggestions on tracking down where the key springs into existance?
+This object is a little weird so I don't have an explicit manipulator
+method for this particular key.
+
+Thanks,
+
+j
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01030" href="msg01030.html">Re: [Omaha.pm] Debugger (or Carp?): How can I detect the creation	of a key in a hash object?</a></strong>
+<ul><li><em>From:</em> Andy Lester &lt;andy@petdance.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01028.html">Re: [Omaha.pm] That is odd.</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01030.html">Re: [Omaha.pm] Debugger (or Carp?): How can I detect the creation	of a key in a hash object?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01028.html">Re: [Omaha.pm] That is odd.</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01030.html">Re: [Omaha.pm] Debugger (or Carp?): How can I detect the creation	of a key in a hash object?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01029"><strong>Date</strong></a></li>
+<li><a href="threads.html#01029"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

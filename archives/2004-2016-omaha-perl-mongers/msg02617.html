@@ -1,0 +1,114 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Change in CGI.pm from 5.8 to 5.10...? -->
+<!--X-From-R13: Rna Zvaqre &#60;qnaNyvaqre.bet> -->
+<!--X-Date: 22 Feb 2011 16:13:03 &#45;0000 -->
+<!--X-Message-Id: AANLkTi=LjoPe+jrsQB6vvve2CkEhPu4hrju==ApXCwg5@mail.gmail.com -->
+<!--X-Content-Type: multipart/alternative -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Change in CGI.pm from 5.8 to 5.10...?</title>
+<link rev="made" href="mailto:dan@linder.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02616.html">Date Prev</a>][<a href="msg02618.html">Date Next</a>][<a href="msg02616.html">Thread Prev</a>][<a href="msg02618.html">Thread Next</a>][<a href="maillist.html#02617">Date Index</a>][<a href="threads.html#02617">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Change in CGI.pm from 5.8 to 5.10...?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Change in CGI.pm from 5.8 to 5.10...?</li>
+<li><em>From</em>: Dan Linder &lt;<a href="mailto:dan%40linder.org">dan@linder.org</a>&gt;</li>
+<li><em>Date</em>: Tue, 22 Feb 2011 10:12:36 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<div>The code I&#39;m keeping updated has lots of lines like this:</div><div>&#xA0;&#xA0; &#xA0;$cgi = CGI-&gt;new();</div><div>&#xA0;&#xA0; &#xA0;$report = $cgi-&gt;{report};</div><div><br></div><div>(To pull in the &quot;report=&quot; value from the URL:&#xA0;<a rel="nofollow" href="http://testrh6/bin/test.cgi?report=MyReportName">http://testrh6/bin/test.cgi?report=MyReportName</a>)</div>
+
+<div><br></div><div>When I was testing it on a RedHat 6 system running Perl 5.10.1, the $report&#xA0;variable&#xA0;was coming up as undefined, but on the test systems running Perl 5.8, it was just fine.</div><div><br></div><div>The fix is to use the param() method like this:</div>
+
+<div>&#xA0;&#xA0; &#xA0;$report = $cgi-&gt;param(&#39;report&#39;);</div><div><br></div><div>Looks like I have a lot of code to fix. &#xA0;(IMHO it was broken before, just Perl was being nice about it...)</div><div><br></div><div>Question: Did I miss this change, or did someone at RH mis-apply a patch? &#xA0;(I am leaning toward a functional change to increase security and make the CGI object more OO-correct...) &#xA0;I read the Perl change logs from 5.8 through 5.10.1 but didn&#39;t see this noted.</div>
+
+<div><br></div><div>Dan</div><div><br></div><div>Here&#39;s my test code:</div><div><div>&#xA0;&#xA0; &#xA0; 1 &#xA0;#!/usr/bin/perl -w</div><div>&#xA0;&#xA0; &#xA0; 2 &#xA0;use strict;</div><div>&#xA0;&#xA0; &#xA0; 3 &#xA0;use CGI;</div><div>&#xA0;&#xA0; &#xA0; 4 &#xA0;use Data::Dumper;</div><div>&#xA0;&#xA0; &#xA0; 5 &#xA0;my $perl_version = $];</div>
+
+<div>&#xA0;&#xA0; &#xA0; 6 &#xA0;my $cgi;</div><div>&#xA0;&#xA0; &#xA0; 7 &#xA0;my $report;</div><div>&#xA0;&#xA0; &#xA0; 8</div><div>&#xA0;&#xA0; &#xA0; 9 &#xA0;print &quot;Content-type: text/html\n\n&quot;;</div><div>&#xA0;&#xA0; &#xA0;10 &#xA0;print &quot;&lt;html&gt;&lt;head&gt;\n&quot;;</div><div>&#xA0;&#xA0; &#xA0;11 &#xA0;print &quot;&lt;title&gt;CGI Test&lt;/title&gt;\n&quot;;</div>
+
+<div>&#xA0;&#xA0; &#xA0;12 &#xA0;print &quot;&lt;/head&gt;\n&quot;;</div><div>&#xA0;&#xA0; &#xA0;13 &#xA0;print &quot;&lt;body&gt;\n&quot;;</div><div>&#xA0;&#xA0; &#xA0;14 &#xA0;print &quot;Testing with version: $perl_version\n&quot;;</div><div>&#xA0;&#xA0; &#xA0;15 &#xA0;print &quot;&lt;pre&gt;&quot;;</div>
+
+<div>&#xA0;&#xA0; &#xA0;16 &#xA0;# Create CGI object</div><div>&#xA0;&#xA0; &#xA0;17 &#xA0;$cgi = CGI-&gt;new();</div><div>&#xA0;&#xA0; &#xA0;18</div><div>&#xA0;&#xA0; &#xA0;19 &#xA0;$report = $cgi-&gt;{report};</div><div>&#xA0;&#xA0; &#xA0;20 &#xA0;print &quot;Raw report variable:&quot;;</div><div>&#xA0;&#xA0; &#xA0;21 &#xA0;print Dumper $report;</div>
+
+<div>&#xA0;&#xA0; &#xA0;22 &#xA0;print &quot;\n&quot;;</div><div>&#xA0;&#xA0; &#xA0;23</div><div>&#xA0;&#xA0; &#xA0;24 &#xA0;$report = $cgi-&gt;param(&#39;report&#39;);</div><div>&#xA0;&#xA0; &#xA0;25 &#xA0;print &quot;Report variable with param:&quot;;</div><div>&#xA0;&#xA0; &#xA0;26 &#xA0;print Dumper $report;</div>
+
+<div>&#xA0;&#xA0; &#xA0;27 &#xA0;print &quot;\n&quot;;</div><div>&#xA0;&#xA0; &#xA0;28 &#xA0;print &quot;&lt;\pre&gt;&quot;;</div><div>&#xA0;&#xA0; &#xA0;29 &#xA0;exit;</div><div><br></div><div>On CentOS 5.5, the page reports this:</div><div><div>Testing with version: 5.008008</div>
+
+<div>Raw report variable:$VAR1 = [</div><div>&#xA0;&#xA0; &#xA0; &#xA0; &#xA0; &#xA0;&#39;MyReportName&#39;</div><div>&#xA0;&#xA0; &#xA0; &#xA0; &#xA0;];</div><div><br></div><div>Report variable with param:$VAR1 = &#39;MyReportName&#39;;</div></div><div><br></div><div><br></div>
+
+<div>On the RedHat 6 box, this is the output:</div><div>Testing with version: 5.010001</div><div>Raw report variable:$VAR1 = undef;</div><div><br></div><div>Report variable with param:$VAR1 = &#39;MyReportName&#39;;</div>
+
+<div><br></div>-- <br>***************** ************* *********** ******* ***** *** **<br>&quot;Quis custodiet ipsos custodes?&quot;<br>&#xA0; &#xA0; (Who can watch the watchmen?)<br>&#xA0; &#xA0; -- from the Satires of Juvenal<br>&quot;I do not fear computers, I fear the lack of them.&quot;<br>
+
+&#xA0; &#xA0; -- Isaac Asimov (Author)<br>** *** ***** ******* *********** ************* *****************<br>
+</div>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="02618" href="msg02618.html">Re: [Omaha.pm] Change in CGI.pm from 5.8 to 5.10...?</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jhannah@mutationgrid.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02616.html">[Omaha.pm] wunderlist seems to be a nice example of a Appcelerator	Titanium application</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02618.html">Re: [Omaha.pm] Change in CGI.pm from 5.8 to 5.10...?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02616.html">[Omaha.pm] wunderlist seems to be a nice example of a Appcelerator	Titanium application</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02618.html">Re: [Omaha.pm] Change in CGI.pm from 5.8 to 5.10...?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02617"><strong>Date</strong></a></li>
+<li><a href="threads.html#02617"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

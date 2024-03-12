@@ -1,0 +1,264 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Class::Date &#45; change once set -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 27 Oct 2005 02:13:48 &#45;0000 -->
+<!--X-Message-Id: 8589413abe134ff1e574cd07026425e2@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 29AB736ABCE5C745ABF9C93B02F2C27B0373EC0B@exchange2k3.omnihotels.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Class::Date - change once set</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00621.html">Date Prev</a>][<a href="msg00623.html">Date Next</a>][<a href="msg00618.html">Thread Prev</a>][<a href="msg00623.html">Thread Next</a>][<a href="maillist.html#00622">Date Index</a>][<a href="threads.html#00622">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Class::Date - change once set</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Class::Date - change once set</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Wed, 26 Oct 2005 21:13:39 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00618.html">29AB736ABCE5C745ABF9C93B02F2C27B0373EC0B@exchange2k3.omnihotels.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00618.html">29AB736ABCE5C745ABF9C93B02F2C27B0373EC0B@exchange2k3.omnihotels.net</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+
+On Oct 26, 2005, at 9:32 AM, Kenneth Thompson wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+Actually, I'm not so sure this is as bad a thing at it seems on the
+surface. The perldoc states that it
+exposes the internal pieces via an array of parts/formats:
+
+-------------
+INTERNALS
+This module uses operator overloading very heavily. I've found it quite
+stable, but I am afraid of it a bit.
+A Class::Date object is an array reference.
+-------------
+
+Given that the array has been exposed and documented on purpose, I
+</pre><tt>wouldn't think that this type of manipulation would be bad. Even if 
+</tt><tt>they
+</tt><tt>change the array, it's setting one object's internals equal to the 
+</tt><tt>other
+</tt><pre style="margin: 0em;">
+objects internals. Is that the same as accessing the internals for
+manipulation?
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>In my opinion, breaking encapsulation is always a bad idea and should 
+</tt><tt>be avoided at all costs.
+</tt><pre style="margin: 0em;">
+
+What if...
+- The class changes to a hash implementation a year from now?
+</pre><tt>- The package is (or someday starts to) keep counts inside its scope or 
+</tt><tt>UNIVERSAL so copying that value breaks something?
+</tt><tt>- One of the elements of the array ref is supposed to be unique? Memory 
+</tt><tt>pointer? Database ID? Any persistence ID?
+</tt><tt>- the package overrides the assignment operator, causing weird things 
+</tt><tt>to occur?
+</tt><pre style="margin: 0em;">
+
+</pre><tt>Even if the module author tempts you, do not partake of the forbidden 
+</tt><tt>fruit.
+</tt><pre style="margin: 0em;">
+
+</pre><tt>Breaking encapsulation just begs your code to break some day, a year 
+</tt><tt>from now, when you've forgotten all about this class and have much 
+</tt><tt>better things to be working on than some mystery thing that &quot;used to 
+</tt><tt>work&quot;. Unnecessary risk with no upside. Fragile code that will shatter 
+</tt><tt>time and time again.
+</tt><pre style="margin: 0em;">
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+Of course the hard count reference (0..9) should be a
+</pre><tt>little more dynamic in case the array size is increased for some 
+</tt><tt>reason.
+</tt></blockquote><pre style="margin: 0em;">
+
+</pre><tt>Yes, I agree -- If you're going to jump out of an airplane w/o a 
+</tt><tt>parachute, then landing on your feet is probably a good idea. I predict 
+</tt><tt>the fall will still kill you, though. -grin-
+</tt><pre style="margin: 0em;">
+
+Better yet, take a parachute with you! (Leave encapsulation intact!)
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+However- what about a whole different approach? Maybe a referenced
+workaround?
+
+use Class::Date qw( date );
+#Clone a date object into and existing date object
+
+my $d1 = Class::Date-&gt;new(&quot;1971-01-01&quot;);
+my $d1R = \$d1;
+my $d2 = Class::Date-&gt;new(&quot;2000-01-01&quot;);
+
+print &quot;[&quot;.$d1.&quot;][$d2]\n&quot;;
+stuff($d1, $d2);$d1 = $$d1R;
+print &quot;[$d1][$d2]\n&quot;;
+
+
+sub stuff {
+    my ($d1, $d2) = @_;
+    if ($d2 &gt; $d1) {
+      $d1R = \$d2;   # &lt;---- I want to overwrite the existing $d1 here
+    }
+}
+
+And for discussion- why
+
+    my ($d1, $d2) = @_;
+
+and not
+
+    ($d1, $d2) = @_;
+
+? (by the way... The second way works the way you wanted it to)
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>In both of those examples you're reusing a variable that's been scoped 
+</tt><tt>to be global throughout your program. As we all know, globals are 
+</tt><tt>another evil root of maintainability doom.
+</tt><pre style="margin: 0em;">
+
+</pre><tt>Pretend our little demo is part of a larger (real world) program by 
+</tt><tt>expanding the demo to 2 files (a .pl and a .pm) and &quot;use strict;&quot; and 
+</tt><tt>you'll see that strict won't let you play those particular reindeer 
+</tt><tt>games:
+</tt><pre style="margin: 0em;">
+
+----
+$ cat j2.pl
+use strict;
+use Class::Date;
+use Printer;
+
+my $d1 = Class::Date-&gt;new(&quot;1971-01-01&quot;);
+my $d2 = Class::Date-&gt;new(&quot;2000-01-01&quot;);
+
+Printer::print($d1, $d2);
+
+$ cat Printer.pm
+package Printer;
+use strict;
+
+sub print {
+   print &quot;[$d1][$d2]\n&quot;;
+}
+
+1;
+$ perl j2.pl
+Global symbol &quot;$d1&quot; requires explicit package name at Printer.pm line 5.
+Global symbol &quot;$d2&quot; requires explicit package name at Printer.pm line 5.
+Compilation failed in require at j2.pl line 3.
+BEGIN failed--compilation aborted at j2.pl line 3.
+----
+
+The
+
+   my ($x, $y, $z) = @_;
+
+</pre><tt>idiom is how you know for sure that your sub/method has its own scoped 
+</tt><tt>copies of or references to the arguments that were just handed it.
+</tt><pre style="margin: 0em;">
+
+Two things I learned setting up this demo:
+
+</pre><tt>(1) &quot;use strict&quot; doesn't detect scoping problems if you define multiple 
+</tt><tt>packages in the same file. Doh! I don't do this in real life anyway, 
+</tt><tt>but it surprised me.
+</tt><tt>(2) You have to &quot;use strict&quot; in both files to get it to complain. I 
+</tt><tt>thought once you &quot;use strict&quot;'d anywhere in your program that it would 
+</tt><tt>protect you across all your packages. Not true! Note to self: DO 
+</tt><tt>explicitly type &quot;use strict;&quot; into EVERY Perl file to make sure you 
+</tt><tt>don't burn yourself!
+</tt><pre style="margin: 0em;">
+
+Encapsulation good. Globals bad.
+
+</pre><tt>I'll solve my original problem by storing the Class::Date objects in a 
+</tt><tt>location that both my main and my package can access. (Attributes of a 
+</tt><tt>commonly accessible class...)
+</tt><pre style="margin: 0em;">
+
+I hope that helps,
+
+j
+long winded soap box dude
+
+</pre><tt>P.S.  Damian Conway's OO Perl book delivers the encapsulation lecture 
+</tt><tt>far better than I can.
+</tt><pre style="margin: 0em;">
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00618" href="msg00618.html">Re: [Omaha.pm] Class::Date - change once set</a></strong>
+<ul><li><em>From:</em> &quot;Kenneth Thompson&quot; &lt;kthompson@omnihotels.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00621.html">Re: [Omaha.pm] Downloading CPAN modules on G5 Mac</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00623.html">Re: [Omaha.pm] Class::Date - change once set</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00618.html">Re: [Omaha.pm] Class::Date - change once set</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00623.html">Re: [Omaha.pm] Class::Date - change once set</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00622"><strong>Date</strong></a></li>
+<li><a href="threads.html#00622"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Using || -->
+<!--X-From-R13: Xrss Pvforr &#60;wovforrNtznvy.pbz> -->
+<!--X-Date: 27 Mar 2006 11:45:51 &#45;0000 -->
+<!--X-Message-Id: 215CC227&#45;2592&#45;4F61&#45;AD16&#45;64654CDFBB5F@gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 29AB736ABCE5C745ABF9C93B02F2C27B04432A04@exchange2k3.omnihotels.net -->
+<!--X-Reference: 200603241552.26139.dutch@tconl.com -->
+<!--X-Reference: 4427C882.3040301@jays.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Using ||</title>
+<link rev="made" href="mailto:jbisbee@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00887.html">Date Prev</a>][<a href="msg00889.html">Date Next</a>][<a href="msg00887.html">Thread Prev</a>][<a href="msg00889.html">Thread Next</a>][<a href="maillist.html#00888">Date Index</a>][<a href="threads.html#00888">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Using ||</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Using ||</li>
+<li><em>From</em>: Jeff Bisbee &lt;<a href="mailto:jbisbee%40gmail.com">jbisbee@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Mon, 27 Mar 2006 06:45:56 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; q=dns; c=nofws; s=beta; d=gmail.com;	h=received:mime-version:in-reply-to:references:content-type:message-id:content-transfer-encoding:from:subject:date:to:x-mailer;	b=SrkKwZolJM+r6k3qfLnTZH8X+vS6ml0j48wLZXQ8fpPtcZw52J7KIUGqdI5mosaAhrazajPhVSyinXgKH8NDvoRul9C+VnDoXT5ux2lS/k1rWSq8nBu7PfHdV/tPpKPNtTVBABcO5s+nJv5IM0cPOrzRGn3HziFmKjzI4bj60/A=</li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00887.html">4427C882.3040301@jays.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00885.html">29AB736ABCE5C745ABF9C93B02F2C27B04432A04@exchange2k3.omnihotels.net</a>&gt;	&lt;<a href="msg00886.html">200603241552.26139.dutch@tconl.com</a>&gt; &lt;<a href="msg00887.html">4427C882.3040301@jays.net</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+
+On Mar 27, 2006, at 6:12 AM, Jay Hannah wrote:
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+$o_RS-&gt;determine_room_type($req_room_type) ||
+$o_RS-&gt;determine_room_type();
+</pre></blockquote></blockquote><pre style="margin: 0em;">
+
+I vote for option 4... :)
+
+$o_RS-&gt;determine_room_type($req_room_type)
+    || $o_RS-&gt;determine_room_type();
+
+Jeff Bisbee / jbisbee@gmail.com / jbisbee.com
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00885" href="msg00885.html">[Omaha.pm] Using ||</a></strong>
+<ul><li><em>From:</em> &quot;Jay Hannah&quot; &lt;jhannah@omnihotels.com&gt;</li></ul></li>
+<li><strong><a name="00886" href="msg00886.html">Re: [Omaha.pm] Using ||</a></strong>
+<ul><li><em>From:</em> Brian Edwards &lt;dutch@tconl.com&gt;</li></ul></li>
+<li><strong><a name="00887" href="msg00887.html">Re: [Omaha.pm] Using ||</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00887.html">Re: [Omaha.pm] Using ||</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00889.html">[Omaha.pm] New to Perl-ing</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00887.html">Re: [Omaha.pm] Using ||</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00889.html">[Omaha.pm] New to Perl-ing</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00888"><strong>Date</strong></a></li>
+<li><a href="threads.html#00888"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

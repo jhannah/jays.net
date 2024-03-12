@@ -1,0 +1,131 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Using a perl module without installing it... -->
+<!--X-From-R13: "Rnavry Zvaqre" &#60;qnaNyvaqre.bet> -->
+<!--X-Date: 11 Jan 2005 20:51:12 &#45;0000 -->
+<!--X-Message-Id: 3927.12.160.138.79.1105477116.squirrel@12.160.138.79 -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Using a perl module without installing it...</title>
+<link rev="made" href="mailto:dan@linder.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00245.html">Date Prev</a>][<a href="msg00247.html">Date Next</a>][<a href="msg00245.html">Thread Prev</a>][<a href="msg00251.html">Thread Next</a>][<a href="maillist.html#00246">Date Index</a>][<a href="threads.html#00246">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Using a perl module without installing it...</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a></li>
+<li><em>Subject</em>: [Omaha.pm] Using a perl module without installing it...</li>
+<li><em>From</em>: &quot;Daniel Linder&quot; &lt;<a href="mailto:dan%40linder.org">dan@linder.org</a>&gt;</li>
+<li><em>Date</em>: Tue, 11 Jan 2005 14:58:36 -0600 (CST)</li>
+<li><em>Cc</em>: </li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a></li>
+<li><em>Importance</em>: Normal</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: <a href="mailto:dan%40linder.org">dan@linder.org</a>, &quot;Perl Mongers of Omaha,	Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: SquirrelMail/1.5.0</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+I'm doing some development on a customers system.  I am using Perl scripts
+to do some quick-and-dirty data manipulation.  I need to use a module but
+I can't install it on this system.
+
+The packge itself (Statistics-LineFit) is very simple -- the whole
+inteligence of the package is contained in a single file
+(lib/Statistics/LineFit.pm).  To use this package normally, you would &quot;use
+Statistics::LineFit;&quot;, but that will look in the system library
+directories.
+
+Questions:
+1: Can anyone give me pointers so that I can replace the &quot;use XXX::YYY;&quot;
+syntax and do something like &quot;include /full/path/to/YYY.pm&quot; or other such
+trick?
+
+2: Or, can someone give me hints as to how to write my script to modify
+the @INC variable (??) to use ~/lib rather than the systems default
+&quot;/usr/lib/perl5/...&quot; directories?
+
+Dan
+
+
+- - - - -
+&quot;I do not fear computer,
+I fear the lack of them.&quot;
+ -- Isaac Asimov
+GPG fingerprint:9EE8 ABAE 10D3 0B55 C536  E17A 3620 4DCA A533 19BF
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.2.1 (GNU/Linux)
+
+iD8DBQFB5D38NiBNyqUzGb8RAphpAKCJvgjjh8QVSwzDxZRvtsxPt2tISgCcD4OX
+a0ZBLiniAHzoza26Pjc9Wbc=
+=rxtD
+-----END PGP SIGNATURE-----
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00251" href="msg00251.html">Re: [Omaha.pm] Using a perl module without installing it...</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00245.html">[Omaha.pm] Test - New pm.org server</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00247.html">RE: [Omaha.pm] Using a perl module without installing it...</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00245.html">[Omaha.pm] Test - New pm.org server</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00251.html">Re: [Omaha.pm] Using a perl module without installing it...</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00246"><strong>Date</strong></a></li>
+<li><a href="threads.html#00246"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

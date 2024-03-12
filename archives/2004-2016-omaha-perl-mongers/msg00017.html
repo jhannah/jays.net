@@ -1,0 +1,129 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] IO::Multiplex, IO::Socket::INET -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: Fri, 4 Jun 2004 15:38:15 &#45;0500 -->
+<!--X-Message-Id: 1978D1BE&#45;B667&#45;11D8&#45;9DA1&#45;000A95E317B8@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] IO::Multiplex, IO::Socket::INET</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00016.html">Date Prev</a>][<a href="msg00018.html">Date Next</a>][<a href="msg00016.html">Thread Prev</a>][<a href="msg00018.html">Thread Next</a>][<a href="maillist.html#00017">Date Index</a>][<a href="threads.html#00017">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] IO::Multiplex, IO::Socket::INET</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;'Justin Hopkins'&quot; &lt;<a href="mailto:jhop%40jays.net">jhop@jays.net</a>&gt;, <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Subject</em>: [Omaha.pm] IO::Multiplex, IO::Socket::INET</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Fri, 4 Jun 2004 15:38:13 -0500</li>
+<li><em>Cc</em>: <a href="mailto:gbarr%40pobox.com">gbarr@pobox.com</a>, <a href="mailto:bruce%40gridpoint.com">bruce@gridpoint.com</a>, <a href="mailto:bbb%40cpan.org">bbb@cpan.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://www.pm.org/pipermail/omaha-pm">http://www.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+
+Wow.
+
+    This is the coolest thing I have ever seen.
+
+</pre><tt>Earlier today I was staring down the barrel of several weeks (probably) 
+</tt><tt>of writing low-level Socket and select logic to facilitate an 
+</tt><tt>UltraMonkey load balancing implementation for work.
+</tt><pre style="margin: 0em;">
+
+</pre><tt>- Port 1: IO. Take inbound stream, break into work units, send each to 
+</tt><tt>a new TCP connection on port 2.
+</tt><pre style="margin: 0em;">
+- Port 2: O
+</pre><tt>- Port 3: I. Take inbound streams (multiple sockets), flow all data to 
+</tt><tt>Port 1 outbound.
+</tt><pre style="margin: 0em;">
+
+</pre><tt>To get all that working w/o blocking was going to take a while. That's 
+</tt><tt>a big select() and a whole bunch of loops...
+</tt><pre style="margin: 0em;">
+
+Then I found IO::Multiplex and IO::Socket::INET.
+
+Check out the IO::Multiplex POD
+
+   <a  rel="nofollow" href="http://search.cpan.org/~bbb/IO-Multiplex-1.08/lib/IO/Multiplex.pm">http://search.cpan.org/~bbb/IO-Multiplex-1.08/lib/IO/Multiplex.pm</a>
+
+</pre><tt>Copy and paste the 2nd example (&quot;simple chat server&quot;) and in 20(?) 
+</tt><tt>lines of Perl you have a multiple-connection chat server. Unreal.
+</tt><pre style="margin: 0em;">
+
+This is going to make my job way too easy (I hope).
+
+A big kudos to the authors! Wow.
+
+j
+Omaha Perl Mongers: <a  rel="nofollow" href="http://omaha.pm.org">http://omaha.pm.org</a>
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00018" href="msg00018.html">Re: [Omaha.pm] IO::Multiplex, IO::Socket::INET</a></strong>
+<ul><li><em>From:</em> Jeff Bisbee &lt;omaha-pm@jbisbee.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00016.html">Re: [Omaha.pm] a perl &quot;table of operators&quot;</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00018.html">Re: [Omaha.pm] IO::Multiplex, IO::Socket::INET</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00016.html">Re: [Omaha.pm] a perl &quot;table of operators&quot;</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00018.html">Re: [Omaha.pm] IO::Multiplex, IO::Socket::INET</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00017"><strong>Date</strong></a></li>
+<li><a href="threads.html#00017"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

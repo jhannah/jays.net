@@ -1,0 +1,237 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] My first script -->
+<!--X-From-R13: "Oaqerj Vnqrasryqg" &#60;nunqrasryqgNjvaqfgernz.arg> -->
+<!--X-Date: 9 Mar 2012 20:36:09 &#45;0000 -->
+<!--X-Message-Id: 005201ccfe34$40c37e90$c24a7bb0$@windstream.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: CAF&#45;Fg+gTRVmizx=kmx9FD1ZZ8dzMkNK1PieZDH03Sn7QmuhK3Q@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] My first script</title>
+<link rev="made" href="mailto:ahadenfeldt@windstream.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02820.html">Date Prev</a>][<a href="msg02822.html">Date Next</a>][<a href="msg02820.html">Thread Prev</a>][<a href="msg02822.html">Thread Next</a>][<a href="maillist.html#02821">Date Index</a>][<a href="threads.html#02821">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] My first script</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;'Perl Mongers of Omaha, Nebraska USA'&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] My first script</li>
+<li><em>From</em>: &quot;Andrew Hadenfeldt&quot; &lt;<a href="mailto:ahadenfeldt%40windstream.net">ahadenfeldt@windstream.net</a>&gt;</li>
+<li><em>Date</em>: Fri, 9 Mar 2012 14:36:05 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;CAF-Fg+gTRVmizx=kmx9FD1ZZ8dzMkNK1PieZDH03Sn7QmuhK3Q@mail.gmail.com&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;CAF-Fg+gTRVmizx=kmx9FD1ZZ8dzMkNK1PieZDH03Sn7QmuhK3Q@mail.gmail.com&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AQHRHJhSbG4BTiE4KmG1XziEFxYVtpZaJJ/Q</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Congrats--quite a bit more than my first attempt! 
+
+One suggestion I'd make if you're new to Perl is to make an early habit of
+using single quotes (or even q(...)) around string constants
+_where_possible_--like around that filter expression. As much as I love
+using Perl, I can't count how many 'surprises'  I've had when it reached
+into an expression it didn't need to. Plus, it helps you when performance
+matters.
+
+Also, LDAP logical ops allow more than two terms, which lets you drop a few
+parentheses:
+
+my $filter =
+&quot;(&amp;(&amp;(!(sn=System))(!(sn=Sharepoint*))(sn=*))(mail=*)(&amp;(!(givenname=NET))(gi
+venname=*)))&quot;;
+# ...becomes...
+my $filter =
+'(&amp;(mail=*)(sn=*)(givenname=*)(!(sn=System))(!(sn=Sharepoint*))(!(givenname=
+NET)))';
+# ...or even...
+my $filter =
+'(&amp;(mail=*)(sn=*)(givenname=*)(!(|(sn=System)(sn=Sharepoint*)(givenname=NET)
+))';
+
+-Andy
+
+-----Original Message-----
+From: omaha-pm-bounces+ahadenfeldt=windstream.net@pm.org
+[<a  rel="nofollow" href="mailto:omaha-pm-bounces+ahadenfeldt=windstream.net@pm.org">mailto:omaha-pm-bounces+ahadenfeldt=windstream.net@pm.org</a>] On Behalf Of
+Bill Brush
+Sent: Thursday, March 08, 2012 12:06 PM
+To: Perl Mongers of Omaha, Nebraska USA
+Subject: [Omaha.pm] My first script
+
+Well it's essentially finished, so I thought I'd share.  I'm sure it could
+be improved, but honestly I'm just impressed I got it to work.
+Now I just need to tweak it to work in unattended cron mode.
+
+I sanitized the code so none of my particulars are there, for obvious
+reasons.  Big thanks to Jay for pointing me towards the Email::Stuff module.
+
+Bill
+
+****************************************************************************
+***********************************
+
+#!/usr/bin/perl
+
+
+use strict;
+use Net::LDAP;
+use IO::File;
+use Email::Stuff;
+
+#Creates connection to netusrA on the LDAP port, using the ldap_binder
+account my $netad = Net::LDAP-&gt;new(&quot;myhost.mydomain&quot;) or die &quot;Could not
+connect! $!&quot;; $netad-&gt;bind(&quot;bind account here&quot;, password=&gt;&quot;bind account
+password here&quot;);
+
+#Defines the LDAP search to start at the root of the directory tree my $base
+= 'root of my LDAP directory tree';
+
+#The filter is in LDAP format
+#The filter specifies users that have an SN (last name) that exists, but is
+not equal to System nor starts with Sharepoint #AND that have an email
+address #AND that have a givenname (first name) that is not equal to NET my
+$filter =
+&quot;(&amp;(&amp;(!(sn=System))(!(sn=Sharepoint*))(sn=*))(mail=*)(&amp;(!(givenname=NET))(gi
+venname=*)))&quot;;
+
+# $attrs specifies which attributes to be retrieved my $attrs =
+[&quot;givenname&quot;,&quot;sn&quot;,&quot;mail&quot;];
+
+# This creates a search result object ($results) from the netad search
+method my $results =
+$netad-&gt;search(base=&gt;$base,filter=&gt;$filter,attrs=&gt;$attrs);
+
+# This uses the count method of $results to return the number of records
+matching the filter my $count = $results-&gt;count;
+
+
+
+#message (&quot;Records returned $count&quot;);
+
+
+
+#Creates an output file named emailList.csv or returns error.
+my $outputfile = IO::File-&gt;new(&quot;emailList.csv&quot;,&quot;w&quot;) or die &quot;Could not open
+output file $!&quot;;
+
+#Loop to write each result line to the output file for (my
+$i=0;$i&lt;$count;$i++){
+	
+	#Assigns the result at $i to the variable $foo
+	my $foo = $results-&gt;entry($i);
+		#Assigns the attribute names to variables
+		my $sn=&quot;sn&quot;;
+		my $gn=&quot;givenName&quot;;
+		my $mail=&quot;mail&quot;;
+		
+		#Assigns the value from $foo to a specific variable
+		my $lastname = $foo-&gt;get_value($sn);
+		my $firsttname = $foo-&gt;get_value($gn);
+		my $email = $foo-&gt;get_value($mail);
+		
+		#Concatenates the variables to a csv output line.  The \n is
+the new line operator
+		my $line = &quot;$firsttname,$lastname,$email\n&quot;;
+		
+#  Writes the same output to the screen		
+#		message (&quot;$line&quot;);
+
+		#Writes the data line to the output file
+		$outputfile-&gt;print($line);
+
+}
+
+#Closes the output file
+undef $outputfile;
+
+#Closes the LDAP connection
+$netad-&gt;unbind;
+
+#Email the output file to the SharePoint doc library using the SMTP server
+Email::Stuff-&gt;To('destination e-mail')
+			-&gt;from('source e-mail')
+			-&gt;Subject(&quot;Automatically generated e-mail list&quot;)
+			-&gt;text_body(&quot;E-mail list for Communications
+department.  Used for Constant Contact service.&quot;)
+			-&gt;attach_file('emailList.csv')
+			-&gt;using('SMTP',Host =&gt; 'my mail server')
+			-&gt;send;
+
+
+sub message
+{
+    my $m = shift or return;
+    print(&quot;$m\n&quot;);
+}
+_______________________________________________
+Omaha-pm mailing list
+Omaha-pm@pm.org
+<a  rel="nofollow" href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="02819" href="msg02819.html">[Omaha.pm] My first script</a></strong>
+<ul><li><em>From:</em> Bill Brush &lt;bbrush@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02820.html">Re: [Omaha.pm] My first script</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02822.html">Re: [Omaha.pm] My first script</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02820.html">Re: [Omaha.pm] My first script</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02822.html">Re: [Omaha.pm] My first script</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02821"><strong>Date</strong></a></li>
+<li><a href="threads.html#02821"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

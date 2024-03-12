@@ -1,0 +1,134 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Fwd: iCal::Parser &#45; or how to iterate through this hash? -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 24 Feb 2006 11:55:25 &#45;0000 -->
+<!--X-Message-Id: 43FEF41F.2010901@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 43FE6C21.7010302@jays.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Fwd: iCal::Parser - or how to iterate through this hash?</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00858.html">Date Prev</a>][<a href="msg00860.html">Date Next</a>][<a href="msg00858.html">Thread Prev</a>][<a href="msg00860.html">Thread Next</a>][<a href="maillist.html#00859">Date Index</a>][<a href="threads.html#00859">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Fwd: iCal::Parser - or how to iterate through this hash?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Fwd: iCal::Parser - or how to iterate through this hash?</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Fri, 24 Feb 2006 05:55:11 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00856.html">43FE6C21.7010302@jays.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00856.html">43FE6C21.7010302@jays.net</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: Mozilla Thunderbird 1.0.7 (Macintosh/20050923)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+print &quot;SUMMARY: &quot;;
+# <a  rel="nofollow" href="http://search.cpan.org/~rfrankel/iCal-Parser-1.11/lib/iCal/Parser.pm">http://search.cpan.org/~rfrankel/iCal-Parser-1.11/lib/iCal/Parser.pm</a>
+</pre><tt>print 
+</tt><tt>$hash-&gt;{events}-&gt;{2006}-&gt;{2}-&gt;{6}-&gt;{'uuid:1139273884656'}-&gt;{SUMMARY} . &quot;\n&quot;;
+</tt><pre style="margin: 0em;">
+# Don't know what to do with this stuff here, probably need to READ more. =)
+</pre></blockquote><pre style="margin: 0em;">
+
+Not suggesting this is a good idea, but... something like this? Eeek, I feel so dirty... -grin-
+
+$ cat j.pl
+
+$hash-&gt;{events}-&gt;{2006}-&gt;{2}-&gt;{6}-&gt;{'uuid:1139273884656'}-&gt;{SUMMARY} = &quot;test1&quot;;
+$hash-&gt;{events}-&gt;{2006}-&gt;{2}-&gt;{7}-&gt;{'uuid:1139273884656'}-&gt;{SUMMARY} = &quot;test2&quot;;
+$hash-&gt;{events}-&gt;{2006}-&gt;{3}-&gt;{7}-&gt;{'uuid:1139273884656'}-&gt;{SUMMARY} = &quot;test3&quot;;
+
+my $events = $hash-&gt;{events};
+my ($y, $m, $d, $uuid, $summary);
+foreach $y (keys %{$events}) {
+ foreach $m (keys %{$events-&gt;{$y}}) {
+   foreach $d (keys %{$events-&gt;{$y}-&gt;{$m}}) {
+     foreach $uuid (keys %{$events-&gt;{$y}-&gt;{$m}-&gt;{$d}}) {
+       $summary = $events-&gt;{$y}-&gt;{$m}-&gt;{$d}-&gt;{$uuid}-&gt;{SUMMARY};
+       printf(&quot;%04d-%02d-%02d %s %s\n&quot;, $y, $m, $d, $uuid, $summary);
+     }
+   }
+ }
+}
+
+$ perl j.pl
+2006-03-07 uuid:1139273884656 test3
+2006-02-06 uuid:1139273884656 test1
+2006-02-07 uuid:1139273884656 test2
+
+
+Sorry about that,  -laugh-
+
+j
+ewwwww
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00856" href="msg00856.html">[Omaha.pm] Fwd: iCal::Parser - or how to iterate through this hash?</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00858.html">Re: [Omaha.pm] Fwd: iCal::Parser - or how to iterate through this	hash?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00860.html">Re: [Omaha.pm] Fwd: iCal::Parser - or how to iterate through this	hash?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00858.html">Re: [Omaha.pm] Fwd: iCal::Parser - or how to iterate through this	hash?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00860.html">Re: [Omaha.pm] Fwd: iCal::Parser - or how to iterate through this	hash?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00859"><strong>Date</strong></a></li>
+<li><a href="threads.html#00859"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

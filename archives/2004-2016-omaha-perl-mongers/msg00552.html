@@ -1,0 +1,112 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] map: make a hash from an array -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 15 Sep 2005 21:17:49 &#45;0000 -->
+<!--X-Message-Id: ba99ddf9f61bd5eb271cc769ad8f076a@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 1F7C0C8F4BD7C54A8BC55012FEF3DF6D0302E988@omaexc11.americas.cpqcorp.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] map: make a hash from an array</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00551.html">Date Prev</a>][<a href="msg00553.html">Date Next</a>][<a href="msg00548.html">Thread Prev</a>][<a href="msg00542.html">Thread Next</a>][<a href="maillist.html#00552">Date Index</a>][<a href="threads.html#00552">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] map: make a hash from an array</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] map: make a hash from an array</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Thu, 15 Sep 2005 16:17:28 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00546.html">1F7C0C8F4BD7C54A8BC55012FEF3DF6D0302E988@omaexc11.americas.cpqcorp.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00546.html">1F7C0C8F4BD7C54A8BC55012FEF3DF6D0302E988@omaexc11.americas.cpqcorp.net</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+
+On Sep 15, 2005, at 11:02 AM, Miller, Scott L (Omaha Networks) wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><tt>Is it possible that building the hash in the first place, rather than 
+</tt><tt>an
+</tt><pre style="margin: 0em;">
+array is the more correct thing to do?
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>I think you and Andy are dead on. Have all the tools in your toolbox, 
+</tt><tt>and do what the right thing probably is each time. In the probably rare 
+</tt><tt>case that speed is critical, benchmark each strategy.
+</tt><pre style="margin: 0em;">
+
+</pre><tt>I'm sure benchmarking would show wildly different results per strategy 
+</tt><tt>comparing, for instance, 3 scans of 1M keys vs. 1M scans of 3 keys.
+</tt><pre style="margin: 0em;">
+
+j
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00546" href="msg00546.html">Re: [Omaha.pm] map: make a hash from an array</a></strong>
+<ul><li><em>From:</em> &quot;Miller, Scott L (Omaha Networks)&quot; &lt;Scott.L.Miller@hp.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00551.html">[Omaha.pm] Hey OO Perl 5: Do my base classes thing plus my thing</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00553.html">[Omaha.pm] Perl Monger group maps?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00548.html">Re: [Omaha.pm] map: make a hash from an array</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00542.html">[Omaha.pm] Reminder: Mtg tomorrow (Thr)</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00552"><strong>Date</strong></a></li>
+<li><a href="threads.html#00552"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] [olug] String parsing question -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 15 Oct 2005 16:59:29 &#45;0000 -->
+<!--X-Message-Id: 235496d30c55f0dbbb375638ec1a4b2c@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 9A8B75E3985324438F1BFA08B160E82057AEBA@suxsvr.willconsult.com -->
+<!--X-Reference: Pine.LNX.4.58.0510061657250.13939@adam.omaha.org -->
+<!--X-Reference: a02584d0510061644k77f5513fy9772ce7c4fa4b1f8@mail.gmail.com -->
+<!--X-Reference: Pine.LNX.4.58.0510071015370.13939@adam.omaha.org -->
+<!--X-Reference: 4346ACD0.5080508@shwisp.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] [olug] String parsing question</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00600.html">Date Prev</a>][<a href="msg00602.html">Date Next</a>][<a href="msg00600.html">Thread Prev</a>][<a href="msg00602.html">Thread Next</a>][<a href="maillist.html#00601">Date Index</a>][<a href="threads.html#00601">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] [olug] String parsing question</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Omaha Linux User Group &lt;<a href="mailto:olug%40olug.org">olug@olug.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] [olug] String parsing question</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Sat, 15 Oct 2005 11:59:15 -0500</li>
+<li><em>Cc</em>: Omaha Perl Mongers &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;4346ACD0.5080508@shwisp.net&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;9A8B75E3985324438F1BFA08B160E82057AEBA@suxsvr.willconsult.com&gt;	&lt;Pine.LNX.4.58.0510061657250.13939@adam.omaha.org&gt;	&lt;a02584d0510061644k77f5513fy9772ce7c4fa4b1f8@mail.gmail.com&gt;	&lt;Pine.LNX.4.58.0510071015370.13939@adam.omaha.org&gt;	&lt;4346ACD0.5080508@shwisp.net&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+Adam Haeder wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+What's the best (fastest) way to get from this string:
+
+User 1 &lt;user1@a.com&gt;, User 2 &lt;user2@a.com&gt;, User 3 &lt;user3@a.com&gt;
+
+to this:
+
+user1@a.com user2@a.com user3@a.com
+
+</pre><tt>Consider that there could be x number of addresses on the line, so I 
+</tt><tt>can't
+</tt><pre style="margin: 0em;">
+always assume 3.
+</pre></blockquote><pre style="margin: 0em;">
+
+On Oct 7, 2005, at 12:13 PM, Sam Tetherow wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+Since Jay hasn't replied yet I'll give a perl version ;)
+
+Quick and dirty, no data validation:
+
+#!/usr/bin/perl
+
+while(&lt;STDIN&gt;) {
+ $_=~s/[^&lt;]*&lt;([^&gt;]*)&gt;/$1 /g;
+ print;
+}
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>-laugh-  I'm /(in)?famous/! I stole Sam's regex and made it available 
+</tt><tt>via command line:
+</tt><pre style="margin: 0em;">
+
+$ perl -pe 's/[^&lt;]*&lt;([^&gt;]*)&gt;/$1 /g' inputfile.txt
+
+or
+
+$ cat inputfile.txt | perl -pe 's/[^&lt;]*&lt;([^&gt;]*)&gt;/$1 /g'
+
+The hardcore version of this might be via Text::Balanced.
+
+j
+Omaha Perl Mongers: <a  rel="nofollow" href="http://omaha.pm.org">http://omaha.pm.org</a>
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00600.html">Re: [Omaha.pm] [olug] Database export problem</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00602.html">[Omaha.pm] http://perlcast.com/ - Podcasting Perl</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00600.html">Re: [Omaha.pm] [olug] Database export problem</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00602.html">[Omaha.pm] http://perlcast.com/ - Podcasting Perl</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00601"><strong>Date</strong></a></li>
+<li><a href="threads.html#00601"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

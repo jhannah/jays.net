@@ -1,0 +1,165 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Re: [oma&#45;python] an almost&#45;switch statement -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: Thu, 10 Jun 2004 00:03:33 &#45;0500 -->
+<!--X-Message-Id: 8D10A35C&#45;BA9B&#45;11D8&#45;883E&#45;000A95E317B8@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 20040601171858.GA22213@gideon.cox.net -->
+<!--X-Reference: E28C4740&#45;B40D&#45;11D8&#45;8862&#45;000A95E317B8@jays.net -->
+<!--X-Reference: 20040601211931.GD22213@gideon.cox.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Re: [oma-python] an almost-switch statement</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00018.html">Date Prev</a>][<a href="msg00020.html">Date Next</a>][<a href="msg00018.html">Thread Prev</a>][<a href="msg00020.html">Thread Next</a>][<a href="maillist.html#00019">Date Index</a>][<a href="threads.html#00019">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Re: [oma-python] an almost-switch statement</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:oma-python%40yahoogroups.com">oma-python@yahoogroups.com</a></li>
+<li><em>Subject</em>: [Omaha.pm] Re: [oma-python] an almost-switch statement</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Thu, 10 Jun 2004 00:03:45 -0500</li>
+<li><em>Cc</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;20040601211931.GD22213@gideon.cox.net&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://www.pm.org/pipermail/omaha-pm">http://www.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;20040601171858.GA22213@gideon.cox.net&gt;	&lt;E28C4740-B40D-11D8-8862-000A95E317B8@jays.net&gt;	&lt;20040601211931.GD22213@gideon.cox.net&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+
+</pre><tt>[For the record, thehaas drug me into a Perl discussion on this list. I  
+</tt><tt>tried not to mention Perl at all... -grin-]
+</tt><pre style="margin: 0em;">
+
+On Jun 1, 2004, at 4:19 PM, thehaas@binary.net wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+I've used Perl quite a bit. Never used anonymous subroutines because
+the syntax is ugly.
+</pre></blockquote><pre style="margin: 0em;">
+
+It is? From example:
+
+</pre><tt><a  rel="nofollow" href="http://www.python.org/doc/current/tut/">http://www.python.org/doc/current/tut/</a> 
+</tt><tt>node6.html#SECTION006750000000000000000
+</tt><pre style="margin: 0em;">
+
+Python:
+
+$ python
+&gt;&gt;&gt; def make_incrementor(n):
+...     return lambda x: x + n
+...
+&gt;&gt;&gt; f = make_incrementor(42)
+&gt;&gt;&gt; f(0)
+42
+&gt;&gt;&gt; f(1)
+43
+
+</pre><tt>I couldn't figure out how to do *exactly* that in Perl. I'm not sure I  
+</tt><tt>understand when you'd want to. You can skip the def step in Perl (I  
+</tt><tt>don't know if you could skip the def step in Python if your wanted to)  
+</tt><tt>thusly:
+</tt><pre style="margin: 0em;">
+
+$ perl -de 1
+DB&lt;1&gt; $f = sub { $_[0] + 42 }
+DB&lt;2&gt; p &amp;$f(0)
+42
+DB&lt;3&gt; p &amp;$f(1)
+43
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+OO in Perl is even uglier.
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>Indeed, it can be. I like Perl OO, but it certainly doesn't have native  
+</tt><tt>cascading public/private attribute inheritance. You can do it (and we  
+</tt><tt>do... a lot...), but it is ugly.
+</tt><pre style="margin: 0em;">
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+Will Perl 6 ever get out? ;)
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>At OSCON 2003 Larry Wall and Damian Conway were talking about 2007.  
+</tt><tt>Parrot it coming along, apparently...
+</tt><pre style="margin: 0em;">
+
+j
+
+</pre><tt>P.S. Contrary to my last post, Perl has a &quot;Switch&quot; module I didn't know  
+</tt><tt>about:
+</tt><pre style="margin: 0em;">
+
+   <a  rel="nofollow" href="http://search.cpan.org/~rgarcia/Switch-2.10/Switch.pm">http://search.cpan.org/~rgarcia/Switch-2.10/Switch.pm</a>
+
+</pre><tt>It's distributed in core Perl nowadays, so &quot;use Switch&quot; should be  
+</tt><tt>available by default.
+</tt><pre style="margin: 0em;">
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00020" href="msg00020.html">Re: [Omaha.pm] Re: [oma-python] an almost-switch statement</a></strong>
+<ul><li><em>From:</em> Mike Hostetler &lt;hostetlerm@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00018.html">Re: [Omaha.pm] IO::Multiplex, IO::Socket::INET</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00020.html">Re: [Omaha.pm] Re: [oma-python] an almost-switch statement</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00018.html">Re: [Omaha.pm] IO::Multiplex, IO::Socket::INET</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00020.html">Re: [Omaha.pm] Re: [oma-python] an almost-switch statement</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00019"><strong>Date</strong></a></li>
+<li><a href="threads.html#00019"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

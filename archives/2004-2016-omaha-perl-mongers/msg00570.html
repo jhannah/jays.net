@@ -1,0 +1,211 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Chaining a method (called "init") -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 26 Sep 2005 01:06:11 &#45;0000 -->
+<!--X-Message-Id: 4de7d2a64bffc80d6a38593cf61e6d32@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 29AB736ABCE5C745ABF9C93B02F2C27B031ACC7B@exchange2k3.omnihotels.net -->
+<!--X-Reference: 4333A789.8000802@cotse.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Chaining a method (called &quot;init&quot;)</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00569.html">Date Prev</a>][<a href="msg00571.html">Date Next</a>][<a href="msg00569.html">Thread Prev</a>][<a href="msg00571.html">Thread Next</a>][<a href="maillist.html#00570">Date Index</a>][<a href="threads.html#00570">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Chaining a method (called &quot;init&quot;)</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Chaining a method (called &quot;init&quot;)</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Sun, 25 Sep 2005 20:06:01 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00569.html">4333A789.8000802@cotse.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00568.html">29AB736ABCE5C745ABF9C93B02F2C27B031ACC7B@exchange2k3.omnihotels.net</a>&gt;	&lt;<a href="msg00569.html">4333A789.8000802@cotse.com</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+
+On Sep 23, 2005, at 1:58 AM, Brian Wiese wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><tt>I'm a bit out of touch with my perl syntax, could your explain this 
+</tt><tt>with
+</tt><pre style="margin: 0em;">
+some comments?
+</pre></blockquote><pre style="margin: 0em;">
+
+Sure, I'll try. The gist is that I've got a deep object hierarchy.
+
+A is the base class of B. B is the base class of C, etc to E.
+
+</pre><tt>When I instantiate an E and call init(), I'm expecting the A init to 
+</tt><tt>run, then the B init, then the C init, etc.
+</tt><pre style="margin: 0em;">
+
+So the code below just demostrates that.
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+Jay Hannah wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+This is just a sanity check that chaining methods works the way I
+thought it did.
+
+---------------------------
+$ cat j.pl
+#!/usr/bin/perl
+
+use vars qw( @ISA );
+
+package A;
+sub new {
+ # I really don't understand this mojo,
+ # but we know it works when we use it...
+ my ($caller) = (@_);
+ my $caller_is_obj = ref($caller);
+ my $class = $caller_is_obj || $caller;
+ my $self = bless {}, ref($class) || $class;
+}
+sub init { print &quot;a&quot;; }
+</pre></blockquote></blockquote><pre style="margin: 0em;">
+
+That was it for A. new() is inherited by all subclasses.
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+package B;
+@ISA = ('A');
+sub init { $_[0]-&gt;SUPER::init; print &quot;b&quot;; }
+</pre></blockquote></blockquote><pre style="margin: 0em;">
+
+</pre><tt>And that's all there is to each child. Each child just declares its 
+</tt><tt>parent and then polymorph's the init() method, running it's parent's 
+</tt><tt>init() first, then printing its own letter.
+</tt><pre style="margin: 0em;">
+
+C, D, E are the same as B:
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+package C;
+@ISA = ('B');
+sub init { $_[0]-&gt;SUPER::init; print &quot;c&quot;; }
+
+package D;
+@ISA = ('C');
+sub init { $_[0]-&gt;SUPER::init; print &quot;d&quot;; }
+
+package E;
+@ISA = ('D');
+sub init { $_[0]-&gt;SUPER::init; print &quot;e&quot;; }
+</pre></blockquote></blockquote><pre style="margin: 0em;">
+
+Then we write our &quot;main&quot; routine -- it's where the code starts running.
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+package main;
+</pre></blockquote></blockquote><pre style="margin: 0em;">
+
+Instatiate an E:
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+my $obj = E-&gt;new;
+</pre></blockquote></blockquote><pre style="margin: 0em;">
+
+Print a line of debug just to make sure that I do, indeed have an E now:
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+print &quot;\$obj is $obj\n&quot;;
+</pre></blockquote></blockquote><pre style="margin: 0em;">
+
+Then run init and see if it does what I expected/wanted. Plus a newline.
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+$obj-&gt;init;
+print &quot;\n&quot;;
+</pre></blockquote></blockquote><pre style="margin: 0em;">
+
+That's it. When I run the program it does what I expected:
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+---------------------------
+
+Yup. It does what I expected:
+---------------------------
+$ perl j.pl
+$obj is E=HASH(0x815c088)
+abcde
+---------------------------
+</pre></blockquote></blockquote><pre style="margin: 0em;">
+
+Is that what you were looking for?
+
+I hope that helped,
+
+j
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00568" href="msg00568.html">[Omaha.pm] Chaining a method (called &quot;init&quot;)</a></strong>
+<ul><li><em>From:</em> &quot;Jay Hannah&quot; &lt;jhannah@omnihotels.com&gt;</li></ul></li>
+<li><strong><a name="00569" href="msg00569.html">Re: [Omaha.pm] Chaining a method (called &quot;init&quot;)</a></strong>
+<ul><li><em>From:</em> Brian Wiese &lt;bwiese@cotse.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00569.html">Re: [Omaha.pm] Chaining a method (called &quot;init&quot;)</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00571.html">[Omaha.pm] Help with parsing HTML</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00569.html">Re: [Omaha.pm] Chaining a method (called &quot;init&quot;)</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00571.html">[Omaha.pm] Help with parsing HTML</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00570"><strong>Date</strong></a></li>
+<li><a href="threads.html#00570"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

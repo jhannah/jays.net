@@ -1,0 +1,152 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Proper way to test a variable with strict and &#45;w? -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 2 Sep 2005 12:01:47 &#45;0000 -->
+<!--X-Message-Id: 7ab5e75bd0986cd0894dbd4c3ab5f8bb@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 16020.12.160.138.88.1125588930.squirrel@mail.linder.org -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Proper way to test a variable with strict and -w?</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00531.html">Date Prev</a>][<a href="msg00533.html">Date Next</a>][<a href="msg00527.html">Thread Prev</a>][<a href="msg00534.html">Thread Next</a>][<a href="maillist.html#00532">Date Index</a>][<a href="threads.html#00532">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Proper way to test a variable with strict and -w?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Proper way to test a variable with strict and -w?</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Fri, 2 Sep 2005 07:01:27 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00527.html">16020.12.160.138.88.1125588930.squirrel@mail.linder.org</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00527.html">16020.12.160.138.88.1125588930.squirrel@mail.linder.org</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+
+On Sep 1, 2005, at 10:35 AM, Daniel Linder wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+ use Env qw(EnvVar1 EnvVar2);
+
+ my $EnvVar1=&quot;DefaultValue1&quot; if (&quot;&quot; eq &quot;$EnvVar1&quot;);
+ my $EnvVar2=&quot;DefaultValue2&quot; if (&quot;&quot; eq &quot;$EnvVar2&quot;);
+ my $Var3 = &quot;$EnvVar1 -- $EnvVar2&quot;;
+
+</pre><tt> When I run it, the perl interperter complains about &quot;Use of 
+</tt><tt>uninitialized value in concatenation&quot; on the &quot;Var3&quot; line (the last 
+</tt><tt>line.
+</tt><pre style="margin: 0em;">
+
+</pre><tt> Did I mess things up by putting the &quot;my&quot; on the &quot;EnvVar1&quot; and 
+</tt><tt>&quot;EnvVar2&quot; lines -- these variables should be defined on the &quot;use Env&quot; 
+</tt><tt>line, right?
+</tt></blockquote><pre style="margin: 0em;">
+
+</pre><tt>As I read &quot;perldoc Env&quot; I would say that your use Env line is declaring 
+</tt><tt>those two values for you, so your first two my's are redundant. That 
+</tt><tt>said, I don't understand why Perl would throw that warning.
+</tt><pre style="margin: 0em;">
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+ If you were to re-write this whole section, how would you do it?
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>Assuming 0 is never a legitimate value for those two environment 
+</tt><tt>variables, I'd do this:
+</tt><pre style="margin: 0em;">
+
+#!/usr/bin/perl -w
+
+use Env qw(EnvVar1 EnvVar2);
+
+$EnvVar1 ||= &quot;DefaultValue1&quot;;
+$EnvVar2 ||= &quot;DefaultValue2&quot;;
+my $Var3 = &quot;$EnvVar1 -- $EnvVar2&quot;;
+
+</pre><tt>Actually, I wouldn't 'use Env' at all. That's just a &quot;shortcut&quot; for 
+</tt><tt>Perl's built-in %ENV. I'd do this:
+</tt><pre style="margin: 0em;">
+
+#!/usr/bin/perl -w
+
+$ENV{Var1} ||= &quot;DefaultValue1&quot;;
+$ENV{Var2} ||= &quot;DefaultValue2&quot;;
+my $Var3 = &quot;$ENV{Var1} -- $ENV{Var2}&quot;;
+
+HTH,
+
+j
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00534" href="msg00534.html">Re: [Omaha.pm] Proper way to test a variable with strict and -w?</a></strong>
+<ul><li><em>From:</em> &quot;Daniel Linder&quot; &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00527" href="msg00527.html">[Omaha.pm] Proper way to test a variable with strict and -w?</a></strong>
+<ul><li><em>From:</em> &quot;Daniel Linder&quot; &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00531.html">Re: [Omaha.pm] Proper way to test a variable with strict and -w?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00533.html">Re: [Omaha.pm] Quick Bail</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00527.html">[Omaha.pm] Proper way to test a variable with strict and -w?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00534.html">Re: [Omaha.pm] Proper way to test a variable with strict and -w?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00532"><strong>Date</strong></a></li>
+<li><a href="threads.html#00532"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

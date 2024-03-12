@@ -1,0 +1,146 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Validating XML Messages with Perl on Linux/Unix -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 1 May 2006 18:42:16 &#45;0000 -->
+<!--X-Message-Id: 29AB736ABCE5C745ABF9C93B02F2C27B04432C31@exchange2k3.omnihotels.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Validating XML Messages with Perl on Linux/Unix</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00952.html">Date Prev</a>][<a href="msg00954.html">Date Next</a>][<a href="msg00957.html">Thread Prev</a>][<a href="msg00958.html">Thread Next</a>][<a href="maillist.html#00953">Date Index</a>][<a href="threads.html#00953">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Validating XML Messages with Perl on Linux/Unix</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Validating XML Messages with Perl on Linux/Unix</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Mon, 1 May 2006 13:42:05 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcZmj3jUTHxx1sAvTim7hyXtt6S4OgGv1I0g</li>
+<li><em>Thread-topic</em>: Validating XML Messages with Perl on Linux/Unix</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+Neat...  Any XML gurus lurking in the Omaha Perl Mongers?
+
+j
+
+
+
+-----Original Message-----
+From: OTA-Impl-Forum@googlegroups.com
+[<a  rel="nofollow" href="mailto:OTA-Impl-Forum@googlegroups.com">mailto:OTA-Impl-Forum@googlegroups.com</a>] On Behalf Of Stephen Adkins
+Sent: Saturday, April 22, 2006 11:36 PM
+To: OTA-Impl-Forum@googlegroups.com
+Subject: [OTA-Impl-Forum] Validating XML Messages with Perl on
+Linux/Unix
+
+
+Hi,
+
+I found an interesting utility on CPAN to validate XML files:
+XML-Validate.
+
+It will validate with XML::LibXML (which is built on Gnome's libxml2,
+see <a  rel="nofollow" href="http://xmlsoft.org/">http://xmlsoft.org/</a>), with XML::Xerces (which I described how to
+install in a previous post, and see <a  rel="nofollow" href="http://xml.apache.org/xerces-c/">http://xml.apache.org/xerces-c/</a>),
+or with MSXML (if on Windows), whichever is installed.
+
+Assuming that you have installed XML::Xerces as per the earlier post
+and the OTA specification files as per another post, you can get
+validation going with the following commands.
+
+INSTALL XML::Validate
+
+   su -
+   perl -MCPAN -e &quot;install XML::Validate&quot;
+   exit
+
+VALIDATE THE SAMPLES
+
+   cd $HOME
+   mkdir tmp
+   cd tmp
+   cp $PREFIX/share/ota/2005B/schema/*.xsd .
+   cp $PREFIX/share/ota/2005B/samples/*.xml .
+   validxml.pl OTA_VehResRQ.xml
+   for file in *.xml
+   do
+      validxml.pl $file
+   done
+
+Stephen
+
+--~--~---------~--~----~------------~-------~--~----~
+You received this message because you are subscribed to the Google
+Groups &quot;OTA Implementers Forum&quot; group.
+To post to this group, send email to OTA-Impl-Forum@googlegroups.com
+To unsubscribe from this group, send email to
+OTA-Impl-Forum-unsubscribe@googlegroups.com
+For more options, visit this group at
+<a  rel="nofollow" href="http://groups.google.com/group/OTA-Impl-Forum">http://groups.google.com/group/OTA-Impl-Forum</a>
+-~----------~----~----~----~------~----~------~--~---
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00952.html">[Omaha.pm] next meeting</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00954.html">Re: [Omaha.pm] next meeting</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00957.html">Re: [Omaha.pm] next meeting</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00958.html">[Omaha.pm] [Fwd: Re: [pm_groups] Calculate next meeting date]</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00953"><strong>Date</strong></a></li>
+<li><a href="threads.html#00953"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

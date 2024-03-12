@@ -1,0 +1,121 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] LWP -->
+<!--X-From-R13: naqlNcrgqnapr.pbz (Oaql Zrfgre) -->
+<!--X-Date: 2 Oct 2006 21:14:40 &#45;0000 -->
+<!--X-Message-Id: 20061002211431.GA19717@petdance.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: E8A698D1&#45;9CB1&#45;4112&#45;BC4C&#45;551D45DA5808@petdance.com -->
+<!--X-Reference: 804D74BA90FBB5418AA7C966CD7D731703210BB9@w2k3ex01.nmhs.org -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] LWP</title>
+<link rev="made" href="mailto:andy@petdance.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01171.html">Date Prev</a>][<a href="msg01173.html">Date Next</a>][<a href="msg01168.html">Thread Prev</a>][<a href="msg01166.html">Thread Next</a>][<a href="maillist.html#01172">Date Index</a>][<a href="threads.html#01172">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] LWP</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] LWP</li>
+<li><em>From</em>: <a href="mailto:andy%40petdance.com">andy@petdance.com</a> (Andy Lester)</li>
+<li><em>Date</em>: Mon, 2 Oct 2006 16:14:31 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01168.html">804D74BA90FBB5418AA7C966CD7D731703210BB9@w2k3ex01.nmhs.org</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01167.html">E8A698D1-9CB1-4112-BC4C-551D45DA5808@petdance.com</a>&gt;	&lt;<a href="msg01168.html">804D74BA90FBB5418AA7C966CD7D731703210BB9@w2k3ex01.nmhs.org</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: Mutt/1.5.9i</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>&gt; use strict;
+
+Put in a use warnings here.
+
+&gt; use Crypt::SSLeay;
+&gt; use LWP::UserAgent;
+&gt; use LWP::Simple;
+
+You don't need LWP::Simple if you're using LWP::UserAgent.
+
+&gt; # Script Argument Variables
+&gt; my $arg1=@ARGV[0];	
+&gt; my $arg2=@ARGV[1];	
+&gt; my $arg3=@ARGV[2];	
+&gt; my $arg4=@ARGV[3];	
+
+I would strongly suggest naming these something meaningful.  Also,
+@ARGV[n] should be $ARGV[n].
+
+OK, I have to run, so I can't walk through this like I planned.  For
+now, put on &quot;use warnings&quot; and see what comes out.  I will bet a nickel
+it will find your prlblem.
+
+-- 
+Andy Lester =&gt; andy@petdance.com =&gt; www.petdance.com =&gt; AIM:petdance
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01167" href="msg01167.html">Re: [Omaha.pm] LWP</a></strong>
+<ul><li><em>From:</em> Andy Lester &lt;andy@petdance.com&gt;</li></ul></li>
+<li><strong><a name="01168" href="msg01168.html">Re: [Omaha.pm] LWP</a></strong>
+<ul><li><em>From:</em> &quot;Hefling, Chris&quot; &lt;Chris.Hefling@nmhs.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01171.html">Re: [Omaha.pm] LWP</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01173.html">[Omaha.pm] Reminder: Meeting Tue, 10 Oct @ 7pm!</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01168.html">Re: [Omaha.pm] LWP</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01166.html">Re: [Omaha.pm] LWP</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01172"><strong>Date</strong></a></li>
+<li><a href="threads.html#01172"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

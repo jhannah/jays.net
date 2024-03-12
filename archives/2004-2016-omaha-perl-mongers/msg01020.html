@@ -1,0 +1,154 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Pick your brain? -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 24 Jun 2006 19:06:04 &#45;0000 -->
+<!--X-Message-Id: 449D8CE2.2040302@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 6.2.3.4.2.20060623085236.05c87008@mail.aurora&#45;e&#45;solutions.com -->
+<!--X-Reference: 449C4E6D.2070809@jays.net -->
+<!--X-Reference: 6.2.3.4.2.20060623163035.06329ad0@mail.aurora&#45;e&#45;solutions.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Pick your brain?</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01019.html">Date Prev</a>][<a href="msg01021.html">Date Next</a>][<a href="msg01019.html">Thread Prev</a>][<a href="msg01069.html">Thread Next</a>][<a href="maillist.html#01020">Date Index</a>][<a href="threads.html#01020">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Pick your brain?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Michael D. Maynard&quot; &lt;<a href="mailto:michael.maynard%40auroraesolutions.com">michael.maynard@auroraesolutions.com</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Pick your brain?</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Sat, 24 Jun 2006 14:05:06 -0500</li>
+<li><em>Cc</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;6.2.3.4.2.20060623163035.06329ad0@mail.aurora-e-solutions.com&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;6.2.3.4.2.20060623085236.05c87008@mail.aurora-e-solutions.com&gt;	&lt;<a href="msg01019.html">449C4E6D.2070809@jays.net</a>&gt;	&lt;6.2.3.4.2.20060623163035.06329ad0@mail.aurora-e-solutions.com&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: Thunderbird 1.5.0.4 (Macintosh/20060530)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+Michael D. Maynard wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><tt>REPLACE is a MySQL function that does a DELETE/INSERT when it finds a 
+</tt><tt>record with a conflicting unique key rather than throwing an error.  It 
+</tt><tt>comes in very handy when you are wanting to update records.
+</tt><pre style="margin: 0em;">
+
+<a  rel="nofollow" href="http://dev.mysql.com/doc/refman/5.0/en/replace.html">http://dev.mysql.com/doc/refman/5.0/en/replace.html</a>
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>Ahh... My software usually knows whether to INSERT or UPDATE based on a SELECT statement (typically executed some time earlier). I guess REPLACE would be handy if you don't care whether or not data already exists. 
+</tt><tt>
+</tt><pre style="margin: 0em;">
+I often find myself tweaking a few columns in a table with many columns. In those cases REPLACE doesn't strike me as very useful, since I wouldn't want to blank out all the other columns accidentally... :)
+
+Thanks for the tip!
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><tt>The error is:  DBD::mysql::st execute failed: Column 'CampaignID' cannot 
+</tt><tt>be null at nph-import.cgi line 395.  The column name is different in a 
+</tt><tt>couple tables, but the error is the same.  The field is defined as not 
+</tt><tt>null and there is a Unique index for it.
+</tt><pre style="margin: 0em;">
+
+</pre><tt>RaiseError=&gt;1, PrintError=&gt;1.  I haven't written anything for the error 
+</tt><tt>handling yet, but I am planning on doing that this weekend.  When I 
+</tt><tt>print the data to STDOUT rather than doing the REPLACE, all the data is 
+</tt><tt>there.
+</tt></blockquote><pre style="margin: 0em;">
+
+That's the next thing I would try. You can do very verbose error handling on that insert that fails one time out of a thousand (or whatever).
+
+(oh... I just remembered placeholders don't work through freetds. bummer... source code would be a lot cleaner with them...)
+
+Something like... (not tested):
+
+my $dbh1 = ...({RaiseError =&gt; 0, PrintError =&gt; 1});   # Source connection
+my $dbh2 = ...({RaiseError =&gt; 0, PrintError =&gt; 1});   # Target connection
+
+my $sth1 = $dbh1-&gt;prepare(&quot;select col1, col2, col3 from x&quot;);
+$sth1-&gt;execute;
+my @row;   # ... bind variables might be cleaner here
+while (@row = $sth1-&gt;fetchrow) {
+  my sth2 = $dbh2-&gt;prepare(&quot;REPLACE into x (col1, col2, col3) values ('$row[0]', '$row[1]', '$row[2]')&quot;);
+  $sth2-&gt;execute;
+  if ($DBI::err) {
+     my $error = &quot;[&quot; . $DBI::err . &quot;|&quot; . $DBI::errstr . &quot;]&quot;;
+     print &quot;Ack! Here's our error: [$error]\n&quot;;
+     print &quot;Our source data record was: [&quot;;
+     print join &quot;|&quot;, @row;
+     print &quot;]\n&quot;;
+  }
+}
+
+? Does that help? I hate errors that don't happen EVERY TIME. Good luck! :)
+
+j
+PHX in June. yee ha!
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01019" href="msg01019.html">Re: [Omaha.pm] Pick your brain?</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01019.html">Re: [Omaha.pm] Pick your brain?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01021.html">[Omaha.pm] Perl &amp; XML presentation?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01019.html">Re: [Omaha.pm] Pick your brain?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01069.html">Re: [Omaha.pm] Pick your brain?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01020"><strong>Date</strong></a></li>
+<li><a href="threads.html#01020"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

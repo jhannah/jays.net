@@ -1,0 +1,133 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] DateTime::Duration &#45;>days() -->
+<!--X-From-R13: Egreyvat Vnaraxnzc &#60;fgreyvatNunaraxnzc.pbz> -->
+<!--X-Date: 16 Jan 2011 06:24:35 &#45;0000 -->
+<!--X-Message-Id: AANLkTi=KrtNf4x5hhoHA365+xFo3NZDBzdYwEuF4ofhb@mail.gmail.com -->
+<!--X-Content-Type: multipart/alternative -->
+<!--X-Reference: C15FE50A&#45;4DC8&#45;4609&#45;B97A&#45;6AC4DDCFD10D@mutationgrid.com -->
+<!--X-Reference: 97D033C6&#45;C0F1&#45;46DF&#45;95C2&#45;1BBCAD49556F@mutationgrid.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] DateTime::Duration -&gt;days()</title>
+<link rev="made" href="mailto:sterling@hanenkamp.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02586.html">Date Prev</a>][<a href="msg02588.html">Date Next</a>][<a href="msg02586.html">Thread Prev</a>][<a href="msg02588.html">Thread Next</a>][<a href="maillist.html#02587">Date Index</a>][<a href="threads.html#02587">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] DateTime::Duration -&gt;days()</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] DateTime::Duration -&gt;days()</li>
+<li><em>From</em>: Sterling Hanenkamp &lt;<a href="mailto:sterling%40hanenkamp.com">sterling@hanenkamp.com</a>&gt;</li>
+<li><em>Date</em>: Sun, 16 Jan 2011 00:24:25 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg02586.html">97D033C6-C0F1-46DF-95C2-1BBCAD49556F@mutationgrid.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg02585.html">C15FE50A-4DC8-4609-B97A-6AC4DDCFD10D@mutationgrid.com</a>&gt;	&lt;<a href="msg02586.html">97D033C6-C0F1-46DF-95C2-1BBCAD49556F@mutationgrid.com</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<div>In DateTime, you want delta_days... twice.</div><div><br></div><div>my $start = DateTime-&gt;new(year =&gt; 2007, month =&gt; 5, day =&gt; 15);</div><div>my $end = DateTime-&gt;new(year =&gt; 2011, month =&gt; 1, day =&gt; 14);</div>
+<div>say sprintf(&#39;$%0.2f&#39;, 1025 /&#xA0;$end-&gt;delta_days($start)-&gt;delta_days);</div><div><br></div><div>DateTime is popular because it is accurate, common, standard, extensible, and popular (since popularity is a property that feeds itself), not because it is fast or easy to use by itself (it is neither in my experience).</div>
+<div><br></div><div><div><div class="gmail_quote">On Fri, Jan 14, 2011 at 9:17 PM, Jay Hannah <span dir="ltr">&lt;<a rel="nofollow" href="mailto:jhannah@mutationgrid.com">jhannah@mutationgrid.com</a>&gt;</span> wrote:<br><blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;">
+<div class="im">On Jan 14, 2011, at 9:03 PM, Jay Hannah wrote:<br>
+&gt; What the heck? Why is DateTime so popular? Date::Calc and Class::Date make this trivial.<br>
+<br>
+</div>See? Easy...<br>
+<br>
+<br>
+$ cat <a rel="nofollow" href="http://j2.pl" target="_blank">j2.pl</a><br>
+use 5.12.0;<br>
+use Date::Calc qw(Delta_Days);<br>
+<br>
+say sprintf(&#39;$%0.2f&#39;, 1025 / Delta_Days(2007, 5, 15, 2011, 1, 14));<br>
+<br>
+$ perl <a rel="nofollow" href="http://j2.pl" target="_blank">j2.pl</a><br>
+$0.76<br>
+<br>
+<br>
+My laptop died today. And that&#39;s how much money it cost me per day I owned it. Used it daily. Not bad. &#xA0;:)<br>
+<br>
+ &#xA0; <a rel="nofollow" href="http://www.facebook.com/photo.php?pid=1500762&amp;l=fe015d08cb&amp;id=1032415362" target="_blank">http://www.facebook.com/photo.php?pid=1500762&amp;l=fe015d08cb&amp;id=1032415362</a><br>
+<br>
+Thanks,<br>
+<div><div></div><div class="h5"><br>
+Jay Hannah<br>
+Software Architect<br>
+<a rel="nofollow" href="mailto:jhannah@mutationgrid.com">jhannah@mutationgrid.com</a> | <a rel="nofollow" href="http://mutationgrid.com" target="_blank">http://mutationgrid.com</a> | 1-402-598-7782<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+_______________________________________________<br>
+Omaha-pm mailing list<br>
+<a rel="nofollow" href="mailto:Omaha-pm@pm.org">Omaha-pm@pm.org</a><br>
+<a rel="nofollow" href="http://mail.pm.org/mailman/listinfo/omaha-pm" target="_blank">http://mail.pm.org/mailman/listinfo/omaha-pm</a><br>
+</div></div></blockquote></div><br><br clear="all"><br>-- <br>Andrew Sterling Hanenkamp<br><a rel="nofollow" href="mailto:sterling@hanenkamp.com">sterling@hanenkamp.com</a><br>785.370.4454<br>
+</div></div>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="02585" href="msg02585.html">[Omaha.pm] DateTime::Duration -&gt;days()</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jhannah@mutationgrid.com&gt;</li></ul></li>
+<li><strong><a name="02586" href="msg02586.html">Re: [Omaha.pm] DateTime::Duration -&gt;days()</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jhannah@mutationgrid.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02586.html">Re: [Omaha.pm] DateTime::Duration -&gt;days()</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02588.html">[Omaha.pm] Plat_Forms Day 2: Java vs. Perl vs. PHP vs. Ruby</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02586.html">Re: [Omaha.pm] DateTime::Duration -&gt;days()</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02588.html">[Omaha.pm] Plat_Forms Day 2: Java vs. Perl vs. PHP vs. Ruby</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02587"><strong>Date</strong></a></li>
+<li><a href="threads.html#02587"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

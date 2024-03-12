@@ -1,0 +1,154 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] JavaScript::XRay -->
+<!--X-From-R13: "Xrss Pvforr" &#60;wovforrNtznvy.pbz> -->
+<!--X-Date: 5 Jun 2006 07:06:48 &#45;0000 -->
+<!--X-Message-Id: e07cf2d10606050006g7c86ff01t1b1522da31a037ff@mail.gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] JavaScript::XRay</title>
+<link rev="made" href="mailto:jbisbee@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01012.html">Date Prev</a>][<a href="msg01014.html">Date Next</a>][<a href="msg01012.html">Thread Prev</a>][<a href="msg01014.html">Thread Next</a>][<a href="maillist.html#01013">Date Index</a>][<a href="threads.html#01013">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] JavaScript::XRay</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;South Florida Perl Mongers&quot; &lt;<a href="mailto:southflorida-pm%40pm.org">southflorida-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] JavaScript::XRay</li>
+<li><em>From</em>: &quot;Jeff Bisbee&quot; &lt;<a href="mailto:jbisbee%40gmail.com">jbisbee@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Mon, 5 Jun 2006 03:06:09 -0400</li>
+<li><em>Cc</em>: <a href="mailto:david%40justatheory.com">david@justatheory.com</a>, <a href="mailto:rjbs-vcard%40public.manxome.org">rjbs-vcard@public.manxome.org</a>,	Omaha Perl Mongers &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;, <a href="mailto:cpan%40ali.as">cpan@ali.as</a>,	Casey West &lt;<a href="mailto:casey%40geeknest.com">casey@geeknest.com</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+I've just released a new module to the CPAN today.  (FYI, this is the code
+I was talking about at the last Duck meeting - aka South Florida Perl
+Mongers Social Meeting)
+
+   JavaScript::XRay - See What JavaScript is Doing
+   <a  rel="nofollow" href="http://search.cpan.org/~jbisbee/JavaScript-XRay/">http://search.cpan.org/~jbisbee/JavaScript-XRay/</a>
+
+Basically, it's and  HTML sourcce filter and the idea is that you plug it into
+your application server to give you a much needed edge when developing,
+debugging, and/or refactoring javascript code.
+
+Here is a quick no frills static example...
+
+   Before:  <a  rel="nofollow" href="http://www.jbisbee.com/test.html">http://www.jbisbee.com/test.html</a>
+   After:  <a  rel="nofollow" href="http://www.jbisbee.com/test-xrayed.html">http://www.jbisbee.com/test-xrayed.html</a>
+
+I'd like to ask for assistance from you guys in putting the finishing touches
+on the module. (You guys meaning SouthFlorida.pm, Omaha.pm, and perl folks
+that I know are into coding javascript).
+
+The call for help includes:
+
+* Using the module.  Plug the module into your application framework and
+ give it a spin.  I'd appriciate any feedback (good, bad, etc) to help make
+ it more useful.
+
+* Finding and fixing bugs.  The code is far from bug free so let's see if we
+  can find and discuess issues or short comings.  Also feel free to question
+  the interface or suggest improvements to make the code more elegant
+  or robust.
+
+* Cleaning up the pod.  If something doesn't sound right or you don't
+  get it, let's rewrite it so it makes sense.  Also fix any grammar
+or spelling
+  errors, etc.  We can us AnnoCPAN to facilitate this.  If you haven't seen
+  or used AnnoCPAN yet, give i.
+  <a  rel="nofollow" href="http://annocpan.org/dist/JavaScript-XRay">http://annocpan.org/dist/JavaScript-XRay</a>
+
+* Adding functionality.  I need to finalize how the inlining of external
+  js files in going to work.  A generic solution would just use LWP,
+  but if the script is used from the command line, it may be a relative
+  directory issue.  It also could be that the user could specify a list
+  of root directories to look for javascript files if their located on the
+  same server as the one serving the page.
+
+* Tests!  Tests are pretty much non existant right now.  It's on my
+  to do list, but haven't gotten around to it yet.  (shame on me for
+  not doing test first development).  Anyway, if you want to help
+  out by writing tests, feel free (just let me know because I still
+  plan working on them this week)
+
+I use the logging console on a daily basis now and it has helped
+me figure out, debug, and fix javascript code that I wouldn't have
+a clue with before this tool.
+
+We can use the southflorida-pm list for discussion now.  (the only
+traffic it gets now is from me remind folks of when the next meeting
+is)  Feel free to pass this message on to other people who might
+be interested in using the module or helping out.
+
+BTW, for those folks who I CC'd or get forwarded this message, if
+you're not signed up to the southflorida-pm list but would like to
+help, you can sign up to the southflorida-pm list here
+
+   <a  rel="nofollow" href="http://mail.pm.org/mailman/listinfo/southflorida-pm">http://mail.pm.org/mailman/listinfo/southflorida-pm</a>
+
+--
+Jeff Bisbee / jbisbee@gmail.com / jbisbee.com
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01012.html">[Omaha.pm] YAPC::NA</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01014.html">[Omaha.pm] Benchmarking new versions of a module</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01012.html">[Omaha.pm] YAPC::NA</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01014.html">[Omaha.pm] Benchmarking new versions of a module</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01013"><strong>Date</strong></a></li>
+<li><a href="threads.html#01013"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

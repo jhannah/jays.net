@@ -1,0 +1,122 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Cheesy XML wrangling -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 1 Mar 2008 16:17:11 &#45;0000 -->
+<!--X-Message-Id: 2E704022&#45;F7DC&#45;4E97&#45;A2B1&#45;4D6521910055@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Cheesy XML wrangling</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01670.html">Date Prev</a>][<a href="msg01672.html">Date Next</a>][<a href="msg01670.html">Thread Prev</a>][<a href="msg01673.html">Thread Next</a>][<a href="maillist.html#01671">Date Index</a>][<a href="threads.html#01671">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Cheesy XML wrangling</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Nebraska USA Perl Mongers of Omaha &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Cheesy XML wrangling</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Sat, 1 Mar 2008 10:16:51 -0600</li>
+<li><em>Cc</em>: Omaha Linux User Group &lt;<a href="mailto:olug%40olug.org">olug@olug.org</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<tt>I've been doing a lot of cheesy XML parsing w/ command-line perl  
+</tt><tt>lately. Perl is great at elegant XML handling too (I'm a fan of  
+</tt><tt>XML::Twig), but it's hard to beat 30-second command line solutions to  
+</tt><tt>answer simple questions...
+</tt><pre style="margin: 0em;">
+
+Linux + GNU + Perl is awesome.   :)
+
+j
+preaching to the choir
+
+
+$ head -3 RevData.DALMAN.20080301.xml
+</pre><tt>&lt;revolutiondata asof=&quot;20080301091702&quot; hotel=&quot;DALMAN&quot; seq=&quot;20080301&quot;  
+</tt><tt>ver=&quot;1.5&quot;&gt;
+</tt><pre style="margin: 0em;">
+  &lt;reservations&gt;
+</pre><tt>    &lt;res actrrev=&quot;972&quot; bktime=&quot;20070915050836&quot; cas=&quot;N&quot;  
+</tt><tt>doa=&quot;20071027&quot; evt=&quot;notevent&quot; exprrev=&quot;972&quot; gcnt=&quot;1&quot;  
+</tt><tt>grp=&quot;13700106165&quot; gtd=&quot;Y&quot; id=&quot;2009477241&quot; inlos=&quot;6&quot;  
+</tt><tt>intime=&quot;20071027100400&quot; los=&quot;6&quot; off=&quot;notoffer&quot;  
+</tt><tt>outtime=&quot;20071102041200&quot; rcnt=&quot;1&quot; rt=&quot;DELUXE&quot; seg=&quot;06&quot; src=&quot;WB&quot;  
+</tt><tt>st=&quot;R&quot; time=&quot;20080301091703&quot; xltime=&quot;&quot;/&gt;
+</tt><pre style="margin: 0em;">
+
+</pre><tt>$ grep '&lt;res ' RevData.DALMAN.20080301.xml | perl -nle '/rt=&quot;(.*?)&quot;/;  
+</tt><tt>print $1' | sort | uniq -c
+</tt><pre style="margin: 0em;">
+  50699 DELUXE
+  16144 SUITES
+   1180 UMAN
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01673" href="msg01673.html">Re: [Omaha.pm] Cheesy XML wrangling</a></strong>
+<ul><li><em>From:</em> &quot;trey&quot; &lt;trey-b@cox.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01670.html">[Omaha.pm] Catalyst: Adding Action Timings To Your Output</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01672.html">[Omaha.pm] Fwd: [pm_groups] Summer of Code -- volunteers needed</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01670.html">[Omaha.pm] Catalyst: Adding Action Timings To Your Output</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01673.html">Re: [Omaha.pm] Cheesy XML wrangling</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01671"><strong>Date</strong></a></li>
+<li><a href="threads.html#01671"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

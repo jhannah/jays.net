@@ -1,0 +1,139 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Another one&#45;liner &#45; whack a database unload -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 29 Mar 2005 23:00:51 &#45;0000 -->
+<!--X-Message-Id: 07dc7a70172c853971913480aeed1c32@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Another one-liner - whack a database unload</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00351.html">Date Prev</a>][<a href="msg00353.html">Date Next</a>][<a href="msg00349.html">Thread Prev</a>][<a href="msg00353.html">Thread Next</a>][<a href="maillist.html#00352">Date Index</a>][<a href="threads.html#00352">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Another one-liner - whack a database unload</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Omaha Perl Mongers &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Another one-liner - whack a database unload</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Tue, 29 Mar 2005 17:00:42 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+
+PROBLEM
+
+Given a file, orphan.unl, that looks like this:
+
+&gt;head -3 orphan.unl
+</pre><tt>11832|704402|PARKWE|L|GNRMSG||1004792774||DMC|2005-03-29  
+</tt><tt>10:50:04.37500|0|0|PRO-PARKWEACT-1004792774TYP-FINO-1STA-ATOP-FLAG  
+</tt><tt>MESSAGEFLG-20050329000000TXT-REQ: RQ NSRM KING TA  
+</tt><tt>RATE:FDT-20050328101854FCL-LAJONEXDT-XCL-TOW-CIP-CBP-PLC-WCA-RTC-URG- 
+</tt><tt>NCLN-CLO-CPH-EDT-20050330000000DEP-|
+</tt><tt>11834|704402|PARKWE|L|GNRSPE||1004792774||DMC|2005-03-29  
+</tt><tt>10:50:05.32800|0|0|PRO-PARKWEACT-1004792774ITN-1COD-S2FRD 
+</tt><tt>-20050329000000TOD-20050330000000AMT-0STA-C|
+</tt><tt>11840|704402|PARKWE|L|GNRSPE||1004792774||DMC|2005-03-29  
+</tt><tt>10:50:07.29600|0|0|PRO-PARKWEACT-1004792774ITN-2COD-KINGFRD 
+</tt><tt>-20050329000000TOD-20050330000000AMT-0STA-C|
+</tt><pre style="margin: 0em;">
+
+Turn the leading digits into a single 0.
+
+SOLUTION
+
+&gt;cat orphan.unl | perl -ne &quot;s/^\d+/0/; print&quot; &gt; orphan_new.unl
+
+All done. Observe:
+
+&gt;head -3 orphan_new.unl
+</pre><tt>0|704402|PARKWE|L|GNRMSG||1004792774||DMC|2005-03-29  
+</tt><tt>10:50:04.37500|0|0|PRO-PARKWEACT-1004792774TYP-FINO-1STA-ATOP-FLAG  
+</tt><tt>MESSAGEFLG-20050329000000TXT-REQ: RQ NSRM KING TA  
+</tt><tt>RATE:FDT-20050328101854FCL-LAJONEXDT-XCL-TOW-CIP-CBP-PLC-WCA-RTC-URG- 
+</tt><tt>NCLN-CLO-CPH-EDT-20050330000000DEP-|
+</tt><tt>0|704402|PARKWE|L|GNRSPE||1004792774||DMC|2005-03-29  
+</tt><tt>10:50:05.32800|0|0|PRO-PARKWEACT-1004792774ITN-1COD-S2FRD 
+</tt><tt>-20050329000000TOD-20050330000000AMT-0STA-C|
+</tt><tt>0|704402|PARKWE|L|GNRSPE||1004792774||DMC|2005-03-29  
+</tt><tt>10:50:07.29600|0|0|PRO-PARKWEACT-1004792774ITN-2COD-KINGFRD 
+</tt><tt>-20050329000000TOD-20050330000000AMT-0STA-C|
+</tt><pre style="margin: 0em;">
+
+&gt;wc -l orphan*
+     899 orphan.unl
+     899 orphan_new.unl
+
+Yay!
+
+</pre><tt>What's the point? orphan.unl was a database unload, and we needed to  
+</tt><tt>set the serial/autonumber column (the first column) value to 0 on every  
+</tt><tt>row so the database would assign the ID automatically.
+</tt><pre style="margin: 0em;">
+
+j
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00351.html">Re: [Omaha.pm] IIS server log analysis</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00353.html">[Omaha.pm] ?: vs ||</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00349.html">[Omaha.pm] Reseach on Open Source Developers</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00353.html">[Omaha.pm] ?: vs ||</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00352"><strong>Date</strong></a></li>
+<li><a href="threads.html#00352"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

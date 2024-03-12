@@ -1,0 +1,122 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Tripwire "Replacement" In Perl -->
+<!--X-From-R13: Fenivf [pOeguhe &#60;genivfNgenivfofq.bet> -->
+<!--X-Date: 6 Sep 2007 01:28:37 &#45;0000 -->
+<!--X-Message-Id: 46DF57A7.60303@travisbsd.org -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Tripwire &quot;Replacement&quot; In Perl</title>
+<link rev="made" href="mailto:travis@travisbsd.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01517.html">Date Prev</a>][<a href="msg01519.html">Date Next</a>][<a href="msg01516.html">Thread Prev</a>][<a href="msg01527.html">Thread Next</a>][<a href="maillist.html#01518">Date Index</a>][<a href="threads.html#01518">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Tripwire &quot;Replacement&quot; In Perl</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Subject</em>: [Omaha.pm] Tripwire &quot;Replacement&quot; In Perl</li>
+<li><em>From</em>: Travis McArthur &lt;<a href="mailto:travis%40travisbsd.org">travis@travisbsd.org</a>&gt;</li>
+<li><em>Date</em>: Wed, 05 Sep 2007 20:28:07 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: Thunderbird 2.0.0.6 (Windows/20070728)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+Hey Guys,
+
+</pre><tt>Not sure if there'll be any interest or not, but figured I'd throw this 
+</tt><tt>out there anyways.
+</tt><pre style="margin: 0em;">
+
+</pre><tt>I was bored this week and needed something to do integrity checks on my 
+</tt><tt>servers, something Tripwire-esque but more lightweight.  For those not 
+</tt><tt>in the know about Tripwire it's a company and piece of software that 
+</tt><tt>lets you basically create a series of hashes and monitor if anything on 
+</tt><tt>the system changes in comparison with these hashes.  This is quite 
+</tt><tt>useful as generally when files change that are in areas critical to the 
+</tt><tt>system (/bin, /sbin, etc) it means the system binaries have been 
+</tt><tt>replaced by rootkit binaries.  This system has, at least in my 
+</tt><tt>experience, been a pain to setup and configure.  So I decided to replace it.
+</tt><pre style="margin: 0em;">
+
+</pre><tt>With a little Perl-fu and some help from a useful utility called mtree 
+</tt><tt>comes CamelTrap.  Feedback is welcome, so if you're interested in giving 
+</tt><tt>some or just trying it out you can grab it from 
+</tt><tt><a  rel="nofollow" href="http://travis.travisbsd.org/pfiles/CamelTrap.tar">http://travis.travisbsd.org/pfiles/CamelTrap.tar</a>
+</tt><pre style="margin: 0em;">
+
+It requires mtree, Term::ReadKey, and of course Perl.
+
+</pre><tt>There's a brief README explaining usage, I'll shutup and let it explain 
+</tt><tt>the rest so I don't flood your inboxes anymore than I already have!
+</tt><pre style="margin: 0em;">
+
+Best Regards,
+Travis
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01527" href="msg01527.html">Re: [Omaha.pm] Tripwire &quot;Replacement&quot; In Perl</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01517.html">Re: [Omaha.pm] Greetings!</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01519.html">[Omaha.pm] Grab all the Error and Warnings out of XML, s/^\n//mg</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01516.html">[Omaha.pm] Perlbuzz</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01527.html">Re: [Omaha.pm] Tripwire &quot;Replacement&quot; In Perl</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01518"><strong>Date</strong></a></li>
+<li><a href="threads.html#01518"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

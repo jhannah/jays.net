@@ -1,0 +1,151 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] RE: Net::Dev::Tools::Syslog &#45;&#45; local? -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: Mon, 20 Sep 2004 11:42:06 &#45;0500 -->
+<!--X-Message-Id: 004001c49f30$a44c58d0$4722000a@omarests2 -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 5.2.1.1.0.20040920105046.0293cb40@whq&#45;msgusr&#45;03 -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] RE: Net::Dev::Tools::Syslog -- local?</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00151.html">Date Prev</a>][<a href="msg00153.html">Date Next</a>][<a href="msg00151.html">Thread Prev</a>][<a href="msg00140.html">Thread Next</a>][<a href="maillist.html#00152">Date Index</a>][<a href="threads.html#00152">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] RE: Net::Dev::Tools::Syslog -- local?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;'Scott Parsons'&quot; &lt;<a href="mailto:scott.parsons%40marconi.com">scott.parsons@marconi.com</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] RE: Net::Dev::Tools::Syslog -- local?</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Mon, 20 Sep 2004 11:41:12 -0500</li>
+<li><em>Cc</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Importance</em>: Normal</li>
+<li><em>In-reply-to</em>: &lt;5.2.1.1.0.20040920105046.0293cb40@whq-msgusr-03&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=help">mailto:omaha-pm-request@mail.pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.mail.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@mail.pm.org">mailto:omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=subscribe">mailto:omaha-pm-request@mail.pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe">mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: <a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>, &quot;Perl Mongers of Omaha,	Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+From: Scott Parsons [<a  rel="nofollow" href="mailto:scott.parsons@marconi.com">mailto:scott.parsons@marconi.com</a>]
+&gt; For just syslog functionality you should not need both modules, just 
+&gt; Sys::Syslog, it looks like it tries to handle streams.
+
+Yes. Sys::Syslog works great for local and remote delivery until I want to log locally and simultaneously log to multiple remote machines, depending on the message / facility / priority / what have you. Since it's procedural code, calls to openlog() and closelog() are unilateral and I don't have granular control of open/close on multiple simultaeous sessions. If it was OO, I could just have as many $syslog objects as I wanted and do whatever. Unless I'm missing something, which wouldn't surprise me.
+
+FWIW, below is a snippet of POD from one of my classes talking about the various Syslog'y packages...
+
+&gt; Thanks for the feedback, guess I should add to my doc about the intent of 
+&gt; the functions, since its limiting.
+
+Sure. Thanks for all your work on the module! It's slick! I'm using it to log to mutiple remote machines. (err.... I *will be* using it soon... -grin-)
+
+Take care,
+
+j
+
+
+
+=item B&lt;Sys::Syslog&gt;
+
+Procedural. Works great to local and remote syslogd processes.
+Local delivery can be accomplished via &quot;setlogsock 'unix';&quot;, which avoids
+the overhead of UDP/TCP delivery. This is the B&lt;only Perl class&gt; that works
+like this. Remote delivery via UDP or TCP can
+be used by setting $Sys::Syslog::host. (Jay sent a POD patch to perl5-porters.)
+
+=item B&lt;Net::Syslog&gt;
+
+OO. Needs an open UDP port.
+
+=item B&lt;Net::Dev::Tools::Syslog&gt;
+
+OO. Needs an open UDP port. Very verbose interface w/ lots of
+fancy dials and switches. Does parsing too, and is actively maintained.
+
+=item B&lt;Unix::Syslog&gt;
+
+Procedural. Sys::Syslog does everything Unix::Syslog does anyway? The
+docs for Unix::Syslog make claims that don't seem true anymore while
+comparing itself to Sys::Syslog.
+
+=item B&lt;/usr/bin/logger&gt;
+
+Little command line utility that works great. Logs to syslog and metalog
+with no problems. You can even open a filehandle to it, turn on autoflushing,
+and just leave it running, which should avoid the overhead of forking it
+every time.
+
+=item B&lt;Conclusion&gt;
+
+So... it's decision time. Let's do this:
+
+  local server
+    metalog
+      /usr/bin/logger
+    syslog
+      /usr/bin/logger
+  central server(s)
+    syslog - these have to be syslog. metalog won't listen.
+      One Net::Dev::Tools::Syslog instance per server
+
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00151.html">[Omaha.pm] Re: Net::Dev::Tools::Syslog -- local?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00153.html">[Omaha.pm] Anyone ever configured a bundle?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00151.html">[Omaha.pm] Re: Net::Dev::Tools::Syslog -- local?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00140.html">[Omaha.pm] [patch] Sys::Syslog POD - $Sys::Syslog::host</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00152"><strong>Date</strong></a></li>
+<li><a href="threads.html#00152"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Test Questions -->
+<!--X-From-R13: "Rna Zvaqre" &#60;qnaNyvaqre.bet> -->
+<!--X-Date: 4 Jan 2009 03:36:14 &#45;0000 -->
+<!--X-Message-Id: 3e2be50901031936q3ba38cadw8722a0c526c34f52@mail.gmail.com -->
+<!--X-Content-Type: multipart/alternative -->
+<!--X-Reference: 20090102213537.28PT8.159120.imail@eastrmwml11 -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Test Questions</title>
+<link rev="made" href="mailto:dan@linder.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01968.html">Date Prev</a>][<a href="msg01970.html">Date Next</a>][<a href="msg01968.html">Thread Prev</a>][<a href="msg01974.html">Thread Next</a>][<a href="maillist.html#01969">Date Index</a>][<a href="threads.html#01969">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Test Questions</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Test Questions</li>
+<li><em>From</em>: &quot;Dan Linder&quot; &lt;<a href="mailto:dan%40linder.org">dan@linder.org</a>&gt;</li>
+<li><em>Date</em>: Sat, 3 Jan 2009 21:36:06 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;20090102213537.28PT8.159120.imail@eastrmwml11&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;20090102213537.28PT8.159120.imail@eastrmwml11&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+I&#39;ll take a stab...though this really sounds like test questions copied verbatim... :-\<br><br><div class="gmail_quote">On Fri, Jan 2, 2009 at 8:35 PM,  <span dir="ltr">&lt;<a rel="nofollow" href="mailto:oak83@cox.net">oak83@cox.net</a>&gt;</span> wrote:<br>
+<blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;">Gents, I need some clarification on these if you do not mind? I am shaky on these. I will try to write these and see what happens. Any input is greatly appreciated.<br>
+
+<br>
+What is the value of the _expression_ length(1+2+3) ? &nbsp;5 or 6 or Am I off base?<br></blockquote><div><br>When I ran this snippet of code:<br>&nbsp;&nbsp;&nbsp;&nbsp; printf (&quot;len:%i\n&quot;, length(1+2+3));<br><br>I got back &quot;1&quot;.&nbsp; That sounds right since the <a rel="nofollow" href="http://perldoc.perl.org">perldoc.perl.org</a> site says that length &quot;returns the length in <i>characters</i> of the value of EXPR&quot;&nbsp; Thus, the math is done first (1+2+3) and results in 6.&nbsp; That value is then converted to a string (&quot;6&quot;), which has a length of 1.&nbsp;<br>
+</div><div>&nbsp;</div><blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;">
+The _expression_ $a = $b++ * ++$c has the same effect on $a, $b, and $c as which of the following? Think it is the 2nd one?<br>
+<br>
+$a = $b * $c;<br>
+<br>
+$a = ($b + 1) * ($c + 1);<br>
+<br>
+$c = $c + 1; $a = $b * $c; $b = $b + 1;<br>
+<br>
+$a = $b * ($c + 1);<br>
+</blockquote><div><br>I had to double check the Perl.com perlop reference (<a rel="nofollow" href="http://www.perl.com/doc/manual/html/pod/perlop.html">http://www.perl.com/doc/manual/html/pod/perlop.html</a>), but the C precedence I remembered from CS many years ago still holds.<br>
+<br>Since &quot;$b++&quot; means &quot;increment the $b variable AFTER returning it&#39;s current value to the _expression_ using it&quot;, and &quot;++$c&quot; means &quot;increment $c and return the new value to the _expression_.&quot;&nbsp; Since the ++ are tightly bound to the variable, the multiply doesn&#39;t affect the overall value, so the third example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp; $c = $c + 1; $a = $b * $c; $b = $b + 1;<br>Is a different way to write it.<br>&nbsp;</div><blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;">When is this logical _expression_ true: lc($a) eq $a ? &nbsp; Think it is the 3rd one?<br>
+
+<br>
+Never<br>
+<br>
+Always<br>
+<br>
+When $a contains no uppercase letters<br>
+<br>
+When $a contains no lowercase letters</blockquote><div><br>The third one.<br><br>I think that&#39;s enough for now. &nbsp; I didn&#39;t see you have submitted a dozen questions...&nbsp; My initial instinct that these are test questions is feeling more certain.<br>
+<br>If this was some sort of a take-home test, how hard would it be to write a small bit of code to test each one if you&#39;re not 100% sure? (That&#39;s what I did on the $b++ * ++$c question...)<br><br>If this isn&#39;t a test, why not point us toward the source code you&#39;re debugging and it might make more sense.<br>
+<br>Dan<br clear="all"></div></div><br>-- <br>&quot;Quis custodiet ipsos custodes?&quot; (Who can watch the watchmen?) -- from the Satires of Juvenal<br>&quot;I do not fear computers, I fear the lack of them.&quot; -- Isaac Asimov (Author)<br>
+** *** ***** ******* *********** *************<br>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01974" href="msg01974.html">Re: [Omaha.pm] Test Questions</a></strong>
+<ul><li><em>From:</em> &lt;oak83@cox.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01968" href="msg01968.html">[Omaha.pm] Test Questions</a></strong>
+<ul><li><em>From:</em> &lt;oak83@cox.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01968.html">[Omaha.pm] Test Questions</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01970.html">[Omaha.pm] Fwd: [Kc] Frozen Perl 2009 conference</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01968.html">[Omaha.pm] Test Questions</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01974.html">Re: [Omaha.pm] Test Questions</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01969"><strong>Date</strong></a></li>
+<li><a href="threads.html#01969"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

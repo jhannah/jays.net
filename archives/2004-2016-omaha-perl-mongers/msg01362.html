@@ -1,0 +1,138 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] find "000" in position 70&#45;72 in text files -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 10 Apr 2007 01:48:11 &#45;0000 -->
+<!--X-Message-Id: 8B3F77C2&#45;7A59&#45;4B8A&#45;A2C2&#45;D7978244FE35@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: E59FF64509EEEA4C96BE4723AE9668537DDF7E@exchange2k3.omnihotels.net -->
+<!--X-Reference: 3D678CD5&#45;5CB8&#45;4217&#45;9E47&#45;43C92B6D1C78@petdance.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] find &quot;000&quot; in position 70-72 in text files</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01361.html">Date Prev</a>][<a href="msg01363.html">Date Next</a>][<a href="msg01357.html">Thread Prev</a>][<a href="msg01365.html">Thread Next</a>][<a href="maillist.html#01362">Date Index</a>][<a href="threads.html#01362">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] find &quot;000&quot; in position 70-72 in text files</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] find &quot;000&quot; in position 70-72 in text files</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Mon, 9 Apr 2007 20:48:01 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01357.html">3D678CD5-5CB8-4217-9E47-43C92B6D1C78@petdance.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01356.html">E59FF64509EEEA4C96BE4723AE9668537DDF7E@exchange2k3.omnihotels.net</a>&gt;	&lt;<a href="msg01357.html">3D678CD5-5CB8-4217-9E47-43C92B6D1C78@petdance.com</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+
+On Apr 9, 2007, at 1:39 PM, Andy Lester wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+Jay, please start usin' the lexical handles!  So you can say
+
+	open( my $IN, $file ) or die &quot;Can't open $file: $!\n&quot;;
+
+Using the old-style handles is dangerous.
+</pre></blockquote><pre style="margin: 0em;">
+
+-ponder-   I've always used
+
+   open(IN, $file)
+
+or gone full OO w/
+
+   use FileHandle;
+   my $fh = FileHandle-&gt;new;
+
+</pre><tt>I'm not hep to your voodoo. &quot;perldoc -f open&quot; still seems to use my  
+</tt><tt>&quot;old-style&quot; too. I must be old if my Perl 5 methods are outdated  
+</tt><tt>before Perl 5 is.  :)
+</tt><pre style="margin: 0em;">
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+You can also shorten it reaaaally short like so:
+
+	$ perl -lne'print &quot;$ARGV: $_&quot; if /^.{69}000/' *dly
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>Ah, $ARGV is very cool! I knew the rest of that but hadn't learned  
+</tt><tt>$ARGV. Thanks!
+</tt><pre style="margin: 0em;">
+
+j
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01365" href="msg01365.html">Re: [Omaha.pm] find &quot;000&quot; in position 70-72 in text files</a></strong>
+<ul><li><em>From:</em> Andy Lester &lt;andy@petdance.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01356" href="msg01356.html">[Omaha.pm] find &quot;000&quot; in position 70-72 in text files</a></strong>
+<ul><li><em>From:</em> &quot;Jay Hannah&quot; &lt;jhannah@omnihotels.com&gt;</li></ul></li>
+<li><strong><a name="01357" href="msg01357.html">Re: [Omaha.pm] find &quot;000&quot; in position 70-72 in text files</a></strong>
+<ul><li><em>From:</em> Andy Lester &lt;andy@petdance.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01361.html">Re: [Omaha.pm] good mirror script?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01363.html">Re: [Omaha.pm] good mirror script?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01357.html">Re: [Omaha.pm] find &quot;000&quot; in position 70-72 in text files</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01365.html">Re: [Omaha.pm] find &quot;000&quot; in position 70-72 in text files</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01362"><strong>Date</strong></a></li>
+<li><a href="threads.html#01362"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

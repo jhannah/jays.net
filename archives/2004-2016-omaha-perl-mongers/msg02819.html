@@ -1,0 +1,197 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] My first script -->
+<!--X-From-R13: Pvyy Pehfu &#60;ooehfuNtznvy.pbz> -->
+<!--X-Date: 8 Mar 2012 18:05:49 &#45;0000 -->
+<!--X-Message-Id: CAF&#45;Fg+gTRVmizx=kmx9FD1ZZ8dzMkNK1PieZDH03Sn7QmuhK3Q@mail.gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] My first script</title>
+<link rev="made" href="mailto:bbrush@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02818.html">Date Prev</a>][<a href="msg02820.html">Date Next</a>][<a href="msg02818.html">Thread Prev</a>][<a href="msg02820.html">Thread Next</a>][<a href="maillist.html#02819">Date Index</a>][<a href="threads.html#02819">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] My first script</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] My first script</li>
+<li><em>From</em>: Bill Brush &lt;<a href="mailto:bbrush%40gmail.com">bbrush@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 8 Mar 2012 12:05:47 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20120113;	h=mime-version:date:message-id:subject:from:to:content-type;	bh=qw7NX0A99idvyr/4PG96+fUw3OGRBlCBDdcZq0rdnFE=;	b=oo5/CDLUcm18Ezp+rhCAquKCKi6AlUvWtHnc7Xz9hdiF1tefkdG1XVIwVfPQ/gvquc	qNtATkLlIVsc0cWf6nodXcs0beWqj9DtMllDG3IbpysPlJHUVeYi22FVm0XqJu79d3ZJ	ZkB5cbNA26QSWKMJTQoiBAoV8CqrZ3sA39V6BaRVlFVONiop4Ldds4qb3ZiyVmBIDlyF	8opmwhQA2S2wbvaB5vusNvvhY6bQRwPoLJmG3tueesZdRQB0RzM46+80Qs8ZDnsUTFy4	wKjYF9m6D2lCKBuCAMTl9XTT5S0uXr/4PI+TXdbT67TGdQvbIcZ5zF44POOtruzZSpST	h0eQ==</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Well it's essentially finished, so I thought I'd share.  I'm sure it
+could be improved, but honestly I'm just impressed I got it to work.
+Now I just need to tweak it to work in unattended cron mode.
+
+I sanitized the code so none of my particulars are there, for obvious
+reasons.  Big thanks to Jay for pointing me towards the Email::Stuff
+module.
+
+Bill
+
+***************************************************************************************************************
+
+#!/usr/bin/perl
+
+
+use strict;
+use Net::LDAP;
+use IO::File;
+use Email::Stuff;
+
+#Creates connection to netusrA on the LDAP port, using the ldap_binder account
+my $netad = Net::LDAP-&gt;new(&quot;myhost.mydomain&quot;) or die &quot;Could not connect! $!&quot;;
+$netad-&gt;bind(&quot;bind account here&quot;, password=&gt;&quot;bind account password here&quot;);
+
+#Defines the LDAP search to start at the root of the directory tree
+my $base = 'root of my LDAP directory tree';
+
+#The filter is in LDAP format
+#The filter specifies users that have an SN (last name) that exists,
+but is not equal to System nor starts with Sharepoint
+#AND that have an email address
+#AND that have a givenname (first name) that is not equal to NET
+my $filter = &quot;(&amp;(&amp;(!(sn=System))(!(sn=Sharepoint*))(sn=*))(mail=*)(&amp;(!(givenname=NET))(givenname=*)))&quot;;
+
+# $attrs specifies which attributes to be retrieved
+my $attrs = [&quot;givenname&quot;,&quot;sn&quot;,&quot;mail&quot;];
+
+# This creates a search result object ($results) from the netad search method
+my $results = $netad-&gt;search(base=&gt;$base,filter=&gt;$filter,attrs=&gt;$attrs);
+
+# This uses the count method of $results to return the number of
+records matching the filter
+my $count = $results-&gt;count;
+
+
+
+#message (&quot;Records returned $count&quot;);
+
+
+
+#Creates an output file named emailList.csv or returns error.
+my $outputfile = IO::File-&gt;new(&quot;emailList.csv&quot;,&quot;w&quot;) or die &quot;Could not
+open output file $!&quot;;
+
+#Loop to write each result line to the output file
+for (my $i=0;$i&lt;$count;$i++){
+	
+	#Assigns the result at $i to the variable $foo
+	my $foo = $results-&gt;entry($i);
+		#Assigns the attribute names to variables
+		my $sn=&quot;sn&quot;;
+		my $gn=&quot;givenName&quot;;
+		my $mail=&quot;mail&quot;;
+		
+		#Assigns the value from $foo to a specific variable
+		my $lastname = $foo-&gt;get_value($sn);
+		my $firsttname = $foo-&gt;get_value($gn);
+		my $email = $foo-&gt;get_value($mail);
+		
+		#Concatenates the variables to a csv output line.  The \n is the new
+line operator
+		my $line = &quot;$firsttname,$lastname,$email\n&quot;;
+		
+#  Writes the same output to the screen		
+#		message (&quot;$line&quot;);
+
+		#Writes the data line to the output file
+		$outputfile-&gt;print($line);
+
+}
+
+#Closes the output file
+undef $outputfile;
+
+#Closes the LDAP connection
+$netad-&gt;unbind;
+
+#Email the output file to the SharePoint doc library using the SMTP server
+Email::Stuff-&gt;To('destination e-mail')
+			-&gt;from('source e-mail')
+			-&gt;Subject(&quot;Automatically generated e-mail list&quot;)
+			-&gt;text_body(&quot;E-mail list for Communications department.  Used for
+Constant Contact service.&quot;)
+			-&gt;attach_file('emailList.csv')
+			-&gt;using('SMTP',Host =&gt; 'my mail server')
+			-&gt;send;
+
+
+sub message
+{
+    my $m = shift or return;
+    print(&quot;$m\n&quot;);
+}
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="02820" href="msg02820.html">Re: [Omaha.pm] My first script</a></strong>
+<ul><li><em>From:</em> Theodore Katseres &lt;tedkat@gmail.com&gt;</li></ul></li>
+<li><strong><a name="02821" href="msg02821.html">Re: [Omaha.pm] My first script</a></strong>
+<ul><li><em>From:</em> &quot;Andrew Hadenfeldt&quot; &lt;ahadenfeldt@windstream.net&gt;</li></ul></li>
+<li><strong><a name="02822" href="msg02822.html">Re: [Omaha.pm] My first script</a></strong>
+<ul><li><em>From:</em> Bill Brush &lt;bbrush@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02818.html">[Omaha.pm] Feb 14 meeting - call for presentor(s)</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02820.html">Re: [Omaha.pm] My first script</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02818.html">[Omaha.pm] Feb 14 meeting - call for presentor(s)</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02820.html">Re: [Omaha.pm] My first script</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02819"><strong>Date</strong></a></li>
+<li><a href="threads.html#02819"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] How can I log to metalog from Perl? -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: Wed, 15 Sep 2004 13:24:50 &#45;0500 -->
+<!--X-Message-Id: 001201c49b51$417db470$4722000a@omarests2 -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] How can I log to metalog from Perl?</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00136.html">Date Prev</a>][<a href="msg00138.html">Date Next</a>][<a href="msg00132.html">Thread Prev</a>][<a href="msg00139.html">Thread Next</a>][<a href="maillist.html#00137">Date Index</a>][<a href="threads.html#00137">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] How can I log to metalog from Perl?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:metalog-users%40lists.sourceforge.net">metalog-users@lists.sourceforge.net</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] How can I log to metalog from Perl?</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Wed, 15 Sep 2004 13:24:35 -0500</li>
+<li><em>Cc</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>, <a href="mailto:root%40omnihotels.com">root@omnihotels.com</a></li>
+<li><em>Importance</em>: Normal</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=help">mailto:omaha-pm-request@mail.pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.mail.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@mail.pm.org">mailto:omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=subscribe">mailto:omaha-pm-request@mail.pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe">mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: <a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>, &quot;Perl Mongers of Omaha,	Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+Hola --
+
+I'm trying to log to metalog from Perl w/o forking a call to &quot;logger&quot;. (I'm worried about performance since my app will be high volume).
+
+I use this program:
+
+-----------------------------------------
+#!/usr/bin/perl
+use Sys::Syslog qw(:DEFAULT setlogsock);
+
+setlogsock(&quot;unix&quot;);
+openlog(&quot;ProgramX&quot;, 'ndelay', 'user');
+syslog('notice', 'Test 1');
+syslog('notice', 'What?: Test 2');
+closelog;
+-----------------------------------------
+
+And, in a syslogd log, I see this:
+
+Sep 15 10:34:25 king ProgramX: Test 1
+Sep 15 10:34:25 king ProgramX: What?: Test 2
+
+Which is great. In a metalog log, I see this:
+
+ProgramX: [What?] Test 2_
+
+Questions:
+1) Where did the datetime stamp go? I can't figure out how to get a stamp in metalog from Perl.
+2) Why do I have to have a colon in the message or no log occurs?
+3) What's the _ at the end of the log entry that did work?
+4) Should I be using something other than Sys::Syslog? I can't find any metalog stuff in CPAN or metalog anywhere?
+
+And, on a different note:
+Is network logging likely to happen anytime soon? 
+<a  rel="nofollow" href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=563753&amp;group_id=30635&amp;atid=399905">http://sourceforge.net/tracker/index.php?func=detail&amp;aid=563753&amp;group_id=30635&amp;atid=399905</a>
+
+Thanks!
+
+Jay Hannah
+Director of Development
+Omni Hotels Reservation Center
+Tel: (402) 952-6573
+Mobile: (402) 578-3976
+Email: jhannah@omnihotels.com
+
+The Omni Majestic -- a unique boutique concept -- takes you back in time with concierge style service in the heart of St. Louis.  Learn more at www.omnimajestic.com.
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00139" href="msg00139.html">Re: [Omaha.pm] How can I log to metalog from Perl?</a></strong>
+<ul><li><em>From:</em> Mike Hostetler &lt;hostetlerm@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00136.html">[Omaha.pm] Re: LWP form posts</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00138.html">[Omaha.pm] RE: Net::Dev::Tools::Syslog -- local?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00132.html">RE: [Omaha.pm] Rename [x] files in a directory</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00139.html">Re: [Omaha.pm] How can I log to metalog from Perl?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00137"><strong>Date</strong></a></li>
+<li><a href="threads.html#00137"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

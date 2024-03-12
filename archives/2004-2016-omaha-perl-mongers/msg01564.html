@@ -1,0 +1,148 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Tight XML::Twig code -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 29 Nov 2007 21:30:14 &#45;0000 -->
+<!--X-Message-Id: 474F2E55.2060007@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Tight XML::Twig code</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01563.html">Date Prev</a>][<a href="msg01565.html">Date Next</a>][<a href="msg01563.html">Thread Prev</a>][<a href="msg01565.html">Thread Next</a>][<a href="maillist.html#01564">Date Index</a>][<a href="threads.html#01564">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Tight XML::Twig code</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Tight XML::Twig code</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Thu, 29 Nov 2007 15:25:41 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: Thunderbird 2.0.0.9 (Windows/20071031)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<tt>Here are some shorter ways to do some XML::Twig stuff I stumbled into 
+</tt><tt>today...
+</tt><pre style="margin: 0em;">
+
+j
+
+
+Before:
+
+  (@x) = $root-&gt;get_xpath(
+     'RoomStays/RoomStay/TimeSpan'
+  );
+  foreach my $TimeSpanNode (@x)
+  {
+      $TimeSpanNode-&gt;delete;
+  }
+
+After:
+
+  for ($root-&gt;get_xpath('RoomStays/RoomStay/TimeSpan')) {
+     $_-&gt;delete;
+  }
+
+
+
+Or use map, if you're into that:
+  map { $_-&gt;delete } $root-&gt;get_xpath('RoomStays/RoomStay/TimeSpan');
+
+
+
+Before:
+
+  my (@p) = $GuestCounts-&gt;get_xpath(
+     'GuestCount'
+  );
+  foreach my $GuestCount (@p)
+  {
+</pre><tt>     
+</tt><tt>After:
+</tt><pre style="margin: 0em;">
+
+  foreach my $GuestCount ($GuestCounts-&gt;get_xpath('GuestCount'))
+  {
+
+
+
+Before:
+
+</pre><tt>  $BookArg= new XML::Twig::Elt( 'BookItArgument', '');   # create the 
+</tt><tt>element
+</tt><pre style="margin: 0em;">
+  $BookArg-&gt;set_att(Name =&gt; 'affiliate');
+  $BookArg-&gt;set_att(Value =&gt; 'Kayak.com');
+
+After:
+
+  $BookArg= XML::Twig::Elt-&gt;new( BookItArgument =&gt; {
+     Name  =&gt; 'affiliate',
+     Value =&gt; 'Kayak.com',
+  });
+
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01563.html">Re: [Omaha.pm] [olug] Test for integer in bash</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01565.html">[Omaha.pm] Dec 4 2007 - Matt Secoske - Processing - ODYNUG</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01563.html">Re: [Omaha.pm] [olug] Test for integer in bash</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01565.html">[Omaha.pm] Dec 4 2007 - Matt Secoske - Processing - ODYNUG</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01564"><strong>Date</strong></a></li>
+<li><a href="threads.html#01564"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Perl&#45;golf &#45;&#45; zero&#45;pad an IP address. -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 31 Jan 2005 03:29:13 &#45;0000 -->
+<!--X-Message-Id: 43A267AB&#45;7338&#45;11D9&#45;8988&#45;000A95E317B8@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 41065.12.160.138.85.1106952559.squirrel@12.160.138.85 -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Perl-golf -- zero-pad an IP address.</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00277.html">Date Prev</a>][<a href="msg00279.html">Date Next</a>][<a href="msg00276.html">Thread Prev</a>][<a href="msg00280.html">Thread Next</a>][<a href="maillist.html#00278">Date Index</a>][<a href="threads.html#00278">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Perl-golf -- zero-pad an IP address.</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Perl-golf -- zero-pad an IP address.</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Sun, 30 Jan 2005 21:29:07 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;41065.12.160.138.85.1106952559.squirrel@12.160.138.85&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;41065.12.160.138.85.1106952559.squirrel@12.160.138.85&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+
+On Jan 28, 2005, at 4:49 PM, Daniel Linder wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><tt>I recently wrote a quick script that took a standard IP address format 
+</tt><tt>of
+</tt><pre style="margin: 0em;">
+12.34.56.78 and reformat it to zero-padded numbers (012.034.056.078).
+Here is  the smallest subroutine I could come up with:
+
+sub zeropad {
+  my $IN = shift;
+  $IN =~ /(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})/;
+  return (sprintf(&quot;%03d.%03d.%03d.%03d&quot;, $1, $2, $3, $4));
+}
+</pre></blockquote><pre style="margin: 0em;">
+
+sub zeropad {
+   return sprintf(&quot;%03d.%03d.%03d.%03d&quot;, split /\./, $_[0]);
+}
+
+Cheers,
+
+j
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00280" href="msg00280.html">Re: [Omaha.pm] Perl-golf -- zero-pad an IP address.</a></strong>
+<ul><li><em>From:</em> &quot;Daniel Linder&quot; &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00276" href="msg00276.html">[Omaha.pm] Perl-golf -- zero-pad an IP address.</a></strong>
+<ul><li><em>From:</em> &quot;Daniel Linder&quot; &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00277.html">Re: [Omaha.pm] Quiz: select *</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00279.html">Re: [Omaha.pm] Quiz: select *</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00276.html">[Omaha.pm] Perl-golf -- zero-pad an IP address.</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00280.html">Re: [Omaha.pm] Perl-golf -- zero-pad an IP address.</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00278"><strong>Date</strong></a></li>
+<li><a href="threads.html#00278"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] "order by begin, end" -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 15 Mar 2009 19:41:41 &#45;0000 -->
+<!--X-Message-Id: 99243475&#45;BDA9&#45;4B60&#45;A9E9&#45;4BBA0D8455FF@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] &quot;order by begin, end&quot;</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02057.html">Date Prev</a>][<a href="msg02059.html">Date Next</a>][<a href="msg02057.html">Thread Prev</a>][<a href="msg02060.html">Thread Next</a>][<a href="maillist.html#02058">Date Index</a>][<a href="threads.html#02058">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] &quot;order by begin, end&quot;</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Nebraska USA Perl Mongers of Omaha &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] &quot;order by begin, end&quot;</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Sun, 15 Mar 2009 14:41:31 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+
+In SQL I could accomplish this with &quot;order by begin, end&quot;.
+
+But in my Perl nested data structure these things take more typing.  :)
+
+SQL++   :)
+
+j
+
+
+
+
+   foreach my $result (sort by_begin @ordered) {
+      printf(&quot;   %s..%s %s\n&quot;,
+         $result-&gt;{hit_position}-&gt;{begin},
+         $result-&gt;{hit_position}-&gt;{end},
+         $result-&gt;{small_seq}-&gt;{seq}
+      );
+   }
+
+
+sub by_begin {
+   if ($a-&gt;{hit_position}-&gt;{begin} &gt; $b-&gt;{hit_position}-&gt;{begin}) {
+      return 1;
+</pre><tt>   } elsif ($a-&gt;{hit_position}-&gt;{begin} == $b-&gt;{hit_position}-&gt; 
+</tt><tt>{begin}) {
+</tt><pre style="margin: 0em;">
+      if ($a-&gt;{hit_position}-&gt;{end} &gt; $b-&gt;{hit_position}-&gt;{end}) {
+         return 1;
+</pre><tt>      } elsif ($a-&gt;{hit_position}-&gt;{end} == $b-&gt;{hit_position}-&gt; 
+</tt><tt>{end}) {
+</tt><pre style="margin: 0em;">
+         return 0;
+      } else {
+         return -1;
+      }
+</pre><tt>   } elsif ($a-&gt;{hit_position}-&gt;{begin} &lt; $b-&gt;{hit_position}-&gt; 
+</tt><tt>{begin}) {
+</tt><pre style="margin: 0em;">
+      return -1;
+   }
+}
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02057.html">Re: [Omaha.pm] [odynug] Re: Pet paradise challenge: perl_1: basic	parsing done</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02059.html">Re: [Omaha.pm] Modify an existing PDF?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02057.html">Re: [Omaha.pm] [odynug] Re: Pet paradise challenge: perl_1: basic	parsing done</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02060.html">[Omaha.pm] Fwd: TPF in Google Summer of Code!</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02058"><strong>Date</strong></a></li>
+<li><a href="threads.html#02058"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

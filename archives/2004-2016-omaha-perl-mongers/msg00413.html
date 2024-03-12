@@ -1,0 +1,118 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] quick n dirty rand() -->
+<!--X-From-R13: Oaql Zrfgre &#60;naqlNcrgqnapr.pbz> -->
+<!--X-Date: 10 Jun 2005 01:50:11 &#45;0000 -->
+<!--X-Message-Id: 20050610015003.GA6939@petdance.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 200506092303.j59N3Qnn025190@omares&#45;email.omnihotels.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] quick n dirty rand()</title>
+<link rev="made" href="mailto:andy@petdance.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00412.html">Date Prev</a>][<a href="msg00414.html">Date Next</a>][<a href="msg00411.html">Thread Prev</a>][<a href="msg00424.html">Thread Next</a>][<a href="maillist.html#00413">Date Index</a>][<a href="threads.html#00413">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] quick n dirty rand()</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] quick n dirty rand()</li>
+<li><em>From</em>: Andy Lester &lt;<a href="mailto:andy%40petdance.com">andy@petdance.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 9 Jun 2005 20:50:03 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00411.html">200506092303.j59N3Qnn025190@omares-email.omnihotels.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00411.html">200506092303.j59N3Qnn025190@omares-email.omnihotels.com</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: Mutt/1.4.2i</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>On Thu, Jun 09, 2005 at 06:04:16PM -0500, Jay Hannah (jhannah@omnihotels.com) wrote:
+&gt; 
+&gt; Before
+&gt; 
+&gt;   my $rand = int(rand(3))+1;
+&gt;   my $imagename = &quot;sean.jpg&quot;;
+&gt;   $imagename = &quot;jay.jpg&quot;      if ($rand == 2);
+&gt;   $imagename = &quot;airplane.jpg&quot; if ($rand == 3);
+&gt; 
+&gt; After
+&gt; 
+&gt;   my $imagename = (&quot;sean.jpg&quot;, &quot;jay.jpg&quot;, &quot;airplane.jpg&quot;)[(int rand 3)];
+
+Better yet:
+
+my @images = qw( sean.jpg jay.jpg airplane.jpg );
+my $random_image = $images[rand @images];
+
+-- 
+Andy Lester =&gt; andy@petdance.com =&gt; www.petdance.com =&gt; AIM:petdance
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00424" href="msg00424.html">Re: [Omaha.pm] quick n dirty rand()</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00411" href="msg00411.html">[Omaha.pm] quick n dirty rand()</a></strong>
+<ul><li><em>From:</em> &quot;Jay Hannah&quot; &lt;jhannah@omnihotels.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00412.html">Re: [Omaha.pm] Log files might be bz2'd hack</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00414.html">[Omaha.pm] CGI restore_parameters()</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00411.html">[Omaha.pm] quick n dirty rand()</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00424.html">Re: [Omaha.pm] quick n dirty rand()</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00413"><strong>Date</strong></a></li>
+<li><a href="threads.html#00413"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

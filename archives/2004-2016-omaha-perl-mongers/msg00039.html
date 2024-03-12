@@ -1,0 +1,225 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: RE: [Omaha.pm] Sort quickie -->
+<!--X-From-R13: "[vyyre, Epbgg Z (Aznun @rgjbexf)" &#60;fpbgg.y.zvyyreNuc.pbz> -->
+<!--X-Date: Thu, 8 Jul 2004 10:54:12 &#45;0500 -->
+<!--X-Message-Id: 1F7C0C8F4BD7C54A8BC55012FEF3DF6D0302E606@omaexc11.americas.cpqcorp.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>RE: [Omaha.pm] Sort quickie</title>
+<link rev="made" href="mailto:scott.l.miller@hp.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00038.html">Date Prev</a>][<a href="msg00040.html">Date Next</a>][<a href="msg00038.html">Thread Prev</a>][<a href="msg00043.html">Thread Next</a>][<a href="maillist.html#00039">Date Index</a>][<a href="threads.html#00039">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>RE: [Omaha.pm] Sort quickie</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: RE: [Omaha.pm] Sort quickie</li>
+<li><em>From</em>: &quot;Miller, Scott L (Omaha Networks)&quot; &lt;<a href="mailto:scott.l.miller%40hp.com">scott.l.miller@hp.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 8 Jul 2004 10:54:09 -0500</li>
+<li><em>List-archive</em>: &lt;<a href="http://www.pm.org/pipermail/omaha-pm">http://www.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcRkq4QHpMaoMrihRlmW6yqRQq2ZBQAUz+JA</li>
+<li><em>Thread-topic</em>: [Omaha.pm] Sort quickie</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>See Jay's IP sorting routine below: Very cool :-)
+
+Now, who's up for a discussion about whether it's a good idea to convert first and then sort, or leave the solution as given?
+
+While this is a cheap, clear solution for small arrays, actually using this technique for large arrays with N elements, means that the conversions will need to be done O (N * ln N) times with recent version of perl (which use the heap sort).  Where if you convert first, then sort then convert back, the conversion only needs to be done 2*N times.  Using older versions of perl where the quick sort method was used, if the data was already sorted, then quick sort performs very badly, and the comparisons jump to O (N^2).  There is fascinating (to me anyway) discussion happening on the &quot;perl-5-porters&quot; email list, which can be found near the bottom of the page here:
+<a  rel="nofollow" href="http://www.xray.mpe.mpg.de/mailing-lists/perl5-porters/2004-06/thrd2.html#00441">http://www.xray.mpe.mpg.de/mailing-lists/perl5-porters/2004-06/thrd2.html#00441</a>
+The really interesting portion of the thread starts where you see the subject &quot;Short circuiting sort&quot;.
+
+To give you a quick taste of the discussion; as you may or may not know, sort in scalar context (what it returns) is undefined.  Several options have been discussed on what it should return in scalar context. Some want the first element in the resulting sorted list, some want a truth value of whether it was already sorted, some want the number of swaps performed, others want a ratio of how sorted the list was, etc.  Thus, due to the range of desires, and no clear cut &quot;best option&quot; it has been left undefined. That is the prehistory of this topic.
+
+Recently someone presented a patch for sort to actually go play &quot;nethack&quot; if someone called it in scalar context. It was, of course, a joke, but some people ran with that joke...  Anyway, while that absurdity was being discussed, someone else said they would like to see the ability to short circuit the sort routine if they only wanted the first M elements resulting from a sort of N elements.  The argument being, &quot;why sort the whole list if I only want the top 5 elements?&quot;.  Thus, the discussion of the pro's and con's of various sorting algorithms, how to implement a short circuiting ability without making a complete sort any more expensive etc.
+
+Cool stuff.
+
+-Scott
+
+
+-----Original Message-----
+From: omaha-pm-bounces@pm.org [<a  rel="nofollow" href="mailto:omaha-pm-bounces@pm.org]On">mailto:omaha-pm-bounces@pm.org]On</a> Behalf
+Of Jay Hannah
+Sent: Thursday, July 08, 2004 12:12 AM
+To: Perl Mongers of Omaha, Nebraska USA
+Subject: Re: [Omaha.pm] Sort quickie
+
+
+
+On Jul 7, 2004, at 3:07 PM, Miller, Scott L (Omaha Networks) wrote:
+&gt; Another interesting possibility, expanding on what Jay started;
+&gt; it might be possible to use Jay's technique to sort IP addresses
+&gt; without first converting the addresses to their &quot;long int&quot; form...
+
+cmp was driving me crazy so I jumped on IRC (irc.freenode.net #perl)...
+
+The 2nd code block below is an IPv4 IP sorter for you... The 1st code 
+block is a faulty one. -grin-
+
+j
+
+
+--------------------------------
+
+This content is stored as  <a  rel="nofollow" href="http://sial.org/pbot/3335">http://sial.org/pbot/3335</a>.
+
+From: &quot;Omaha&quot; at 68.13.20.113
+Summary: Confused by cmp
+
+I was writing a quick demo of how to sort IPv4 addresses. The problem 
+is that the by_ip sort below should NOT work, as I undestand cmp, yet 
+somehow it already does...
+
+Shouldn't &quot;sort @x&quot; and &quot;sort by_ip @x&quot; as written below both return 
+the same series? I thought '$a cmp $b' was the default behavior of 
+sort?
+
+Confused...
+
+my @ips = qw(
+    20.0.50.0
+    20.0.100.0
+    77.0.0.0
+    100.0.0.0
+);
+
+print join &quot;, &quot;, sort @ips;
+print &quot;\n&quot;;
+print join &quot;, &quot;, sort by_ip @ips;
+print &quot;\n&quot;;
+
+sub by_ip {
+    my ($a, $b) = @_;
+    $a cmp $b;
+}
+
+----------
+
+&lt;pasteling&gt; &quot;Omaha&quot; at 68.13.20.113 pasted &quot;Confused by cmp&quot; (23 lines, 
+554B) at <a  rel="nofollow" href="http://sial.org/pbot/3335">http://sial.org/pbot/3335</a>
+&lt;broquaint&gt; Omaha: that's because you're comparing two undef vars i.e 
+$a &amp; $b aren't put in @_, they're magical package level vars
+&lt;broquaint&gt; drop my($a,$b) = @_ and it works as expected
+&lt;Omaha&gt; ... ahhh... ok. So my cmp always returned 0, leaving the array 
+in original order, which just happened to be sorted by IP already. Got 
+it...
+&lt;Omaha&gt; Any way to local($a, $b) so I can manipulate them? -ponder- 
+Just trying to save a couple lines of code I guess...
+&lt;apeiron&gt; Maybe more descriptive variable names would be a prudent idea.
+* Omaha grins
+&lt;broquaint&gt; avoid $a &amp; $b outside of sort { ... }, it saves all sorts 
+of headaches
+
+-----------
+
+This content is stored as  <a  rel="nofollow" href="http://sial.org/pbot/3336">http://sial.org/pbot/3336</a>.
+
+From: &quot;Omaha&quot; at 68.13.20.113
+Summary: sort by_ip -- feedback anyone?
+
+Quick and dirty IPv4 sorter?
+
+my @ips = qw( 20.0.100.0 20.0.50.0 100.0.0.0 77.0.0.0 );
+
+print join &quot;, &quot;, sort @ips;
+print &quot;\n&quot;;
+print join &quot;, &quot;, sort by_ip @ips;
+print &quot;\n&quot;;
+
+sub by_ip {
+    my ($j, $k) = ($a, $b);
+    for ($j, $k) {
+       $_ = sprintf(&quot;%03d.%03d.%03d.%03d&quot;, split /\./);
+    }
+    $j cmp $k;
+}
+
+------------------------
+
+&lt;pasteling&gt; &quot;Omaha&quot; at 68.13.20.113 pasted &quot;sort by_ip -- feedback 
+anyone?&quot; (17 lines, 327B) at <a  rel="nofollow" href="http://sial.org/pbot/3336">http://sial.org/pbot/3336</a>
+&lt;cfedde&gt; Omaha: I'd use Sockets, inet_aton and {$a cmp $b}
+&lt;cfedde&gt; Omaha: but yours works too
+
+---------------
+
+&lt;apeiron&gt; Beware False Hubris (inventing your own wheel), False 
+Impatience (thinking you can make one more quickly than it'd take to 
+learn an existing one), and False Laziness (thinking that making your 
+own is less effort).
+
+--------------
+
+&lt;nictuku&gt; is this fine? if (!$lasttimestamp) { $lasttimestamp = 0; }
+&lt;Omaha&gt; $lasttimestamp ||= 0;
+&lt;nictuku&gt; Omaha, cool.
+&lt;Omaha&gt; ya. :)
+
+
+_______________________________________________
+Omaha-pm mailing list
+Omaha-pm@pm.org
+<a  rel="nofollow" href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00038.html">Re: [Omaha.pm] Sort quickie</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00040.html">[Omaha.pm] s(a)(AAA) -- wow</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00038.html">Re: [Omaha.pm] Sort quickie</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00043.html">Re: [Omaha.pm] Sort quickie</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00039"><strong>Date</strong></a></li>
+<li><a href="threads.html#00039"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

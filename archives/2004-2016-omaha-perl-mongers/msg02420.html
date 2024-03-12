@@ -1,0 +1,142 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Hudson for Subversion + Perl -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 12 May 2010 17:20:42 &#45;0000 -->
+<!--X-Message-Id: 396CEDAA86B38646ACE2FEAA22C3FBF1035FFF46@l3exchange.omnihotels.net -->
+<!--X-Content-Type: multipart/mixed -->
+<!--X-Derived: pngJtqZ6C6r9E.png -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Hudson for Subversion + Perl</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02419.html">Date Prev</a>][<a href="msg02421.html">Date Next</a>][<a href="msg02419.html">Thread Prev</a>][<a href="msg02421.html">Thread Next</a>][<a href="maillist.html#02420">Date Index</a>][<a href="threads.html#02420">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Hudson for Subversion + Perl</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:odynug%40googlegroups.com">odynug@googlegroups.com</a>&gt;,	&lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Hudson for Subversion + Perl</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Wed, 12 May 2010 12:20:19 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: Acrx92U7osYX86URTdecshvJ5oUBcg==</li>
+<li><em>Thread-topic</em>: Hudson for Subversion + Perl</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<table width="100%"><tr><td style="a:link { color: blue } a:visited { color: purple } ">
+
+
+
+
+
+<div class=Section1>
+
+<p class=MsoNormal><font size=2 face="Courier New"><span style='font-size:10.0pt;
+font-family:"Courier New"'>Hey, neato. Looks like I got it working. It's
+polling our Subversion server for changes every 30 minutes and re-running our
+Perl tests. (Screenshot attached.)<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face="Courier New"><span style='font-size:10.0pt;
+font-family:"Courier New"'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face="Courier New"><span style='font-size:10.0pt;
+font-family:"Courier New"'>I love the SVN polling feature. &quot;Who broke the
+build?&quot; emails should be cool. Basically it just boils down to:<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face="Courier New"><span style='font-size:10.0pt;
+font-family:"Courier New"'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face="Courier New"><span style='font-size:10.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp; java -jar hudson.war<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face="Courier New"><span style='font-size:10.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp; prove --harness=TAP::Harness::JUnit
+--recurse<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face="Courier New"><span style='font-size:10.0pt;
+font-family:"Courier New"'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face="Courier New"><span style='font-size:10.0pt;
+font-family:"Courier New"'>Thanks for the tip Dave!&nbsp;&nbsp; :)<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face="Courier New"><span style='font-size:10.0pt;
+font-family:"Courier New"'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face="Courier New"><span style='font-size:10.0pt;
+font-family:"Courier New"'>j<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face="Courier New"><span style='font-size:10.0pt;
+font-family:"Courier New"'>falling out of love with Smolder (I'm fickle)<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face="Courier New"><span style='font-size:10.0pt;
+font-family:"Courier New"'><o:p>&nbsp;</o:p></span></font></p>
+
+</div>
+
+
+
+
+</td></tr></table><p><strong>Attachment:
+<a href="pngJtqZ6C6r9E.png" ><tt>hudson.png</tt></a></strong><br>
+<em>Description:</em> hudson.png</p>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02419.html">[Omaha.pm] KC.pm &gt; Omaha.pm</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02421.html">[Omaha.pm] Presentation request: git workshop</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02419.html">[Omaha.pm] KC.pm &gt; Omaha.pm</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02421.html">[Omaha.pm] Presentation request: git workshop</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02420"><strong>Date</strong></a></li>
+<li><a href="threads.html#02420"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

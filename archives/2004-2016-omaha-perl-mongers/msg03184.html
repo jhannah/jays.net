@@ -1,0 +1,121 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Simplifying Time? -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 20 Mar 2014 15:37:47 &#45;0000 -->
+<!--X-Message-Id: F761E54B&#45;1C66&#45;462F&#45;990C&#45;D0A6EBA74916@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: CAOXayVvcs4S3JL4HBL7dO090+vM3Bwv5PxYFTu2r4PyAcUtGdQ@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Simplifying Time?</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg03183.html">Date Prev</a>][<a href="msg03185.html">Date Next</a>][<a href="msg03183.html">Thread Prev</a>][<a href="msg03185.html">Thread Next</a>][<a href="maillist.html#03184">Date Index</a>][<a href="threads.html#03184">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Simplifying Time?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;denver.pm&quot; &lt;<a href="mailto:denver-pm%40pm.org">denver-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Simplifying Time?</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Thu, 20 Mar 2014 10:37:39 -0500</li>
+<li><em>Cc</em>: Nebraska USA Perl Mongers of Omaha &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;CAOXayVvcs4S3JL4HBL7dO090+vM3Bwv5PxYFTu2r4PyAcUtGdQ@mail.gmail.com&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm/">http://mail.pm.org/pipermail/omaha-pm/</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;CAOXayVvcs4S3JL4HBL7dO090+vM3Bwv5PxYFTu2r4PyAcUtGdQ@mail.gmail.com&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>On Mar 20, 2014, at 10:19 AM, Robert L. Harris &lt;robert.l.harris@gmail.com&gt; wrote:
+&gt; I'm running a script that is adding up the duration of events.  By the end of it I have something like this:
+&gt; 
+&gt; $Days=5
+&gt; $Hours=131
+&gt; $Mins=618
+&gt; $Secs=151
+&gt; 
+&gt; Anyone know a simple modules to simplify this to standard ranges?  Even if I have to do a multi-step?  I've looked into a few options but none are 'clean.'
+
+The defacto thing everyone and their mom uses is DateTime:
+
+   <a  rel="nofollow" href="https://metacpan.org/pod/DateTime">https://metacpan.org/pod/DateTime</a>
+
+I find it pretty meh for some things, so I used to use Class::Date a ton at a previous job:
+
+   <a  rel="nofollow" href="https://metacpan.org/pod/distribution/Class-Date/Date.pod">https://metacpan.org/pod/distribution/Class-Date/Date.pod</a>
+
+   # creating relative date object
+   # (normally you don't need to create this object explicitly)
+   my $reldate = new Class::Date::Rel &quot;3Y 1M 3D 6h 2m 4s&quot;;
+
+It's been a while since I hacked on this stuff hard.  :)
+
+j
+Omaha.pm
+
+
+
+
+
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg03183.html">[Omaha.pm] Meeting! Tue, Mar 25 2014 7pm</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg03185.html">Re: [Omaha.pm] Simplifying Time?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg03183.html">[Omaha.pm] Meeting! Tue, Mar 25 2014 7pm</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg03185.html">Re: [Omaha.pm] Simplifying Time?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#03184"><strong>Date</strong></a></li>
+<li><a href="threads.html#03184"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Net::LDAP -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 21 Feb 2012 21:51:01 &#45;0000 -->
+<!--X-Message-Id: 6A028FE8&#45;CF43&#45;4A90&#45;A1CB&#45;FCE967345B48@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: mailman.902.1329858129.2447.omaha&#45;pm@pm.org -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Net::LDAP</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02807.html">Date Prev</a>][<a href="msg02809.html">Date Next</a>][<a href="msg02807.html">Thread Prev</a>][<a href="msg02809.html">Thread Next</a>][<a href="maillist.html#02808">Date Index</a>][<a href="threads.html#02808">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Net::LDAP</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Nebraska USA Perl Mongers of Omaha &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Net::LDAP</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Tue, 21 Feb 2012 15:50:55 -0600</li>
+<li><em>Authentication-results</em>: mr.google.com;	spf=pass (google.com: domain of <a href="mailto:jay%40jays.net">jay@jays.net</a>	designates 10.236.154.232 as permitted sender)	smtp.mail=<a href="mailto:jay%40jays.net">jay@jays.net</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;mailman.902.1329858129.2447.omaha-pm@pm.org&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hi Bill,
+
+Sorry, I was in a meeting so wasn't staring at IRC.   :)
+
+   my $ad = Net::LDAP-&gt;new(&quot;ad.wjgilmore.com&quot;);
+
+Yes, that creates a new object, $ad, of the class Net::LDAP.
+
+The author of that class, apparently, allows a single argument to be passed in -- the server you want to connect to. Class authors can do whatever they want to arguments passed into new().
+
+   $ad-&gt;bind(&quot;ad-web\@ad.wjgilmore.com&quot;, password=&gt;&quot;secret&quot;);
+
+In OO programming bind() is called an object method. (method, function... in perl it's all just a sub {} under the hood :)
+
+Many people doing OO in perl5 use Moose nowadays. Check it out!:   <a  rel="nofollow" href="https://metacpan.org/module/Moose">https://metacpan.org/module/Moose</a>
+
+I saw you just joined this mailing list! Welcome! 
+
+j
+/me runs off to pick up his dogs at the vet   :)
+
+
+
+
+
+
+
+20:24 &lt; jhannah&gt; hi Bill  :)
+20:24 &lt; BillBrush&gt; I'm on the OLUG list
+20:25 &lt; jhannah&gt; I'm sorry.  ;)
+20:25 &lt; BillBrush&gt; :-)  No worries, I mainly lurk (for about 10) years
+20:25 &lt; jhannah&gt; ya, me too
+20:26 &lt; jhannah&gt; you might want to /join #OmahaLUG
+20:26 &lt; BillBrush&gt; I'm toying with the idea of using my novice perl skills to write an LDAP 
+                   query script.  Can I ask some realy basic questions?
+20:26 &lt; jhannah&gt; absolutely.  :)   you might want to join the omaha.pm.org mailing list
+20:27 &lt; BillBrush&gt; Just to give some idea, I've been programming at various basic levels since 
+                   84, but I'm not a &quot;dev&quot; and object oriented came long after I was out of 
+                   school.
+20:28 &lt; BillBrush&gt; So I'm looking at this statement:
+20:28 &lt; BillBrush&gt; my $ad = Net::LDAP-&gt;new(&quot;ad.wjgilmore.com&quot;)
+20:28 &lt; BillBrush&gt;          or die &quot;Could not connect!&quot;;
+20:28 &lt; BillBrush&gt; That creates an object ($ad) and sets the object property to (ad.blah.com)
+20:28 &lt; BillBrush&gt; Am I reading that right?
+20:29 &lt; BillBrush&gt; Assuming than I am, this statement then uses the bind function of the object 
+                   to open the connection to the LDAP.
+20:29 &lt; BillBrush&gt; $ad-&gt;bind(&quot;ad-web\@ad.wjgilmore.com&quot;, password=&gt;&quot;secret&quot;);
+20:30 &lt; BillBrush&gt; Am I on track or out in left field?
+20:41  * BillBrush thinks he scared Jay off
+21:23 -!- BillBrush [~bbrush@netv-net3674.unl.edu] has quit [Remote host closed the connection]
+21:43 &lt; jhannah&gt; haha, was in a meeting
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="02809" href="msg02809.html">Re: [Omaha.pm] Net::LDAP</a></strong>
+<ul><li><em>From:</em> Bill Brush &lt;bbrush@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02807.html">Re: [Omaha.pm] Programming Perl, 4th edition</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02809.html">Re: [Omaha.pm] Net::LDAP</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02807.html">Re: [Omaha.pm] Programming Perl, 4th edition</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02809.html">Re: [Omaha.pm] Net::LDAP</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02808"><strong>Date</strong></a></li>
+<li><a href="threads.html#02808"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

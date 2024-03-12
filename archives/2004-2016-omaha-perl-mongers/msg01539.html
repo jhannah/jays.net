@@ -1,0 +1,176 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] CGI.pm is your friend -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 16 Oct 2007 02:27:12 &#45;0000 -->
+<!--X-Message-Id: D1028A83&#45;CA84&#45;4F4E&#45;A51D&#45;972CA04394F6@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: Pine.LNX.4.64.0710152056200.6890@ferret.jays.net -->
+<!--X-Reference: Pine.LNX.4.64.0710152113390.7052@ferret.jays.net -->
+<!--X-Reference: 4839.70.165.110.36.1192500302.squirrel@webmail.linder.org -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] CGI.pm is your friend</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01538.html">Date Prev</a>][<a href="msg01540.html">Date Next</a>][<a href="msg01538.html">Thread Prev</a>][<a href="msg01540.html">Thread Next</a>][<a href="maillist.html#01539">Date Index</a>][<a href="threads.html#01539">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] CGI.pm is your friend</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] CGI.pm is your friend</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Mon, 15 Oct 2007 21:26:40 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01538.html">4839.70.165.110.36.1192500302.squirrel@webmail.linder.org</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01536.html">Pine.LNX.4.64.0710152056200.6890@ferret.jays.net</a>&gt;	&lt;<a href="msg01537.html">Pine.LNX.4.64.0710152113390.7052@ferret.jays.net</a>&gt;	&lt;<a href="msg01538.html">4839.70.165.110.36.1192500302.squirrel@webmail.linder.org</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+On Oct 15, 2007, at 9:05 PM, Daniel Linder wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+print $q-&gt;popup_menu(-name=&gt;'month', -values=&gt;[undef, 1..12]);
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>So, if I read this right, the 'magic' happens because of the []'s,  
+</tt><tt>right?
+</tt></blockquote><pre style="margin: 0em;">
+
+</pre><tt>Not sure if any of it's magic, it's just tighter code than writing  
+</tt><tt>your own loops to generate HTML.
+</tt><pre style="margin: 0em;">
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><tt>Does this end up calling the &quot;popup_menu&quot; function 13 times (undef,  
+</tt><tt>1, 2,
+</tt><tt>3, 4, 5, 6, 7, 8, 9, 10, 11, and 12)?  Or does the [] do other  
+</tt><tt>stuff when
+</tt><pre style="margin: 0em;">
+called inside that function?
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>popup_menu() is only called one time. It is handed an anonymous hash  
+</tt><tt>with two keys (&quot;name&quot; and &quot;values&quot;). The value of the &quot;values&quot; key is  
+</tt><tt>an anonymous array with the elements you listed in it.
+</tt><pre style="margin: 0em;">
+
+</pre><tt>Did that answer your question? Nothing magical, just a hash with an  
+</tt><tt>array in it.
+</tt><pre style="margin: 0em;">
+
+</pre><tt>If you don't do any web programming, this web stuff is pretty obtuse.  
+</tt><tt>But when generating gobs of HTML it's nice to call popup_menu()  
+</tt><tt>instead of having to do your own ugly looping.
+</tt><pre style="margin: 0em;">
+
+<a  rel="nofollow" href="http://search.cpan.org/~lds/CGI.pm-3.29/CGI.pm#CREATING_A_POPUP_MENU">http://search.cpan.org/~lds/CGI.pm-3.29/CGI.pm#CREATING_A_POPUP_MENU</a>
+
+$ cat j.pl
+use CGI;
+my $q = new CGI;
+print $q-&gt;popup_menu(-name=&gt;'month', -values=&gt;[undef, 1..12]);
+
+$ perl j.pl
+&lt;select name=&quot;month&quot;&gt;
+&lt;option value=&quot;&quot;&gt;&lt;/option&gt;
+&lt;option value=&quot;1&quot;&gt;1&lt;/option&gt;
+&lt;option value=&quot;2&quot;&gt;2&lt;/option&gt;
+&lt;option value=&quot;3&quot;&gt;3&lt;/option&gt;
+&lt;option value=&quot;4&quot;&gt;4&lt;/option&gt;
+&lt;option value=&quot;5&quot;&gt;5&lt;/option&gt;
+&lt;option value=&quot;6&quot;&gt;6&lt;/option&gt;
+&lt;option value=&quot;7&quot;&gt;7&lt;/option&gt;
+&lt;option value=&quot;8&quot;&gt;8&lt;/option&gt;
+&lt;option value=&quot;9&quot;&gt;9&lt;/option&gt;
+&lt;option value=&quot;10&quot;&gt;10&lt;/option&gt;
+&lt;option value=&quot;11&quot;&gt;11&lt;/option&gt;
+&lt;option value=&quot;12&quot;&gt;12&lt;/option&gt;
+&lt;/select&gt;
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+Dan
+
+(Just an old functional programmer trying to wrap his head around the
+object-oriented programming paradigm...)
+</pre></blockquote><pre style="margin: 0em;">
+
+Join the club. I'll print up some t-shirts.   :)
+
+j
+
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01540" href="msg01540.html">Re: [Omaha.pm] CGI.pm is your friend</a></strong>
+<ul><li><em>From:</em> &quot;Daniel Linder&quot; &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01536" href="msg01536.html">[Omaha.pm] CGI.pm is your friend</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+<li><strong><a name="01537" href="msg01537.html">Re: [Omaha.pm] CGI.pm is your friend</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+<li><strong><a name="01538" href="msg01538.html">Re: [Omaha.pm] CGI.pm is your friend</a></strong>
+<ul><li><em>From:</em> &quot;Daniel Linder&quot; &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01538.html">Re: [Omaha.pm] CGI.pm is your friend</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01540.html">Re: [Omaha.pm] CGI.pm is your friend</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01538.html">Re: [Omaha.pm] CGI.pm is your friend</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01540.html">Re: [Omaha.pm] CGI.pm is your friend</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01539"><strong>Date</strong></a></li>
+<li><a href="threads.html#01539"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

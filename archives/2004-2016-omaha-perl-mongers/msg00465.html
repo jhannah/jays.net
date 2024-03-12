@@ -1,0 +1,394 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] :Sybase success, build errors -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 10 Aug 2005 15:18:51 &#45;0000 -->
+<!--X-Message-Id: 200508101518.j7AFIYic018669@omares&#45;email.omnihotels.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 200508100028.j7A0S4ic001997@omares&#45;email.omnihotels.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] :Sybase success, build errors</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00464.html">Date Prev</a>][<a href="msg00466.html">Date Next</a>][<a href="msg00464.html">Thread Prev</a>][<a href="msg00466.html">Thread Next</a>][<a href="maillist.html#00465">Date Index</a>][<a href="threads.html#00465">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] :Sybase success, build errors</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:dbi-users%40perl.org">dbi-users@perl.org</a>&gt;, &quot;'Michael Peppler'&quot; &lt;<a href="mailto:mpeppler%40peppler.org">mpeppler@peppler.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] :Sybase success, build errors</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Wed, 10 Aug 2005 10:20:12 -0500</li>
+<li><em>Cc</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;200508100028.j7A0S4ic001997@omares-email.omnihotels.com&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcWdQpHT5VP2qIq2Rre9Goy4p/x8+gAct3Hg</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>&gt; I did get quite a few build errors though, and only half of 
+&gt; them (or so) are listed in 
+&gt; 
+&gt;   DBD-Sybase-1.06/README.freetds
+&gt; 
+&gt; so I thought I'd post my build dialogue here. I'm ignoring 
+&gt; all the errors below unless someone slaps me.
+
+Looks like last year I threatened to attempt to patch the tests so they'd run clean under freetds. I never did it. Now, feeling shamed, I've given exec.t a shot.
+
+On my box (
+
+  Perl            : 5.008007    (i686-linux)
+  OS              : linux       (2.4.21-243-default)
+  DBI             : 1.48
+  DBD::Sybase     : 1.06
+  freetds v0.63 
+     (./configure --prefix=/usr/local/freetds --with-tdsver=7.0)
+
+)
+
+The below modified exec.t runs like so:
+
+$ perl exec.t
+1..41
+ok 1 - use DBI;
+ok 2 - use DBD::Sybase;
+ok 3 - Connect
+ok 4 - Prepare sp_helpindex
+ok 5 - exec sysusers
+ok 6 - -1 (create proc)
+ok 7 - prepare dbitest
+ok 8 - bind_param 1
+ok 9 - bind_param 2
+cs_convert failed (to_numeric(3.2)) at exec.t line 63.
+ok 10 - bind_param 3
+ok 11 - bind_param 4
+ok 12 - bind_param 5
+ok 13 # skip freetds seg faults here
+ok 14 # skip freetds doesn't support placeholders
+ok 15 # skip freetds doesn't support placeholders
+ok 16 # skip freetds doesn't support $sth-&gt;func?
+ok 17 # skip freetds doesn't support $sth-&gt;func?
+ok 18 # skip freetds doesn't support placeholders
+ok 19 # skip freetds doesn't support placeholders
+ok 20 # skip freetds doesn't support placeholders
+ok 21 # skip freetds doesn't support placeholders
+ok 22 # skip freetds doesn't support placeholders
+ok 23 # skip freetds doesn't support placeholders
+ok 24 - drop proc dbitest 1
+ok 25 - drop proc dbitest 2
+ok 26 - -1 (create proc)
+ok 27 # skip freetds doesn't support bind_param nor placeholders
+ok 28 # skip freetds doesn't support bind_param nor placeholders
+ok 29 # skip freetds doesn't support bind_param nor placeholders
+ok 30 # skip freetds doesn't support bind_param nor placeholders
+ok 31 # skip freetds doesn't support bind_param nor placeholders
+ok 32 # skip freetds doesn't support bind_param nor placeholders
+ok 33 # skip freetds doesn't support bind_param nor placeholders
+ok 34 # skip freetds doesn't support bind_param nor placeholders
+ok 35 # skip freetds doesn't support bind_param nor placeholders
+ok 36 # skip freetds doesn't support bind_param nor placeholders
+ok 37 # skip freetds doesn't support bind_param nor placeholders
+ok 38 # skip freetds doesn't support bind_param nor placeholders
+ok 39 # skip freetds doesn't support bind_param nor placeholders
+ok 40 # skip freetds doesn't support bind_param nor placeholders
+ok 41 - drop proc dbitest
+
+I hope this diff format works for you and my patch is good. That diff command came from the perl5-porters FAQ, so I hope its what you want.
+
+I hope this helps. If it does I can take a stab at the other test files too.
+
+Cheers,
+
+j
+
+
+
+diff -ruN exec.t.original exec.t
+
+--- exec.t.original	2005-08-10 09:25:52.000000000 -0500
++++ exec.t	2005-08-10 10:09:33.000000000 -0500
+@@ -11,7 +11,7 @@
+ use strict;
+ 
+ #use Test::More qw(no_plan);
+-use Test::More tests =&gt; 22;
++use Test::More tests =&gt; 41;
+ 
+ 
+ BEGIN { use_ok('DBI', ':sql_types');
+@@ -20,6 +20,7 @@
+ 
+ use vars qw($Pwd $Uid $Srv $Db);
+ 
++my $using_freetds = ($ENV{SYBASE} =~ /freetds/i) ? 1 : 0;
+ 
+ #DBI-&gt;trace(3);
+ 
+@@ -31,13 +32,11 @@
+ ok(defined($dbh), 'Connect');
+ 
+ $SIG{__WARN__} = sub { print @_; };
+-my $sth = $dbh-&gt;prepare(&quot;exec sp_helpindex \@objname = ?&quot;);
++my $sth = $dbh-&gt;prepare(&quot;exec sp_helpindex \@objname = 'sysusers'&quot;);   # Placeholders not supported in freetds
+ ok(defined($sth), 'Prepare sp_helpindex');
+ 
+ my $rc;
+-
+-$rc = $sth-&gt;execute(&quot;sysusers&quot;);
+-
++$rc = $sth-&gt;execute();
+ ok(defined($rc), &quot;exec sysusers&quot;);
+ 
+ get_all_results($sth);
+@@ -45,38 +44,45 @@
+ #$dbh-&gt;do(&quot;use tempdb&quot;);
+ $dbh-&gt;do(&quot;set arithabort off&quot;);
+ $dbh-&gt;do(&quot;if object_id('dbitest') != NULL drop proc dbitest&quot;);
+-$rc = $dbh-&gt;do(qq{
+-create proc dbitest \@one varchar(20), \@two int, \@three numeric(5,2), \@four smalldatetime, \@five float output
++$rc = $dbh-&gt;do(q{
++create proc dbitest @one varchar(20), @two int, @three numeric(5,2), @four smalldatetime, @five float output
+ as
+-    select \@one, \@two, \@three, \@four
++    select @one, @two, @three, @four
+     select * from master..sysprocesses
+ 
+-    return \@two
++    return @two
+ });
+ 
+-ok(defined($rc), &quot;$rc (create proc)\n&quot;);
++ok(defined($rc), &quot;$rc (create proc)&quot;);
+ 
+ $sth = $dbh-&gt;prepare(&quot;exec dbitest \@one = ?, \@two = ?, \@three = ?, \@four = ?, \@five = ? output&quot;);
+ #$rc = $sth-&gt;execute(&quot;one&quot;, 2, 3.2, &quot;jan 1 2001&quot;, 5.4);
+ ok(defined($sth), &quot;prepare dbitest&quot;);
+-$sth-&gt;bind_param(1, &quot;one&quot;);
+-$sth-&gt;bind_param(2, 2, SQL_INTEGER);
+-$sth-&gt;bind_param(3, 3.2, SQL_DECIMAL);
+-$sth-&gt;bind_param(4, &quot;jan 1 2001&quot;);
+-$sth-&gt;bind_param(5, 5.4, SQL_FLOAT);
+-$rc = $sth-&gt;execute();
+-ok(defined($rc), &quot;execute dbitest 1&quot;);
+-#DBI-&gt;trace(4);
+-get_all_results($sth);
++ok($sth-&gt;bind_param(1, &quot;one&quot;),               &quot;bind_param 1&quot;);
++ok($sth-&gt;bind_param(2, 2, SQL_INTEGER),      &quot;bind_param 2&quot;);
++ok($sth-&gt;bind_param(3, 3.2, SQL_DECIMAL),    &quot;bind_param 3&quot;);
++ok($sth-&gt;bind_param(4, &quot;jan 1 2001&quot;),        &quot;bind_param 4&quot;);
++ok($sth-&gt;bind_param(5, 5.4, SQL_FLOAT),      &quot;bind_param 5&quot;);
++SKIP: {
++  skip &quot;freetds seg faults here&quot;, 1 if $using_freetds;
++  ok($rc = $sth-&gt;execute(), &quot;execute dbitest 1&quot;);
++}
+ 
+-$rc = $sth-&gt;execute(&quot;one&quot;, 25, 333.2, &quot;jan 1 2001&quot;, 5.4);
+-ok(defined($rc), &quot;exec dbitest 2&quot;);
+-get_all_results($sth);
++SKIP: {
++  skip &quot;freetds doesn't support placeholders&quot;, 2 if $using_freetds;
++  #DBI-&gt;trace(4);
++  get_all_results($sth);
++  ok($rc = $sth-&gt;execute(&quot;one&quot;, 25, 333.2, &quot;jan 1 2001&quot;, 5.4),  &quot;exec dbitest 2&quot;);
++  get_all_results($sth);
++  ok($rc = $sth-&gt;execute(undef, 25, 3.2234, &quot;jan 3 2001&quot;, 5.4), &quot;exec dbitest 3&quot;);
++}
++
++SKIP: {
++  skip &quot;freetds doesn't support \$sth-&gt;func?&quot;, 2 if $using_freetds;
++  ok(my @out = $sth-&gt;func('syb_output_params'),                 '$sth-&gt;func');
++  is($out[0], 5.4,                                              &quot;out param 1&quot;);
++}
+ 
+-$rc = $sth-&gt;execute(undef, 25, 3.2234, &quot;jan 3 2001&quot;, 5.4);
+-ok(defined($rc), &quot;exec dbitest 3&quot;);
+-my @out = $sth-&gt;func('syb_output_params');
+-ok($out[0] == 5.4, &quot;out param 1&quot;);
+ 
+ #print &quot;@out\n&quot;;
+ #do {
+@@ -91,72 +97,74 @@
+ $sth-&gt;{syb_do_proc_status} = 1;
+ $dbh-&gt;{syb_flush_finish} = 0;
+ 
+-$rc = $sth-&gt;execute(undef, 0, 3.2234, &quot;jan 3 2001&quot;, 5.4);
+-ok(defined($rc), &quot;execute fail mode 1&quot;);
+-get_all_results($sth);
+-#DBI-&gt;trace(3);
+-$rc = $sth-&gt;execute(&quot;raise&quot;, 1, 3.2234, &quot;jan 3 2001&quot;, 5.4);
+-ok(defined($rc), &quot;execute fail mode 2&quot;);
+-get_all_results($sth);
+-$rc = $sth-&gt;execute(undef, 0, 3.2234, &quot;jan 3 2001&quot;, 5.4);
+-#DBI-&gt;trace(0);
+-ok(defined($rc), &quot;execute fail mode 3&quot;);
+-get_all_results($sth);
+-
+-$dbh-&gt;{syb_flush_finish} = 1;
+-$rc = $sth-&gt;execute(undef, 0, 3.2234, &quot;jan 3 2001&quot;, 5.4);
+-ok(defined($rc), &quot;execute fail mode 4&quot;);
+-get_all_results($sth);
+-#DBI-&gt;trace(3);
+-$rc = $sth-&gt;execute(undef, 1, 3.2234, &quot;jan 3 2001&quot;, 5.4);
+-ok(defined($rc), &quot;execute fail mode 5&quot;);
+-get_all_results($sth);
+-#DBI-&gt;trace(0);
+-$rc = $sth-&gt;execute(undef, 0, 3.2234, &quot;jan 3 2001&quot;, 5.4);
+-ok(defined($rc), &quot;execute fail mode 6&quot;);
+-get_all_results($sth);
+-
++SKIP: {
++  skip &quot;freetds doesn't support placeholders&quot;, 6 if $using_freetds;
++  ok($rc = $sth-&gt;execute(undef, 0, 3.2234, &quot;jan 3 2001&quot;, 5.4),   &quot;execute fail mode 1&quot;);
++  get_all_results($sth);
++  #DBI-&gt;trace(3);
++  ok($rc = $sth-&gt;execute(&quot;raise&quot;, 1, 3.2234, &quot;jan 3 2001&quot;, 5.4), &quot;execute fail mode 2&quot;);
++  get_all_results($sth);
++  ok($rc = $sth-&gt;execute(undef, 0, 3.2234, &quot;jan 3 2001&quot;, 5.4),   &quot;execute fail mode 3&quot;);
++  #DBI-&gt;trace(0);
++  get_all_results($sth);
++
++  $dbh-&gt;{syb_flush_finish} = 1;
++  ok($rc = $sth-&gt;execute(undef, 0, 3.2234, &quot;jan 3 2001&quot;, 5.4),   &quot;execute fail mode 4&quot;);
++  get_all_results($sth);
++  #DBI-&gt;trace(3);
++  ok($rc = $sth-&gt;execute(undef, 1, 3.2234, &quot;jan 3 2001&quot;, 5.4),   &quot;execute fail mode 5&quot;);
++  get_all_results($sth);
++  #DBI-&gt;trace(0);
++  ok($rc = $sth-&gt;execute(undef, 0, 3.2234, &quot;jan 3 2001&quot;, 5.4),   &quot;execute fail mode 6&quot;);
++  get_all_results($sth);
++}
+ 
+-$dbh-&gt;do(&quot;drop proc dbitest&quot;);
+ 
+-$dbh-&gt;do(&quot;if object_id('dbitest') != NULL drop proc dbitest&quot;);
+-$rc = $dbh-&gt;do(qq{
+-create proc dbitest \@one varchar(20), \@two int, \@three numeric(5,2), \@four smalldatetime --, \@five float = null output
++ok($dbh-&gt;do(&quot;drop proc dbitest&quot;),                                  &quot;drop proc dbitest 1&quot;);
++ok($dbh-&gt;do(&quot;if object_id('dbitest') != NULL drop proc dbitest&quot;),  &quot;drop proc dbitest 2&quot;);
++$rc = $dbh-&gt;do(q{
++create proc dbitest @one varchar(20), @two int, @three numeric(5,2), @four smalldatetime --, @five float = null output
+ as
+-    select \@one, \@two, \@three, \@four
++    select @one, @two, @three, @four
+ 
+ });
+ 
+-ok(defined($rc), &quot;$rc (create proc)\n&quot;);
++ok(defined($rc), &quot;$rc (create proc)&quot;);
+ 
+-$sth = $dbh-&gt;prepare(&quot;exec dbitest ?, ?, ?, ?&quot;);
+-$sth-&gt;bind_param(1, 'String 1', SQL_VARCHAR);
+-$sth-&gt;bind_param(2, 1, SQL_INTEGER);
+-$sth-&gt;bind_param(3, 3.25, SQL_DECIMAL);
+-$sth-&gt;bind_param(4, '2005-06-27', SQL_DATETIME);
++SKIP: {
++  skip &quot;freetds doesn't support bind_param nor placeholders&quot;, 7 if $using_freetds;
++  ok($sth = $dbh-&gt;prepare(&quot;exec dbitest ?, ?, ?, ?&quot;),      &quot;prepare&quot;);
++  ok($sth-&gt;bind_param(1, 'String 1', SQL_VARCHAR),         &quot;bind_param 1&quot;);
++  ok($sth-&gt;bind_param(2, 1, SQL_INTEGER),                  &quot;bind_param 2&quot;);
++  ok($sth-&gt;bind_param(3, 3.25, SQL_DECIMAL),               &quot;bind_param 3&quot;);
++  ok($sth-&gt;bind_param(4, '2005-06-27', SQL_DATETIME),      &quot;bind param 4&quot;);
+ 
+-for (0 .. 1) {
++  for (0 .. 1) {
+     $sth-&gt;execute('String 1', 1, 3.25, '2005-06-27');
+     while(my $row = $sth-&gt;fetch) {
+-	ok($row-&gt;[2] == 3.25, &quot;Implicit finish handling&quot;);
++      ok($row-&gt;[2] == 3.25, &quot;Implicit finish handling&quot;);
+     }
++  }
+ }
+ 
+-$dbh-&gt;{syb_do_proc_status} = 1;
+-$sth = $dbh-&gt;prepare(&quot;exec dbitest ?, ?, ?, ?&quot;);
+-$sth-&gt;bind_param(1, 'String 1', SQL_VARCHAR);
+-$sth-&gt;bind_param(2, 1, SQL_INTEGER);
+-$sth-&gt;bind_param(3, 3.25, SQL_DECIMAL);
+-$sth-&gt;bind_param(4, '2005-06-27', SQL_DATETIME);
++SKIP: {
++  skip &quot;freetds doesn't support bind_param nor placeholders&quot;, 7 if $using_freetds;
++  $dbh-&gt;{syb_do_proc_status} = 1;
++  ok($sth = $dbh-&gt;prepare(&quot;exec dbitest ?, ?, ?, ?&quot;),  &quot;prepare&quot;);
++  ok($sth-&gt;bind_param(1, 'String 1', SQL_VARCHAR),     &quot;bind_param 1&quot;);
++  ok($sth-&gt;bind_param(2, 1, SQL_INTEGER),              &quot;bind_param 2&quot;);
++  ok($sth-&gt;bind_param(3, 3.25, SQL_DECIMAL),           &quot;bind_param 3&quot;);
++  ok($sth-&gt;bind_param(4, '2005-06-27', SQL_DATETIME),  &quot;bind_param 4&quot;);
+ 
+-for (0 .. 1) {
++  for (0 .. 1) {
+     $sth-&gt;execute('String 1', 1, 3.25, '2005-06-27');
+     while(my $row = $sth-&gt;fetch) {
+-	ok($row-&gt;[2] == 3.25, &quot;Implicit finish handling&quot;);
++      ok($row-&gt;[2] == 3.25, &quot;Implicit finish handling&quot;);
+     }
++  }
+ }
+ 
+-$dbh-&gt;do(&quot;drop proc dbitest&quot;);
++ok($dbh-&gt;do(&quot;drop proc dbitest&quot;),     &quot;drop proc dbitest&quot;);
+ 
+ sub get_all_results {
+     my $sth = shift;
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00464.html">[Omaha.pm] Chinese / Taiwanese gossip about me</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00466.html">Re: [Omaha.pm] :Sybase success, build errors</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00464.html">[Omaha.pm] Chinese / Taiwanese gossip about me</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00466.html">Re: [Omaha.pm] :Sybase success, build errors</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00465"><strong>Date</strong></a></li>
+<li><a href="threads.html#00465"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

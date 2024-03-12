@@ -1,0 +1,141 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Net::SSH::Perl and sudo or su -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 6 Dec 2007 22:40:12 &#45;0000 -->
+<!--X-Message-Id: 4758796D.4060904@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 47586B05.8080403@tvortex.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Net::SSH::Perl and sudo or su</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01573.html">Date Prev</a>][<a href="msg01575.html">Date Next</a>][<a href="msg01571.html">Thread Prev</a>][<a href="msg01575.html">Thread Next</a>][<a href="maillist.html#01574">Date Index</a>][<a href="threads.html#01574">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Net::SSH::Perl and sudo or su</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Net::SSH::Perl and sudo or su</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Thu, 06 Dec 2007 16:36:29 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01571.html">47586B05.8080403@tvortex.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: <a href="msg01569.html">dd7f36190712061312o2e51e174n177ebc04c7408d33@mail.gmail.com</a>	&lt;<a href="msg01571.html">47586B05.8080403@tvortex.net</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: Thunderbird 2.0.0.9 (Windows/20071031)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+Tony Simons wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+Ok, but it's really long... But... this is what I have.  And it's a
+little rough but it works.
+if [ `sudo test; echo $?` -gt 1 ]; then
+    echo &quot;This script uses SinFP which requires Root privileges please
+</pre><tt>  
+</tt></blockquote><pre style="margin: 0em;">
+
+So you have to be root to run your bash script?
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+    case `sudo sinfp.pl -a -i${SNFILE[${HOS}]} -p 22 | grep IPv4 | awk
+'{print $4}' | head -n1` in
+</pre><tt>  
+</tt></blockquote><pre style="margin: 0em;">
+
+What does sudo do if you're already root?
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+         echo &quot;No Unix Fingerprint Found...doing one more check!&quot;
+        if [ &quot;`sudo sinfp.pl -i${SNFILE[${HOS}]} -p 22 | grep IPv4 | awk
+'{print $2}' | head -n1`&quot; == &quot;unknown&quot; ]; then
+</pre><tt>  
+</tt></blockquote><pre style="margin: 0em;">
+
+What is that doing? Is it doing it locally?
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+    $SSHCMD ${SNFILE[${HOS}]} &quot;echo -e $STR &gt; /tmp/${SNFILE[${HOS}]}.sn
+;$SUDO mv /tmp/${SNFILE[${HOS}]}.sn /etc/serialnumber; $SUDO chmod 660
+/etc/serialnumber&quot;
+</pre><tt>  
+</tt></blockquote><pre style="margin: 0em;">
+
+So this is our goal, right? To create /etc/serialnumber on the remote host?
+
+</pre><tt>Why does this work under bash? Do all your remote hosts have 
+</tt><tt>/root/.ssh/authorized_keys files set up to trust root coming from your 
+</tt><tt>local machine?
+</tt><pre style="margin: 0em;">
+
+... Maybe we'll get to a Perl question eventually ...  -grin-
+
+j
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01571" href="msg01571.html">[Omaha.pm]  Net::SSH::Perl and sudo or su</a></strong>
+<ul><li><em>From:</em> Tony Simons &lt;webmaster@tvortex.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01573.html">[Omaha.pm] BEGIN block for Test::More</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01575.html">[Omaha.pm]  Net::SSH::Perl and sudo or su</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01571.html">[Omaha.pm]  Net::SSH::Perl and sudo or su</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01575.html">[Omaha.pm]  Net::SSH::Perl and sudo or su</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01574"><strong>Date</strong></a></li>
+<li><a href="threads.html#01574"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

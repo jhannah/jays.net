@@ -1,0 +1,196 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Project doc overkill -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 29 Nov 2006 16:40:22 &#45;0000 -->
+<!--X-Message-Id: Pine.LNX.4.64.0611291057280.3144@ferret.jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Project doc overkill</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01219.html">Date Prev</a>][<a href="msg01221.html">Date Next</a>][<a href="msg01219.html">Thread Prev</a>][<a href="msg01221.html">Thread Next</a>][<a href="maillist.html#01220">Date Index</a>][<a href="threads.html#01220">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Project doc overkill</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Subject</em>: [Omaha.pm] Project doc overkill</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Wed, 29 Nov 2006 11:01:33 -0600 (CST)</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+
+-lol-
+
+</pre><tt>Is it a good thing or a bad thing when my lines of documentation to lines 
+</tt><tt>of code ratio exceeds 95%?
+</tt><pre style="margin: 0em;">
+
+</pre><tt>Wrote this in June this year and yes, just 5 months later I definately 
+</tt><tt>needed all of that documentation to understand what the heck I was 
+</tt><tt>thinking...
+</tt><pre style="margin: 0em;">
+
+:)
+
+j
+
+
+
+
+=head2 next_obj
+
+Return whichever outbound filehandle I should write to next and advance my memorized
+{last_obj_used} value.
+
+  my $obj = $buffers-&gt;next_obj;
+
+See source code for a warning about write()'ing to an inbound connection.
+
+B&lt;Discussion: 'round robin' vs. 'first free' queuing&gt; (jhannah 2006-06-29)
+
+</pre><tt>This method's job is to return the next obj/filehandle/child we should write 
+</tt><tt>a payload to. 
+</tt><tt>The original implementation of this method was a simple round robin system.
+</tt><tt>Under round robin queuing if you have 6 children, then each payload is 
+</tt><tt>sent to each child in order.
+</tt><pre style="margin: 0em;">
+Once a payload is sent to the last child, we start over at the first child.
+And so on. Pretty simple.
+
+'first free' queuing is different. Instead of just
+blindly writing to the next child, we attempt to find the next child
+</pre><tt>which is not busy. Which ones are busy? Well, under first free queuing it is 
+</tt><tt>assumed that each 
+</tt><tt>child can and should only handle one payload at a time. Therefore, when a write is
+</tt><pre style="margin: 0em;">
+made to a child that child is flagged as &quot;busy&quot; here in the Buffers class. When the
+child is done processing, it should return its response. Receiving a response from
+a child triggers that child as no longer busy, so its status is cleared and it is once
+again free to receive a payload.
+
+So when a write() call is made we go fishing for the next available child to write
+to. This process starts as simply as the round robin system: We know which child we
+wrote to last, so we'll look to see if the next one is free. If it is, that's the
+one we'll write to. If it's busy, we'll increment our counter and try again, wrapping
+</pre><tt>around our child list if we hit the end. If we make a full loop and 
+</tt><tt>it turns out that all of our children are busy, then 
+</tt><tt>we'll have to give up for now, saving this payload
+</tt><pre style="margin: 0em;">
+for later transmission. Hopefully one of our children will
+be free the next time we go searching.
+
+Note that 'first free' queuing will probably not make you happy if your children
+don't respond to requests. No response means Control::Multiplex will forever think
+your child is still working on the first payload we sent it, and will never send
+a second payload to that child. Further, you're likely to be dissatisfied if your children
+</pre><tt>enjoy receiving more than one payload at a time. Under 'round robin' queuing 
+</tt><tt>children are sent
+</tt><pre style="margin: 0em;">
+work as fast as possible, but under 'first free' queuing any given child only ever has one
+payload to process at a time.
+
+=cut
+
+sub next_obj {
+   my ($self, $label) = @_;
+   my $logger = $self-&gt;get_logger;
+   if (defined $self-&gt;{outbound}-&gt;{$label}) {
+      confess &quot;ACK!&quot; if ($label eq &quot;INBOUND&quot;);
+      if ($self-&gt;{queuing} eq &quot;first free&quot;) {
+         $logger-&gt;debug(&quot;Buffers.pm next_obj() has decided to use next_obj_first_free()&quot;);
+         return $self-&gt;next_obj_first_free($label);
+      } else {
+         $logger-&gt;debug(&quot;Buffers.pm next_obj() has decided to use next_obj_round_robin()&quot;);
+         return $self-&gt;next_obj_round_robin($label);
+      }
+   } elsif (defined $self-&gt;{inbound}-&gt;{$label}) {
+      # We don't know about that outbound label, but this is an inbound label and
+      # apparently we want to write back out to it. (Like an inbound TCP.)
+      # ...
+      # We probably can't write back to the first (0th) element in this array because that's
+      # probably the listening socket. Bummer. Let's write back to the second one in the array.
+      # Note this is NOT safe if there are 5 connections connected and you
+      # want to specifically write back to the one whose input just caused the read() --
+      # I'll probably have to implement that logic some day, but I don't need it for
+      # any project current on the books. Currently we write() all our output back to
+      # a single inbound connection, or a single outbound TCP connection for all inbound
+      # work... -jhannah 11/8/04
+      return $self-&gt;{inbound}-&gt;{$label}-&gt;{objs}-&gt;[1];
+   } else {
+      return undef;
+   }
+}
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01221" href="msg01221.html">Re: [Omaha.pm] Project doc overkill</a></strong>
+<ul><li><em>From:</em> Ryan Stille &lt;ryan@cfwebtools.com&gt;</li></ul></li>
+<li><strong><a name="01222" href="msg01222.html">Re: [Omaha.pm] Project doc overkill</a></strong>
+<ul><li><em>From:</em> sidney.omaha.pm@gmail.com</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01219.html">[Omaha.pm] You can't go wrong with   1;</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01221.html">Re: [Omaha.pm] Project doc overkill</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01219.html">[Omaha.pm] You can't go wrong with   1;</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01221.html">Re: [Omaha.pm] Project doc overkill</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01220"><strong>Date</strong></a></li>
+<li><a href="threads.html#01220"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

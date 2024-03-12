@@ -1,0 +1,156 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Grab all the Error and Warnings out of XML, s/^\n//mg -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 10 Sep 2007 17:45:58 &#45;0000 -->
+<!--X-Message-Id: C30AEC69.EBC1%jhannah@omnihotels.com -->
+<!--X-Content-Type: multipart/alternative -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Grab all the Error and Warnings out of XML, s/^\n//mg</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01518.html">Date Prev</a>][<a href="msg01520.html">Date Next</a>][<a href="msg01529.html">Thread Prev</a>][<a href="msg01520.html">Thread Next</a>][<a href="maillist.html#01519">Date Index</a>][<a href="threads.html#01519">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Grab all the Error and Warnings out of XML, s/^\n//mg</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Grab all the Error and Warnings out of XML, s/^\n//mg</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Mon, 10 Sep 2007 12:43:21 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: Acfz0hQlUqzavl/FEdy91gAX8ixAzg==</li>
+<li><em>Thread-topic</em>: Grab all the Error and Warnings out of XML, s/^\n//mg</li>
+<li><em>User-agent</em>: Microsoft-Entourage/11.3.6.070618</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<address>Title: <strong>Grab all the Error and Warnings out of XML, s/^\n//mg</strong></address>
+
+
+
+
+
+<BR>
+
+<P><FONT SIZE=2>Wrote this this morning as a quick proof of some XML tag capture I needed. I<BR>
+like the s/^\n//mg trick, which gets rid of the annoying blank lines in<BR>
+$in_message scalar.<BR>
+<BR>
+j<BR>
+<BR>
+<BR>
+<BR>
+my $in_message = &lt;&lt;EOT;<BR>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;<BR>
+<BR>
+&lt;OTA_HotelResModifyNotifRQ<BR>
+xmlns:xsi=&quot;<A rel="nofollow" href="http://www.w3.org/2001/XMLSchema-instance">http://www.w3.org/2001/XMLSchema-instance</A>&quot;<BR>
+xsi:schemalocation=&quot;<A rel="nofollow" href="http://www.opentravel.org/OTA/2003/05">http://www.opentravel.org/OTA/2003/05</A><BR>
+<A rel="nofollow" href="file:///C:/liaison/Omni">file:///C:/liaison/Omni</A> 1.00/FS_OTA_HotelResModifyNotifRQ.xsd&quot;<BR>
+EchoToken=&quot;L00024547MR&quot; TimeStamp=&quot;2007-09-10T08:19:06.986850-05:00&quot;<BR>
+Version=&quot;1.003&quot; ResStatus=&quot;Modify&quot;<BR>
+xmlns=&quot;<A rel="nofollow" href="http://www.opentravel.org/OTA/2003/05">http://www.opentravel.org/OTA/2003/05</A>&quot;&gt;<BR>
+<BR>
+&nbsp; &lt;POS&gt;<BR>
+<BR>
+&nbsp;&nbsp;&nbsp; &lt;Source PseudoCityCode=&quot;AUSCTR&quot; ISOCountry=&quot;US&quot; /&gt;<BR>
+<BR>
+&nbsp; &lt;/POS&gt;<BR>
+<BR>
+&nbsp; &lt;HotelResModifies&gt;<BR>
+<BR>
+&nbsp;&nbsp;&nbsp; &lt;HotelResModify CreateDateTime=&quot;2007-09-10T08:19:06.986850-05:00&quot;<BR>
+ResStatus=&quot;In-house&quot;&gt;<BR>
+-snip!-<BR>
+EOT<BR>
+<BR>
+my $out_message = &lt;&lt;EOT;<BR>
+&lt;OTA_HotelResModifyNotifRS EchoToken=&quot;L00024547MR&quot; ResResponseType=&quot;Ignored&quot;<BR>
+TimeStamp=&quot;2007-09-10T08:27:58.53-05:00&quot;&gt;<BR>
+&nbsp; &lt;Errors&gt;<BR>
+&nbsp;&nbsp;&nbsp; &lt;Error Language=&quot;en-us&quot; Type=&quot;3&quot; ShortText=&quot;Invalid arrival time&quot;<BR>
+Code=&quot;294&quot;&gt;<BR>
+&nbsp;&nbsp;&nbsp; &lt;/Error&gt;<BR>
+&nbsp; &lt;/Errors&gt;<BR>
+&lt;/OTA_HotelResModifyNotifRS&gt;<BR>
+EOT<BR>
+<BR>
+my @bad_stuff;<BR>
+foreach ($in_message, $out_message) {<BR>
+&nbsp;&nbsp; my $twig = new XML::Twig;<BR>
+&nbsp;&nbsp; $twig-&gt;parse($_);<BR>
+&nbsp;&nbsp; my $root = $twig-&gt;root;<BR>
+&nbsp;&nbsp; push @bad_stuff, map { $_-&gt;sprint } $root-&gt;get_xpath('//Error');<BR>
+&nbsp;&nbsp; push @bad_stuff, map { $_-&gt;sprint } $root-&gt;get_xpath('//Warning');<BR>
+}<BR>
+<BR>
+print join &quot;\n&quot;, @bad_stuff;<BR>
+print &quot;\n&quot;;<BR>
+$in_message =~ s/^\n//mg;<BR>
+print &quot;$in_message\n&quot;;<BR>
+<BR>
+<BR>
+</FONT>
+</P>
+
+
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01518.html">[Omaha.pm] Tripwire &quot;Replacement&quot; In Perl</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01520.html">[Omaha.pm] pos() - WHERE did my regex match?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01529.html">Re: [Omaha.pm] Tripwire &quot;Replacement&quot; In Perl</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01520.html">[Omaha.pm] pos() - WHERE did my regex match?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01519"><strong>Date</strong></a></li>
+<li><a href="threads.html#01519"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

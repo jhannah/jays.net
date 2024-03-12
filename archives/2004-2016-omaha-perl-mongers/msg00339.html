@@ -1,0 +1,135 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Impossible perl one&#45;liner? -->
+<!--X-From-R13: "Rnavry Zvaqre" &#60;qnaNyvaqre.bet> -->
+<!--X-Date: 18 Mar 2005 14:32:42 &#45;0000 -->
+<!--X-Message-Id: 34375.12.160.138.59.1111096789.squirrel@12.160.138.59 -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 31170.12.160.138.60.1111013553.squirrel@12.160.138.60 -->
+<!--X-Reference: 34efc56d03a1faf8c9380dc8fcd9b2f3@jays.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Impossible perl one-liner?</title>
+<link rev="made" href="mailto:dan@linder.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00338.html">Date Prev</a>][<a href="msg00340.html">Date Next</a>][<a href="msg00338.html">Thread Prev</a>][<a href="msg00340.html">Thread Next</a>][<a href="maillist.html#00339">Date Index</a>][<a href="threads.html#00339">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Impossible perl one-liner?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Impossible perl one-liner?</li>
+<li><em>From</em>: &quot;Daniel Linder&quot; &lt;<a href="mailto:dan%40linder.org">dan@linder.org</a>&gt;</li>
+<li><em>Date</em>: Thu, 17 Mar 2005 15:59:49 -0600 (CST)</li>
+<li><em>Cc</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Importance</em>: Normal</li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00338.html">34efc56d03a1faf8c9380dc8fcd9b2f3@jays.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;31170.12.160.138.60.1111013553.squirrel@12.160.138.60&gt;	&lt;<a href="msg00338.html">34efc56d03a1faf8c9380dc8fcd9b2f3@jays.net</a>&gt;</li>
+<li><em>Reply-to</em>: <a href="mailto:dan%40linder.org">dan@linder.org</a>, &quot;Perl Mongers of Omaha,	Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: SquirrelMail/1.5.0</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+
+&lt;quote who=&quot;Jay Hannah&quot;&gt;
+&gt; I dunno in a one-liner. I wrote an 18-liner and then stumbled into many
+&gt; ideas better than mine:
+&gt; <a  rel="nofollow" href="http://perlmonks.thepen.com/117697.html">http://perlmonks.thepen.com/117697.html</a>
+
+Thanks for the link -- I searched PerlMonks, but couldn't find this entry.
+:(  For my limited needs, this appears to work:
+
+# df -k | perl -pe 's/(?&lt;=\d)(?=(?:\d\d\d)+\b)/,/g'
+Filesystem            kbytes    used   avail capacity  Mounted on
+/dev/dsk/c1t0d0s0    28,299,128 9,852,819 18,163,318    36%    /
+
+And you're right -- the output is uglier now that the columns have no
+chance to line up.  I might have to play with the &quot;(?{ code })&quot; you
+mentioned to see if I can get it to work.
+
+Thanks!
+
+Dan
+
+- - - - -
+&quot;I do not fear computer,
+I fear the lack of them.&quot;
+ -- Isaac Asimov
+GPG fingerprint:9EE8 ABAE 10D3 0B55 C536  E17A 3620 4DCA A533 19BF
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.2.1 (GNU/Linux)
+
+iD8DBQFCOf3VNiBNyqUzGb8RAsUxAJ9V9xzZgORtaVZ7ubln0s+Fgj1j3wCeNwIZ
+FYJHnSmSKVihNScEM+sWEOM=
+=oj4P
+-----END PGP SIGNATURE-----
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00335" href="msg00335.html">[Omaha.pm] Impossible perl one-liner?</a></strong>
+<ul><li><em>From:</em> &quot;Daniel Linder&quot; &lt;dan@linder.org&gt;</li></ul></li>
+<li><strong><a name="00338" href="msg00338.html">Re: [Omaha.pm] Impossible perl one-liner?</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00338.html">Re: [Omaha.pm] Impossible perl one-liner?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00340.html">RE: [Omaha.pm] Impossible perl one-liner?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00338.html">Re: [Omaha.pm] Impossible perl one-liner?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00340.html">RE: [Omaha.pm] Impossible perl one-liner?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00339"><strong>Date</strong></a></li>
+<li><a href="threads.html#00339"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

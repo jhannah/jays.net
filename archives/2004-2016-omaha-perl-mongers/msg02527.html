@@ -1,0 +1,132 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Intermittent Perl error... -->
+<!--X-From-R13: Egreyvat Vnaraxnzc &#60;fgreyvatNunaraxnzc.pbz> -->
+<!--X-Date: 29 Oct 2010 20:53:58 &#45;0000 -->
+<!--X-Message-Id: AANLkTim3bhwZFppbE2T0cucJkCnkT1NSjNAWJQ9NvsOA@mail.gmail.com -->
+<!--X-Content-Type: multipart/alternative -->
+<!--X-Reference: AANLkTikoPv3vEDH6NP_bNWaGA+_ef6chU=f7CTyRRnj4@mail.gmail.com -->
+<!--X-Reference: 429BE050&#45;59A0&#45;4F1B&#45;93E6&#45;EB2260A6C4A2@mutationgrid.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Intermittent Perl error...</title>
+<link rev="made" href="mailto:sterling@hanenkamp.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02526.html">Date Prev</a>][<a href="msg02528.html">Date Next</a>][<a href="msg02525.html">Thread Prev</a>][<a href="msg02531.html">Thread Next</a>][<a href="maillist.html#02527">Date Index</a>][<a href="threads.html#02527">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Intermittent Perl error...</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Intermittent Perl error...</li>
+<li><em>From</em>: Sterling Hanenkamp &lt;<a href="mailto:sterling%40hanenkamp.com">sterling@hanenkamp.com</a>&gt;</li>
+<li><em>Date</em>: Fri, 29 Oct 2010 15:53:51 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg02525.html">429BE050-59A0-4F1B-93E6-EB2260A6C4A2@mutationgrid.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;AANLkTikoPv3vEDH6NP_bNWaGA+_ef6chU=f7CTyRRnj4@mail.gmail.com&gt;	&lt;<a href="msg02525.html">429BE050-59A0-4F1B-93E6-EB2260A6C4A2@mutationgrid.com</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+Do any of the subs do some sort of conditional import into main or muck with the symbol table?<div><br><div>For example:</div><div><br></div><div><div>use 5.12.1;</div><div>sub foo { say &#39;test&#39; }</div><div><br></div>
+<div>if (rand &gt; 0.5) {</div><div>&#xA0;&#xA0; &#xA0;undef *{foo};</div><div>}</div><div><br></div><div>foo();</div><div><br></div><div>50% of the time will print &quot;test&quot; and the other 50% will print:</div><div><br></div><div>
+Undefined subroutine &amp;main::foo called at <a rel="nofollow" href="http://test.pl">test.pl</a> line 8.</div><br><div class="gmail_quote">On Fri, Oct 29, 2010 at 11:47 AM, Jay Hannah <span dir="ltr">&lt;<a rel="nofollow" href="mailto:jhannah@mutationgrid.com">jhannah@mutationgrid.com</a>&gt;</span> wrote:<br>
+<blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex;"><div class="im">On Oct 29, 2010, at 10:11 AM, Dan Linder wrote:<br>
+&gt; Status: 500 Content-type: text/html<br>
+&gt; Software error:<br>
+&gt; Undefined subroutine &amp;main::MySubroutine called at MyCGI.cgi line 123<br>
+&gt;<br>
+</div><div class="im">&gt; I&#39;m asking my server admin to send me the Apache log files (it&#39;s a remote server I don&#39;t have access to) - is there anything else to look at?<br>
+<br>
+</div>Is it vanilla CGI (perl is executed for every page hit)? mod_perl? fastcgi? other?<br>
+<br>
+I&#39;d write a little WWW::Mechanize program to hit it 1000 times and see how many times the error occurs. If you think it&#39;s load related somehow (really? eek) then you could use Apache Benchmark (ab) to nail the heck out of it and see if load does indeed cause a problem.<br>
+
+<br>
+Do you have another server with the same software to compare results?<br>
+<br>
+HTH,<br>
+<br>
+Jay Hannah<br>
+Software Architect<br>
+<a rel="nofollow" href="mailto:jhannah@mutationgrid.com">jhannah@mutationgrid.com</a> | <a rel="nofollow" href="http://mutationgrid.com" target="_blank">http://mutationgrid.com</a> | 1-402-598-7782<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+_______________________________________________<br>
+Omaha-pm mailing list<br>
+<a rel="nofollow" href="mailto:Omaha-pm@pm.org">Omaha-pm@pm.org</a><br>
+<a rel="nofollow" href="http://mail.pm.org/mailman/listinfo/omaha-pm" target="_blank">http://mail.pm.org/mailman/listinfo/omaha-pm</a><br>
+</blockquote></div><br><br clear="all"><br>-- <br>Andrew Sterling Hanenkamp<br><a rel="nofollow" href="mailto:sterling@hanenkamp.com">sterling@hanenkamp.com</a><br>785.370.4454<br>
+</div></div>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="02531" href="msg02531.html">Re: [Omaha.pm] Intermittent Perl error...</a></strong>
+<ul><li><em>From:</em> Dan Linder &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="02524" href="msg02524.html">[Omaha.pm] Intermittent Perl error...</a></strong>
+<ul><li><em>From:</em> Dan Linder &lt;dan@linder.org&gt;</li></ul></li>
+<li><strong><a name="02525" href="msg02525.html">Re: [Omaha.pm] Intermittent Perl error...</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jhannah@mutationgrid.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02526.html">[Omaha.pm] Persistent data store for a prototype</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02528.html">Re: [Omaha.pm] Persistent data store for a prototype</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02525.html">Re: [Omaha.pm] Intermittent Perl error...</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02531.html">Re: [Omaha.pm] Intermittent Perl error...</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02527"><strong>Date</strong></a></li>
+<li><a href="threads.html#02527"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

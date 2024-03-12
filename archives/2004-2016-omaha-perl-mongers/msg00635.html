@@ -1,0 +1,182 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] FW: FW: Class::Date &#45; change once set -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 8 Nov 2005 15:32:34 &#45;0000 -->
+<!--X-Message-Id: 29AB736ABCE5C745ABF9C93B02F2C27B037AFA2D@exchange2k3.omnihotels.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] FW: FW: Class::Date - change once set</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00634.html">Date Prev</a>][<a href="msg00636.html">Date Next</a>][<a href="msg00634.html">Thread Prev</a>][<a href="msg00644.html">Thread Next</a>][<a href="maillist.html#00635">Date Index</a>][<a href="threads.html#00635">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] FW: FW: Class::Date - change once set</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] FW: FW: Class::Date - change once set</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Tue, 8 Nov 2005 09:32:20 -0600</li>
+<li><em>Cc</em>: <a href="mailto:dlux%40dlux.hu">dlux@dlux.hu</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcXj9m/Uue2khJvTQxmEkNcPn90GGwAgwu4g</li>
+<li><em>Thread-topic</em>: FW: Class::Date - change once set</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Forwarding message as dLux requested.
+
+j
+
+
+-----Original Message-----
+From: &quot;Bal&#xE1;zs Szab&#xF3; (dLux)&quot; [<a  rel="nofollow" href="mailto:dlux@dlux.hu">mailto:dlux@dlux.hu</a>] 
+Sent: Monday, November 07, 2005 5:53 PM
+To: Jay Hannah
+Cc: omaha-pm@pm.org
+Subject: Re: FW: Class::Date - change once set
+
+Hi,
+
+It does not break the encapsulation, you probably misunderstood someting.
+
+I have checked the omaha-pm list, and this swap1 method uses the @_
+array, which holds the function parameters, which are references to any
+variables.
+
+If you use swap1 for integers, it will work as well:
+
+$a = 1;
+$b = 1;
+
+swap1($a,$b);
+
+But since $a and $b are used by reference, swap1(1,2) won't work.
+
+Check the perlsub manual page, you can see how this variable works.
+
+So Class::Date objects are immutable, and I only copied references, and
+it is not really Class::Date specific what you copy with swap1.
+
+Please understand how the @_ variable work! (But before it, understand
+what references are. :-) )
+
+If you need help, just write!
+
+Regards,
+
+Bal&#xE1;zs (dLux)
+
+Jay Hannah wrote:
+
+&gt;Hi dLux. Thanks!!
+&gt;
+&gt;This is funny because I just got done lecturing someone not to break encapsulation on your class (Class::Date), and now your advice is to do just that. Strange world, isn't it?
+&gt;
+&gt;Thanks so much for your help! Sorry the spammers are irritating you. I feel your pain there.
+&gt;
+&gt;Take care,
+&gt;
+&gt;j
+&gt;Omaha Perl Mongers: <a  rel="nofollow" href="http://omaha.pm.org">http://omaha.pm.org</a>
+&gt;
+&gt;
+&gt;
+&gt;-----Original Message-----
+&gt;From: &quot;Bal&#xE1;zs Szab&#xF3; (dLux)&quot; [<a  rel="nofollow" href="mailto:dlux@dlux.hu">mailto:dlux@dlux.hu</a>] 
+&gt;Sent: Monday, October 31, 2005 7:04 AM
+&gt;To: Jay Hannah
+&gt;Subject: Re: FW: Class::Date - change once set	
+&gt;
+&gt;Hi!
+&gt;
+&gt;Sorry, I removed the email-list, because of the lots of spam, but probably I will resurrect if there is a need for this...
+&gt;
+&gt;No, you cannot change the object, it is by design. Class::Date objects are immutable. Use it as it would be a simple integer value.
+&gt;
+&gt;What you can do is to use references for them. For example the @_ array holds references for the variables, not the variables themselves, so the following is working:
+&gt;
+&gt;use Class::Date qw(date);
+&gt;sub swap1 {
+&gt;    $x = $_[0];
+&gt;    $_[0] = $_[1];
+&gt;    $_[1] = $x;
+&gt;}
+&gt;
+&gt;$a = date &quot;2000-11-11&quot;;
+&gt;$b = date &quot;1970-10-21&quot;;
+&gt;
+&gt;print &quot;a: $a, b: $b\n&quot;;
+&gt;swap1($a, $b);
+&gt;print &quot;a: $a, b: $b\n&quot;;
+&gt;
+&gt;Regards,
+&gt;
+&gt;dLux
+&gt;
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00644" href="msg00644.html">Re: [Omaha.pm] FW: FW: Class::Date - change once set</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00634.html">[Omaha.pm] FW: Class::Date - change once set</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00636.html">Re: [Omaha.pm] Class::Date - change once set</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00634.html">[Omaha.pm] FW: Class::Date - change once set</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00644.html">Re: [Omaha.pm] FW: FW: Class::Date - change once set</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00635"><strong>Date</strong></a></li>
+<li><a href="threads.html#00635"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] A regex "best fit" finder? -->
+<!--X-From-R13: Rna Zvaqre &#60;qnaNyvaqre.bet> -->
+<!--X-Date: 29 Sep 2011 20:53:24 &#45;0000 -->
+<!--X-Message-Id: CAGYusaN2xJrLp2J&#45;auth+UBgRCT5kD+ZZMWTUFpE_fD6gXJGhQ@mail.gmail.com -->
+<!--X-Content-Type: multipart/alternative -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] A regex &quot;best fit&quot; finder?</title>
+<link rev="made" href="mailto:dan@linder.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02721.html">Date Prev</a>][<a href="msg02723.html">Date Next</a>][<a href="msg02720.html">Thread Prev</a>][<a href="msg02723.html">Thread Next</a>][<a href="maillist.html#02722">Date Index</a>][<a href="threads.html#02722">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] A regex &quot;best fit&quot; finder?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] A regex &quot;best fit&quot; finder?</li>
+<li><em>From</em>: Dan Linder &lt;<a href="mailto:dan%40linder.org">dan@linder.org</a>&gt;</li>
+<li><em>Date</em>: Thu, 29 Sep 2011 15:53:02 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+I have a list of server names that I want to create a regex match against. &#xA0;It could be done by hand, but the list changes (adds, removes) on a weekly basis.<div><br></div><div>Does anyone know of a program that can take a list of matches and create a regular _expression_ that will match them?</div>
+
+<div><br></div><div>Example:</div><div>OMAWWW001</div><div>OMAWWW002</div><div>OMADNS001</div><div>ORDWWW001</div><div><div>ORDWWW002</div></div><div><div>ORDWWW003</div></div><div>ORDDNS001</div><div>ORDDNS002</div><div>
+
+<br></div><div>I guess the &quot;shortest&quot; match would be /O.......[123]/ but it&#39;s kinda &#39;loose&#39;.</div><div><br></div><div>I *think* what I&#39;d like is something like this: /O[MR][AD][WD][WN][WS]00[123]/</div>
+
+<div>(But a smarter regex tool might find something tighter...)</div><div><br></div><div>What I *don&#39;t* want is: /OMAWWW001|OMAWWW002|...|ORDDNS002/</div><div>I don&#39;t have enough space in my tool for a 10K long string! :)</div>
+
+<div><br></div><div>Any thoughts?</div><div><br></div><div>Thanks,</div><div>DanL<br clear="all"><div><br></div>-- <br>***************** ************* *********** ******* ***** *** **<br>&quot;Quis custodiet ipsos custodes?&quot;<br>
+
+&#xA0; &#xA0; (Who can watch the watchmen?)<br>&#xA0; &#xA0; -- from the Satires of Juvenal<br>&quot;I do not fear computers, I fear the lack of them.&quot;<br>&#xA0; &#xA0; -- Isaac Asimov (Author)<br>** *** ***** ******* *********** ************* *****************<br>
+
+
+</div>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="02723" href="msg02723.html">Re: [Omaha.pm] A regex &quot;best fit&quot; finder?</a></strong>
+<ul><li><em>From:</em> Sterling Hanenkamp &lt;sterling@hanenkamp.com&gt;</li></ul></li>
+<li><strong><a name="02724" href="msg02724.html">Re: [Omaha.pm] A regex &quot;best fit&quot; finder?</a></strong>
+<ul><li><em>From:</em> Christopher Cashell &lt;topher-pm@zyp.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02721.html">Re: [Omaha.pm] Perl5 OO docs</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02723.html">Re: [Omaha.pm] A regex &quot;best fit&quot; finder?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02720.html">[Omaha.pm] Fwd: Perl Poll: What would you like to read about?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02723.html">Re: [Omaha.pm] A regex &quot;best fit&quot; finder?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02722"><strong>Date</strong></a></li>
+<li><a href="threads.html#02722"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

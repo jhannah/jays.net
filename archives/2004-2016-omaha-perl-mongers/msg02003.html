@@ -1,0 +1,125 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] uppercasing some things in complex nested structures -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 1 Feb 2009 20:37:04 &#45;0000 -->
+<!--X-Message-Id: 54DB6D58&#45;27CE&#45;4051&#45;B0EC&#45;21FE8B62EB0F@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 396CEDAA86B38646ACE2FEAA22C3FBF1EDBBFF@l3exchange.omnihotels.net -->
+<!--X-Reference: 498357CA.60702@travisbsd.org -->
+<!--X-Reference: 3e2be50901310640n58f83f0pd1f0d660bada34b5@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] uppercasing some things in complex nested structures</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02002.html">Date Prev</a>][<a href="msg02004.html">Date Next</a>][<a href="msg02002.html">Thread Prev</a>][<a href="msg02004.html">Thread Next</a>][<a href="maillist.html#02003">Date Index</a>][<a href="threads.html#02003">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] uppercasing some things in complex nested structures</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] uppercasing some things in complex nested structures</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Sun, 1 Feb 2009 14:36:52 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg02002.html">3e2be50901310640n58f83f0pd1f0d660bada34b5@mail.gmail.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01999.html">396CEDAA86B38646ACE2FEAA22C3FBF1EDBBFF@l3exchange.omnihotels.net</a>&gt;	&lt;<a href="msg02000.html">498357CA.60702@travisbsd.org</a>&gt;	&lt;<a href="msg02002.html">3e2be50901310640n58f83f0pd1f0d660bada34b5@mail.gmail.com</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+On Jan 31, 2009, at 8:40 AM, Dan Linder wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><tt>On Fri, Jan 30, 2009 at 1:40 PM, Travis McArthur  
+</tt><tt>&lt;travis@travisbsd.org&gt; wrote:
+</tt><pre style="margin: 0em;">
+  if (ref($qualifiers) eq &quot;HASH&quot;)
+...
+  elsif (ref($qualifiers) eq &quot;ARRAY&quot;)
+
+</pre><tt>I just started working on some recursive code and was forced to use  
+</tt><tt>the &quot;UNIVERSAL::isa&quot; subroutine to check if an object is a hash or  
+</tt><tt>array.
+</tt></blockquote><pre style="margin: 0em;">
+
+You couldn't use ref?  (perldoc -f ref)
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><tt>This looks cleaner, but is it available in the older Perl 5.8.0?   
+</tt><tt>This looks a lot like the Perl 5.10 code I saw demo'ed and thought  
+</tt><tt>&quot;Wow, very nice!&quot;...
+</tt></blockquote><pre style="margin: 0em;">
+
+</pre><tt>I think ref has been in Perl 5... forever. I'm guessing very old Perl  
+</tt><tt>5's will run that code just fine.   :)
+</tt><pre style="margin: 0em;">
+
+j
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01999" href="msg01999.html">[Omaha.pm] uppercasing some things in complex nested structures</a></strong>
+<ul><li><em>From:</em> &quot;Jay Hannah&quot; &lt;jhannah@omnihotels.com&gt;</li></ul></li>
+<li><strong><a name="02000" href="msg02000.html">Re: [Omaha.pm] uppercasing some things in complex nested structures</a></strong>
+<ul><li><em>From:</em> Travis McArthur &lt;travis@travisbsd.org&gt;</li></ul></li>
+<li><strong><a name="02002" href="msg02002.html">Re: [Omaha.pm] uppercasing some things in complex nested structures</a></strong>
+<ul><li><em>From:</em> Dan Linder &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02002.html">Re: [Omaha.pm] uppercasing some things in complex nested structures</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02004.html">[Omaha.pm] longest xpath ever?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02002.html">Re: [Omaha.pm] uppercasing some things in complex nested structures</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02004.html">[Omaha.pm] longest xpath ever?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02003"><strong>Date</strong></a></li>
+<li><a href="threads.html#02003"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

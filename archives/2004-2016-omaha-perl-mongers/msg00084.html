@@ -1,0 +1,176 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] bad perl &#45; need help &#45; dispatch table -->
+<!--X-From-R13: Freel &#60;gq3201Ntznvy.pbz> -->
+<!--X-Date: Wed, 25 Aug 2004 09:43:02 &#45;0500 -->
+<!--X-Message-Id: 8ee0610104082507436a396b79@mail.gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] bad perl - need help - dispatch table</title>
+<link rev="made" href="mailto:td3201@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00083.html">Date Prev</a>][<a href="msg00085.html">Date Next</a>][<a href="msg00082.html">Thread Prev</a>][<a href="msg00085.html">Thread Next</a>][<a href="maillist.html#00084">Date Index</a>][<a href="threads.html#00084">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] bad perl - need help - dispatch table</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a></li>
+<li><em>Subject</em>: [Omaha.pm] bad perl - need help - dispatch table</li>
+<li><em>From</em>: Terry &lt;<a href="mailto:td3201%40gmail.com">td3201@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Wed, 25 Aug 2004 09:43:02 -0500</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=help">mailto:omaha-pm-request@mail.pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.mail.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@mail.pm.org">mailto:omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=subscribe">mailto:omaha-pm-request@mail.pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe">mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: Terry &lt;<a href="mailto:td3201%40gmail.com">td3201@gmail.com</a>&gt;, &quot;Perl Mongers of Omaha,	Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hello,
+
+
+I have a very ugly script that simply reads in a file, parses and
+outputs HTML formatted text.  See my kludge at the end of the email.
+
+The program is invoked as ./program $option  where $option can be a
+number of different things.  For this example I will say $option =
+asdf.    I am almost embarrassed to post this code cuz I suck so bad
+at this....but that's life.
+
+I have a pipe ( | ) delimited file that can be a lot different in that
+the headers of the fields can change based on the user input.  That is
+why I need to set the table headers depending on what the user inputs
+(print_asdf).  That is also why I have different field numbers in
+do_asdf based on the user input.  Right now I only have an example for
+one user input, &quot;asdf&quot;.   There could be as many as 20, I think,
+perhaps more.  With all this information, I have two questions:
+
+1) Any better way to handle this varied data other than a sub for each
+data type/user input?
+2) How can I call the subroutines based on the user input?  Obviously
+&amp;print_$foo as I have below doesn't work.  Maybe a dispatch table
+would work but I can't get that to work the way I want either.
+
+Thanks!
+Terry
+
+
+$who = $ARGV[0];
+$file = &quot;/RPAR.08242004112402.00&quot;;
+open(F, $file ) or die (&quot;cant open&quot;);
+print &lt;&lt;EOF;
+&lt;HTML&gt;
+&lt;BODY&gt;
+&lt;b&gt;Report&lt;/b&gt;&lt;br&gt;&lt;br&gt;
+&lt;table border=1 cellspacing=8&gt;
+EOF
+
+&amp;print_$;
+
+@lines = &lt;F&gt;;
+$records = @lines;
+# For each record
+for( $rcounter=0; $rcounter &lt; $records; $rcounter++)
+{
+        print &quot;&lt;p&gt;&lt;br&gt;\t&lt;tr&gt;\n&quot;;
+        @fields = split(/\|/,$lines[$rcounter]);
+        $len = @fields;
+
+        # For each field in that record
+        &amp;do_$who;
+
+        print &quot;\t&lt;/tr&gt;\n&lt;/p&gt;\n\n&quot;;
+}
+print &lt;&lt;EOF;
+&lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+EOF
+
+sub print_asdf
+{
+        print &lt;&lt;EOF;
+&lt;th&gt;Source&lt;/th&gt;
+&lt;th&gt;Destination&lt;/th&gt;
+&lt;th&gt;Input File&lt;/th&gt;
+&lt;th&gt;Output File&lt;/th&gt;
+&lt;th&gt;Date&lt;/th&gt;
+&lt;th&gt;Input Records&lt;/th&gt;
+&lt;th&gt;Filter Name&lt;/th&gt;
+&lt;th&gt;Filter Remove&lt;/th&gt;
+&lt;th&gt;Transmit Output&lt;/th&gt;
+EOF
+}
+
+sub do_asdf
+{
+        for $fcounter (0..4,6,36,37,52)
+        {
+                ($foo) = $fields[$fcounter] =~ /\s*(\S*)\s*/;
+                if ($fcounter eq 0)
+                {
+                        print &quot;\t\t&lt;td&gt;&lt;b&gt;$foo&lt;/b&gt;&lt;/td&gt;\n&quot;;
+                } else {
+                        print &quot;\t\t&lt;td&gt;$foo&lt;/td&gt;\n&quot;;
+                }
+        }
+}
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00085" href="msg00085.html">Re: [Omaha.pm] bad perl - need help - dispatch table</a></strong>
+<ul><li><em>From:</em> Mike Hostetler &lt;hostetlerm@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00083.html">Re: [Omaha.pm] Perl blogs</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00085.html">Re: [Omaha.pm] bad perl - need help - dispatch table</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00082.html">Re: [Omaha.pm] RE: figure this one out</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00085.html">Re: [Omaha.pm] bad perl - need help - dispatch table</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00084"><strong>Date</strong></a></li>
+<li><a href="threads.html#00084"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

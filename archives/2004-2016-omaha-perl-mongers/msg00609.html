@@ -1,0 +1,131 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Class::Date &#45; change once set -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 24 Oct 2005 19:20:21 &#45;0000 -->
+<!--X-Message-Id: 29AB736ABCE5C745ABF9C93B02F2C27B031ACDE0@exchange2k3.omnihotels.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Class::Date - change once set</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00608.html">Date Prev</a>][<a href="msg00610.html">Date Next</a>][<a href="msg00608.html">Thread Prev</a>][<a href="msg00610.html">Thread Next</a>][<a href="maillist.html#00609">Date Index</a>][<a href="threads.html#00609">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Class::Date - change once set</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:class-date%40lists.dlux.hu">class-date@lists.dlux.hu</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Class::Date - change once set</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Mon, 24 Oct 2005 14:22:13 -0500</li>
+<li><em>Cc</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcXY0ETr15R6JQPyQZmUj5HaMpEQXA==</li>
+<li><em>Thread-topic</em>: Class::Date - change once set</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+Hola --
+
+Is there any way to change a Class::Date value once one has been set?
+Right now my demo script is failing:
+
+My script:
+
+---
+use Class::Date qw( date );
+
+my $d1 = date &quot;1970-01-01&quot;;
+my $d2 = date &quot;2000-01-01&quot;;
+
+stuff($d1, $d2);
+print &quot;[$d1][$d2]\n&quot;;
+
+sub stuff {
+    my ($d1, $d2) = @_;
+    if ($d2 &gt; $d1) {
+       $d1 = $d2;   # &lt;---- I want to overwrite the existing $d1 here
+    }
+    print &quot;[$d1][$d2]\n&quot;;
+}
+---
+
+When I run it:
+
+$ perl j.pl
+[2000-01-01 00:00:00][2000-01-01 00:00:00]
+[1970-01-01 00:00:00][2000-01-01 00:00:00]
+
+$d1 is getting a NEW object, not overwriting the original $d1, so when
+stuff() returns I have lost my change to $d1.
+
+Is there any way to change $d1 inside stuff()? I tried clone() and set()
+without any luck.
+
+Thanks!
+
+j
+
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00608.html">[Omaha.pm] Job opportunity in West Hollywood, CA</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00610.html">Re: [Omaha.pm] Class::Date - change once set</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00608.html">[Omaha.pm] Job opportunity in West Hollywood, CA</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00610.html">Re: [Omaha.pm] Class::Date - change once set</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00609"><strong>Date</strong></a></li>
+<li><a href="threads.html#00609"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

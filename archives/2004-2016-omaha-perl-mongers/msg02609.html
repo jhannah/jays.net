@@ -1,0 +1,139 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] find a &#45;d 1 &#45;type d &#45;exec cp &#45;R {} b/ \; -->
+<!--X-From-R13: Xnl Vnaanu &#60;wunaanuNzhgngvbatevq.pbz> -->
+<!--X-Date: 10 Feb 2011 18:09:11 &#45;0000 -->
+<!--X-Message-Id: 110BAF89&#45;1B68&#45;40F6&#45;9A63&#45;E09C8A354FCD@mutationgrid.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] find a -d 1 -type d -exec cp -R {} b/ \;</title>
+<link rev="made" href="mailto:jhannah@mutationgrid.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02608.html">Date Prev</a>][<a href="msg02610.html">Date Next</a>][<a href="msg02608.html">Thread Prev</a>][<a href="msg02610.html">Thread Next</a>][<a href="maillist.html#02609">Date Index</a>][<a href="threads.html#02609">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] find a -d 1 -type d -exec cp -R {} b/ \;</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Nebraska USA Perl Mongers of Omaha &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;, Omaha Linux User	Group &lt;<a href="mailto:olug%40olug.org">olug@olug.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] find a -d 1 -type d -exec cp -R {} b/ \;</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jhannah%40mutationgrid.com">jhannah@mutationgrid.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 10 Feb 2011 12:08:59 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha1; c=relaxed; d=pobox.com; h=from	:content-type:content-transfer-encoding:subject:date:message-id	:to:mime-version; s=sasl; bh=fR9Pi7O+HA4RN0yIpI6I4emcVbc=; b=a3G	CD11ZsTimvghjpyTI4gOglUoXpWNtw4izWAZ5WG6GY8/LIpbiVINP11PJWzMUwne	PYwn9uRFppV/iEmpoKmv/S2+2A7DwDn47okDrSS9LpPinVT+XSkfHyhWDSo96Qtx	opreZLH2bvOOn4v0LBXELhuejQBZnQvSLOGe3bG8=</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+GNU++   Total elapsed time:  17 minutes   :)
+
+Jay Hannah
+Software Architect
+jhannah@mutationgrid.com | <a  rel="nofollow" href="http://mutationgrid.com">http://mutationgrid.com</a> | 1-402-598-7782
+
+
+
+
+
+17:51 &lt; kiran-mac&gt; any one- given a parentDirectory containing multiple folders and files, How could I 
+                   copy the parentDirectory with only folders and the content inside of that folder 
+                   and leave behind all the files?
+17:52 &lt; kiran-mac&gt; up to now I have been copying only the parentDirectory. Since the files are huge I 
+                   want to exclude them during copying to my folder 
+17:53 &lt; jhannah&gt; sounds like a 10 line Perl program to me
+17:53 &lt; jhannah&gt; &quot;recreate this directory tree, but none of the files&quot; 
+17:53 &lt; jhannah&gt; ?
+17:54 &lt; kiran-mac&gt; yes
+17:55 &lt; kiran-mac&gt; non of the files in the parentDirectory but I want the files inside of the folders
+17:55 &lt; jhannah&gt; inside of all of all of the folders recursively?
+17:55 &lt; kiran-mac&gt; yes
+17:56 &lt; kiran-mac&gt; currently the way I have it set up is
+18:05 &lt; jhannah&gt; find a -d 1 -type d -exec cp -R {} b/ \;
+18:05 &lt; jhannah&gt; substitute a for whatever your source directory is and b for whatever your target 
+                 directory is
+
+
+
+The little Perl program I started writing then realized I didn't need....
+
+$ cat copy_deep_except_topdir_files.pl 
+my $source_dir = $ARGV[0];
+my $target_dir = $ARGV[1];
+
+die unless (-d $source_dir);
+
+die if (-d $target_dir);
+mkdir $target_dir or die;
+
+my @files = glob(&quot;$source_dir/*&quot;);
+foreach my $file (@files) {
+   if (-d $file) {
+      my $cmd = &quot;cp -R $source_dir/$
+   
+}
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="02610" href="msg02610.html">Re: [Omaha.pm] [olug] find a -d 1 -type d -exec cp -R {} b/ \;</a></strong>
+<ul><li><em>From:</em> Rob Townley &lt;rob.townley@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02608.html">[Omaha.pm] DBIx::Class::Fixtures - dump, reload databases</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02610.html">Re: [Omaha.pm] [olug] find a -d 1 -type d -exec cp -R {} b/ \;</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02608.html">[Omaha.pm] DBIx::Class::Fixtures - dump, reload databases</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02610.html">Re: [Omaha.pm] [olug] find a -d 1 -type d -exec cp -R {} b/ \;</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02609"><strong>Date</strong></a></li>
+<li><a href="threads.html#02609"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Mtg last Thr, next mtg -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: Sat, 23 Oct 2004 11:44:36 &#45;0500 -->
+<!--X-Message-Id: A021094A&#45;2512&#45;11D9&#45;A805&#45;000A95E317B8@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Mtg last Thr, next mtg</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00190.html">Date Prev</a>][<a href="msg00192.html">Date Next</a>][<a href="msg00190.html">Thread Prev</a>][<a href="msg00192.html">Thread Next</a>][<a href="maillist.html#00191">Date Index</a>][<a href="threads.html#00191">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Mtg last Thr, next mtg</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Subject</em>: [Omaha.pm] Mtg last Thr, next mtg</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Sat, 23 Oct 2004 11:43:11 -0500</li>
+<li><em>Cc</em>: </li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/archives/omaha-pm">http://mail.pm.org/archives/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=help">mailto:omaha-pm-request@mail.pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.mail.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@mail.pm.org">mailto:omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=subscribe">mailto:omaha-pm-request@mail.pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe">mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+
+</pre><tt>I didn't come up with an agenda for our monthly meeting last Thr, so 
+</tt><tt>didn't email out a reminder, but Ron showed up anyway. After many years 
+</tt><tt>of Java, he's recently been declared &quot;the Perl guy&quot; for his team at 
+</tt><tt>work, so he's brushing up his Perl skills he hasn't used in a while. 
+</tt><tt>(And he happens to work across the street from my office. Small town, 
+</tt><tt>Omaha. -grin-)
+</tt><pre style="margin: 0em;">
+
+</pre><tt>Ron and I walked through turning Perl code into packages and objects, 
+</tt><tt>and touched briefly on complex nested data structures, references, and 
+</tt><tt>CGI.pm, just for fun.
+</tt><pre style="margin: 0em;">
+
+Next meeting: Thursday, November 18th 2004 @ 7pm
+
+   <a  rel="nofollow" href="http://omaha.pm.org/">http://omaha.pm.org/</a>
+
+Below is the code we wrote during the meeting.
+
+</pre><tt>If anyone has anything they want to go over at the meetings, I'm all 
+</tt><tt>ears. Otherwise, I'm just winging it every month. -grin-
+</tt><pre style="margin: 0em;">
+
+Cheers,
+
+j
+
+
+
+=================================================
+A tiny nested complex data structures example (de/referencing)
+==================================================
+---------------
+j.pl:
+---------------
+#!/usr/bin/perl
+
+my %hash = (
+   'a' =&gt; 'A',
+   'b' =&gt; 'B',
+   'c' =&gt; {
+      blue =&gt; 'bluer',
+      grey =&gt; 'gray',
+      peach =&gt; [ 7,8,9,10 ]
+   }
+);
+
+my $ref = \%hash;
+
+print &quot;$$ref{c}{peach}[2]\n&quot;;
+print &quot;$ref-&gt;{c}-&gt;{peach}-&gt;[2]\n&quot;;
+print &quot;$ref-&gt;{c}{peach}-&gt;[2]\n&quot;;
+print &quot;$ref-&gt;{c}{peach}[2]\n&quot;;
+
+
+=================================
+Writing our talker object
+=================================
+
+---------------
+run.pl:
+---------------
+#!/usr/bin/perl
+
+use talker;
+
+my $t = talker-&gt;new();
+$t-&gt;hello(&quot;world&quot;);
+$t-&gt;dance(&quot;really fast&quot;);
+$t-&gt;set_jaysmiddlename('Weston');
+print &quot;..... middle name: &quot;,
+   $t-&gt;get_jaysmiddlename(), &quot;\n&quot;;
+
+
+---------------
+talker.pm:
+---------------
+package talker;
+
+use vars qw( $AUTOLOAD );
+
+sub new {
+   my %self = (
+      who_is_here =&gt; {
+         # 'Jay' =&gt; 71273891,
+         # 'Ron' =&gt; 12738917,
+         # 'JayS' =&gt; 127893917,
+      },
+      hello_count =&gt; 0,
+      bye_count   =&gt; 0
+   );
+
+   return bless \%self;
+}
+
+#sub get_hello_count {
+#   my ($self) = @_;
+#   return $self-&gt;{hello_count};
+#}
+#sub get_bye_count {
+#   my ($self) = @_;
+#   return $self-&gt;{bye_count};
+#}
+
+
+sub hello {
+   my ($self, $who) = @_;
+   $self-&gt;{who_is_here}-&gt;{$who} = time;
+   $self-&gt;{hello_count}++;
+   print &quot;Hello, $who!\n&quot;;
+}
+
+sub bye {
+   my ($self, $who) = @_;
+   $self-&gt;warn($who);
+   delete %$self-&gt;{who_is_here}-&gt;{$who};
+   $self-&gt;{bye_count}++;
+   print &quot;Goodbye, $who!\n&quot;;
+}
+
+sub warn {
+   my ($self, $who) = @_;
+   print &quot;WARNING: I've been told goodbye for user '$who'\n&quot;;
+}
+
+sub print_counts {
+   my ($self) = @_;
+   print &quot;Hello: &quot;,
+      $self-&gt;get_hello_count,
+      &quot; Bye: &quot;,
+      $self-&gt;get_bye_count,
+      &quot;\n&quot;;
+}
+
+
+sub AUTOLOAD {
+    my ($self, $arg1) = @_;
+
+    my $name = $AUTOLOAD;
+    $name =~ s/.*://;   # strip fully-qualified portion
+
+    if ($name =~ /^get_(.*)/) {
+       #print &quot;get_$1? Well, I didn't program that, but OK...!\n&quot;;
+       return $self-&gt;{$1};
+    } elsif ($name =~ /^set_(.*)/) {
+       #print &quot;set_$1? Well, I didn't program that, but OK...!\n&quot;;
+       $self-&gt;{$1} = $arg1;
+       return 1;
+    } else {
+       print &quot;YOU ENVOKED NON-EXISTANT METHOD $name!\n&quot;;
+    }
+}
+
+
+1;
+
+
+=================================================
+A tiny Date::Calc example (show method exporting)
+=================================================
+
+[Jay-Hannahs-Computer:~/tmp3/tmp] jhannah% more run.pl
+#!/usr/bin/perl
+
+use Date::Calc qw( Today Add_Delta_Days );
+
+my @date = Today();
+my $cnt = 0;
+while ($cnt &lt; 10) {
+   printf(&quot;%04d-%02d-%02d\n&quot;, @date);
+   @date = Add_Delta_Days(@date, 1);
+   $cnt++;
+}
+
+
+
+=================================================
+A tiny CGI demo....
+=================================================
+
+[omaha@www omaha]$ more j2.pl
+#!/usr/bin/perl
+
+use CGI;
+
+my $q = CGI-&gt;new();
+my $blah = $q-&gt;param('blah');
+
+
+print
+   $q-&gt;header,
+   $q-&gt;start_html,
+   $q-&gt;h1(&quot;Ron's First CGI.pm CGI!&quot;),
+   &quot;&lt;h1&gt;Jay likes manual HTML better&lt;/h1&gt;&quot;,
+   &quot;Previous entry: $blah&lt;p&gt;\n&quot;,
+   $q-&gt;start_form;
+
+if ($q-&gt;param('blah3')) {
+   print &quot;Yes sir! I will process blah3 immediately!&lt;br&gt;\n&quot;;
+}
+
+for (1..10) {
+   print $q-&gt;textfield(&quot;blah$_&quot;), &quot;&lt;br&gt;\n&quot;;
+}
+print
+   $q-&gt;submit,
+   $q-&gt;end_form,
+   $q-&gt;end_html;
+
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00190.html">FW: [Omaha.pm] IO::Multiplex &amp; signals?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00192.html">[Omaha.pm] Informix / Perl mtg in KC Oct. 27</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00190.html">FW: [Omaha.pm] IO::Multiplex &amp; signals?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00192.html">[Omaha.pm] Informix / Perl mtg in KC Oct. 27</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00191"><strong>Date</strong></a></li>
+<li><a href="threads.html#00191"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] [patch] Devel::Timer -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 11 May 2006 16:25:46 &#45;0000 -->
+<!--X-Message-Id: 29AB736ABCE5C745ABF9C93B02F2C27B04432CDA@exchange2k3.omnihotels.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] [patch] Devel::Timer</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00971.html">Date Prev</a>][<a href="msg00973.html">Date Next</a>][<a href="msg00971.html">Thread Prev</a>][<a href="msg00974.html">Thread Next</a>][<a href="maillist.html#00972">Date Index</a>][<a href="threads.html#00972">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] [patch] Devel::Timer</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:jmoore%40sober.com">jmoore@sober.com</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] [patch] Devel::Timer</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 11 May 2006 11:25:22 -0500</li>
+<li><em>Cc</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcZ1F4CxDrSadJd8T1q90IP+5dSGwg==</li>
+<li><em>Thread-topic</em>: [patch] Devel::Timer</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+Hi Jason --
+
+I just discovered Devel::Timer. I love it! Thanks for putting it on
+CPAN!
+
+I'm trying to use it for timing some critical junctures in some of my
+enormous programs. The problem I was having is that my combinations of
+marks are hit dozens or hundreds of times as the program interates. That
+makes the report() output pages and pages long, and not very useful.
+
+So I added a couple new report() features. :)
+
+Here's a sample program for you to see what my patch does:
+
+---
+$ cat j.pl
+#!/usr/bin/perl
+
+use Devel::Timer;
+
+my $t = Devel::Timer-&gt;new();
+for (1..3) {
+   $t-&gt;mark(&quot;something begin&quot;);
+   sleep $_;
+   $t-&gt;mark(&quot;something end&quot;);
+}
+
+sleep 1;
+$t-&gt;mark(&quot;END&quot;);
+
+print &quot;\$t-&gt;report;\n\n&quot;;
+$t-&gt;report;
+print &quot;\n\n&quot;;
+
+print &quot;\$t-&gt;report(collapse =&gt; 1);\n\n&quot;;
+$t-&gt;report(collapse =&gt; 1);
+print &quot;\n\n&quot;;
+
+print &quot;\$t-&gt;report(collapse =&gt; 1, sort_by =&gt; 'count');\n\n&quot;;
+$t-&gt;report(collapse =&gt; 1, sort_by =&gt; 'count');
+---
+
+Simple enough. The standard report() looks like this:
+
+$t-&gt;report;
+
+Devel::Timer Report -- Total time: 7.0028 secs
+Interval  Time    Percent
+----------------------------------------------
+05 -&gt; 06  3.0006  42.85%  something begin -&gt; something end
+03 -&gt; 04  2.0007  28.57%  something begin -&gt; something end
+06 -&gt; 07  1.0009  14.29%  something end -&gt; END
+01 -&gt; 02  1.0004  14.29%  something begin -&gt; something end
+00 -&gt; 01  0.0000   0.00%  INIT -&gt; something begin
+04 -&gt; 05  0.0000   0.00%  something end -&gt; something begin
+02 -&gt; 03  0.0000   0.00%  something end -&gt; something begin
+
+Which is great for small or non-iterative programs, but if there's
+hundreds of loops of &quot;something begin -&gt; something end&quot; the report gets
+very painful very quickly. :)
+
+So I wrote a collapse feature that people can activate if they want to:
+
+$t-&gt;report(collapse =&gt; 1);
+
+Devel::Timer Report -- Total time: 7.0028 secs
+Count     Time    Percent
+----------------------------------------------
+       3  6.0018  85.71%  something begin -&gt; something end
+       1  1.0009  14.29%  something end -&gt; END
+       2  0.0001   0.00%  something end -&gt; something begin
+       1  0.0000   0.00%  INIT -&gt; something begin
+
+The stats for all combinations of labels are added together. 
+
+I also added a sort_by feature. By default the report is sorted by total
+time spent (like the default report()), but you can sort by count
+instead if you want:
+
+$t-&gt;report(collapse =&gt; 1, sort_by =&gt; 'count');
+
+Devel::Timer Report -- Total time: 7.0028 secs
+Count     Time    Percent
+----------------------------------------------
+       3  6.0018  85.71%  something begin -&gt; something end
+       2  0.0001   0.00%  something end -&gt; something begin
+       1  0.0000   0.00%  INIT -&gt; something begin
+       1  1.0009  14.29%  something end -&gt; END
+
+Pretty neat huh? Awfully handy for me anyway. :)
+
+I didn't write any POD yet because I thought you might want to change
+the interface.
+
+My patch is below. Thoughts?
+
+Thanks again,
+
+j
+
+
+
+
+$ diff -ruN Timer_orig.pm Timer.pm
+--- Timer_orig.pm       2006-05-10 15:43:03.000000000 -0500
++++ Timer.pm    2006-05-11 11:10:36.000000000 -0500
+@@ -76,7 +76,7 @@
+
+ sub report
+ {
+-    my $self = shift;
++    my ($self, %args) = @_;
+
+     ## calculate total time (start time vs last time)
+
+@@ -84,9 +84,31 @@
+
+     $self-&gt;print(&quot;\n&quot;);
+     $self-&gt;print(ref($self) . &quot; Report -- Total time: &quot; .
+sprintf(&quot;%.4f&quot;, $total_time) . &quot; secs&quot;);
++
++    if ($args{collapse})
++    {
++       $self-&gt;calculate_collapsed;
++
++       $self-&gt;print(&quot;Count     Time    Percent&quot;);
++       $self-&gt;print(&quot;----------------------------------------------&quot;);
++
++       my $c = $self-&gt;{collapsed};
++       my $sort_by = $args{sort_by} || &quot;time&quot;;
++       my @labels = sort { $c-&gt;{$b}-&gt;{$sort_by} &lt;=&gt;
+$c-&gt;{$a}-&gt;{$sort_by} } keys %$c;
++       foreach (@labels)
++       {
++           my $count = $c-&gt;{$_}-&gt;{count};
++           my $time = $c-&gt;{$_}-&gt;{time};
++           my $msg = sprintf(&quot;%8s  %.4f  %5.2f%%  %s&quot;,
++               ($count, $time, (($time/$total_time)*100), $_));
++           $self-&gt;print($msg);
++       }
++       return 1;
++    }
++
+     $self-&gt;print(&quot;Interval  Time    Percent&quot;);
+     $self-&gt;print(&quot;----------------------------------------------&quot;);
+-
++
+     ## sort interval structure based on value
+
+     @{$self-&gt;{intervals}} = sort { $b-&gt;{value} &lt;=&gt; $a-&gt;{value} }
+@{$self-&gt;{intervals}};
+@@ -111,6 +133,23 @@
+     }
+ }
+
++
++sub calculate_collapsed
++{
++    my ($self) = @_;
++
++    my %collapsed;
++    foreach my $i (0 .. $self-&gt;{count} - 2)
++    {
++        my $label = $self-&gt;{label}-&gt;{$i} . ' -&gt; ' . $self-&gt;{label}-&gt;{$i
++ 1};
++        my $time = Time::HiRes::tv_interval($self-&gt;{times}-&gt;[$i],
+$self-&gt;{times}-&gt;[$i + 1]);
++        $collapsed{$label}{time} += $time;
++        $collapsed{$label}{count}++;
++    }
++    $self-&gt;{collapsed} = \%collapsed;
++}
++
++
+ ## output methods
+ ## note: if you want to send output to somewhere other than stderr,
+ ##       you can override the print() method below.  The initialize()
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00971.html">Re: [Omaha.pm] OSCON 2006</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00973.html">Re: [Omaha.pm] Unicode Extract</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00971.html">Re: [Omaha.pm] OSCON 2006</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00974.html">[Omaha.pm] Fwd: Calculate next meeting date</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00972"><strong>Date</strong></a></li>
+<li><a href="threads.html#00972"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

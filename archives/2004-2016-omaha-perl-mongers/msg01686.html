@@ -1,0 +1,105 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] regex to lift Crypt::Tea strings out of XML -->
+<!--X-From-R13: "Rna Zvaqre" &#60;qnaNyvaqre.bet> -->
+<!--X-Date: 18 Mar 2008 16:56:07 &#45;0000 -->
+<!--X-Message-Id: 3e2be50803180955n195c81aat74a6c0f48bd2fdd7@mail.gmail.com -->
+<!--X-Content-Type: multipart/alternative -->
+<!--X-Reference: 396CEDAA86B38646ACE2FEAA22C3FBF111DB43@l3exchange.omnihotels.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] regex to lift Crypt::Tea strings out of XML</title>
+<link rev="made" href="mailto:dan@linder.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01685.html">Date Prev</a>][<a href="msg01687.html">Date Next</a>][<a href="msg01685.html">Thread Prev</a>][<a href="msg01687.html">Thread Next</a>][<a href="maillist.html#01686">Date Index</a>][<a href="threads.html#01686">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] regex to lift Crypt::Tea strings out of XML</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] regex to lift Crypt::Tea strings out of XML</li>
+<li><em>From</em>: &quot;Dan Linder&quot; &lt;<a href="mailto:dan%40linder.org">dan@linder.org</a>&gt;</li>
+<li><em>Date</em>: Tue, 18 Mar 2008 11:55:10 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01685.html">396CEDAA86B38646ACE2FEAA22C3FBF111DB43@l3exchange.omnihotels.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01685.html">396CEDAA86B38646ACE2FEAA22C3FBF111DB43@l3exchange.omnihotels.net</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+On Tue, Mar 18, 2008 at 9:46 AM, Jay Hannah &lt;<a rel="nofollow" href="mailto:jhannah@omnihotels.com">jhannah@omnihotels.com</a>&gt; wrote:<br><div class="gmail_quote"><blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;">
+<div><br><div><font face="Courier New" size="2">reverse() is neat. I didn&#39;t know/remember 
+that Perl function.&nbsp; :)</font></div></div></blockquote><div><br>And for those of you wondering (like I was), here&#39;s what happens when you run it with multiple values on the right side of the =&gt; sign...<br><br><b>Code:</b><br>
+use Data::Dumper;<br>use strict;<br>use warnings;<br>my %a2b = ( A=&gt;000, B=&gt;001, C=&gt;001, D=&gt;002 );<br>printf (&quot;Original:\n&quot;);<br>printf Dumper(\%a2b);<br><br>my %b2a = reverse %a2b;<br>printf (&quot;\n======================\nReversed:\n&quot;);<br>
+printf Dumper(\%b2a);<br><br>printf (&quot;Done!\n&quot;);<br><br><br><b>Output:</b><br>Original:<br>$VAR1 = {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#39;A&#39; =&gt; 0,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#39;D&#39; =&gt; 2,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#39;C&#39; =&gt; 1,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#39;B&#39; =&gt; 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; };<br><br>======================<br>Reversed:<br>$VAR1 = {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#39;1&#39; =&gt; &#39;C&#39;,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#39;0&#39; =&gt; &#39;A&#39;,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#39;2&#39; =&gt; &#39;D&#39;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; };<br>Done!<br>
+<br><b>RESULT:</b><br><u>&quot;There can be only one</u>&quot; (to be expected with a hash variable), but there aren&#39;t any warnings that appear when there are multiple values.&nbsp; I&#39;m not certain if it is &#39;last one wins&#39; (last being last one defined in original hash), or &#39;first one wins&#39; (first being the first as stored in memory and shown in the Dumper output)...<br>
+<br>Dan<br>&nbsp;<br></div></div>-- <br>&quot;Quis custodiet ipsos custodes?&quot; (Who can watch the watchmen?) -- from the Satires of Juvenal<br>&quot;I do not fear computers, I fear the lack of them.&quot; -- Isaac Asimov (Author)<br>
+** *** ***** ******* *********** *************
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01687" href="msg01687.html">Re: [Omaha.pm] regex to lift Crypt::Tea strings out of XML</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01685" href="msg01685.html">[Omaha.pm] regex to lift Crypt::Tea strings out of XML</a></strong>
+<ul><li><em>From:</em> &quot;Jay Hannah&quot; &lt;jhannah@omnihotels.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01685.html">[Omaha.pm] regex to lift Crypt::Tea strings out of XML</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01687.html">Re: [Omaha.pm] regex to lift Crypt::Tea strings out of XML</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01685.html">[Omaha.pm] regex to lift Crypt::Tea strings out of XML</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01687.html">Re: [Omaha.pm] regex to lift Crypt::Tea strings out of XML</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01686"><strong>Date</strong></a></li>
+<li><a href="threads.html#01686"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

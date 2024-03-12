@@ -1,0 +1,136 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] That is odd. -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 6 Jul 2006 13:03:51 &#45;0000 -->
+<!--X-Message-Id: 29AB736ABCE5C745ABF9C93B02F2C27B05A378B6@exchange2k3.omnihotels.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] That is odd.</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01027.html">Date Prev</a>][<a href="msg01029.html">Date Next</a>][<a href="msg01027.html">Thread Prev</a>][<a href="msg01029.html">Thread Next</a>][<a href="maillist.html#01028">Date Index</a>][<a href="threads.html#01028">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] That is odd.</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Sean Baker&quot; &lt;<a href="mailto:pbaker%40omnihotels.net">pbaker@omnihotels.net</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] That is odd.</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 6 Jul 2006 08:03:03 -0500</li>
+<li><em>Cc</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcagfDks4dOKRWG0QoCbx9oRBe1nigAf3DKw</li>
+<li><em>Thread-topic</em>: That is odd.</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>From: Sean Baker 
+&gt; This is odd.  What's with the while loop?
+&gt; 
+&gt;       my $sqlstr2 = &lt;&lt;EOT;
+&gt;         SELECT count(*)
+&gt;         FROM event_notify
+&gt;         WHERE prop = '$prop'
+&gt;           AND event_type = 'R'
+&gt;           AND update_type = 'M'
+&gt;           AND start_date = '$sdate'
+&gt;           AND end_date = '$sdate'
+&gt;           AND room_cat = '$room_cat'
+&gt;           AND rate_cat = '$rate_cat'
+&gt; EOT
+&gt;       my $sth2=$dbh-&gt;prepare($sqlstr2) or Vprint(&quot;Unable to 
+&gt; prepare [$sqlstr2]!! $DBI::errstr \n&quot;,1);
+&gt;       $sth2-&gt;execute() or Vprint(&quot;Unable to execute 
+&gt; [$sqlstr2]!! $DBI::errstr \n&quot;,1);
+&gt; 
+&gt;       my @row2;
+&gt;       while (@row2=$sth2-&gt;fetchrow_array) {
+&gt;         for (0..@row2) {
+&gt;           $row2[$_] =~ s/ //g;
+&gt;         }
+&gt;         $counter = $row2[0];
+&gt;       }
+&gt; 
+&gt;       if ($counter == 0) {
+&gt;         my $sqlstr3 = &lt;&lt;EOT;
+&gt;         ...stuff
+&gt;       }
+
+That IS odd. :)  That's a lot of looping when the SQL can only ever
+return one row with one column in it. This part:
+
+&gt;       my @row2;
+&gt;       while (@row2=$sth2-&gt;fetchrow_array) {
+&gt;         for (0..@row2) {
+&gt;           $row2[$_] =~ s/ //g;
+&gt;         }
+&gt;         $counter = $row2[0];
+&gt;       }
+
+Should, perhaps, be written as this instead:
+
+        my ($counter) = $sth2-&gt;fetchrow_array;
+        $counter =~ s/ //g;
+
+j
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01027.html">Re: [Omaha.pm] if ($obj-&gt;can('get_busy')  ...</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01029.html">[Omaha.pm] Debugger (or Carp?): How can I detect the creation of a	key in a hash object?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01027.html">Re: [Omaha.pm] if ($obj-&gt;can('get_busy')  ...</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01029.html">[Omaha.pm] Debugger (or Carp?): How can I detect the creation of a	key in a hash object?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01028"><strong>Date</strong></a></li>
+<li><a href="threads.html#01028"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

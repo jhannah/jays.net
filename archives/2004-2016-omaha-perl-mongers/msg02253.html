@@ -1,0 +1,190 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Mapping Perl structures to a SQL table... -->
+<!--X-From-R13: Fbqq Quevfgbcure Vnzvygba &#60;argneggbqqNtznvy.pbz> -->
+<!--X-Date: 5 Nov 2009 13:38:22 &#45;0000 -->
+<!--X-Message-Id: 4AF2D545.6010903@Gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 3e2be50910301131h5803fe21j5843873d37f9bd27@mail.gmail.com -->
+<!--X-Reference: c185b40e0910301354t13b97ba2i4f04cc9d1a2af8fa@mail.gmail.com -->
+<!--X-Reference: 3e2be50910310726p7a7b8390xba09741e23af35e5@mail.gmail.com -->
+<!--X-Reference: c185b40e0911041936k309eb460v5c97ef4f5908ed06@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Mapping Perl structures to a SQL table...</title>
+<link rev="made" href="mailto:netarttodd@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02252.html">Date Prev</a>][<a href="msg02254.html">Date Next</a>][<a href="msg02252.html">Thread Prev</a>][<a href="msg02237.html">Thread Next</a>][<a href="maillist.html#02253">Date Index</a>][<a href="threads.html#02253">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Mapping Perl structures to a SQL table...</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Mapping Perl structures to a SQL table...</li>
+<li><em>From</em>: Todd Christopher Hamilton &lt;<a href="mailto:netarttodd%40gmail.com">netarttodd@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 05 Nov 2009 07:38:13 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:received:received:message-id:date:from	:user-agent:mime-version:to:subject:references:in-reply-to	:content-type:content-transfer-encoding;	bh=6ZrKFZ2Sd/bF8cmcg0YG37CqmuQz8VgYATDJksn2ohg=;	b=W2+7BU0x7VT21Wz3cYXPw16Q1oza87JdEqtg4M9n/9fX249u0BTgwahDg3Cwmg4QCU	dBe4brDxNpRFyCu2CuVufZnT7I9/OmO/q4jlqxdF9XuqI+y+agMGuQU26H27sfIdFJ4Y	ojgybDU2E3Zt1uqXVxdfNRJVnA/dymWUoBRVw=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=message-id:date:from:user-agent:mime-version:to:subject:references	:in-reply-to:content-type:content-transfer-encoding;	b=KnMl1Di2zS2v2svQXkREHKcliW801v+cfysSGwX3q1tk+PT46rKx495RpOlf9aN0ZF	1TBAu5S+4CGT+zjl3t7LJynN/unObTmJhy1XYVuuY/5knqCmzQ8yoIR0B4axQIZfNHBX	jcw+vxiYa+Wy29cvFwCcyP3VRARBDXIVFlNS4=</li>
+<li><em>In-reply-to</em>: &lt;<a href="msg02252.html">c185b40e0911041936k309eb460v5c97ef4f5908ed06@mail.gmail.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg02235.html">3e2be50910301131h5803fe21j5843873d37f9bd27@mail.gmail.com</a>&gt;	&lt;<a href="msg02236.html">c185b40e0910301354t13b97ba2i4f04cc9d1a2af8fa@mail.gmail.com</a>&gt;	&lt;<a href="msg02242.html">3e2be50910310726p7a7b8390xba09741e23af35e5@mail.gmail.com</a>&gt;	&lt;<a href="msg02252.html">c185b40e0911041936k309eb460v5c97ef4f5908ed06@mail.gmail.com</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: Thunderbird 2.0.0.21 (Windows/20090302)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+Not done reading but you had me a &quot;you really want to be cool&quot;
+
+Sterling Hanenkamp wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><tt>On Sat, Oct 31, 2009 at 8:26 AM, Dan Linder &lt;dan@linder.org 
+</tt><tt>&lt;<a  rel="nofollow" href="mailto:dan@linder.org">mailto:dan@linder.org</a>&gt;&gt; wrote:
+</tt><pre style="margin: 0em;">
+
+    2009/10/30 Sterling Hanenkamp &lt;sterling@hanenkamp.com
+    &lt;<a  rel="nofollow" href="mailto:sterling@hanenkamp.com">mailto:sterling@hanenkamp.com</a>&gt;&gt;:
+     &gt; If your data is all hashes, perhaps what you ought to look into
+    is KiokuDB,
+     &gt; since it stores hashes very efficiently. If you can turn your
+    hashes into
+     &gt; Moose classes while you're at it, all the better.
+
+    The others on my team that work with this (albeit on a lesser level)
+    are even wary of non-core Perl Modules or moving to a SQL DB at all.
+    I'm taking baby-steps here hoping to help lead them into the &quot;big
+    kids&quot; pool via the wading pool end.
+
+    But I will look into KiokuDB -- it looks like an interesting module.
+
+
+</pre><tt>Well, if you really want to be cool, you'll convert your code to work in 
+</tt><tt>the cloud via CouchDB or Amazon SimpleDB. RDBMS is soooo 1975. :-p All 
+</tt><tt>the cool kids are looking to switch to some kind of cloud-stored object 
+</tt><tt>database. (I'm not one of the cool kids, btw, since I use DBIx::Class 
+</tt><tt>for most of my work at this point.)
+</tt><pre style="margin: 0em;">
+
+</pre><tt>KiokuDB is just interface library, like DBI. You can use memory 
+</tt><tt>(KiokuDB::Backend::Hash), BerkeleyDB (K::B::BDB), a DBI connection 
+</tt><tt>(K::B::DBI), Couch DB (K::B::CouchDB)or even just store one file per 
+</tt><tt>object (K::B::File). In fact, if you wrote a Data::Dumper of 
+</tt><tt>KiokuDB::Backend::Serialize, you could probably keep things very close 
+</tt><tt>to what you have on the disk. :) It isn't a core module, though, and 
+</tt><tt>depends on quite a few non-core modules, so that I can't help you with.
+</tt><pre style="margin: 0em;">
+
+</pre><tt>Stick with DBI if they want something conservative. DBI and RDBMS are 
+</tt><tt>about as vanilla standard as it gets outside of Perl core. If you can 
+</tt><tt>get them to go for it, DBIx::Class is a very nice way of staying away 
+</tt><tt>from writing tons of SQL and making your code tie directly into a 
+</tt><tt>particular DB (which is an awful place to be when you find out your 
+</tt><tt>RDBMS limitations don't fit your app well, but now can't easily switch 
+</tt><tt>to something else).
+</tt><pre style="margin: 0em;">
+
+Cheers.
+</pre><tt> 
+</tt><tt>
+</tt><pre style="margin: 0em;">
+
+    Dan
+
+    --
+    ******************* ***************** ************* ***********
+    ******* ***** *** **
+    &quot;Quis custodiet ipsos custodes?&quot; (Who can watch the watchmen?) -- from
+    the Satires of Juvenal
+    &quot;I do not fear computers, I fear the lack of them.&quot; -- Isaac Asimov
+    (Author)
+    ** *** ***** ******* *********** ************* *****************
+    *******************
+    _______________________________________________
+    Omaha-pm mailing list
+    Omaha-pm@pm.org &lt;<a  rel="nofollow" href="mailto:Omaha-pm@pm.org">mailto:Omaha-pm@pm.org</a>&gt;
+    <a  rel="nofollow" href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>
+
+
+
+
+--
+Andrew Sterling Hanenkamp
+sterling@hanenkamp.com &lt;<a  rel="nofollow" href="mailto:sterling@hanenkamp.com">mailto:sterling@hanenkamp.com</a>&gt;
+785.370.4454
+
+
+------------------------------------------------------------------------
+
+_______________________________________________
+Omaha-pm mailing list
+Omaha-pm@pm.org
+<a  rel="nofollow" href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="02235" href="msg02235.html">[Omaha.pm] Mapping Perl structures to a SQL table...</a></strong>
+<ul><li><em>From:</em> Dan Linder &lt;dan@linder.org&gt;</li></ul></li>
+<li><strong><a name="02236" href="msg02236.html">Re: [Omaha.pm] Mapping Perl structures to a SQL table...</a></strong>
+<ul><li><em>From:</em> Sterling Hanenkamp &lt;sterling@hanenkamp.com&gt;</li></ul></li>
+<li><strong><a name="02242" href="msg02242.html">Re: [Omaha.pm] Mapping Perl structures to a SQL table...</a></strong>
+<ul><li><em>From:</em> Dan Linder &lt;dan@linder.org&gt;</li></ul></li>
+<li><strong><a name="02252" href="msg02252.html">Re: [Omaha.pm] Mapping Perl structures to a SQL table...</a></strong>
+<ul><li><em>From:</em> Sterling Hanenkamp &lt;sterling@hanenkamp.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02252.html">Re: [Omaha.pm] Mapping Perl structures to a SQL table...</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02254.html">[Omaha.pm] Meeting in 70 minutes!</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02252.html">Re: [Omaha.pm] Mapping Perl structures to a SQL table...</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02237.html">Re: [Omaha.pm] Mapping Perl structures to a SQL table...</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02253"><strong>Date</strong></a></li>
+<li><a href="threads.html#02253"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

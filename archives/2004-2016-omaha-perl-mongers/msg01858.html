@@ -1,0 +1,129 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Catalyst::Runtime POD -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 10 Sep 2008 15:26:15 &#45;0000 -->
+<!--X-Message-Id: C43570FA&#45;BCE2&#45;47EC&#45;8333&#45;2DC2B7AB79D8@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Catalyst::Runtime POD</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01857.html">Date Prev</a>][<a href="msg01859.html">Date Next</a>][<a href="msg01857.html">Thread Prev</a>][<a href="msg01859.html">Thread Next</a>][<a href="maillist.html#01858">Date Index</a>][<a href="threads.html#01858">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Catalyst::Runtime POD</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Nebraska USA Perl Mongers of Omaha &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Catalyst::Runtime POD</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Wed, 10 Sep 2008 10:25:55 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+Got another patch applied to Catalyst today.
+
+</pre><tt>Now I don't have to remember where I put that note-to-self, it's in  
+</tt><tt>the docs for everyone's benefit. (Especially mine!)   :)
+</tt><pre style="margin: 0em;">
+
+j
+
+
+
+$ svn info Catalyst.pm
+</pre><tt>URL: <a  rel="nofollow" href="http://dev.catalyst.perl.org/repos/Catalyst/Catalyst-Runtime/">http://dev.catalyst.perl.org/repos/Catalyst/Catalyst-Runtime/</a> 
+</tt><tt>5.80/trunk/lib/Catalyst.pm
+</tt><pre style="margin: 0em;">
+
+$ svn diff -r8393:8394
+Index: Catalyst.pm
+===================================================================
+--- Catalyst.pm (revision 8393)
++++ Catalyst.pm (revision 8394)
+@@ -1011,6 +1011,15 @@
+</pre><tt> C&lt;@args&gt; is an arrayref it is treated as a list of captures to be  
+</tt><tt>passed
+</tt><pre style="margin: 0em;">
+ to C&lt;uri_for_action&gt;.
+
+</pre><tt>+You can maintain the arguments captured by an action (e.g.: Regex,  
+</tt><tt>Chained)
+</tt><pre style="margin: 0em;">
++using C&lt;&lt; $c-&gt;req-&gt;captures &gt;&gt;.
++
++  # For the current action
++  $c-&gt;uri_for($c-&gt;action, $c-&gt;req-&gt;captures);
++
++  # For the Foo action in the Bar controller
+</pre><tt>+  $c-&gt;uri_for($c-&gt;controller-&gt;('Bar')-&gt;action_for('Foo'), $c-&gt;req- 
+</tt><tt>&gt;captures);
+</tt><pre style="margin: 0em;">
++
+ =cut
+
+ sub uri_for {
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01857.html">[Omaha.pm] Fwd: [pm_groups] Pittsburgh Perl Workshop 2008</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01859.html">[Omaha.pm] Fwd: New Perl Projects</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01857.html">[Omaha.pm] Fwd: [pm_groups] Pittsburgh Perl Workshop 2008</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01859.html">[Omaha.pm] Fwd: New Perl Projects</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01858"><strong>Date</strong></a></li>
+<li><a href="threads.html#01858"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

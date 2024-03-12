@@ -1,0 +1,169 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] $0 = "I am not running"; -->
+<!--X-From-R13: Oaql Zrfgre &#60;naqlNcrgqnapr.pbz> -->
+<!--X-Date: 27 Aug 2008 18:59:12 &#45;0000 -->
+<!--X-Message-Id: ABC7A481&#45;C9EC&#45;40AC&#45;8E8E&#45;7AAA17621D47@petdance.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 045CC69C&#45;4A88&#45;473F&#45;8AF5&#45;D3F4B9CAE789@jays.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] $0 = &quot;I am not running&quot;;</title>
+<link rev="made" href="mailto:andy@petdance.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01837.html">Date Prev</a>][<a href="msg01839.html">Date Next</a>][<a href="msg01837.html">Thread Prev</a>][<a href="msg01839.html">Thread Next</a>][<a href="maillist.html#01838">Date Index</a>][<a href="threads.html#01838">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] $0 = &quot;I am not running&quot;;</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] $0 = &quot;I am not running&quot;;</li>
+<li><em>From</em>: Andy Lester &lt;<a href="mailto:andy%40petdance.com">andy@petdance.com</a>&gt;</li>
+<li><em>Date</em>: Wed, 27 Aug 2008 13:58:52 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01837.html">045CC69C-4A88-473F-8AF5-D3F4B9CAE789@jays.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01837.html">045CC69C-4A88-473F-8AF5-D3F4B9CAE789@jays.net</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+
+On Aug 27, 2008, at 1:55 PM, Jay Hannah wrote:
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><tt>Fascinating. When you set $0 inside a running Perl program, &quot;ps w&quot;  
+</tt><tt>and &quot;ps -ef&quot; and some others will report whatever you set. But &quot;ps&quot;  
+</tt><tt>won't change...
+</tt></blockquote><pre style="margin: 0em;">
+
+
+It's all platform-dependent.  From perldoc perlvar:
+
+       $0      Contains the name of the program being executed.
+
+</pre><tt>               On some (read: not all) operating systems assigning to  
+</tt><tt>$0
+</tt><tt>               modifies the argument area that the &quot;ps&quot; program  
+</tt><tt>sees.  On some
+</tt><pre style="margin: 0em;">
+               platforms you may have to use special &quot;ps&quot; options or a
+</pre><tt>               different &quot;ps&quot; to see the changes.  Modifying the $0  
+</tt><tt>is more
+</tt><tt>               useful as a way of indicating the current program  
+</tt><tt>state than it
+</tt><tt>               is for hiding the program you&#x2019;re running.  (Mnemonic:  
+</tt><tt>same as
+</tt><pre style="margin: 0em;">
+               sh and ksh.)
+
+               Note that there are platform specific limitations on the
+</pre><tt>               maximum length of $0.  In the most extreme case it may  
+</tt><tt>be
+</tt><pre style="margin: 0em;">
+               limited to the space occupied by the original $0.
+
+</pre><tt>               In some platforms there may be arbitrary amount of  
+</tt><tt>padding, for
+</tt><tt>               example space characters, after the modified name as  
+</tt><tt>shown by
+</tt><tt>               &quot;ps&quot;.  In some platforms this padding may extend all  
+</tt><tt>the way to
+</tt><tt>               the original length of the argument area, no matter  
+</tt><tt>what you do
+</tt><pre style="margin: 0em;">
+               (this is the case for example with Linux 2.2).
+
+</pre><tt>               Note for BSD users: setting $0 does not completely  
+</tt><tt>remove
+</tt><tt>               &quot;perl&quot; from the ps(1) output.  For example, setting $0  
+</tt><tt>to
+</tt><tt>               &quot;foobar&quot; may result in &quot;perl: foobar (perl)&quot; (whether  
+</tt><tt>both the
+</tt><tt>               &quot;perl: &quot; prefix and the &quot; (perl)&quot; suffix are shown  
+</tt><tt>depends on
+</tt><tt>               your exact BSD variant and version).  This is an  
+</tt><tt>operating
+</tt><pre style="margin: 0em;">
+               system feature, Perl cannot help it.
+
+</pre><tt>               In multithreaded scripts Perl coordinates the threads  
+</tt><tt>so that
+</tt><tt>               any thread may modify its copy of the $0 and the  
+</tt><tt>change becomes
+</tt><tt>               visible to ps(1) (assuming the operating system plays  
+</tt><tt>along).
+</tt><tt>               Note that the view of $0 the other threads have will  
+</tt><tt>not change
+</tt><pre style="margin: 0em;">
+               since they have their own copies of it.
+
+
+--
+Andy Lester =&gt; andy@petdance.com =&gt; www.petdance.com =&gt; AIM:petdance
+
+
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01837" href="msg01837.html">[Omaha.pm] $0 = &quot;I am not running&quot;;</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01837.html">[Omaha.pm] $0 = &quot;I am not running&quot;;</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01839.html">Re: [Omaha.pm] $0 = &quot;I am not running&quot;;</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01837.html">[Omaha.pm] $0 = &quot;I am not running&quot;;</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01839.html">Re: [Omaha.pm] $0 = &quot;I am not running&quot;;</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01838"><strong>Date</strong></a></li>
+<li><a href="threads.html#01838"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

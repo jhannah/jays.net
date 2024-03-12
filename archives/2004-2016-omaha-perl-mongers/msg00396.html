@@ -1,0 +1,131 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] another hack &#45;&#45; s/\|$key\|/\|$c{$key}\|/; -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 27 May 2005 17:44:34 &#45;0000 -->
+<!--X-Message-Id: 200505271744.j4RHiRnn012355@omares&#45;email.omnihotels.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] another hack -- s/\|$key\|/\|$c{$key}\|/;</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00395.html">Date Prev</a>][<a href="msg00397.html">Date Next</a>][<a href="msg00395.html">Thread Prev</a>][<a href="msg00397.html">Thread Next</a>][<a href="maillist.html#00396">Date Index</a>][<a href="threads.html#00396">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] another hack -- s/\|$key\|/\|$c{$key}\|/;</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] another hack -- s/\|$key\|/\|$c{$key}\|/;</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Fri, 27 May 2005 12:45:08 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcVi49MZN+85+Gk1Th2wGN3gjfe42Q==</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+Given a survey log like this:
+
+2005-05-12 09:07:42|MONDTN|D10|2|3|3|2|2|4|2|2|1|1|2|2|1|1|4|2|2|3|3|3|2|4|4|4|4|4|3|2|3||
+2005-05-12 09:08:54|MONDTN|D16|4|3|4|4|4|4|4|4|4|4|4|4|4|4|4|4|4|3|4|4|4|4|4|4|4|4|4|4|4||
+2005-05-12 09:09:56|MONDTN|D16|4|3|4|4|4|3|4|4|3||3|4|3|4|4||4|3|4|4|4|4|4|4|4|3|3|4|3||
+
+Where D10, D16 (etc) are department indicators; and given that you just realized that you wrote the survey thing wrong and need to switch out departments indicators: change all D20's to D14, all D14's to D15, etc.
+
+Solution:
+
+---
+my %c = (
+  'D20' =&gt; 'D14',
+  'D14' =&gt; 'D15',
+  'D15' =&gt; 'D16',
+  'D16' =&gt; 'D17',
+  'D17' =&gt; 'D18',
+  'D18' =&gt; 'D19',
+  'D19' =&gt; 'D20'
+);
+
+LINE: while (&lt;&gt;) {
+   foreach $key (keys %c) {
+      if (/\|$key\|/) {
+         s/\|$key\|/\|$c{$key}\|/;
+         print;
+         next LINE;
+      }
+   }
+   print;
+}
+---
+
+Bonus points: My first solution just did something like this:
+
+    s/\|D20\|/\|D14\|/;
+    s/\|D14\|/\|D15\|/;
+    s/\|D15\|/\|D16\|/;
+    s/\|D16\|/\|D17\|/;
+    etc...
+
+Why was that solution doomed to fail?
+
+j
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00395.html">Re: [Omaha.pm] unless ($current_count % 100) {</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00397.html">Re: [Omaha.pm] Perl, XML, Oracle Opportunity in the Kansas City Area</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00395.html">Re: [Omaha.pm] unless ($current_count % 100) {</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00397.html">Re: [Omaha.pm] Perl, XML, Oracle Opportunity in the Kansas City Area</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00396"><strong>Date</strong></a></li>
+<li><a href="threads.html#00396"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

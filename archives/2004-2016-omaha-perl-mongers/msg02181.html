@@ -1,0 +1,163 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Embeddable database options. -->
+<!--X-From-R13: [nevb Egrryr &#60;znevbNehol&#45;vz.arg> -->
+<!--X-Date: 24 Aug 2009 21:11:42 &#45;0000 -->
+<!--X-Message-Id: a4439dea0908241411m17b75744j1a7da148254a22e@mail.gmail.com -->
+<!--X-Content-Type: multipart/alternative -->
+<!--X-Reference: 3e2be50908240717g4b5d6a07s2d8adbf3e71daf5b@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Embeddable database options.</title>
+<link rev="made" href="mailto:mario@ruby-im.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02180.html">Date Prev</a>][<a href="msg02182.html">Date Next</a>][<a href="msg02180.html">Thread Prev</a>][<a href="msg02182.html">Thread Next</a>][<a href="maillist.html#02181">Date Index</a>][<a href="threads.html#02181">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Embeddable database options.</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Embeddable database options.</li>
+<li><em>From</em>: Mario Steele &lt;<a href="mailto:mario%40ruby-im.net">mario@ruby-im.net</a>&gt;</li>
+<li><em>Date</em>: Mon, 24 Aug 2009 17:11:31 -0400</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg02180.html">3e2be50908240717g4b5d6a07s2d8adbf3e71daf5b@mail.gmail.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg02180.html">3e2be50908240717g4b5d6a07s2d8adbf3e71daf5b@mail.gmail.com</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+Hello Dan,<br><br><div class="gmail_quote">On Mon, Aug 24, 2009 at 10:17 AM, Dan Linder <span dir="ltr">&lt;<a rel="nofollow" href="mailto:dan@linder.org">dan@linder.org</a>&gt;</span> wrote:<br><blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;">
+Guys,<br>
+<br>
+I&#39;m looking at rewriting some of the store/retrieve code in a project<br>
+I&#39;m working on. &#xA0;The current method uses the Data::Dumper and eval()<br>
+code to store data to a hierarchical directory structure on disk.<br>
+Over the weekend I all but eliminated the hard-disk overhead by moving<br>
+the data to a temporary RAM disk -- sadly, the speed-ups were too<br>
+small to notice. &#xA0;This tells me that the overall Linux file-system<br>
+caching is working quite well. &#xA0;(Yay!) Unfortunately, this leads me<br>
+(again) determine that the Dumper/eval() code is probably the<br>
+bottle-neck. &#xA0;(Definately not what they were designed for, but work<br>
+remarkably well none the less...)</blockquote><div><br>Eval is more then likely your biggest bottleneck.&#xA0; Dumper not so much, but heavy usage of eval in any language, can create a bottleneck in nothing flat.<br>&#xA0;<br></div>
+<blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;">
+So, I started investigating alternatives:<br>
+&#xA0;* A true database with client/server model (i.e. MySQL, PostgreSQL, etc)</blockquote><div><br>Use MySQL / PostgreSQL is you are going to have many hits to the Perl script that is going to be executing.&#xA0; It does well with threading, and also solves the problem mentioned below about SQLite.<br>
+<br></div><blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;">&#xA0;* An embedded database such as SQLite (others?)</blockquote><div><br>SQLite is a great Database system, for File Based data storage.&#xA0; Unfortunately, it stores in binary, so you can&#39;t exactly use grep, vi, etc, etc, to read the contents of the database file.&#xA0; But unlike it&#39;s big brother, you can only have one transactional lock (EG Database Open) at a time on a database file.&#xA0; This is to prevent corruption of the data.&#xA0; (And yes, this locks even if your just doing a read query.)<br>
+&#xA0;<br></div><blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;"> * Continue using the filesystem+directory structure using<br>
+freeze()/thaw() from the FreezeThaw CPAN module (speed improvement?)</blockquote><div><br>I dunno if freeze()/thaw() will do any good, as it still comes down to Dumper/eval() to properly store the information.<br>&#xA0;</div>
+<blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;"> * Use a DBD module to store/retrieve these files (i.e. DBD::File,<br>
+DBD::CSV, etc) (benefit here is that a simple change in the DB setup<br>
+code will mean a change from DBD::File to DBD::SQLite or<br>
+DBD::PostgreSQL should be fairly short work)</blockquote><div><br>DBD overall, is a great front end for you to use, for database storage, as it gives you a common api across many different DB Backends.&#xA0; If you want consistency, and the ability to test different database storage engines, then I would strongly recommend you use DBD.<br>
+&#xA0;</div><blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;">
+Internally I have some constraints:<br>
+&#xA0;* We&#39;d like to keep the number of non-core Perl modules down<br>
+(currently we&#39;re 90% core), and a couple customers are extremely<br>
+sensitive to anything that is not supplied by their OS provider<br>
+(Solaris and HPUX for example).</blockquote><div><br>This is true in many facets, but you&#39;ll find standard that MySQL and SQLite are often the biggest thing that is distributed on most Operating Systems (Aside from Windows, but we won&#39;t go there). <br>
+<br></div><blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;"> * We would also like to keep the files on disk and in a<br>
+human-readable form so the end users and support staff can peruse this<br>
+data with simple tools (grep, vi, etc).</blockquote><div><br>Again, as stated above, SQLite, and MySQL won&#39;t let you use grep, vi, etc, to view the data, but simple tools can be created to create the same effect, and highly optimize it to specific tasks, instead of looking through hundreds of lines of data, to find a specific field.<br>
+&#xA0;</div><blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;">
+&#xA0;* The remaining 10% that is non-core Perl modules are local copies of<br>
+&quot;pure perl&quot; CPAN modules we&#39;ve merged into the source code branch<br>
+directly. &#xA0;(We do this because the code runs on Solaris/SPARC,<br>
+Solaris/x86_64, Linux/x86, Linux/ia64, HPUX/PA-RISC, HPUX/ia64, etc)<br>
+<br>
+My personal pick at the moment is SQLite (it is provided natively in<br>
+Solaris 10, and easy to install on Linux platforms), but I question if<br>
+the speed up it provides will be over-shadowed by the constant<br>
+spawning of the sqlite binary each time an element of data is queried.<br>
+&#xA0;(Anyone know if there is a way to leave a persistent copy of SQLite<br>
+running in memory that future copies hook into? &#xA0;Getting a bit far<br>
+afield from the initial SQLite implementation goals...)</blockquote><div><br>Now, I come to this, after explaining the above to you, and I will be directly to the point.&#xA0; SQLite Binary (or BLOB) data types, while may seem to be huge for data allocation and stuff, is actually quite minimal in overall speed.&#xA0; This especially can be optimized when you need to look at specific data fields, and could care less about the rest.&#xA0; As well with anything else, SQLite does have overheads, but not nearly as much as you might think.&#xA0; It only allocates the data needed to return the results of a SQL query, or insert data into the database.<br>
+<br>The SQLite team has put much effort into optimizing the SQLite engine, so that it can store, as well as retrieve data in the most efficient manner possible, and keep the engine fast, and properly working.&#xA0; Many Linux distributions (Ubuntu among most), use SQLite for a large amount of storage within their own system, such as APT/Aptitude/Synaptic.&#xA0; Using SQLite can have it&#39;s advantages, but also it&#39;s downfalls to.&#xA0; If your wanting to avoid database locking issues, then I suggest MySQL.&#xA0; If your looking for Light weight solution, that is quick, and not so much a worry about Locking issues, then I would suggest SQLite.<br>
+&#xA0;</div><blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;">
+Thanks for any insight,<br>
+<br>
+DanL<br>
+<br>
+--<br>
+******************* ***************** ************* ***********<br>
+******* ***** *** **<br>
+&quot;Quis custodiet ipsos custodes?&quot; (Who can watch the watchmen?) -- from<br>
+the Satires of Juvenal<br>
+&quot;I do not fear computers, I fear the lack of them.&quot; -- Isaac Asimov (Author)<br>
+** *** ***** ******* *********** ************* *****************<br>
+*******************<br>
+_______________________________________________<br>
+Omaha-pm mailing list<br>
+<a rel="nofollow" href="mailto:Omaha-pm@pm.org">Omaha-pm@pm.org</a><br>
+<a rel="nofollow" href="http://mail.pm.org/mailman/listinfo/omaha-pm" target="_blank">http://mail.pm.org/mailman/listinfo/omaha-pm</a><br>
+</blockquote></div><br>Hope this helps, and it is just my own two cents on the deal.<br clear="all"><br>-- <br>Mario Steele<br><a rel="nofollow" href="http://www.trilake.net">http://www.trilake.net</a><br><a rel="nofollow" href="http://www.ruby-im.net">http://www.ruby-im.net</a><br>
+<a rel="nofollow" href="http://rubyforge.org/projects/wxruby/">http://rubyforge.org/projects/wxruby/</a><br><a rel="nofollow" href="http://rubyforge.org/projects/wxride/">http://rubyforge.org/projects/wxride/</a><br>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="02182" href="msg02182.html">Re: [Omaha.pm] Embeddable database options.</a></strong>
+<ul><li><em>From:</em> Dan Linder &lt;dan@linder.org&gt;</li></ul></li>
+<li><strong><a name="02184" href="msg02184.html">Re: [Omaha.pm] Embeddable database options.</a></strong>
+<ul><li><em>From:</em> Todd Christopher Hamilton &lt;netarttodd@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="02180" href="msg02180.html">[Omaha.pm] Embeddable database options.</a></strong>
+<ul><li><em>From:</em> Dan Linder &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02180.html">[Omaha.pm] Embeddable database options.</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02182.html">Re: [Omaha.pm] Embeddable database options.</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02180.html">[Omaha.pm] Embeddable database options.</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02182.html">Re: [Omaha.pm] Embeddable database options.</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02181"><strong>Date</strong></a></li>
+<li><a href="threads.html#02181"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Spreadsheet::WriteExcel hack -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 25 Jul 2005 15:40:59 &#45;0000 -->
+<!--X-Message-Id: 200507251540.j6PFeZic025458@omares&#45;email.omnihotels.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Spreadsheet::WriteExcel hack</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00443.html">Date Prev</a>][<a href="msg00445.html">Date Next</a>][<a href="msg00438.html">Thread Prev</a>][<a href="msg00445.html">Thread Next</a>][<a href="maillist.html#00444">Date Index</a>][<a href="threads.html#00444">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Spreadsheet::WriteExcel hack</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Spreadsheet::WriteExcel hack</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Mon, 25 Jul 2005 10:41:42 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcWRL1sB26GGlQKvT4Sd99JUgCmCkw==</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+Given a text file like this:
+
+ALERT 1003417647|2005-05-06 13:07:03| |AMELIA|PITDTN|
+ALERT 1003502312|2005-05-26 15:21:27| |BG|CLTDTN|
+
+Separate the data into N new MS-Excel spreadsheets -- one per the value of column 4 (&quot;PITDTN&quot;, etc.). 
+
+So, you should end up with a PITDTN.xls Excel spreadsheet, a CLTDTN.xls spreadsheet, etc.
+
+(In this case, using a reference for $row was silly and caused unnecessary debug time.)
+
+j
+
+
+#!/usr/bin/perl
+
+use strict;
+use Spreadsheet::WriteExcel;
+
+my %xlss;
+open (IN, &quot;alerts_only&quot;);
+while (&lt;IN&gt;) {
+   # ALERT 1003417647|2005-05-06 13:07:03| |AMELIA|PITDTN|
+   # ALERT 1003502312|2005-05-26 15:21:27| |BG|CLTDTN|
+   chomp;
+   s/^ALERT //;
+   my @l = split /\|/;
+   my $prop = $l[4];
+   unless ($xlss{$prop}) {
+      my $wkb = Spreadsheet::WriteExcel-&gt;new(&quot;$prop.xls&quot;);
+      my $wks = $wkb-&gt;add_worksheet();
+      $xlss{$prop}{wkb} = $wkb;
+      $xlss{$prop}{wks} = $wks;
+      my $row = 0;
+      $xlss{$prop}{row} = \$row;
+   }
+   my $wkb = $xlss{$prop}{wkb};
+   my $wks = $xlss{$prop}{wks};
+   my $row = $xlss{$prop}{row};
+
+   for (0..4) {
+      $wks-&gt;write($$row, $_, $l[$_]);
+   }
+   $$row++;
+}
+close IN;
+
+foreach my $prop (keys %xlss) {
+   $xlss{$prop}{wkb}-&gt;close;
+}
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00443.html">Re: [Omaha.pm] best practice: podchecker</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00445.html">[Omaha.pm] Fwd: [pm_admins] XML::LibXML choking on &amp;oum;</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00438.html">[Omaha.pm] grep hack. better? worse? (faster?)</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00445.html">[Omaha.pm] Fwd: [pm_admins] XML::LibXML choking on &amp;oum;</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00444"><strong>Date</strong></a></li>
+<li><a href="threads.html#00444"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

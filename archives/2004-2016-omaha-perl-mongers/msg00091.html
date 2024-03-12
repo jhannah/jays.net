@@ -1,0 +1,154 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: RE: [Omaha.pm] bad perl &#45; need help &#45; dispatch table -->
+<!--X-From-R13: "[vyyre, Epbgg Z (Aznun @rgjbexf)" &#60;fpbgg.y.zvyyreNuc.pbz> -->
+<!--X-Date: Thu, 26 Aug 2004 10:37:34 &#45;0500 -->
+<!--X-Message-Id: 1F7C0C8F4BD7C54A8BC55012FEF3DF6D0302E685@omaexc11.americas.cpqcorp.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>RE: [Omaha.pm] bad perl - need help - dispatch table</title>
+<link rev="made" href="mailto:scott.l.miller@hp.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00090.html">Date Prev</a>][<a href="msg00092.html">Date Next</a>][<a href="msg00090.html">Thread Prev</a>][<a href="msg00092.html">Thread Next</a>][<a href="maillist.html#00091">Date Index</a>][<a href="threads.html#00091">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>RE: [Omaha.pm] bad perl - need help - dispatch table</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Terry&quot; &lt;<a href="mailto:td3201%40gmail.com">td3201@gmail.com</a>&gt;,	&quot;Perl Mongers of Omaha,  Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>Subject</em>: RE: [Omaha.pm] bad perl - need help - dispatch table</li>
+<li><em>From</em>: &quot;Miller, Scott L (Omaha Networks)&quot; &lt;<a href="mailto:scott.l.miller%40hp.com">scott.l.miller@hp.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 26 Aug 2004 10:37:30 -0500</li>
+<li><em>Cc</em>: </li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=help">mailto:omaha-pm-request@mail.pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.mail.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@mail.pm.org">mailto:omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=subscribe">mailto:omaha-pm-request@mail.pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe">mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcSKse4B860jgtfQRFWfDxVpZR9QpAAJEbpg</li>
+<li><em>Thread-topic</em>: [Omaha.pm] bad perl - need help - dispatch table</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Terry,
+
+As Mike &amp; Jay said in their posts, the get options packages 
+are great.  Although this is a bit beyond what you're asking for, 
+I have a standard routine to allow the short options (single
+character options) and object files to be intermingled:
+
+	###############################################
+	#allow options to be intermixed with filenames
+	###############################################
+	   while(@ARGV) {
+	      #if it doesn't start with a '-', assume it's not an cmd line option
+	      while($ARGV[0] =~ /^[^\-]/) { 
+	         push @hold, shift @ARGV;
+	      }  
+	      getopts('&lt;place-expected-option-characters-here&gt;');
+	   }     
+	   @ARGV=@hold; 
+
+And I've got a largish program that calls a routine whose name
+we have in a variable, I have this little routine to help do some 
+error checking:
+
+	#######################################################################
+	# Call the appropriate handling routine base on the box type given.
+	#
+	# Ok, I was (and still am) lazy and used dashes in &quot;box-type&quot; strings,
+	# which are (or should be) specified within the ip-2-name.tbl file.
+	# These files were all setup before I thought &quot;Why don't I just name
+	# the subroutines the same thing, and call those routines indirectly?&quot;
+	#
+	# Dashes are not legal characters for any variable/subroutine name
+	# because the parser would get confused because it thinks dashes are 
+	# instructions to subtract. 
+	#
+	# I also need to check for the case where we don't know what kind
+	# of box a particular message is from. And the case where the routine 
+	# isn't defined. In these cases we call a default routine.
+	#  
+	#######################################################################
+	sub call_sub {
+	   my $sub = @_[0];
+	      
+	   # translate upper case to lower, and more importantly, dashes to
+	   # underscores
+	   $sub =~ tr/A-Z\-/a-z_/;
+	      
+	   if ($sub eq &quot;&quot;) {
+	      &amp;unknown_box;
+	   } else {
+	      if( defined &amp;$sub ) {
+	         &amp;$sub;
+	      } else {
+	         print &quot;no &lt;$sub&gt; subroutine defined - using unknown_box routine\n&quot;;
+	         &amp;unknown_box;
+	      }
+	   }
+	}
+
+	#greatly simplified program starts here
+	while(&lt;&gt;) {
+		$type = &amp;get_box_type($_);
+		&amp;call_sub( $type );  #call the appropriate box-type handling subroutine
+	}
+
+-Scott
+
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00090.html">Re: [Omaha.pm] bad perl - need help - dispatch table</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00092.html">RE: [Omaha.pm] bad perl - need help - dispatch table</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00090.html">Re: [Omaha.pm] bad perl - need help - dispatch table</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00092.html">RE: [Omaha.pm] bad perl - need help - dispatch table</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00091"><strong>Date</strong></a></li>
+<li><a href="threads.html#00091"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

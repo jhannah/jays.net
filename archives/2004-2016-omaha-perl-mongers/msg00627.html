@@ -1,0 +1,164 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] CGI.pm param() gotcha -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 28 Oct 2005 01:17:18 &#45;0000 -->
+<!--X-Message-Id: f58c586c89e2c1a2047b3ac832870349@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 29AB736ABCE5C745ABF9C93B02F2C27B035D6BFA@exchange2k3.omnihotels.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] CGI.pm param() gotcha</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00626.html">Date Prev</a>][<a href="msg00628.html">Date Next</a>][<a href="msg00605.html">Thread Prev</a>][<a href="msg00628.html">Thread Next</a>][<a href="maillist.html#00627">Date Index</a>][<a href="threads.html#00627">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] CGI.pm param() gotcha</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] CGI.pm param() gotcha</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Thu, 27 Oct 2005 20:17:07 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00605.html">29AB736ABCE5C745ABF9C93B02F2C27B035D6BFA@exchange2k3.omnihotels.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00605.html">29AB736ABCE5C745ABF9C93B02F2C27B035D6BFA@exchange2k3.omnihotels.net</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+On Oct 17, 2005, at 10:38 PM, Jay Hannah wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+20 bonus points to anyone who can tell me why I made this change:
+</pre></blockquote><pre style="margin: 0em;">
+
+&lt;   $res-&gt;set_address    (
+&lt;      address1     =&gt; $q-&gt;param('gst_addr1'),
+&lt;      address2     =&gt; $q-&gt;param('gst_addr2'),
+&lt;      address3     =&gt; $q-&gt;param('gst_addr3'),
+&lt;      city         =&gt; $q-&gt;param('gst_city'),
+&lt;      state        =&gt; $q-&gt;param('gst_state'),
+&lt;      postal       =&gt; $q-&gt;param('gst_zipcode'),
+&lt;      country_code =&gt; $q-&gt;param('gst_country_code'));
+---
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+  $res-&gt;set_address    (
+     address1     =&gt; scalar($q-&gt;param('gst_addr1')),
+     address2     =&gt; scalar($q-&gt;param('gst_addr2')),
+     address3     =&gt; scalar($q-&gt;param('gst_addr3')),
+     city         =&gt; scalar($q-&gt;param('gst_city')),
+     state        =&gt; scalar($q-&gt;param('gst_state')),
+     postal       =&gt; scalar($q-&gt;param('gst_zipcode')),
+     country_code =&gt; scalar($q-&gt;param('gst_country_code')));
+</pre></blockquote></blockquote><pre style="margin: 0em;">
+
+On Oct 18, 2005, at 7:28 AM, Kenneth Thompson wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+Because the first way sends scalar references into the passed hashref,
+and the second sends scalar values into the passed hashref?
+</pre></blockquote><pre style="margin: 0em;">
+
+umm... maybe... -grin-
+
+</pre><tt>What I do know is that CGI.pm is pretty weird. In scalar context if a 
+</tt><tt>param is not set param() returns undef. In array context if a param is 
+</tt><tt>not set param() returns *an empty array*. In Perl empty arrays listed 
+</tt><tt>in arrays squish themselves out of existence automatically. Like so:
+</tt><pre style="margin: 0em;">
+
+$ cat j.pl
+print join &quot;|&quot;, ( 1, 2, 3, ( ),   5, 6, &quot;\n&quot;);
+print join &quot;|&quot;, ( 1, 2, 3, undef, 5, 6, &quot;\n&quot;);
+$ perl j.pl
+1|2|3|5|6|
+1|2|3||5|6|
+
+Wacky huh?
+
+</pre><tt>In my example (and why I made the change) address3 was not set. Due to 
+</tt><tt>the array context of each param call in the top version, the hash got 
+</tt><tt>squished and address3 got set to &quot;city&quot;. (See that -- the whole =&gt; list 
+</tt><tt>shifted up one! Doh!)
+</tt><pre style="margin: 0em;">
+
+</pre><tt>After the change, scalar context is explicit so address3 gets set to 
+</tt><tt>undef, city gets set to &quot;Omaha&quot;, etc.
+</tt><pre style="margin: 0em;">
+
+Does that make sense?
+
+j
+
+
+
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00628" href="msg00628.html">Re: [Omaha.pm] CGI.pm param() gotcha</a></strong>
+<ul><li><em>From:</em> Andy Lester &lt;andy@petdance.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00605" href="msg00605.html">Re: [Omaha.pm] CGI.pm param() gotcha</a></strong>
+<ul><li><em>From:</em> &quot;Kenneth Thompson&quot; &lt;kthompson@omnihotels.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00626.html">[Omaha.pm] Class::Date easy e zeeness</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00628.html">Re: [Omaha.pm] CGI.pm param() gotcha</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00605.html">Re: [Omaha.pm] CGI.pm param() gotcha</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00628.html">Re: [Omaha.pm] CGI.pm param() gotcha</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00627"><strong>Date</strong></a></li>
+<li><a href="threads.html#00627"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

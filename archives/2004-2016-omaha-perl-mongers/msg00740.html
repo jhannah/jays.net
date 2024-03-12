@@ -1,0 +1,145 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Less is more -->
+<!--X-From-R13: &#60;Oaqerj.VnqrasryqgNnyygry.pbz> -->
+<!--X-Date: 23 Dec 2005 05:24:36 &#45;0000 -->
+<!--X-Message-Id: EC8AD57C17A3084993D6F9637C2C54C2074923@scarlitnt649.alltel.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Less is more</title>
+<link rev="made" href="mailto:Andrew.Hadenfeldt@alltel.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00739.html">Date Prev</a>][<a href="msg00741.html">Date Next</a>][<a href="msg00739.html">Thread Prev</a>][<a href="msg00741.html">Thread Next</a>][<a href="maillist.html#00740">Date Index</a>][<a href="threads.html#00740">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Less is more</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Less is more</li>
+<li><em>From</em>: &lt;<a href="mailto:Andrew.Hadenfeldt%40alltel.com">Andrew.Hadenfeldt@alltel.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 22 Dec 2005 23:24:28 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcYHIEF+Aa9JTnyKRgeldryYm7t8eAAXxlRQ</li>
+<li><em>Thread-topic</em>: Less is more</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Not sure why Date::Format might be different, but the POSIX version worked for me:
+
+use POSIX qw(strftime);
+($month,$day,$year) = split(/\//,strftime(&quot;%D&quot;,localtime((stat($file))[9])));
+
+-Andy
+
+-----Original Message-----
+From: Ryan Stille [<a  rel="nofollow" href="mailto:rps@willcomminc.com">mailto:rps@willcomminc.com</a>]
+Sent: Thursday, December 22, 2005 11:51 AM
+To: Perl Mongers of Omaha, Nebraska USA
+Subject: [Omaha.pm] Less is more
+
+
+I am was trying to get this done in one line, just for the heck of it.
+I need the modification time of a file referenced by $file ($file
+contains the path and filename of the file).
+
+@filedate = localtime((stat($file))[9]);
+($month,$day,$year) = split(/\//,strftime(&quot;%D&quot;,@filedate));
+
+But I can't seem to put localtime in place of @filedate:
+
+($month,$day,$year) =
+split(/\//,strftime(&quot;%D&quot;,localtime((stat($file))[9])));
+
+Gives me: Type of arg 2 to Date::Format::strftime must be array (not
+localtime)
+
+So I tried to make localtime() return as an array, and here is where I'm
+not so sure as to what I'm doing.
+
+I tried this:
+
+($month,$day,$year) =
+split(/\//,strftime(&quot;%D&quot;,(localtime((stat($file))[9]))));
+
+And this:
+
+($month,$day,$year) =
+split(/\//,strftime(&quot;%D&quot;,(localtime((stat($file))[9]))[]));
+
+Which didn't work either.  What am I doing wrong?
+
+Thanks,
+-Ryan
+
+_______________________________________________
+Omaha-pm mailing list
+Omaha-pm@pm.org
+<a  rel="nofollow" href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>
+******************************************************************************************
+The information contained in this message, including attachments, may contain 
+privileged or confidential information that is intended to be delivered only to the 
+person identified above. If you are not the intended recipient, or the person 
+responsible for delivering this message to the intended recipient, ALLTEL requests 
+that you immediately notify the sender and asks that you do not read the message or its 
+attachments, and that you delete them without copying or sending them to anyone else. 
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00739.html">Re: [Omaha.pm] Less is more</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00741.html">[Omaha.pm] perl -e '$_ = &quot;jwh&quot;; s/w/ap/; print;'</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00739.html">Re: [Omaha.pm] Less is more</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00741.html">[Omaha.pm] perl -e '$_ = &quot;jwh&quot;; s/w/ap/; print;'</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00740"><strong>Date</strong></a></li>
+<li><a href="threads.html#00740"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

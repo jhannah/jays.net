@@ -1,0 +1,139 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Change in CGI.pm from 5.8 to 5.10...? -->
+<!--X-From-R13: Xnl Vnaanu &#60;wunaanuNzhgngvbatevq.pbz> -->
+<!--X-Date: 22 Feb 2011 16:33:45 &#45;0000 -->
+<!--X-Message-Id: B97CD99D&#45;D0D3&#45;4291&#45;8D90&#45;8C1D0993BAE7@mutationgrid.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: AANLkTi=LjoPe+jrsQB6vvve2CkEhPu4hrju==ApXCwg5@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Change in CGI.pm from 5.8 to 5.10...?</title>
+<link rev="made" href="mailto:jhannah@mutationgrid.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02617.html">Date Prev</a>][<a href="msg02619.html">Date Next</a>][<a href="msg02617.html">Thread Prev</a>][<a href="msg02619.html">Thread Next</a>][<a href="maillist.html#02618">Date Index</a>][<a href="threads.html#02618">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Change in CGI.pm from 5.8 to 5.10...?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Change in CGI.pm from 5.8 to 5.10...?</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jhannah%40mutationgrid.com">jhannah@mutationgrid.com</a>&gt;</li>
+<li><em>Date</em>: Tue, 22 Feb 2011 10:33:38 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha1; c=relaxed; d=pobox.com; h=references	:in-reply-to:mime-version:content-type:message-id	:content-transfer-encoding:from:subject:date:to; s=sasl; bh=wmLO	mDN2QFOsOi56guxGYxUrzUQ=; b=P7F9N8xMFi7tEdcV90YTinC9MlxIRA+j/FbA	wobFuim/widFkdjsZxNetjsDMyK/h/t7ekJNHMN2EscA/gcJZ7qeJVzEFnHn5CHh	fMEnsGCdogfeCC/NQ8eNlW0+YeNjnji1Ux2olicoROgNbYVyDUb06A93j+zYGd7Q	OU+MHac=</li>
+<li><em>In-reply-to</em>: &lt;AANLkTi=LjoPe+jrsQB6vvve2CkEhPu4hrju==ApXCwg5@mail.gmail.com&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;AANLkTi=LjoPe+jrsQB6vvve2CkEhPu4hrju==ApXCwg5@mail.gmail.com&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>On Feb 22, 2011, at 10:12 AM, Dan Linder wrote:
+&gt; The code I'm keeping updated has lots of lines like this:
+&gt;     $cgi = CGI-&gt;new();
+&gt;     $report = $cgi-&gt;{report};
+&gt; 
+&gt; (To pull in the &quot;report=&quot; value from the URL: <a  rel="nofollow" href="http://testrh6/bin/test.cgi?report=MyReportName">http://testrh6/bin/test.cgi?report=MyReportName</a>)
+&gt; 
+&gt; When I was testing it on a RedHat 6 system running Perl 5.10.1, the $report variable was coming up as undefined, but on the test systems running Perl 5.8, it was just fine.
+&gt; 
+&gt; The fix is to use the param() method like this:
+&gt;     $report = $cgi-&gt;param('report');
+&gt; 
+&gt; Looks like I have a lot of code to fix.  (IMHO it was broken before, just Perl was being nice about it...)
+
+Ha! I just hit the EXACTLY EQUIVALENT issue in old PHP code yesterday!  Small world.   :)   
+
+   (In PHP &quot;register_globals&quot; has been deprecated sometime between 2002 and now.)
+
+These change(s) wouldn't be listed in the Perl change log, they'd be noted in CGI's Changes file:
+
+   <a  rel="nofollow" href="http://cpansearch.perl.org/src/MARKSTOS/CGI.pm-3.52/Changes">http://cpansearch.perl.org/src/MARKSTOS/CGI.pm-3.52/Changes</a>
+
+Which, strangely, doesn't list the date of each release (when was 2.50 released? maybe that was the change point for your behavior).
+
+Anyway, yes, $object-&gt;{...} is always evil and you're right to move away from it.
+
+$cgi-&gt;Vars() is available and is probably the closest to your old code without all the evil:
+
+   <a  rel="nofollow" href="http://search.cpan.org/~markstos/CGI.pm-3.52/lib/CGI.pm#FETCHING_THE_PARAMETER_LIST_AS_A_HASH:">http://search.cpan.org/~markstos/CGI.pm-3.52/lib/CGI.pm#FETCHING_THE_PARAMETER_LIST_AS_A_HASH:</a>
+
+RedHat deserves no fault nor credit for this change.   :)
+
+Hope that helps,
+
+Jay Hannah
+Software Architect
+jhannah@mutationgrid.com | <a  rel="nofollow" href="http://mutationgrid.com">http://mutationgrid.com</a> | 1-402-598-7782
+
+
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="02619" href="msg02619.html">Re: [Omaha.pm] Change in CGI.pm from 5.8 to 5.10...?</a></strong>
+<ul><li><em>From:</em> Dan Linder &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="02617" href="msg02617.html">[Omaha.pm] Change in CGI.pm from 5.8 to 5.10...?</a></strong>
+<ul><li><em>From:</em> Dan Linder &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02617.html">[Omaha.pm] Change in CGI.pm from 5.8 to 5.10...?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02619.html">Re: [Omaha.pm] Change in CGI.pm from 5.8 to 5.10...?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02617.html">[Omaha.pm] Change in CGI.pm from 5.8 to 5.10...?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02619.html">Re: [Omaha.pm] Change in CGI.pm from 5.8 to 5.10...?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02618"><strong>Date</strong></a></li>
+<li><a href="threads.html#02618"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

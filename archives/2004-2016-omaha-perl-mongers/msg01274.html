@@ -1,0 +1,165 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Taunting Java -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 10 Jan 2007 19:49:06 &#45;0000 -->
+<!--X-Message-Id: E59FF64509EEEA4C96BE4723AE9668531BAA02@exchange2k3.omnihotels.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Taunting Java</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01273.html">Date Prev</a>][<a href="msg01275.html">Date Next</a>][<a href="msg01273.html">Thread Prev</a>][<a href="msg01275.html">Thread Next</a>][<a href="maillist.html#01274">Date Index</a>][<a href="threads.html#01274">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Taunting Java</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Taunting Java</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Wed, 10 Jan 2007 13:48:50 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: Acc08FnMhv352UtVT0KGDY6wcs6A3w==</li>
+<li><em>Thread-topic</em>: Taunting Java</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+LOL...
+
+Looks like I added that Java stab back in 2003...
+
+Damn I'm a funny guy. :)
+
+j
+
+
+
+
+
+
+use Test::More tests =&gt; 70;
+
+use Model::t::HashTest;
+
+my $hash = new Model::t::HashTest;
+
+# Test adding scalar keys...
+ok(defined $hash,                       '$hash defined');
+ok($hash-&gt;add('A', 'Apple'),            '$hash-&gt;A added');
+is($hash-&gt;A, 'Apple',                   '$hash-&gt;A returns Apple');
+ok($hash-&gt;add(B, 'Barnyard'),           '$hash-&gt;B added');
+is($hash-&gt;B, 'Barnyard',                '$hash-&gt;B returns Barnyard');
+is($hash-&gt;A, 'Apple',                   '$hash-&gt;A is still Apple');
+
+# Test overwrite...
+ok($hash-&gt;add('A', 'Adam'),             '$hash-&gt;A overwritten w/ Adam');
+is($hash-&gt;B, 'Barnyard',                '$hash-&gt;B returns Barnyard');
+is($hash-&gt;A, 'Adam',                    '$hash-&gt;A returns Adam');
+ok($hash-&gt;add('A', 'Apple'),            '$hash-&gt;A overwritten w/
+Apple');
+is($hash-&gt;B, 'Barnyard',                '$hash-&gt;B returns Barnyard');
+is($hash-&gt;A, 'Apple',                   '$hash-&gt;A returns Apple');
+
+# --------------------------------------------
+# Test adding a key that is an object...
+# --------------------------------------------
+package Ping;          # Try this, Java!
+sub ping { return &quot;pong&quot;; }
+sub new { return bless {} }
+package main;
+
+my $ping = new Ping;
+ok(defined $ping,                       '$ping defined');
+ok($ping-&gt;ping eq &quot;pong&quot;,               '$ping-&gt;ping passed');
+ok($hash-&gt;add('Ping', $ping),           '$hash-&gt;$ping added');
+ok($hash-&gt;Ping-&gt;ping eq &quot;pong&quot;,         '$hash-&gt;Ping-&gt;ping is pong');
+ok($hash-&gt;A eq 'Apple',                 '$hash-&gt;A is still Apple');
+ok($hash-&gt;B eq 'Barnyard',              '$hash-&gt;B is still Barnyard');
+# --------------------------------------------
+
+
+...etc...
+
+
+$ perl Hash.t 
+1..70
+ok 1 - $hash defined
+ok 2 - $hash-&gt;A added
+ok 3 - $hash-&gt;A returns Apple
+ok 4 - $hash-&gt;B added
+ok 5 - $hash-&gt;B returns Barnyard
+ok 6 - $hash-&gt;A is still Apple
+ok 7 - $hash-&gt;A overwritten w/ Adam
+ok 8 - $hash-&gt;B returns Barnyard
+ok 9 - $hash-&gt;A returns Adam
+ok 10 - $hash-&gt;A overwritten w/ Apple
+ok 11 - $hash-&gt;B returns Barnyard
+ok 12 - $hash-&gt;A returns Apple
+ok 13 - $ping defined
+ok 14 - $ping-&gt;ping passed
+ok 15 - $hash-&gt;$ping added
+ok 16 - $hash-&gt;Ping-&gt;ping is pong
+ok 17 - $hash-&gt;A is still Apple
+ok 18 - $hash-&gt;B is still Barnyard
+...etc...
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01273.html">[Omaha.pm] Record setting mtg</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01275.html">Re: [Omaha.pm] requesting quick help</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01273.html">[Omaha.pm] Record setting mtg</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01275.html">Re: [Omaha.pm] requesting quick help</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01274"><strong>Date</strong></a></li>
+<li><a href="threads.html#01274"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

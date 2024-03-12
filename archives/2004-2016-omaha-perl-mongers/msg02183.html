@@ -1,0 +1,165 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Embeddable database options. -->
+<!--X-From-R13: [nevb Egrryr &#60;znevbNehol&#45;vz.arg> -->
+<!--X-Date: 26 Aug 2009 21:50:08 &#45;0000 -->
+<!--X-Message-Id: a4439dea0908261449s564b778am5a816dd54700a948@mail.gmail.com -->
+<!--X-Content-Type: multipart/alternative -->
+<!--X-Reference: 3e2be50908240717g4b5d6a07s2d8adbf3e71daf5b@mail.gmail.com -->
+<!--X-Reference: a4439dea0908241411m17b75744j1a7da148254a22e@mail.gmail.com -->
+<!--X-Reference: 3e2be50908260730q142e809bjacf6863e062e9744@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Embeddable database options.</title>
+<link rev="made" href="mailto:mario@ruby-im.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02182.html">Date Prev</a>][<a href="msg02184.html">Date Next</a>][<a href="msg02182.html">Thread Prev</a>][<a href="msg02184.html">Thread Next</a>][<a href="maillist.html#02183">Date Index</a>][<a href="threads.html#02183">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Embeddable database options.</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Embeddable database options.</li>
+<li><em>From</em>: Mario Steele &lt;<a href="mailto:mario%40ruby-im.net">mario@ruby-im.net</a>&gt;</li>
+<li><em>Date</em>: Wed, 26 Aug 2009 17:49:59 -0400</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg02182.html">3e2be50908260730q142e809bjacf6863e062e9744@mail.gmail.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg02180.html">3e2be50908240717g4b5d6a07s2d8adbf3e71daf5b@mail.gmail.com</a>&gt;	&lt;<a href="msg02181.html">a4439dea0908241411m17b75744j1a7da148254a22e@mail.gmail.com</a>&gt;	&lt;<a href="msg02182.html">3e2be50908260730q142e809bjacf6863e062e9744@mail.gmail.com</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+Hey Dan,<br><br><div class="gmail_quote">On Wed, Aug 26, 2009 at 10:30 AM, Dan Linder <span dir="ltr">&lt;<a rel="nofollow" href="mailto:dan@linder.org">dan@linder.org</a>&gt;</span> wrote:<br><blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;">
+Mario,<br>
+<br>
+Thanks for the feedback.</blockquote><div><br>Not a problem.<br>&#xA0;<br></div><blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;">
+Thankfully, the database is very light on the write/update side. &#xA0;Does<br>
+the read lock lock out other readers at the same time?<br>
+<div class="im"></div></blockquote><div><br>This is an excerpt from SQLite&#39;s manual regarding concurrency:<br><br>SQLite uses reader/writer locks on the entire database file.  That means
+if any process is reading from any part of the database, all other
+processes are prevented from writing any other part of the database.
+Similarly, if any one process is writing to the database,
+all other processes are prevented from reading any other part of the
+database.
+For many situations, this is not a problem.  Each application
+does its database work quickly and moves on, and no lock lasts for more
+than a few dozen milliseconds.  But there are some applications that require
+more concurrency, and those applications may need to seek a different
+solution.
+<br><br>In simpler terms, the longer your SQL Statement has to execute, the longer the database is going to be locked in either read/write mode.&#xA0; If your getting small subsets of data from the database, then the milliseconds quote is correct, and it won&#39;t take long to execute the SQL Statements.&#xA0; However, if you are getting a few hundred megs of records from the database in a SQL statement, either inserting, or retrieving, then it&#39;s going to take the database engine longer to fetch the data, and will hold the lock.&#xA0; I believe you can have as many readers as you want reading from the database, but once a program sends a write SQL statement, all other readers will lock till the writer finishes, the same for the opposite direction.<br>
+<br>But if it&#39;s small updates, and small record sets being retrieved, then you shouldn&#39;t have anything to worry about.<br>&#xA0;</div><blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;">
+<div class="im">
+
+</div>As much as there is some pressure to stay &quot;Pure Perl&quot; and not rely on<br>
+non-core modules, I think this is the only route toward expanding this<br>
+tool. &#xA0;(Plus the added flexibility of adding other DB options by<br>
+including the appropriate perl module.)<br>
+<div class="im"></div></blockquote><div><br>There&#39;s a lot of people that way, same with wanting &quot;Pure Ruby&quot; or &quot;Pure Python&quot; or &quot;Pure&quot; any other language out there.&#xA0; But the thing about it is, you need to realize that with Perl, Ruby, Python, C# and such languages, they are all interpreted languages, and anything &quot;Pure&quot; in those languages, are going to be slow to execute.<br>
+<br>The best thing about SQLite, atleast in Ruby, haven&#39;t really dealt much with the Perl one, is that the extension that binds with the engine itself, is all compiled together into a single dll/so extension, so you don&#39;t have to rely on an external library to be installed.&#xA0; And most times, it compiles without any problems, especially on Linux based systems.<br>
+&#xA0;</div><blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;">Thankfully the server portion is 100% Unix. :-)</blockquote><div><br>And again, this is a life send for you, as stated above.<br>
+&#xA0;</div><blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;"><div class="im">
+</div>I&#39;m thinking that as a work-around to this, I can keep both versions<br>
+available. &#xA0;Since these data files are only updated in a couple key<br>
+locations (and the update is mostly through non-interactive means),<br>
+this should be easily achievable. &#xA0;Once the data is saved in both<br>
+forms and the flat and db files are consistent, updating the reporting<br>
+pieces should be easier since I won&#39;t (shouldn&#39;t) break anything<br>
+during the transition. &#xA0;An added bonus is that customers who rely on<br>
+the textual data will not have to immediately re-code for the new DB<br>
+chosen.</blockquote><div><br>Another nice thing that you can do, if you want to go this route, with having the ability for grep/vi, is that you can create simple wrappers around grep and vi, and run SQL statements to generate the output, and pipe it into grep, or vi, and have no problems with it. <br>
+</div><div>&#xA0;</div><blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;">As I&#39;m writing it, I&#39;m leaning toward using the DBD interface and<br>
+
+accessing SQLite initially. &#xA0;If/when the time comes that<br>
+MySQL/Postgres/Oracle/AnotherDB is requested, the changes should be<br>
+minimal. &#xA0;The downfall of being an external module is greatly<br>
+out-weighed by the flexibility it provides us.</blockquote><div><br>I would definitely agree with that, you want flexibility, not just in the code that you have to write, but flexibility in the programs themselves, to meet the needs of various customers.&#xA0; Not all customers have the same need, and when you start to use the DBD interface, you&#39;ll find that it works quite well, and will require hardly any differences between the various database engine backends, that DBD Supports.<br>
+&#xA0;</div><blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;">
+I&#39;m hoping to carve out some free time over the next couple weeks to<br>
+put some test code together to see what speed differentials are<br>
+achieved by replacing dump/eval with SQLite, MySQL, etc.</blockquote><div><br>I can almost garuntee that SQLite, and MySQL will overpower dump/eval in nothing flat.&#xA0; At that point, your bottlenecks should dis-appear, least you code sloppy SQL Statements, but JOINs are your friends when cross table data retrieval.<br>
+<br>And your welcome for the help,<br><br>Mario<br>&#xA0;</div><blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;"><br>
+Thanks,<br>
+<br>
+Dan<br>
+<font color="#888888"><br>
+<br>
+--<br>
+</font><div><div></div><div class="h5">******************* ***************** ************* ***********<br>
+******* ***** *** **<br>
+&quot;Quis custodiet ipsos custodes?&quot; (Who can watch the watchmen?) -- from<br>
+the Satires of Juvenal<br>
+&quot;I do not fear computers, I fear the lack of them.&quot; -- Isaac Asimov (Author)<br>
+** *** ***** ******* *********** ************* *****************<br>
+*******************<br>
+_______________________________________________<br>
+Omaha-pm mailing list<br>
+<a rel="nofollow" href="mailto:Omaha-pm@pm.org">Omaha-pm@pm.org</a><br>
+<a rel="nofollow" href="http://mail.pm.org/mailman/listinfo/omaha-pm" target="_blank">http://mail.pm.org/mailman/listinfo/omaha-pm</a><br>
+</div></div></blockquote></div><br><br clear="all"><br>-- <br>Mario Steele<br><a rel="nofollow" href="http://www.trilake.net">http://www.trilake.net</a><br><a rel="nofollow" href="http://www.ruby-im.net">http://www.ruby-im.net</a><br><a rel="nofollow" href="http://rubyforge.org/projects/wxruby/">http://rubyforge.org/projects/wxruby/</a><br>
+<a rel="nofollow" href="http://rubyforge.org/projects/wxride/">http://rubyforge.org/projects/wxride/</a><br>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="02180" href="msg02180.html">[Omaha.pm] Embeddable database options.</a></strong>
+<ul><li><em>From:</em> Dan Linder &lt;dan@linder.org&gt;</li></ul></li>
+<li><strong><a name="02181" href="msg02181.html">Re: [Omaha.pm] Embeddable database options.</a></strong>
+<ul><li><em>From:</em> Mario Steele &lt;mario@ruby-im.net&gt;</li></ul></li>
+<li><strong><a name="02182" href="msg02182.html">Re: [Omaha.pm] Embeddable database options.</a></strong>
+<ul><li><em>From:</em> Dan Linder &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02182.html">Re: [Omaha.pm] Embeddable database options.</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02184.html">Re: [Omaha.pm] Embeddable database options.</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02182.html">Re: [Omaha.pm] Embeddable database options.</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02184.html">Re: [Omaha.pm] Embeddable database options.</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02183"><strong>Date</strong></a></li>
+<li><a href="threads.html#02183"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

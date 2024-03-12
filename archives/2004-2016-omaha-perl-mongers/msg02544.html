@@ -1,0 +1,152 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Fwd: weird perl bug -->
+<!--X-From-R13: Xnl Vnaanu &#60;wunaanuNzhgngvbatevq.pbz> -->
+<!--X-Date: 18 Nov 2010 21:09:42 &#45;0000 -->
+<!--X-Message-Id: 6B86DB70&#45;8C91&#45;4E83&#45;A5BB&#45;59A8DBADE084@mutationgrid.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 396CEDAA86B38646ACE2FEAA22C3FBF1041D13A5@l3exchange.omnihotels.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Fwd: weird perl bug</title>
+<link rev="made" href="mailto:jhannah@mutationgrid.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02543.html">Date Prev</a>][<a href="msg02545.html">Date Next</a>][<a href="msg02543.html">Thread Prev</a>][<a href="msg02545.html">Thread Next</a>][<a href="maillist.html#02544">Date Index</a>][<a href="threads.html#02544">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Fwd: weird perl bug</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Nebraska USA Perl Mongers of Omaha &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Fwd: weird perl bug</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jhannah%40mutationgrid.com">jhannah@mutationgrid.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 18 Nov 2010 15:09:27 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha1; c=relaxed; d=pobox.com; h=subject	:references:from:content-type:message-id:date:to	:content-transfer-encoding:mime-version; s=sasl; bh=8Qjj6bgmwPyx	F6WC2Z02PBIKSW8=; b=DjOLI9jFrDgo/9PeFzYAbS+nXJwLEMwdDBIiJFBwJdsL	wU7J02uNABk/3cXzKjyIisHsEfzVRuY9oY/9e4y9gKQUM0HbtXCPw9YGELb58Etd	zEldg28uYG8HMlCGbYdL4dMRiiYcBufzAlbHVcl346F7pnRtwzp1xzdpvxKDG5k=</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;396CEDAA86B38646ACE2FEAA22C3FBF1041D13A5@l3exchange.omnihotels.net&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Forwarding w/ Trey's permission.
+
+Jay Hannah
+Software Architect
+jhannah@mutationgrid.com | <a  rel="nofollow" href="http://mutationgrid.com">http://mutationgrid.com</a> | 1-402-598-7782
+
+
+
+From: &quot;Trey Bianchini&quot; &lt;wbia...@omnihotels.com&gt;
+Date: November 10, 2010 2:31:32 PM CST
+To: &lt;jhannah@mutationgrid.com&gt;
+Subject: weird perl bug
+
+
+Jay, I know you like things like this so
+
+
+======================================================
+use strict;
+
+my $nc='JANE WELK';
+my $tc='JANE WELK';
+
+my $tmp_one_name='JANE';
+my $tmp_two_name='WELK';
+
+
+print &quot;WELCOME\n&quot; if ( ${nc} =~ /$tmp_two_name/g );
+print &quot;TO\n&quot;      if ( ${tc} =~ /$tmp_one_name/g );
+
+print &quot;BIZZARO\n&quot; if ( ${nc} =~ /$tmp_one_name/g );
+print &quot;LAND\n&quot;    if ( ${nc} =~ /$tmp_two_name/g );
+
+
+========================================================
+
+
+It seems when I'm evaluating a scalar containing a string  I use scalars
+for patterns in the regex, that when I match against the back of the
+string and then try to use the same scalar and match against the front
+of the string My match fails.
+
+The first two print statements are my most unsatisfying workaround
+The third  print statement illustrates the bug.
+
+Here is the output
+===================
+
+
+omares-dev3&gt;perl -v
+
+This is perl, v5.10.0 built ...
+...
+Page.
+
+omares-dev3&gt;perl ./woah
+WELCOME
+TO
+LAND
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="02545" href="msg02545.html">Re: [Omaha.pm] Fwd: weird perl bug</a></strong>
+<ul><li><em>From:</em> Andy Lester &lt;andy@petdance.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02543.html">[Omaha.pm] DBIx::Class - join on a joined table</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02545.html">Re: [Omaha.pm] Fwd: weird perl bug</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02543.html">[Omaha.pm] DBIx::Class - join on a joined table</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02545.html">Re: [Omaha.pm] Fwd: weird perl bug</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02544"><strong>Date</strong></a></li>
+<li><a href="threads.html#02544"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

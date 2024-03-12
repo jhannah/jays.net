@@ -1,0 +1,108 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] debugger breaks automatically if you're 100 levels deep	in subroutine calls! -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: Wed, 29 Dec 2004 16:58:25 &#45;0600 -->
+<!--X-Message-Id: 200412292258.iBTMw9gJ001978@omares&#45;email.omnihotels.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] debugger breaks automatically if you're 100 levels deep	in subroutine calls!</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00241.html">Date Prev</a>][<a href="msg00243.html">Date Next</a>][<a href="msg00287.html">Thread Prev</a>][<a href="msg00243.html">Thread Next</a>][<a href="maillist.html#00242">Date Index</a>][<a href="threads.html#00242">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] debugger breaks automatically if you're 100 levels deep	in subroutine calls!</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] debugger breaks automatically if you're 100 levels deep	in subroutine calls!</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Wed, 29 Dec 2004 16:57:39 -0600</li>
+<li><em>Cc</em>: </li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=help">mailto:omaha-pm-request@mail.pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.mail.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@mail.pm.org">mailto:omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=subscribe">mailto:omaha-pm-request@mail.pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe">mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcTt+cvNNMLGYkR/TvC+8i2Gc+Mz7g==</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+Ooo! Cool!
+
+I screwed up. I had a method which called a method which called back on the first. In real life, the program hangs forever (eventually I assume I would have run out of RAM and crashed?), but the debugger detected my idiocy and broke automatically!
+
+Wow! (Does Visual Studio do that? Or are you *always* &gt; 100 levels deep in VB.NET? -grin-)
+
+j
+
+
+387:       die unless ($self-&gt;_read_string_for_miles_ok($record, &quot;DL basic&quot;, $maximum_miles));
+  DB&lt;4&gt; n
+Model::omares::crs::Rewards::RewardEvent::get_fg_rewards(/usr/lib/perl5/site_perl/Omni/MVC/Model/omares/crs/Rewards/RewardEvent.pm:229):
+229:    sub get_fg_rewards         { return $_[0] }
+100 levels deep in subroutine calls!
+  DB&lt;4&gt;
+
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00243" href="msg00243.html">Re: [Omaha.pm] debugger breaks automatically if you're 100 levels	deep in subroutine calls!</a></strong>
+<ul><li><em>From:</em> Terry &lt;td3201@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00241.html">[Omaha.pm] next can jump out of a sub?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00243.html">Re: [Omaha.pm] debugger breaks automatically if you're 100 levels	deep in subroutine calls!</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00287.html">Re: [Omaha.pm] next can jump out of a sub?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00243.html">Re: [Omaha.pm] debugger breaks automatically if you're 100 levels	deep in subroutine calls!</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00242"><strong>Date</strong></a></li>
+<li><a href="threads.html#00242"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

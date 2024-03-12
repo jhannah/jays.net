@@ -1,0 +1,121 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] [odynug] PERL Problem -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 8 Apr 2011 02:52:55 &#45;0000 -->
+<!--X-Message-Id: C9E24D20&#45;D820&#45;46E1&#45;9F1F&#45;2A9AF2B24E22@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: BANLkTimk4zGBU7hu73=X8mVn22xxPML2Gg@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] [odynug] PERL Problem</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02647.html">Date Prev</a>][<a href="msg02649.html">Date Next</a>][<a href="msg02647.html">Thread Prev</a>][<a href="msg02649.html">Thread Next</a>][<a href="maillist.html#02648">Date Index</a>][<a href="threads.html#02648">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] [odynug] PERL Problem</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:odynug%40googlegroups.com">odynug@googlegroups.com</a></li>
+<li><em>Subject</em>: Re: [Omaha.pm] [odynug] PERL Problem</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Thu, 7 Apr 2011 21:52:39 -0500</li>
+<li><em>Cc</em>: Nebraska USA Perl Mongers of Omaha &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;BANLkTimk4zGBU7hu73=X8mVn22xxPML2Gg@mail.gmail.com&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;BANLkTimk4zGBU7hu73=X8mVn22xxPML2Gg@mail.gmail.com&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>- Join the Omaha Perl Mongers mailing list!
+  <a  rel="nofollow" href="http://omaha.pm.org">http://omaha.pm.org</a>
+
+- I haven't tried &quot;hundreds of files,&quot; but this uses signals so you're not wasting any system resources:
+  <a  rel="nofollow" href="http://search.cpan.org/perldoc?POE::Wheel::FollowTail">http://search.cpan.org/perldoc?POE::Wheel::FollowTail</a>
+  The modules Christopher mentioned probably use signals too.
+
+- Everyone I know avoids threading. Polling &quot;hundreds of files&quot; more than once an hour sounds like a really bad option to me.
+
+$0.02,
+
+j
+ 
+
+
+On Apr 7, 2011, at 10:15 AM, Nick Wertzberger wrote:
+&gt; Hey all,
+&gt; 
+&gt; Opinions Please!
+&gt; 
+&gt; I am currently writing a script that watches hundreds of files at the same time to determine what's happening in logs.  I would really liek to do this as efficiently as possible, and as far as i can tell, I have 4 options.
+&gt; 
+&gt; 1: Use non-blocking file streams, which basically turns everything into a polling operation (wasted CPU).
+&gt; 2: Use fork() with blocking file streams, which is going to use more memory than I'd like.
+&gt; 3: Use threads + blocking file streams, which i hear Perl Threading is something to be avoided.
+&gt; 4: Use two programs, one that gets initiated per file I'm watching... this seems to have the problems of option 2.
+&gt; 
+&gt; So what's up?  What do you think is the way to go, and why?
+&gt; 
+&gt; I'll be looking into #3 in the meantime.
+&gt; 
+&gt; - Nick
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02647.html">Re: [Omaha.pm] Personal accounts of &quot;My Journey to Perl&quot; in Twitter</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02649.html">[Omaha.pm] Meeting tonight: social only, Clancy's 7pm</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02647.html">Re: [Omaha.pm] Personal accounts of &quot;My Journey to Perl&quot; in Twitter</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02649.html">[Omaha.pm] Meeting tonight: social only, Clancy's 7pm</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02648"><strong>Date</strong></a></li>
+<li><a href="threads.html#02648"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

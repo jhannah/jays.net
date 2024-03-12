@@ -1,0 +1,142 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Debugging running Perl code on Windows. -->
+<!--X-From-R13: Vhtu Xnepr &#60;uwnepr2001Nlnubb.pbz> -->
+<!--X-Date: Tue, 21 Sep 2004 19:33:20 &#45;0500 -->
+<!--X-Message-Id: 20040921225347.33936.qmail@web90004.mail.scd.yahoo.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 18205.68.227.169.15.1095739495.squirrel@68.227.169.15 -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Debugging running Perl code on Windows.</title>
+<link rev="made" href="mailto:hjarce2001@yahoo.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00162.html">Date Prev</a>][<a href="msg00164.html">Date Next</a>][<a href="msg00162.html">Thread Prev</a>][<a href="msg00161.html">Thread Next</a>][<a href="maillist.html#00163">Date Index</a>][<a href="threads.html#00163">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Debugging running Perl code on Windows.</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:dan%40linder.org">dan@linder.org</a>,	&quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Debugging running Perl code on Windows.</li>
+<li><em>From</em>: Hugh Jarce &lt;<a href="mailto:hjarce2001%40yahoo.com">hjarce2001@yahoo.com</a>&gt;</li>
+<li><em>Date</em>: Tue, 21 Sep 2004 15:53:47 -0700 (PDT)</li>
+<li><em>Cc</em>: </li>
+<li><em>In-reply-to</em>: &lt;18205.68.227.169.15.1095739495.squirrel@68.227.169.15&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=help">mailto:omaha-pm-request@mail.pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.mail.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@mail.pm.org">mailto:omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=subscribe">mailto:omaha-pm-request@mail.pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe">mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Daniel Linder wrote:
+&gt; I'm trying to debug hung perl processes running on a Windows 2003 server.
+&gt; It is running the pre-compiled ActiveState perl, and the perl program
+&gt; runs once every five minutes processing e-mail from a remote POP3 server.
+&gt; 
+&gt; Occasionaly the perl interperter gets stuck and will wait forever.  Does
+&gt; anyone know of a way to hook into the running perl process under Windows
+&gt; to see what it is really waiting for?  If it helps, I'm using the Open
+&gt; Perl IDE (<a  rel="nofollow" href="http://open-perl-ide.sourceforge.net/">http://open-perl-ide.sourceforge.net/</a>).  My last resort is to
+&gt; put a ton of debug logging into the script and let it run but I'd rather
+&gt; not add that overhead...
+
+You might also try downloading various tools. For example, pslist
+&lt;<a  rel="nofollow" href="http://www.sysinternals.com/ntw2k/freeware/pstools.shtml">http://www.sysinternals.com/ntw2k/freeware/pstools.shtml</a>&gt; will
+tell you how many threads and what state they are in when the
+process hangs, while handle
+&lt;<a  rel="nofollow" href="http://www.sysinternals.com/ntw2k/freeware/handle.shtml">http://www.sysinternals.com/ntw2k/freeware/handle.shtml</a>&gt; will tell
+you you about the handles the process has open. Running pslist -d
+should tell you about the state of all threads (e.g. Wait:UserReq) --
+if they are all waiting, you have a deadlock. Alternatively, watching
+the CPU time should tell you if the process has got stuck in an
+infinite loop.
+
+For intermittent hangs, you may need to break into a Windows debugger.
+To do that, from the Windows Task Manager, right click on the hung process
+and select Debug. Of course, for this to work you will need to have
+installed a debugger; WinDbg (freely downloadable from Microsoft web site)
+is a good one. If you are inexperienced in Windows C-level debugging,
+there is a bit of a learning curve. In case it helps, here are some
+useful WinDbg commands for tracking process deadlocks:
+ ~* kv       stack trace of all threads in the process
+ !locks      dump of locks
+ !cs         dump of critical sections
+For best results, recompile Perl from the ActiveState C sources.
+Doing C-level debugging is a last resort, and Jay's excellent advice
+of adding logging is worthwhile whether or not you go down that route.
+
+BTW, is this a Intel hyper-threaded machine? This is a long shot,
+but if you are running a hyper-threaded machine, you might try
+upgrading the BIOS to the latest version (downloadable from Intel
+web site). Early versions of hyper-threaded machines had some BIOS
+bugs that could cause intermittent hangs.
+
+Hugh.
+
+
+
+		
+__________________________________
+Do you Yahoo!?
+Yahoo! Mail - You care about security. So do we.
+<a  rel="nofollow" href="http://promotions.yahoo.com/new_mail">http://promotions.yahoo.com/new_mail</a>
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00157" href="msg00157.html">[Omaha.pm] Debugging running Perl code on Windows.</a></strong>
+<ul><li><em>From:</em> &quot;Daniel Linder&quot; &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00162.html">Re: [Omaha.pm] Debugging running Perl code on Windows.</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00164.html">[Omaha.pm] A less greedy regular expression...</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00162.html">Re: [Omaha.pm] Debugging running Perl code on Windows.</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00161.html">[Omaha.pm] The Perl Review</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00163"><strong>Date</strong></a></li>
+<li><a href="threads.html#00163"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Substitution loop -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 1 Aug 2007 00:29:51 &#45;0000 -->
+<!--X-Message-Id: Pine.LNX.4.64.0707312027010.28825@ferret.jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: C2D4F4E3.E13D%jhannah@omnihotels.com -->
+<!--X-Reference: 51074433&#45;AF40&#45;45D0&#45;B0DF&#45;0E1ECBF9B0B0@petdance.com -->
+<!--X-Reference: F9D8B959&#45;DDBE&#45;4C2D&#45;8E61&#45;3BBD66853E8F@jays.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Substitution loop</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01473.html">Date Prev</a>][<a href="msg01475.html">Date Next</a>][<a href="msg01470.html">Thread Prev</a>][<a href="msg01475.html">Thread Next</a>][<a href="maillist.html#01474">Date Index</a>][<a href="threads.html#01474">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Substitution loop</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Subject</em>: Re: [Omaha.pm] Substitution loop</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Tue, 31 Jul 2007 20:29:35 -0400 (EDT)</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01466.html">F9D8B959-DDBE-4C2D-8E61-3BBD66853E8F@jays.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01464.html">C2D4F4E3.E13D%jhannah@omnihotels.com</a>&gt;	&lt;<a href="msg01465.html">51074433-AF40-45D0-B0DF-0E1ECBF9B0B0@petdance.com</a>&gt;	&lt;<a href="msg01466.html">F9D8B959-DDBE-4C2D-8E61-3BBD66853E8F@jays.net</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+
+Got you, you sneaky little !*#*!(!#$&amp;*!!!  Below.
+
+</pre><tt>Amazingly those UTF-8 warnings don't kick unless I &quot;p $d1&quot;. &quot;x $d1&quot; is not 
+</tt><tt>sufficient to see what's actually going on.
+</tt><pre style="margin: 0em;">
+
+j
+(wondering when we adopted UTF-8 in this database)
+
+
+
+Model::OTA::CommonShare::_update_start(/home/jhannah/src/Omni/MVC/Model/OTA/CommonShare.pm:65):
+65:       $d1=~s/[^\d]//g;
+
+    DB&lt;11&gt; c
+Model::OTA::CommonShare::_update_start(/home/jhannah/src/Omni/MVC/Model/OTA/CommonShare.pm:65):
+65:       $d1=~s/[^\d]//g;
+
+    DB&lt;11&gt; x $d1
+0  '2007-08-11'
+
+    DB&lt;12&gt; p $d1
+2007-08-11
+
+    DB&lt;13&gt; c
+Malformed UTF-8 character (overflow at 0xc9237b89, byte 0x95, after start byte 0xff) in substitution (s///) at /home/jhannah/src/Omni/MVC/Model/OTA/CommonShare.pm line 65.
+...stack trace here...
+Malformed UTF-8 character (unexpected continuation byte 0x95, with no preceding start byte) in substitution iterator at /usr/lib/perl5/5.8.7/Carp/Heavy.pm line 61.
+Malformed UTF-8 character (unexpected non-continuation byte 0x12, 1 byte after start byte 0xe0, expected 3 bytes) in substitution iterator at /usr/lib/perl5/5.8.7/Carp/Heavy.pm line 61.
+Substitution loop at /usr/lib/perl5/5.8.7/Carp/Heavy.pm line 61.
+...snip!...
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01475" href="msg01475.html">Re: [Omaha.pm] Substitution loop</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01464" href="msg01464.html">[Omaha.pm] Substitution loop</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jhannah@omnihotels.com&gt;</li></ul></li>
+<li><strong><a name="01465" href="msg01465.html">Re: [Omaha.pm] Substitution loop</a></strong>
+<ul><li><em>From:</em> Andy Lester &lt;andy@petdance.com&gt;</li></ul></li>
+<li><strong><a name="01466" href="msg01466.html">Re: [Omaha.pm] Substitution loop</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01473.html">Re: [Omaha.pm] [olug] ANN: Omaha Python Users Group Meeting,	Aug 1 @ 7pm</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01475.html">Re: [Omaha.pm] Substitution loop</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01470.html">Re: [Omaha.pm] Substitution loop</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01475.html">Re: [Omaha.pm] Substitution loop</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01474"><strong>Date</strong></a></li>
+<li><a href="threads.html#01474"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

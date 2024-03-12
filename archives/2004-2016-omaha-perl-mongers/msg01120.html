@@ -1,0 +1,192 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] code redux -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 12 Sep 2006 18:07:42 &#45;0000 -->
+<!--X-Message-Id: Pine.LNX.4.64.0609121317130.16518@ferret.jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 29AB736ABCE5C745ABF9C93B02F2C27B05A37C56@exchange2k3.omnihotels.net -->
+<!--X-Reference: 9ac12b1c0609120831r66715215t258c710e65fd481a@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] code redux</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01119.html">Date Prev</a>][<a href="msg01121.html">Date Next</a>][<a href="msg01119.html">Thread Prev</a>][<a href="msg01121.html">Thread Next</a>][<a href="maillist.html#01120">Date Index</a>][<a href="threads.html#01120">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] code redux</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] code redux</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Tue, 12 Sep 2006 13:21:14 -0500 (CDT)</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01119.html">9ac12b1c0609120831r66715215t258c710e65fd481a@mail.gmail.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01118.html">29AB736ABCE5C745ABF9C93B02F2C27B05A37C56@exchange2k3.omnihotels.net</a>&gt;	&lt;<a href="msg01119.html">9ac12b1c0609120831r66715215t258c710e65fd481a@mail.gmail.com</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+On Tue, 12 Sep 2006, Dave M wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+Looks like it to me. It's not like $prt{'blah'} will keep the
+justification properties, right?
+
+Although, I would write things like this:
+
+  $prt{'reversal_flag'} = (&quot; &quot;) x 3;
+  $prt{'reversal_period'} = (&quot; &quot;) x 5;
+
+I hate counting spaces.... :)
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>I wrote a class a couple years back that we call Model::FixedWidth. It 
+</tt><tt>makes fixed width files a breeze. Unfortunately there are a lot of fixed 
+</tt><tt>width formats in our lives so we use the heck out of it. No more counting 
+</tt><tt>columns of *anything*. :)
+</tt><pre style="margin: 0em;">
+
+</pre><tt>The code I posted earlier does everything the hard way, and I can't be 
+</tt><tt>bothered to port it today... lazy, lazy boy.
+</tt><pre style="margin: 0em;">
+
+j
+
+
+
+NAME
+       Model::FixedWidth - Easy objects for fixed width text
+       files. One object per line.
+
+SYNOPSIS
+          my $fw = new Model::FixedWidth, &quot;new()&quot;);
+          $fw-&gt;set_attributes(qw(
+             fname            undef  %10s
+             lname            undef  %-10s
+             points           0      %04d
+          );
+          $fw-&gt;parse(message =&gt; &quot;       JayHannah    0003&quot;);
+          print $fw-&gt;get_fname;   # Jay
+          print $fw-&gt;get_lname;   # Hannah
+          print $fw-&gt;get_points;  # 0003
+
+          $fw-&gt;set_fname('Chuck');
+          $fw-&gt;set_lname('Norris');
+          $fw-&gt;set_points(17);
+          print $fw-&gt;string;      #  '     ChuckNorris    0017'
+
+DESCRIPTION
+       If you're familiar with printf formats, then this class
+       should make processing fixed width files trivial.  Just
+       define your attributes and then you can get_* and set_*
+       all day long. When you're happy w/ your values envoke
+       string() to spit out your object in your defined fixed
+       width format.
+
+       When reading a fixed width file, simply pass each line of
+       the file into parse(), and then you can use the get_ meth-
+       ods to retrieve the value of whatever attributes you care
+       about.
+
+       See Model/Rewards/* for gobs of real-world uses of this
+       class.
+
+METHODS
+       set_attributes
+
+       Pass in arguments in sets of 3 and we'll set up attributes
+       for you.
+
+       The first argument is the attribute name. The second argu-
+       ment is the default value we should use until told other-
+       wise. The third is the printf format we should use to read
+       or write this attribute from/to a string.
+
+         $fw-&gt;set_attributes(qw(
+           fname            undef  %10s
+           lname            undef  %-10s
+           points           0      %04d
+         );
+
+       parse
+
+       Parse a string. Set each attribute to the value listed in
+       the string.
+
+         $fw-&gt;parse(message =&gt; &quot;       JayHannah    0003&quot;);
+
+       string
+
+       Dump the object to a string. Walks each attribute in order
+       and outputs each in the format that was specified during
+       set_attributes.
+
+         print $fw-&gt;string;      #  '     ChuckNorris    0017'
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01118" href="msg01118.html">[Omaha.pm] code redux</a></strong>
+<ul><li><em>From:</em> &quot;Jay Hannah&quot; &lt;jhannah@omnihotels.com&gt;</li></ul></li>
+<li><strong><a name="01119" href="msg01119.html">Re: [Omaha.pm] code redux</a></strong>
+<ul><li><em>From:</em> &quot;Dave M&quot; &lt;dave.nerd@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01119.html">Re: [Omaha.pm] code redux</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01121.html">[Omaha.pm] Moving library paths around... what did I break?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01119.html">Re: [Omaha.pm] code redux</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01121.html">[Omaha.pm] Moving library paths around... what did I break?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01120"><strong>Date</strong></a></li>
+<li><a href="threads.html#01120"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

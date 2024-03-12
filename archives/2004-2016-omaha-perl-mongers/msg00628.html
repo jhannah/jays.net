@@ -1,0 +1,121 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] CGI.pm param() gotcha -->
+<!--X-From-R13: Oaql Zrfgre &#60;naqlNcrgqnapr.pbz> -->
+<!--X-Date: 28 Oct 2005 02:13:12 &#45;0000 -->
+<!--X-Message-Id: 0285C7FE&#45;E290&#45;46FE&#45;857D&#45;FCEF4A2692EA@petdance.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 29AB736ABCE5C745ABF9C93B02F2C27B035D6BFA@exchange2k3.omnihotels.net -->
+<!--X-Reference: f58c586c89e2c1a2047b3ac832870349@jays.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] CGI.pm param() gotcha</title>
+<link rev="made" href="mailto:andy@petdance.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00627.html">Date Prev</a>][<a href="msg00629.html">Date Next</a>][<a href="msg00627.html">Thread Prev</a>][<a href="msg00606.html">Thread Next</a>][<a href="maillist.html#00628">Date Index</a>][<a href="threads.html#00628">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] CGI.pm param() gotcha</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] CGI.pm param() gotcha</li>
+<li><em>From</em>: Andy Lester &lt;<a href="mailto:andy%40petdance.com">andy@petdance.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 27 Oct 2005 21:12:48 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00627.html">f58c586c89e2c1a2047b3ac832870349@jays.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00605.html">29AB736ABCE5C745ABF9C93B02F2C27B035D6BFA@exchange2k3.omnihotels.net</a>&gt;	&lt;<a href="msg00627.html">f58c586c89e2c1a2047b3ac832870349@jays.net</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><tt>Because the first way sends scalar references into the passed  
+</tt><tt>hashref,
+</tt><pre style="margin: 0em;">
+and the second sends scalar values into the passed hashref?
+</pre></blockquote></blockquote><pre style="margin: 0em;">
+
+That's exactly right.
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+What I do know is that CGI.pm is pretty weird. In scalar context if a
+param is not set param() returns undef. In array context if a param is
+not set param() returns *an empty array*.
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>That's right, and it's the Perl way.  In both cases, (undef and empty  
+</tt><tt>array), the result evaluates to false.  If it returned a one-element  
+</tt><tt>array, then that would evaluate to one, which is true.
+</tt><pre style="margin: 0em;">
+
+xoxo,
+Andy
+
+--
+Andy Lester =&gt; andy@petdance.com =&gt; www.petdance.com =&gt; AIM:petdance
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00605" href="msg00605.html">Re: [Omaha.pm] CGI.pm param() gotcha</a></strong>
+<ul><li><em>From:</em> &quot;Kenneth Thompson&quot; &lt;kthompson@omnihotels.com&gt;</li></ul></li>
+<li><strong><a name="00627" href="msg00627.html">Re: [Omaha.pm] CGI.pm param() gotcha</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00627.html">Re: [Omaha.pm] CGI.pm param() gotcha</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00629.html">[Omaha.pm] Kwiki::Scode</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00627.html">Re: [Omaha.pm] CGI.pm param() gotcha</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00606.html">[Omaha.pm] FW: what lanague is your perl writen in?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00628"><strong>Date</strong></a></li>
+<li><a href="threads.html#00628"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

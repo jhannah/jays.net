@@ -1,0 +1,164 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] SAMPLE: Timed execute of external command with timeout. -->
+<!--X-From-R13: "Rnavry Zvaqre" &#60;qnaNyvaqre.bet> -->
+<!--X-Date: 6 Apr 2006 00:45:48 &#45;0000 -->
+<!--X-Message-Id: 27786.64.241.37.140.1144284370.squirrel@mail.linder.org -->
+<!--X-Content-Type: multipart/alternative -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] SAMPLE: Timed execute of external command with timeout.</title>
+<link rev="made" href="mailto:dan@linder.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00903.html">Date Prev</a>][<a href="msg00905.html">Date Next</a>][<a href="msg00905.html">Thread Prev</a>][<a href="msg00907.html">Thread Next</a>][<a href="maillist.html#00904">Date Index</a>][<a href="threads.html#00904">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] SAMPLE: Timed execute of external command with timeout.</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Subject</em>: [Omaha.pm] SAMPLE: Timed execute of external command with timeout.</li>
+<li><em>From</em>: &quot;Daniel Linder&quot; &lt;<a href="mailto:dan%40linder.org">dan@linder.org</a>&gt;</li>
+<li><em>Date</em>: Wed, 5 Apr 2006 19:46:10 -0500 (CDT)</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Importance</em>: Normal</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: <a href="mailto:dan%40linder.org">dan@linder.org</a>, &quot;Perl Mongers of Omaha,	Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: SquirrelMail/1.4.5</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+I thought I would thrown this out to the world incase anyone needs this in
+the future.&nbsp; Might help those of us who &quot;Google&quot; though new
+challenges... :-)<br/>
+<br/>
+Months ago I wrote a script that ran an external program and parsed the
+output for errors.&nbsp; Unfortunatly, one of the errors that I did not
+anticipate was the external program hanging forever.&nbsp; The usual<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; $result = `/path/to/cmd`;<br/>
+hung and never returned -- thus the script never completed.<br/>
+<br/>
+I ended up writing this subroutine to call the command with a timeout
+window defined.<br/>
+example:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; ($TimeoutStatus, $CmdResult) =
+timedexec(90,&quot;/path/to/cmd&quot;);<br/>
+This will call the program &quot;command&quot; and wait 90 seconds for it
+to complete.&nbsp; The returned value in $TimeoutStatus will be 0(success)
+or 1(failure).&nbsp; The value in $CmdResult will be the text output
+returned by the command (to stdout).<br/>
+<br/>
+Dan<br/>
+<br/>
+sub timedexec {<br/>
+# timedexec : This subroutine will run a command within a specified time<br/>
+#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+window (in seconds).<br/>
+# RETURNS : Returns an array of two elements:<br/>
+#&nbsp; Success : first element is 0<br/>
+#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; second
+element is the text returned by the command.<br/>
+#&nbsp; Failure : first element is 1<br/>
+#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; second
+element is empty.<br/>
+#<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; my $alarm=shift;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; my $CMD=shift;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; my $result = &quot;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; my $status = 0;<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; eval {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+local $SIG{ALRM} = sub { die &quot;alarm\n&quot; }; # \n required<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+alarm $alarm;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$result = `$CMD`;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+alarm 0;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; };<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; die if $@ &amp;&amp; $@ ne
+&quot;alarm\n&quot;;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # propagate
+errors<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if ($@) {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+# timed out : return the error code.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$status=1;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$result=&quot;&quot;;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+# didn't time out : return a success code.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+$status=0;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br/>
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return ($status, $result);<br/>
+}<br/>
+<br/>
+<br/>
+<br/>
+- - - -<br/>
+&quot;Wait for that wisest of all counselors, time.&quot; -- Pericles<br/>
+&quot;I do not fear computers, I fear the lack of them.&quot; -- Isaac
+Asimov<br/>
+&quot;Soon we will be able to harness the rotational energy from Orwell's
+grave to solve all world energy problems.&quot; -- /. user GigsVT
+(208848)<br/>
+GPG fingerprint:6FFD DB94 7B96 0FD8 EADF  2EE0 B2B0 CC47 4FDE 9B68
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00903.html">[Omaha.pm] Books</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00905.html">Re: [Omaha.pm] Books</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00905.html">Re: [Omaha.pm] Books</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00907.html">[Omaha.pm] April meeting cancelled</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00904"><strong>Date</strong></a></li>
+<li><a href="threads.html#00904"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] DBI odbc question -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 15 Dec 2005 20:23:10 &#45;0000 -->
+<!--X-Message-Id: 43A1D094.2080203@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 9A8B75E3985324438F1BFA08B160E82057B2CD@suxsvr.willconsult.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] DBI odbc question</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00714.html">Date Prev</a>][<a href="msg00716.html">Date Next</a>][<a href="msg00714.html">Thread Prev</a>][<a href="msg00716.html">Thread Next</a>][<a href="maillist.html#00715">Date Index</a>][<a href="threads.html#00715">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] DBI odbc question</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] DBI odbc question</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Thu, 15 Dec 2005 14:22:44 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00714.html">9A8B75E3985324438F1BFA08B160E82057B2CD@suxsvr.willconsult.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00714.html">9A8B75E3985324438F1BFA08B160E82057B2CD@suxsvr.willconsult.com</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: Mozilla Thunderbird 1.0.7 (Macintosh/20050923)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+Ryan Stille wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+I am working on a script that inserts records into a Progress database.
+The script connects via DBI and odbc.
+</pre></blockquote><pre style="margin: 0em;">
+
+Since I don't see a DBD::Progress I guess that's the way to go.
+
+<a  rel="nofollow" href="http://www.cpan.org/modules/by-module/DBD/">http://www.cpan.org/modules/by-module/DBD/</a>
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+As I loop through each potential record to import, I query the database
+for some info.  Occasionally I get errors like this:
+
+DBD::ODBC::st execute failed: [OpenLink][ODBC][Progress Server]Stale
+request handle. Request was not opened or has been closed. (1253)
+(SQL-S1000)(DBD: st_execute/SQLExecute err=-1) at ./siimport.pl line
+170.
+</pre></blockquote><pre style="margin: 0em;">
+
+Yikes. I've been doing DBI for years and I've never seen &quot;Stale request handle&quot; before. Sorry. I never use DBD::ODBC.
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+On some of the queries I was able to switch from:
+$sth = $dbh-&gt;prepare($query);
+$rc = $sth-&gt;execute();
+($si_owner) = $sth-&gt;fetchrow_array();
+
+To:
+($si_owner) = $dbh-&gt;selectrow_array($query);
+
+Which make the problem go away for some reason.  I was not able to
+change all the queries to use selectrow_array of course.  But after
+googling the &quot;select statement currently executing&quot; I came up with this:
+</pre></blockquote><pre style="margin: 0em;">
+
+Generally speaking, that should just be a shortcut that does the same thing behind the scenes.
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+$dbh-&gt;{odbc_exec_direct} = 1;
+
+Which made the problem go away completely.  But I'd really like to
+understand why.  I hate to see this problem come up again when I put the
+script into production.  The blurb from the documentation was no help:
+
+odbc_exec_direct
+Force DBD::ODBC to use SQLExecDirect instead of SQLPrepare() then
+SQLExecute. There are drivers that only support SQLExecDirect and the
+DBD::ODBC do() override doesn't allow returning result sets. Therefore,
+the way to do this now is to set the attributed odbc_exec_direct. There
+are currently two ways to get this: $dbh-&gt;prepare($sql, {
+odbc_exec_direct =&gt; 1}); and $dbh-&gt;{odbc_exec_direct} = 1; When
+$dbh-&gt;prepare() is called with the attribute &quot;ExecDirect&quot; set to a
+non-zero value dbd_st_prepare do NOT call SQLPrepare, but set the sth
+flag odbc_exec_direct to 1.
+</pre></blockquote><pre style="margin: 0em;">
+
+No clue. I don't know jack about the internals of ODBC. Many DBI/DBD::* geniuses and authors hang out here:
+
+<a  rel="nofollow" href="http://lists.cpan.org/showlist.cgi?name=dbi-users">http://lists.cpan.org/showlist.cgi?name=dbi-users</a>
+
+Good folk. You may get some answers if you join that list and re-post what you posted to this list. (Excellent explanation of the problem, by the way.)
+
+Sorry I couldn't help more,
+
+j
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00714" href="msg00714.html">[Omaha.pm] DBI odbc question</a></strong>
+<ul><li><em>From:</em> &quot;Ryan Stille&quot; &lt;rps@willcomminc.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00714.html">[Omaha.pm] DBI odbc question</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00716.html">[Omaha.pm] FW: ActiveState ends development of dynamic language	plug-ins forMicrosoft Visual Studio</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00714.html">[Omaha.pm] DBI odbc question</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00716.html">[Omaha.pm] FW: ActiveState ends development of dynamic language	plug-ins forMicrosoft Visual Studio</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00715"><strong>Date</strong></a></li>
+<li><a href="threads.html#00715"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

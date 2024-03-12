@@ -1,0 +1,160 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Sanitizing user input to use in a regexp search. -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 23 Jan 2010 00:58:21 &#45;0000 -->
+<!--X-Message-Id: 4B5A499A.4030501@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 3e2be51001221455i5727be1eu277bf9cf6a7137e5@mail.gmail.com -->
+<!--X-Reference: c185b40e1001221523n604231fev2538a80e8dceafd3@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Sanitizing user input to use in a regexp search.</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02304.html">Date Prev</a>][<a href="msg02306.html">Date Next</a>][<a href="msg02304.html">Thread Prev</a>][<a href="msg02307.html">Thread Next</a>][<a href="maillist.html#02305">Date Index</a>][<a href="threads.html#02305">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Sanitizing user input to use in a regexp search.</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Sanitizing user input to use in a regexp search.</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Fri, 22 Jan 2010 18:58:02 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg02304.html">c185b40e1001221523n604231fev2538a80e8dceafd3@mail.gmail.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg02303.html">3e2be51001221455i5727be1eu277bf9cf6a7137e5@mail.gmail.com</a>&gt;	&lt;<a href="msg02304.html">c185b40e1001221523n604231fev2538a80e8dceafd3@mail.gmail.com</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US;	rv:1.9.1.5) Gecko/20091204 Thunderbird/3.0</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+On 1/22/2010 5:23 PM, Sterling Hanenkamp wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+On Fri, Jan 22, 2010 at 4:55 PM, Dan Linder &lt;dan@linder.orgwrote:
+        $mycgi = CGI-&gt;new();
+        $search_string = $mycgi-&gt;param('SEARCHSTRING);
+        if ($data =~ /$search_string/io) {
+            # Do something if we match...
+        }
+
+    My understanding is that it is/might be possible to get bad data
+    pushed into the $search_string and cause the /regexp/ call execute it
+    or perform something not intended.  But if I
+
+    Or am I/we being overly cautious?  I've tried stuffing a number of bad
+    things into the field and they don't seem to have any bad effect.
+
+You are definitely not being overcautious. Try searching for:
+
+(?{open FH,&quot;/etc/passwd&quot;;local $/;print &lt;FH&gt;})
+
+I'd recommend running anything through quotemeta() before using it in
+your regexp.
+</pre></blockquote><pre style="margin: 0em;">
+
+I like the quotemeta() suggestion. I wonder if that's foolproof.
+
+I can't get the exploit to run. I keep getting this:
+
+</pre><tt>   Eval-group not allowed at runtime, use re 'eval' in regex m/(?{open 
+</tt><tt>FH,&quot;/etc/passwd&quot;;local $/;print &lt;FH&gt;})/ at j.pl line 6.
+</tt><pre style="margin: 0em;">
+
+I guess that makes me a bad cracker.  :)
+
+</pre><tt>Does taint mode help here? It's one of those things I should probably 
+</tt><tt>use/learn, but never have:
+</tt><pre style="margin: 0em;">
+
+   <a  rel="nofollow" href="http://perldoc.perl.org/perlsec.html#Taint-mode">http://perldoc.perl.org/perlsec.html#Taint-mode</a>
+
+</pre><tt>If people are only supposed to be able to search for alphanumerics, you 
+</tt><tt>could filter their input.
+</tt><pre style="margin: 0em;">
+
+   $search_string = $mycgi-&gt;param('SEARCHSTRING);
+   $search_string =~ s/\W//g;
+
+or be more specific/lenient...
+
+   $search_string =~ s/[^a-z0-9 ]//g;
+
+or similar. Perhaps \Q \E makes you safe?  (perldoc perlre)
+
+   if ($data =~ /\Q$search_string\E/io) {
+        # Do something if we match...
+   }
+
+$search_string is still interpolated, but any regex fanciness is disabled.
+
+HTH,
+
+j
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="02303" href="msg02303.html">[Omaha.pm] Sanitizing user input to use in a regexp search.</a></strong>
+<ul><li><em>From:</em> Dan Linder &lt;dan@linder.org&gt;</li></ul></li>
+<li><strong><a name="02304" href="msg02304.html">Re: [Omaha.pm] Sanitizing user input to use in a regexp search.</a></strong>
+<ul><li><em>From:</em> Sterling Hanenkamp &lt;sterling@hanenkamp.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02304.html">Re: [Omaha.pm] Sanitizing user input to use in a regexp search.</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02306.html">Re: [Omaha.pm] [olug] Command Line App Helper</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02304.html">Re: [Omaha.pm] Sanitizing user input to use in a regexp search.</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02307.html">Re: [Omaha.pm] Local Open source projects?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02305"><strong>Date</strong></a></li>
+<li><a href="threads.html#02305"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

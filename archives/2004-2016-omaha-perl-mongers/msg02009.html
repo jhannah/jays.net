@@ -1,0 +1,160 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Tighter/cleaner way to do this? map { grep {} } ? -->
+<!--X-From-R13: "Xnzrf Vnee" &#60;wuneeNvfg.habznun.rqh> -->
+<!--X-Date: 5 Feb 2009 19:10:11 &#45;0000 -->
+<!--X-Message-Id: FEA05FFE1F7E7348A9ACA24B9EFD334424C87B@exchange.ist.unomaha.edu -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 498B2BA3.30006@jays.net -->
+<!--X-Reference: 498B2FDD.3040302@jays.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Tighter/cleaner way to do this? map { grep {} } ?</title>
+<link rev="made" href="mailto:jharr@ist.unomaha.edu">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02008.html">Date Prev</a>][<a href="msg02010.html">Date Next</a>][<a href="msg02008.html">Thread Prev</a>][<a href="msg02010.html">Thread Next</a>][<a href="maillist.html#02009">Date Index</a>][<a href="threads.html#02009">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Tighter/cleaner way to do this? map { grep {} } ?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Tighter/cleaner way to do this? map { grep {} } ?</li>
+<li><em>From</em>: &quot;James Harr&quot; &lt;<a href="mailto:jharr%40ist.unomaha.edu">jharr@ist.unomaha.edu</a>&gt;</li>
+<li><em>Date</em>: Thu, 5 Feb 2009 13:09:30 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg02008.html">498B2FDD.3040302@jays.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg02007.html">498B2BA3.30006@jays.net</a>&gt; &lt;<a href="msg02008.html">498B2FDD.3040302@jays.net</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcmHwBFJ1k6elEOMRKKyVCN+XpyJAgABAaEA</li>
+<li><em>Thread-topic</em>: [Omaha.pm] Tighter/cleaner way to do this? map { grep {} } ?</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>If you're dealing with large amounts of resultant data, it might be
+better not to copy and print, but rather just print in the loop.
+
+$first = 1;
+foreach(@a){
+	next unless /(gold\w+)/;
+	print &quot;, &quot; unless $first;
+	$first = 0 if $first;
+	print $1;
+}
+
+If it's small amounts of data, you can make it even shorter:
+  print join &quot;, &quot;, map { /(gold\w+)/ } @a;
+  print &quot;\n&quot;;
+
+--
+James Harr &lt;jharr@ist.unomaha.edu&gt;
+402-554-3340
+Assistant Research Systems Manager 
+College of Information Science and Technology
+University of Nebraska at Omaha
+
+
+-----Original Message-----
+From: omaha-pm-bounces+jharr=ist.unomaha.edu@pm.org
+[<a  rel="nofollow" href="mailto:omaha-pm-bounces+jharr=ist.unomaha.edu@pm.org">mailto:omaha-pm-bounces+jharr=ist.unomaha.edu@pm.org</a>] On Behalf Of Jay
+Hannah
+Sent: Thursday, February 05, 2009 12:29
+To: Perl Mongers of Omaha, Nebraska USA
+Subject: Re: [Omaha.pm] Tighter/cleaner way to do this? map { grep {} }
+?
+
+Ooo... cool. 
+
+
+Old code:
+
+my @b;
+foreach (@a) {
+   if (/(gold\w+)/) {
+      push @b, $1;
+   }
+}
+
+
+New code:
+
+my @b = map { /(gold\w+)/ } @a;
+
+
+map gets the matches only ($1), not the entire original string.  :)
+
+j
+
+_______________________________________________
+Omaha-pm mailing list
+Omaha-pm@pm.org
+<a  rel="nofollow" href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="02010" href="msg02010.html">Re: [Omaha.pm] Tighter/cleaner way to do this? map { grep {} } ?</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="02007" href="msg02007.html">[Omaha.pm] Tighter/cleaner way to do this? map { grep {} } ?</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+<li><strong><a name="02008" href="msg02008.html">Re: [Omaha.pm] Tighter/cleaner way to do this? map { grep {} } ?</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02008.html">Re: [Omaha.pm] Tighter/cleaner way to do this? map { grep {} } ?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02010.html">Re: [Omaha.pm] Tighter/cleaner way to do this? map { grep {} } ?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02008.html">Re: [Omaha.pm] Tighter/cleaner way to do this? map { grep {} } ?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02010.html">Re: [Omaha.pm] Tighter/cleaner way to do this? map { grep {} } ?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02009"><strong>Date</strong></a></li>
+<li><a href="threads.html#02009"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

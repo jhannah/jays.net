@@ -1,0 +1,141 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] debugger question -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 19 Jan 2007 02:20:58 &#45;0000 -->
+<!--X-Message-Id: de821caaed03b3b79582b19b01cdd35f@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 531681ec0701180736g48176b16sb3966d40d3a7f7e2@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] debugger question</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01285.html">Date Prev</a>][<a href="msg01287.html">Date Next</a>][<a href="msg01285.html">Thread Prev</a>][<a href="msg01287.html">Thread Next</a>][<a href="maillist.html#01286">Date Index</a>][<a href="threads.html#01286">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] debugger question</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Omaha Perl Mongers &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] debugger question</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Thu, 18 Jan 2007 20:20:46 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;531681ec0701180736g48176b16sb3966d40d3a7f7e2@mail.gmail.com&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;531681ec0701180736g48176b16sb3966d40d3a7f7e2@mail.gmail.com&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+On Jan 18, 2007, at 9:36 AM, kiran bina wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+Hi Jay,
+</pre><tt>The output from the debugger is as below. How can I see the value of 
+</tt><tt>$result and $Query_name ?
+</tt><pre style="margin: 0em;">
+Thanks
+kiran
+
+</pre><tt>main::(second_step.pl:43):&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; while ( my $result = 
+</tt><tt>$searchio-&gt;next_result() )
+</tt><pre style="margin: 0em;">
+main::(second_step.pl:44):&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; {
+&#xA0; DB&lt;3&gt; n
+</pre><tt>main::(second_step.pl:47):&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; my $Query_name= 
+</tt><tt>$result-&gt;query_name();
+</tt><pre style="margin: 0em;">
+&#xA0; DB&lt;3&gt; p $result;
+Bio::Search::Result::BlastResult=HASH(0x8d5e140)
+&#xA0; DB&lt;4&gt; p $Query_name;
+</pre><tt>Use of uninitialized value in print at (eval 
+</tt><tt>16)[/usr/share/perl/5.8/perl5db.pl:628] line 2, &lt;GEN1&gt; line 20.
+</tt></blockquote><pre style="margin: 0em;">
+
+</pre><tt>$result is an object, so you can't &quot;print&quot; it per-say, you have to call 
+</tt><tt>methods on the object. In the debugger you can usually see the guts 
+</tt><tt>iniside an object using &quot;x&quot;, so
+</tt><pre style="margin: 0em;">
+
+   x $result
+
+might show you interesting things.
+
+</pre><tt>On the $Query_name front you haven't yet executed the line of code that 
+</tt><tt>will (probably) populate $Query_name, so the debugger gets unhappy. 
+</tt><tt>$Query_name doesn't exist until 1 line of code later. So if you move 
+</tt><tt>past that line of code
+</tt><pre style="margin: 0em;">
+
+   n
+
+and then print $Query_name
+
+   p $Query_name
+
+</pre><tt>you might have something in there.  Welcome to the fray, brave Perl 
+</tt><tt>debugger!!  :)
+</tt><pre style="margin: 0em;">
+
+HTH,
+
+j
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01285.html">Re: [Omaha.pm] FW: Huh?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01287.html">Re: [Omaha.pm] Could use your help</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01285.html">Re: [Omaha.pm] FW: Huh?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01287.html">Re: [Omaha.pm] Could use your help</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01286"><strong>Date</strong></a></li>
+<li><a href="threads.html#01286"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] XML::Twig demo #2 -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 12 Feb 2009 01:32:50 &#45;0000 -->
+<!--X-Message-Id: 396CEDAA86B38646ACE2FEAA22C3FBF1EDBC3F@l3exchange.omnihotels.net -->
+<!--X-Content-Type: multipart/alternative -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] XML::Twig demo #2</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02016.html">Date Prev</a>][<a href="msg02018.html">Date Next</a>][<a href="msg02016.html">Thread Prev</a>][<a href="msg02021.html">Thread Next</a>][<a href="maillist.html#02017">Date Index</a>][<a href="threads.html#02017">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] XML::Twig demo #2</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] XML::Twig demo #2</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Wed, 11 Feb 2009 19:19:13 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcmMr+oMo0HFt7BAScuE+mA00pR5Vw==</li>
+<li><em>Thread-topic</em>: :Twig demo #2</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+
+
+<DIV><FONT face="Courier New" color=#000000 size=2>Later he decided he wanted elements instead of attributes.&nbsp; :)</FONT></DIV>
+<DIV><FONT face="Courier New" size=2></FONT>&nbsp;</DIV>
+<DIV><FONT face="Courier New" size=2>j</FONT></DIV>
+<DIV><FONT face="Courier New" size=2></FONT>&nbsp;</DIV>
+<DIV><FONT face="Courier New" size=2></FONT>&nbsp;</DIV>
+<DIV><FONT face="Courier New" size=2></FONT>&nbsp;</DIV>
+<DIV><FONT face="Courier New" size=2>$ cat j.pl<BR>#!/usr/bin/perl<BR><BR>use strict;<BR>use XML::Twig;<BR>my $twig = XML::Twig-&gt;new(<BR>&nbsp;&nbsp; pretty_print =&gt; 'indented'<BR>)-&gt;parse('&lt;users/&gt;')-&gt;root;<BR><BR><BR>my @users = (<BR>&nbsp; { firstname =&gt; 'Jay',<BR>&nbsp;&nbsp;&nbsp; lastname =&gt; 'Hannah'<BR>&nbsp; },<BR>&nbsp; { firstname =&gt; 'Quentus',<BR>&nbsp;&nbsp;&nbsp; lastname =&gt; 'Rex'<BR>&nbsp; },<BR>);<BR><BR>foreach my $user (@users) {<BR>&nbsp;&nbsp; my $user_xml = XML::Twig::Elt-&gt;new('user');<BR>&nbsp;&nbsp; foreach my $att (keys %$user) {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; my $xml = XML::Twig::Elt-&gt;new($att, $user-&gt;{$att});<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $xml-&gt;paste( last_child =&gt; $user_xml );<BR>&nbsp;&nbsp; }<BR>&nbsp;&nbsp; $user_xml-&gt;paste( last_child =&gt; $twig );<BR>}<BR>print $twig-&gt;sprint;<BR><BR>$ perl j.pl<BR>&lt;users&gt;<BR>&nbsp; &lt;user&gt;<BR>&nbsp;&nbsp;&nbsp; &lt;firstname&gt;Jay&lt;/firstname&gt;<BR>&nbsp;&nbsp;&nbsp; &lt;lastname&gt;Hannah&lt;/lastname&gt;<BR>&nbsp; &lt;/user&gt;<BR>&nbsp; &lt;user&gt;<BR>&nbsp;&nbsp;&nbsp; &lt;firstname&gt;Quentus&lt;/firstname&gt;<BR>&nbsp;&nbsp;&nbsp; &lt;lastname&gt;Rex&lt;/lastname&gt;<BR>&nbsp; &lt;/user&gt;<BR>&lt;/users&gt;<BR></FONT></DIV><PRE><FONT size=2></FONT>&nbsp;</PRE>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02016.html">[Omaha.pm] XML::Twig demo</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02018.html">Re: [Omaha.pm] Gotta love perl...</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02016.html">[Omaha.pm] XML::Twig demo</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02021.html">[Omaha.pm] Carwash Challenge 2 - Lightning Talk Edition</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02017"><strong>Date</strong></a></li>
+<li><a href="threads.html#02017"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

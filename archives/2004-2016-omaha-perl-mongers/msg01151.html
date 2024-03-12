@@ -1,0 +1,133 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Binary stuff in my logs (Log::Log4perl) -->
+<!--X-From-R13: "Erna Pnxre" &#60;conxreNbzavubgryf.pbz> -->
+<!--X-Date: 27 Sep 2006 21:37:22 &#45;0000 -->
+<!--X-Message-Id: 29AB736ABCE5C745ABF9C93B02F2C27B0689C385@exchange2k3.omnihotels.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Binary stuff in my logs (Log::Log4perl)</title>
+<link rev="made" href="mailto:pbaker@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01150.html">Date Prev</a>][<a href="msg01152.html">Date Next</a>][<a href="msg01150.html">Thread Prev</a>][<a href="msg01152.html">Thread Next</a>][<a href="maillist.html#01151">Date Index</a>][<a href="threads.html#01151">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Binary stuff in my logs (Log::Log4perl)</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Binary stuff in my logs (Log::Log4perl)</li>
+<li><em>From</em>: &quot;Sean Baker&quot; &lt;<a href="mailto:pbaker%40omnihotels.com">pbaker@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Wed, 27 Sep 2006 16:37:12 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcbieGb87AU4JGk3S4mJBkPLsIjUfwAAOMLwAADrIUA=</li>
+<li><em>Thread-topic</em>: [Omaha.pm] Binary stuff in my logs (Log::Log4perl)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Maybe you can tweak this somehow:
+
+$current_level = $logger-&gt;level();
+
+?
+
+Sean Baker
+
+-----Original Message-----
+From: omaha-pm-bounces+pbaker=omnihotels.com@pm.org
+[<a  rel="nofollow" href="mailto:omaha-pm-bounces+pbaker=omnihotels.com@pm.org">mailto:omaha-pm-bounces+pbaker=omnihotels.com@pm.org</a>] On Behalf Of Jay
+Hannah
+Sent: Wednesday, September 27, 2006 4:13 PM
+To: Perl Mongers of Omaha, Nebraska USA
+Subject: Re: [Omaha.pm] Binary stuff in my logs (Log::Log4perl)
+
+
+Log::Log4perl follow-up...
+
+Hmmm... Now I'm wishing there was a way to ask a Log::Log4perl object if
+there are any debug level listeners active.... What a waste of CPU if
+debug() is being ignored...
+
+j
+
+ 
+# -----
+# Send this to the debugger in case someone is listening...
+# If there's binary crap in here don't write that to my logs.
+# Instead, throw [ASCII:24] and the like to the logs.
+#   Wow... This is a terrible loop if we ever send more than a 
+#   few bytes of binary data through the engine!!
+# -jhannah 2006-09-27
+# -----
+my $logable_buffer = $self-&gt;{buffer};
+my $binary_char;
+while (($binary_char) = ($logable_buffer =~ /([^ -~])/)) {
+   my $ord = &quot;[ASCII:&quot; . ord($binary_char) . &quot;]&quot;;
+   $logable_buffer =~ s/\Q$binary_char\E/$ord/gs;
+}
+$logger-&gt;debug(&quot;My buffer is now $logable_buffer&quot;);
+
+_______________________________________________
+Omaha-pm mailing list
+Omaha-pm@pm.org
+<a  rel="nofollow" href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01150.html">Re: [Omaha.pm] Binary stuff in my logs (Log::Log4perl)</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01152.html">Re: [Omaha.pm] Binary stuff in my logs (Log::Log4perl)</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01150.html">Re: [Omaha.pm] Binary stuff in my logs (Log::Log4perl)</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01152.html">Re: [Omaha.pm] Binary stuff in my logs (Log::Log4perl)</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01151"><strong>Date</strong></a></li>
+<li><a href="threads.html#01151"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

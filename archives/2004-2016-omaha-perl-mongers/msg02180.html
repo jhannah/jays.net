@@ -1,0 +1,145 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Embeddable database options. -->
+<!--X-From-R13: Rna Zvaqre &#60;qnaNyvaqre.bet> -->
+<!--X-Date: 24 Aug 2009 14:17:31 &#45;0000 -->
+<!--X-Message-Id: 3e2be50908240717g4b5d6a07s2d8adbf3e71daf5b@mail.gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Embeddable database options.</title>
+<link rev="made" href="mailto:dan@linder.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02179.html">Date Prev</a>][<a href="msg02181.html">Date Next</a>][<a href="msg02179.html">Thread Prev</a>][<a href="msg02181.html">Thread Next</a>][<a href="maillist.html#02180">Date Index</a>][<a href="threads.html#02180">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Embeddable database options.</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Embeddable database options.</li>
+<li><em>From</em>: Dan Linder &lt;<a href="mailto:dan%40linder.org">dan@linder.org</a>&gt;</li>
+<li><em>Date</em>: Mon, 24 Aug 2009 09:17:01 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Guys,
+
+I'm looking at rewriting some of the store/retrieve code in a project
+I'm working on.  The current method uses the Data::Dumper and eval()
+code to store data to a hierarchical directory structure on disk.
+Over the weekend I all but eliminated the hard-disk overhead by moving
+the data to a temporary RAM disk -- sadly, the speed-ups were too
+small to notice.  This tells me that the overall Linux file-system
+caching is working quite well.  (Yay!) Unfortunately, this leads me
+(again) determine that the Dumper/eval() code is probably the
+bottle-neck.  (Definately not what they were designed for, but work
+remarkably well none the less...)
+
+So, I started investigating alternatives:
+ * A true database with client/server model (i.e. MySQL, PostgreSQL, etc)
+ * An embedded database such as SQLite (others?)
+ * Continue using the filesystem+directory structure using
+freeze()/thaw() from the FreezeThaw CPAN module (speed improvement?)
+ * Use a DBD module to store/retrieve these files (i.e. DBD::File,
+DBD::CSV, etc) (benefit here is that a simple change in the DB setup
+code will mean a change from DBD::File to DBD::SQLite or
+DBD::PostgreSQL should be fairly short work)
+
+Internally I have some constraints:
+ * We'd like to keep the number of non-core Perl modules down
+(currently we're 90% core), and a couple customers are extremely
+sensitive to anything that is not supplied by their OS provider
+(Solaris and HPUX for example).
+ * We would also like to keep the files on disk and in a
+human-readable form so the end users and support staff can peruse this
+data with simple tools (grep, vi, etc).
+ * The remaining 10% that is non-core Perl modules are local copies of
+&quot;pure perl&quot; CPAN modules we've merged into the source code branch
+directly.  (We do this because the code runs on Solaris/SPARC,
+Solaris/x86_64, Linux/x86, Linux/ia64, HPUX/PA-RISC, HPUX/ia64, etc)
+
+My personal pick at the moment is SQLite (it is provided natively in
+Solaris 10, and easy to install on Linux platforms), but I question if
+the speed up it provides will be over-shadowed by the constant
+spawning of the sqlite binary each time an element of data is queried.
+ (Anyone know if there is a way to leave a persistent copy of SQLite
+running in memory that future copies hook into?  Getting a bit far
+afield from the initial SQLite implementation goals...)
+
+Thanks for any insight,
+
+DanL
+
+-- 
+******************* ***************** ************* ***********
+******* ***** *** **
+&quot;Quis custodiet ipsos custodes?&quot; (Who can watch the watchmen?) -- from
+the Satires of Juvenal
+&quot;I do not fear computers, I fear the lack of them.&quot; -- Isaac Asimov (Author)
+** *** ***** ******* *********** ************* *****************
+*******************
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="02181" href="msg02181.html">Re: [Omaha.pm] Embeddable database options.</a></strong>
+<ul><li><em>From:</em> Mario Steele &lt;mario@ruby-im.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02179.html">Re: [Omaha.pm] Next meeting Tue Sep 8</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02181.html">Re: [Omaha.pm] Embeddable database options.</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02179.html">Re: [Omaha.pm] Next meeting Tue Sep 8</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02181.html">Re: [Omaha.pm] Embeddable database options.</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02180"><strong>Date</strong></a></li>
+<li><a href="threads.html#02180"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

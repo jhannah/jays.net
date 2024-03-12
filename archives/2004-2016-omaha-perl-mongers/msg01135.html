@@ -1,0 +1,109 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Geo::Distance (Was: DBH statement isn't closing) -->
+<!--X-From-R13: "[vxr Vbfgrgyre" &#60;ubfgrgyrezNtznvy.pbz> -->
+<!--X-Date: 21 Sep 2006 13:53:01 &#45;0000 -->
+<!--X-Message-Id: c60e627c0609210652i2ff74b1ai6feaf0cb124fd112@mail.gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Geo::Distance (Was: DBH statement isn't closing)</title>
+<link rev="made" href="mailto:hostetlerm@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01134.html">Date Prev</a>][<a href="msg01136.html">Date Next</a>][<a href="msg01129.html">Thread Prev</a>][<a href="msg01136.html">Thread Next</a>][<a href="maillist.html#01135">Date Index</a>][<a href="threads.html#01135">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Geo::Distance (Was: DBH statement isn't closing)</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Geo::Distance (Was: DBH statement isn't closing)</li>
+<li><em>From</em>: &quot;Mike Hostetler&quot; &lt;<a href="mailto:hostetlerm%40gmail.com">hostetlerm@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 21 Sep 2006 08:52:51 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+No sweat. What are you using SQLite for? Just curious.
+</pre></blockquote><pre style="margin: 0em;">
+
+Something you may be interested in. :)
+
+The Geo::Distance module has a method called &quot;closest&quot; in which you
+can give it a DBI handle, a latitude, longtude, and a distance and
+return the points in the database that are within that distance.  This
+is very cool stuff -- I was doing it with shell scripts, gpsbabel, and
+a huge XML file.  Doing it with Perl not only makes it easier, it
+makes it faster, too.  Check out the details:
+
+<a  rel="nofollow" href="http://search.cpan.org/~bluefeet/Geo-Distance-0.11/Distance.pm#closest">http://search.cpan.org/~bluefeet/Geo-Distance-0.11/Distance.pm#closest</a>
+
+The error I was getting wasn't from the Geo::Distance call, but from a
+script I wrote that looks up a waypoint name in my SQLite database,
+gets it's lat and lon, and then runs Distance-&gt;closest.
+
+Why SQLite?  It's portable, fast, and easy to setup.
+
+--
+
+Mike Hostetler
+<a  rel="nofollow" href="http://mike.hostetlerhome.com/">http://mike.hostetlerhome.com/</a>
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01134.html">Re: [Omaha.pm] secret meeting tonight @ 7pm</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01136.html">Re: [Omaha.pm] Geo::Distance (Was: DBH statement isn't closing)</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01129.html">Re: [Omaha.pm] [olug] OLUG - Omaha Linux User Group: Third Thursday	(fwd)</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01136.html">Re: [Omaha.pm] Geo::Distance (Was: DBH statement isn't closing)</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01135"><strong>Date</strong></a></li>
+<li><a href="threads.html#01135"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] FW: DBD::Informix &#38; $SIG{ALRM} &#38; /etc/services -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 6 Nov 2006 18:20:45 &#45;0000 -->
+<!--X-Message-Id: 29AB736ABCE5C745ABF9C93B02F2C27B06F5DCC3@exchange2k3.omnihotels.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] FW: DBD::Informix &amp; $SIG{ALRM} &amp; /etc/services</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01200.html">Date Prev</a>][<a href="msg01202.html">Date Next</a>][<a href="msg01192.html">Thread Prev</a>][<a href="msg01193.html">Thread Next</a>][<a href="maillist.html#01201">Date Index</a>][<a href="threads.html#01201">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] FW: DBD::Informix &amp; $SIG{ALRM} &amp; /etc/services</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] FW: DBD::Informix &amp; $SIG{ALRM} &amp; /etc/services</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Mon, 6 Nov 2006 12:20:08 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: Acb/l52RWjQLxxh7RM2a2R9XIlxqSgCOH3+g</li>
+<li><em>Thread-topic</em>: DBD::Informix &amp; $SIG{ALRM} &amp; /etc/services</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+FYI. In case you care about my Informix $SIG{ALRM} woes. :)
+
+j
+
+
+-----Original Message-----
+From: Jonathan Leffler [<a  rel="nofollow" href="mailto:jonathan.leffler@gmail.com">mailto:jonathan.leffler@gmail.com</a>] 
+Sent: Friday, November 03, 2006 4:30 PM
+To: Jay Hannah
+Cc: dbi-users@perl.org; Guardian of DBD::Informix
+Subject: Re: DBD::Informix &amp; $SIG{ALRM} &amp; /etc/services
+
+
+
+On 11/3/06, Jay Hannah &lt;jhannah@omnihotels.com&gt; wrote:
+
+
+	Oops. I noticed my versions were behind. I upgraded DBI and
+DBD::Informix.
+	
+	I'm still getting the same behavior (14.3 seconds to time out),
+so I'm
+	still curious about what might be going on.
+
+
+CSDK probably uses  alarm itself - for connection timeouts, no less - so
+your attempt to use alarm at the same time is likely to cause confusion
+somewhere.
+
+You could probably track this with the equivalent of truss (strace on
+Linux?), looking for alarm system calls in the output.  You'd probably
+be able to identify your own alarm(2) call; you might have to work
+harder to identify which other alarm() calls are made before you see
+SIGALRM fire. 
+
+Interestingly, the manual page for the system call is usually designated
+alarm(2) as well as you using an alarm function call with the argument
+value 2.
+
+
+
+	$ perl -MDBI -e'DBI-&gt;installed_versions'
+	  Perl            : 5.008004    (i686-linux)
+	  OS              : linux       (2.6.4-52-smp)
+	  DBI             : 1.53
+	  DBD::Sybase     : 1.04
+	  DBD::Sponge     : 11.10
+	  DBD::Proxy      : install_driver(Proxy) failed: Can't locate
+	RPC/PlClient.pm in @INC
+	  DBD::Informix   : 2005.02
+	  DBD::File       : 0.35
+	  DBD::ExampleP   : 11.12
+	  DBD::DBM        : 0.03
+	
+--
+Jonathan Leffler &lt;jonathan.leffler@gmail.com&gt;  #include &lt;disclaimer.h&gt;
+Guardian of DBD::Informix - v2005.02 - <a  rel="nofollow" href="http://dbi.perl.org">http://dbi.perl.org</a> &quot;I don't
+suffer from insanity - I enjoy every minute of it.&quot; 
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01200.html">Re: [Omaha.pm] New Perl Project out at Sourceforge.net</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01202.html">[Omaha.pm] Fwd: [dynamic_omaha] Rebol tomorrow night!</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01192.html">[Omaha.pm] FW: DBD::Informix &amp; $SIG{ALRM} &amp; /etc/services</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01193.html">[Omaha.pm] FW: Test::Harness jacks PERL5LIB which jacks our SEED	tests under your new dynamic t directory thing...</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01201"><strong>Date</strong></a></li>
+<li><a href="threads.html#01201"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

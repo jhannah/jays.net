@@ -1,0 +1,200 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Using a perl module without installing it... -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 14 Jan 2005 20:53:44 &#45;0000 -->
+<!--X-Message-Id: 5C44A9F4&#45;666E&#45;11D9&#45;B03C&#45;000A95E317B8@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 3927.12.160.138.79.1105477116.squirrel@12.160.138.79 -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Using a perl module without installing it...</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00250.html">Date Prev</a>][<a href="msg00252.html">Date Next</a>][<a href="msg00246.html">Thread Prev</a>][<a href="msg00253.html">Thread Next</a>][<a href="maillist.html#00251">Date Index</a>][<a href="threads.html#00251">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Using a perl module without installing it...</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Using a perl module without installing it...</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Fri, 14 Jan 2005 14:53:36 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;3927.12.160.138.79.1105477116.squirrel@12.160.138.79&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;3927.12.160.138.79.1105477116.squirrel@12.160.138.79&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+
+On Jan 11, 2005, at 2:58 PM, Daniel Linder wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+Questions:
+</pre><tt>1: Can anyone give me pointers so that I can replace the &quot;use 
+</tt><tt>XXX::YYY;&quot;
+</tt><tt>syntax and do something like &quot;include /full/path/to/YYY.pm&quot; or other 
+</tt><tt>such
+</tt><pre style="margin: 0em;">
+trick?
+
+2: Or, can someone give me hints as to how to write my script to modify
+the @INC variable (??) to use ~/lib rather than the systems default
+&quot;/usr/lib/perl5/...&quot; directories?
+</pre></blockquote><pre style="margin: 0em;">
+
+
+So I have a package &quot;Jay&quot; in a weird location:
+
+
+$ pwd
+/Users/jhannah/weird_location
+$ cat Jay.pm
+package Jay;
+
+sub hello {
+   print &quot;Hi!\n&quot;;
+}
+
+1;
+
+
+If I'm in /Users/jhannah and I try to use it it doesn't work:
+
+
+$ perl -e 'use Jay; Jay::hello()'
+</pre><tt>Can't locate Jay.pm in @INC (@INC contains: /sw/lib/perl5 
+</tt><tt>/System/Library/Perl/5.8.1/darwin-thread-multi-2level 
+</tt><tt>/System/Library/Perl/5.8.1 
+</tt><tt>/Library/Perl/5.8.1/darwin-thread-multi-2level /Library/Perl/5.8.1 
+</tt><tt>/Library/Perl /Network/Library/Perl/5.8.1/darwin-thread-multi-2level 
+</tt><tt>/Network/Library/Perl/5.8.1 /Network/Library/Perl .) at -e line 1.
+</tt><pre style="margin: 0em;">
+BEGIN failed--compilation aborted at -e line 1.
+
+
+(Solution 1)
+
+       Use -I when invoking perl
+
+       from &quot;perldoc perlrun&quot;
+       -Idirectory
+</pre><tt>            Directories specified by -I are prepended to the search 
+</tt><tt>path for
+</tt><tt>            modules (@INC), and also tells the C preprocessor where to 
+</tt><tt>search
+</tt><tt>            for include files.  The C preprocessor is invoked with -P; 
+</tt><tt>by
+</tt><pre style="margin: 0em;">
+            default it searches /usr/include and /usr/lib/perl.
+
+$ perl -I &quot;/Users/jhannah/weird_location&quot; -e 'use Jay; Jay::hello()'
+Hi!
+
+
+(Solution 2)
+
+       Set your $PERL5LIB environmental variable.
+
+       from &quot;perldoc perlrun&quot;
+</pre><tt>       PERL5LIB    A list of directories in which to look for Perl 
+</tt><tt>library
+</tt><tt>                   files before looking in the standard library and the 
+</tt><tt>cur-
+</tt><tt>                   rent directory.  Any architecture-specific 
+</tt><tt>directories
+</tt><pre style="margin: 0em;">
+                   -snip!-
+
+
+$ setenv PERL5LIB /Users/jhannah/weird_location
+</pre><tt>( That was MAC OSX. Linux would be 'export 
+</tt><tt>PERL5LIB=/Users/jhannah/weird_location' )
+</tt><pre style="margin: 0em;">
+$ perl -e 'use Jay; Jay::hello()'
+Hi!
+
+
+(Solution 3)
+
+       'use lib' in your script.
+       see &quot;perldoc lib&quot;
+
+</pre><tt>$ perl -e 'use lib &quot;/Users/jhannah/weird_location&quot;; use Jay; 
+</tt><tt>Jay::hello()'
+</tt><pre style="margin: 0em;">
+
+
+HTH,
+
+j
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00253" href="msg00253.html">Re: [Omaha.pm] Using a perl module without installing it...</a></strong>
+<ul><li><em>From:</em> &quot;Daniel Linder&quot; &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00246" href="msg00246.html">[Omaha.pm] Using a perl module without installing it...</a></strong>
+<ul><li><em>From:</em> &quot;Daniel Linder&quot; &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00250.html">Re: [Omaha.pm] rrdtool rulez, I second that thought</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00252.html">Re: [Omaha.pm] rrdtool rulez, I second that thought</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00246.html">[Omaha.pm] Using a perl module without installing it...</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00253.html">Re: [Omaha.pm] Using a perl module without installing it...</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00251"><strong>Date</strong></a></li>
+<li><a href="threads.html#00251"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

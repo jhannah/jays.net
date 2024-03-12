@@ -1,0 +1,98 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Moose::Meta::Attribute::Native::Trait::Array (mouthful) object sorting by attributes -->
+<!--X-From-R13: conxre0804 &#60;conxre0804Ntznvy.pbz> -->
+<!--X-Date: 13 May 2011 12:40:45 &#45;0000 -->
+<!--X-Message-Id: BANLkTikj0FqoU7xzm3opLnFOfVGUUfHPwg@mail.gmail.com -->
+<!--X-Content-Type: multipart/alternative -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Moose::Meta::Attribute::Native::Trait::Array (mouthful) object sorting by attributes</title>
+<link rev="made" href="mailto:pbaker0804@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02662.html">Date Prev</a>][<a href="msg02664.html">Date Next</a>][<a href="msg02662.html">Thread Prev</a>][<a href="msg02664.html">Thread Next</a>][<a href="maillist.html#02663">Date Index</a>][<a href="threads.html#02663">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Moose::Meta::Attribute::Native::Trait::Array (mouthful) object sorting by attributes</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Subject</em>: [Omaha.pm] Moose::Meta::Attribute::Native::Trait::Array (mouthful) object sorting by attributes</li>
+<li><em>From</em>: pbaker0804 &lt;<a href="mailto:pbaker0804%40gmail.com">pbaker0804@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Fri, 13 May 2011 07:40:38 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=gamma;	h=domainkey-signature:mime-version:date:message-id:subject:from:to	:content-type; bh=PhoOE43aDiQe2RxO9FNELtIO+qy3q5oNRU1PiBa6piY=;	b=n8RI2Gn0+m2L92nLOv+CWfPaHX92hAJSN3sKmMvXtoUrI8kFhXE1HBnC7TXjAos+4d	JPgKEDQpFFw45JcDcW8HVvGSMst8PBulixf1JDp9f2BRw8h4HpTZGX7t/Xk8WQpe4gIU	MD5vxN+GOIE3LiXOecVG9puWO+S2hFbvFz0Is=</li>
+<li><em>Domainkey-signature</em>: a=rsa-sha1; c=nofws; d=gmail.com; s=gamma;	h=mime-version:date:message-id:subject:from:to:content-type;	b=bK93RO4oOjlDzcaScKNPuipq/Kf9C+PsvJZkDJRMr6/J68be3VPlOI8acZ39AKIrKR	K26M45A+TVujaLAl+vTKlHxPSibyab0Q9yEeXXGkZzGPBrR0iBpX5lpbasVsqo5iVDip	jX/vDf0voQyQLATkI3hXEJrInY4fzgzkTsuWk=</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+I have an guest object that stores information.&#xA0; It has several attributes, including an array of stay history records that are Moose::Meta::Attribute::Native::Trait::Array objects.&#xA0; I wanted a special handler method on it that always sorted the stay objects in &quot;EndDate&quot; order.&#xA0; I also needed to display all this info in a Template::Toolkit template.<br>
+<br>My Moose config for the &quot;StayHistory&quot; object ended up like this in the parent class: <br><br>...<br>has &#39;StayHistory&#39; =&gt; (&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; # Moose::Meta::Attribute::Native::Trait::Array<br>&#xA0;&#xA0; traits&#xA0; =&gt; [&#39;Array&#39;],&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; # of Omni2::Control::OWS::HotelReservation objects<br>
+&#xA0;&#xA0; is&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; =&gt; &#39;ro&#39;,<br>&#xA0;&#xA0; isa&#xA0;&#xA0;&#xA0;&#xA0; =&gt; &#39;ArrayRef[Object]&#39;,<br>&#xA0;&#xA0; default =&gt; sub { [] },<br>&#xA0;&#xA0; handles =&gt; {<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; all_stays&#xA0;&#xA0;&#xA0; =&gt; &#39;elements&#39;,<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; add_stay&#xA0;&#xA0;&#xA0;&#xA0; =&gt; &#39;push&#39;,<br>
+&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; map_stays&#xA0;&#xA0;&#xA0; =&gt; &#39;map&#39;,<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; filter_stay&#xA0; =&gt; &#39;grep&#39;,<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; find_stay&#xA0;&#xA0;&#xA0; =&gt; &#39;first&#39;,<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; get_stay&#xA0;&#xA0;&#xA0;&#xA0; =&gt; &#39;get&#39;,<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; join_stays&#xA0;&#xA0; =&gt; &#39;join&#39;,<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; count_stays&#xA0; =&gt; &#39;count&#39;,<br>
+&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; has_stays&#xA0;&#xA0;&#xA0; =&gt; &#39;count&#39;,<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; has_no_stays =&gt; &#39;is_empty&#39;,<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; sorted_stays =&gt; [ sort =&gt; sub { $_[1]-&gt;EndDate cmp $_[0]-&gt;EndDate } ],<br>&#xA0;&#xA0; },<br>);<br>...<br><br>Here&#39;s my actual StayHistory Moose attributes, any of which can be sorted on using the above method:<br>
+<br>package Omni2::Control::OWS::StayHistory;<br>use Moose;<br>has &#39;_twig&#39;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; =&gt; (is =&gt; &#39;rw&#39;, isa =&gt; &#39;Object&#39;, required =&gt; 1);&#xA0; # XML::Twig::Elt<br>has &#39;site&#39;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; =&gt; (is =&gt; &#39;rw&#39;, isa =&gt; &#39;Str&#39;, default=&gt;&#39;OM&#39;);<br>
+has &#39;UniqueID&#39;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; =&gt; (is =&gt; &#39;rw&#39;, isa =&gt; &#39;Str&#39;);<br>has &#39;StartDate&#39;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; =&gt; (is =&gt; &#39;rw&#39;, isa =&gt; &#39;Str&#39;);<br>has &#39;EndDate&#39;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; =&gt; (is =&gt; &#39;rw&#39;, isa =&gt; &#39;Str&#39;);<br>
+has &#39;hotelCode&#39;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; =&gt; (is =&gt; &#39;rw&#39;, isa =&gt; &#39;Str&#39;);<br>has &#39;Base&#39;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; =&gt; (is =&gt; &#39;rw&#39;, isa =&gt; &#39;Str&#39;);<br>has &#39;Total&#39;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; =&gt; (is =&gt; &#39;rw&#39;, isa =&gt; &#39;Str&#39;);<br>
+has &#39;currencyCode&#39;&#xA0; =&gt; (is =&gt; &#39;rw&#39;, isa =&gt; &#39;Str&#39;);<br>has &#39;ADULT&#39;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; =&gt; (is =&gt; &#39;rw&#39;, isa =&gt; &#39;Str&#39;);<br>has &#39;CHILD&#39;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; =&gt; (is =&gt; &#39;rw&#39;, isa =&gt; &#39;Str&#39;);<br>
+...<br><br>All I had to do was add a FOREACH in TT and use the &quot;sorted_stays&quot; method above:<br>...<br>&#xA0;&#xA0;&#xA0; [% FOREACH row IN sg.sorted_stays %]<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; &lt;tr _onMouseover_=&quot;this.bgColor=&#39;#FFFFFF&#39;&quot;_onMouseout_=&quot;this.bgColor=&#39;#F7EDD3&#39;&quot;&gt;<br>
+&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; &lt;td&gt;OM&lt;/td&gt;<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; &lt;td&gt;[% row.UniqueID %]&lt;/td&gt;<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; &lt;td&gt;[% row.hotelCode %]&lt;/td&gt;<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; &lt;td&gt;[% row.StartDate %]&lt;/td&gt;<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; &lt;td&gt;[% row.EndDate %]&lt;/td&gt;<br>
+&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; &lt;td&gt;[% row.ADULT %]&lt;/td&gt;<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; &lt;td&gt;[% row.CHILD %]&lt;/td&gt;<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; &lt;td&gt;[% row.Base %]&lt;/td&gt;<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; &lt;td&gt;[% row.Total %]&lt;/td&gt;<br>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; &lt;td&gt;[% row.currencyCode %]&lt;/td&gt;<br>
+&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; &lt;/tr&gt;<br>&#xA0;&#xA0;&#xA0; [% END %]<br>...<br><br>Easy!<br><br>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02662.html">[Omaha.pm] DBIx::Class (SQL::Abstract)</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02664.html">[Omaha.pm] Perl 5.14.0 released</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02662.html">[Omaha.pm] DBIx::Class (SQL::Abstract)</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02664.html">[Omaha.pm] Perl 5.14.0 released</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02663"><strong>Date</strong></a></li>
+<li><a href="threads.html#02663"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

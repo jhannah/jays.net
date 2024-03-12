@@ -1,0 +1,132 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] A less greedy regular expression... -->
+<!--X-From-R13: "Rnavry Zvaqre" &#60;qnaNyvaqre.bet> -->
+<!--X-Date: Wed, 22 Sep 2004 00:09:08 &#45;0500 -->
+<!--X-Message-Id: 20146.68.227.169.15.1095830005.squirrel@68.227.169.15 -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] A less greedy regular expression...</title>
+<link rev="made" href="mailto:dan@linder.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00163.html">Date Prev</a>][<a href="msg00165.html">Date Next</a>][<a href="msg00161.html">Thread Prev</a>][<a href="msg00165.html">Thread Next</a>][<a href="maillist.html#00164">Date Index</a>][<a href="threads.html#00164">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] A less greedy regular expression...</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a></li>
+<li><em>Subject</em>: [Omaha.pm] A less greedy regular expression...</li>
+<li><em>From</em>: &quot;Daniel Linder&quot; &lt;<a href="mailto:dan%40linder.org">dan@linder.org</a>&gt;</li>
+<li><em>Date</em>: Wed, 22 Sep 2004 00:13:25 -0500 (CDT)</li>
+<li><em>Importance</em>: Normal</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=help">mailto:omaha-pm-request@mail.pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.mail.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@mail.pm.org">mailto:omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=subscribe">mailto:omaha-pm-request@mail.pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe">mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: <a href="mailto:dan%40linder.org">dan@linder.org</a>, &quot;Perl Mongers of Omaha,	Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>User-agent</em>: SquirrelMail/1.5.0</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Ok, another regexp question.
+
+I have a variable with content that looks like this:
+
+$a = &quot;AAAbbbCCCAAAdddCCCAAAdddCCCAAAdddCCC&quot;;
+
+Basically the &quot;AAA&quot; and &quot;CCC&quot; strings are begin and end markers for the
+text I am interested in (specifically the &quot;bbb&quot; or &quot;ddd&quot; strings).
+
+When I use this command to strip off the &quot;markers&quot;
+$a =~ s/AAA(.*)CCC/$1/;
+
+The $a variable ends up containing &quot;bbbCCCAAAdddCCCAAAdddCCCAAAddd&quot; (i.e.
+the first &quot;AAA&quot; and the last &quot;CCC&quot; were removed).  What I had hoped for
+was to have the first &quot;bbb&quot; returned.
+
+I think the cause of this is that the =~ command is 'greedy' and will
+match the longest string it can find.  Since the number and pattern of the
+remaining markers are random, is there a flag I can pass via the regexp to
+have it match on the first/smallest match?
+
+A work around I am looking at involves the &quot;split&quot; command like this:
+($foo, $a, $bar) = split (&quot;AAA|CCC&quot;, $a);
+
+Other ideas?
+
+Dan
+
+- - - - -
+&quot;I do not fear computer,
+I fear the lack of them.&quot;
+ -- Isaac Asimov
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.2.1 (GNU/Linux)
+
+iD8DBQFBUQn1NiBNyqUzGb8RAvEUAJ9HwXHn1tEBitaWeo7jRXXAslwjLgCfTePa
+b5mUm2LIEEDW+3ElqmLF1nc=
+=lBRP
+-----END PGP SIGNATURE-----
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00165" href="msg00165.html">Re: [Omaha.pm] A less greedy regular expression...</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00163.html">Re: [Omaha.pm] Debugging running Perl code on Windows.</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00165.html">Re: [Omaha.pm] A less greedy regular expression...</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00161.html">[Omaha.pm] The Perl Review</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00165.html">Re: [Omaha.pm] A less greedy regular expression...</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00164"><strong>Date</strong></a></li>
+<li><a href="threads.html#00164"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

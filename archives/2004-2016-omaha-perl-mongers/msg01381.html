@@ -1,0 +1,181 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] database &#45;> XML -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 20 Apr 2007 20:26:43 &#45;0000 -->
+<!--X-Message-Id: E59FF64509EEEA4C96BE4723AE96685396E687@exchange2k3.omnihotels.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] database -&gt; XML</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01380.html">Date Prev</a>][<a href="msg01382.html">Date Next</a>][<a href="msg01386.html">Thread Prev</a>][<a href="msg01385.html">Thread Next</a>][<a href="maillist.html#01381">Date Index</a>][<a href="threads.html#01381">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] database -&gt; XML</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] database -&gt; XML</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Fri, 20 Apr 2007 15:26:35 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AceDijEkgsdrfn/BSn2ePJlB14k8gA==</li>
+<li><em>Thread-topic</em>: database -&gt; XML</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Wow. It's amazing to me how tight this code is. I'm getting the job done
+with almost zero overhead!
+
+Thanks Perl and CPAN!!  (and especially XML::Twig and Class::Date in
+this snippet)
+
+j
+
+
+(Yes, I know a couple globals float magically into the sub. Yes I know
+that's bad.)
+
+
+
+------------------------------------------------------
+=head2 add_lostbiz
+
+Add the lostbiz section to the XML document.
+
+=cut
+
+sub add_lostbiz {
+   my ($root) = @_;
+   my $lostbiz = XML::Twig::Elt-&gt;new('lostbiz');
+   $lostbiz-&gt;paste(last_child =&gt; $root) or die;
+
+   # res_transact.room_cat is actually storing adult_qty. See our data
+dictionary.
+   my $strsql = &lt;&lt;EOT;
+SELECT
+   last_mod_when, wrap_up_reason, tran_source, arrival_date,
+depart_date, room_cat_code,
+   rate_cat, room_cat adult_qty, rate_tohigh_amt
+FROM res_transact
+WHERE prop = '$prop'
+and transaction_type != &quot;R&quot;
+and wrap_up_reason &gt;= 199
+and wrap_up_reason &lt; 599
+EOT
+   my $sth = $dbh-&gt;prepare($strsql);
+   $sth-&gt;execute;
+   my @row;
+   while (@row = $sth-&gt;fetchrow) {
+      for (@row) { s/\s+$// }
+      my ($time, $type, $src, $doa, $depart_date, $rt, $seg, $gcnt,
+$exprrev) = @row;
+      $time =~ s/[- :]//g;
+      $doa         = Control::DateTime-&gt;new($doa);
+      $depart_date = Control::DateTime-&gt;new($depart_date);
+      my $los = ($depart_date - $doa)-&gt;day;
+      $rt = $xref-&gt;roomcat_xref(
+         prop        =&gt; $prop,
+         crs_roomcat =&gt; $rt,
+      );
+      $seg = $xref-&gt;ratecat_xref(
+         crs_ratecat =&gt; $seg,
+      );
+      my $elt = XML::Twig::Elt-&gt;new( loss =&gt; {
+         time    =&gt; $time,
+         type    =&gt; $xref-&gt;wrap_up_reason($type),
+         src     =&gt; $src,
+         doa     =&gt; $doa-&gt;format(&quot;%Y%m%d&quot;),
+         los     =&gt; $los,
+         rt      =&gt; $rt,
+         seg     =&gt; $seg,
+         cas     =&gt; &quot;N&quot;,
+         gcnt    =&gt; $gcnt,
+         exprrev =&gt; sprintf(&quot;%0.2f&quot;, $exprrev * $los),
+      });
+      $elt-&gt;paste(last_child =&gt; $lostbiz) or die;
+   }
+   $sth-&gt;finish;
+}
+------------------------------------------------------
+&lt;revolutiondata asof=&quot;20070420151810&quot; hotel=&quot;TUSNTL&quot; seq=&quot;1&quot; ver=&quot;1.50&quot;&gt;
+  &lt;lostbiz&gt;
+    &lt;loss cas=&quot;N&quot; doa=&quot;20070520&quot; exprrev=&quot;158.00&quot; gcnt=&quot;2&quot; los=&quot;2&quot;
+rt=&quot;DELUXE&quot; seg=&quot;11&quot; src=&quot;OMNIREZ-PH&quot; time=&quot;20070420092525&quot; type=&quot;RR&quot;/&gt;
+    &lt;loss cas=&quot;N&quot; doa=&quot;20070523&quot; exprrev=&quot;338.00&quot; gcnt=&quot;2&quot; los=&quot;2&quot;
+rt=&quot;DELUXE&quot; seg=&quot;07&quot; src=&quot;TUSNTL-PH&quot; time=&quot;20070420111725&quot; type=&quot;RR&quot;/&gt;
+    &lt;loss cas=&quot;N&quot; doa=&quot;20070607&quot; exprrev=&quot;345.00&quot; gcnt=&quot;1&quot; los=&quot;3&quot;
+rt=&quot;DELUXE&quot; seg=&quot;09&quot; src=&quot;OMNIREZ-PH&quot; time=&quot;20070420132059&quot; type=&quot;RR&quot;/&gt;
+    &lt;loss cas=&quot;N&quot; doa=&quot;20070503&quot; exprrev=&quot;480.00&quot; gcnt=&quot;2&quot; los=&quot;3&quot;
+rt=&quot;DELUXE&quot; seg=&quot;09&quot; src=&quot;OMNIREZ-PH&quot; time=&quot;20070420132407&quot; type=&quot;RR&quot;/&gt;
+    &lt;loss cas=&quot;N&quot; doa=&quot;20070503&quot; exprrev=&quot;480.00&quot; gcnt=&quot;2&quot; los=&quot;3&quot;
+rt=&quot;DELUXE&quot; seg=&quot;09&quot; src=&quot;OMNIREZ-PH&quot; time=&quot;20070420133025&quot; type=&quot;RR&quot;/&gt;
+  &lt;/lostbiz&gt;
+&lt;/revolutiondata&gt;
+------------------------------------------------------
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01385" href="msg01385.html">Re: [Omaha.pm] database -&gt; XML</a></strong>
+<ul><li><em>From:</em> George Neill &lt;georgen@neillnet.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01380.html">Re: [Omaha.pm] # TEMP PATCH FIX LATER</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01382.html">Re: [Omaha.pm] Database -&gt; XML</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01386.html">Re: [Omaha.pm] Database -&gt; XML</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01385.html">Re: [Omaha.pm] database -&gt; XML</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01381"><strong>Date</strong></a></li>
+<li><a href="threads.html#01381"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

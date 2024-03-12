@@ -1,0 +1,137 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Pulling data back out of a hash of arrays. -->
+<!--X-From-R13: Rnir Funpxre &#60;qgunpxre9Npbk.arg> -->
+<!--X-Date: 28 Sep 2005 05:37:32 &#45;0000 -->
+<!--X-Message-Id: 200509280039.31034.dthacker9@cox.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Pulling data back out of a hash of arrays.</title>
+<link rev="made" href="mailto:dthacker9@cox.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00573.html">Date Prev</a>][<a href="msg00575.html">Date Next</a>][<a href="msg00586.html">Thread Prev</a>][<a href="msg00576.html">Thread Next</a>][<a href="maillist.html#00574">Date Index</a>][<a href="threads.html#00574">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Pulling data back out of a hash of arrays.</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Subject</em>: [Omaha.pm] Pulling data back out of a hash of arrays.</li>
+<li><em>From</em>: Dave Thacker &lt;<a href="mailto:dthacker9%40cox.net">dthacker9@cox.net</a>&gt;</li>
+<li><em>Date</em>: Wed, 28 Sep 2005 00:39:31 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: KMail/1.6.2</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>What I want to do:
+Create a hash of arrays such that the key is the game id, and the rest of the 
+game data (currently just home and away teams) is the array.  My print 
+statements tell me this seems to be working.   Next I'd like to iterate 
+through the list of hash keys, and obtain the array contents for each key. 
+This is not working.  I'm getting a pointer to the array.  How do I get to 
+the actual data?
+
+Code snippet:
+
+    while ( @fixture_rec = $sth-&gt;fetchrow_array ) {
+        my $game_id = $fixture_rec[0];
+        print &quot;0=$fixture_rec[0] 1=$fixture_rec[1] 2=$fixture_rec[2]\n&quot;;
+        my @teams = @fixture_rec[1..2];
+        print &quot;home=$teams[0] away=$teams[1]\n&quot;;
+        #stuff the hash
+        $fixture{$game_id} = [ @teams ];
+    }
+
+    return;
+}
+
+sub get_teamsheets {
+    while (($game_id, @teams) = each %fixture) {
+       print &quot;Game=$game_id Home=$teams[0]\n&quot;;
+    }
+
+    return;
+}
+
+results:
+0=2827 1=mba 2=mbb
+home=mba away=mbb
+0=2828 1=mbc 2=mbd
+home=mbc away=mbd
+0=2829 1=mbe 2=mbf
+home=mbe away=mbf
+0=2830 1=mbg 2=mbh
+home=mbg away=mbh
+0=2831 1=mbi 2=mbj
+home=mbi away=mbj
+Game=2828 Home=ARRAY(0x8338ad4)
+Game=2830 Home=ARRAY(0x8338b34)
+Game=2829 Home=ARRAY(0x8338b04)
+Game=2831 Home=ARRAY(0x8338b64)
+Game=2827 Home=ARRAY(0x8338a8c)
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00576" href="msg00576.html">Re: [Omaha.pm] Pulling data back out of a hash of arrays.</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00573.html">Re: [Omaha.pm] Help with parsing HTML</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00575.html">Re: [Omaha.pm] Help with parsing HTML</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00586.html">Re: [Omaha.pm] Help with parsing HTML</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00576.html">Re: [Omaha.pm] Pulling data back out of a hash of arrays.</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00574"><strong>Date</strong></a></li>
+<li><a href="threads.html#00574"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

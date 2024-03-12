@@ -1,0 +1,142 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] printf("%02d", "2007") -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 25 Apr 2007 02:11:48 &#45;0000 -->
+<!--X-Message-Id: 5ed0d20f85cef38bfe1d4a81a38f7496@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: E59FF64509EEEA4C96BE4723AE96685396E957@exchange2k3.omnihotels.net -->
+<!--X-Reference: 0CF4ED49&#45;2E0C&#45;4BDA&#45;8243&#45;23F97C0F5EB1@petdance.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] printf(&quot;%02d&quot;, &quot;2007&quot;)</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01396.html">Date Prev</a>][<a href="msg01398.html">Date Next</a>][<a href="msg01394.html">Thread Prev</a>][<a href="msg01391.html">Thread Next</a>][<a href="maillist.html#01397">Date Index</a>][<a href="threads.html#01397">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] printf(&quot;%02d&quot;, &quot;2007&quot;)</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] printf(&quot;%02d&quot;, &quot;2007&quot;)</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Tue, 24 Apr 2007 21:11:22 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01394.html">0CF4ED49-2E0C-4BDA-8243-23F97C0F5EB1@petdance.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01390.html">E59FF64509EEEA4C96BE4723AE96685396E957@exchange2k3.omnihotels.net</a>&gt;	&lt;<a href="msg01394.html">0CF4ED49-2E0C-4BDA-8243-23F97C0F5EB1@petdance.com</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+On Apr 24, 2007, at 7:04 PM, Andy Lester wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+On Apr 24, 2007, at 3:42 PM, Jay Hannah wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+unless ($a[0] =~ /^\w\w\w \d\d \d\d\d\d/) {
+   die &quot;Unrecognized date format from MS-SQL: '$a[0]'&quot;;
+}
+@b=split ' ',$a[0];
+</pre></blockquote><pre style="margin: 0em;">
+
+Funny that they match a pattern, and then do the split.  Better to do:
+
+unless ( @b = ($a[0] =~ /^(\w{3}) (\d{2}) (\d{4})/ ) {
+	die...
+}
+
+Then @b is populated.
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>Indeed sir. Here's one of the changes I committed today. Since the date 
+</tt><tt>format changed I cleaned up the other code (IMHO) while I was in there.
+</tt><pre style="margin: 0em;">
+
+
+Before:
+
+unless ($a[0] =~ /^\w\w\w \d\d \d\d\d\d/) {
+   die &quot;Unrecognized date format from MS-SQL: '$a[0]'&quot;;
+}
+@b=split ' ',$a[0];
+$key_val = sprintf(&quot;%02d%02d%02d|%s&quot;,$mon{$b[0]},$b[1],$b[2],$a[1]);
+$key_val =~ s/\s+$//;
+$ret_hsh{$key_val} = $a[2];
+
+
+After:
+
+unless ($a[0] =~ /^(\d\d\d\d)-(\d\d)-(\d\d) \d\d:\d\d:\d\d/) {
+   die &quot;Unrecognized date format from $prop MS-SQL: '$a[0]'&quot;;
+}
+my ($y, $m, $d) = ($1, $2, $3);
+$ret_hsh{&quot;$m$d$y|$a[1]&quot;} = $a[2];
+
+
+j
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01390" href="msg01390.html">[Omaha.pm] printf(&quot;%02d&quot;, &quot;2007&quot;)</a></strong>
+<ul><li><em>From:</em> &quot;Jay Hannah&quot; &lt;jhannah@omnihotels.com&gt;</li></ul></li>
+<li><strong><a name="01394" href="msg01394.html">Re: [Omaha.pm] printf(&quot;%02d&quot;, &quot;2007&quot;)</a></strong>
+<ul><li><em>From:</em> Andy Lester &lt;andy@petdance.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01396.html">Re: [Omaha.pm] evolution</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01398.html">[Omaha.pm] Watching sendmail log in real time</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01394.html">Re: [Omaha.pm] printf(&quot;%02d&quot;, &quot;2007&quot;)</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01391.html">[Omaha.pm] evolution</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01397"><strong>Date</strong></a></li>
+<li><a href="threads.html#01397"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

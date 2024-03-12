@@ -1,0 +1,148 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] A less greedy regular expression... -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: Wed, 22 Sep 2004 01:31:24 &#45;0500 -->
+<!--X-Message-Id: 194E37C2&#45;0C61&#45;11D9&#45;B2E0&#45;000A95E317B8@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 20146.68.227.169.15.1095830005.squirrel@68.227.169.15 -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] A less greedy regular expression...</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00164.html">Date Prev</a>][<a href="msg00166.html">Date Next</a>][<a href="msg00164.html">Thread Prev</a>][<a href="msg00166.html">Thread Next</a>][<a href="maillist.html#00165">Date Index</a>][<a href="threads.html#00165">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] A less greedy regular expression...</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] A less greedy regular expression...</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Wed, 22 Sep 2004 01:31:56 -0500</li>
+<li><em>In-reply-to</em>: &lt;20146.68.227.169.15.1095830005.squirrel@68.227.169.15&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=help">mailto:omaha-pm-request@mail.pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.mail.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@mail.pm.org">mailto:omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=subscribe">mailto:omaha-pm-request@mail.pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe">mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;20146.68.227.169.15.1095830005.squirrel@68.227.169.15&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+
+On Sep 22, 2004, at 12:13 AM, Daniel Linder wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+I have a variable with content that looks like this:
+
+$a = &quot;AAAbbbCCCAAAdddCCCAAAdddCCCAAAdddCCC&quot;;
+
+Basically the &quot;AAA&quot; and &quot;CCC&quot; strings are begin and end markers for the
+text I am interested in (specifically the &quot;bbb&quot; or &quot;ddd&quot; strings).
+
+When I use this command to strip off the &quot;markers&quot;
+$a =~ s/AAA(.*)CCC/$1/;
+
+</pre><tt>The $a variable ends up containing &quot;bbbCCCAAAdddCCCAAAdddCCCAAAddd&quot; 
+</tt><tt>(i.e.
+</tt><pre style="margin: 0em;">
+the first &quot;AAA&quot; and the last &quot;CCC&quot; were removed).  What I had hoped for
+was to have the first &quot;bbb&quot; returned.
+
+I think the cause of this is that the =~ command is 'greedy' and will
+</pre><tt>match the longest string it can find.  Since the number and pattern of 
+</tt><tt>the
+</tt><tt>remaining markers are random, is there a flag I can pass via the 
+</tt><tt>regexp to
+</tt><pre style="margin: 0em;">
+have it match on the first/smallest match?
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>Negative. '=~' isn't greedy. '*' is. If you want to do &quot;minimal 
+</tt><tt>matching&quot; you need to use '*?'. Like so:
+</tt><pre style="margin: 0em;">
+
+$a =~ s/AAA(.*?)CCC/$1/;
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+A work around I am looking at involves the &quot;split&quot; command like this:
+($foo, $a, $bar) = split (&quot;AAA|CCC&quot;, $a);
+
+Other ideas?
+</pre></blockquote><pre style="margin: 0em;">
+
+1) I've heard Text::Balanced is neat. I've never used it.
+
+</pre><tt>2) Use matching operator (m//g) instead of substitute (s//$1/) to get 
+</tt><tt>all your strings in one fell swoop:
+</tt><pre style="margin: 0em;">
+
+$a = &quot;AAAbbbCCCAAAdddCCCAAAdddCCCAAAdddCCC&quot;;
+@strings = ($a =~ /AAA(.*?)CCC/g);
+print join &quot;|&quot;, @strings;
+
+3) Go home because it's 01:30 and you're tired of telco crap.
+
+Grin,
+
+j
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00164" href="msg00164.html">[Omaha.pm] A less greedy regular expression...</a></strong>
+<ul><li><em>From:</em> &quot;Daniel Linder&quot; &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00164.html">[Omaha.pm] A less greedy regular expression...</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00166.html">[Omaha.pm] Re: [olug] perl cpan problem</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00164.html">[Omaha.pm] A less greedy regular expression...</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00166.html">[Omaha.pm] Re: [olug] perl cpan problem</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00165"><strong>Date</strong></a></li>
+<li><a href="threads.html#00165"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

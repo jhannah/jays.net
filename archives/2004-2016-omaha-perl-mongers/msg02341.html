@@ -1,0 +1,131 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] regex gurus -->
+<!--X-From-R13: Xnl Ejnpxunzre &#60;XnlNDrobbgFurGfre.pbz> -->
+<!--X-Date: 19 Feb 2010 16:09:08 &#45;0000 -->
+<!--X-Message-Id: 20100219101725.xysyr6iivkso4ggw@webmail.hotr.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 64F09983&#45;6B40&#45;4FCF&#45;A943&#45;6098E424E7B8@jays.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] regex gurus</title>
+<link rev="made" href="mailto:Jay@RebootTheUser.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02340.html">Date Prev</a>][<a href="msg02342.html">Date Next</a>][<a href="msg02340.html">Thread Prev</a>][<a href="msg02342.html">Thread Next</a>][<a href="maillist.html#02341">Date Index</a>][<a href="threads.html#02341">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] regex gurus</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Subject</em>: [Omaha.pm] regex gurus</li>
+<li><em>From</em>: Jay Swackhamer &lt;<a href="mailto:Jay%40RebootTheUser.com">Jay@RebootTheUser.com</a>&gt;</li>
+<li><em>Date</em>: Fri, 19 Feb 2010 10:17:25 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg02336.html">64F09983-6B40-4FCF-A943-6098E424E7B8@jays.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg02336.html">64F09983-6B40-4FCF-A943-6098E424E7B8@jays.net</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: Internet Messaging Program (IMP) H3 (4.1)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+
+Looking at examples, not getting it done.
+
+</pre><tt>Any regex gurus out there that can give me a tip on taking a string  
+</tt><tt>and splitting into groups based on what is between '( )'
+</tt><pre style="margin: 0em;">
+
+</pre><tt>So I can take condstring, split it into an array by whats grouped in  
+</tt><tt>(), then take each element and split out the rest of the () groups.
+</tt><pre style="margin: 0em;">
+i.e.
+
+</pre><tt>  my $condstring=&quot;include_1 (f7 ne \'ce\' and f10 ne \'r\' and f1 ne  
+</tt><tt>\'ce\' and f8 ne \'lg\' and f8 ne \'li\' and f8 ne \'lj\' and f8 ne  
+</tt><tt>\'lr\' and f8 ne \'lu\' and f8 ne \'lv\' and f8 ne \'tl\' and f8 ne  
+</tt><tt>\'ta\' and(f4 eq \'e\' or f4 eq \'g\' or f4 eq \'w\')) &quot;;
+</tt><pre style="margin: 0em;">
+
+  @condarr = split /(\).*\))/, $condstring;
+
+
+--
+Jay Swackhamer
+Reboot The User
+402-933-6449
+<a  rel="nofollow" href="http://www.reboottheuser.com">http://www.reboottheuser.com</a>
+<a  rel="nofollow" href="http://www.cafepress.com/rtu">http://www.cafepress.com/rtu</a>
+<a  rel="nofollow" href="http://stores.ebay.com/RebootTheUser">http://stores.ebay.com/RebootTheUser</a>
+<a  rel="nofollow" href="http://www.hotr.com">http://www.hotr.com</a>
+
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="02342" href="msg02342.html">Re: [Omaha.pm] regex gurus</a></strong>
+<ul><li><em>From:</em> Dave Burchell &lt;evaddnomaid@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="02336" href="msg02336.html">[Omaha.pm] Perl myths 200909</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02340.html">Re: [Omaha.pm] More data code pointers.</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02342.html">Re: [Omaha.pm] regex gurus</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02340.html">Re: [Omaha.pm] More data code pointers.</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02342.html">Re: [Omaha.pm] regex gurus</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02341"><strong>Date</strong></a></li>
+<li><a href="threads.html#02341"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

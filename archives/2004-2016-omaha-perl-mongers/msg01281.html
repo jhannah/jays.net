@@ -1,0 +1,204 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Testing DNS servers -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 16 Jan 2007 16:37:07 &#45;0000 -->
+<!--X-Message-Id: Pine.LNX.4.64.0701161106190.9032@ferret.jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Testing DNS servers</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01280.html">Date Prev</a>][<a href="msg01282.html">Date Next</a>][<a href="msg01277.html">Thread Prev</a>][<a href="msg01278.html">Thread Next</a>][<a href="maillist.html#01281">Date Index</a>][<a href="threads.html#01281">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Testing DNS servers</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Subject</em>: Re: [Omaha.pm] Testing DNS servers</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Tue, 16 Jan 2007 11:07:44 -0600 (CST)</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+
+revision 1.2
+date: 2007/01/16 16:28:42;  author: jhannah;  state: Exp;  lines: +65 -17
+I discovered a problem with my testing robot. The answers coming from the
+servers were not necessarily authoritative. This was a fatal design flaw
+because when the target server recurses to find the correct answer the
+test robot must detect that behavior and report it as a failure.
+
+I switched from parsing dig output to Net::DNS where I can explicitly
+check the aa (authoritative answer) bit to make sure that the answer I'm
+receiving isn't from cache.
+
+</pre><tt>Also, in this version if you're expecting multiple responses (e.g.: 3 MX 
+</tt><tt>servers)
+</tt><pre style="margin: 0em;">
+you can pass an array reference in and the test will check all values.
+(There may be a sorting bug here that I haven't fixed.)
+
+
+
+
+
+use strict;
+use Test::More;
+
+eval { require Sys::HostIP };
+plan skip_all =&gt; &quot;Sys::HostIP required&quot; if $@;
+eval { require Net::DNS::Resolver };
+plan skip_all =&gt; &quot;Net::DNS::Resolver required&quot; if $@;
+
+my $ip_address = Sys::HostIP-&gt;ip;
+if ($ip_address =~ /^10\./) {
+   plan skip_all =&gt; &quot;You can only run these tests from the Internet. Your IP: [$ip_address]&quot;;
+} else {
+   plan tests =&gt; 102;
+}
+
+my @servers = (
+   '63.174.225.42',   # omares-netservices's Internet IP
+   '63.251.92.193',   # dns3.corporatedomains.com
+);
+
+my @expect = qw(
+   omnihotels.com                    A   63.241.199.252
+   www.omnihotels.com                A   63.241.199.252
+   # You can also pass array references like this:
+   #'676restaurant.com',         'NS',    [ 'ns.panomedia.net', 'ns1.panomedia.net' ],
+);
+
+run_tests(\@servers, \@expect);
+
+
+exit;
+
+
+
+# -------------
+
+sub run_tests {
+   my ($servers, $expect) = @_;
+
+   # Set up our resolver objects...
+   my %resolvers;
+   foreach my $server (@$servers) {
+      my $res = Net::DNS::Resolver-&gt;new(
+         nameservers =&gt; [ $server ],
+         recurse     =&gt; 0,
+         #debug       =&gt; 1
+      );
+      $resolvers{$server} = $res;
+   }
+
+
+
+   for (my $j = 0; $j &lt; @$expect; $j += 3) {
+      foreach my $server (@$servers) {
+         my ($q, $type, $a) = @$expect[$j .. $j + 2];
+
+         my $res = $resolvers{$server};
+         my $packet = $res-&gt;search($q, $type);   # Net::DNS::Packet object
+         my @response;
+         if ($packet) {
+            ### Hmm... This NS theory is unproven, so I'm commenting it out.
+            ###if ($type eq &quot;NS&quot;) {
+            ###   # These don't have to be authoritative. When we delgate NS for a server
+            ###   # apparently named does not set the aa (authoritative answer) flag.
+            ###} else {
+               if ($packet-&gt;header-&gt;aa) {
+                  # Good. It's authoritative.
+               } else {
+                  # Ack! Non-authoritative answer??
+                  push @response, &quot;ERROR! Server returned non-authoritative answer!&quot;;
+               }
+            ###}
+
+            foreach my $rr ($packet-&gt;answer) {
+               next unless $rr-&gt;type eq $type;
+               #print $rr-&gt;address, &quot;\n&quot;;
+               if ($type eq &quot;A&quot;) {
+                  push @response, $rr-&gt;address;
+               } elsif ($type eq &quot;NS&quot;) {
+                  push @response, $rr-&gt;nsdname;
+               } elsif ($type eq &quot;MX&quot;) {
+                  push @response, $rr-&gt;exchange;
+               } elsif ($type eq &quot;TXT&quot;) {
+                  push @response, $rr-&gt;txtdata;
+               }
+            }
+         }
+         if (ref $a eq &quot;ARRAY&quot;) {
+            # The test requested we check multiple values...
+            is_deeply([@response], $a,      &quot;\@$server $q $type -&gt; $a&quot;);
+         } else {
+            is_deeply([@response], [$a],    &quot;\@$server $q $type -&gt; $a&quot;);
+         }
+      }
+   }
+}
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01280.html">Re: [Omaha.pm] use Storable;   vs. Log::Log4perl</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01282.html">Re: [Omaha.pm] Huh?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01277.html">[Omaha.pm] Testing DNS servers</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01278.html">[Omaha.pm] use Storable;</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01281"><strong>Date</strong></a></li>
+<li><a href="threads.html#01281"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

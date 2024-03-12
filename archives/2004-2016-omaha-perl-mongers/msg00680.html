@@ -1,0 +1,156 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Echo server on 7 IPs in &#60; 40 lines of code -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 23 Nov 2005 20:13:46 &#45;0000 -->
+<!--X-Message-Id: e1535e38cc9a030c54136c5475463481@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Echo server on 7 IPs in &lt; 40 lines of code</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00679.html">Date Prev</a>][<a href="msg00681.html">Date Next</a>][<a href="msg00674.html">Thread Prev</a>][<a href="msg00684.html">Thread Next</a>][<a href="maillist.html#00680">Date Index</a>][<a href="threads.html#00680">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Echo server on 7 IPs in &lt; 40 lines of code</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Omaha Perl Mongers &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Echo server on 7 IPs in &lt; 40 lines of code</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Wed, 23 Nov 2005 14:13:20 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<tt>Project: You're trying to test some load balancing architecture. You 
+</tt><tt>need a program that will listen to port 443 on 7 different IPs 
+</tt><tt>simultaneously. It should accept multiple simultaneous TCP connections. 
+</tt><tt>For each connection it should echo the fist line of input back to the 
+</tt><tt>client and then disconnect (like the world's stupidest web server).
+</tt><pre style="margin: 0em;">
+
+Note: IO::Multiplex rules.
+
+Solution:
+-----------
+use IO::Socket;
+use IO::Multiplex;
+
+my $mux  = new IO::Multiplex;
+
+for (153..159) {
+   # Create a listening socket
+   my $sock = new IO::Socket::INET(
+      Proto     =&gt; 'tcp',
+      LocalPort =&gt; 443,
+      LocalAddr =&gt; &quot;10.0.37.$_&quot;,
+      Listen    =&gt; 4
+   ) or die &quot;socket: $@&quot;;
+
+   # We use the listen method instead of the add method.
+   $mux-&gt;listen($sock);
+}
+
+$mux-&gt;set_callback_object(__PACKAGE__);
+$mux-&gt;loop;
+
+sub mux_input {
+   my $package = shift;
+   my $mux     = shift;
+   my $fh      = shift;
+   my $input   = shift;
+
+   $fh-&gt;send(&quot;$$input\n&quot;);
+   $$input = undef;
+   $mux-&gt;shutdown($fh, 1);
+   $mux-&gt;shutdown($fh, 0);
+   $mux-&gt;shutdown($fh, 2);
+   $mux-&gt;kill_output($fh);
+   $mux-&gt;close($fh);
+}
+-----------
+
+Run it (as root) and poof!:
+
+# lsof -n -i:443
+COMMAND   PID USER   FD   TYPE DEVICE SIZE NODE NAME
+</pre><tt>perl    11508 root    3u  IPv4  29046       TCP 10.0.37.153:https 
+</tt><tt>(LISTEN)
+</tt><tt>perl    11508 root    4u  IPv4  29047       TCP 10.0.37.154:https 
+</tt><tt>(LISTEN)
+</tt><tt>perl    11508 root    5u  IPv4  29048       TCP 10.0.37.155:https 
+</tt><tt>(LISTEN)
+</tt><tt>perl    11508 root    6u  IPv4  29049       TCP 10.0.37.156:https 
+</tt><tt>(LISTEN)
+</tt><tt>perl    11508 root    7u  IPv4  29050       TCP 10.0.37.157:https 
+</tt><tt>(LISTEN)
+</tt><tt>perl    11508 root    8u  IPv4  29051       TCP 10.0.37.158:https 
+</tt><tt>(LISTEN)
+</tt><tt>perl    11508 root    9u  IPv4  29052       TCP 10.0.37.159:https 
+</tt><tt>(LISTEN)
+</tt><pre style="margin: 0em;">
+
+Mwoo haha ahah aha,
+
+j
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00679.html">Re: [Omaha.pm] Lightning Talks from UNO on Perl! :)</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00681.html">Re: [Omaha.pm] Lightning Talks from UNO on Perl! :)</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00674.html">Re: [Omaha.pm] Extracting overlayed text from an image</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00684.html">[Omaha.pm] blogging w/ blosxom</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00680"><strong>Date</strong></a></li>
+<li><a href="threads.html#00680"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

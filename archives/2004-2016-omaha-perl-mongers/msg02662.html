@@ -1,0 +1,140 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] DBIx::Class (SQL::Abstract) -->
+<!--X-From-R13: Xnl Vnaanu &#60;wunaanuNzhgngvbatevq.pbz> -->
+<!--X-Date: 13 May 2011 01:00:16 &#45;0000 -->
+<!--X-Message-Id: 77D48FCD&#45;D464&#45;4CDA&#45;837D&#45;0316A6D3F77E@mutationgrid.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] DBIx::Class (SQL::Abstract)</title>
+<link rev="made" href="mailto:jhannah@mutationgrid.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02661.html">Date Prev</a>][<a href="msg02663.html">Date Next</a>][<a href="msg02661.html">Thread Prev</a>][<a href="msg02663.html">Thread Next</a>][<a href="maillist.html#02662">Date Index</a>][<a href="threads.html#02662">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] DBIx::Class (SQL::Abstract)</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Nebraska USA Perl Mongers of Omaha &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] DBIx::Class (SQL::Abstract)</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jhannah%40mutationgrid.com">jhannah@mutationgrid.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 12 May 2011 20:00:06 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha1; c=relaxed; d=pobox.com; h=from	:content-type:content-transfer-encoding:subject:date:message-id	:to:mime-version; s=sasl; bh=SaYH0nGZWbSple12D+rpc2sC+6A=; b=gk/	reIgtLnUStuaMkF3pJxZjmhtnNXT9IwGk+bhpbLCJDajNfKe9G91UnRsmL/W8xuP	Yvk3wUOnEz4CG12k8lUfMD43rOV07I0E6EgCgc7uyKLY9bsoBUpaDFADVpRPdP3v	GkHH0deinYOrBJ49VuLSVjW8NgXpySGFcCsSGFZ0=</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Is it scary that I'm getting used to this stuff now?
+
+Jay Hannah
+Software Architect
+jhannah@mutationgrid.com | <a  rel="nofollow" href="http://mutationgrid.com">http://mutationgrid.com</a> | 1-402-598-7782
+
+
+
+Catalyst action snippet:
+      while (++$i) {
+         my $skill = $c-&gt;req-&gt;param(&quot;skill_id_$i&quot;);
+         my $score = $c-&gt;req-&gt;param(&quot;score_id_$i&quot;);
+         last unless ($skill);
+         last if ($skill =~ /^-- /);
+         push @where_skills, {
+            skill_id =&gt; $skill,
+            score =&gt; { '&gt;=', $score },
+         };
+      }
+      my $where = {
+         active =&gt; 1,
+         -or =&gt; [ @where_skills ],
+      };
+      $c-&gt;log-&gt;debug(Dumper($where));
+      $search = $c-&gt;model('DB::Rating')-&gt;search($where);
+
+
+The Dumper output:
+          '-or' =&gt; [
+                     {
+                       'skill_id' =&gt; '71',
+                       'score' =&gt; {
+                                    '&gt;=' =&gt; '0'
+                                  }
+                     },
+                     {
+                       'skill_id' =&gt; '70',
+                       'score' =&gt; {
+                                    '&gt;=' =&gt; '0'
+                                  }
+                     },
+                     {
+                       'skill_id' =&gt; '74',
+                       'score' =&gt; {
+                                    '&gt;=' =&gt; '0'
+                                  }
+                     }
+                   ],
+          'active' =&gt; 1
+
+
+The SQL search() runs:
+   SELECT me.id, me.person_id, me.skill_id, me.rater_id, me.score, me.active, me.date_created, me.date_updated FROM rating me WHERE ( ( ( ( score &gt;= ? AND skill_id = ? ) OR ( score &gt;= ? AND skill_id = ? ) OR ( score &gt;= ? AND skill_id = ? ) ) AND active = ? ) ): '0', '71', '0', '70', '0', '74', '1'
+
+
+tee-hee!  :)
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02661.html">[Omaha.pm] AUTO: Burch Kealey is out of the office (returning Mon	05/16/2011)</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02663.html">[Omaha.pm] Moose::Meta::Attribute::Native::Trait::Array (mouthful) object sorting by attributes</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02661.html">[Omaha.pm] AUTO: Burch Kealey is out of the office (returning Mon	05/16/2011)</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02663.html">[Omaha.pm] Moose::Meta::Attribute::Native::Trait::Array (mouthful) object sorting by attributes</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02662"><strong>Date</strong></a></li>
+<li><a href="threads.html#02662"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

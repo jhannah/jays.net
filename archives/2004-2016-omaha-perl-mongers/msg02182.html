@@ -1,0 +1,179 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Embeddable database options. -->
+<!--X-From-R13: Rna Zvaqre &#60;qnaNyvaqre.bet> -->
+<!--X-Date: 26 Aug 2009 14:31:03 &#45;0000 -->
+<!--X-Message-Id: 3e2be50908260730q142e809bjacf6863e062e9744@mail.gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 3e2be50908240717g4b5d6a07s2d8adbf3e71daf5b@mail.gmail.com -->
+<!--X-Reference: a4439dea0908241411m17b75744j1a7da148254a22e@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Embeddable database options.</title>
+<link rev="made" href="mailto:dan@linder.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02181.html">Date Prev</a>][<a href="msg02183.html">Date Next</a>][<a href="msg02181.html">Thread Prev</a>][<a href="msg02183.html">Thread Next</a>][<a href="maillist.html#02182">Date Index</a>][<a href="threads.html#02182">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Embeddable database options.</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Embeddable database options.</li>
+<li><em>From</em>: Dan Linder &lt;<a href="mailto:dan%40linder.org">dan@linder.org</a>&gt;</li>
+<li><em>Date</em>: Wed, 26 Aug 2009 09:30:32 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg02181.html">a4439dea0908241411m17b75744j1a7da148254a22e@mail.gmail.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg02180.html">3e2be50908240717g4b5d6a07s2d8adbf3e71daf5b@mail.gmail.com</a>&gt; 	&lt;<a href="msg02181.html">a4439dea0908241411m17b75744j1a7da148254a22e@mail.gmail.com</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Mario,
+
+Thanks for the feedback.
+
+2009/8/24 Mario Steele &lt;mario@ruby-im.net&gt;:
+&gt; SQLite is a great Database system, for File Based data storage.
+&gt; Unfortunately, it stores in binary, so you can't exactly use grep, vi, etc,
+&gt; etc, to read the contents of the database file.&#xA0; But unlike it's big
+&gt; brother, you can only have one transactional lock (EG Database Open) at a
+&gt; time on a database file.&#xA0; This is to prevent corruption of the data.&#xA0; (And
+&gt; yes, this locks even if your just doing a read query.)
+
+Thankfully, the database is very light on the write/update side.  Does
+the read lock lock out other readers at the same time?
+
+&gt; DBD overall, is a great front end for you to use, for database storage, as
+&gt; it gives you a common api across many different DB Backends.&#xA0; If you want
+&gt; consistency, and the ability to test different database storage engines,
+&gt; then I would strongly recommend you use DBD.
+
+As much as there is some pressure to stay &quot;Pure Perl&quot; and not rely on
+non-core modules, I think this is the only route toward expanding this
+tool.  (Plus the added flexibility of adding other DB options by
+including the appropriate perl module.)
+
+&gt;&gt; Internally I have some constraints:
+&gt;&gt; &#xA0;* We'd like to keep the number of non-core Perl modules down
+&gt;&gt; (currently we're 90% core), and a couple customers are extremely
+&gt;&gt; sensitive to anything that is not supplied by their OS provider
+&gt;&gt; (Solaris and HPUX for example).
+&gt;
+&gt; This is true in many facets, but you'll find standard that MySQL and SQLite
+&gt; are often the biggest thing that is distributed on most Operating Systems
+&gt; (Aside from Windows, but we won't go there).
+
+Thankfully the server portion is 100% Unix. :-)
+
+&gt;&gt; * We would also like to keep the files on disk and in a
+&gt;&gt; human-readable form so the end users and support staff can peruse this
+&gt;&gt; data with simple tools (grep, vi, etc).
+&gt;
+&gt; Again, as stated above, SQLite, and MySQL won't let you use grep, vi, etc,
+&gt; to view the data, but simple tools can be created to create the same effect,
+&gt; and highly optimize it to specific tasks, instead of looking through
+&gt; hundreds of lines of data, to find a specific field.
+
+I'm thinking that as a work-around to this, I can keep both versions
+available.  Since these data files are only updated in a couple key
+locations (and the update is mostly through non-interactive means),
+this should be easily achievable.  Once the data is saved in both
+forms and the flat and db files are consistent, updating the reporting
+pieces should be easier since I won't (shouldn't) break anything
+during the transition.  An added bonus is that customers who rely on
+the textual data will not have to immediately re-code for the new DB
+chosen.
+
+As I'm writing it, I'm leaning toward using the DBD interface and
+accessing SQLite initially.  If/when the time comes that
+MySQL/Postgres/Oracle/AnotherDB is requested, the changes should be
+minimal.  The downfall of being an external module is greatly
+out-weighed by the flexibility it provides us.
+
+I'm hoping to carve out some free time over the next couple weeks to
+put some test code together to see what speed differentials are
+achieved by replacing dump/eval with SQLite, MySQL, etc.
+
+Thanks,
+
+Dan
+
+
+-- 
+******************* ***************** ************* ***********
+******* ***** *** **
+&quot;Quis custodiet ipsos custodes?&quot; (Who can watch the watchmen?) -- from
+the Satires of Juvenal
+&quot;I do not fear computers, I fear the lack of them.&quot; -- Isaac Asimov (Author)
+** *** ***** ******* *********** ************* *****************
+*******************
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="02183" href="msg02183.html">Re: [Omaha.pm] Embeddable database options.</a></strong>
+<ul><li><em>From:</em> Mario Steele &lt;mario@ruby-im.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="02180" href="msg02180.html">[Omaha.pm] Embeddable database options.</a></strong>
+<ul><li><em>From:</em> Dan Linder &lt;dan@linder.org&gt;</li></ul></li>
+<li><strong><a name="02181" href="msg02181.html">Re: [Omaha.pm] Embeddable database options.</a></strong>
+<ul><li><em>From:</em> Mario Steele &lt;mario@ruby-im.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02181.html">Re: [Omaha.pm] Embeddable database options.</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02183.html">Re: [Omaha.pm] Embeddable database options.</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02181.html">Re: [Omaha.pm] Embeddable database options.</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02183.html">Re: [Omaha.pm] Embeddable database options.</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02182"><strong>Date</strong></a></li>
+<li><a href="threads.html#02182"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

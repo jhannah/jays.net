@@ -1,0 +1,126 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Less is more -->
+<!--X-From-R13: "Vrsyvat, Quevf" &#60;Quevf.VrsyvatNazuf.bet> -->
+<!--X-Date: 22 Dec 2005 19:27:30 &#45;0000 -->
+<!--X-Message-Id: 804D74BA90FBB5418AA7C966CD7D731703210267@w2k3ex01.nmhs.org -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Less is more</title>
+<link rev="made" href="mailto:Chris.Hefling@nmhs.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00738.html">Date Prev</a>][<a href="msg00740.html">Date Next</a>][<a href="msg00738.html">Thread Prev</a>][<a href="msg00740.html">Thread Next</a>][<a href="maillist.html#00739">Date Index</a>][<a href="threads.html#00739">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Less is more</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Less is more</li>
+<li><em>From</em>: &quot;Hefling, Chris&quot; &lt;<a href="mailto:Chris.Hefling%40nmhs.org">Chris.Hefling@nmhs.org</a>&gt;</li>
+<li><em>Date</em>: Thu, 22 Dec 2005 13:27:20 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcYHJKzO19aEbxM6QLCwNxd8OmOCMwACQCjg</li>
+<li><em>Thread-topic</em>: [Omaha.pm] Less is more</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+This should work...
+
+#! /bin/perl
+use Time::gmtime;
+use File::stat;
+
+$file=&quot;test.txt&quot;;
+# HERE IS THE ONE LINE
+@modtime=split(&quot; &quot;,localtime(stat($file)-&gt;mtime)); # print @modtime[3];
+
+Chris
+
+-----Original Message-----
+From: omaha-pm-bounces@pm.org [<a  rel="nofollow" href="mailto:omaha-pm-bounces@pm.org">mailto:omaha-pm-bounces@pm.org</a>] On Behalf
+Of Jay Hannah
+Sent: Thursday, December 22, 2005 12:22 PM
+To: Perl Mongers of Omaha, Nebraska USA
+Subject: Re: [Omaha.pm] Less is more
+
+Ryan Stille wrote:
+&gt; I am was trying to get this done in one line, just for the heck of it.
+&gt; I need the modification time of a file referenced by $file ($file
+&gt; contains the path and filename of the file).
+
+I don't know how to get that strftime thing working...
+
+my ($y, $m, $d) = (localtime((stat($file))[9]))[5,4,3];
+$y += 1900;
+
+?
+ 
+j
+_______________________________________________
+Omaha-pm mailing list
+Omaha-pm@pm.org
+<a  rel="nofollow" href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>
+
+
+This message and any included attachments are from Nebraska Methodist Health System and its affiliates and are intended only for the addressee. The message may contain privileged, confidential and/or proprietary information intended only for the person(s) named.  Unauthorized forwarding, printing, copying, distribution, or use of such information is strictly prohibited and may be unlawful. If you are not the addressee, please promptly delete this message and notify the sender of the delivery error by e-mail or you may call Nebraska Methodist Health System and its affiliates in Omaha, Nebraska, U.S.A at (402)354-2280.
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00738.html">Re: [Omaha.pm] Less is more</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00740.html">Re: [Omaha.pm] Less is more</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00738.html">Re: [Omaha.pm] Less is more</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00740.html">Re: [Omaha.pm] Less is more</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00739"><strong>Date</strong></a></li>
+<li><a href="threads.html#00739"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

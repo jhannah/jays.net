@@ -1,0 +1,105 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] [olug] need some quick help with sed -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 18 Dec 2009 15:40:07 &#45;0000 -->
+<!--X-Message-Id: 562A60C8&#45;C504&#45;4AE2&#45;88D6&#45;195F425C0E8F@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 200912181509.JAA11748@stork.inebraska.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] [olug] need some quick help with sed</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02282.html">Date Prev</a>][<a href="msg02284.html">Date Next</a>][<a href="msg02286.html">Thread Prev</a>][<a href="msg02285.html">Thread Next</a>][<a href="maillist.html#02283">Date Index</a>][<a href="threads.html#02283">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] [olug] need some quick help with sed</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Omaha Linux User Group &lt;<a href="mailto:olug%40olug.org">olug@olug.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] [olug] need some quick help with sed</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Fri, 18 Dec 2009 09:39:57 -0600</li>
+<li><em>Cc</em>: Nebraska USA Perl Mongers of Omaha &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;200912181509.JAA11748@stork.inebraska.com&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;200912181509.JAA11748@stork.inebraska.com&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>On Dec 18, 2009, at 9:09 AM, Obi-Wan wrote:
+&gt; This will remove all the XML tags from a line:
+&gt; 
+&gt; postID=`cat ./data.xml | sed -e 's/&lt;[^&gt;]*&gt;//g'`
+
+I doubt we wants to shove the whole file (minus XML tags) into postID.
+
+But, in case he does, here's an equivalent Perl command (strip all tags):
+
+   perl -pe 's/&lt;.*?&gt;//g' data.xml
+
+(This solution is probably naive. CDATA tags, multi-line tags, etc.?)
+
+j
+Omaha Perl Mongers: <a  rel="nofollow" href="http://omaha.pm.org">http://omaha.pm.org</a>
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02282.html">Re: [Omaha.pm] [olug] need some quick help with sed</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02284.html">Re: [Omaha.pm] [olug] Command Line App Helper</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02286.html">Re: [Omaha.pm] [olug] Command Line App Helper</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02285.html">[Omaha.pm] Catalyst Workshop - The Purging</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02283"><strong>Date</strong></a></li>
+<li><a href="threads.html#02283"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

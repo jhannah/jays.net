@@ -1,0 +1,254 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Fwd:  Perl and recursion... -->
+<!--X-From-R13: "Dvpuneq @begba" &#60;enabegbaNpbk.arg> -->
+<!--X-Date: 16 Nov 2005 06:12:04 &#45;0000 -->
+<!--X-Message-Id: op.s0bkt4ii68c0rp@t2 -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 2379.68.13.86.85.1132076062.squirrel@mail.linder.org -->
+<!--X-Reference: b037451c0511151131q2679fb4x14946ab01dad22ff@mail.gmail.com -->
+<!--X-Reference: 2384.68.13.86.85.1132083886.squirrel@mail.linder.org -->
+<!--X-Reference: b037451c0511151254q56fbddd1g758cebf6e5083058@mail.gmail.com -->
+<!--X-Reference: b037451c0511151420g7cb68ed1k9f304aa4f95b1e07@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Fwd:  Perl and recursion...</title>
+<link rev="made" href="mailto:ranorton@cox.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00657.html">Date Prev</a>][<a href="msg00659.html">Date Next</a>][<a href="msg00657.html">Thread Prev</a>][<a href="msg00659.html">Thread Next</a>][<a href="maillist.html#00658">Date Index</a>][<a href="threads.html#00658">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Fwd:  Perl and recursion...</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Fwd:  Perl and recursion...</li>
+<li><em>From</em>: &quot;Richard Norton&quot; &lt;<a href="mailto:ranorton%40cox.net">ranorton@cox.net</a>&gt;</li>
+<li><em>Date</em>: Wed, 16 Nov 2005 00:11:54 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00657.html">b037451c0511151420g7cb68ed1k9f304aa4f95b1e07@mail.gmail.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00652.html">2379.68.13.86.85.1132076062.squirrel@mail.linder.org</a>&gt;	&lt;<a href="msg00653.html">b037451c0511151131q2679fb4x14946ab01dad22ff@mail.gmail.com</a>&gt;	&lt;<a href="msg00654.html">2384.68.13.86.85.1132083886.squirrel@mail.linder.org</a>&gt;	&lt;b037451c0511151254q56fbddd1g758cebf6e5083058@mail.gmail.com&gt;	&lt;<a href="msg00657.html">b037451c0511151420g7cb68ed1k9f304aa4f95b1e07@mail.gmail.com</a>&gt;</li>
+<li><em>Reply-to</em>: <a href="mailto:ranorton%40cox.net">ranorton@cox.net</a>, &quot;Perl Mongers of Omaha,	Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: Opera M2/8.50 (Win32, build 7700)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<tt>I'd agree with Theodore's comments...without refering back to  
+</tt><tt>documentation, I'm pretty sure you're hitting a scoping issue on your DIR  
+</tt><tt>file handle.
+</tt><pre style="margin: 0em;">
+
+</pre><tt>As an alternative to frontloading all the filenames into an array, have  
+</tt><tt>you looked at the File::Find module?  It confused the heck out of me when  
+</tt><tt>I first looked at it, but once you figure it out, it can do all sorts of  
+</tt><tt>neat stuff with directory trees and their content.
+</tt><pre style="margin: 0em;">
+
+Richard
+
+</pre><tt>On Tue, 15 Nov 2005 16:20:40 -0600, Theodore Katseres &lt;tedkat@gmail.com&gt;  
+</tt><tt>wrote:
+</tt><pre style="margin: 0em;">
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+---------- Forwarded message ----------
+From: Theodore Katseres &lt;tedkat@gmail.com&gt;
+Date: Nov 15, 2005 2:54 PM
+Subject: Re: [Omaha.pm] Perl and recursion...
+To: dan@linder.org
+
+
+Sorry, Your code was right!
+The problem seems to be with while test. It keeps DIR descriptor open
+thru the recursion. I think this is why it dives and then quits.
+
+By loading up your files and directories into memory before recursion
+you no longer depend on the File descriptor to keep its previous
+state.
+
+    opendir( DIR, $dir ) or die $!;
+    my @arr = grep { !/^\.+$/ } readdir(DIR); ## just ignore . and ..
+    close(DIR);
+
+    while .....
+
+On 11/15/05, Daniel Linder &lt;dan@linder.org&gt; wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+-----BEGIN PGP SIGNED MESSAGE----- Hash: SHA1
+ On Tue, November 15, 2005 13:31, Theodore Katseres wrote:
+ &gt; It appears that no recursion is happening passed the initial dive. {
+ &gt; ProcFiles(&quot;/tmp&quot;) }
+
+ I agree -- when I take out the '&amp;ProcFiles(&quot;$dir/$file&quot;);' line, it
+continues through the /tmp directory fine.  With the recursive call to
+</pre><tt>itself, I can watch the script dive into the sub-directory (/tmp/dir1),  
+</tt><tt>and
+</tt><tt>it processes all the files in /tmp/dir1, but when it finishes with the  
+</tt><tt>files
+</tt><tt>in &quot;dir1&quot; the program quits.  Unless I am missing something, I thought  
+</tt><tt>it
+</tt><tt>should go back one level to the initial invocation of ProcFiles and  
+</tt><tt>continue
+</tt><pre style="margin: 0em;">
+where it left off there...
+
+ &gt; Check my comments.
+ &gt;
+ &gt; &lt;Snip &amp;&amp; Replace&gt;
+ &gt; #!/bin/perl -w
+ &gt; use strict;
+ &gt;
+ &gt; sub ProcFiles {
+ &gt; my $dir = shift;
+ &gt;
+ &gt; opendir( DIR, $dir ) or die $!;
+ &gt;
+ &gt; while ( my $file = readdir(DIR) ) {
+ &gt;
+ &gt; next if ( -d &quot;$dir/$file&quot; &amp;&amp; $file =~ /^\./ );
+ &gt;
+ &gt; # above makes sure this block of code never gets executed
+
+</pre><tt> The line you mention (&quot;next if ...&quot;) is used to make sure I skip the  
+</tt><tt>&quot;.&quot;
+</tt><tt>and &quot;..&quot; entries in the subdirectory -- otherwise it would back out of  
+</tt><tt>the
+</tt><tt>&quot;/tmp&quot; to &quot;/&quot; and work there! :(  (It also has the effect of ignoring  
+</tt><tt>files
+</tt><pre style="margin: 0em;">
+with a leading &quot;.&quot; -- that's also by design.)
+
+ &gt; if ( -d &quot;$dir/$file&quot; ) {
+ &gt;
+ &gt; printf( &quot;Diving into\&quot;%s/%s\&quot;.\n&quot;, $dir, $file );
+ &gt;
+ &gt; &amp;ProcFiles(&quot;$dir/$file&quot;);
+ &gt;
+ &gt; next;
+ &gt;
+ &gt; }
+ &gt;
+ &gt; # your printing files that don't begin with &quot;.&quot;
+
+</pre><tt> True -- in my real script, this print line is replaced with a small  
+</tt><tt>bit of
+</tt><tt>code to do some real work! In the example I posted to OLUG I wanted to  
+</tt><tt>keep
+</tt><pre style="margin: 0em;">
+it simple and see if I could make it work...
+
+ &gt; printf( &quot;Adding\&quot;%s/%s\&quot;.\n&quot;, $dir, $file );
+ &gt;
+ &gt; }
+ &gt;
+ &gt; closedir(DIR);
+ &gt;
+ &gt; }
+ &gt;
+ &gt; &amp;ProcFiles(&quot;/tmp&quot;);
+
+ Ted, thanks for your input.
+
+ Dan
+
+ - - - - -
+ &quot;Wait for that wisest of all counselors, time.&quot; -- Pericles
+ &quot;I do not fear computer, I fear the lack of them.&quot; -- Isaac Asimov
+ GPG fingerprint:6FFD DB94 7B96 0FD8 EADF 2EE0 B2B0 CC47 4FDE 9B68
+-----BEGIN PGP SIGNATURE----- Version: GnuPG v1.4.1 (GNU/Linux)
+iD8DBQFDejqusrDMR0/em2gRAtT2AJ9cL6zR+u/XpmGtjXNCCM/Y9WDcvwCfY1Fp
+qXscyNVDA6vb5H8MuKUrEtM= =mFaZ -----END PGP SIGNATURE-----
+</pre></blockquote><pre style="margin: 0em;">
+
+
+--
+Ted Katseres
+      ||=O=||
+
+
+--
+Ted Katseres
+      ||=O=||
+_______________________________________________
+Omaha-pm mailing list
+Omaha-pm@pm.org
+<a  rel="nofollow" href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>
+</pre></blockquote><pre style="margin: 0em;">
+
+
+
+--
+Using M2, Opera's revolutionary e-mail client: <a  rel="nofollow" href="http://www.opera.com/m2/">http://www.opera.com/m2/</a>
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00659" href="msg00659.html">Re: [Omaha.pm] Fwd:  Perl and recursion...</a></strong>
+<ul><li><em>From:</em> &quot;Daniel Linder&quot; &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00652" href="msg00652.html">[Omaha.pm] Perl and recursion...</a></strong>
+<ul><li><em>From:</em> &quot;Daniel Linder&quot; &lt;dan@linder.org&gt;</li></ul></li>
+<li><strong><a name="00653" href="msg00653.html">Re: [Omaha.pm] Perl and recursion...</a></strong>
+<ul><li><em>From:</em> Theodore Katseres &lt;tedkat@gmail.com&gt;</li></ul></li>
+<li><strong><a name="00654" href="msg00654.html">Re: [Omaha.pm] Perl and recursion...</a></strong>
+<ul><li><em>From:</em> &quot;Daniel Linder&quot; &lt;dan@linder.org&gt;</li></ul></li>
+<li><strong><a name="00657" href="msg00657.html">[Omaha.pm] Fwd:  Perl and recursion...</a></strong>
+<ul><li><em>From:</em> Theodore Katseres &lt;tedkat@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00657.html">[Omaha.pm] Fwd:  Perl and recursion...</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00659.html">Re: [Omaha.pm] Fwd:  Perl and recursion...</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00657.html">[Omaha.pm] Fwd:  Perl and recursion...</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00659.html">Re: [Omaha.pm] Fwd:  Perl and recursion...</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00658"><strong>Date</strong></a></li>
+<li><a href="threads.html#00658"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

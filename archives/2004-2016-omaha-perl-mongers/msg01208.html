@@ -1,0 +1,163 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] we need a 1 liner -->
+<!--X-From-R13: Oaql Zrfgre &#60;naqlNcrgqnapr.pbz> -->
+<!--X-Date: 15 Nov 2006 02:47:28 &#45;0000 -->
+<!--X-Message-Id: 0FB32764&#45;D740&#45;4BE7&#45;B7DF&#45;B8E0A7FAA981@petdance.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 455A79B3.4080102@jays.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] we need a 1 liner</title>
+<link rev="made" href="mailto:andy@petdance.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01207.html">Date Prev</a>][<a href="msg01209.html">Date Next</a>][<a href="msg01207.html">Thread Prev</a>][<a href="msg01211.html">Thread Next</a>][<a href="maillist.html#01208">Date Index</a>][<a href="threads.html#01208">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] we need a 1 liner</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] we need a 1 liner</li>
+<li><em>From</em>: Andy Lester &lt;<a href="mailto:andy%40petdance.com">andy@petdance.com</a>&gt;</li>
+<li><em>Date</em>: Tue, 14 Nov 2006 20:47:07 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01207.html">455A79B3.4080102@jays.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01207.html">455A79B3.4080102@jays.net</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+
+On Nov 14, 2006, at 8:21 PM, Jay Hannah wrote:
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+Can anyone tell me what the 1 liner for this is before Andy does?
+</pre></blockquote><pre style="margin: 0em;">
+
+Looks like not. :-)
+
+# Here's the original
+
+    my @old = @{$self-&gt;{pools}};
+    my @new;
+    foreach (@old) {
+        if (@$_ &gt; 0) {
+            push @new, $_;
+        }
+    }
+    $self-&gt;{pools} = \@new;
+
+# We can easily substitute @old out, and turn the push() into postfix
+
+    my @new;
+    foreach ( @{$self-&gt;{pools}} ) {
+        push @new, $_ if (@$_ &gt; 0);
+    }
+    $self-&gt;{pools} = \@new;
+
+# What we're really doing is a grep.  We're saying &quot;for everything that
+# matches a given criteria, stick it in @new&quot;.  So write it like so
+
+    my @new = grep { @$_ &gt; 0 } @{$self-&gt;{pools}};
+    $self-&gt;{pools} = \@new;
+
+# Now we can remove the @new entirely with an anonymous array
+# constructor.
+
+    $self-&gt;{pools} = [ grep { @$_ &gt; 0 } @{$self-&gt;{pools}} ];
+
+# I think it's clearer this way.  What you're saying is:
+
+    $self-&gt;{pools} = [
+#   assign an anonymous array that contains
+
+                       grep
+#                      everything that matches
+
+                             { @$_ &gt; 0 }
+#                            the condition that the dereferenced
+#                            &quot;it&quot; is not empty
+
+                                         @{$self-&gt;{pools}} ];
+#                                        using this list.
+
+
+</pre><tt>Another way to have done the same thing, since you're reading from  
+</tt><tt>and assigning to the same list, would have been to iterate over the  
+</tt><tt>array and delete all the elements such that @{element} == 0, but I  
+</tt><tt>think this one is cleaner to read.
+</tt><pre style="margin: 0em;">
+
+xoxo,
+Andy
+
+--
+Andy Lester =&gt; andy@petdance.com =&gt; www.petdance.com =&gt; AIM:petdance
+
+
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01207" href="msg01207.html">[Omaha.pm] we need a 1 liner</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01207.html">[Omaha.pm] we need a 1 liner</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01209.html">Re: [Omaha.pm] Pizza pie! yee-ha</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01207.html">[Omaha.pm] we need a 1 liner</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01211.html">Re: [Omaha.pm] we need a 1 liner</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01208"><strong>Date</strong></a></li>
+<li><a href="threads.html#01208"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

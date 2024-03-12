@@ -1,0 +1,225 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] uppercasing some things in complex nested structures -->
+<!--X-From-R13: Fenivf [pOeguhe &#60;genivfNgenivfofq.bet> -->
+<!--X-Date: 30 Jan 2009 19:43:33 &#45;0000 -->
+<!--X-Message-Id: 498357CA.60702@travisbsd.org -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 396CEDAA86B38646ACE2FEAA22C3FBF1EDBBFF@l3exchange.omnihotels.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] uppercasing some things in complex nested structures</title>
+<link rev="made" href="mailto:travis@travisbsd.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01999.html">Date Prev</a>][<a href="msg02001.html">Date Next</a>][<a href="msg01999.html">Thread Prev</a>][<a href="msg02001.html">Thread Next</a>][<a href="maillist.html#02000">Date Index</a>][<a href="threads.html#02000">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] uppercasing some things in complex nested structures</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] uppercasing some things in complex nested structures</li>
+<li><em>From</em>: Travis McArthur &lt;<a href="mailto:travis%40travisbsd.org">travis@travisbsd.org</a>&gt;</li>
+<li><em>Date</em>: Fri, 30 Jan 2009 13:40:58 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01999.html">396CEDAA86B38646ACE2FEAA22C3FBF1EDBBFF@l3exchange.omnihotels.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01999.html">396CEDAA86B38646ACE2FEAA22C3FBF1EDBBFF@l3exchange.omnihotels.net</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: Thunderbird 2.0.0.19 (Macintosh/20081209)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>You might consider making it recursive and just check input to find if
+it's scalar/array/hash and then have scalar be your terminiation
+condition, otherwise hand it off to another call...that would permit you
+to do arbitrary levels of structures and be more general purpose (well,
+arbitrary as long as you don't overflow your stack!)
+
+ie:
+
+sub uppercase_everything {
+   my ($self, $qualifiers) = @_;
+   if (ref($qualifiers) eq &quot;HASH&quot;)
+   {
+       # Call uppercase_everything on each hash element
+   }
+   elsif (ref($qualifiers) eq &quot;ARRAY&quot;)
+   {
+       # Call uppercase_everything on each array element
+   }
+   else
+   {
+       # Just uppercase like you were doing
+   } 
+}
+
+Best Regards,
+Travis
+
+
+
+Jay Hannah wrote:
+&gt; This isn't recursive or general use or anything, but it's what I came
+&gt; up with to uppercase specific things in 16 different use cases in some
+&gt; software I'm working on today...  I thought it was pretty clean given
+&gt; the task at hand. Feedback welcome.  :)
+&gt;  
+&gt; j
+&gt;  
+&gt;  
+&gt;  
+&gt;  
+&gt;
+&gt; =head2 uppercase_everything
+&gt;  
+&gt; RT7835 - Uppercase everything sent to OCIS
+&gt;  
+&gt;   $self-&gt;uppercase_everything($qualifiers);
+&gt;  
+&gt; =cut
+&gt;  
+&gt; sub uppercase_everything {
+&gt;    my ($self, $qualifiers) = @_;
+&gt;    foreach my $key (keys %$qualifiers) {
+&gt;       # these two have to remain lower case or OWS pukes
+&gt;       next if ($key =~ /^(primary|preferred)$/);
+&gt;       if (ref($qualifiers-&gt;{$key}) eq &quot;ARRAY&quot;) {
+&gt;          # Ack. Sometimes an arrayref is handed in.
+&gt;          for (@{$qualifiers-&gt;{$key}}) {
+&gt;             if (ref $_ eq &quot;HASH&quot;) {
+&gt;                # Ack. Hashref inside the arrayref (e.g. UserDefinedValues)
+&gt;                my $href = $_;
+&gt;                foreach my $key (keys %$href) {
+&gt;                   $href-&gt;{$key} = uc $href-&gt;{$key};
+&gt;                }
+&gt;             } else {
+&gt;                # Simple scalars in our arrayref (e.g. AddressLine)
+&gt;                next unless (defined $_);
+&gt;                tr/a-z/A-Z/;
+&gt;             }
+&gt;          }
+&gt;       } elsif (ref($qualifiers-&gt;{$key}) eq &quot;HASH&quot;) {
+&gt;          # Are we supposed to uppercase any hashrefs?
+&gt;       } else {
+&gt;          # Simple scalar
+&gt;          $qualifiers-&gt;{$key} = uc $qualifiers-&gt;{$key};
+&gt;       }
+&gt;    }
+&gt;    #warn Dumper($qualifiers);
+&gt;    return 1;
+&gt; }
+&gt;
+&gt;  
+&gt; $ cat Common.t
+&gt; use Test::More tests =&gt; 8;
+&gt; # Have to instantiate any of the children to test Common...
+&gt; use Omni2::Model::MF::OWS::Name;
+&gt; my $c = Omni2::Model::MF::OWS::Name-&gt;new();
+&gt;
+&gt; # Test uppercase_everything().
+&gt; # 'lower' values should stay lowercase. 'upper's should turn to 'UPPER'
+&gt; my $in = {
+&gt;    primary   =&gt; 'lower',
+&gt;    test1     =&gt; 'upper',
+&gt;    preferred =&gt; 'lower',
+&gt;    test2     =&gt; [ 'upper', 'upper'],
+&gt;    test3     =&gt; [ { test4 =&gt; 'upper', test5 =&gt; 'upper' } ]
+&gt; };
+&gt; ok($c-&gt;uppercase_everything($in),       'uppercase_everything()');
+&gt; is($in-&gt;{primary},             'lower', 'primary');
+&gt; is($in-&gt;{test1},               'UPPER', 'test1');
+&gt; is($in-&gt;{preferred},           'lower', 'preferred');
+&gt; is($in-&gt;{test2}-&gt;[0],          'UPPER', 'test2');
+&gt; is($in-&gt;{test2}-&gt;[1],          'UPPER', 'test2');
+&gt; is($in-&gt;{test3}-&gt;[0]-&gt;{test4}, 'UPPER', 'test4');
+&gt; is($in-&gt;{test3}-&gt;[0]-&gt;{test5}, 'UPPER', 'test5');
+&gt;  
+&gt;  
+&gt; $ perl Common.t
+&gt; 1..8
+&gt; ok 1 - uppercase_everything()
+&gt; ok 2 - primary
+&gt; ok 3 - test1
+&gt; ok 4 - preferred
+&gt; ok 5 - test2
+&gt; ok 6 - test2
+&gt; ok 7 - test4
+&gt; ok 8 - test5
+&gt;  
+&gt;  
+&gt; ------------------------------------------------------------------------
+&gt;
+&gt; _______________________________________________
+&gt; Omaha-pm mailing list
+&gt; Omaha-pm@pm.org
+&gt; <a  rel="nofollow" href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="02001" href="msg02001.html">Re: [Omaha.pm] uppercasing some things in complex nested structures</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+<li><strong><a name="02002" href="msg02002.html">Re: [Omaha.pm] uppercasing some things in complex nested structures</a></strong>
+<ul><li><em>From:</em> Dan Linder &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01999" href="msg01999.html">[Omaha.pm] uppercasing some things in complex nested structures</a></strong>
+<ul><li><em>From:</em> &quot;Jay Hannah&quot; &lt;jhannah@omnihotels.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01999.html">[Omaha.pm] uppercasing some things in complex nested structures</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02001.html">Re: [Omaha.pm] uppercasing some things in complex nested structures</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01999.html">[Omaha.pm] uppercasing some things in complex nested structures</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02001.html">Re: [Omaha.pm] uppercasing some things in complex nested structures</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02000"><strong>Date</strong></a></li>
+<li><a href="threads.html#02000"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

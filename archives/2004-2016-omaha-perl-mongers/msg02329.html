@@ -1,0 +1,132 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] map {} instead of $i -->
+<!--X-From-R13: Oaql Zrfgre &#60;naqlNcrgqnapr.pbz> -->
+<!--X-Date: 11 Feb 2010 20:03:47 &#45;0000 -->
+<!--X-Message-Id: 129B6ECA&#45;B5EA&#45;41E0&#45;84B4&#45;0F317E4C9BA2@petdance.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 14D82DAD&#45;06B0&#45;47AC&#45;A9B1&#45;D24E1630D5D2@jays.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] map {} instead of $i</title>
+<link rev="made" href="mailto:andy@petdance.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02328.html">Date Prev</a>][<a href="msg02330.html">Date Next</a>][<a href="msg02328.html">Thread Prev</a>][<a href="msg02330.html">Thread Next</a>][<a href="maillist.html#02329">Date Index</a>][<a href="threads.html#02329">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] map {} instead of $i</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] map {} instead of $i</li>
+<li><em>From</em>: Andy Lester &lt;<a href="mailto:andy%40petdance.com">andy@petdance.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 11 Feb 2010 14:02:59 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg02328.html">14D82DAD-06B0-47AC-A9B1-D24E1630D5D2@jays.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg02328.html">14D82DAD-06B0-47AC-A9B1-D24E1630D5D2@jays.net</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+
+On Feb 11, 2010, at 1:56 PM, Jay Hannah wrote:
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+foreach (my $i=0; $i &lt; scalar(@a); $i++) {
+  $a[$i] = -1 unless (defined $a[$i]);
+}
+
+
+AFTER:
+
+@a = map { defined $_ ? $_ : -1 } @a;
+</pre></blockquote><pre style="margin: 0em;">
+
+
+</pre><tt>Yes, that's what map is for.  But you're using indexing you don't  
+</tt><tt>need.  In for() loops, $_ is an alias to the real element.
+</tt><pre style="margin: 0em;">
+
+for ( @a ) {
+    $_ = -1 unless defined($_);
+}
+
+</pre><tt>That way you're doing it in place, instead of creating a new array and  
+</tt><tt>then replacing the original.
+</tt><pre style="margin: 0em;">
+
+<a  rel="nofollow" href="http://perl101.org/flow-control.html">http://perl101.org/flow-control.html</a>
+
+xoxo,
+Andy
+
+
+--
+Andy Lester =&gt; andy@petdance.com =&gt; www.theworkinggeek.com =&gt; AIM:petdance
+
+
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="02328" href="msg02328.html">[Omaha.pm] map {} instead of $i</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02328.html">[Omaha.pm] map {} instead of $i</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02330.html">Re: [Omaha.pm] map {} instead of $i</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02328.html">[Omaha.pm] map {} instead of $i</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02330.html">Re: [Omaha.pm] map {} instead of $i</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02329"><strong>Date</strong></a></li>
+<li><a href="threads.html#02329"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

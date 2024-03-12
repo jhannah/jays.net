@@ -1,0 +1,127 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Tweak the Perl regex engine: assign to pos() -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 3 May 2009 21:52:48 &#45;0000 -->
+<!--X-Message-Id: D4C4F1DC&#45;B82C&#45;4FDE&#45;80FA&#45;4FB8CEADA938@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Tweak the Perl regex engine: assign to pos()</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02126.html">Date Prev</a>][<a href="msg02128.html">Date Next</a>][<a href="msg02126.html">Thread Prev</a>][<a href="msg02128.html">Thread Next</a>][<a href="maillist.html#02127">Date Index</a>][<a href="threads.html#02127">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Tweak the Perl regex engine: assign to pos()</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Nebraska USA Perl Mongers of Omaha &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Tweak the Perl regex engine: assign to pos()</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Sun, 3 May 2009 16:52:14 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+<a  rel="nofollow" href="http://headrattle.blogspot.com/search/label/perl">http://headrattle.blogspot.com/search/label/perl</a>
+
+
+OK, Perl is way too cool.
+
+</pre><tt>I was minding my own business, searching for every occurrence of  
+</tt><tt>'CCAGC' in E-coli, when I hit a snag. Several hundred of my known  
+</tt><tt>locations weren't showing up.
+</tt><pre style="margin: 0em;">
+
+</pre><tt>Why? Because the Perl regular expression engine, by default, starts  
+</tt><tt>searching for the next occurrence of something after the end of the  
+</tt><tt>occurrence it just found. This is what most humans want. But you may  
+</tt><tt>notice that in the string 'CCAGCCAGC' the thing I'm searching for  
+</tt><tt>('CCAGC') overlaps itself, so the regex engine doesn't see the second  
+</tt><tt>one.
+</tt><pre style="margin: 0em;">
+
+&quot;Crap,&quot; I thought.
+
+</pre><tt>But this is Perl -- maybe there's a way? 30 seconds in the  
+</tt><tt>documentation (perldoc -f pos) and it said I could assign to pos().  
+</tt><tt>Really? Sweet! Problem solved!
+</tt><pre style="margin: 0em;">
+
+
+#!/usr/bin/perl
+
+use strict;
+
+open (IN, &quot;E_coli.seq&quot;);
+my $seq = &lt;IN&gt;;
+chomp $seq;
+close IN;
+
+my $find_this = 'CCAGC';
+while ($seq =~ /$find_this/g) {
+   my $start = pos($seq) - length( $find_this ) + 1;
+   my $stop  = pos($seq);
+   pos($seq) = $start;
+   print &quot;   Found $find_this at [$start..$stop]\n&quot;;
+}
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02126.html">[Omaha.pm] CPAN dist release graph ... wow!</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02128.html">[Omaha.pm] Installing Catalyst and all dependencies &quot;in 30 seconds&quot;</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02126.html">[Omaha.pm] CPAN dist release graph ... wow!</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02128.html">[Omaha.pm] Installing Catalyst and all dependencies &quot;in 30 seconds&quot;</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02127"><strong>Date</strong></a></li>
+<li><a href="threads.html#02127"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

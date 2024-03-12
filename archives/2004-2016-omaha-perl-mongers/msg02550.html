@@ -1,0 +1,108 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] noCPAN coding -->
+<!--X-From-R13: Xnl Vnaanu &#60;wunaanuNzhgngvbatevq.pbz> -->
+<!--X-Date: 22 Nov 2010 20:33:50 &#45;0000 -->
+<!--X-Message-Id: 4399653A&#45;8521&#45;433F&#45;8625&#45;9C7932C47896@mutationgrid.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] noCPAN coding</title>
+<link rev="made" href="mailto:jhannah@mutationgrid.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02549.html">Date Prev</a>][<a href="msg02551.html">Date Next</a>][<a href="msg02549.html">Thread Prev</a>][<a href="msg02551.html">Thread Next</a>][<a href="maillist.html#02550">Date Index</a>][<a href="threads.html#02550">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] noCPAN coding</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Nebraska USA Perl Mongers of Omaha &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] noCPAN coding</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jhannah%40mutationgrid.com">jhannah@mutationgrid.com</a>&gt;</li>
+<li><em>Date</em>: Mon, 22 Nov 2010 14:33:38 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha1; c=relaxed; d=pobox.com; h=subject:from	:content-type:message-id:date:to:content-transfer-encoding	:mime-version; s=sasl; bh=mHB9BIS+wuPygUeyAMJXDZ/XbcI=; b=E+mzPC	UzRJuI8AleYgMMh1swus35swsTFAxShGgwlOEmNzZ4F+JuOiNkU3N2wTP9AxUjJg	YeEYzuAzG5E9zqL9Vg15tKPjTTiCVB7O06mw9yrfz0d0Bl0uUkeD+qSScv+fGXsO	OmbxCNbYLP/Z1fl2xLswlJ+bTGkDq4rit+yHk=</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>If you can't use CPAN at all (gasp!) how do you detect if $record year/month is more than 7 years ago? I've been using Class::Date and/or DateTime *forever* so this was quite a trip down memory lane today:
+ 
+   my @localtime = localtime(time);
+   my $cutoff_mon = sprintf(&quot;%02d&quot;, $localtime[4] + 1);
+   my $cutoff_year = $localtime[5] + 1900 - 7;  # 7 years ago
+   my $disabled;        
+   if ($record-&gt;{&quot;DateLastSeen&quot;}{&quot;Year&quot;} . $record-&gt;{&quot;DateLastSeen&quot;}{&quot;Month&quot;} lt &quot;$cutoff_year$cutoff_mon&quot;) {
+      $disabled = &quot;DISABLED&quot;;
+   }
+
+:)
+
+Jay Hannah
+Software Architect
+jhannah@mutationgrid.com | <a  rel="nofollow" href="http://mutationgrid.com">http://mutationgrid.com</a> | 1-402-598-7782
+
+
+
+
+
+
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02549.html">Re: [Omaha.pm] Fwd: weird perl bug</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02551.html">Re: [Omaha.pm] noCPAN coding (Jay Hannah)</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02549.html">Re: [Omaha.pm] Fwd: weird perl bug</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02551.html">Re: [Omaha.pm] noCPAN coding (Jay Hannah)</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02550"><strong>Date</strong></a></li>
+<li><a href="threads.html#02550"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

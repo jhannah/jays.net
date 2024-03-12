@@ -1,0 +1,135 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] CSV and core modules. -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 22 Aug 2008 14:58:24 &#45;0000 -->
+<!--X-Message-Id: 48AED310.9050103@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 3e2be50808220746h4e6528bbla69adf9981620d2c@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] CSV and core modules.</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01825.html">Date Prev</a>][<a href="msg01827.html">Date Next</a>][<a href="msg01825.html">Thread Prev</a>][<a href="msg01843.html">Thread Next</a>][<a href="maillist.html#01826">Date Index</a>][<a href="threads.html#01826">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] CSV and core modules.</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] CSV and core modules.</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Fri, 22 Aug 2008 09:54:08 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01824.html">3e2be50808220746h4e6528bbla69adf9981620d2c@mail.gmail.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01824.html">3e2be50808220746h4e6528bbla69adf9981620d2c@mail.gmail.com</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: Thunderbird 2.0.0.16 (Windows/20080708)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+Dan Linder wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+I'm working on a project that will pull in data from CSV files.  The
+old version of the program does all the CSV processing itself (i.e.
+split(/,/, $line).
+</pre></blockquote><pre style="margin: 0em;">
+
+search.cpan.org for &quot;csv&quot; has lots of hits.  :)
+
+I've used Text::CSV in the past.
+
+To quote Text::CSV::Simple
+
+  <a  rel="nofollow" href="http://search.cpan.org/~tmtm/Text-CSV-Simple-1.00/lib/Text/CSV/Simple.pm">http://search.cpan.org/~tmtm/Text-CSV-Simple-1.00/lib/Text/CSV/Simple.pm</a>
+
+</pre><tt>&quot;Parsing CSV files is nasty. It seems so simple, but it usually isn't. 
+</tt><tt>Thankfully Text::CSV_XS takes care of most of that nastiness for us.
+</tt><pre style="margin: 0em;">
+
+
+</pre><tt>Like many modules which have to deal with all manner of nastiness and 
+</tt><tt>edge cases, however, it can be clumsy to work with in the simple case.
+</tt><pre style="margin: 0em;">
+
+
+Thus this module.&quot;
+
+
+So    perl -MCPAN -e 'install Text::CSV::Simple'   ?
+
+HTH,
+
+
+j
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01843" href="msg01843.html">Re: [Omaha.pm] CSV and core modules.</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01824" href="msg01824.html">[Omaha.pm] CSV and core modules.</a></strong>
+<ul><li><em>From:</em> &quot;Dan Linder&quot; &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01825.html">Re: [Omaha.pm] CSV and core modules.</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01827.html">[Omaha.pm] Redhat perl what a tragedy</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01825.html">Re: [Omaha.pm] CSV and core modules.</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01843.html">Re: [Omaha.pm] CSV and core modules.</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01826"><strong>Date</strong></a></li>
+<li><a href="threads.html#01826"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

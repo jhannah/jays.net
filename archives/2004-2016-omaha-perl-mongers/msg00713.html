@@ -1,0 +1,174 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Template Toolkit MACRO -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 14 Dec 2005 04:30:17 &#45;0000 -->
+<!--X-Message-Id: 439F9FC7.6030405@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Template Toolkit MACRO</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00712.html">Date Prev</a>][<a href="msg00714.html">Date Next</a>][<a href="msg00710.html">Thread Prev</a>][<a href="msg00718.html">Thread Next</a>][<a href="maillist.html#00713">Date Index</a>][<a href="threads.html#00713">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Template Toolkit MACRO</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:dave%40dave.org.uk">dave@dave.org.uk</a></li>
+<li><em>Subject</em>: [Omaha.pm] Template Toolkit MACRO</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Tue, 13 Dec 2005 22:29:59 -0600</li>
+<li><em>Cc</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: Mozilla Thunderbird 1.0.7 (Macintosh/20050923)</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+Hey Dave --
+
+I'm hoping you can help me with an apparent MACRO problem in the Perl Mongers bin/build script.
+
+When I run the script, it runs for all source files creating all the destination files, but then this source:
+
+Select a continent:
+[% link_to(&quot;/groups/africa.html&quot;, &quot;Africa&quot;) %],
+[% link_to(&quot;/groups/asia.html&quot;, &quot;Asia&quot;) %],
+[% link_to(&quot;/groups/central_america.html&quot;, &quot;Central America&quot;) %],
+[% link_to(&quot;/groups/europe.html&quot;, &quot;Europe&quot;) %],
+[% link_to(&quot;/groups/non_geographical.html&quot;, &quot;Non-geographical&quot;) %],
+[% link_to(&quot;/groups/north_america.html&quot;, &quot;North America&quot;) %],
+[% link_to(&quot;/groups/oceania.html&quot;, &quot;Oceania&quot;) %],
+[% link_to(&quot;/groups/south_america.html&quot;, &quot;South America&quot;) %].
+
+Turns into this output:
+
+Select a continent:
+, , , , , , , .
+
+So it looks like TT is not finding link_to(). link_to() lives in lib/layout like so:
+
+[% MACRO link_to(url, text) BLOCK %]
+&lt;a href=&quot;[% PROCESS relative %]&quot;&gt;[% text %]&lt;/a&gt;
+[% END %]
+
+and the bin/build script below uses INCLUDE_PATH 'lib', and the source file in question starts with
+
+[% WRAPPER layout title = &quot;Perl Mongers: User groups&quot; %]
+
+So shouldn't link_to() work and kick out URLs? It concerns me that when I rename the link_to() to anything else, TT still doesn't complain...
+
+How do I debug this thing? DEBUG_ALL =&gt; 1 in the Template-&gt;new() call doesn't seem to do anything...
+
+I'm not used to TT macros...
+
+Thanks,
+
+j
+
+
+
+bin/build:
+--------------------------
+#!/usr/bin/perl -w
+
+use strict;
+use File::Copy;
+use File::Find::Rule;
+use File::Path;
+use File::Spec::Functions qw(splitpath);
+use Template;
+
+my $tt = Template-&gt;new({
+ POST_CHOMP =&gt; 1,
+ PRE_CHOMP =&gt; 1,
+ TRIM =&gt; 1,
+ EVAL_PERL =&gt; 1 ,
+ INCLUDE_PATH =&gt; ['.', 'lib', 'src'],
+});
+
+my $source = 'src';
+my $destination = 'www';
+my $parms;
+
+my $rule = File::Find::Rule-&gt;new;
+$rule-&gt;or(
+ $rule-&gt;new-&gt;directory-&gt;name('.svn')-&gt;prune-&gt;discard,
+ $rule-&gt;new
+);
+my @files = $rule-&gt;file()-&gt;name(qr/^.[^~]+$/)-&gt;in($source);
+
+foreach my $file (@files) {
+print STDERR $file, &quot;\n&quot;;
+ my $destfile = $file;
+ $destfile =~ s/^$source/$destination/;
+ my($volume, $directories, $filepart) = splitpath($destfile);
+ mkpath $directories;
+ warn &quot;$file -&gt; $destfile\n&quot;;
+
+ if ($file =~ /\.png$/) {
+   copy($file, $destfile);
+ } else {
+   $tt-&gt;process($file, $parms, $destfile) || die $tt-&gt;error;
+ }
+}
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00712.html">Re: [Omaha.pm] use lib &quot;$ENV{J}/lib&quot;;</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00714.html">[Omaha.pm] DBI odbc question</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00710.html">Re: [Omaha.pm] How do I turn 17.1 into &quot;017.100&quot; ?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00718.html">Re: [Omaha.pm] Template Toolkit MACRO</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00713"><strong>Date</strong></a></li>
+<li><a href="threads.html#00713"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

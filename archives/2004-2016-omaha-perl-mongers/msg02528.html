@@ -1,0 +1,117 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Persistent data store for a prototype -->
+<!--X-From-R13: Xnl Vnaanu &#60;wunaanuNzhgngvbatevq.pbz> -->
+<!--X-Date: 29 Oct 2010 21:52:50 &#45;0000 -->
+<!--X-Message-Id: C3EB1C30&#45;82EA&#45;4179&#45;80A0&#45;0A8801B9D94F@mutationgrid.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: AANLkTinEBFK4Q=ZDa6LDSMZ3oX=abdCbEVHi3&#45;BWZZcD@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Persistent data store for a prototype</title>
+<link rev="made" href="mailto:jhannah@mutationgrid.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02527.html">Date Prev</a>][<a href="msg02529.html">Date Next</a>][<a href="msg02526.html">Thread Prev</a>][<a href="msg02529.html">Thread Next</a>][<a href="maillist.html#02528">Date Index</a>][<a href="threads.html#02528">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Persistent data store for a prototype</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Persistent data store for a prototype</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jhannah%40mutationgrid.com">jhannah@mutationgrid.com</a>&gt;</li>
+<li><em>Date</em>: Fri, 29 Oct 2010 16:52:42 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Dkim-signature</em>: v=1; a=rsa-sha1; c=relaxed; d=pobox.com; h=references	:in-reply-to:mime-version:content-type:message-id	:content-transfer-encoding:from:subject:date:to; s=sasl; bh=daAF	E7LDwM1s7ddVg5ooKxLumQg=; b=IseXQbGAn6U04pykarx3qQvlesdMeUWVm3zl	PvLdW8Gu6aqpEqeODEq242Uo3lVCVq854+Vl6wABcnWYfIVlippA8aGIxsBWdkAw	yu7sGXI8ZpfB0zR+7o1/DpwyHeA+9iszRhKVcH5YntuJYxyQt/76crKA9QHhU71N	tT6rHgY=</li>
+<li><em>In-reply-to</em>: &lt;AANLkTinEBFK4Q=ZDa6LDSMZ3oX=abdCbEVHi3-BWZZcD@mail.gmail.com&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;AANLkTinEBFK4Q=ZDa6LDSMZ3oX=abdCbEVHi3-BWZZcD@mail.gmail.com&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>On Oct 29, 2010, at 2:44 PM, Dave Burchell wrote:
+&gt; I'm working on a prototype web app. I plan to use Amazon S3 and/or SimpleDB in production.  What's a good choice for the prototype?
+
+I've played around with Amazon EC2 Linux nodes, but I haven't used their storage engines. 
+
+For development, Micro EC2 Linux nodes are basically free ($0.02/hour), especially if you shut them down overnight (whenever you're not coding). Or, perhaps you prefer literally free:   <a  rel="nofollow" href="http://aws.amazon.com/free/">http://aws.amazon.com/free/</a>
+
+I'd launch an EC2 instance (Debian Linux), stick Catalyst and Template Toolkit on top of that, and go to town. Searching CPAN for &quot;amazon s3&quot; and &quot;amazon simpledb&quot; seems to show various options. 
+
+Did that help?
+
+Jay Hannah
+Software Architect
+jhannah@mutationgrid.com | <a  rel="nofollow" href="http://mutationgrid.com">http://mutationgrid.com</a> | 1-402-598-7782
+
+
+
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="02529" href="msg02529.html">Re: [Omaha.pm] Persistent data store for a prototype</a></strong>
+<ul><li><em>From:</em> Dave Burchell &lt;evaddnomaid@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="02526" href="msg02526.html">[Omaha.pm] Persistent data store for a prototype</a></strong>
+<ul><li><em>From:</em> Dave Burchell &lt;evaddnomaid@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02527.html">Re: [Omaha.pm] Intermittent Perl error...</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02529.html">Re: [Omaha.pm] Persistent data store for a prototype</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02526.html">[Omaha.pm] Persistent data store for a prototype</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02529.html">Re: [Omaha.pm] Persistent data store for a prototype</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02528"><strong>Date</strong></a></li>
+<li><a href="threads.html#02528"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

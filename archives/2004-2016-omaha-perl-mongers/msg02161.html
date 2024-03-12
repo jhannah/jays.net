@@ -1,0 +1,177 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] perl5 introspection (thanks Moose!) -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 17 Jun 2009 13:40:40 &#45;0000 -->
+<!--X-Message-Id: B3C15FCF&#45;9286&#45;4A78&#45;AF85&#45;9CF35110BA5F@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] perl5 introspection (thanks Moose!)</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02160.html">Date Prev</a>][<a href="msg02162.html">Date Next</a>][<a href="msg02160.html">Thread Prev</a>][<a href="msg02162.html">Thread Next</a>][<a href="maillist.html#02161">Date Index</a>][<a href="threads.html#02161">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] perl5 introspection (thanks Moose!)</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Nebraska USA Perl Mongers of Omaha &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] perl5 introspection (thanks Moose!)</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Wed, 17 Jun 2009 08:40:25 -0500</li>
+<li><em>Cc</em>: <a href="mailto:odynug%40googlegroups.com">odynug@googlegroups.com</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<tt>Many dynamic languages have a way to get a list of all methods for an  
+</tt><tt>object built into them.
+</tt><pre style="margin: 0em;">
+
+I don't think perl5 does. But Moose adds it.  :)
+
+$ cat j.pl
+package X;
+use Moose;
+sub dosomething1 {}
+sub dosomething2 {}
+sub dosomething3 {}
+
+package main;
+my $x = X-&gt;new();
+print join &quot;, &quot;, sort $x-&gt;meta-&gt;get_all_method_names;
+print &quot;\n&quot;;
+
+$ perl j.pl
+</pre><tt>BUILDALL, BUILDARGS, DEMOLISHALL, DESTROY, DOES, does, dosomething1,  
+</tt><tt>dosomething2, dosomething3, dump, meta, new
+</tt><pre style="margin: 0em;">
+
+Neato.   :)
+
+More info on Moose:   <a  rel="nofollow" href="http://moose.perl.org">http://moose.perl.org</a>
+
+j
+
+
+
+=============================
+</pre><tt>Here's me failing to read the backlog from 7 hours ago, and lots of  
+</tt><tt>guts...
+</tt><pre style="margin: 0em;">
+
+irc.perl.org #moose
+00:25 &lt;@Sartak&gt; cpan -i MooseX::AttributeHelpers
+00:25 &lt; tome&gt; gotit, thanks
+</pre><tt>00:28 &lt; tome&gt; Sartak: one thing I noticed with AttributeHelpers is  
+</tt><tt>that I tend to mix private and public methods when using it. I have a  
+</tt><tt>HashRef attribute and maybe the get method would be public as  
+</tt><tt>getConfig but then there are lots of 'private' methods that I use  
+</tt><tt>only in that class, I name them starting with _. Is there some  
+</tt><tt>pattern where these are separated or done differently that people use?
+</tt><pre style="margin: 0em;">
+00:28 &lt;@Sartak&gt; that's the pattern we use
+</pre><tt>00:29 &lt; tome&gt; now to find what methods a class exports you have to  
+</tt><tt>look both at the attributes and the class itself, it can get confusing.
+</tt><tt>00:29 &lt; tome&gt; but I think the functionality is great, makes things  
+</tt><tt>much clearer than accessing the hash itself..
+</tt><pre style="margin: 0em;">
+01:00 &lt;@confound&gt; &quot;methods&quot; aren't &quot;exported&quot;
+01:30 &lt; tome&gt; confound: What do you mean by that
+</pre><tt>04:43 &lt; ilmari&gt; to find the public methods of the class, read its  
+</tt><tt>documentation
+</tt><tt>04:43 &lt; ilmari&gt; you don't care if it's implemented directly or  
+</tt><tt>delegated to an attribute
+</tt><tt>07:31 &lt; jhannah&gt; ilmari: Moose has introspection, doesn't it?  (tell  
+</tt><tt>me all the methods this class has?)
+</tt><pre style="margin: 0em;">
+07:33 &lt;@Sartak&gt; Class-&gt;meta-&gt;get_all_method_names
+07:33 &lt;@Penfold&gt; yes
+07:34 &lt;@Sartak&gt; but that's not his point
+</pre><tt>07:34 &lt;@Sartak&gt; his point is don't use what the author doesn't want  
+</tt><tt>you yo use
+</tt><tt>07:41 &lt; jhannah&gt; _foo() is the Moose convention for &quot;private&quot; subs, I  
+</tt><tt>assume
+</tt><pre style="margin: 0em;">
+07:41 &lt; jhannah&gt; _
+</pre><tt>07:46 &lt; daxim&gt; that's been the perl convention for a long time before  
+</tt><tt>moose
+</tt><tt>07:46 &lt; jhannah&gt; ya, k. just checking that Moose didn't invent a  
+</tt><tt>&quot;cooler&quot; way   :)
+</tt><pre style="margin: 0em;">
+07:47  * jhannah tries to keep up with the Jones'
+07:47 &lt; jhannah&gt; Joneses?
+07:47 &lt; jhannah&gt; Jones' Brothers?
+</pre><tt>08:21 &lt; jhannah&gt; so is Moose's get_all_method_names() implemented in  
+</tt><tt>Class::MOP::Class? that's the only hit for that sub when searching  
+</tt><tt>search.cpan.org
+</tt><pre style="margin: 0em;">
+08:21 &lt;@t0m&gt; yes
+08:22 &lt;@rafl&gt; Moose::Meta::Class isa CMOP::Class
+</pre><tt>08:27 &lt;@perigrin&gt; jhannah: most of what you think of as the metaclass  
+</tt><tt>introspection is probably in CMOP
+</tt><tt>08:27 &lt;@perigrin&gt; Moose really only adds Roles and TypeConstraints  
+</tt><tt>and sugar.
+</tt><pre style="margin: 0em;">
+08:27 &lt;@perigrin&gt; and there is talk of pushing Roles back into CMOP
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02160.html">Re: [Omaha.pm] [odynug] Linus on git rebase</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02162.html">[Omaha.pm] Fwd: &quot;I'm tired of writing Perl, I'm tired of VBA&quot;</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02160.html">Re: [Omaha.pm] [odynug] Linus on git rebase</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02162.html">[Omaha.pm] Fwd: &quot;I'm tired of writing Perl, I'm tired of VBA&quot;</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02161"><strong>Date</strong></a></li>
+<li><a href="threads.html#02161"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

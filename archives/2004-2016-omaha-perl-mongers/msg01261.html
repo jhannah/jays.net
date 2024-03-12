@@ -1,0 +1,122 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Evolution or devolution? -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 28 Dec 2006 21:29:03 &#45;0000 -->
+<!--X-Message-Id: E59FF64509EEEA4C96BE4723AE9668531BA42F@exchange2k3.omnihotels.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Evolution or devolution?</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01260.html">Date Prev</a>][<a href="msg01262.html">Date Next</a>][<a href="msg01260.html">Thread Prev</a>][<a href="msg01262.html">Thread Next</a>][<a href="maillist.html#01261">Date Index</a>][<a href="threads.html#01261">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Evolution or devolution?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Evolution or devolution?</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 28 Dec 2006 15:28:51 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AccqxysW6TMOmKxwR0SdyW1N4z59eg==</li>
+<li><em>Thread-topic</em>: Evolution or devolution?</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Here's three code snippets in 3 different chunks of code that do the
+same thing... Is this progress?  :)
+
+j
+
+
+
+First example I found...
+
+    my ($common_rate,$cnt);
+    foreach my $rate (keys %common_rates) {
+      if ($common_rates{$rate} &gt;= $cnt) {
+        next if ($rate &lt; $common_rate);
+        $common_rate = $rate;
+        $cnt = $common_rates{$rate};
+      }
+    }
+
+
+Second example I found...
+
+   my ($highest_frequency) = reverse sort values %ratecount;
+   @rates = grep { $ratecount{$_} == $highest_frequency } @rates;
+   my @common = reverse sort @rates;
+   return $common[0];
+
+
+Code I just wrote:
+
+   print [ sort { $common_rates{$b} &lt;=&gt; $common_rates{$a} } keys
+%common_rates ]-&gt;[0];
+
+
+
+<a  rel="nofollow" href="http://cancerweb.ncl.ac.uk/cgi-bin/omd?query=devolution&amp;action=Search+OM">http://cancerweb.ncl.ac.uk/cgi-bin/omd?query=devolution&amp;action=Search+OM</a>
+D
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01260.html">[Omaha.pm] Calling a method w/o an object   :)</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01262.html">Re: [Omaha.pm] Evolution or devolution?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01260.html">[Omaha.pm] Calling a method w/o an object   :)</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01262.html">Re: [Omaha.pm] Evolution or devolution?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01261"><strong>Date</strong></a></li>
+<li><a href="threads.html#01261"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

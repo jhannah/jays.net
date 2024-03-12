@@ -1,0 +1,153 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] sort hackery -->
+<!--X-From-R13: "[vyyre, Epbgg Z (Aznun @rgjbexf)" &#60;Epbgg.Z.[vyyreNuc.pbz> -->
+<!--X-Date: 27 Oct 2005 15:21:36 &#45;0000 -->
+<!--X-Message-Id: 1F7C0C8F4BD7C54A8BC55012FEF3DF6D0302E9BC@omaexc11.americas.cpqcorp.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] sort hackery</title>
+<link rev="made" href="mailto:Scott.L.Miller@hp.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00623.html">Date Prev</a>][<a href="msg00625.html">Date Next</a>][<a href="msg00612.html">Thread Prev</a>][<a href="msg00613.html">Thread Next</a>][<a href="maillist.html#00624">Date Index</a>][<a href="threads.html#00624">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] sort hackery</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] sort hackery</li>
+<li><em>From</em>: &quot;Miller, Scott L (Omaha Networks)&quot; &lt;<a href="mailto:Scott.L.Miller%40hp.com">Scott.L.Miller@hp.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 27 Oct 2005 10:21:20 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcXZexsIXx+hT55AQKOIO1EeHCqRgwBiYJGw</li>
+<li><em>Thread-topic</em>: [Omaha.pm] sort hackery</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Two questions for you: 
+    How large is the array you are sorting?
+    Is response time important?
+
+If the answers are &quot;quite large&quot; and &quot;yes&quot;, then there are several
+things you can do to speed up/optimize your sorting routine.
+
+If the answers don't match, then it's likely not worth the maintenance
+problems that come with the optimizations.
+
+For those that might be interested in reading more about sorting
+optimizations in Perl here's a short list of good material:
+  A good introductory Perl sorting tutorial
+   <a  rel="nofollow" href="http://www.perlmonks.com/?node_id=128722">http://www.perlmonks.com/?node_id=128722</a> Resorting to sorting
+
+  A discussion about when it does and doesn't make sense to use
+&quot;optimized&quot;
+    sort routines
+   <a  rel="nofollow" href="http://www.perlmonks.com/?node_id=447633">http://www.perlmonks.com/?node_id=447633</a> Choosing the right sort
+[method]
+
+  A tutorial that attempts to make transformation sorts more accessible
+to
+    those new to the concept.
+   <a  rel="nofollow" href="http://www.perlmonks.com/?node_id=457993">http://www.perlmonks.com/?node_id=457993</a> Understanding xformation
+sorts
+
+Full disclosure: the last link was written by me.
+
+-Scott
+
+-----Original Message-----
+From: omaha-pm-bounces@pm.org [<a  rel="nofollow" href="mailto:omaha-pm-bounces@pm.org">mailto:omaha-pm-bounces@pm.org</a>] On Behalf
+Of Jay Hannah
+Sent: Tuesday, October 25, 2005 10:43 AM
+To: omaha-pm@pm.org
+Subject: [Omaha.pm] sort hackery
+
+
+So I've got this array of hashrefs that was built like this:
+
+   push @arr, { code=&gt;$prop, desc=&gt;$desc, };
+
+And I want to sort them alphabetically based of desc.
+
+So I do this:
+
+  # Sort the list by descriptions
+  @arr = sort sort_by_desc @arr;
+
+  sub sort_by_desc {
+     $a-&gt;{desc} cmp $b-&gt;{desc}; 
+  }
+
+And it worked, 2nd try. 
+
+Yay! It appears I've learned a little Perl over the years. -grin-
+
+Custom sorting methods in Perl rule. Do any other languages allow you to
+define custom arbitrary sorting rulesets so easily?
+
+j
+
+_______________________________________________
+Omaha-pm mailing list
+Omaha-pm@pm.org
+<a  rel="nofollow" href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00623.html">Re: [Omaha.pm] Class::Date - change once set</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00625.html">Re: [Omaha.pm] FW: what lanague is your perl writen in?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00612.html">[Omaha.pm] sort hackery</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00613.html">[Omaha.pm] Downloading CPAN modules on G5 Mac</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00624"><strong>Date</strong></a></li>
+<li><a href="threads.html#00624"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

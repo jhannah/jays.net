@@ -1,0 +1,152 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Sort quickie -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: Thu, 5 Aug 2004 02:22:00 &#45;0500 -->
+<!--X-Message-Id: 2E2D7CD4&#45;E6B0&#45;11D8&#45;BA7A&#45;000A95E317B8@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 20040715033204.71348.qmail@web90005.mail.scd.yahoo.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Sort quickie</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00065.html">Date Prev</a>][<a href="msg00067.html">Date Next</a>][<a href="msg00043.html">Thread Prev</a>][<a href="msg00067.html">Thread Next</a>][<a href="maillist.html#00066">Date Index</a>][<a href="threads.html#00066">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Sort quickie</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Sort quickie</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Thu, 5 Aug 2004 02:22:17 -0500</li>
+<li><em>Cc</em>: </li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00043.html">20040715033204.71348.qmail@web90005.mail.scd.yahoo.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=help">mailto:omaha-pm-request@mail.pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.mail.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@mail.pm.org">mailto:omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=subscribe">mailto:omaha-pm-request@mail.pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe">mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00043.html">20040715033204.71348.qmail@web90005.mail.scd.yahoo.com</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+
+On Jul 14, 2004, at 10:32 PM, Hugh Jarce wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+This sub can be written more efficiently as:
+&#xA0; sub by_date2 { substr($a,4) cmp substr($b,4) || $a cmp $b }
+or:
+&#xA0; sub by_date3 { substr($a,4).$a cmp substr($b,4).$b }
+</pre></blockquote><pre style="margin: 0em;">
+
+Wow. Very slick.
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+Out of curiosity, I benchmarked 4 different ways to do it:
+&#xA0;
+use strict;
+use Benchmark;
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>-ponder-  I need to study Benchmark. Looks cool. What's the point of 
+</tt><tt>@x? Can
+</tt><pre style="margin: 0em;">
+
+   sub j9 { my @x = sort by_date @dates }
+
+be written as
+
+   sub j9 { sort by_date @dates }
+
+?
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+sub j1 {
+&#xA0;&#xA0;&#xA0; my @x = map { substr($_,4) } sort map { substr($_,4).$_ } @dates
+}
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>-laugh-  Took me 3 minutes to figure out what that does. map tends to 
+</tt><tt>confuse my limited synapses.
+</tt><pre style="margin: 0em;">
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+Which surprised me. I expected j1 to be much faster.
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>Usually its faster for me to re-write a use of map than it is for me to 
+</tt><tt>figure out what I was doing when I wrote it. -grin- Typically I can't 
+</tt><tt>grok map at a glance, which slows me down. Can't argue w/ fast 
+</tt><tt>benchmarking though!
+</tt><pre style="margin: 0em;">
+
+Thanks for the tips!
+
+j
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00067" href="msg00067.html">Re: [Omaha.pm] Sort quickie</a></strong>
+<ul><li><em>From:</em> Hugh Jarce &lt;hjarce2001@yahoo.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00043" href="msg00043.html">Re: [Omaha.pm] Sort quickie</a></strong>
+<ul><li><em>From:</em> Hugh Jarce &lt;hjarce2001@yahoo.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00065.html">Re: [Omaha.pm] simple syntax question</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00067.html">Re: [Omaha.pm] Sort quickie</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00043.html">Re: [Omaha.pm] Sort quickie</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00067.html">Re: [Omaha.pm] Sort quickie</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00066"><strong>Date</strong></a></li>
+<li><a href="threads.html#00066"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

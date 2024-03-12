@@ -1,0 +1,464 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] LWP -->
+<!--X-From-R13: "Vrsyvat, Quevf" &#60;Quevf.VrsyvatNazuf.bet> -->
+<!--X-Date: 2 Oct 2006 20:38:13 &#45;0000 -->
+<!--X-Message-Id: 804D74BA90FBB5418AA7C966CD7D731703210BB9@w2k3ex01.nmhs.org -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: E8A698D1&#45;9CB1&#45;4112&#45;BC4C&#45;551D45DA5808@petdance.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] LWP</title>
+<link rev="made" href="mailto:Chris.Hefling@nmhs.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01167.html">Date Prev</a>][<a href="msg01169.html">Date Next</a>][<a href="msg01167.html">Thread Prev</a>][<a href="msg01172.html">Thread Next</a>][<a href="maillist.html#01168">Date Index</a>][<a href="threads.html#01168">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] LWP</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] LWP</li>
+<li><em>From</em>: &quot;Hefling, Chris&quot; &lt;<a href="mailto:Chris.Hefling%40nmhs.org">Chris.Hefling@nmhs.org</a>&gt;</li>
+<li><em>Date</em>: Mon, 2 Oct 2006 15:37:59 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01167.html">E8A698D1-9CB1-4112-BC4C-551D45DA5808@petdance.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcbmYjkZtXTtykQbTZykfE5XvE/+/AAAAokQ</li>
+<li><em>Thread-topic</em>: [Omaha.pm] LWP</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>#!/usr/local/bin/perl
+#
+# Program:	askedi.pl [put/get] [trading partner id] [file param]
+[optional date param]
+# Date: 	07/20/2006
+# Last Update: 	08/18/2006
+# Author: 	Chris Hefling
+# Synopsis:     Put/Get files for ASK-EDI 
+#
+# Read Trading Partner username and password from conf/[tp number].cnf
+#
+
+# Load Libraries
+#
+use strict;
+use Crypt::SSLeay;
+use LWP::UserAgent;
+use LWP::Simple;
+use HTTP::Request::Common qw(POST);
+use HTTP::Cookies;
+
+#
+# Initialize Variables
+#
+my $content;
+
+# Login Variables
+my $cookie_file;
+my $login_URL;
+my $username;
+my @username;
+my $password;
+my @password;
+
+# Script Argument Variables
+my $arg1=@ARGV[0];	
+my $arg2=@ARGV[1];	
+my $arg3=@ARGV[2];	
+my $arg4=@ARGV[3];	
+
+# File Counter Variables
+my $cnt;
+my $total;
+
+# Logging Variables
+my $logfile=&quot;&quot;;
+my $text;
+my $ecode;
+my $logfile=&quot;/cie/egate/client/scripts/askedi/log/askedi.log&quot;;
+my $lockfile=&quot;/cie/egate/client/scripts/askedi/lock.txt&quot;;
+
+# Get|Put Variables
+my $temp_file;
+my $recieve_disp_page;
+my $getfiles_URL;
+my $recv_dir=&quot;/cie/egate/client/scripts/askedi/files&quot;;
+my $tempdir=&quot;/cie/egate/client/scripts/askedi/temp&quot;;
+
+# Mail Variables
+my $message=&quot;&quot;;
+my $mailto = &quot;Chris.Hefling\@nmhs.org&quot;;
+my $subject = &quot;Claims File $arg1 Error&quot;;
+
+# Date Variables
+my $rdate;
+my ($sec,$min,$hour,$mday,$mon,$year, $wday,$yday,$isdst) = localtime
+time;
+$year=$year + 1900;
+$mon=$mon + 1;
+if(&quot;$mon&quot; &lt; 10){
+ $mon=&quot;0$mon&quot;;
+}
+if(&quot;$mday&quot; &lt; 10){
+ $mday=&quot;0$mday&quot;;
+}
+
+my $cdate=&quot;$year$mon$mday&quot;;
+
+# Check arg4 for manual filedate to use instead of todays date
+# Format of (yyyymmdd)
+#
+if(&quot;$arg4&quot; ne &quot;&quot;){
+ $cdate=&quot;$arg4&quot;;
+}
+
+#
+# Start Sub Routines
+#
+
+# Mail Routine
+sub smail {
+ unless(open (MAIL, &quot;|/usr/sbin/sendmail -t&quot;)) {
+ warn &quot;Error starting sendmail: $!&quot;;
+} else {
+ print MAIL &quot;From: no.reply\@nmhs.org\n&quot;;
+ print MAIL &quot;To: $mailto\n&quot;;
+ print MAIL &quot;Subject: $subject\n\n&quot;;
+ print MAIL &quot;$message&quot;;
+ close(MAIL) || warn &quot;Error closing mail: $!&quot;;
+ }
+}
+
+#
+# Log routine 
+sub print_log(){
+ if(&quot;$ecode&quot; eq &quot;1&quot; || &quot;$ecode&quot; eq &quot;2&quot;){
+  $message=&quot;$text&quot;;
+  smail();
+ }
+ $rdate=&quot;$mon/$mday/$year $hour:$min:$sec&quot;;
+ print LOG &quot;$rdate $text\n&quot;;
+}
+#
+# End Sub Routines
+
+#
+# Start Application
+#
+
+# Open log file
+#
+open LOG, &quot;&gt;&gt;$logfile&quot; or die &quot;can't open $logfile $!&quot;;
+
+if (-e &quot;$lockfile&quot;) {
+ $text=&quot;A runtime lock exists because of a previous failed login. The
+file \&quot;lock.txt\&quot; must be deleted for this program to run.&quot;;
+ $ecode=&quot;1&quot;;
+ print_log();
+ print &quot;$ecode&quot;;
+ exit(1);
+}
+#
+# Check for command line arguments
+#
+if(&quot;$arg1&quot; eq &quot;&quot; || &quot;$arg2&quot; eq &quot;&quot;){
+ print &quot;#\n&quot;;
+ print &quot;# Usage: perl $0 [get|put] [trading partner ID] [optional]\n&quot;;
+ print &quot;#\n\n&quot;;
+ print &quot;1&quot;;
+ exit(1);
+} 
+if(&quot;$arg1&quot; eq &quot;put&quot; &amp;&amp; &quot;$arg3&quot; eq &quot;&quot;){
+ print &quot;#\n&quot;;
+ print &quot;# Usage: perl $0 [get|put] [trading partner ID] [param]\n&quot;;
+ print &quot;#\n\n&quot;;
+ print &quot;1&quot;;
+ exit(1);
+}
+if(&quot;$arg1&quot; ne &quot;get&quot; &amp;&amp; &quot;$arg1&quot; ne &quot;put&quot;){
+ print &quot;#\n&quot;;
+ print &quot;# Usage: perl $0 [get|put] [trading partner ID] [optional]\n&quot;;
+ print &quot;#\n\n&quot;;
+ print &quot;1&quot;;
+ exit(1);
+} 
+#
+# Test for the existance and readability of the config file
+# Load username and password from config file
+#
+my $confdir=&quot;/cie/egate/client/scripts/askedi/conf&quot;;
+if ((-e &quot;$confdir/$arg2.cnf&quot;) &amp;&amp; (-r &quot;$confdir/$arg2.cnf&quot;) &amp;&amp; (-s
+&quot;$confdir/$arg2.cnf&quot;)){
+ open(CONF, &quot;&lt;$confdir/$arg2.cnf&quot;);
+ while(&lt;CONF&gt;) {  
+  my($line) = $_; 
+  if(/^username/){
+   @username=split('=', $line);
+   $username=@username[1];
+   $username=~s/\&quot;//g;
+   $username=~s/\;//g;
+   chomp $username;
+  }
+  if(/^password/){
+   @password=split('=', $line);
+   $password=@password[1];
+   $password=~s/\&quot;//g;
+   $password=~s/\;//g;
+   chomp $password;
+  }
+ }
+   $text=&quot;Configuration loaded for $arg1:$arg2:$arg3&quot;; 
+   print_log();
+ } else {
+   $text=&quot;Problems with the $arg2 configuration file, exiting program&quot;;
+   $ecode=&quot;1&quot;;
+   print_log();
+   print &quot;$ecode&quot;;
+   exit(1);
+ }
+#
+# START LOGIN PROCESS
+#
+  my $ua = LWP::UserAgent-&gt;new(env_proxy =&gt; 1, keep_alive =&gt; 1, timeout
+=&gt; 30, );
+  my $cookie_jar = HTTP::Cookies-&gt;new(file =&gt;
+&quot;/cookies/ask-edi-cookies.txt&quot;, autosave =&gt; 1,     ignore_discard =&gt; 1);
+  $ua-&gt;cookie_jar( $cookie_jar);
+  $ua-&gt;agent('Mozilla/5.0');
+  my $url = '<a  rel="nofollow" href="https://clyde.bcbsks.com/askedi/filetransfer">https://clyde.bcbsks.com/askedi/filetransfer</a>';
+  my $req = POST $url, ['username' =&gt; $username, 'password' =&gt;
+$password, 'link' =&gt; '', 'command' =&gt; 'logon'];
+  my $res = $ua-&gt;request($req);
+  $cookie_jar-&gt;extract_cookies($res);
+  if ($res-&gt;is_success) {
+   if ($res-&gt;as_string !~ /failed/){
+    #print $res-&gt;as_string;
+    $text=&quot;$username logged in.&quot;;
+    print_log();
+   } else {
+    $text=&quot;$username login failed.&quot;;
+    open LOCK, &quot;&gt;$lockfile&quot; or die &quot;can't open $lockfile $!&quot;;
+    close(LOCK);
+    $ecode=&quot;1&quot;;
+    print_log();
+    print &quot;$ecode&quot;;
+    exit(1);
+ }
+}
+#
+# END LOGIN PROCESS
+#
+# START FILE GET PROCESS
+#
+if (&quot;$arg1&quot; eq &quot;get&quot;){
+ my $req = HTTP::Request-&gt;new(GET =&gt;
+'<a  rel="nofollow" href="https://clyde.bcbsks.com/askedi/jsps/ask_tp_receive.jsp">https://clyde.bcbsks.com/askedi/jsps/ask_tp_receive.jsp</a>');
+ #$cookie_jar-&gt;add_cookie_header($req);
+ $res = $ua-&gt;request($req);
+ unless(open(TEMP_WRITE, &quot;&gt;$tempdir/tempfile.txt&quot;)){
+  $text=&quot;Can not write to temp file, exiting program.&quot;;
+  $ecode=&quot;1&quot;;
+  print_log();
+  print &quot;$ecode&quot;;
+  exit(1);
+ }
+# Write page to temp file so we can read in the data
+   print TEMP_WRITE $res-&gt;content;
+# Read the saved page so we can create a file list
+  unless(open(TEMP_READ, &quot;$tempdir/tempfile.txt&quot;)){
+     $text=&quot;Can not read from temp file, exiting program.&quot;;
+     $ecode=&quot;1&quot;;
+     print_log();
+     print &quot;$ecode&quot;;
+     exit(1);
+   }
+ my $line=&quot;&quot;;
+ my $file=&quot;&quot;;
+ my @files=&quot;&quot;;
+ my @files1=&quot;&quot;;
+# Loop through the data
+ while (defined ($line = &lt;TEMP_READ&gt;)) {
+  if ($line =~ /GetFile/){
+   # Lets remove some of the erroneous characters so we can create an
+array 
+   $line=~s/'//g;
+   $line=~s/\(//g;
+   $line=~s/\)//g;
+   $line=~s/;&quot;&gt;//g;
+   @files=split(/GetFile/,$line);
+   @files1=split(/,/,$files[1]);
+   if(&quot;$files1[0]&quot; eq &quot;sIFName&quot;){
+    # Do nothing, we do not need the first line
+   } else {
+     $total++;
+    # Open a file so we can write the data to it
+    # remove space before filename
+    $files1[1]=~s/ //g;
+  open(TESTIT, &quot;&gt;$recv_dir/testfile.txt&quot;);
+    unless(open(FILE, &quot;&gt;$recv_dir/$files1[1]&quot;)){
+     $text=&quot;Can not open $recv_dir/$files1[1], exiting program.&quot;;
+     $ecode=&quot;1&quot;;
+     print_log();
+     print &quot;$ecode&quot;;
+     exit(1);
+   }
+    # Send the request to retrieve the file
+    $req = HTTP::Request-&gt;new(GET =&gt;
+'<a  rel="nofollow" href="https://clyde.bcbsks.com/askedi/filetransfer">https://clyde.bcbsks.com/askedi/filetransfer</a>');
+    #$cookie_jar-&gt;add_cookie_header($req);
+    $req = POST $url, ['command' =&gt; 'fileget', 'ifilename' =&gt;
+$files1[0], 'xfilename' =&gt; $files1[1]];
+    $req-&gt;content_type('application/x-www-form-urlencoded');
+    #$req-&gt;header('Content-Type' =&gt; 'text/html; charset=UTF-8');
+    $res = $ua-&gt;request($req);
+    $content=$res-&gt;content;
+    print TESTIT $content;
+    # Write the receiving file to our local server
+    $cnt++;
+    #unless(print FILE $res-&gt;as_string){
+    unless(print FILE $res-&gt;content){
+     $text=&quot;Can not write recieving data to file.&quot;;
+     $ecode=&quot;1&quot;;
+     print_log();
+     print &quot;$ecode&quot;;
+     exit(1);
+    }
+    $text=&quot;$cnt Writing $files1[1]&quot;;
+    print_log();
+   }
+  }
+ }
+ $text=&quot;$total files received $cnt files written&quot;;
+ print_log();
+}
+#
+# END FILE GET PROCESS
+#
+# START FILE PUT PROCESS
+#
+  if (&quot;$arg1&quot; eq &quot;put&quot;){
+   #print &quot;Start the file put process.\n&quot;;
+   # Access the putfiles files page so we can send the file
+   my $GS_URL    = '<a  rel="nofollow" href="https://clyde.bcbsks.com/askedi/filetransfer">https://clyde.bcbsks.com/askedi/filetransfer</a>';
+   my $fdir=&quot;/cie/data/Claim_Cycle/transmit/medbne_prof/&quot;;
+   my $adir=&quot;/cie/data/Claim_Cycle/transmit/medbne_prof/archive/&quot;;
+   my $afile = $adir . &quot;medbne_prof_&quot; . $arg3 . &quot;_&quot; . $cdate . &quot;.dat&quot;;
+   my $file = $fdir . &quot;medbne_prof_&quot; . $arg3 . &quot;_&quot; . $cdate . &quot;.dat&quot;;
+   if (&quot;$arg3&quot; ne &quot;&quot;){
+    if (-e &quot;$file&quot;) {
+     $text=&quot;$cdate file exists, continue processing.&quot;;
+     print_log();
+    } else {
+     $text=&quot;$cdate file does not exist, exiting program.&quot;;
+     $ecode=&quot;1&quot;;
+     print_log();
+     print &quot;$ecode&quot;;
+     exit(1);
+    }
+   } else {
+   $text=&quot;File parameter not supplied on command line.&quot;;
+   $ecode=&quot;1&quot;;
+   print_log();
+   print &quot;$ecode&quot;;
+   exit(1);
+   }
+   my $request = POST($GS_URL, 
+	Content_Type =&gt; 'form-data', Content =&gt; ['filename' =&gt;
+[$file,$file], 'command' =&gt; 'fileput', 'transmit' =&gt; 'Transmit', 'name'
+=&gt; 'frmtransmit']);
+   my $response = $ua-&gt;request($request); die &quot;request failed&quot; unless
+$response-&gt;is_success;
+   my $record = $response-&gt;content;
+   $text=&quot;$file successfully transmitted.&quot;;
+   print_log();
+   rename $file, $afile;
+    if (-e &quot;$afile&quot;) {
+     $text=&quot;$afile has been archived.\n&quot;;
+     print_log();
+    } else {
+     $text=&quot;$afile failed to archive.\n&quot;;
+     $ecode=&quot;2&quot;;
+     print_log();
+     print &quot;$ecode&quot;;
+     exit(2);
+    }
+  }
+#
+# END FILE PUT PROCESS
+#
+# END PROGRAM
+# 
+print &quot;0&quot;;
+
+
+
+This message and any included attachments are from Nebraska Methodist Health System and its affiliates and are intended only for the addressee. The message may contain privileged, confidential and/or proprietary information intended only for the person(s) named.  Unauthorized forwarding, printing, copying, distribution, or use of such information is strictly prohibited and may be unlawful. If you are not the addressee, please promptly delete this message and notify the sender of the delivery error by e-mail or you may call Nebraska Methodist Health System and its affiliates in Omaha, Nebraska, U.S.A at (402)354-2280.
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01172" href="msg01172.html">Re: [Omaha.pm] LWP</a></strong>
+<ul><li><em>From:</em> andy@petdance.com (Andy Lester)</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01167" href="msg01167.html">Re: [Omaha.pm] LWP</a></strong>
+<ul><li><em>From:</em> Andy Lester &lt;andy@petdance.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01167.html">Re: [Omaha.pm] LWP</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01169.html">Re: [Omaha.pm] LWP</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01167.html">Re: [Omaha.pm] LWP</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01172.html">Re: [Omaha.pm] LWP</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01168"><strong>Date</strong></a></li>
+<li><a href="threads.html#01168"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

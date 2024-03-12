@@ -1,0 +1,130 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] CGI restore_parameters() -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 13 Jun 2005 18:43:17 &#45;0000 -->
+<!--X-Message-Id: 200506131843.j5DIh1ic016130@omares&#45;email.omnihotels.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] CGI restore_parameters()</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00413.html">Date Prev</a>][<a href="msg00415.html">Date Next</a>][<a href="msg00424.html">Thread Prev</a>][<a href="msg00415.html">Thread Next</a>][<a href="maillist.html#00414">Date Index</a>][<a href="threads.html#00414">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] CGI restore_parameters()</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:lstein%40cshl.org">lstein@cshl.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] CGI restore_parameters()</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Mon, 13 Jun 2005 13:43:44 -0500</li>
+<li><em>Cc</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcVwRyVCzdyVXhlfQW+rrf7wb8o/8gAACFCg</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+Hi Lincoln --
+
+Does restore_parameters not work the way I think it should? save() is saving a state file fine, and new($fh) will read that state file fine, but I can't seem to get restore_parameters to do anything...
+
+perl v5.8.3 built for i686-linux
+CGI v3.10
+Linux razorbill 2.4.21-243-default #1 Thu Aug 12 15:22:14 UTC 2004 i686 i686 i386 GNU/Linux
+
+Thanks,
+
+j
+
+----------------------- 
+#!/usr/bin/perl
+
+use strict;
+use CGI;
+use FileHandle;
+
+my $q = CGI-&gt;new();
+my $fh = FileHandle-&gt;new(&quot;&gt;/tmp/q.param&quot;);
+$q-&gt;param(&quot;name&quot;, &quot;Jay&quot;);
+$q-&gt;save($fh);
+$fh-&gt;close;
+
+# Ok, /tmp/q.param is has name in it. Worked fine. 
+# Let's try to restore_parameters() it...
+
+$fh = FileHandle-&gt;new(&quot;/tmp/q.param&quot;);
+my $q = CGI-&gt;new();
+$q-&gt;restore_parameters($fh) or die;
+print &quot;name is &quot;, $q-&gt;param(&quot;name&quot;), &quot;\n&quot;;
+
+# No good. name is empty. 
+
+$fh = FileHandle-&gt;new(&quot;/tmp/q.param&quot;);
+my $q = CGI-&gt;new($fh);
+print &quot;name is &quot;, $q-&gt;param(&quot;name&quot;), &quot;\n&quot;;
+
+# That worked fine. name is set. 
+-----------------------
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00413.html">Re: [Omaha.pm] quick n dirty rand()</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00415.html">[Omaha.pm] Reminder: No June mtg</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00424.html">Re: [Omaha.pm] quick n dirty rand()</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00415.html">[Omaha.pm] Reminder: No June mtg</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00414"><strong>Date</strong></a></li>
+<li><a href="threads.html#00414"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

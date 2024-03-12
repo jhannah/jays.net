@@ -1,0 +1,186 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Some lines of a file -->
+<!--X-From-R13: "Xnzrf Vnee" &#60;wuneeNvfg.habznun.rqh> -->
+<!--X-Date: 31 Oct 2008 15:46:21 &#45;0000 -->
+<!--X-Message-Id: FEA05FFE1F7E7348A9ACA24B9EFD334424C74C@exchange.ist.unomaha.edu -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 4900A2BC.2050705@jays.net -->
+<!--X-Reference: 452FE497&#45;C7EA&#45;4683&#45;B1E0&#45;DE30936CFCC2@jays.net -->
+<!--X-Reference: 6cb6eebc0810251750n680aa42br368137ed1b47c93d@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Some lines of a file</title>
+<link rev="made" href="mailto:jharr@ist.unomaha.edu">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01878.html">Date Prev</a>][<a href="msg01880.html">Date Next</a>][<a href="msg01877.html">Thread Prev</a>][<a href="msg01880.html">Thread Next</a>][<a href="maillist.html#01879">Date Index</a>][<a href="threads.html#01879">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Some lines of a file</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Some lines of a file</li>
+<li><em>From</em>: &quot;James Harr&quot; &lt;<a href="mailto:jharr%40ist.unomaha.edu">jharr@ist.unomaha.edu</a>&gt;</li>
+<li><em>Date</em>: Fri, 31 Oct 2008 10:45:36 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01876.html">6cb6eebc0810251750n680aa42br368137ed1b47c93d@mail.gmail.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;4900A2BC.2050705@jays.net&gt;&lt;<a href="msg01874.html">452FE497-C7EA-4683-B1E0-DE30936CFCC2@jays.net</a>&gt;	&lt;<a href="msg01876.html">6cb6eebc0810251750n680aa42br368137ed1b47c93d@mail.gmail.com</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: Ack3BOrEs1mBPp0IQrSSIO/5kntXNgEY8vEg</li>
+<li><em>Thread-topic</em>: [Omaha.pm] Some lines of a file</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Sticking with the tradition of timtowtdi:
+
+@in = &lt;&gt;;
+print splice(@in, 2, @in - 6);
+
+... or ...
+
+&lt;&gt; foreach 0 .. 1;
+push @buf, scalar(&lt;&gt;) foreach 0 .. 5;
+while(&lt;&gt;)
+{
+  push @buf, $_; 
+  print shift @buf;
+}
+
+... continuing on the path to insanity through inverted loops ...
+
+&lt;&gt; foreach 0 .. 1;
+push @buf, scalar(&lt;&gt;) foreach 0 .. 5;
+sub {push @buf, $_; print shift @buf}-&gt;() while &lt;&gt;;
+
+I shouldn't be allowed to code perl.
+
+<a  rel="nofollow" href="http://forums.somethingawful.com/showthread.php?threadid=2952520">http://forums.somethingawful.com/showthread.php?threadid=2952520</a> - Programming languages personified, see perl (I'd have ad-block if I were you). 
+
+
+-------------------
+From: omaha-pm-bounces+jharr=ist.unomaha.edu@pm.org [<a  rel="nofollow" href="mailto:omaha-pm-bounces+jharr=ist.unomaha.edu@pm.org">mailto:omaha-pm-bounces+jharr=ist.unomaha.edu@pm.org</a>] On Behalf Of Robert Fulkerson
+Sent: Saturday, October 25, 2008 19:51
+To: Perl Mongers of Omaha, Nebraska USA
+Subject: Re: [Omaha.pm] Some lines of a file
+
+Y'know, I should be grabbing some of these ideas for quiz and exam questions. &#xA0;:) &#xA0;That's certainly the oddball kind of thing one of us goofball instructors would ask on an exam. &#xA0;;)
+
+-- b
+On Sat, Oct 25, 2008 at 7:37 AM, Jay Hannah &lt;jay@jays.net&gt; wrote:
+A friend of mine asked me for this one yesterday.
+
+
+Problem:
+
+&#xA0;Given STDIN print everything except the first 2 lines and last 4 lines.
+
+
+Solution:
+
+&#xA0;while (&lt;&gt;) {
+&#xA0; &#xA0; push @in, $_;
+&#xA0;}
+&#xA0;print splice(@in, 2, @in - 6);
+
+
+Note this is a terrible solution with large files (memory hog), but works fine on small STDIN.
+
+Cheers,
+
+j
+
+
+
+$ cat j
+one
+two
+three
+four
+five
+six
+seven
+eight
+nine
+ten
+$ cat j | perl j2.pl
+three
+four
+five
+six
+
+
+_______________________________________________
+Omaha-pm mailing list
+Omaha-pm@pm.org
+<a  rel="nofollow" href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01880" href="msg01880.html">Re: [Omaha.pm] Some lines of a file</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01874" href="msg01874.html">[Omaha.pm] Some lines of a file</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+<li><strong><a name="01876" href="msg01876.html">Re: [Omaha.pm] Some lines of a file</a></strong>
+<ul><li><em>From:</em> &quot;Robert Fulkerson&quot; &lt;robert.fulkerson@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01878.html">[Omaha.pm] blank line here-doc</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01880.html">Re: [Omaha.pm] Some lines of a file</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01877.html">Re: [Omaha.pm] Some lines of a file</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01880.html">Re: [Omaha.pm] Some lines of a file</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01879"><strong>Date</strong></a></li>
+<li><a href="threads.html#01879"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

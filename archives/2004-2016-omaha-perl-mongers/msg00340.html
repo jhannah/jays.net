@@ -1,0 +1,197 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: RE: [Omaha.pm] Impossible perl one&#45;liner? -->
+<!--X-From-R13: "[vyyre, Epbgg Z (Aznun @rgjbexf)" &#60;fpbgg.y.zvyyreNuc.pbz> -->
+<!--X-Date: 18 Mar 2005 15:16:32 &#45;0000 -->
+<!--X-Message-Id: 1F7C0C8F4BD7C54A8BC55012FEF3DF6D0302E891@omaexc11.americas.cpqcorp.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>RE: [Omaha.pm] Impossible perl one-liner?</title>
+<link rev="made" href="mailto:scott.l.miller@hp.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00339.html">Date Prev</a>][<a href="msg00341.html">Date Next</a>][<a href="msg00339.html">Thread Prev</a>][<a href="msg00341.html">Thread Next</a>][<a href="maillist.html#00340">Date Index</a>][<a href="threads.html#00340">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>RE: [Omaha.pm] Impossible perl one-liner?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: RE: [Omaha.pm] Impossible perl one-liner?</li>
+<li><em>From</em>: &quot;Miller, Scott L (Omaha Networks)&quot; &lt;<a href="mailto:scott.l.miller%40hp.com">scott.l.miller@hp.com</a>&gt;</li>
+<li><em>Date</em>: Fri, 18 Mar 2005 09:16:22 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcUrUAOetszM0KUTQOO7fBlf3ZU1AwAfTEqg</li>
+<li><em>Thread-topic</em>: [Omaha.pm] Impossible perl one-liner?</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>If you really want a one liner, suggest this as a golf challenge on perl monks...
+
+-Scott
+
+-----Original Message-----
+From: omaha-pm-bounces@pm.org [<a  rel="nofollow" href="mailto:omaha-pm-bounces@pm.org]On">mailto:omaha-pm-bounces@pm.org]On</a> Behalf
+Of Jay Hannah
+Sent: Thursday, March 17, 2005 6:18 PM
+To: Perl Mongers of Omaha, Nebraska USA
+Subject: Re: [Omaha.pm] Impossible perl one-liner?
+
+
+
+On Mar 16, 2005, at 4:52 PM, Daniel Linder wrote:
+&gt; On Solaris, when I use &quot;df -k&quot; the sizes listed are in terms of KBytes.
+&gt; I'm trying to come up with a simple perl one-liner to do one of two 
+&gt; things
+&gt; to make a quick scan of the list a bit easier to 'grok':
+&gt; 1: Add a comman &quot;,&quot; between every third digit (1234567 -&gt; 1,234,567)
+&gt; For #1, I couldn't get a perl one-liner could do multiple 'inserts' of
+&gt; commas, especially when counting from the right-most digit and 
+&gt; progressing
+&gt; left.
+
+I dunno in a one-liner. I wrote an 18-liner and then stumbled into many 
+ideas better than mine:
+
+<a  rel="nofollow" href="http://perlmonks.thepen.com/117697.html">http://perlmonks.thepen.com/117697.html</a>
+
+If you want &quot;my way&quot; (why would you? -laugh-):
+
+$ df -k
+Filesystem              1K-blocks     Used    Avail Capacity  Mounted on
+/dev/disk0s9             39066000 15462748 23347252    40%    /
+devfs                          93       93        0   100%    /dev
+fdesc                           1        1        0   100%    /dev
+&lt;volfs&gt;                       512      512        0   100%    /.vol
+automount -nsl [329]            0        0        0   100%    /Network
+automount -fstab [332]          0        0        0   100%    
+/automount/Servers
+automount -static [332]         0        0        0   100%    
+/automount/static
+
+$ cat commas.pl
+#!/usr/bin/perl
+
+while (&lt;&gt;) {
+    $line_orig = $_;
+    $line = $_;
+    my @ints = /(\d\d\d\d+)/g;
+    my (%conv, $orig);
+    foreach $orig (@ints) {
+       my @i = reverse (split //, $orig);
+       for ($offset = 3; $offset &lt; @i; $offset += 3) {
+          if ($i[$offset + 1] =~ /\d/) {
+             splice @i, $offset, 0, ',';
+             $offset++;
+          }
+       }
+       my $new = join &quot;&quot;, reverse @i;
+       $line =~ s/$orig/$new/g;
+    }
+    print $line;
+}
+
+$ df -k | ./commas.pl
+Filesystem              1K-blocks     Used    Avail Capacity  Mounted on
+/dev/disk0s9             39,066,000 15,462,748 23,347,252    40%    /
+devfs                          93       93        0   100%    /dev
+fdesc                           1        1        0   100%    /dev
+&lt;volfs&gt;                       512      512        0   100%    /.vol
+automount -nsl [329]            0        0        0   100%    /Network
+automount -fstab [332]          0        0        0   100%    
+/automount/Servers
+automount -static [332]         0        0        0   100%    
+/automount/static
+
+Things get pretty ugly when you jack w/ the column widths of some 
+columns in some rows but not all columns for all rows. To make it 
+pretty perhaps you should slurp it all up then kick it all out via Perl 
+formats? (See perldoc perlform).
+
+&gt; 2: Convert from KBytes to MBytes or GBytes by dividing by 1024 or 
+&gt; 1024^2.
+&gt; I was trying this to achieve #2:
+&gt; # echo leading text 1234567 trailing text | perl -pe 
+&gt; 's/([0-9]+)/$1\/1024/g'
+&gt; But that just returned:
+&gt; leading text 1234567/1024 trailing text
+&gt;
+&gt; I tried inserting the &quot;eval&quot; function, but couldn't get it to work...
+&gt;
+&gt; So, anyone else got an idea?
+
+If you look in &quot;perldoc perlre&quot; you'll find &quot;(?{ code })&quot;, which 
+theoretically lets you execute code inside a regex. I've never gotten 
+it to work though.
+
+&gt; P.s. I might end up writing a small script that uses more perl bruit 
+&gt; force
+&gt; but I thought a one-liner would be cleaner. :)
+
+Ya. Easier to read/maintain that way. -grin-
+
+j
+
+
+_______________________________________________
+Omaha-pm mailing list
+Omaha-pm@pm.org
+<a  rel="nofollow" href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00339.html">Re: [Omaha.pm] Impossible perl one-liner?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00341.html">RE: [Omaha.pm] Impossible perl one-liner?</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00339.html">Re: [Omaha.pm] Impossible perl one-liner?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00341.html">RE: [Omaha.pm] Impossible perl one-liner?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00340"><strong>Date</strong></a></li>
+<li><a href="threads.html#00340"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

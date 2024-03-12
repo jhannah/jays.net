@@ -1,0 +1,111 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] WWW::Mechanize &#38; http://screen.yahoo.com/stocks.html -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: Mon, 31 May 2004 14:29:02 &#45;0500 -->
+<!--X-Message-Id: CCDB5251&#45;B338&#45;11D8&#45;9BD6&#45;000A95E317B8@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] WWW::Mechanize &amp; http://screen.yahoo.com/stocks.html</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00011.html">Date Prev</a>][<a href="msg00013.html">Date Next</a>][<a href="msg00010.html">Thread Prev</a>][<a href="msg00013.html">Thread Next</a>][<a href="maillist.html#00012">Date Index</a>][<a href="threads.html#00012">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] WWW::Mechanize &amp; http://screen.yahoo.com/stocks.html</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Nebraska USA Perl Mongers of Omaha &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] WWW::Mechanize &amp; http://screen.yahoo.com/stocks.html</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Mon, 31 May 2004 14:29:14 -0500</li>
+<li><em>List-archive</em>: &lt;<a href="http://www.pm.org/pipermail/omaha-pm">http://www.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+
+</pre><tt>Last meeting we talked about Dean's attempt to spider Yahoo. It wasn't 
+</tt><tt>quite working.
+</tt><pre style="margin: 0em;">
+
+I figured it out. Here's the solution:
+
+   <a  rel="nofollow" href="http://jays.net/tmp/j.pl.txt">http://jays.net/tmp/j.pl.txt</a>
+   (Program and output)
+
+I believe the problem was this:
+
+   $agent-&gt;follow_link(text =&gt; &quot;Next 20&quot;, n =&gt; 240)
+
+</pre><tt>That syntax asks WWW::Mechanize to follow the 240th link labelled &quot;Next 
+</tt><tt>20&quot;. That's not right, of course. There's only one link labelled &quot;Next 
+</tt><tt>20&quot;. And the link actually is /Next \d\d/, so I changed the syntax to 
+</tt><tt>this:
+</tt><pre style="margin: 0em;">
+
+   $agent-&gt;follow_link(text_regex =&gt; qr/Next \d\d/)
+
+Looks like it's working. Pretty slick.
+
+Enjoy!
+
+j
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00011.html">Re: [Omaha.pm] Quick shorter code tip:  for() {}</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00013.html">RE: [Omaha.pm] a perl &quot;table of operators&quot;</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00010.html">[Omaha.pm] a perl &quot;table of operators&quot;</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00013.html">RE: [Omaha.pm] a perl &quot;table of operators&quot;</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00012"><strong>Date</strong></a></li>
+<li><a href="threads.html#00012"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

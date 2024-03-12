@@ -1,0 +1,198 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Fwd: ref to a ref? circular refs? -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 22 Feb 2007 06:58:39 &#45;0000 -->
+<!--X-Message-Id: 6da8aae3ea6b321800941ab88e8054b4@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Fwd: ref to a ref? circular refs?</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01306.html">Date Prev</a>][<a href="msg01308.html">Date Next</a>][<a href="msg01306.html">Thread Prev</a>][<a href="msg01309.html">Thread Next</a>][<a href="maillist.html#01307">Date Index</a>][<a href="threads.html#01307">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Fwd: ref to a ref? circular refs?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Omaha Perl Mongers &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Fwd: ref to a ref? circular refs?</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Wed, 21 Feb 2007 19:40:44 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+-laugh-
+
+Here's me back in January having fun with references to references...
+
+</pre><tt>I stumbled into this entirely by mistake. Has anyone on the list ever 
+</tt><tt>*intentionally* made a reference to a reference?
+</tt><pre style="margin: 0em;">
+
+j
+
+
+Begin forwarded message:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+From: Jay &lt;jhannah@ferret.jays.net&gt;
+Date: January 19, 2007 3:15:01 PM CST
+To: jay@jays.net
+Subject: ref to a ref? circular refs?
+
+
+my $a = 10;
+my $b = \$a;
+my $c = \$b;
+my $d = \$c;
+my $e = \$d;
+
+exit;
+
+
+
+main::(j.pl:2): my $a = 10;
+auto(-1)  DB&lt;1&gt; o pager=less
+               pager = '|less'
+</pre><tt>                                                                       
+</tt><tt>                            DB&lt;2&gt; n
+</tt><pre style="margin: 0em;">
+main::(j.pl:3): my $b = \$a;
+</pre><tt>                                                                       
+</tt><tt>                            DB&lt;2&gt; n
+</tt><pre style="margin: 0em;">
+main::(j.pl:4): my $c = \$b;
+</pre><tt>                                                                       
+</tt><tt>                            DB&lt;2&gt; n
+</tt><pre style="margin: 0em;">
+main::(j.pl:5): my $d = \$c;
+</pre><tt>                                                                       
+</tt><tt>                            DB&lt;2&gt; n
+</tt><pre style="margin: 0em;">
+main::(j.pl:6): my $e = \$d;
+</pre><tt>                                                                       
+</tt><tt>                            DB&lt;2&gt; n
+</tt><pre style="margin: 0em;">
+main::(j.pl:8): exit;
+</pre><tt>                                                                       
+</tt><tt>                            DB&lt;2&gt; x $e
+</tt><pre style="margin: 0em;">
+0  REF(0x830439c)
+   -&gt; REF(0x812e2b0)
+         -&gt; REF(0x812e244)
+               -&gt; SCALAR(0x812e1f0)
+                     -&gt; 10
+
+  DB&lt;3&gt; q
+
+
+
+
+$ cat j.pl
+
+my $a = 10;
+my $b = \$a;
+$a = $b;
+
+exit;
+
+
+main::(j.pl:2): my $a = 10;
+auto(-1)  DB&lt;1&gt; o pager=less
+               pager = '|less'
+</pre><tt>                                                                       
+</tt><tt>                            DB&lt;2&gt; n
+</tt><pre style="margin: 0em;">
+main::(j.pl:3): my $b = \$a;
+</pre><tt>                                                                       
+</tt><tt>                            DB&lt;2&gt; n
+</tt><pre style="margin: 0em;">
+main::(j.pl:4): $a = $b;
+</pre><tt>                                                                       
+</tt><tt>                            DB&lt;2&gt; n
+</tt><pre style="margin: 0em;">
+main::(j.pl:6): exit;
+</pre><tt>                                                                       
+</tt><tt>                            DB&lt;2&gt; x $a
+</tt><pre style="margin: 0em;">
+0  REF(0x812e1f0)
+   -&gt; REF(0x812e1f0)
+         -&gt; REUSED_ADDRESS
+</pre><tt>                                                                       
+</tt><tt>                            DB&lt;3&gt; x $b
+</tt><pre style="margin: 0em;">
+0  REF(0x812e1f0)
+   -&gt; REF(0x812e1f0)
+         -&gt; REUSED_ADDRESS
+
+
+/
+
+</pre></blockquote><pre style="margin: 0em;">
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01309" href="msg01309.html">Re: [Omaha.pm] Fwd: ref to a ref? circular refs?</a></strong>
+<ul><li><em>From:</em> &quot;Daniel Linder&quot; &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01306.html">[Omaha.pm] Fwd: pods2html / Pod::Tree::HTML</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01308.html">[Omaha.pm] Fwd: [pm_groups] The Perl Quiz Night Kit</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01306.html">[Omaha.pm] Fwd: pods2html / Pod::Tree::HTML</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01309.html">Re: [Omaha.pm] Fwd: ref to a ref? circular refs?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01307"><strong>Date</strong></a></li>
+<li><a href="threads.html#01307"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

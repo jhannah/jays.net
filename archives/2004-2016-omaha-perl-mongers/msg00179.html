@@ -1,0 +1,133 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Challenge: Prune a directory tree -->
+<!--X-From-R13: "Rnavry Zvaqre" &#60;qnaNyvaqre.bet> -->
+<!--X-Date: Thu, 14 Oct 2004 16:30:58 &#45;0500 -->
+<!--X-Message-Id: 20704.12.160.138.7.1097789754.squirrel@12.160.138.7 -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 3AF6C10D&#45;1E1C&#45;11D9&#45;B602&#45;000A95E317B8@jays.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Challenge: Prune a directory tree</title>
+<link rev="made" href="mailto:dan@linder.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00178.html">Date Prev</a>][<a href="msg00180.html">Date Next</a>][<a href="msg00178.html">Thread Prev</a>][<a href="msg00180.html">Thread Next</a>][<a href="maillist.html#00179">Date Index</a>][<a href="threads.html#00179">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Challenge: Prune a directory tree</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Challenge: Prune a directory tree</li>
+<li><em>From</em>: &quot;Daniel Linder&quot; &lt;<a href="mailto:dan%40linder.org">dan@linder.org</a>&gt;</li>
+<li><em>Date</em>: Thu, 14 Oct 2004 16:35:54 -0500 (CDT)</li>
+<li><em>Cc</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>, Omaha Linux User Group &lt;<a href="mailto:olug%40olug.org">olug@olug.org</a>&gt;</li>
+<li><em>Importance</em>: Normal</li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00178.html">3AF6C10D-1E1C-11D9-B602-000A95E317B8@jays.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/archives/omaha-pm">http://mail.pm.org/archives/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=help">mailto:omaha-pm-request@mail.pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.mail.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@mail.pm.org">mailto:omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=subscribe">mailto:omaha-pm-request@mail.pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe">mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg00178.html">3AF6C10D-1E1C-11D9-B602-000A95E317B8@jays.net</a>&gt;</li>
+<li><em>Reply-to</em>: <a href="mailto:dan%40linder.org">dan@linder.org</a>, &quot;Perl Mongers of Omaha,	Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>User-agent</em>: SquirrelMail/1.5.0</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+&lt;quote who=&quot;Jay Hannah&quot;&gt;
+&gt; I have a big, deep directory tree. Some directories contain files, some
+&gt; don't.
+&gt; I want to prune out all the directories for which there are no files in
+&gt; that directory, or any sub-directory thereof. Every directory contains
+&gt; zero or more sub-directories.
+
+I know it's sacreligious, but how about a simple &quot;find&quot; command?
+  cd \base\directory\to\clean
+  find . -depth -type d -exec rmdir {} \;
+
+This goes to the maximal subdirectory depth of a tree, then works its way
+backwards.  If a directory is empty it gets removed, if it has something
+an error is printed to the screen when the &quot;rmdir&quot; fails.
+
+Of course, this only works on a Unix-type system...  The Windows/DOS find
+command doesn't work anywhere like this. :(
+
+Dan
+
+- - - - -
+&quot;I do not fear computer,
+I fear the lack of them.&quot;
+ -- Isaac Asimov
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.2.1 (GNU/Linux)
+
+iD8DBQFBbvE6NiBNyqUzGb8RAu91AJ9X0C76TcSNiX+zXUiEXy8K74OnogCeMM35
+JrpbSl55ymzL2VKF6k6bD6Q=
+=Rn07
+-----END PGP SIGNATURE-----
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00180" href="msg00180.html">[Omaha.pm] Challenge: Prune a directory tree</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00178" href="msg00178.html">[Omaha.pm] Challenge: Prune a directory tree</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00178.html">[Omaha.pm] Challenge: Prune a directory tree</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00180.html">[Omaha.pm] Challenge: Prune a directory tree</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00178.html">[Omaha.pm] Challenge: Prune a directory tree</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00180.html">[Omaha.pm] Challenge: Prune a directory tree</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00179"><strong>Date</strong></a></li>
+<li><a href="threads.html#00179"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

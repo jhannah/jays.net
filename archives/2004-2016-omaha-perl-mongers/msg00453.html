@@ -1,0 +1,216 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] SQL Attack exception -->
+<!--X-From-R13: "Yraargu Fubzcfba" &#60;xgubzcfbaNbzavubgryf.pbz> -->
+<!--X-Date: 29 Jul 2005 20:40:46 &#45;0000 -->
+<!--X-Message-Id: 29AB736ABCE5C745ABF9C93B02F2C27B02BDB440@exchange2k3.omnihotels.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] SQL Attack exception</title>
+<link rev="made" href="mailto:kthompson@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00452.html">Date Prev</a>][<a href="msg00454.html">Date Next</a>][<a href="msg00452.html">Thread Prev</a>][<a href="msg00454.html">Thread Next</a>][<a href="maillist.html#00453">Date Index</a>][<a href="threads.html#00453">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] SQL Attack exception</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] SQL Attack exception</li>
+<li><em>From</em>: &quot;Kenneth Thompson&quot; &lt;<a href="mailto:kthompson%40omnihotels.com">kthompson@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Fri, 29 Jul 2005 15:41:48 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcWUb8aC930VDe1sR8i8OYRh3IdlngAAI2HQ</li>
+<li><em>Thread-topic</em>: SQL Attack exception</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>One problem with method 2 is that it's an all or nothing proposition. If
+you potentially have mixed fields (something that inputs to some SQL AND
+a file upload), you have to break your process into 2 steps.
+
+Perhaps a compromise would be to pass in the fields you don't want
+checked/cleaned on instantiation?
+
+
+my $page = new View::Web::Page(Globals=&gt;$Globals,SafeList=&gt;['File1',
+'File2']);
+
+in the constructor:
+
+  my ($self, %args) = @_;
+  my @SafeList = @$args{'SafeList'};
+  my (%Ignored, $param); 
+  foreach $param (@SafeList) {$Ignored{$param} = 1};   
+  
+  foreach my $param ($q-&gt;param()) {
+     # Strip out all wacky characters to prevent SQL injections
+     #
+     next ($IgnoreParms{$param}); #ignored - bail now
+     my $value = $q-&gt;param($param); #Not ignored.. clean me up Scotty
+     $value =~ s/[`;'&quot;\\]//g;
+     $q-&gt;delete($param);	  
+     ...etc...
+
+
+
+-----Original Message-----
+Message: 1
+Date: Thu, 28 Jul 2005 14:18:12 -0500
+From: &quot;Jay Hannah&quot; &lt;jhannah@omnihotels.com&gt;
+Subject: Re: [Omaha.pm] Thoughts?
+To: &lt;omaha-pm@pm.org&gt;
+Message-ID: &lt;<a href="msg00452.html">200507281916.j6SJGlic015933@omares-email.omnihotels.com</a>&gt;
+Content-Type: text/plain;	charset=&quot;us-ascii&quot;
+
+
+I like idea #2, activated when you *know* you're not going to do
+anything exploitable.
+
+But I don't like the switch RawCGI=&gt;1. 
+
+I'd vote for the RARE use of:
+
+   my $page = new View::Web::Page(Globals=&gt;$Globals,Safe=&gt;0);
+
+In the constructor default Safe to 1 (on/true).
+
+   $Safe = 1 unless (defined $Safe);
+    foreach my $param ($q-&gt;param()) {
+   if ($Safe) {        # Strip out all wacky characters to prevent SQL
+injections
+   ...etc...
+
+$0.02,
+
+j
+
+
+
+&gt; So, I ran into an issue using View::Web::Page and file uploads. Jay 
+&gt; helped point me to a function of the class that &quot;cleans&quot; all the 
+&gt; q-&gt;params() to stop sql attacks.
+&gt; Unfortunately, it also strips all the backslashes out of my filepath 
+&gt; that IE pukes into the form-data (mozilla conveniently removes all but
+
+&gt; the filename in formposts) making it difficult to parse the filename.
+&gt; 
+&gt;  
+&gt; 
+&gt; I figure there's 2 ways to address this without reducing the 
+&gt; attack consideration:
+&gt; 
+&gt;  
+&gt; 
+&gt; 1. Specifically ignore 'special' params :
+&gt;     foreach my $param ($q-&gt;param()) {
+&gt; 
+&gt;       # Strip out all wacky characters to prevent SQL injections
+&gt;       #
+&gt;       If ($param ne 'fileupload') {
+&gt;         my $value = $q-&gt;param($param);
+&gt;         $value =~ s/[`;'&quot;\\]//g;
+&gt;         $q-&gt;delete($param);
+&gt;         $q-&gt;param($param,$value);
+&gt;         if ($param =~ /^(view|edit|update|delete|insert)__/) {
+&gt;           my @arr = split /__/, $param;
+&gt;           $pagemode = shift @arr;
+&gt;           $pagename = shift @arr;
+&gt;           $pageid   = join('__', @arr);
+&gt;           last;
+&gt;         }
+&gt;       }
+&gt;     }
+&gt; 
+&gt;  
+&gt; 
+&gt; 2. instantiating it like this
+&gt; 
+&gt; my $page    = new View::Web::Page(Globals=&gt;$Globals,RawCGI=&gt;1);
+&gt; 
+&gt; and adding an if around this block of code 
+&gt; 
+&gt;   if (!$RawCGI) {
+&gt;     foreach my $param ($q-&gt;param()) {
+&gt;       # Strip out all wacky characters to prevent SQL injections
+&gt;       #
+&gt;       my $value = $q-&gt;param($param);
+&gt;       $value =~ s/[`;'&quot;\\]//g;
+&gt;       $q-&gt;delete($param);
+&gt;       $q-&gt;param($param,$value);
+&gt;       if ($param =~ /^(view|edit|update|delete|insert)__/) {
+&gt;         my @arr = split /__/, $param;
+&gt;         $pagemode = shift @arr;
+&gt;         $pagename = shift @arr;
+&gt;         $pageid   = join('__', @arr);
+&gt;         last;
+&gt;       }
+&gt;     }
+&gt;   }
+&gt;  
+&gt; 
+&gt; Thoughts?
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00454" href="msg00454.html">Re: [Omaha.pm] SQL Attack exception</a></strong>
+<ul><li><em>From:</em> Andy Lester &lt;andy@petdance.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00452.html">Re: [Omaha.pm] Thoughts?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00454.html">Re: [Omaha.pm] SQL Attack exception</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00452.html">Re: [Omaha.pm] Thoughts?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00454.html">Re: [Omaha.pm] SQL Attack exception</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00453"><strong>Date</strong></a></li>
+<li><a href="threads.html#00453"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

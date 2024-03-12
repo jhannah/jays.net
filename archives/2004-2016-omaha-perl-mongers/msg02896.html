@@ -1,0 +1,123 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] regex: \b Match a word boundary -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnl.unaanuNvvagrenpgvir.pbz> -->
+<!--X-Date: 20 Jun 2012 17:17:51 &#45;0000 -->
+<!--X-Message-Id: 49B3DEC6&#45;CC51&#45;4FDC&#45;8EE9&#45;43033A70C5FB@iinteractive.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 4FE1BD1C.4040806@iinteractive.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] regex: \b Match a word boundary</title>
+<link rev="made" href="mailto:jay.hannah@iinteractive.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02895.html">Date Prev</a>][<a href="msg02897.html">Date Next</a>][<a href="msg02895.html">Thread Prev</a>][<a href="msg02897.html">Thread Next</a>][<a href="maillist.html#02896">Date Index</a>][<a href="threads.html#02896">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] regex: \b Match a word boundary</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Nebraska USA Perl Mongers of Omaha &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] regex: \b Match a word boundary</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay.hannah%40iinteractive.com">jay.hannah@iinteractive.com</a>&gt;</li>
+<li><em>Date</em>: Wed, 20 Jun 2012 12:16:13 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm/">http://mail.pm.org/pipermail/omaha-pm/</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;4FE1BD1C.4040806@iinteractive.com&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Wow, love me some \b! Awesome! Thanks Trey!
+
+Begin forwarded message:
+&gt; as a result of fuzzy matching pain I've become a fan of \b
+&gt; 
+&gt; my @names;
+&gt; push @names , &quot;Blah Assn&quot;;
+&gt; push @names , &quot; Blah Assn &quot;;
+&gt; push @names , &quot; Assn  Blah&quot;;
+&gt; push @names , &quot;Assn  Blah&quot;;
+&gt; push @names , &quot;Assnn  Blah&quot;;
+&gt; push @names , &quot;AAssnn  Blah&quot;;
+&gt; push @names , &quot;Blah AAssnn&quot;;
+&gt; 
+&gt; my $key='Assn';
+&gt; 
+&gt; foreach my $name ( @names ) {
+&gt;  if ( $name =~ /\b\Q$key\E\b/ ) {
+&gt;     print &quot;matched |${name}|\n&quot;;
+&gt;  } else {
+&gt;     print &quot;didn't match |${name}|\n&quot;;
+&gt;  }
+&gt; }
+
+perldoc perlre
+
+           \b  Match a word boundary
+           \B  Match except at a word boundary
+
+A word boundary (&quot;\b&quot;) is a spot between two characters that has a &quot;\w&quot; on one side of it
+and a &quot;\W&quot; on the other side of it (in either order), counting the imaginary characters
+off the beginning and end of the string as matching a &quot;\W&quot;.  (Within character classes
+&quot;\b&quot; represents backspace rather than a word boundary, just as it normally does in any
+double-quoted string.)
+
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02895.html">[Omaha.pm] FaceBook Group - please join!</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02897.html">[Omaha.pm] Email::MIME::Kit</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02895.html">[Omaha.pm] FaceBook Group - please join!</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02897.html">[Omaha.pm] Email::MIME::Kit</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02896"><strong>Date</strong></a></li>
+<li><a href="threads.html#02896"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Crypt::Tea -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: Thu, 2 Dec 2004 15:38:28 &#45;0600 -->
+<!--X-Message-Id: 084AF447&#45;44AA&#45;11D9&#45;A29C&#45;000A95E317B8@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Crypt::Tea</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00223.html">Date Prev</a>][<a href="msg00225.html">Date Next</a>][<a href="msg00222.html">Thread Prev</a>][<a href="msg00225.html">Thread Next</a>][<a href="maillist.html#00224">Date Index</a>][<a href="threads.html#00224">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Crypt::Tea</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:jay%40jays.net">jay@jays.net</a></li>
+<li><em>Subject</em>: [Omaha.pm] Crypt::Tea</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Thu, 2 Dec 2004 15:35:05 -0600</li>
+<li><em>Cc</em>: </li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/archives/omaha-pm">http://mail.pm.org/archives/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=help">mailto:omaha-pm-request@mail.pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.mail.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@mail.pm.org">mailto:omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=subscribe">mailto:omaha-pm-request@mail.pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe">mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+Holy crap!
+
+I love Perl, CPAN, and now I also love Peter Billam. -grin-
+
+</pre><tt>We painted ourselves into a corner on a huge project with a tiny flaw. 
+</tt><tt>I thought to myself -- what I really need is some tiny Perl gizmo that 
+</tt><tt>would allow me to encrypt an integer, let me hand that off to the web 
+</tt><tt>client's browser (into a cookie), and be able to decrypt it when it 
+</tt><tt>comes back to the web server. (So they can't jack w/ the integer in 
+</tt><tt>their browser.) I had never used such a thing before.
+</tt><pre style="margin: 0em;">
+
+5 minutes on CPAN and I stumbled into Crypt::Tea.
+
+   <a  rel="nofollow" href="http://search.cpan.org/~pjb/Crypt-Tea-2.04/Tea.pm">http://search.cpan.org/~pjb/Crypt-Tea-2.04/Tea.pm</a>
+
+My demo program:
+----------------
+#!/usr/bin/perl
+
+use Crypt::Tea;
+$key = '18*71^asdj 1$$![&amp;.={[ 0182312m';
+my $secret = &quot;My secret! shhh!&quot;;
+
+for (1..20) {
+   push @secrets, encrypt($secret, $key);
+}
+foreach (@secrets) {
+   print &quot;$_ -&gt; &quot;;
+   print decrypt($_, $key);
+   print &quot;\n&quot;;
+}
+
+
+Output:
+--------------
+# ./j.pl
+mgb7NpXEhmY_DcnWFs6_thmm8dEmW2zz -&gt; My secret! shhh!
+QCOd3vpp6QZjD__c25nJtVlQ_sfT-rMm -&gt; My secret! shhh!
+eapzrEU30v1y8Lqo53QW6R51y2QVvA2J -&gt; My secret! shhh!
+WKgMDakGJjofJCPcSmsFTKHLvlsllokc -&gt; My secret! shhh!
+0f7NbSdS2yxeZGgLEheeN6tiYYfy-kQy -&gt; My secret! shhh!
+ECsGzMPflc6WYpZ8RZuiaRE6kyTVMo3Q -&gt; My secret! shhh!
+0f7NbSdS2yxeZGgLEheeN5qe-qzfKRjK -&gt; My secret! shhh!
+-fpqAgj0cvGtT5pj6NArX1h_62f_eB4T -&gt; My secret! shhh!
+eQaegpDVD6Euz-sCJpJN654pl1ZVNpRZ -&gt; My secret! shhh!
+rhLplwrT6RYXq-9ihEsWJ3YjH5Wwjb4I -&gt; My secret! shhh!
+tW-BhTOg0Z7PxxVZ0mYcBBKb0wayuDik -&gt; My secret! shhh!
+jaNmWK5Wm8kYOHBgu7zvLkKc9wMYsH9G -&gt; My secret! shhh!
+QW1IuWlaOZ-knID8K3OYmDVqsWiIeMKH -&gt; My secret! shhh!
+d0H4kiTESeQzceTQ-AHrD3pXUNhCQucw -&gt; My secret! shhh!
+rhLplwrT6RYXq-9ihEsWJ8YUet7WcQAz -&gt; My secret! shhh!
+QCOd3vpp6QZjD__c25nJtYTRHuO4pmzY -&gt; My secret! shhh!
+-1yP8-h9KABP5MBRp7z08euklmL82YUq -&gt; My secret! shhh!
+0f7NbSdS2yxeZGgLEheeN0XMOmcdgmbP -&gt; My secret! shhh!
+GQj85LnrKurqMeqOJ3aUA8btA2aLPpYX -&gt; My secret! shhh!
+VaM4A7NzxkxCyeJi7F1F3bnsWtq7FMuX -&gt; My secret! shhh!
+
+Elapsed time: 30 minutes, including this email.
+
+Awesome. I love Perl + CPAN.
+
+Thanks Peter!
+
+j
+Omaha Perl Mongers: <a  rel="nofollow" href="http://omaha.pm.org">http://omaha.pm.org</a>
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00225" href="msg00225.html">Re: [Omaha.pm] Crypt::Tea</a></strong>
+<ul><li><em>From:</em> &quot;Daniel Linder&quot; &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00223.html">Re: [Omaha.pm] Re: Omaha PM</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00225.html">Re: [Omaha.pm] Crypt::Tea</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00222.html">FW: [Omaha.pm] Re: Omaha PM</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00225.html">Re: [Omaha.pm] Crypt::Tea</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00224"><strong>Date</strong></a></li>
+<li><a href="threads.html#00224"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

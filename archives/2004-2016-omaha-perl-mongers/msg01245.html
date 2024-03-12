@@ -1,0 +1,145 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Module refuses to return a value -->
+<!--X-From-R13: "[vxr Vbfgrgyre" &#60;ubfgrgyrezNtznvy.pbz> -->
+<!--X-Date: 9 Dec 2006 22:19:41 &#45;0000 -->
+<!--X-Message-Id: c60e627c0612091419t7c6971f6s4a1ae5fe7ca2a437@mail.gmail.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: c60e627c0612041135q1eb26cecm9cfae767e0f1c389@mail.gmail.com -->
+<!--X-Reference: 14F56DAA&#45;C29E&#45;4E18&#45;A5FD&#45;1EE2F8DB4346@jays.net -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Module refuses to return a value</title>
+<link rev="made" href="mailto:hostetlerm@gmail.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01244.html">Date Prev</a>][<a href="msg01246.html">Date Next</a>][<a href="msg01241.html">Thread Prev</a>][<a href="msg01246.html">Thread Next</a>][<a href="maillist.html#01245">Date Index</a>][<a href="threads.html#01245">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Module refuses to return a value</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Module refuses to return a value</li>
+<li><em>From</em>: &quot;Mike Hostetler&quot; &lt;<a href="mailto:hostetlerm%40gmail.com">hostetlerm@gmail.com</a>&gt;</li>
+<li><em>Date</em>: Sat, 9 Dec 2006 16:19:01 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01241.html">14F56DAA-C29E-4E18-A5FD-1EE2F8DB4346@jays.net</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01233.html">c60e627c0612041135q1eb26cecm9cfae767e0f1c389@mail.gmail.com</a>&gt;	&lt;<a href="msg01241.html">14F56DAA-C29E-4E18-A5FD-1EE2F8DB4346@jays.net</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+Actually I figured it out.  It wasn't my code -- it was my data! :)  I
+was looking for a date in the Excel sheet and (when I wrote the script
+at the end of the month) the date was mm/dd/yyyy.  I thought at the
+beginning of the month it would be mm/0d/yyyy but it's actually
+mm/d/yyyy.  Stupid Excel!
+
+Anyway, I changed my regex (which I didn't see) and now my module works fine
+
+Thanks for the reply though.
+
+Mike
+
+On 12/9/06, Jay Hannah &lt;jay@jays.net&gt; wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+On Dec 4, 2006, at 1:35 PM, Mike Hostetler wrote:
+&gt; If I put the getCellByValue sub in my script than everything is fine.
+&gt; So I'm missing something in my module.  Anyone wish to bring me to
+&gt; enlightenment?
+
+I didn't see anything &quot;wrong&quot; with your code at a glance. My next
+step would be to play with it in the debugger. Have you used it
+before? It's awfully handy. I'd be happy to help you at the next
+meeting if you want.
+
+perldoc perldebug
+perldoc perldebtut
+
+HTH,
+
+j
+
+
+
+_______________________________________________
+Omaha-pm mailing list
+Omaha-pm@pm.org
+<a  rel="nofollow" href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>
+
+</pre></blockquote><pre style="margin: 0em;">
+
+
+--
+Mike Hostetler
+<a  rel="nofollow" href="http://mike.hostetlerhome.com/">http://mike.hostetlerhome.com/</a>
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01246" href="msg01246.html">Re: [Omaha.pm] Module refuses to return a value</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01233" href="msg01233.html">[Omaha.pm] Module refuses to return a value</a></strong>
+<ul><li><em>From:</em> &quot;Mike Hostetler&quot; &lt;hostetlerm@gmail.com&gt;</li></ul></li>
+<li><strong><a name="01241" href="msg01241.html">Re: [Omaha.pm] Module refuses to return a value</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01244.html">Re: [Omaha.pm] Meeting reminder: Tue, 12 Dec 2006 @ 7pm!</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01246.html">Re: [Omaha.pm] Module refuses to return a value</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01241.html">Re: [Omaha.pm] Module refuses to return a value</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01246.html">Re: [Omaha.pm] Module refuses to return a value</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01245"><strong>Date</strong></a></li>
+<li><a href="threads.html#01245"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

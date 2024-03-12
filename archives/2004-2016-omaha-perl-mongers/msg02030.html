@@ -1,0 +1,140 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] [OT] Subversion assistance... -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 16 Feb 2009 19:39:12 &#45;0000 -->
+<!--X-Message-Id: 538ADE1C&#45;47F5&#45;4B63&#45;8C95&#45;8D55791597F2@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 3e2be50902110909w503033d5g929d1dcc259094fb@mail.gmail.com -->
+<!--X-Reference: 499312C1.3030608@travisbsd.org -->
+<!--X-Reference: 3e2be50902161120h647713c4i4fc8c17b16894bbb@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] [OT] Subversion assistance...</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02029.html">Date Prev</a>][<a href="msg02031.html">Date Next</a>][<a href="msg02029.html">Thread Prev</a>][<a href="msg02031.html">Thread Next</a>][<a href="maillist.html#02030">Date Index</a>][<a href="threads.html#02030">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] [OT] Subversion assistance...</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] [OT] Subversion assistance...</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Mon, 16 Feb 2009 13:39:00 -0600</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg02029.html">3e2be50902161120h647713c4i4fc8c17b16894bbb@mail.gmail.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg02013.html">3e2be50902110909w503033d5g929d1dcc259094fb@mail.gmail.com</a>&gt;	&lt;<a href="msg02014.html">499312C1.3030608@travisbsd.org</a>&gt;	&lt;<a href="msg02029.html">3e2be50902161120h647713c4i4fc8c17b16894bbb@mail.gmail.com</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+On Feb 16, 2009, at 1:20 PM, Dan Linder wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><tt>Regarding the trunk/tags/branch (TTB) directories that show up  
+</tt><tt>within the subversion repository...  Should those be automatically  
+</tt><tt>created when I do the &quot;svnadmin create&quot;, or should I be creating  
+</tt><tt>them myself manually?
+</tt></blockquote><pre style="margin: 0em;">
+
+</pre><tt>Those are best practice, but they're not mandatory, so you add them  
+</tt><tt>yourself.
+</tt><pre style="margin: 0em;">
+
+(Usually &quot;branches/&quot; not &quot;branch/&quot;.)
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+5: mkdir $TEMPDIR/{branches,tags,trunk}
+6: svn add $TEMPDIR/{branches,tags,trunk}
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>&quot;svn mkdir&quot; is better -- does both of those in a single step. Do all  
+</tt><tt>six in a single step, actually: &quot;svn mkdir branches tags trunk; svn  
+</tt><tt>commit&quot;
+</tt><pre style="margin: 0em;">
+
+&quot;svn rmdir&quot; will come in handy eventually.
+
+</pre><tt>Also, &quot;svn mv&quot; is magically delicious and should *always* be used  
+</tt><tt>rather moving something yourself.
+</tt><pre style="margin: 0em;">
+
+Other than that, looks fine to me.  :)
+
+HTH,
+
+j
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="02031" href="msg02031.html">Re: [Omaha.pm] [OT] Subversion assistance...</a></strong>
+<ul><li><em>From:</em> Dan Linder &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="02013" href="msg02013.html">[Omaha.pm] [OT] Subversion assistance...</a></strong>
+<ul><li><em>From:</em> Dan Linder &lt;dan@linder.org&gt;</li></ul></li>
+<li><strong><a name="02014" href="msg02014.html">Re: [Omaha.pm] [OT] Subversion assistance...</a></strong>
+<ul><li><em>From:</em> Travis McArthur &lt;travis@travisbsd.org&gt;</li></ul></li>
+<li><strong><a name="02029" href="msg02029.html">Re: [Omaha.pm] [OT] Subversion assistance...</a></strong>
+<ul><li><em>From:</em> Dan Linder &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02029.html">Re: [Omaha.pm] [OT] Subversion assistance...</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02031.html">Re: [Omaha.pm] [OT] Subversion assistance...</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02029.html">Re: [Omaha.pm] [OT] Subversion assistance...</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02031.html">Re: [Omaha.pm] [OT] Subversion assistance...</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02030"><strong>Date</strong></a></li>
+<li><a href="threads.html#02030"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

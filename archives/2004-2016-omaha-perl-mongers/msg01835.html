@@ -1,0 +1,148 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Wow. The New York Times profiler. -->
+<!--X-From-R13: Xnl Vnaanu &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 26 Aug 2008 17:40:51 &#45;0000 -->
+<!--X-Message-Id: C4D9AA41.16F15%jhannah@omnihotels.com -->
+<!--X-Content-Type: multipart/alternative -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Wow. The New York Times profiler.</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01834.html">Date Prev</a>][<a href="msg01836.html">Date Next</a>][<a href="msg01834.html">Thread Prev</a>][<a href="msg01836.html">Thread Next</a>][<a href="maillist.html#01835">Date Index</a>][<a href="threads.html#01835">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Wow. The New York Times profiler.</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Wow. The New York Times profiler.</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Tue, 26 Aug 2008 12:40:33 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AckHotcAFVPthXOWEd20uwAX8ixAzg==</li>
+<li><em>Thread-topic</em>: Wow. The New York Times profiler.</li>
+<li><em>User-agent</em>: Microsoft-Entourage/11.4.0.080122</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<address>Title: <strong>Wow. The New York Times profiler.</strong></address>
+
+
+
+<FONT FACE="Verdana, Helvetica, Arial"><SPAN STYLE='font-size:12.0px'>Wow. The New York Times profiler is way too cool and insanely easy to use.<BR>
+<BR>
+Question: &nbsp;I'm just loading a little Moose object and printing it. Why is it taking over a second??<BR>
+<BR>
+Answer: &nbsp;&nbsp;&nbsp;Use the New York Times profiler:<BR>
+<BR>
+$ perl -d:NYTProf j.pl<BR>
+[123] Jay Hannah<BR>
+$ nytprof nytprof.out<BR>
+<BR>
+Result:<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;<a rel="nofollow" href="http://jay.mammoth.org/tmp/nytprof/">http://jay.mammoth.org/tmp/nytprof/</a><BR>
+<BR>
+Can you find the problem? &nbsp;-grin-<BR>
+<BR>
+Hint: In &quot;Employee::string&quot; at the top, click &quot;string&quot;. There's my source code. See the problem?<BR>
+<BR>
+Cheers,<BR>
+<BR>
+j<BR>
+<BR>
+<BR>
+<BR>
+(<BR>
+&nbsp;&nbsp;&nbsp;Note that you currently need the Google Code SVN version to see the code inside Moose objects. CPAN version is not yet sufficient.<BR>
+&nbsp;&nbsp;&nbsp;<a rel="nofollow" href="http://code.google.com/p/perl-devel-nytprof/source/checkout">http://code.google.com/p/perl-devel-nytprof/source/checkout</a><BR>
+)<BR>
+<BR>
+<BR>
+The source code:<BR>
+<BR>
+$ cat j.pl<BR>
+#!/usr/bin/perl<BR>
+<BR>
+use Employee;<BR>
+<BR>
+my $e = Employee-&gt;new();<BR>
+$e-&gt;first_name(&quot;Jay&quot;);<BR>
+$e-&gt;last_name(&quot;Hannah&quot;);<BR>
+$e-&gt;employee_id(123);<BR>
+<BR>
+print $e-&gt;string, &quot;\n&quot;;<BR>
+<BR>
+<BR>
+Takes over a second to run:<BR>
+<BR>
+$ time perl j.pl<BR>
+[123] Jay Hannah<BR>
+<BR>
+real &nbsp;&nbsp;&nbsp;0m1.256s<BR>
+user &nbsp;&nbsp;&nbsp;0m0.233s<BR>
+sys &nbsp;&nbsp;&nbsp;&nbsp;0m0.021s<BR>
+<BR>
+</SPAN></FONT>
+
+
+
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01834.html">[Omaha.pm] Benchmark flakiness</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01836.html">[Omaha.pm] Fwd: Newsletter from O'Reilly UG Program, August 26</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01834.html">[Omaha.pm] Benchmark flakiness</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01836.html">[Omaha.pm] Fwd: Newsletter from O'Reilly UG Program, August 26</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01835"><strong>Date</strong></a></li>
+<li><a href="threads.html#01835"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Alarms in Perl. -->
+<!--X-From-R13: "Rnavry Zvaqre" &#60;qnaNyvaqre.bet> -->
+<!--X-Date: 25 Oct 2007 16:08:42 &#45;0000 -->
+<!--X-Message-Id: 59610.70.165.110.36.1193328496.squirrel@webmail.linder.org -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Alarms in Perl.</title>
+<link rev="made" href="mailto:dan@linder.org">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01551.html">Date Prev</a>][<a href="msg01553.html">Date Next</a>][<a href="msg01551.html">Thread Prev</a>][<a href="msg01553.html">Thread Next</a>][<a href="maillist.html#01552">Date Index</a>][<a href="threads.html#01552">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Alarms in Perl.</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Subject</em>: [Omaha.pm] Alarms in Perl.</li>
+<li><em>From</em>: &quot;Daniel Linder&quot; &lt;<a href="mailto:dan%40linder.org">dan@linder.org</a>&gt;</li>
+<li><em>Date</em>: Thu, 25 Oct 2007 11:08:16 -0500 (CDT)</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>Importance</em>: Normal</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: <a href="mailto:dan%40linder.org">dan@linder.org</a>, &quot;Perl Mongers of Omaha,	Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: SquirrelMail/1.4.10a</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>[No, it's DeJaVu, I accidentally posted this to the Omaha Local Users
+Group instead of PM when I meant to post it here.  Sorry if you get this
+twice. --Dan]
+
+I have a handful of scripts that are run periodically 24x7.  Nearly all
+the time, they run fine and report their status back when they exit
+correctly.  On the odd occasion (about once every 1-2 weeks), a script
+will hang at some point in the code and never exit - most likely a call to
+an external program that didn't complete or hung itself.  (The reason for
+the hanging is not the point of this e-mail.)
+
+What I would like to setup is a simple alarm based action that would exit
+the script -- no matter what -- if it was still running after an extended
+period of time.  (I.e. if a script that should only take ten seconds to
+run has been running for five minutes, exit with a value of 99.)
+
+&gt;From perl.com I found this code:
+URL:<a  rel="nofollow" href="http://www.perl.com/pub/a/2007/06/07/better-code-through-destruction.html?page=2">http://www.perl.com/pub/a/2007/06/07/better-code-through-destruction.html?page=2</a>
+Code:
+1:    eval{
+2:        local $SIG{ALRM} = sub { die &quot;Timed out\n&quot; };
+3:        alarm(5);
+4:        my $sentry = Object::Destroyer-&gt;new( sub {alarm(0)} );
+5:        long_running_code();
+6:    };
+
+Dissection:
+Line 1: Wrapper the whole thing in an &quot;eval&quot; to make the &quot;my $sentry&quot; work.
+Line 2: Setup what to do when the alarm triggers.
+Line 3: Set the alarm to go off in 5 seconds.
+Line 4: Setup a new variable that only exists within the &quot;eval&quot; block.
+When the eval block exits, the $sentry variable object invokes the
+Destroyer function.  (In this case it resets the alarm to 0, effectively
+resetting the alarm on a good exit of the eval block.)
+Line 5: Run the (possibly bad) code.  If it runs to completion within the
+allotted time, the eval block exits, the alarm is reset, and the die never
+gets called.  If the code takes too long, the die *is* called and the
+whole script exits.
+
+Questions:
+1: Will (should) this work even if the &quot;long_running_code()&quot; uses system()
+and or back-ticks to call out to external programs?  (I realize those
+programs could be left running - I'm ok with having the admin clean them
+up once they are alerted to the code not returning at all...)
+
+2: Are the alarm() and Object::Destroyer calls part of the base Perl
+modules, or will I be visiting CPAN to get this working?  (How do I check
+what's included out of the box vs. what has been installed over time?)
+
+3: Is there any command-line magic that perl can be invoked with that will
+cause Perl to call a specific function if it is left running for a long
+period of time?  (i.e. perl --timeout 300 --timeout-sub
+'MyExitSubroutine()' ./MyBigPerlScript.pl)
+
+Thanks,
+
+Dan
+
+- - - -
+&quot;There are four boxes to be used in defense of liberty: soap, ballot,
+jury, and ammo. Please use in that order.&quot;
+-- Ed Howdershelt (Author)
+
+&quot;I do not fear computers, I fear the lack of them.&quot; -- Isaac Asimov (Author)
+** *** ***** ******* *********** *************
+NRL, Shayet-13, NCCS, IRS, Reno, gorilla, anarchy
+package, domestic disruption, UDT, Tie-fighter, Menwith, Masuda, c
+Duress, Bubba the Love Sponge, HIC, BATF, package, TELINT, HPCC
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="01553" href="msg01553.html">Re: [Omaha.pm] Alarms in Perl.</a></strong>
+<ul><li><em>From:</em> Jay Hannah &lt;jay@jays.net&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01551.html">Re: [Omaha.pm] [olug] Character Removal</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01553.html">Re: [Omaha.pm] Alarms in Perl.</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01551.html">Re: [Omaha.pm] [olug] Character Removal</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01553.html">Re: [Omaha.pm] Alarms in Perl.</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01552"><strong>Date</strong></a></li>
+<li><a href="threads.html#01552"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

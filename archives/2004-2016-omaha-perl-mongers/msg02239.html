@@ -1,0 +1,120 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Mapping Perl structures to a SQL table... -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 31 Oct 2009 14:02:24 &#45;0000 -->
+<!--X-Message-Id: FD243EEC&#45;13C8&#45;45F1&#45;8DF4&#45;4CE8402E7651@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 3e2be50910301131h5803fe21j5843873d37f9bd27@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Mapping Perl structures to a SQL table...</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02238.html">Date Prev</a>][<a href="msg02240.html">Date Next</a>][<a href="msg02238.html">Thread Prev</a>][<a href="msg02251.html">Thread Next</a>][<a href="maillist.html#02239">Date Index</a>][<a href="threads.html#02239">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Mapping Perl structures to a SQL table...</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Mapping Perl structures to a SQL table...</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Sat, 31 Oct 2009 09:02:10 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg02235.html">3e2be50910301131h5803fe21j5843873d37f9bd27@mail.gmail.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg02235.html">3e2be50910301131h5803fe21j5843873d37f9bd27@mail.gmail.com</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+On Oct 30, 2009, at 1:31 PM, Dan Linder wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+What I'm looking for is some general comments and discussion about the
+mental task of mapping these hash tables into a SQL table.  I'm not
+really looking for a tool, more a high level discussion about ways to
+store the data and still remain flexible.
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>An RDBMS is the most flexible thing around. Ignore your current  
+</tt><tt>implementation details and focus on the problems that your data  
+</tt><tt>addresses. Organize your data by business concept (table) that would  
+</tt><tt>make sense to current and future employees of that business. Keep  
+</tt><tt>whatever performance metrics are important to you in mind as you  
+</tt><tt>design the tables.
+</tt><pre style="margin: 0em;">
+
+</pre><tt>Write software to map your hashes into that model. Push all the data  
+</tt><tt>into an RDBMS. Benchmark your most common interactions with that data.  
+</tt><tt>Optimize your indexes for those use cases. Benchmark again. Prep all  
+</tt><tt>your tools for your new model. QA. Migrate the data. svn rm the old  
+</tt><tt>stuff.  :)
+</tt><pre style="margin: 0em;">
+
+HTH,
+
+j
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="02235" href="msg02235.html">[Omaha.pm] Mapping Perl structures to a SQL table...</a></strong>
+<ul><li><em>From:</em> Dan Linder &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02238.html">Re: [Omaha.pm] Mapping Perl structures to a SQL table...</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02240.html">Re: [Omaha.pm] BioPerl on FLOSS Weekly</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02238.html">Re: [Omaha.pm] Mapping Perl structures to a SQL table...</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02251.html">[Omaha.pm] Future Perl snuck up on me</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02239"><strong>Date</strong></a></li>
+<li><a href="threads.html#02239"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

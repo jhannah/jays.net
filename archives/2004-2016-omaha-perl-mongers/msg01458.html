@@ -1,0 +1,146 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Active bandwidth monitoring -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 17 Jul 2007 13:49:21 &#45;0000 -->
+<!--X-Message-Id: 46AAF41F&#45;AED3&#45;4988&#45;B686&#45;90F81759E3F6@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 4415.70.165.110.36.1184644708.squirrel@webmail.linder.org -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Active bandwidth monitoring</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01457.html">Date Prev</a>][<a href="msg01459.html">Date Next</a>][<a href="msg01457.html">Thread Prev</a>][<a href="msg01459.html">Thread Next</a>][<a href="maillist.html#01458">Date Index</a>][<a href="threads.html#01458">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Active bandwidth monitoring</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Active bandwidth monitoring</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Tue, 17 Jul 2007 08:47:51 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01457.html">4415.70.165.110.36.1184644708.squirrel@webmail.linder.org</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01457.html">4415.70.165.110.36.1184644708.squirrel@webmail.linder.org</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+On Jul 16, 2007, at 10:58 PM, Daniel Linder wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><tt>I'm trying to pro-actively monitor the &quot;real world&quot; speed that I'm  
+</tt><tt>getting
+</tt><pre style="margin: 0em;">
+with my @Work connection.
+</pre></blockquote><pre style="margin: 0em;">
+...
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+Questions:
+</pre><tt>1: Has anyone run across a tool like this that is free and will run  
+</tt><tt>on Linux?
+</tt></blockquote><pre style="margin: 0em;">
+
+</pre><tt>I haven't heard of such a thing. I would think that monitoring your  
+</tt><tt>bandwidth by frequently flooding your network with downloads
+</tt><pre style="margin: 0em;">
+wouldn't be a terribly popular tool.  :)
+
+</pre><tt>That said, you can stick any numbers you want into RRDTool and it  
+</tt><tt>will keep your historical trends and generate all your graphs for  
+</tt><tt>you. I have written some Perl wrappers to throw miscellaneous  
+</tt><tt>statistics into RRDTool every 5 minutes (via cron), and it does all  
+</tt><tt>the hard work for me.
+</tt><pre style="margin: 0em;">
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><tt>2: If I stared to write something like this, has anyone got some  
+</tt><tt>Perl code
+</tt><pre style="margin: 0em;">
+to grab random URLs from a search engine?
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>Umm... I guess you could use WWW::Mechanize to feed a random word  
+</tt><tt>from your local dictionary to Google and hit the &quot;I'm feeling lucky&quot;  
+</tt><tt>button. But that's not really trending *your* bandwidth because the  
+</tt><tt>random server on the other end could have bandwidth problems of its  
+</tt><tt>own and you'd have no way of seeing the difference between your  
+</tt><tt>bandwidth and theirs.
+</tt><pre style="margin: 0em;">
+
+</pre><tt>It seems to me to trend your bandwidth you'd have to hit a known big  
+</tt><tt>pipe every time, and just assume that your chosen victim always has  
+</tt><tt>&quot;unlimited&quot; bandwidth and never has server or congestion trouble of  
+</tt><tt>any kind.
+</tt><pre style="margin: 0em;">
+
+</pre><tt>Intentionally and systematically wasting bandwidth seems a strange  
+</tt><tt>first step towards getting more bandwidth, which is, I assume, your  
+</tt><tt>ultimate goal.  :)
+</tt><pre style="margin: 0em;">
+
+j
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01457" href="msg01457.html">[Omaha.pm] Active bandwidth monitoring</a></strong>
+<ul><li><em>From:</em> &quot;Daniel Linder&quot; &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01457.html">[Omaha.pm] Active bandwidth monitoring</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01459.html">[Omaha.pm] XML::Twig, get_xpath are cool</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01457.html">[Omaha.pm] Active bandwidth monitoring</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01459.html">[Omaha.pm] XML::Twig, get_xpath are cool</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01458"><strong>Date</strong></a></li>
+<li><a href="threads.html#01458"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

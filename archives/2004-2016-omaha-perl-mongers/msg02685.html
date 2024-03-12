@@ -1,0 +1,116 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Suggested XML modules... (2011) -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 8 Jun 2011 04:25:39 &#45;0000 -->
+<!--X-Message-Id: 93285E05&#45;043E&#45;4BF2&#45;9F1F&#45;20069B4FD260@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: BANLkTinzt6Anie_HBkjAEBhaOJ4+JCH4mA@mail.gmail.com -->
+<!--X-Reference: BANLkTimnQ2izc4FiVHBBDLB3cdGZ21zYKQ@mail.gmail.com -->
+<!--X-Reference: BANLkTi=Cyy1RhXZ_RO+JBUPL=r&#45;=OWFc6Q@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Suggested XML modules... (2011)</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02684.html">Date Prev</a>][<a href="msg02686.html">Date Next</a>][<a href="msg02684.html">Thread Prev</a>][<a href="msg02688.html">Thread Next</a>][<a href="maillist.html#02685">Date Index</a>][<a href="threads.html#02685">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Suggested XML modules... (2011)</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Suggested XML modules... (2011)</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Wed, 8 Jun 2011 00:25:23 -0400</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;BANLkTi=Cyy1RhXZ_RO+JBUPL=r-=OWFc6Q@mail.gmail.com&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg02682.html">BANLkTinzt6Anie_HBkjAEBhaOJ4+JCH4mA@mail.gmail.com</a>&gt;	&lt;<a href="msg02683.html">BANLkTimnQ2izc4FiVHBBDLB3cdGZ21zYKQ@mail.gmail.com</a>&gt;	&lt;BANLkTi=Cyy1RhXZ_RO+JBUPL=r-=OWFc6Q@mail.gmail.com&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>On Jun 7, 2011, at 3:52 PM, Dan Linder wrote:
+&gt; I'll have to investigate the XML-Twig module to see if it is pure Perl or not - it installed under Strawberry Perl and I didn't notice it pulling in a binary compiled version of any files.  (Jay - Twig appears to be your XML module of choice - any thoughts on it you want to share?)
+
+I used XML::Twig for *everything* for many years. It's not pure perl -- it sits on top of expat, which is written in C.
+
+Looks like Christopher already wrote you a solution in XML::XPath? Are you all set then?
+
+Note that xpath is implemented in lots of libraries (Perl and otherwise). It's available in XML::Twig too -- see get_xpath().  xpath rocks.   :)
+
+   <a  rel="nofollow" href="http://search.cpan.org/~mirod/XML-Twig-3.38/Twig_pm.slow#XML::Twig::XPath">http://search.cpan.org/~mirod/XML-Twig-3.38/Twig_pm.slow#XML::Twig::XPath</a>
+
+I haven't done any XML work since I left Omni Hotels back in Oct 2010. They use the hell out of XML, but since I've left I've worked with more JSON than XML.   -shrug-
+
+HTH,
+
+j
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="02682" href="msg02682.html">[Omaha.pm] Suggested XML modules... (2011)</a></strong>
+<ul><li><em>From:</em> Dan Linder &lt;dan@linder.org&gt;</li></ul></li>
+<li><strong><a name="02683" href="msg02683.html">Re: [Omaha.pm] Suggested XML modules... (2011)</a></strong>
+<ul><li><em>From:</em> Christopher Cashell &lt;topher-pm@zyp.org&gt;</li></ul></li>
+<li><strong><a name="02684" href="msg02684.html">Re: [Omaha.pm] Suggested XML modules... (2011)</a></strong>
+<ul><li><em>From:</em> Dan Linder &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02684.html">Re: [Omaha.pm] Suggested XML modules... (2011)</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02686.html">Re: [Omaha.pm] Meeting Tue June 14</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02684.html">Re: [Omaha.pm] Suggested XML modules... (2011)</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02688.html">[Omaha.pm] Call for presentations</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02685"><strong>Date</strong></a></li>
+<li><a href="threads.html#02685"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

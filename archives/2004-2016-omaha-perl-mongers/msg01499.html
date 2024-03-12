@@ -1,0 +1,200 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] weee, I get to use perl again -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 26 Aug 2007 13:49:36 &#45;0000 -->
+<!--X-Message-Id: CCBBE5DA&#45;52CB&#45;4D20&#45;8B3F&#45;88CEC6C76DD9@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: CB5348B152BEC84F9FE88EA7DBB2CD6502216BC2@OMAEXMB02.corp.westworlds.com -->
+<!--X-Reference: fd34a8450708241636i31e33bfrc6ef8755726ecec3@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] weee, I get to use perl again</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01498.html">Date Prev</a>][<a href="msg01500.html">Date Next</a>][<a href="msg01497.html">Thread Prev</a>][<a href="msg01498.html">Thread Next</a>][<a href="maillist.html#01499">Date Index</a>][<a href="threads.html#01499">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] weee, I get to use perl again</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] weee, I get to use perl again</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Sun, 26 Aug 2007 08:49:21 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;<a href="msg01497.html">fd34a8450708241636i31e33bfrc6ef8755726ecec3@mail.gmail.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;<a href="msg01496.html">CB5348B152BEC84F9FE88EA7DBB2CD6502216BC2@OMAEXMB02.corp.westworlds.com</a>&gt;	&lt;<a href="msg01497.html">fd34a8450708241636i31e33bfrc6ef8755726ecec3@mail.gmail.com</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+My $0.02, FWIW --
+
+On Aug 24, 2007, at 6:36 PM, Jesse Andersen wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><tt>I could be wrong, but wouldn't something like the following work  
+</tt><tt>for what you want to do?  the path will stay relative to your script.
+</tt><pre style="margin: 0em;">
+
+#!/usr/bin/perl -w
+
+open(IN, &quot;&lt;../test/test.txt&quot;);
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>That should work fine if you're manually running the Perl program  
+</tt><tt>from the current directory. But does it work if you provide a full  
+</tt><tt>path? Will it work in a cron job?
+</tt><pre style="margin: 0em;">
+
+On Aug 24, 2007, at 10:26 PM, Christopher Cashell wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+   use FindBin qw($Bin);
+   use lib &quot;$Bin&quot;;
+
+   use vars qw($user $pass $url $ids_ver $max_events);
+   require &quot;ids_check.conf&quot;;
+</pre></blockquote><pre style="margin: 0em;">
+
+FindBin is cool. Hadn't seen that one in a while.
+
+So ids_check.conf basically looks like this?
+
+  $user = 'wally';
+
+</pre><tt>&quot;perldoc vars&quot; says that 'vars' is deprecated, and you should use  
+</tt><tt>'our' instead? (perldoc -f our) I don't use either, though, so what  
+</tt><tt>do I know?  :)
+</tt><pre style="margin: 0em;">
+
+
+------------
+Thought # 1
+------------
+</pre><tt>Don't know if &quot;our way&quot; is good or bad, but we decreed that all our  
+</tt><tt>in-house perl will always live in one absolute path:
+</tt><pre style="margin: 0em;">
+
+   /usr/lib/perl5/site_perl/Omni
+
+And our MVC class structure begins in the absolute path
+
+   /usr/lib/perl5/site_perl/Omni/MVC
+
+So when an admin installs a new Linux box, they
+
+   cd /usr/lib/perl5/site_perl
+   cvs checkout -d Omni source/common/perl
+   export PERL5LIB=/usr/lib/perl5/site_perl/Omni/MVC
+
+</pre><tt>and they're done. Cron jobs and hard-coded to absolute paths, that  
+</tt><tt>are in turn hard-coded with absolute paths of their own if they need  
+</tt><tt>to read files.
+</tt><pre style="margin: 0em;">
+
+</pre><tt>Consequence: You can't choose to install our 172K lines of Perl  
+</tt><tt>somewhere else, even if you wanted to. Parts of it won't work. (Looks  
+</tt><tt>like we have 287 unit test scripts running 17,493 subtests nowadays...)
+</tt><pre style="margin: 0em;">
+
+</pre><tt>-ponder-  It's not a problem for us, since it's always root  
+</tt><tt>installing the bundle into the exact same path. (Makes admin job  
+</tt><tt>easy. -grin-)
+</tt><pre style="margin: 0em;">
+
+
+------------
+Thought # 2
+------------
+</pre><tt>On occasion when I have wanted people to be able to install my source  
+</tt><tt>code wherever they choose I have used an environment variable.
+</tt><pre style="margin: 0em;">
+
+   my $file = &quot;$ENV{OTA2_PATH}/skeletons/$filename.xml&quot;;
+   $twig-&gt;parsefile($file) or die &quot;Can't load '$file'&quot;;
+
+Tests are skipped like so
+
+use Test::More;
+if( -d &quot;$ENV{OTA2_PATH}/skeletons&quot; ) {
+   plan tests =&gt; 4;
+} else {
+   plan skip_all =&gt; 'Looks like your $ENV{OTA2_PATH} is not set';
+}
+
+</pre><tt>If they don't have the right environment variable set they just get  
+</tt><tt>an error.
+</tt><pre style="margin: 0em;">
+
+$ perl Errors.t
+1..0 # Skip Looks like your $ENV{OTA2_PATH} is not set
+
+
+HTH,
+
+j
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="01496" href="msg01496.html">[Omaha.pm] weee, I get to use perl again</a></strong>
+<ul><li><em>From:</em> &quot;Larson, Timothy E.&quot; &lt;TELarson@west.com&gt;</li></ul></li>
+<li><strong><a name="01497" href="msg01497.html">Re: [Omaha.pm] weee, I get to use perl again</a></strong>
+<ul><li><em>From:</em> &quot;Jesse Andersen&quot; &lt;gotosleep@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01498.html">Re: [Omaha.pm] weee, I get to use perl again</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01500.html">Re: [Omaha.pm] weee, I get to use perl again</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01497.html">Re: [Omaha.pm] weee, I get to use perl again</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01498.html">Re: [Omaha.pm] weee, I get to use perl again</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01499"><strong>Date</strong></a></li>
+<li><a href="threads.html#01499"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

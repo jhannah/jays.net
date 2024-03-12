@@ -1,0 +1,21 @@
+#!/bin/perl -w
+use strict;
+
+sub ProcFiles {
+	my $dir = shift;
+	opendir (DIR, $dir) or die $!;
+	while (my $file = readdir(DIR)) {
+		next if ( -d "$dir/$file" && $file =~ /^\./);
+		if (-d "$dir/$file") {
+			printf ("Diving into \"%s/%s\".\n", $dir, $file);
+			# printf ("(recursive call commented out.)\n");
+			&ProcFiles("$dir/$file");
+			next;
+		}
+		printf ("Adding \"%s/%s\".\n", $dir, $file);
+	}
+	closedir(DIR);
+}
+&ProcFiles ("/tmp/base");
+printf ("Done.\n");
+

@@ -1,0 +1,137 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] perl or system problem? -->
+<!--X-From-R13: Vhtu Xnepr &#60;uwnepr2001Nlnubb.pbz> -->
+<!--X-Date: Thu, 21 Oct 2004 18:39:55 &#45;0500 -->
+<!--X-Message-Id: 20041021233954.26762.qmail@web54404.mail.yahoo.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 8ee061010410210714da12ea8@mail.gmail.com -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] perl or system problem?</title>
+<link rev="made" href="mailto:hjarce2001@yahoo.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00186.html">Date Prev</a>][<a href="msg00188.html">Date Next</a>][<a href="msg00183.html">Thread Prev</a>][<a href="msg00184.html">Thread Next</a>][<a href="maillist.html#00187">Date Index</a>][<a href="threads.html#00187">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] perl or system problem?</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Terry &lt;<a href="mailto:td3201%40gmail.com">td3201@gmail.com</a>&gt;,	&quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] perl or system problem?</li>
+<li><em>From</em>: Hugh Jarce &lt;<a href="mailto:hjarce2001%40yahoo.com">hjarce2001@yahoo.com</a>&gt;</li>
+<li><em>Date</em>: Thu, 21 Oct 2004 16:39:54 -0700 (PDT)</li>
+<li><em>Cc</em>: </li>
+<li><em>In-reply-to</em>: &lt;<a href="msg00183.html">8ee061010410210714da12ea8@mail.gmail.com</a>&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/archives/omaha-pm">http://mail.pm.org/archives/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=help">mailto:omaha-pm-request@mail.pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.mail.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@mail.pm.org">mailto:omaha-pm@mail.pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=subscribe">mailto:omaha-pm-request@mail.pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://www.pm.org/mailman/listinfo/omaha-pm">http://www.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe">mailto:omaha-pm-request@mail.pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40mail.pm.org">omaha-pm@mail.pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>--- Terry &lt;td3201@gmail.com&gt; wrote:
+&gt; Hello,
+&gt; 
+&gt; I have a hunch this is something to do with my environment .....
+&gt; 
+&gt; I am running this program out of cron:
+&gt; 
+&gt; #!/usr/local/bin/perl
+&gt; 
+&gt; use Mail::Sendmail;
+&gt; 
+&gt; $hostname = `hostname`;
+&gt; $message = `pprosvc -n -l`;
+&gt; unshift @{$Mail::Sendmail::mailcfg{'smtp'}} , 'plasmtp';
+&gt; %mail = ( To      =&gt; 'jo@hotmail.com',
+&gt;         From    =&gt; &quot;admin\@$hostname&quot;,
+&gt;         Subject =&gt; 'available packages',
+&gt;         Message =&gt; &quot;$message&quot;
+&gt; );
+&gt; sendmail(%mail) or die $Mail::Sendmail::error;
+
+Let perl tell you what's wrong. For example:
+
+    $message = `pprosvc -n -l`;
+    my $rc = $? &gt;&gt; 8;
+    warn &quot;command failed (rc=$rc): $!\n&quot; if $rc != 0;
+
+Or more elaborately (taken from: perldoc -f system):
+
+    if ($? == -1) {
+	print &quot;failed to execute: $!\n&quot;;
+    } elsif ($? &amp; 127) {
+	printf &quot;child died with signal %d, %s coredump\n&quot;,
+	    ($? &amp; 127),  ($? &amp; 128) ? 'with' : 'without';
+    } else {
+	printf &quot;child exited with value %d\n&quot;, $? &gt;&gt; 8;
+    }  
+
+Hugh
+
+
+
+		
+_______________________________
+Do you Yahoo!?
+Declare Yourself - Register online to vote today!
+<a  rel="nofollow" href="http://vote.yahoo.com">http://vote.yahoo.com</a>
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00183" href="msg00183.html">[Omaha.pm] perl or system problem?</a></strong>
+<ul><li><em>From:</em> Terry &lt;td3201@gmail.com&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00186.html">[Omaha.pm] IO::Multiplex &amp; signals?</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00188.html">Re: [Omaha.pm] Re: [olug] perl cpan problem</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00183.html">[Omaha.pm] perl or system problem?</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00184.html">RE: [Omaha.pm] perl or system problem?</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00187"><strong>Date</strong></a></li>
+<li><a href="threads.html#00187"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

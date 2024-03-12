@@ -1,0 +1,118 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: Re: [Omaha.pm] Passing arguments to "sprintf"... -->
+<!--X-From-R13: Oaql Zrfgre &#60;naqlNcrgqnapr.pbz> -->
+<!--X-Date: 9 Feb 2005 20:11:58 &#45;0000 -->
+<!--X-Message-Id: 20050209201137.GA22798@petdance.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 55365.207.108.40.31.1107977265.squirrel@207.108.40.31 -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Re: [Omaha.pm] Passing arguments to &quot;sprintf&quot;...</title>
+<link rev="made" href="mailto:andy@petdance.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00291.html">Date Prev</a>][<a href="msg00293.html">Date Next</a>][<a href="msg00291.html">Thread Prev</a>][<a href="msg00293.html">Thread Next</a>][<a href="maillist.html#00292">Date Index</a>][<a href="threads.html#00292">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>Re: [Omaha.pm] Passing arguments to &quot;sprintf&quot;...</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: <a href="mailto:dan%40linder.org">dan@linder.org</a>,	&quot;Perl Mongers of Omaha,  Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: Re: [Omaha.pm] Passing arguments to &quot;sprintf&quot;...</li>
+<li><em>From</em>: Andy Lester &lt;<a href="mailto:andy%40petdance.com">andy@petdance.com</a>&gt;</li>
+<li><em>Date</em>: Wed, 9 Feb 2005 14:11:37 -0600</li>
+<li><em>Cc</em>: </li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>In-reply-to</em>: &lt;55365.207.108.40.31.1107977265.squirrel@207.108.40.31&gt;</li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;55365.207.108.40.31.1107977265.squirrel@207.108.40.31&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>User-agent</em>: Mutt/1.4.2i</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>On Wed, Feb 09, 2005 at 01:27:45PM -0600, Daniel Linder (dan@linder.org) wrote:
+&gt;     # This section prints &quot;2&quot; for the
+&gt;     my $myline = sprintf (@LogString);
+
+sprintf's prototype is ($;@), meaning it demands the first parm be a
+scalar.  Because it wants a scalar first, it coerces @LogString into a
+scalar, in this case &quot;2&quot; since that's the number of elements in
+@LogString;
+
+Do it as:
+
+my $mask = shift @LogString;
+my $line = sprintf( $mask, @LogString );
+
+xoxo,
+Andy
+
+-- 
+Andy Lester =&gt; andy@petdance.com =&gt; www.petdance.com =&gt; AIM:petdance
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00293" href="msg00293.html">Re: [Omaha.pm] Passing arguments to &quot;sprintf&quot;...</a></strong>
+<ul><li><em>From:</em> &quot;Daniel Linder&quot; &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<ul><li><strong>References</strong>:
+<ul>
+<li><strong><a name="00291" href="msg00291.html">[Omaha.pm] Passing arguments to &quot;sprintf&quot;...</a></strong>
+<ul><li><em>From:</em> &quot;Daniel Linder&quot; &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00291.html">[Omaha.pm] Passing arguments to &quot;sprintf&quot;...</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00293.html">Re: [Omaha.pm] Passing arguments to &quot;sprintf&quot;...</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00291.html">[Omaha.pm] Passing arguments to &quot;sprintf&quot;...</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00293.html">Re: [Omaha.pm] Passing arguments to &quot;sprintf&quot;...</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00292"><strong>Date</strong></a></li>
+<li><a href="threads.html#00292"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

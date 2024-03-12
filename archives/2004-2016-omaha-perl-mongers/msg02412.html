@@ -1,0 +1,358 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Word frequency counter -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 4 May 2010 15:53:18 &#45;0000 -->
+<!--X-Message-Id: 396CEDAA86B38646ACE2FEAA22C3FBF1035373E3@l3exchange.omnihotels.net -->
+<!--X-Content-Type: multipart/alternative -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Word frequency counter</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg02411.html">Date Prev</a>][<a href="msg02413.html">Date Next</a>][<a href="msg02416.html">Thread Prev</a>][<a href="msg02413.html">Thread Next</a>][<a href="maillist.html#02412">Date Index</a>][<a href="threads.html#02412">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Word frequency counter</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Word frequency counter</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Tue, 4 May 2010 10:52:32 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/options/omaha-pm">http://mail.pm.org/mailman/options/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: Acrroc6Np6yhdyQ7RiW1WH1m9GPoVQ==</li>
+<li><em>Thread-topic</em>: Word frequency counter</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<table width="100%"><tr><td style="a:link { color: blue } a:visited { color: purple } ">
+
+
+
+
+
+<div class=Section1>
+
+<p class=MsoNormal><font size=2 face="Courier New"><span style='font-size:10.0pt;
+font-family:"Courier New"'>BEFORE:<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face="Courier New"><span style='font-size:10.0pt;
+font-family:"Courier New"'><o:p>&nbsp;</o:p></span></font></p>
+
+<ol start=1 type=1>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><span class=keyword><font size=2
+     face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>use</span></font></span><font
+     size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>
+     feature <span class=literal>':5.10'</span>; <o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;<o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><span class=comment><font size=2
+     face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>#&lt;----------
+     Word frequency counter ----------&gt; </span></font></span><font size=2
+     face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'><o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'><o:p>&nbsp;</o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><span class=comment><font size=2
+     face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>#
+     ARRAY </span></font></span><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'><o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'><o:p>&nbsp;</o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><span class=keyword><font size=2
+     face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>my</span></font></span><font
+     size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>
+     @words = (&quot;We&quot;, &quot;She&quot;, &quot;We&quot;, &quot;He&quot;,
+     &quot;We&quot;, &quot;It&quot;, &quot;He&quot;, &quot;We&quot;,
+     &quot;She&quot;, &quot;He&quot;); <o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><span class=keyword><font size=2
+     face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>my</span></font></span><font
+     size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>
+     $word_count = @words; <span class=comment># Count the total of words </span><o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'><o:p>&nbsp;</o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><span class=keyword><font size=2
+     face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>my</span></font></span><font
+     size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>
+     $i = 0; <o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><span class=keyword><font size=2
+     face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>my</span></font></span><font
+     size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>
+     $we_counter = 0; <o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><span class=keyword><font size=2
+     face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>my</span></font></span><font
+     size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>
+     $she_counter = 0; <o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><span class=keyword><font size=2
+     face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>my</span></font></span><font
+     size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>
+     $he_counter = 0; <o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><span class=keyword><font size=2
+     face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>my</span></font></span><font
+     size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>
+     $it_counter = 0; <o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;<o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><span class=keyword><font size=2
+     face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>while</span></font></span><font
+     size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>
+     ($i &lt; $word_count){ <o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;<o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><span class=keyword><font size=2
+     face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>if</span></font></span><font
+     size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>
+     ($word[$i] <span class=keyword>eq</span> <span class=literal>'We'</span>)
+     { <o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;$we_counter++;
+     <o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;$i++;
+     <o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'>} <o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;<o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><span class=keyword><font size=2
+     face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>elsif</span></font></span><font
+     size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>
+     ($word[$i] <span class=keyword>eq</span> <span class=literal>'She'</span>)
+     { <o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;$she_counter++;
+     <o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;$i++;
+     <o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'>} <o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;<o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><span class=keyword><font size=2
+     face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>elsif</span></font></span><font
+     size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>
+     ($word[$i] <span class=keyword>eq</span> <span class=literal>'He'</span>)
+     { <o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;$he_counter++;
+     <o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;$i++;
+     <o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'>} <o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;<o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><span class=keyword><font size=2
+     face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>else</span></font></span><font
+     size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>
+     { <o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;$it_counter++;
+     <o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;$i++;
+     <o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'>}&nbsp;&nbsp;&nbsp;&nbsp;
+     <o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'>} <o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;<o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;<o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><span class=keyword><font size=2
+     face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>my</span></font></span><font
+     size=2 face="Courier New"><span style='font-size:10.0pt;font-family:"Courier New"'>
+     %report_list = (&quot;We&quot; =&gt; $we_counter, &quot;She&quot; =&gt;
+     $she_counter, &quot;He&quot; =&gt; $he_counter, &quot;It&quot; =&gt;
+     $it_counter); <o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;<o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'>&nbsp;<o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'>say
+     &quot;\n___________________________________________\n<span class=comment>#\n#&quot;;
+     </span><o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'>say &quot;<span
+     class=comment>#&nbsp; Word frequency counter\n#&quot;; </span><o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'><o:p>&nbsp;</o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'>say &quot;<span
+     class=comment>#\n#&nbsp; There where a total of $word_count words!&quot;; </span><o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'><o:p>&nbsp;</o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'>say &quot;<span
+     class=comment>#\n#&nbsp; We : $report_list{We}&quot;; </span><o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'>say &quot;<span
+     class=comment>#&nbsp; She: $report_list{She}&quot;; </span><o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'>say &quot;<span
+     class=comment>#&nbsp; He : $report_list{He}&quot;; </span><o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'>say &quot;<span
+     class=comment>#&nbsp; It : $report_list{It}&quot;; </span><o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'>say &quot;<span
+     class=comment>#\n#&nbsp;&nbsp;&nbsp;&nbsp;$we_counter $she_counter
+     $he_counter $it_counter&quot;; </span><o:p></o:p></span></font></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1'><font size=2 face="Courier New"><span
+     style='font-size:10.0pt;font-family:"Courier New"'>say &quot;<span
+     class=comment>#\n#__________________________________________\n\n&quot;;</span><o:p></o:p></span></font></li>
+</ol>
+
+<p class=MsoNormal><font size=2 face="Courier New"><span style='font-size:10.0pt;
+font-family:"Courier New"'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face="Courier New"><span style='font-size:10.0pt;
+font-family:"Courier New"'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face="Courier New"><span style='font-size:10.0pt;
+font-family:"Courier New"'>AFTER:<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face="Courier New"><span style='font-size:10.0pt;
+font-family:"Courier New"'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face="Courier New"><span style='font-size:10.0pt;
+font-family:"Courier New"'>&nbsp;&nbsp; my %counts; $counts{$_}++ for @words;<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face="Courier New"><span style='font-size:10.0pt;
+font-family:"Courier New"'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face="Courier New"><span style='font-size:10.0pt;
+font-family:"Courier New"'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face="Courier New"><span style='font-size:10.0pt;
+font-family:"Courier New"'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face="Courier New"><span style='font-size:10.0pt;
+font-family:"Courier New"'>:)<o:p></o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face="Courier New"><span style='font-size:10.0pt;
+font-family:"Courier New"'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=MsoNormal><font size=2 face="Courier New"><span style='font-size:10.0pt;
+font-family:"Courier New"'>j<o:p></o:p></span></font></p>
+
+</div>
+
+
+
+
+</td></tr></table>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg02411.html">Re: [Omaha.pm] &quot;Coding Kata&quot; coding challenges</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg02413.html">[Omaha.pm] Fwd: Business Awareness of the Perl programmers</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg02416.html">Re: [Omaha.pm] &quot;Coding Kata&quot; coding challenges</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg02413.html">[Omaha.pm] Fwd: Business Awareness of the Perl programmers</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#02412"><strong>Date</strong></a></li>
+<li><a href="threads.html#02412"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

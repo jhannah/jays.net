@@ -1,0 +1,172 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Fwd: [Kc] Need second look at this... -->
+<!--X-From-R13: Xnl Vnaanu &#60;wnlNwnlf.arg> -->
+<!--X-Date: 11 Oct 2007 22:25:30 &#45;0000 -->
+<!--X-Message-Id: 9A8BA470&#45;BFD8&#45;4092&#45;A3FE&#45;BA5110CF10E0@jays.net -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: EF3E656D&#45;90E2&#45;480F&#45;A18B&#45;A8FAC051E14E@goebel.ws -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Fwd: [Kc] Need second look at this...</title>
+<link rev="made" href="mailto:jay@jays.net">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg01534.html">Date Prev</a>][<a href="msg01536.html">Date Next</a>][<a href="msg01534.html">Thread Prev</a>][<a href="msg01536.html">Thread Next</a>][<a href="maillist.html#01535">Date Index</a>][<a href="threads.html#01535">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Fwd: [Kc] Need second look at this...</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: Nebraska USA Perl Mongers of Omaha &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Fwd: [Kc] Need second look at this...</li>
+<li><em>From</em>: Jay Hannah &lt;<a href="mailto:jay%40jays.net">jay@jays.net</a>&gt;</li>
+<li><em>Date</em>: Thu, 11 Oct 2007 17:24:58 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>References</em>: &lt;EF3E656D-90E2-480F-A18B-A8FAC051E14E@goebel.ws&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<tt>Sweet. Garrett whipped out the zero width negative look behind  
+</tt><tt>assertion.
+</tt><pre style="margin: 0em;">
+
+That's my favorite.
+
+Yes, seriously.  :)
+
+j
+
+
+
+Begin forwarded message:
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+From: Garrett Goebel &lt;ggoebel@goebel.ws&gt;
+Date: October 11, 2007 3:40:17 PM CDT
+To: Emmanuel Mejias &lt;emmanuel.mejias@gmail.com&gt;
+Cc: kcpm &lt;kc@pm.org&gt;
+Subject: Re: [Kc] Need second look at this...
+
+In order to fix your regex you'll need to tell us the difference
+between somehostpm1 and dr-somehostpm1.
+
+Will a &quot;good&quot; somehostpm1 never be preceeded by 'dr-'? If so...
+
+# Shot at adhering to Perl Best Practices
+open my($file), '&lt;', '/etc/hosts';
+while (my $line = &lt;$file&gt;) {
+     if ($line =~ /(?&lt;!dr-)\S+pm1/) {
+         print $line;
+     }
+}
+
+# Quick'n Dirty
+open FILE, '&lt;/etc/hosts';
+map { print if /(?&lt;!dr-)\S+pm1/ } &lt;FILE&gt;;
+
+I haven't tested it... perhaps it'll work.
+
+(?&lt;!pattern) is a zero width negative look behind assertion. I.e.
+it'll match anything that isn't preceeded by the pattern without
+including it in the match.
+
+Garrett
+
+On Oct 11, 2007, at 2:44 PM, Emmanuel Mejias wrote:
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+trying to grep out some info from my /etc/hosts file...just to get
+more practice with Perl and well for my personal pleasure, too.
+
+#!/usr/bin/perl
+
+open (FILE, &quot;/etc/hosts&quot;);
+@lines = &lt;FILE&gt;;
+close (FILE);
+
+foreach $line (@lines){
+   if ($line =~ /pm1/){
+      print $line;
+   }
+}
+
+the problem with this is that it's printing out some hosts that i
+don't want that also have pm1 at the end.
+
+somehostpm1 but it also gets my dr hosts (dr-somehostpm1)
+
+thoughts?
+
+by the way, i had to jump the wifes car so i ended up missing out
+on the meeting. gonna try to make the next one for sure, though.
+
+_______________________________________________
+kc mailing list
+kc@pm.org
+<a  rel="nofollow" href="http://mail.pm.org/mailman/listinfo/kc">http://mail.pm.org/mailman/listinfo/kc</a>
+</pre></blockquote><pre style="margin: 0em;">
+
+_______________________________________________
+kc mailing list
+kc@pm.org
+<a  rel="nofollow" href="http://mail.pm.org/mailman/listinfo/kc">http://mail.pm.org/mailman/listinfo/kc</a>
+</pre></blockquote><pre style="margin: 0em;">
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg01534.html">Re: [Omaha.pm] /^\s+(.*)/ &amp;&amp; do { }</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg01536.html">[Omaha.pm] CGI.pm is your friend</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg01534.html">Re: [Omaha.pm] /^\s+(.*)/ &amp;&amp; do { }</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg01536.html">[Omaha.pm] CGI.pm is your friend</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#01535"><strong>Date</strong></a></li>
+<li><a href="threads.html#01535"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>

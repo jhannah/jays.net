@@ -1,0 +1,462 @@
+<!-- MHonArc v2.6.24 -->
+<!--X-Subject: [Omaha.pm] Notes dump: pack, unpack, vec, and 2562 long bit vectors -->
+<!--X-From-R13: "Xnl Vnaanu" &#60;wunaanuNbzavubgryf.pbz> -->
+<!--X-Date: 20 Apr 2005 22:08:09 &#45;0000 -->
+<!--X-Message-Id: 200504202207.j3KM7rmD005054@omares&#45;email.omnihotels.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>[Omaha.pm] Notes dump: pack, unpack, vec, and 2562 long bit vectors</title>
+<link rev="made" href="mailto:jhannah@omnihotels.com">
+</head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="msg00379.html">Date Prev</a>][<a href="msg00381.html">Date Next</a>][<a href="msg00379.html">Thread Prev</a>][<a href="msg00384.html">Thread Next</a>][<a href="maillist.html#00380">Date Index</a>][<a href="threads.html#00380">Thread Index</a>]
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>[Omaha.pm] Notes dump: pack, unpack, vec, and 2562 long bit vectors</h1>
+<hr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>To</em>: &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Subject</em>: [Omaha.pm] Notes dump: pack, unpack, vec, and 2562 long bit vectors</li>
+<li><em>From</em>: &quot;Jay Hannah&quot; &lt;<a href="mailto:jhannah%40omnihotels.com">jhannah@omnihotels.com</a>&gt;</li>
+<li><em>Date</em>: Wed, 20 Apr 2005 17:08:15 -0500</li>
+<li><em>Delivered-to</em>: <a href="mailto:mailman-omaha-pm%40mailman.pm.dev">mailman-omaha-pm@mailman.pm.dev</a></li>
+<li><em>Delivered-to</em>: <a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a></li>
+<li><em>List-archive</em>: &lt;<a href="http://mail.pm.org/pipermail/omaha-pm">http://mail.pm.org/pipermail/omaha-pm</a>&gt;</li>
+<li><em>List-help</em>: &lt;<a href="mailto:omaha-pm-request@pm.org?subject=help">mailto:omaha-pm-request@pm.org?subject=help</a>&gt;</li>
+<li><em>List-id</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;omaha-pm.pm.org&gt;</li>
+<li><em>List-post</em>: &lt;<a href="mailto:omaha-pm@pm.org">mailto:omaha-pm@pm.org</a>&gt;</li>
+<li><em>List-subscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=subscribe">mailto:omaha-pm-request@pm.org?subject=subscribe</a>&gt;</li>
+<li><em>List-unsubscribe</em>: &lt;<a href="http://mail.pm.org/mailman/listinfo/omaha-pm">http://mail.pm.org/mailman/listinfo/omaha-pm</a>&gt;,	&lt;<a href="mailto:omaha-pm-request@pm.org?subject=unsubscribe">mailto:omaha-pm-request@pm.org?subject=unsubscribe</a>&gt;</li>
+<li><em>Reply-to</em>: &quot;Perl Mongers of Omaha, Nebraska USA&quot; &lt;<a href="mailto:omaha-pm%40pm.org">omaha-pm@pm.org</a>&gt;</li>
+<li><em>Thread-index</em>: AcVApZtVOPC6ejjgSTWyxs23vF/g9AFTiEQg</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>
+For the record...
+
+Here's a dump of notes/code from a day a couple weeks back I spent wrestling pack, unpack, vec, etc...
+
+I lost. Bad. I also stumped people on EFFNET #perl. -grin-
+
+j
+
+ 
+--------------
+
+I have around 61M on/off switches (bits) I need to store in a database and do really fast lookups on.
+
+There's 7 bits per date (per other stuff), so we were thinking about having 1 row in the database for every calendar year (for each other stuff). So, stringing a whole year together (max 366 days) is a string of 2562 bits. 
+
+Storing those 2562 bits as a long string of ASCII Ys and Ns or 1s and 0s would be easy. As would shrinking the column a bit by storing each day in hex (pretend there were 8 bits per date, then store &quot;FF&quot; in the database instead of &quot;11111111&quot;). 
+
+For some reason, I'm thinking that storing the 2562 bits in binary in the database should be faster still, but so far my various benchmarking using pack, unpack, and vec is slightly slower than storing hex...
+
+------
+
+Benchmark: timing 1 iterations of byte, byte_onevec, char2562, char732...
+      byte: 30 wallclock secs (11.82 usr +  7.92 sys = 19.74 CPU) @  0.05/s (n=1)
+            (warning: too few iterations for a reliable count)
+byte_onevec: 26 wallclock secs ( 8.35 usr +  7.02 sys = 15.37 CPU) @  0.07/s (n=1)
+            (warning: too few iterations for a reliable count)
+  char2562: 34 wallclock secs (17.28 usr +  8.23 sys = 25.51 CPU) @  0.04/s (n=1)
+            (warning: too few iterations for a reliable count)
+   char732: 13 wallclock secs ( 8.21 usr +  2.03 sys = 10.24 CPU) @  0.10/s (n=1)
+            (warning: too few iterations for a reliable count)
+
+
+---------
+
+./insert.pl
+#!/usr/bin/perl
+
+use Benchmark;
+
+#use DBI qw(:sql_types);
+#use DBD::Informix qw(:ix_types);
+use Omni::DB;
+use Bit::Vector;
+
+my $dbh = Omni::DB::connect_test_with_pw();
+
+my $val1 = &quot;1010101&quot; x 366;
+substr $val1, 7 * 300, 7, &quot;0011100&quot;;
+
+my $val2 = &quot;FF&quot; x 366;
+substr $val2, 2 * 300, 2, &quot;38&quot;;
+
+use Omni::DB;
+my $val3 = pack(&quot;b2562&quot;, $val1);
+
+#my $strsql = &quot;insert into jay (uni, char2562, char732, byte) values (?, ?, ?, ?)&quot;;
+#my $sth = $dbh-&gt;prepare($strsql);
+#$sth-&gt;execute(1, $val1, $val2, $val3);
+#$dbh-&gt;commit;
+
+
+timethese(10, {
+   'char2562' =&gt; '@row = getrow(&quot;char2562&quot;); die unless ((substr $row[0], 7 * 300, 7)                           eq &quot;0011100&quot;)',
+   'char732'  =&gt; '@row = getrow(&quot;char732&quot;);  die unless ((unpack(&quot;B7&quot;,pack(&quot;H2&quot;,(substr $row[0], 2 * 300, 2)))) eq &quot;0011100&quot;)',
+   'byte'     =&gt; '@row = getrow(&quot;byte&quot;);     die unless ((substr((unpack(&quot;b2562&quot;, $row[0])),  7 * 300, 7))      eq &quot;0011100&quot;)'
+});
+
+sub getrow {
+   my ($what) = @_;
+   my $strsql = &quot;select $what from jay where uni = 1&quot;;
+   my $sth = $dbh-&gt;prepare($strsql);
+   $sth-&gt;execute();
+   return $sth-&gt;fetchrow;
+}
+
+#print &quot;@row\n&quot;;
+
+$dbh-&gt;disconnect;
+
+
+./j.pl
+use Test::More tests =&gt; 10;
+
+my $yn = &quot;YNNYYNY&quot;;
+$yn =~ tr/YN/10/;
+my $b = pack &quot;b7&quot;, $yn;
+is((unpack &quot;b7&quot;, $b), &quot;1001101&quot;,  &quot;yay&quot;);
+
+my $yn = &quot;YNNYYNYY&quot; x 366;
+substr $yn, 199 * 8, 8, &quot;00001000&quot;;
+substr $yn, 201 * 8, 8, &quot;00010100&quot;;
+$yn =~ tr/YN/10/;
+my $b = pack &quot;b2928&quot;, $yn;
+is((substr((unpack &quot;b2928&quot;, $b), 198 * 8, 8)), &quot;10011011&quot;,   &quot;yay&quot;);
+is((substr((unpack &quot;b2928&quot;, $b), 199 * 8, 8)), &quot;00001000&quot;,   &quot;yay&quot;);
+is((substr((unpack &quot;b2928&quot;, $b), 200 * 8, 8)), &quot;10011011&quot;,   &quot;yay&quot;);
+is((substr((unpack &quot;b2928&quot;, $b), 201 * 8, 8)), &quot;00010100&quot;,   &quot;yay&quot;);
+is((substr((unpack &quot;b2928&quot;, $b), 202 * 8, 8)), &quot;10011011&quot;,   &quot;yay&quot;);
+#is((unpack &quot;b2928&quot;, (vec $b, (8 * 8 * 199), 8)), &quot;10011011&quot;,   &quot;yay&quot;);
+is((unpack &quot;b2928&quot;, $b), $yn,  &quot;yay&quot;);
+
+
+my $b = pack &quot;b7&quot;, &quot;0&quot; x 8;
+vec($b,0,1) = 0;
+is((unpack &quot;b7&quot;, $b), &quot;0000000&quot;,  &quot;yay&quot;);
+vec($b,0,1) = 1;
+is((unpack &quot;b7&quot;, $b), &quot;1000000&quot;,  &quot;yay&quot;);
+
+vec($b,0,2) = 2;
+is((unpack &quot;b7&quot;, $b), &quot;0100000&quot;,  &quot;yay&quot;);
+vec($b,0,2) = 3;
+is((unpack &quot;b7&quot;, $b), &quot;1100000&quot;,  &quot;yay&quot;);
+vec($b,0,2) = 5;
+is((unpack &quot;b7&quot;, $b), &quot;1000000&quot;,  &quot;yay&quot;);
+vec($b,0,4) = 5;
+is((unpack &quot;b7&quot;, $b), &quot;1010000&quot;,  &quot;yay&quot;);
+
+
+./load_jay.pl
+#!usr/bin/perl
+use strict;
+use Omni::DB;
+
+my $dbh = Omni::DB::connect_test_with_pw;
+
+my $val1 = &quot;1010101&quot; x 366;
+substr $val1, 7 * 300, 7, &quot;0011100&quot;;
+push @vals,$val1;
+
+my $val2 = &quot;FF&quot; x 366;
+substr $val2, 2 * 300, 2, &quot;38&quot;;
+push @vals,$val2;
+
+my $val3 = pack(&quot;b2562&quot;, $val1);
+push @vals,$val3;
+
+my $all=0;
+my $ctr=0;
+foreach my $table qw(jay_char2562 jay_char732 jay_byte) {
+  for (1..10000) {
+    my $strsql = &quot;insert into $table (uni,string) values (?,?)&quot;;
+    my $sth = $dbh-&gt;prepare($strsql);
+    $sth-&gt;execute(0, $vals[$ctr]);
+    $dbh-&gt;commit;
+    print &quot;$table $all\n&quot; if ($all % 1000 == 0);
+    $all++;
+  }
+  $ctr++;
+}
+
+$dbh-&gt;disconnect;
+./j2.pl
+use Test::More tests =&gt; 10;
+
+my $yn = &quot;YNNYYNY&quot;;
+$yn =~ tr/YN/10/;
+my $b = pack &quot;b7&quot;, $yn;
+is((unpack &quot;b7&quot;, $b), &quot;1001101&quot;,  &quot;yay&quot;);
+
+my $yn = &quot;YNNYYNYY&quot; x 366;
+substr $yn, 199 * 8, 8, &quot;00001000&quot;;
+substr $yn, 201 * 8, 8, &quot;00010100&quot;;
+$yn =~ tr/YN/10/;
+my $b;
+for (0..7) {
+   vec $b, $_, 1 = substr
+for (0..7) {
+   print vec $b, $_, 1;
+}
+print &quot;\n&quot;;
+#is((vec $b, 0, 8), &quot;10011011&quot;,   &quot;yay&quot;);
+#is((vec $b, 198 * 8, 8), &quot;10011011&quot;,   &quot;yay&quot;);
+#is((unpack &quot;b2928&quot;, (vec $b, (8 * 8 * 199), 8)), &quot;10011011&quot;,   &quot;yay&quot;);
+#is((unpack &quot;b2928&quot;, $b), $yn,  &quot;yay&quot;);
+
+
+my $b = pack &quot;b7&quot;, &quot;0&quot; x 8;
+vec($b,0,1) = 0;
+is((unpack &quot;b7&quot;, $b), &quot;0000000&quot;,  &quot;yay&quot;);
+vec($b,0,1) = 1;
+is((unpack &quot;b7&quot;, $b), &quot;1000000&quot;,  &quot;yay&quot;);
+
+vec($b,0,2) = 2;
+is((unpack &quot;b7&quot;, $b), &quot;0100000&quot;,  &quot;yay&quot;);
+vec($b,0,2) = 3;
+is((unpack &quot;b7&quot;, $b), &quot;1100000&quot;,  &quot;yay&quot;);
+vec($b,0,2) = 5;
+is((unpack &quot;b7&quot;, $b), &quot;1000000&quot;,  &quot;yay&quot;);
+vec($b,0,4) = 5;
+is((unpack &quot;b7&quot;, $b), &quot;1010000&quot;,  &quot;yay&quot;);
+
+
+./j3.pl
+
+use strict;
+
+# For each day of a year, I have 7 bits to track.
+# There are up to 366 days in a year.
+# So, a year in one string of bits might look something like this:
+my $str = &quot;0001010&quot; x 366;
+
+# So as one big bitstring:
+my $bitstring = pack &quot;b2562&quot;, $str;
+
+# This gets me back to the original:
+print join &quot;&quot;, unpack(&quot;b2562&quot;, $bitstring);
+print &quot;\n&quot;;
+my $day300;
+for (0 .. 6) {
+   $day300 .= vec $bitstring, 7 * 299 + $_, 1;
+}
+print &quot;$day300\n&quot;;
+
+./j4.pl
+use Benchmark;
+
+my $val = &quot;10101010&quot; x 366;
+substr $val, 8 * 300, 8, &quot;01100001&quot;;
+my $bs = pack &quot;b2928&quot;, $val;
+
+timethese(1000, {
+   looper =&gt; 'looper()',
+   onevec =&gt; 'onevec()',
+});
+
+
+sub looper {
+   my $ret;
+   for (0..7) {
+      $ret .= vec $bs, 300 * 8 + $_, 1;
+   }
+   die $ret unless ($ret eq &quot;01100001&quot;);
+}
+
+sub onevec {
+   my $ret;
+
+   $ret = vec $bs, 366 * 8 - 300, 8;
+   $ret = reverse(unpack &quot;b8&quot;, $ret);
+   die $ret unless ($ret eq &quot;01100001&quot;);
+}
+
+
+
+./read.pl
+use Omni::DB;
+use Benchmark;
+
+my $dbh = Omni::DB::connect_test_with_pw;
+
+my $val1 = &quot;10101010&quot; x 366;
+substr $val1, 8 * 300, 8, &quot;00100000&quot;;
+push @vals,$val1;
+
+my $val2 = &quot;AA&quot; x 366;
+substr $val2, 2 * 300, 2, &quot;20&quot;;
+push @vals,$val2;
+
+my $val3 = pack(&quot;b2562&quot;, $val1);
+push @vals,$val3;
+
+
+timethese(1, {
+   'char2562'    =&gt; 'read_char2562',
+   'char732'     =&gt; 'read_char732',
+   'byte'        =&gt; 'read_byte',
+   'byte_onevec' =&gt; 'read_byte_onevec',
+});
+
+sub read_char2562 {
+   my $strsql = &quot;select * from jay_char2562&quot;;
+   my $sth = $dbh-&gt;prepare($strsql);
+   $sth-&gt;execute;
+   while (@row = $sth-&gt;fetchrow)  {
+      my $val = substr $row[1], 8 * 299, 8;
+      #die $val unless ($val eq &quot;10101010&quot;);
+      $val    = substr $row[1], 8 * 300, 8;
+      #die $val unless ($val eq &quot;00100000&quot;);
+   }
+   $sth-&gt;finish;
+}
+
+sub read_char732 {
+   my $strsql = &quot;select * from jay_char732&quot;;
+   my $sth = $dbh-&gt;prepare($strsql);
+   $sth-&gt;execute;
+   while (@row = $sth-&gt;fetchrow)  {
+      my $val = unpack(&quot;B8&quot;,pack(&quot;H2&quot;,(substr $row[1], 2 * 299, 2)));
+      #die $val unless ($val eq &quot;10101010&quot;);
+      my $val = unpack(&quot;B8&quot;,pack(&quot;H2&quot;,(substr $row[1], 2 * 300, 2)));
+      #die $val unless ($val eq &quot;00100000&quot;);
+   }
+   $sth-&gt;finish;
+}
+
+sub read_byte {
+   my $strsql = &quot;select * from jay_byte&quot;;
+   my $sth = $dbh-&gt;prepare($strsql);
+   $sth-&gt;execute;
+   while (@row = $sth-&gt;fetchrow)  {
+      my $val;
+      for (0..6) {
+         $val .= vec $row[1], 299 * 8 + $_, 1;
+      }
+      #die $val unless ($val eq &quot;10101010&quot;);
+      $val = '';
+      for (0..6) {
+         $val .= vec $row[1], 300 * 8 + $_, 1;
+      }
+      #die $val unless ($val eq &quot;00100000&quot;);
+   }
+   $sth-&gt;finish;
+}
+
+sub read_byte_onevec {
+   my $strsql = &quot;select * from jay_byte&quot;;
+   my $sth = $dbh-&gt;prepare($strsql);
+   $sth-&gt;execute;
+   while (@row = $sth-&gt;fetchrow)  {
+
+      $ret = vec $bs, 366 * 8 - 300, 8;
+      $ret = reverse(unpack &quot;b8&quot;, $ret);
+      #die $ret unless ($ret eq &quot;10101010&quot;);
+      $ret = vec $bs, 366 * 8 - 300, 8;
+      $ret = reverse(unpack &quot;b8&quot;, $ret);
+      #die $ret unless ($ret eq &quot;00100000&quot;);
+   }
+}
+
+
+__END__
+
+   'char2562' =&gt; '@row = getrow(&quot;char2562&quot;); die unless ((substr $row[0], 7 * 300, 7)                           eq &quot;0011100&quot;)',
+   'char732'  =&gt; '@row = getrow(&quot;char732&quot;);  die unless ((unpack(&quot;B7&quot;,pack(&quot;H2&quot;,(substr $row[0], 2 * 300, 2)))) eq &quot;0011100&quot;)',
+   'byte'     =&gt; '@row = getrow(&quot;byte&quot;);     die unless ((substr((unpack(&quot;b2562&quot;, $row[0])),  7 * 300, 7))      eq &quot;0011100&quot;)'
+
+
+
+
+
+./j5.pl
+
+$z =  &quot;11101100&quot;x300;
+substr( $z, 0, 8 ) = &quot;01100000&quot;;
+$z = pack &quot;b2400&quot;, $z;
+print vec $z, 0, 8;
+# &lt;buu&gt; That prints '6'
+
+print &quot;\n\n&quot;;
+
+$z =  &quot;11101100&quot;x300;
+substr( $z, 8, 8 ) = &quot;01100000&quot;;
+z = pack &quot;b2400&quot;, $z;
+print vec $z, 8, 8;
+# &lt;buu&gt; That prints '55'
+print &quot;\n\n&quot;;
+
+
+./j6.pl
+
+$bs = &quot;00100000&quot; x 366;
+#substr $bs, 300 * 8, 8, &quot;01000001&quot;;
+$bv = pack &quot;b*&quot;, $bs;
+$subvec = vec($bv, 0, 8);
+printf(&quot;%08b\n&quot;, $subvec);
+
+./c.pl
+use IO::File;
+my $fh = IO::File-&gt;new(&quot;&lt; c&quot;);
+print join &quot;\n&quot;, map /^(\w+):([^\n]+).*$/o, &lt;$fh&gt;;
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00384" href="msg00384.html">Re: [Omaha.pm] Notes dump: pack, unpack, vec,	and 2562 long bit vectors</a></strong>
+<ul><li><em>From:</em> &quot;Daniel Linder&quot; &lt;dan@linder.org&gt;</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="msg00379.html">[Omaha.pm] Fwd: An Apology From Meetup.com</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="msg00381.html">Re: [Omaha.pm] Perl, PHP UG Battle Royale and/or Share the Love</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="msg00379.html">[Omaha.pm] Fwd: An Apology From Meetup.com</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="msg00384.html">Re: [Omaha.pm] Notes dump: pack, unpack, vec,	and 2562 long bit vectors</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="maillist.html#00380"><strong>Date</strong></a></li>
+<li><a href="threads.html#00380"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body>
+</html>
