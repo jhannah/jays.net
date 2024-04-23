@@ -1,8 +1,8 @@
 % Poker @ Jay & Steph's
 
-# Sat May 6, 2023. 7pm - whenever
+# Sat May 4, 2024. 8pm - whenever
 
-Clan Hannay Reunion is imminent! 🏴󠁧󠁢󠁳󠁣󠁴󠁿
+I'm back from Thailand scuba! 🇹🇭
 Let's play Texas Hold 'Em!
 
 [12238 N 40th St, Omaha NE 68112](https://goo.gl/maps/7jy3mT22T7wADNtG7)
@@ -31,7 +31,7 @@ He loves string cheese. With patience and bribery he can be your friend if you w
 ## Poker
 
 * All skill levels welcome! Or just come and hang out.
-* No limit Texas hold-em. 5/10 cent blinds. $10 buy-in. Bringing small bills is appreciated. Table stakes. No rake. Buy in as many times as you want. Cash out whenever you want.
+* No limit Texas hold-em. 50/100 cent blinds. $100 buy-in. Bringing small bills is appreciated. CashApp, Venmo, PayPal available. Table stakes. No rake. Buy in as many times as you want. Cash out whenever you want.
 * If you do not know how to play Texas hold-em, [it's easy](http://en.wikipedia.org/wiki/Texas_Hold%27em#Rules) We'll walk you through it. 🙂
 * No need to bring anything. I stock some amber / dark beers and añejo tequila. If you want an actual meal for yourself, bring it. The house might have zero food in it, or I might have bought way too much food / snacks.
 
