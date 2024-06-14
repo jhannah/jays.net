@@ -190,9 +190,10 @@ I1265 Jay Weston HANNAH
       <li>Which uses <a href="https://metacpan.org/pod/Gedcom">Gedcom.pm</a> to parse GEDCOM files.
       </li>
       <li>
-        <a href="https://github.com/nigelhorne/ged2site">I forked ged2site</a> for several features that haven't been
+        <a href="https://github.com/jhannah/ged2site">I forked ged2site</a> for several features that haven't been
         merged upstream.
       </li>
+      <li><code>git checkout <a href="https://github.com/jhannah/ged2site/commit/da26560b22119560aa2b4aa7d4e3ae794df17e13">112-and-115</a></code></li>
       <li><code>ged2site -cFdlh 'Jay Weston Hannah' ~/src/private/genealogy/jay.ged</code></li>
       <li><code>find static-site -name '*.html' -exec tidy -quiet -im -wrap 0 -f errors.txt {} \</code></li>
     </ul>
