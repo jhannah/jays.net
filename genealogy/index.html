@@ -175,7 +175,6 @@
 <header id="title-block-header">
 <h1 class="title">jays.net Genealogy</h1>
 </header>
-<h1 id="jays.net-genealogy">jays.net Genealogy</h1>
 <p>Updated 2024-06-15. <a
 href="https://github.com/jhannah/jays.net/issues">Updates
 welcome</a>.</p>
@@ -207,7 +206,7 @@ his research all the way back to <a
 href="http://jays.net/genealogy/static-site/I4183.html">Patrick
 A’Hannay</a>, born in Scotland in 1250. I’m using new tools now, see
 below.</p>
-<p>Some highlights of my GEDCOM</p>
+<h2 id="some-highlights-of-my-gedcom">Some highlights of my GEDCOM</h2>
 <ul>
 <li>My Grandfather <a
 href="http://jays.net/genealogy/static-site/I1581.html">Earl Chapman
@@ -256,7 +255,9 @@ principles.</li>
 <p><img src="jay_ancestors.png" /> Snapshot from an <a
 href="https://learnforeverlearn.com/ancestors/">awesome run-locally
 Javascript tool</a> I found.</p>
-<p>Relatives I didn’t know I had until they found this site</p>
+<h2
+id="relatives-i-didnt-know-i-had-until-they-found-this-site">Relatives I
+didn’t know I had until they found this site</h2>
 <p>Gary McVey emailed me. We’re not sure if he’s related to me or not
 yet, but I do have a lot of McVey’s in my data. Here’s how to get to the
 oldest McVey to me:</p>
@@ -337,90 +338,52 @@ I965 John Robert HANNAH&#39;s son
 I1072 Benjamin Millard HANNAH&#39;s son
 I1076 James Bradley HANNAH&#39;s son
 I1265 Jay Weston HANNAH </code></pre>
-Other people’s research
+<h2 id="other-peoples-research">Other people’s research</h2>
 <ul>
-<li>
-<a href="Stark_Family_by_Kandi_Stark.doc">Stark_Family_by_Kandi_Stark.doc</a>
-(Mar 2006) - By my cousin Kandi Stark
-</li>
-<li>
-<a href="Thomson_Family_History.doc">Thomson_Family_History.doc</a> (Aug
-2006) - By June Sparks (junetsparks(at)cableone(dot)net)
-</li>
+<li><a
+href="Stark_Family_by_Kandi_Stark.doc">Stark_Family_by_Kandi_Stark.doc</a>
+(Mar 2006) - By my cousin Kandi Stark</li>
+<li><a href="Thomson_Family_History.doc">Thomson_Family_History.doc</a>
+(Aug 2006) - By June Sparks (junetsparks(at)cableone(dot)net)</li>
 </ul>
-<p>
-Tools I use
-</p>
+<h2 id="tools-i-use">Tools I use</h2>
 <ul>
-<li>
-<a href="https://geditcom.com">GEDitCOM II</a> - I edit my GEDCOM with
-this software on macOS.
-</li>
-<li>
-<a href="https://github.com/nigelhorne/ged2site">ged2site</a> generates
-this website.
-</li>
+<li><a href="https://geditcom.com">GEDitCOM II</a> - I edit my GEDCOM
+with this software on macOS.</li>
+<li><a href="https://github.com/nigelhorne/ged2site">ged2site</a>
+generates this website.
 <ul>
-<li>
-Which uses <a href="https://metacpan.org/pod/Gedcom">Gedcom.pm</a> to
-parse GEDCOM files.
-</li>
-<li>
-<a href="https://github.com/jhannah/ged2site">I forked ged2site</a> for
-several features that haven’t been merged upstream.
-</li>
-<li>
-<code>git checkout
-<a href="https://github.com/jhannah/ged2site/tree/112-and-115">112-and-115</a></code>
-</li>
-<li>
-<code>ged2site -cFdlh ‘Jay Weston Hannah’
-~/src/private/genealogy/jay.ged</code>
-</li>
-<li>
-<code>find static-site -name ’*.html’ -exec tidy -quiet -im -wrap 0 -f
-errors.txt {} ;</code>
-</li>
+<li>Which uses <a href="https://metacpan.org/pod/Gedcom">Gedcom.pm</a>
+to parse GEDCOM files.</li>
+<li><a href="https://github.com/jhannah/ged2site">I forked ged2site</a>
+for several features that haven’t been merged upstream.</li>
 </ul>
+<pre><code>git checkout 112-and-115
+ged2site -cFdlh &#39;Jay Weston Hannah&#39; ~/src/private/genealogy/jay.ged
+find static-site -name &#39;*.html&#39; -exec tidy -quiet -im -wrap 0 -f errors.txt {} \;</code></pre></li>
 </ul>
-<p>
-Way back in 2005…
-</p>
+<h2 id="way-back-in-2005">Way back in 2005…</h2>
 <ul>
-<li>
-Dead link:
-<a href="http://www.dcs.qmul.ac.uk/~keithc/family-history/see-gedcom/">SeeGEDCOMX</a>
-- I used to do all my editing with this program on my Mac.
-</li>
-<li>
-<a href="https://github.com/danio/gedcomtohtml">gedcomToHTML</a> -
+<li>Dead link: <a
+href="http://www.dcs.qmul.ac.uk/~keithc/family-history/see-gedcom/">SeeGEDCOMX</a>
+- I used to do all my editing with this program on my Mac.</li>
+<li><a href="https://github.com/danio/gedcomtohtml">gedcomToHTML</a> -
 Created this website in 2005.
 <ul>
-<li>
-<a href="https://github.com/jhannah/gedcomtohtml/blob/master/jays_changes.md">Why
-I stopped using it</a> in my 2024 refresh.
-</li>
-<li>
-You can still <a href="http://jays.net/genealogy/Html/I1265.html">browse
-the 2005 output</a> if you like. It’s interesting to compare that tools
-feature set with ged2site.
-</li>
+<li><a
+href="https://github.com/jhannah/gedcomtohtml/blob/master/jays_changes.md">Why
+I stopped using it</a> in my 2024 refresh.</li>
+<li>You can still <a
+href="http://jays.net/genealogy/Html/I1265.html">browse the 2005
+output</a> if you like. It’s interesting to compare that tools feature
+set with ged2site.</li>
+</ul></li>
+<li><a
+href="https://github.com/jhannah/jays.net/blob/main/genealogy/relation.pl">relation.pl</a>
+- A Perl script that uses Gedcom::LifeLines, a Perl port of a genealogy
+scripting language called “LifeLines”. (Did I get that right?)</li>
+<li><a href="http://www.genopro.com">GenoPro</a> - Made cool graphs (of
+a few hundred people max) on my craptastic Win98 PC.</li>
 </ul>
-</li>
-<li>
-<a href="relation_pl.txt">relation.pl</a> - A Perl script that uses
-Gedcom::LifeLines, a Perl port of a genealogy scripting language called
-“LifeLines”. (Did I get that right?)
-</li>
-<li>
-<a href="http://www.genopro.com">GenoPro</a> - Made cool graphs (of a
-few hundred people max) on my craptastic Win98 PC.
-</li>
-</ul>
-<br>
-<hr>
-<i>-eot-</i>
-</body>
-</html>
 </body>
 </html>

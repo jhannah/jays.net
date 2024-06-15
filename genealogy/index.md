@@ -1,5 +1,3 @@
-# jays.net Genealogy
-
 Updated 2024-06-15. [Updates welcome](https://github.com/jhannah/jays.net/issues).
 
 Hello! My name is [Jay Weston Hannah](http://jays.net/genealogy/static-site/I1265.html).
@@ -25,7 +23,7 @@ We also have a [FaceBook group](https://www.facebook.com/groups/StarkReeder).
 [Patrick A'Hannay](http://jays.net/genealogy/static-site/I4183.html), born in Scotland in 1250.
 I'm using new tools now, see below.
 
-Some highlights of my GEDCOM
+## Some highlights of my GEDCOM
 
 * My Grandfather [Earl Chapman Humphrey](http://jays.net/genealogy/static-site/I1581.html)
 ([dive team memorial page](https://usshoustondive.com/divers/jay_hannah/)) served in World War II on the
@@ -53,7 +51,7 @@ The Thomson family tree, pictured above, has 1500 people on it dating back to 17
 ![](jay_ancestors.png)
 Snapshot from an [awesome run-locally Javascript tool](https://learnforeverlearn.com/ancestors/) I found.
 
-Relatives I didn't know I had until they found this site
+## Relatives I didn't know I had until they found this site
 
 Gary McVey emailed me. We're not sure if he's related to me or not yet, but I do have
 a lot of McVey's in my data. Here's how to get to the oldest McVey to me:
@@ -147,66 +145,33 @@ I1076 James Bradley HANNAH's son
 I1265 Jay Weston HANNAH 
 ```
 
-  Other people's research
-  <ul>
-    <li>
-      <a href="Stark_Family_by_Kandi_Stark.doc">Stark_Family_by_Kandi_Stark.doc</a> (Mar 2006) - By my cousin Kandi
-      Stark
-    </li>
-    <li>
-      <a href="Thomson_Family_History.doc">Thomson_Family_History.doc</a> (Aug 2006) - By June Sparks
-      (junetsparks(at)cableone(dot)net)
-    </li>
-  </ul>
+## Other people's research
 
-  <p>Tools I use</p>
-  <ul>
-    <li>
-      <a href="https://geditcom.com">GEDitCOM II</a> - I edit my GEDCOM with this software on macOS.
-    </li>
-    <li>
-      <a href="https://github.com/nigelhorne/ged2site">ged2site</a> generates this website.
-    </li>
-    <ul>
-      <li>Which uses <a href="https://metacpan.org/pod/Gedcom">Gedcom.pm</a> to parse GEDCOM files.
-      </li>
-      <li>
-        <a href="https://github.com/jhannah/ged2site">I forked ged2site</a> for several features that haven't been
-        merged upstream.
-      </li>
-      <li><code>git checkout <a href="https://github.com/jhannah/ged2site/tree/112-and-115">112-and-115</a></code></li>
-      <li><code>ged2site -cFdlh 'Jay Weston Hannah' ~/src/private/genealogy/jay.ged</code></li>
-      <li><code>find static-site -name '*.html' -exec tidy -quiet -im -wrap 0 -f errors.txt {} \;</code></li>
-    </ul>
-  </ul>
+* [Stark_Family_by_Kandi_Stark.doc](Stark_Family_by_Kandi_Stark.doc) (Mar 2006) - By my cousin Kandi Stark
+* [Thomson_Family_History.doc](Thomson_Family_History.doc) (Aug 2006) - By June Sparks (junetsparks(at)cableone(dot)net)
 
-  <p>Way back in 2005...</p>
-  <ul>
-    <li>Dead link: <a href="http://www.dcs.qmul.ac.uk/~keithc/family-history/see-gedcom/">SeeGEDCOMX</a> - I used to do
-    all my editing with this program on my Mac.
-    </li>
-    <li>
-      <a href="https://github.com/danio/gedcomtohtml">gedcomToHTML</a> - Created this website in 2005.
-      <ul>
-        <li>
-          <a href="https://github.com/jhannah/gedcomtohtml/blob/master/jays_changes.md">Why I stopped using it</a> in
-          my 2024 refresh.
-        </li>
-        <li>You can still <a href="http://jays.net/genealogy/Html/I1265.html">browse the 2005 output</a> if you like.
-        It's interesting to compare that tools feature set with ged2site.
-        </li>
-      </ul>
-    </li>
-    <li>
-      <a href="relation_pl.txt">relation.pl</a> - A Perl script that uses Gedcom::LifeLines, a Perl port of a genealogy
-      scripting language called "LifeLines". (Did I get that right?)
-    </li>
-    <li>
-      <a href="http://www.genopro.com">GenoPro</a> - Made cool graphs (of a few hundred people max) on my craptastic
-      Win98 PC.
-    </li>
-  </ul>
+## Tools I use
 
-  <br><hr><i>-eot-</i>
-</body>
-</html>
+* [GEDitCOM II](https://geditcom.com) - I edit my GEDCOM with this software on macOS.
+* [ged2site](https://github.com/nigelhorne/ged2site) generates this website.
+  * Which uses [Gedcom.pm](https://metacpan.org/pod/Gedcom) to parse GEDCOM files.
+  * [I forked ged2site](https://github.com/jhannah/ged2site) for several features that haven't been merged upstream.
+```
+git checkout 112-and-115
+ged2site -cFdlh 'Jay Weston Hannah' ~/src/private/genealogy/jay.ged
+find static-site -name '*.html' -exec tidy -quiet -im -wrap 0 -f errors.txt {} \;
+```
+
+## Way back in 2005...
+
+* Dead link: [SeeGEDCOMX](http://www.dcs.qmul.ac.uk/~keithc/family-history/see-gedcom/) -
+  I used to do all my editing with this program on my Mac.
+* [gedcomToHTML](https://github.com/danio/gedcomtohtml) -
+  Created this website in 2005.
+  * [Why I stopped using it](https://github.com/jhannah/gedcomtohtml/blob/master/jays_changes.md) in my 2024 refresh.
+  * You can still [browse the 2005 output](http://jays.net/genealogy/Html/I1265.html) if you like.
+    It's interesting to compare that tools feature set with ged2site.
+* [relation.pl](https://github.com/jhannah/jays.net/blob/main/genealogy/relation.pl) -
+  A Perl script that uses Gedcom::LifeLines, a Perl port of a genealogy
+  scripting language called "LifeLines". (Did I get that right?)
+* [GenoPro](http://www.genopro.com) - Made cool graphs (of a few hundred people max) on my craptastic Win98 PC.
