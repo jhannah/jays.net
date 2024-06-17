@@ -175,7 +175,7 @@
 <header id="title-block-header">
 <h1 class="title">jays.net Genealogy</h1>
 </header>
-<p>Updated 2024-06-15. <a
+<p>Updated 2024-06-17. <a
 href="https://github.com/jhannah/jays.net/issues">Updates
 welcome</a>.</p>
 <p>Hello! My name is <a
@@ -351,17 +351,27 @@ href="Stark_Family_by_Kandi_Stark.doc">Stark_Family_by_Kandi_Stark.doc</a>
 <li><a href="https://geditcom.com">GEDitCOM II</a> - I edit my GEDCOM
 with this software on macOS.</li>
 <li><a href="https://github.com/nigelhorne/ged2site">ged2site</a>
-generates this website.
-<ul>
-<li>Which uses <a href="https://metacpan.org/pod/Gedcom">Gedcom.pm</a>
-to parse GEDCOM files.</li>
-<li><a href="https://github.com/jhannah/ged2site">I forked ged2site</a>
-for several features that haven’t been merged upstream.</li>
+generates this website.</li>
 </ul>
-<pre><code>git checkout 112-and-115
-ged2site -cFdlh &#39;Jay Weston Hannah&#39; ~/src/private/genealogy/jay.ged
-find static-site -name &#39;*.html&#39; -exec tidy -quiet -im -wrap 0 -f errors.txt {} \;</code></pre></li>
-</ul>
+<p>We need a hacked version of Gedcom.pm to read Notes properly. Then we
+need a hacked version of ged2site to get the living people behavior we
+want, and other fixes.</p>
+<pre><code>git clone git@github.com:jhannah/Gedcom.pm.git
+git clone git@github.com:jhannah/ged2site.git
+cd ged2site
+git checkout jays-hacks
+perl -I ~/src/Gedcom.pm/lib ged2site -cFdlh &#39;Jay Weston Hannah&#39; ~/src/private/genealogy/jay.ged
+
+cp -R static-site/* ~/src/jays.net/genealogy/static-site/
+cd ~/src/jays.net/genealogy/static-site
+find . -name &#39;*.html&#39; -exec tidy -quiet -im -wrap 0 -f errors.txt {} \;</code></pre>
+<p>Also, this is handy if you’re trying to figure out spacing bugs in
+long lines:</p>
+<pre><code>brew install wdiff
+brew install colordiff
+perl j2.pl &gt; before
+perl -Ilib j2.pl &gt; after
+wdiff before after | colordiff</code></pre>
 <h2 id="way-back-in-2005">Way back in 2005…</h2>
 <ul>
 <li>Dead link: <a

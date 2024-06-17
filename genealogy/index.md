@@ -167,7 +167,17 @@ perl -I ~/src/Gedcom.pm/lib ged2site -cFdlh 'Jay Weston Hannah' ~/src/private/ge
 
 cp -R static-site/* ~/src/jays.net/genealogy/static-site/
 cd ~/src/jays.net/genealogy/static-site
-find static-site -name '*.html' -exec tidy -quiet -im -wrap 0 -f errors.txt {} \;
+find . -name '*.html' -exec tidy -quiet -im -wrap 0 -f errors.txt {} \;
+```
+
+Also, this is handy if you're trying to figure out spacing bugs in long lines:
+
+```
+brew install wdiff
+brew install colordiff
+perl j2.pl > before
+perl -Ilib j2.pl > after
+wdiff before after | colordiff
 ```
 
 ## Way back in 2005...
