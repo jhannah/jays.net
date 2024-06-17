@@ -1,4 +1,4 @@
-Updated 2024-06-15. [Updates welcome](https://github.com/jhannah/jays.net/issues).
+Updated 2024-06-17. [Updates welcome](https://github.com/jhannah/jays.net/issues).
 
 Hello! My name is [Jay Weston Hannah](http://jays.net/genealogy/static-site/I1265.html).
 I'm a computer geek currently living in Omaha, Nebraska, USA.
@@ -154,11 +154,19 @@ I1265 Jay Weston HANNAH
 
 * [GEDitCOM II](https://geditcom.com) - I edit my GEDCOM with this software on macOS.
 * [ged2site](https://github.com/nigelhorne/ged2site) generates this website.
-  * Which uses [Gedcom.pm](https://metacpan.org/pod/Gedcom) to parse GEDCOM files.
-  * [I forked ged2site](https://github.com/jhannah/ged2site) for several features that haven't been merged upstream.
+
+We need a hacked version of Gedcom.pm to read Notes properly.
+Then we need a hacked version of ged2site to get the living people behavior we want, and other fixes.
+
 ```
-git checkout 112-and-115
-ged2site -cFdlh 'Jay Weston Hannah' ~/src/private/genealogy/jay.ged
+git clone git@github.com:jhannah/Gedcom.pm.git
+git clone git@github.com:jhannah/ged2site.git
+cd ged2site
+git checkout jays-hacks
+perl -I ~/src/Gedcom.pm/lib ged2site -cFdlh 'Jay Weston Hannah' ~/src/private/genealogy/jay.ged
+
+cp -R static-site/* ~/src/jays.net/genealogy/static-site/
+cd ~/src/jays.net/genealogy/static-site
 find static-site -name '*.html' -exec tidy -quiet -im -wrap 0 -f errors.txt {} \;
 ```
 
