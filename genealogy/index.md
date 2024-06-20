@@ -150,7 +150,7 @@ I1265 Jay Weston HANNAH
 * [Stark_Family_by_Kandi_Stark.doc](Stark_Family_by_Kandi_Stark.doc) (Mar 2006) - By my cousin Kandi Stark
 * [Thomson_Family_History.doc](Thomson_Family_History.doc) (Aug 2006) - By June Sparks (junetsparks(at)cableone(dot)net)
 
-## Tools I use
+## Tools I use to generate this website
 
 * [GEDitCOM II](https://geditcom.com) - I edit my GEDCOM with this software on macOS.
 * [ged2site](https://github.com/nigelhorne/ged2site) generates this website.
@@ -170,7 +170,11 @@ cd ~/src/jays.net/genealogy/static-site
 find . -name '*.html' -exec tidy -quiet -im -wrap 0 -f errors.txt {} \;
 ```
 
-Also, this is handy if you're trying to figure out spacing bugs in long lines:
+Congrats! You've generated this website!
+
+## Other tools I use
+
+This is handy if you're trying to figure out spacing bugs in long lines:
 
 ```
 brew install wdiff
@@ -178,6 +182,64 @@ brew install colordiff
 perl j2.pl > before
 perl -Ilib j2.pl > after
 wdiff before after | colordiff
+```
+
+If you want graphical routes between people, GEDitCOM II above does that. For text routing:
+
+* [relation.pl](https://github.com/jhannah/jays.net/blob/main/genealogy/relation.pl) -
+  A Perl script that uses Gedcom::LifeLines, a Perl port of a genealogy
+  scripting language called "LifeLines". (Did I get that right?)
+
+```
+perl relation.pl -gedcom_file ~/src/private/genealogy/teten.ged
+Enter person to compute relation from: I13100639832
+Enter 1 for a single relation, 2 for several, 3 for all: 1
+Enter 0 for brief, 1 for English-language relationships: 1
+Enter 0 to omit, 1 to output names of all intervening relatives: 1
+Enter one person to compute relation to: I13129014810
+I13100639832 Stephanie Rose TETEN's father
+I13100639833 John Jay TETEN's father
+I13100647701 Harvey H. TETEN Jr.'s mother
+I13100656957 Sarah Anne GOLDEN's father
+I13100699728 Francis Marion GOLDEN's mother
+I13100745911 Helen Nancy SITTON's father
+I13111273791 William Martin SITTON's father
+I13111309434 Jeffrey SITTON's father
+I13111338212 Joseph T. SITTON's father
+I13111375788 John SITTON's father
+I13111447359 Benjamin SITTON's father
+I13111482300 John SITTON SUTTON's father
+I13111598959 John SUTTON Sr's father
+I13111639947 Henry SUTTON's father
+I13128380576 Theron SUTTON's father
+I13128386295 Sir Henry SUTTON's father
+I13128538292 Robert SUTTON's father
+I13128542612 Hamon SUTTON III's father
+I13128562203 Hamon II SUTTON's father
+I13128565895 Robert SUTTON's father
+I13128572245 John IV (Sir) SUTTON's father
+I13128576575 Sir Knight John III Dudley, Baron of SUTTON's father
+I13128594546 Sir John II Knight Lord de Dudley Castle, Baron de Dudley Castle SUTTON's father
+I13128613714 Sir John Knight Ist Lord Of Dudley SUTTON's father
+I13128616633 Sir Richard Lord De Dudley SUTTON's father
+I13128622451 Sir Robert de SUTTON's father
+I13128626243 William Sir Knight De SUTTON *'s father
+I13128631051 Rowland Sir Lord Sutton SUTTON's father
+I13128731489 Hervey Roger (5th Baron of Sutton) (De) SUTTON's father
+I13128892719 Hervey Hugh (De) (4th Lord) Earl of Clonard.(aka Roger) SUTTON's father
+I13128893546 Hervey Lord SUTTON's father
+I13128894604 Hervey (Lord II of Sutton) (De)(Earls of Clonard) SUTTON's father
+I13128900088 Hervey Lord I De SUTTON's father
+I13128901926 Gilbert Seuton DeNueville Admiral TEUTON's father
+I13128962738 Richard2nd Duke of Normandy de Neuville Le TEUTON's father
+I13128963265 Balderich Seuton Teutonicus De Courcy Le TEUTON ^'s father
+I13128964808 Wigelius Duke Wigerius Charles Of Lorraine Teutonicus) ((De) COURCY's father
+I13128970468 Seigneur Charles (De) Courcy CAROLINGIAN's father
+I13129001973 Charles III The Simple of France CAROLINGIAN's father
+I13129006059 Louis the Stammerer (King Of France) CAROLINGIAN's father
+I13129007631 Charles the Bald (Holy Roman Emperor (875–877, as Charles II) and King of West Francia) 's father
+I13129010448 Louis I "The Pious" Aquitaine King of France CAROLINGIAN's father
+I13129014810 Charles Charlemagne EMPEROR HOLY ROMAN EMPIRE
 ```
 
 ## Way back in 2005...
@@ -189,7 +251,4 @@ wdiff before after | colordiff
   * [Why I stopped using it](https://github.com/jhannah/gedcomtohtml/blob/master/jays_changes.md) in my 2024 refresh.
   * You can still [browse the 2005 output](http://jays.net/genealogy/Html/I1265.html) if you like.
     It's interesting to compare that tools feature set with ged2site.
-* [relation.pl](https://github.com/jhannah/jays.net/blob/main/genealogy/relation.pl) -
-  A Perl script that uses Gedcom::LifeLines, a Perl port of a genealogy
-  scripting language called "LifeLines". (Did I get that right?)
 * [GenoPro](http://www.genopro.com) - Made cool graphs (of a few hundred people max) on my craptastic Win98 PC.
