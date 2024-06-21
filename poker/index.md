@@ -1,6 +1,10 @@
 % Poker @ Jay & Steph's
 
-# Sat Jun 22, 2024. 8pm - whenever
+# CANCELLED
+
+Poker at my house tomorrow is cancelled. We only got 5 players committed, too risky to proceed I think. Better to let everyone loose to make other plans. :) Apologies!
+
+# CANCELLED
 
 I'm heading to Iowa/Ohio to cheer on [Kenny](https://msruntheus.salsalabs.org/2024relayteam/p/kennethelms/index.html)!
 Let's play Texas Hold 'Em!
