@@ -16,8 +16,8 @@ on the construction and maintenance of TCP/IP services (over "trusted" and untru
 Large-scale JSON / XML standards data processing and REST APIs exposing those.
 Developed multi-site load balancing, high availability, and disaster recovery solutions; including
 procedure definition, enforcement, and trials.
-Strong focus on open source technologies. Passingly skilled with network design concepts. I pride myself on 
-my documentation skills. Throughout my career I have championed documentation efforts for many companies.
+Strong focus on open source technologies. Passingly skilled with network design concepts.
+Throughout my career I have championed documentation efforts for many companies.
 
 **Dream Job:** Using my backend / database / programming skills to help with massively scaled providers of emergency /
 low-income housing and food. The UNHCR (High Council on Refugees) and WFP (World Food Program)
@@ -46,27 +46,26 @@ very little), and various other tools.
 
 AI (LLM) start-up client further developing their Python (FastAPI) REST API stack (deployed via Google Cloud Run),
 and their Google FireStore (FireBase) NoSQL schema, expanding their feature set.
-Established Pytest CI regime, added/refactored many REST endpoints, bridged them to also include PostgreSQL
-("Cloud SQL") when FireBase statistical capacities proved massively inefficient (slow) for some of their use cases.
-Traditional RDBMS schemas can be vastly simpler, faster for statistics gathering over multiple business org
-and timeframe roll-ups. 
+Established Pytest CI regime, added/refactored many REST endpoints.
+Bridged them to also use PostgreSQL ("Cloud SQL") when FireBase statistical capacities proved massively
+inefficient (slow) for multiple business org and timeframe roll-ups. 
 
 ### Staff Augmentation | MediaMath Inc. ($170M) | 2014-2023
 
-Worked as staff augmentation consultant for REST API team and associated services. The company totalled ~140
+Worked as staff augmentation consultant for REST API team and associated services. The company employed ~140
 engineers. Our primary mission was to design, maintain, and enhance a PostgreSQL schema and REST APIs for
 modifying data in that schema, primarily for configuration of advertising campaigns.
 
-Primary PostgreSQL: 273 tables, 75 views, 234 functions (mostly PL/pgSQL). ~500GB, 80M rows
+**Primary PostgreSQL:** 273 tables, 75 views, 234 functions (mostly PL/pgSQL). ~500GB, 80M rows
 
-API v3 stack: Golang 1.20.5, gin 1.9.1 web framework. 67K lines of tests, 116K total lines of code. Stack
+**API v3 stack:** Golang 1.20.5, gin 1.9.1 web framework. 67K lines of tests, 116K total lines of code. Stack
 built locally (development) via Docker Compose (DB and application). IDE: Visual Studio Code plus custom
 linting rules (revive). Continuous integration via CircleCI. If tests all pass, topic branches deployed
 automatically to in-house Kubernetes cluster for both QA and PROD. Fully automated continuous delivery via
 Helm Charts. Prometheus integration for statistics. Production alerting via PagerDuty. Log aggregation via
 SumoLogic, including Sumologic Traces (in-app OpenTelemetry hooks).
 
-API v2 stack: Perl 5.30.1, Catalyst 5.90128 web framework. 98K lines of tests, 232K total lines of code. Stack
+**API v2 stack:** Perl 5.30.1, Catalyst 5.90128 web framework. 98K lines of tests, 232K total lines of code. Stack
 built locally (development) via Docker Compose (DB and applications (main API and ancillary applications)).
 IDE: Whatever the developer prefers. Visual Studio Code and vim were both common. Continuous integration via
 Jenkins, which also served as our "continuous delivery" mechanism to pre-allocated in-house clusters of QA
@@ -75,7 +74,7 @@ different phases of production rollout. All hardware pre-allocated, dedicated (n
 integration for statistics. Production alerting via PagerDuty. Log aggregation via SumoLogic. No
 OpenTelemetry.
 
-core-serializer: Perl 5.34.0, Python3 (Dockerfile "latest"). 12K lines of tests, 17K total lines of code.
+**core-serializer:** Perl 5.34.0, Python3 (Dockerfile "latest"). 12K lines of tests, 17K total lines of code.
 Stack built locally (DEV and QA) via Docker Compose (DB and application). Continuous integration and delivery
 via CircleCI. If tests all pass, production deployed automatically via Chef recipe updates and published via
 in-house Chef Manage server (chef-client on dedicated hardware).
@@ -119,7 +118,7 @@ standards body) XML specification to ensure data integrity and consistent applic
 design, all data exchange inside and outside the company will be served by a single highly available and load
 balanced cluster of low-cost Linux servers running a single application framework enforcing all business rules.
 * First hired to replace a primarily one-man development team who was departing and a series of consultants.
-* Established documentation systems, revision control, operating procedures, monitoring and paging, and
+* Established documentation systems, version control, operating procedures, monitoring and paging, and
 departmental cross training.
 
 ### Application Support / Development Specialist | University of Nebraska Medical Center | 2007 - 2010
