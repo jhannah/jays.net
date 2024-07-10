@@ -123,7 +123,7 @@ departmental cross training.
 
 ### Application Support / Development Specialist | University of Nebraska Medical Center | 2007 - 2010
 
-* Worked part-time from UNMC while persuing a B.S. in Bioinformatics.
+* Worked part-time from UNMC while pursuing a B.S. in Bioinformatics.
 * Genetic Sequence Analysis Facility (GSAF) provides application and hardware support and development for researchers
 at the University of Nebraska Medical Center.
 * Collaborative Laboratory of Applied Bioinformatics (CLAB) provides application and hardware support and development
