@@ -42,7 +42,7 @@ over time. Most recent deployments on "bare metal," Xen VMs, in-house managed Ku
 etc.). Those stacks are variously driven by Docker, Docker Compose, Chef/Ansible, Helm Charts (of which I know
 very little), and various other tools.
 
-### REST API / Schema Dev | -NDA- | 2023-2024 (4 months)
+### Senior Software Engineer | -NDA- | 2023-2024 (4 months)
 
 AI (LLM) start-up client further developing their Python (FastAPI) REST API stack (deployed via Google Cloud Run),
 and their Google FireStore (FireBase) NoSQL schema, expanding their feature set.
