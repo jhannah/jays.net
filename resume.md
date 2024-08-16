@@ -26,7 +26,7 @@ The highest calling I can imagine is working on empowering thousands / millions 
 
 ## Experience
 
-### Project Lead / Programmer | Infinity Interactive | 2011-2024
+### Senior Software Engineer | Infinity Interactive | 2011-2024
 
 Telecommuting consultant. Perl, Golang, Python, PL/pgSQL, large scale databases, REST APIs, minor web.
 Industries have included e-commerce (retail), large event / venue equipment rental (and data mining thereof),
@@ -50,7 +50,7 @@ Established Pytest CI regime, added/refactored many REST endpoints.
 Bridged them to also use PostgreSQL ("Cloud SQL") when FireBase statistical capacities proved massively
 inefficient (slow) for multiple business org and timeframe roll-ups. 
 
-### Staff Augmentation | MediaMath Inc. ($170M) | 2014-2023
+### Senior Software Engineer | MediaMath Inc. ($170M) | 2014-2023
 
 Worked as staff augmentation consultant for REST API team and associated services. The company employed ~140
 engineers. Our primary mission was to design, maintain, and enhance a PostgreSQL schema and REST APIs for
