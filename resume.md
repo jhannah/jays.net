@@ -26,7 +26,7 @@ The highest calling I can imagine is working on empowering thousands / millions 
 
 ## Experience
 
-### Project Lead / Programmer | Infinity Interactive | 2011 - Present
+### Project Lead / Programmer | Infinity Interactive | 2011-2024
 
 Telecommuting consultant. Perl, Golang, Python, PL/pgSQL, large scale databases, REST APIs, minor web.
 Industries have included e-commerce (retail), large event / venue equipment rental (and data mining thereof),
