@@ -101,7 +101,7 @@ I served as an informal part-time trainer / mentor for several new hires. I upgr
 abandoned (yet business critical) Python2 into Python3 and modernized that software stack. I proposed
 high-level overhauls of systems that were causing long-running inefficiencies in business operations.
 
-### Software Architect / Director of Development | Omni Hotels ($720M) | 1999 - 2010
+### Software Architect / Director of Development | Omni Hotels ($720M) | 1999-2010
 
 * Design, manage, implement, and document complex software/data systems to fulfill the stated technology goals
 of the senior management team. Provide regular status updates and cost estimates.
@@ -121,7 +121,7 @@ balanced cluster of low-cost Linux servers running a single application framewor
 * Established documentation systems, version control, operating procedures, monitoring and paging, and
 departmental cross training.
 
-### Application Support / Development Specialist | University of Nebraska Medical Center | 2007 - 2010
+### Application Support / Development Specialist | University of Nebraska Medical Center | 2007-2010
 
 * Worked part-time from UNMC while pursuing a B.S. in Bioinformatics.
 * Genetic Sequence Analysis Facility (GSAF) provides application and hardware support and development for researchers
@@ -134,7 +134,7 @@ up being useful enough to the scientists that I was listed as a co-author on a s
 the science (my biology / chemistry is weak) but I can try to remember a vague outline of the software I wrote if you're interested:
 [Loss of Dnmt3b function upregulates the tumor modifier Ment and accelerates mouse lymphomagenesis](https://pubmed.ncbi.nlm.nih.gov/22133874/).
 
-### Senior Software Engineer, Webmaster | Viatel, Inc. ($570M) | 1998 - 1999
+### Senior Software Engineer, Webmaster | Viatel, Inc. ($570M) | 1998-1999
 
 * Lead developer of Internet / Intranet applications.
 * Designed and lead ongoing technical production, implementation and maintenance of Viatel’s first Internet /
@@ -155,7 +155,7 @@ applications).
 responsibilities (e.g.: built and maintaining Internet / Intranet server rack of 3 dual-processor x86 Linux servers
 providing all Internet, Intranet ,and Extranet services worldwide.
 
-### Director of Software Development | Quality Service Management, Inc. ($16M) | 1997 - 1998
+### Director of Software Development | Quality Service Management, Inc. ($16M) | 1997-1998
 
 * Director of Software Development and telecommunications coordinator for $16 million direct marketing
 consulting firm with 700+ employees and a 4 year trend of 100% annual growth (1995-1998).
@@ -173,7 +173,7 @@ expansion, cost/benefit analysis, and crisis management of a 5 point wide area n
 Internet access), 14 voice T1s and 30-odd analog circuits. Role also included the monitoring and approval of all
 telecommunications bills, totaling $75K (2 million calls) per month.
 
-### President | Global Shopping Club, Inc., Yankton SD ($7M) | 1996 - 1997
+### President | Global Shopping Club, Inc., Yankton SD ($7M) | 1996-1997
 
 * Founding partner in Internet-based computer components and home electronics distribution company with 25
 employees.
@@ -189,7 +189,7 @@ and television interviews. Wrote press releases and promotional materials for su
 * Wrote and presented “Successful Internet Commerce – One Flourishing Model” at 1996 Techlaunch 2000
 technology conference held in Sioux City, IA.
 
-### Network Systems Coordinator | General Service Computers, Inc., Yankton SD ($7M) | 1995 - 1996
+### Network Systems Coordinator | General Service Computers, Inc., Yankton SD ($7M) | 1995-1996
 
 * Designed, implemented, and managed Perl-based CGI web site allowing customers to access inventory
 information and place orders via the Internet.
