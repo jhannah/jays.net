@@ -193,8 +193,7 @@ technology conference held in Sioux City, IA.
 
 * Designed, implemented, and managed Perl-based CGI web site allowing customers to access inventory
 information and place orders via the Internet.
-* Managed and monitored voice and data circuits via drop-and-insert channel bank (2 T1s), including mission-
-critical repair scenarios.
+* Managed and monitored voice and data circuits via drop-and-insert channel bank (2 T1s), including mission critical repair scenarios.
 * Performed Unix system administrator duties (x86 BSDi).
 
 ### Training
@@ -203,7 +202,7 @@ critical repair scenarios.
 
 ### Education
 
-2007-2010: University of Nebraska at Omaha: Persued B.S. in Bioinformatics. Earned no degrees.
+2007-2010: University of Nebraska at Omaha: Pursued B.S. in Bioinformatics. Earned no degrees.
 
 1993-1995: Iowa State University: Majored in Mechanical Engineering, Psychology, and Philosophy. 
 Psychology minor completed. Earned no degrees. Member, Delta Tau Delta social fraternity. 
