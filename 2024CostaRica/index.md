@@ -3,6 +3,8 @@
 [Map](https://www.google.com/maps/d/u/0/edit?mid=1UaPeP2KdKiVW-pAAwJMlbBF-9JocZpk&usp=sharing)
 <!-- > | [TripIt](https://www.tripit.com/p/787F4DA3D0B304A47296C36989E34A1A) -->
 
+Trip total before food, misc, Jay's scuba adventures (assuming cheaper hotel): **$6K**
+
 ## Dec
 
 **Tue 3rd**
@@ -26,7 +28,5 @@ $271/night/room w/ breakfast. Total for 2 rooms: $3,794
 **Wed 11th**
 
 Return rental car. Fly home. Jay drives home.
-
-Trip total before food, misc, Jay's scuba adventures: $6K
 
 [Source code](https://github.com/jhannah/jays.net/blob/main/2024CostaRica/index.md)
