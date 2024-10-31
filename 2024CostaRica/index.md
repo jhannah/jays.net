@@ -3,7 +3,7 @@
 [Map](https://www.google.com/maps/d/u/0/edit?mid=1UaPeP2KdKiVW-pAAwJMlbBF-9JocZpk&usp=sharing) |
 [TripIt](https://www.tripit.com/p/231AD6B2029655DB10A5FF4339DA21DA)
 
-Trip total before food, misc, Jay’s scuba adventures: **$10K**
+Trip total before food, misc, Jay’s scuba adventures: **$11K**
 
 **Fri 20th**
 
