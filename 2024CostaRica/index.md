@@ -7,7 +7,7 @@ Trip total before food, misc, Jay’s scuba adventures: **$10K**
 
 **Fri 20th**
 
-Jay and Brad drive to Kansas City (MCI) because flights are cheaper from there.
+Jay and Brad drive OMA -> MCI.
 
 **Sat 21st**
 
@@ -25,7 +25,7 @@ Return rental car.
 
 Flights LIR -> IAH -> MCI
 
-Jay and Brad drive home.
+Jay and Brad drive MCI -> OMA.
 
 ---
 
