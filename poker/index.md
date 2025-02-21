@@ -1,6 +1,6 @@
 % Poker @ Jay & Steph's
 
-# Sat Feb 8, 2025. 7:30pm - whenever
+# Sat Mar 15, 2025. 7:30pm - whenever
 
 Overflow! Nick's poker games are packed now, 
 Let's play Texas Hold 'Em!
