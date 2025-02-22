@@ -7,40 +7,50 @@ jay@jays.net
 **Objective:** Identify challenging technical leadership opportunity managing large scale data systems. 100% telecommute.
 
 **Leadership:** For seven years in the early 2000s I managed 8-12 programmers and database/system
-administrators in a mission critical OLTP database environment ($400M revenue stream). Daily management of
-operations problems while simultaneously managing high level expectations and deliverables for senior management
-team and ownership.
+administrators in a mission critical OLTP database environment with multiple application stacks.
+($400M revenue stream).
+Daily management of operations while simultaneously managing high level expectations and
+deliverables for senior management and ownership.
 
-**Technical:** 27 years of programming / lead developer experience. Strong data modeling skills. Sustained focus
+**Technical:** 30 years of programming / lead developer experience. Strong data modeling skills. Sustained focus
 on the construction and maintenance of TCP/IP services (over "trusted" and untrusted networks).
 Large-scale JSON / XML standards data processing and REST APIs exposing those.
 Developed multi-site load balancing, high availability, and disaster recovery solutions; including
 procedure definition, enforcement, and trials.
 Strong focus on open source technologies. Passingly skilled with network design concepts.
-Throughout my career I have championed documentation efforts for many companies.
+I have championed documentation efforts for many companies.
 
 **Dream Job:** Using my backend / database / programming skills to help with massively scaled providers of emergency /
 low-income housing and food. The UNHCR (High Council on Refugees) and WFP (World Food Program)
 are the largest examples of that mission I'm aware of. I'm very interested in logistics.
-The highest calling I can imagine is working on empowering thousands / millions of deliveries of food / clothing / shelter.
+The highest calling I can imagine is working on empowering thousands / millions of deliveries
+of food / clothing / shelter.
 
 ## Experience
 
-### Senior Software Engineer | Infinity Interactive | 2011-2024
+### Senior Software Engineer | Infinity Interactive | 2011-current
 
-Telecommuting consultant. Perl, Golang, Python, PL/pgSQL, large scale databases, REST APIs, minor web.
-Industries have included e-commerce (retail), large event / venue equipment rental (and data mining thereof),
-advertising technology, and various start-ups.
+Telecommuting consultant. Python, Perl, Golang, PL/pgSQL, large scale databases, REST APIs, minor web.
+Industries have included bioinformatics, AI (LLM) start-ups, advertising technology, large event / venue
+equipment rental (and data mining thereof), e-commerce (web retail), and various other start-ups.
 
-In principle recent clients have a lot of DevOps support so I can focus on programming (Golang, Perl, Python).
-In practice I've been learning a lot of DevOps because resources aren't available and sometimes
-I have access to fix things.
+In principle recent clients have a lot of DevOps in-house so I can focus on
+programming software stacks (Python, Perl, Golang, Javascript).
+In practice I've been doing a lot of DevOps filling gaps in staffing.
 
-I have a functional / "emergency" understanding of deployment
-of various stacks for monoliths and "micro-services." Clients have swung back and forth between those strategies
-over time. Most recent deployments on "bare metal," Xen VMs, in-house managed Kubernetes, and AWS (EC2, ECS, S3,
-etc.). Those stacks are variously driven by Docker, Docker Compose, Chef/Ansible, Helm Charts (of which I know
-very little), and various other tools.
+My most recent DevOps work has been Python -> Terraform -> AWS (ECS, EC2, S3, Lambdas, CloudWatch, etc.)
+Previous clients have swung back and forth between micro-service strategies and in-house bare-metal:
+Xen VMs, Kubernetes.
+Those stacks have been variously driven by Docker/Compose, Chef/Ansible, Helm Charts, and other tools.
+
+### Senior Software Engineer | -NDA- | 2024-2025 (6 months)
+
+Python development and DevOps for a bioinformatics company (industry leading DNA foundry).
+30K lines of Python, deployed to AWS (ECS, EC2, S3, Lambdas, CloudWatch, etc.)
+via 37K lines of Terraform config. Writing / improving Python, Dockerfile,
+and Terraform configurations to enable automated cloud processing of their complex
+scientific data pipelines from multiple data sources through to customer delivery.
+Monitoring, reporting on progress / status, error handling.
 
 ### Senior Software Engineer | -NDA- | 2023-2024 (4 months)
 
