@@ -1,7 +1,7 @@
 # Jay W. Hannah
 
 Omaha, Nebraska USA |
-+1-402-598-7782 |
++1 402-598-7782 |
 jay@jays.net
 
 **Objective:** Identify challenging technical leadership opportunity managing large scale data systems. 100% telecommute.
