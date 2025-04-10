@@ -28,7 +28,7 @@ of food / clothing / shelter.
 
 ## Experience
 
-### Senior Software Engineer | Infinity Interactive | 2011-current
+### Senior Software Engineer | Infinity Interactive | 2011-2025
 
 Telecommuting consultant. Python, Perl, Golang, PL/pgSQL, large scale databases, REST APIs, minor web.
 Industries have included bioinformatics, AI (LLM) start-ups, advertising technology, large event / venue
