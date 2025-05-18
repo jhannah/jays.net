@@ -140,8 +140,9 @@ at the University of Nebraska Medical Center.
 for researchers and students across the University of Nebraska system. CLAB is based at the Peter Kiewit Institute
 (PKI) of the University of Nebraska, Omaha (UNO).
 * In one project I wrote a bunch of Perl, deployed it to UNO's super computer cluster, crunched a ton of data, and that work ended
-up being useful enough to the scientists that I was listed as a co-author on a scientific paper. Don't ask me to explain
-the science (my biology / chemistry is weak) but I can try to remember a vague outline of the software I wrote if you're interested:
+up being useful enough to the scientists that I was listed as a co-author on a scientific paper. Don't ask me to
+explain the science (my biology / chemistry is weak) but I can try to remember a vague outline of the software I
+wrote if you're interested:
 [Loss of Dnmt3b function upregulates the tumor modifier Ment and accelerates mouse lymphomagenesis](https://pubmed.ncbi.nlm.nih.gov/22133874/).
 
 ### Senior Software Engineer, Webmaster | Viatel, Inc. ($570M) | 1998-1999
@@ -155,15 +156,15 @@ most of Viatel’s 60 service types (products) for customers in 230 countries an
 languages and 17 currencies.
 * Lead developer of corporate Intranet, providing distributed real time departmental and project information to 31
 executive and sales offices worldwide.
-* To-specification modifications of “Call Detail” program: 4700+ lines of legacy code which, during each billing
+* To-specification modifications of "Call Detail" program: 4700+ lines of legacy code which, during each billing
 cycle, manipulates and analyses 24 million revenue records (on average) to generate bills sent to 34K+ active
 SME customers.
 * Miscellaneous accounting system analysis and modification tasks to support new products and procedures in
 600+ program and 500+ data table accounting environment (mostly legacy Informix-4GL and FourGen
 applications).
 * As-needed miscellaneous system engineering, system administration, and network administration / monitoring
-responsibilities (e.g.: built and maintaining Internet / Intranet server rack of 3 dual-processor x86 Linux servers
-providing all Internet, Intranet ,and Extranet services worldwide.
+responsibilities. e.g.: built and maintaining Internet / Intranet server rack of 3 dual-processor x86 Linux servers
+providing all Internet, Intranet, and Extranet services worldwide.
 
 ### Director of Software Development | Quality Service Management, Inc. ($16M) | 1997-1998
 
@@ -173,11 +174,11 @@ consulting firm with 700+ employees and a 4 year trend of 100% annual growth (19
 migration, system design, query optimization, security planning and control, and disaster recovery procedures
 (Informix Online 7.20).
 * Various Unix system administration functions (Linux and SCO OpenServer 5).
-* Designed, developed, and implemented a client-server “agent monitoring” data input and storage system. 17
+* Designed, developed, and implemented a client-server "agent monitoring" data input and storage system. 17
 table Informix database is accessed via ODBC by a staff of data entry employees (19 stations, 3 shifts). Server
 side includes fully normalized and constrained data structures using complete referential integrity and a handful
 of triggers, stored procedures and synonyms. Client side GUI (Microsoft Access) contains Visual Basic enhanced
-live “scoring” and graphical reporting and trending.
+live "scoring" and graphical reporting and trending.
 * Telecommunications coordinator responsibilities included the cost profiling, installation, management,
 expansion, cost/benefit analysis, and crisis management of a 5 point wide area network (including dedicated
 Internet access), 14 voice T1s and 30-odd analog circuits. Role also included the monitoring and approval of all
@@ -189,7 +190,7 @@ telecommunications bills, totaling $75K (2 million calls) per month.
 employees.
 * Lead programmer in from-scratch development of Internet-based auction-style sales system. Tools included
 Microsoft SQL Server, Internet Information Server, and Active Server Pages (Visual Basic extension to IIS). The
-system dynamically responded to over 1 million server “hits” each week from 10K+ customers from 94 countries.
+system dynamically responded to over 1 million server "hits" each week from 10K+ customers from 94 countries.
 The data set became the backbone of corporate data flow eventually controlling inventory, shipping, credit card
 processing, and the majority of accounting systems.
 * Authored core corporate documents including business plan and operations manual.
@@ -219,7 +220,7 @@ Psychology minor completed. Earned no degrees. Member, Delta Tau Delta social fr
 
 ### Interests
 
-Philosophy, “blitz” Go (Igo / Wei Qi / Baduk), chess, podcasting, motorcycles, scuba diving (SSI Master Diver), 
+Philosophy, "blitz" Go (Igo / Wei Qi / Baduk), chess, podcasting, motorcycles, scuba diving (SSI Master Diver),
 genetics, genealogy, advanced dog management.
 Volunteer, Open/Nebraska aka Code for Nebraska (formerly a Code for America Brigade).
 Volunteer, Food Not Bombs (Omaha).
