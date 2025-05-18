@@ -1,7 +1,7 @@
 # JSON -> HTML
 #   https://github.com/rbardini/resumed
 #   npm install resumed jsonresume-theme-kendall
-#   npx resumed render resume.json --theme=jsonresume-theme-kendall
+npx resumed render resume.json --theme=jsonresume-theme-kendall
 
 # MARKDOWN -> PDF
 #   brew install pandoc basictex
