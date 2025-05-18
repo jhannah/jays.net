@@ -1,0 +1,180 @@
+{
+  "basics": {
+    "name": "Jay Hannah",
+    "label": "Senior Software Engineer / Project Lead",
+    "image": "",
+    "email": "jay@jays.net",
+    "phone": "+1 (402) 598-7782",
+    "url": "http://jays.net",
+    "summary": "Seeking challenging technical leadership opportunity managing large scale data systems.",
+    "location": {
+      "postalCode": "68112",
+      "city": "Omaha",
+      "countryCode": "USA",
+      "region": "Nebraska"
+    },
+    "profiles": [{
+      "network": "LinkedIn",
+      "username": "jhannah",
+      "url": "https://linkedin.com/jhannah"
+    }]
+  },
+  "work": [
+    {
+      "name": "Infinity Interactive",
+      "position": "Senior Software Engineer / Project Lead",
+      "url": "https://iinteractive.com",
+      "startDate": "2011-04-01",
+      "endDate": "2025-04-01",
+      "summary": "<p>Telecommuting consultant. Perl, Golang, Python, PL/pgSQL, large scale databases, REST APIs, minor web. Industries have included e-commerce (retail), large event / venue equipment rental (and data mining thereof), advertising technology, and various start-ups.</p><p>In principle recent clients have a lot of DevOps support so I can focus on programming (Golang, Perl, Python). In practice I’ve been learning a lot of DevOps because resources aren’t available and sometimes I have access to fix things.</p><p>I have a functional / “emergency” understanding of deployment of various stacks for monoliths and “micro-services.” Clients have swung back and forth between those strategies over time. Most recent deployments on “bare metal,” Xen VMs, in-house managed Kubernetes, and AWS (EC2, ECS, S3, etc.). Those stacks are variously driven by Docker, Docker Compose, Chef/Ansible, Helm Charts (of which I know very little), and various other tools.</p>"
+    },
+    {
+      "name": "NDA",
+      "position": "Python / AWS DevOps Engineer",
+      "startDate": "2024-10-01",
+      "endDate": "2025-03-01",
+      "summary": "Python development and DevOps for a bioinformatics company (industry leading DNA foundry). 30K lines of Python, deployed to AWS (ECS, EC2, S3, Lambdas, CloudWatch, etc.) via 37K lines of Terraform config. Writing / improving Python, Dockerfile, and Terraform configurations to enable automated cloud processing of their complex scientific data pipelines from multiple data sources through to customer delivery. Monitoring, reporting on progress / status, error handling."
+    },
+    {
+      "name": "NDA",
+      "position": "REST API / Schema DEV",
+      "startDate": "2023-11-01",
+      "endDate": "2024-03-01",
+      "summary": "AI (LLM) start-up client further developing their Python (FastAPI) REST API stack (deployed via Google Cloud Run), and their Google FireStore (FireBase) NoSQL schema, expanding their feature set. Established Pytest CI regime, added/refactored many REST endpoints. Bridged them to also use PostgreSQL (“Cloud SQL”) when FireBase statistical capacities proved massively inefficient (slow) for multiple business org and timeframe roll-ups."
+    },
+    {
+      "name": "MediaMath",
+      "position": "Senior Software Engineer",
+      "startDate": "2014-01-01",
+      "endDate": "2023-01-01",
+      "summary": "<p>Worked as staff augmentation consultant for REST API team and associated services. The company employed ~140 engineers. Our primary mission was to design, maintain, and enhance a PostgreSQL schema and REST APIs for modifying data in that schema, primarily for configuration of advertising campaigns.</p><p>Primary PostgreSQL: 273 tables, 75 views, 234 functions (mostly PL/pgSQL). ~500GB, 80M rows.</p><p>API v3 stack: Golang 1.20.5, gin 1.9.1 web framework. 67K lines of tests, 116K total lines of code. Stack built locally (development) via Docker Compose (DB and application). IDE: Visual Studio Code plus custom linting rules (revive). Continuous integration via CircleCI. If tests all pass, topic branches deployed automatically to in-house Kubernetes cluster for both QA and PROD. Fully automated continuous delivery via Helm Charts. Prometheus integration for statistics. Production alerting via PagerDuty. Log aggregation via SumoLogic, including Sumologic Traces (in-app OpenTelemetry hooks).</p><p>API v2 stack: Perl 5.30.1, Catalyst 5.90128 web framework. 98K lines of tests, 232K total lines of code. Stack built locally (development) via Docker Compose (DB and applications (main API and ancillary applications)). IDE: Whatever the developer prefers. Visual Studio Code and vim were both common. Continuous integration via Jenkins, which also served as our \"continuous delivery\" mechanism to pre-allocated in-house clusters of QA servers (18 sets). Production deployment automated and integrated into Slack, sending status updates for ~15 different phases of production rollout. All hardware pre-allocated, dedicated (not dynamic). statsd integration for statistics. Production alerting via PagerDuty. Log aggregation via SumoLogic. No OpenTelemetry.</p><p>core-serializer: Perl 5.34.0, Python3 (Dockerfile \"latest\"). 12K lines of tests, 17K total lines of code. Stack built locally (DEV and QA) via Docker Compose (DB and application). Continuous integration and delivery via CircleCI. If tests all pass, production deployed automatically via Chef recipe updates and published via in-house Chef Manage server (chef-client on dedicated hardware).</p><p>In 2020 Golang was chosen as an API v2 replacement (Perl), API v3 expansion began in earnest. We re-implemented core functions, driven by next-generation UI layer requirements. I coordinated with product owners and stakeholders as needed to design and deliver those solutions. I wrote reams of documentation for those systems, with countless diagrams. I emphasized solving problems once since our historical one-off ad-hoc solutions continued to be inconsistent and extremely expensive (time, resource consuming) over years and multiple generations of product, leadership, and engineering staff.</p><p>The APIs also serve as orchestration layers, back-ending requests to other services (APIs and others). We spent lots of time and effort developing and maintaining integrations to those systems, hosted by other MediaMath departments, and many third party vendors.</p><p>For three years the company went through an AWS microservices phase. We split large chunks of the above DB and APIs out into AWS EC2, RDS, ECS, and a dozen other AWS services. Eventually AWS proved too expensive ($3M/month), and several of those microservices were re-absorbed back into the above services. I designed, developed, and tore-down services on both sides of those transitions.</p><p>I served as an informal part-time trainer / mentor for several new hires. I upgraded thousands of lines of abandoned (yet business critical) Python2 into Python3 and modernized that software stack. I proposed high-level overhauls of systems that were causing long-running inefficiencies in business operations."
+    },
+    {
+      "name": "University of Nebraska Medical Center",
+      "position": "Application Support / Development Specialist",
+      "startDate": "2010-12-01",
+      "endDate": "2007-01-01",
+      "summary": "<ul><li>Worked part-time from UNMC while pursuing a B.S. in Bioinformatics.</li><li>Genetic Sequence Analysis Facility (GSAF) provides application and hard- ware support and development for researchers at the University of Nebraska Medical Center.</li><li>Collaborative Laboratory of Applied Bioinformatics (CLAB) provides application and hardware support and development for researchers and students across the University of Nebraska system. CLAB is based at the Peter Kiewit Institute (PKI) of the University of Nebraska, Omaha (UNO).</li><li>In one project I wrote a bunch of Perl, deployed it to UNO’s super computer cluster, crunched a ton of data, and that work ended up being useful enough to the scientists that I was listed as a co-author on a scientific paper. Don’t ask me to explain the science (my biology / chemistry is weak) but I can try to remember a vague outline of the software I wrote if you’re interested: \"Loss of Dnmt3b function upregulates the tumor modifier Ment and accelerates mouse lymphomagenesis.\"</li></ul>"
+    },
+    {
+      "name": "Omni Hotels",
+      "position": "Software Architect / Director of Development",
+      "startDate": "1999-01-01",
+      "endDate": "2010-01-01",
+      "summary": "<ul><li>Design, manage, implement, and document complex software/data systems to fulfill the stated technology goals of the senior management team. Provide regular status updates and cost estimates.</li><li>Until 2004, managed all daily operations for central reservations call center and data center, a $400M revenue stream. In 2004, hired an IT Manager to manage daily operations to allow more focus on high-level development.</li><li>In tandem with Software Architect, implemented custom Internet booking engine (www.omnihotels.com), saving the company $140M a year in com- missions (Linux, Apache, OO Perl 5, mod_ssl, mod_perl, Linux based load balancing and high availability).</li><li>Continuing to replace legacy systems with centralized object oriented Class structure (OO Perl 5) that controls all database I/O (central reservation system is 300 tables in monolithic RDBMS install), centralizing disparate business controls into single, consistent framework.</li><li>Replacing numerous inconsistent system interfaces with single OpenTravel Alliance (hospitality / travel industry standards body) XML specification to ensure data integrity and consistent application of business rules. In this design, all data exchange inside and outside the company will be served by a single highly available and load balanced cluster of low-cost Linux servers running a single application framework enforcing all business rules.</li><li>First hired to replace a primarily one-man development team who was departing and a series of consultants.</li><li>Established documentation systems, version control, operating procedures, monitoring and paging, and departmental cross training.</li></ul>"
+    },
+    {
+      "name": "Viatel",
+      "position": "Senior Software Engineer, Webmaster",
+      "startDate": "1998-01-01",
+      "endDate": "1999-12-01",
+      "summary": "<ul><li>Lead developer of Internet / Intranet applications.</li><li>Designed and lead ongoing technical production, implementation and maintenance of Viatel’s first Internet / Intranet customer signup systems. Systems supported customer signup in Belgium and France (languages Dutch and French), allowing for direct customer signup on the Internet, customer service aided signup on Viatel’s corporate Intranet, and bulk load system from third party call centers. Expansion plans include the addition of most of Viatel’s 60 service types (products) for customers in 230 countries and territories worldwide in 7 languages and 17 currencies.</li><li>Lead developer of corporate Intranet, providing distributed real time departmental and project information to 31 executive and sales offices worldwide.</li><li>To-specification modifications of “Call Detail” program: 4700+ lines of legacy code which, during each billing cycle, manipulates and analyses 24 million revenue records (on average) to generate bills sent to 34K+ active SME customers.</li><li>Miscellaneous accounting system analysis and modification tasks to support new products and procedures in 600+ program and 500+ data table accounting environment (mostly legacy Informix-4GL and FourGen applications).</li><li>As-needed miscellaneous system engineering, system administration, and network administration / monitoring responsibilities (e.g.: built and maintaining Internet / Intranet server rack of 3 dual-processor x86 Linux servers providing all Internet, Intranet, and Extranet services worldwide.</li></ul>"
+    },
+    {
+      "name": "Quality Service Management, Inc.",
+      "position": "Director of Software Development",
+      "startDate": "1997-01-01",
+      "endDate": "1998-01-01",
+      "summary": "<ul><li>Director of Software Development and telecommunications coordinator for $16 million direct marketing consulting firm with 700+ employees and a 4 year trend of 100% annual growth (1995-1998).</li><li>Heavy database administration workload in distributed environment. Included logical development, data migration, system design, query optimization, security planning and control, and disaster recovery procedures (Informix Online 7.20).</li><li>Various Unix system administration functions (Linux and SCO OpenServer 5).</li><li>Designed, developed, and implemented a client-server “agent monitoring” data input and storage system. 17 table Informix database is accessed via ODBC by a staff of data entry employees (19 stations, 3 shifts). Server side includes fully normalized and constrained data structures using complete referential integrity and a handful of triggers, stored procedures and synonyms. Client side GUI (Microsoft Access) contains Visual Basic enhanced live “scoring” and graphical reporting and trending.</li><li>Telecommunications coordinator responsibilities included the cost profiling, installation, management, expansion, cost/benefit analysis, and crisis management of a 5 point wide area network (including dedicated Internet access), 14 voice T1s and 30-odd analog circuits. Role also included the monitoring and approval of all telecommunications bills, totaling $75K (2 million calls) per month.</li></ul>"
+    },
+    {
+      "name": "Global Shopping Club Inc.",
+      "position": "President",
+      "startDate": "1996-01-01",
+      "endDate": "1997-12-01",
+      "summary": "<ul><li>Founding partner in Internet-based computer components and home electronics distribution company with 25 employees.</li><li>Lead programmer in from-scratch development of Internet-based auction-style sales system. Tools included Microsoft SQL Server, Internet Infor- mation Server, and Active Server Pages (Visual Basic extension to IIS). The system dynamically responded to over 1 million server \"hits\" each week from 10K+ customers from 94 countries. The data set became the backbone of corporate data flow eventually controlling inventory, shipping, credit card processing, and the majority of accounting systems.</li><li>Authored core corporate documents including business plan and operations manual.</li><li>Organized and conducted managerial and (occasionally) departmental meetings.</li><li>Performed all advertising and public relations duties including newspaper, trade publication, magazine, radio, and television interviews. Wrote press releases and promotional materials for such purposes.</li><li>Wrote and presented \"Successful Internet Commerce - One Flourishing Model\" at 1996 Techlaunch 2000 technology conference held in Sioux City, IA.</li></ul>"
+    },
+    {
+      "name": "General Service Computers, Inc.",
+      "position": "Network Systems Coordinator",
+      "startDate": "1995-01-01",
+      "endDate": "1996-12-01",
+      "summary": "<ul><li>Designed, implemented, and managed Perl-based CGI web site allowing customers to access inventory information and place orders via the Internet.</li><li>Managed and monitored voice and data circuits via drop-and-insert channel bank (2 T1s), including mission-critical repair scenarios.</li><li>Performed Unix system administrator duties (x86 BSDi).</li></ul>"
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "Food Not Bombs",
+      "position": "Volunteer",
+      "url": "https://omaha.foodnotbombs.us/",
+      "startDate": "2015-06-01",
+      "summary": "Hauling a truckload of produce for free distribution downtown every weekend.",
+      "highlights": []
+    },
+    {
+      "organization": "Open/Nebraska",
+      "position": "Volunteer",
+      "url": "https://opennebraska.org/",
+      "startDate": "2012-01-01",
+      "summary": "\"Civic hacking.\" Making public records more accessible to the public. Maintainer, Nebraska TIF Report (Tax Increment Financing)",
+      "highlights": []
+    }
+  ],
+  "education": [
+    {
+      "institution": "University of Nebraska, Omaha",
+      "url": "https://www.unomaha.edu/",
+      "area": "Part time employee (stipend) for GSAF/CLAB. See work history.",
+      "studyType": "B.S. Bioinformatics",
+      "startDate": "2007-01-01",
+      "endDate": "2010-01-01",
+      "score": null,
+      "courses": []
+    },
+    {
+      "institution": "Iowa State University",
+      "url": "https://www.iastate.edu/",
+      "area": null,
+      "studyType": "Mechanical Engineering, Psychology, Philosophy",
+      "startDate": "1993-01-01",
+      "endDate": "1995-01-01",
+      "score": null,
+      "courses": []
+    }
+],
+  "awards": [],
+  "certificates": [{
+    "name": "Certified Informix Database Specialist",
+    "date": "1998-01-01",
+    "issuer": "Informix",
+    "url": null
+  }],
+  "publications": [{
+    "name": "Loss of Dnmt3b function upregulates the tumor modifier Ment and accelerates mouse lymphomagenesis",
+    "publisher": "Journal of Clinical Investigation",
+    "releaseDate": "2012-01-01",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/22133874/",
+    "summary": "See work history."
+  }],
+  "skills": [{
+    "name": "Web Development",
+    "level": "Master",
+    "keywords": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ]
+  }],
+  "languages": [{
+    "language": "English",
+    "fluency": "Native speaker"
+  }],
+  "interests": [{
+    "name": "Various",
+    "keywords": [
+      "philosophy",
+      "\"blitz\" Go (Igo / Wei Qi / Baduk)",
+      "chess",
+      "podcasting",
+      "motorcycles",
+      "scuba diving (SSI Master Diver)",
+      "genetics",
+      "genealogy",
+      "advanced dog management"
+    ]
+  }],
+  "references": [{
+    "name": "Available upon request"
+  }],
+  "projects": []
+}
