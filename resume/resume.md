@@ -197,7 +197,7 @@ processing, and the majority of accounting systems.
 * Organized and conducted managerial and (occasionally) departmental meetings.
 * Performed all advertising and public relations duties including newspaper, trade publication, magazine, radio,
 and television interviews. Wrote press releases and promotional materials for such purposes.
-* Wrote and presented "Successful Internet Commerce – One Flourishing Model" at 1996 Techlaunch 2000
+* Wrote and presented "Successful Internet Commerce - One Flourishing Model" at 1996 Techlaunch 2000
 technology conference held in Sioux City, IA.
 
 ### Network Systems Coordinator | General Service Computers, Inc., Yankton SD ($7M) | 1995-1996
