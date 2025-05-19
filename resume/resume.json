@@ -106,7 +106,7 @@
       "position": "Volunteer",
       "url": "https://opennebraska.org/",
       "startDate": "2012-01-01",
-      "summary": "\"Civic hacking.\" Making public records more accessible to the public. Maintainer, Nebraska TIF Report (Tax Increment Financing)",
+      "summary": "\"Civic hacking.\" Making public records more accessible to the public. Maintainer, Nebraska TIF Report (Tax Increment Financing).",
       "highlights": []
     }
   ],
@@ -114,8 +114,8 @@
     {
       "institution": "University of Nebraska, Omaha",
       "url": "https://www.unomaha.edu/",
-      "area": "Part time employee (stipend) for GSAF/CLAB. See work history.",
       "studyType": "B.S. Bioinformatics",
+      "area": "Part time employee (stipend) for GSAF/CLAB. See work history. Earned no degrees.",
       "startDate": "2007-01-01",
       "endDate": "2010-01-01",
       "score": null,
@@ -124,8 +124,8 @@
     {
       "institution": "Iowa State University",
       "url": "https://www.iastate.edu/",
-      "area": null,
       "studyType": "Mechanical Engineering, Psychology, Philosophy",
+      "area": "Psychology minor completed. Earned no degrees.",
       "startDate": "1993-01-01",
       "endDate": "1995-01-01",
       "score": null,
@@ -146,15 +146,42 @@
     "url": "https://pubmed.ncbi.nlm.nih.gov/22133874/",
     "summary": "See work history."
   }],
-  "skills": [{
-    "name": "Web Development",
-    "level": "Master",
-    "keywords": [
-      "HTML",
-      "CSS",
-      "JavaScript"
-    ]
-  }],
+  "skills": [
+    {
+      "name": "Backend",
+      "level": "Master",
+      "keywords": [
+        "Python",
+        "Golang",
+        "Perl",
+        "Git disasters",
+        "RESTful APIs",
+        "SQL",
+        "PostgreSQL",
+        "Docker",
+        "CI/CD",
+        "Linux",
+        "Agile"
+      ]
+    },
+    {
+      "name": "DevOps",
+      "level": "Veteran cloud scaler",
+      "keywords": [
+        "Terraform",
+        "AWS: EC2, ECS, S3, Lambdas, etc."
+      ]
+    },
+    {
+      "name": "Frontend",
+      "level": "Advanced dabbler",
+      "keywords": [
+        "JavaScript",
+        "HTML",
+        "CSS"
+      ]
+    }
+  ],
   "languages": [{
     "language": "English",
     "fluency": "Native speaker"
@@ -174,7 +201,8 @@
     ]
   }],
   "references": [{
-    "name": "Available upon request"
+    "name": "Business and personal",
+    "reference": "Available upon request"
   }],
   "projects": []
 }
