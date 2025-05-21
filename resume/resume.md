@@ -32,11 +32,7 @@ of food / clothing / shelter.
 
 Telecommuting consultant. Python, Perl, Golang, PL/pgSQL, large scale databases, REST APIs, minor web.
 Industries have included bioinformatics, AI (LLM) start-ups, advertising technology, large event / venue
-equipment rental (and data mining thereof), e-commerce (web retail), and various other start-ups.
-
-In principle recent clients have a lot of DevOps in-house so I can focus on
-programming software stacks (Python, Perl, Golang, Javascript).
-In practice I've been doing a lot of DevOps filling gaps in staffing.
+equipment rental (and data mining thereof), e-commerce (web retail), and various start-ups.
 
 My most recent DevOps work has been Python -> Terraform -> AWS (ECS, EC2, S3, Lambdas, CloudWatch, etc.)
 Previous clients have swung back and forth between micro-service strategies and in-house bare-metal:

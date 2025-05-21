@@ -1,4 +1,7 @@
 {
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/refs/heads/master/schema.json",
+  "name": "example",
+  "version": "1.0.0",
   "basics": {
     "name": "Jay Hannah",
     "label": "Senior Software Engineer / Project Lead",
@@ -26,7 +29,7 @@
       "url": "https://iinteractive.com",
       "startDate": "2011-04-01",
       "endDate": "2025-04-01",
-      "summary": "<p>Telecommuting consultant. Perl, Golang, Python, PL/pgSQL, large scale databases, REST APIs, minor web. Industries have included e-commerce (retail), large event / venue equipment rental (and data mining thereof), advertising technology, and various start-ups.</p><p>In principle recent clients have a lot of DevOps support so I can focus on programming (Golang, Perl, Python). In practice I’ve been learning a lot of DevOps because resources aren’t available and sometimes I have access to fix things.</p><p>I have a functional / “emergency” understanding of deployment of various stacks for monoliths and “micro-services.” Clients have swung back and forth between those strategies over time. Most recent deployments on “bare metal,” Xen VMs, in-house managed Kubernetes, and AWS (EC2, ECS, S3, etc.). Those stacks are variously driven by Docker, Docker Compose, Chef/Ansible, Helm Charts (of which I know very little), and various other tools.</p>"
+      "summary": "<p>Telecommuting consultant. Python, Golang, Perl, PL/pgSQL, large scale databases, REST APIs, minor web. Industries have included e-commerce (retail), large event / venue equipment rental (and data mining thereof), advertising technology, and various start-ups.</p><p>Recent clients have me doing a lot of DevOps work to fill staffing gaps. Strategies have swung back and forth between monolith and micro-service strategies. Most recent deployments on “bare metal,” Xen VMs, in-house managed Kubernetes, and AWS (EC2, ECS, S3, etc.). Those stacks are variously driven by Docker, Docker Compose, Chef/Ansible, Helm Charts, and various other tools.</p>"
     },
     {
       "name": "NDA",
@@ -118,7 +121,6 @@
       "area": "Part time employee (stipend) for GSAF/CLAB. See work history. Earned no degrees.",
       "startDate": "2007-01-01",
       "endDate": "2010-01-01",
-      "score": null,
       "courses": []
     },
     {
@@ -128,7 +130,6 @@
       "area": "Psychology minor completed. Earned no degrees.",
       "startDate": "1993-01-01",
       "endDate": "1995-01-01",
-      "score": null,
       "courses": []
     }
 ],
@@ -136,8 +137,7 @@
   "certificates": [{
     "name": "Certified Informix Database Specialist",
     "date": "1998-01-01",
-    "issuer": "Informix",
-    "url": null
+    "issuer": "Informix"
   }],
   "publications": [{
     "name": "Loss of Dnmt3b function upregulates the tumor modifier Ment and accelerates mouse lymphomagenesis",
