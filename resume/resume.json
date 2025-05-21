@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/refs/heads/master/schema.json",
-  "name": "example",
+  "name": "https://github.com/jhannah/jays.net/blob/main/resume/resume.json",
   "version": "1.0.0",
   "basics": {
     "name": "Jay Hannah",
@@ -29,7 +29,7 @@
       "url": "https://iinteractive.com",
       "startDate": "2011-04-01",
       "endDate": "2025-04-01",
-      "summary": "<p>Telecommuting consultant. Python, Golang, Perl, PL/pgSQL, large scale databases, REST APIs, minor web. Industries have included e-commerce (retail), large event / venue equipment rental (and data mining thereof), advertising technology, and various start-ups.</p><p>Recent clients have me doing a lot of DevOps work to fill staffing gaps. Strategies have swung back and forth between monolith and micro-service strategies. Most recent deployments on “bare metal,” Xen VMs, in-house managed Kubernetes, and AWS (EC2, ECS, S3, etc.). Those stacks are variously driven by Docker, Docker Compose, Chef/Ansible, Helm Charts, and various other tools.</p>"
+      "summary": "<p>Telecommuting consultant. Python, Golang, Perl, PL/pgSQL, large scale databases, REST APIs, minor web. Industries have included bioinformatics, AI (LLM) start-ups, e-commerce (retail), advertising technology, large event / venue equipment rental (and data mining thereof).</p><p>Recent clients have me doing a lot of DevOps work to fill staffing gaps. Strategies have swung back and forth between monoliths and micro-services. Stacks variously driven by Docker/Compose, Terraform, Chef/Ansible, Helm Charts, and other tools.</p>"
     },
     {
       "name": "NDA",

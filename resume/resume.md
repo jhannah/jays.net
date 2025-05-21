@@ -4,20 +4,23 @@ Omaha, Nebraska USA |
 +1 402-598-7782 |
 jay@jays.net
 
-**Objective:** Identify challenging technical leadership opportunity managing large scale data systems. 100% telecommute.
+**Objective:** Seeking challenging technical leadership opportunity managing
+large scale data systems. Diagram, TDD, and CI/CD addict. Love untangling epic
+git disasters. Python / Golang / Perl / DBs / APIs / cloud. 100% telecommute.
 
-**Leadership:** For seven years in the early 2000s I managed 8-12 programmers and database/system
-administrators in a mission critical OLTP database environment with multiple application stacks.
-($400M revenue stream).
-Daily management of operations while simultaneously managing high level expectations and
-deliverables for senior management and ownership.
+**Leadership:** For seven years in the early 2000s I managed 8-12 programmers
+and database/system administrators in a mission critical OLTP database
+environment with multiple application stacks ($400M revenue stream).
+Daily management of operations while simultaneously managing high level
+expectations and deliverables for senior management and ownership.
 
-**Technical:** 30 years of programming / lead developer experience. Strong data modeling skills. Sustained focus
-on the construction and maintenance of TCP/IP services (over "trusted" and untrusted networks).
+**Technical:** 30 years of programming / lead developer experience.
+Strong data modeling skills. Sustained focus on the construction and maintenance
+of TCP/IP services (over "trusted" and untrusted networks).
 Large-scale JSON / XML standards data processing and REST APIs exposing those.
 Developed multi-site load balancing, high availability, and disaster recovery solutions; including
 procedure definition, enforcement, and trials.
-Strong focus on open source technologies. Passingly skilled with network design concepts.
+Strong focus on open source technologies. 
 I have championed documentation efforts for many companies.
 
 **Dream Job:** Using my backend / database / programming skills to help with massively scaled providers of emergency /
@@ -30,16 +33,16 @@ of food / clothing / shelter.
 
 ### Senior Software Engineer | Infinity Interactive | 2011-2025
 
-Telecommuting consultant. Python, Perl, Golang, PL/pgSQL, large scale databases, REST APIs, minor web.
-Industries have included bioinformatics, AI (LLM) start-ups, advertising technology, large event / venue
-equipment rental (and data mining thereof), e-commerce (web retail), and various start-ups.
+Telecommuting consultant. Python, Golang, Perl, PL/pgSQL, large scale
+databases, REST APIs, minor web. Industries have included bioinformatics, AI
+(LLM) start-ups, advertising technology, e-commerce (retail), large event /
+venue equipment rental (and data mining thereof).
 
-My most recent DevOps work has been Python -> Terraform -> AWS (ECS, EC2, S3, Lambdas, CloudWatch, etc.)
-Previous clients have swung back and forth between micro-service strategies and in-house bare-metal:
-Xen VMs, Kubernetes.
-Those stacks have been variously driven by Docker/Compose, Chef/Ansible, Helm Charts, and other tools.
+Recent clients have me doing a lot of DevOps work to fill staffing gaps.
+Strategies have swung back and forth between monoliths and micro-services. Stacks variously driven by Docker/Compose, Terraform, Chef/Ansible, Helm
+Charts, and other tools.
 
-### Senior Software Engineer | -NDA- | 2024-2025 (6 months)
+### Python / AWS DevOps Engineer | -NDA- | 2024-2025 (6 months)
 
 Python development and DevOps for a bioinformatics company (industry leading DNA foundry).
 30K lines of Python, deployed to AWS (ECS, EC2, S3, Lambdas, CloudWatch, etc.)
@@ -48,7 +51,7 @@ and Terraform configurations to enable automated cloud processing of their compl
 scientific data pipelines from multiple data sources through to customer delivery.
 Monitoring, reporting on progress / status, error handling.
 
-### Senior Software Engineer | -NDA- | 2023-2024 (4 months)
+### REST API / Schema DEV | -NDA- | 2023-2024 (4 months)
 
 AI (LLM) start-up client further developing their Python (FastAPI) REST API stack (deployed via Google Cloud Run),
 and their Google FireStore (FireBase) NoSQL schema, expanding their feature set.
