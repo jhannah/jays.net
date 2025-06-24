@@ -165,6 +165,7 @@ git clone git@github.com:jhannah/Gedcom.pm.git
 git clone git@github.com:jhannah/ged2site.git
 cd ged2site
 git checkout jays-hacks
+cpanm --installdeps .
 perl -I ~/src/Gedcom.pm/lib ged2site -cFdlh 'Jay Weston Hannah' ~/src/private/genealogy/jay.ged
 
 cp -R static-site/* ~/src/jays.net/genealogy/static-site/
