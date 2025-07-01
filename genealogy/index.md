@@ -168,6 +168,7 @@ git checkout jays-hacks
 cpanm --installdeps .
 perl -I ~/src/Gedcom.pm/lib ged2site -cFdlh 'Jay Weston Hannah' ~/src/private/genealogy/jay.ged
 
+rm static-site/people.json
 cp -R static-site/* ~/src/jays.net/genealogy/static-site/
 cd ~/src/jays.net/genealogy/static-site
 find . -name '*.html' -exec tidy -quiet -im -wrap 0 -f errors.txt {} \;

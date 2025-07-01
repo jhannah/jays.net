@@ -107,8 +107,8 @@
      overflow: visible;
     }
     hr {
-      background-color: #1a1a1a;
       border: none;
+      border-top: 1px solid #1a1a1a;
       height: 1px;
       margin: 1em 0;
     }
@@ -167,9 +167,6 @@
     }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 </head>
 <body>
 <header id="title-block-header">
@@ -366,8 +363,10 @@ want, and other fixes.</p>
 git clone git@github.com:jhannah/ged2site.git
 cd ged2site
 git checkout jays-hacks
+cpanm --installdeps .
 perl -I ~/src/Gedcom.pm/lib ged2site -cFdlh &#39;Jay Weston Hannah&#39; ~/src/private/genealogy/jay.ged
 
+rm static-site/people.json
 cp -R static-site/* ~/src/jays.net/genealogy/static-site/
 cd ~/src/jays.net/genealogy/static-site
 find . -name &#39;*.html&#39; -exec tidy -quiet -im -wrap 0 -f errors.txt {} \;</code></pre>
