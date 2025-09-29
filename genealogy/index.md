@@ -36,8 +36,10 @@ It's huge, like something from a movie set, and contains the family and descenda
 [George Chapman](http://jays.net/genealogy/static-site/I3992.html).
 * When Giberson cousins married Stark siblings they caused a 
 [confusing pretzel shaped chart](http://jays.net/genealogy/starks_and_gibersons.png).
-* Stephanie's [20-times great grandfather](http://jays.net/genealogy/teten/I13129014810.html)
-  was [Charles Charlemagne EMPEROR HOLY ROMAN EMPIRE](https://en.wikipedia.org/wiki/Charlemagne).
+* Stephanie's [40-times great grandfather](http://jays.net/genealogy/teten/I13129014810.html)
+  was Charles Charlemagne EMPEROR HOLY ROMAN EMPIRE
+  [here](http://jays.net/genealogy/teten/I13129014810.html)
+  [wp](https://en.wikipedia.org/wiki/Charlemagne).
 * PDF: [Descendants of James C. Hannah](hannah.pdf) (~ 1774)
 * PDF: [Descendants of William Stark](stark.pdf) (~1622)
 * PDF: [Descendants of William C. Thomson](thomson.pdf) (~1705)
