@@ -31,9 +31,11 @@ I'm using new tools now, see below.
 He was also great at bouncing me on his knee and I miss him.
 * My GGGGGGGGGrandfather was [William Stark](http://jays.net/genealogy/static-site/I894.html), born in 1637.
 * My GGGGGGGGGGGGGGGGGGGGGGrandfather was [Patrick A'Hannay](http://jays.net/genealogy/static-site/I4183.html), born in 1250.
+  Clan Hannay is restoring [Sorbie Tower](https://clanhannay.org/sorbie-tower/).
 * The Chapman family bible that is currently in Mom's possession is an amazing book.
-It's huge, like something from a movie set, and contains the family and descendants of
-[George Chapman](http://jays.net/genealogy/static-site/I3992.html).
+  It's huge, like something from a movie set, and contains the family and descendants of
+  [George Chapman](http://jays.net/genealogy/static-site/I3992.html).
+  D'oh. I was convinced I had a vivid memory of that bible, but Mom can't find it.
 * When Giberson cousins married Stark siblings they caused a 
 [confusing pretzel shaped chart](http://jays.net/genealogy/starks_and_gibersons.png).
 * Stephanie's [40-times great grandfather](http://jays.net/genealogy/teten/I13129014810.html)
