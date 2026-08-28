@@ -4,32 +4,50 @@ Omaha, Nebraska USA |
 +1 402-598-7782 |
 jay@jays.net
 
-**Objective:** Seeking challenging technical leadership opportunity managing
-large scale data systems. Diagram, TDD, and CI/CD addict. Love untangling epic
-git disasters. Python / Golang / Perl / DBs / APIs / cloud. 100% telecommute.
+**Objective:** Seeking challenging, hands-on technical leadership opportunity
+managing large-scale data systems. Diagram, TDD, and CI/CD addict. Love
+untangling epic git disasters. DevOps / Python / Golang / Perl / DBs / APIs /
+cloud. 100% telecommute.
 
 **Leadership:** For seven years in the early 2000s I managed 8-12 programmers
 and database/system administrators in a mission critical OLTP database
-environment with multiple application stacks ($400M revenue stream).
-Daily management of operations while simultaneously managing high level
-expectations and deliverables for senior management and ownership.
+environment with multiple application stacks ($400M revenue stream). Daily
+management of operations while simultaneously managing high level expectations
+and deliverables for senior management and ownership.
 
-**Technical:** 30 years of programming / lead developer experience.
-Strong data modeling skills. Sustained focus on the construction and maintenance
-of TCP/IP services (over "trusted" and untrusted networks).
-Large-scale JSON / XML standards data processing and REST APIs exposing those.
-Developed multi-site load balancing, high availability, and disaster recovery solutions; including
-procedure definition, enforcement, and trials.
-Strong focus on open source technologies. 
-I have championed documentation efforts for many companies.
+**Technical:** 30 years of programming / lead developer experience. Strong data
+modeling and storage management skills. Construction and maintenance of TCP/IP
+services over \"trusted\" and untrusted networks. Large-scale JSON / XML
+standards data processing and REST APIs exposing those. Developed multi-site
+load balancing, high availability, and disaster recovery solutions; including
+procedure definition, enforcement, and trials. Strong focus on open source
+technologies. I have championed documentation efforts for many companies.
 
-**Dream Job:** Using my backend / database / programming skills to help with massively scaled providers of emergency /
-low-income housing and food. The UNHCR (High Council on Refugees) and WFP (World Food Program)
-are the largest examples of that mission I'm aware of. I'm very interested in logistics.
-The highest calling I can imagine is working on empowering thousands / millions of deliveries
-of food / clothing / shelter.
+**Dream Job:** Using my backend / database / programming skills to help with
+massively scaled providers of emergency / low-income housing and food. The
+UNHCR (High Council on Refugees) and WFP (World Food Program)
+are the largest examples of that mission I'm aware of.
 
 ## Experience
+
+### Data Engineer | CivicPlus | 2025-present
+
+Operations and expansion of our AWS data warehouse for internal Finance and
+senior leadership dashboards and reports.
+
+Constant individual contributions, plus: mentor, coordinate, and incorporate
+the expansion and refinement work of engineers, consultants, data scientists,
+and finance professionals. Maximize AI enablement of entire stack for
+cross-departmental schema discovery to incorporate diverse departmental
+requirements into low redundancy, cleansed, trusted, highly reusable "gold"
+data marts ("medallion architecture").
+
+The stack: GitHub Actions (CI/CD) -> Terraform -> AWS: MWAA (Apache Airflow)
+(Step Functions, dbt), Docker -> ECR -> ECS, Glue (Jobs, Connectors, Crawlers)
+(Apache Spark (Java)), S3 general purpose buckets (parquet files), Athena,
+Redshift (PostgreSQL). IAM, VPCs, Secrets, CloudWatch (w/ Dashboards),
+EventBridge, SNS, Lambda, CloudTrail. Experimental: S3 table buckets (Apache
+Iceberg), CloudFormation.
 
 ### Senior Software Engineer | Infinity Interactive | 2011-2025
 
